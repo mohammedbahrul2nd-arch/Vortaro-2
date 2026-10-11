@@ -6,6 +6,23 @@ const K={};D.C.forEach(c=>K[c[0]]=c);
 const LN={};D.L.forEach(l=>LN[l[0]]=l[1]);{const ok=x=>LN[String(x).split(':')[0]];S.f=S.f.filter(ok);S.o.ff=S.o.ff.filter(ok)}const GK={};D.G.forEach(g=>GK[g[0]]=g);
 const esc=s=>String(s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
 const st=k=>S.p[k]|0;
+const SEP='@',base=k=>{const i=String(k).indexOf(SEP);return i<0?k:k.slice(0,i)},lang=k=>{const i=String(k).indexOf(SEP);return i<0?'':k.slice(i+1)},ik=(k,l)=>k+SEP+l;
+/* progres kosakata disimpan per (kartu, bahasa): item = "kartu@bahasa". Grammar tetap per id. */
+const items=(c,v)=>Object.keys(v).map(l=>ik(c[0],l));
+const cs=(c,v)=>{if(GK[c[0]])return st(c[0]);v=v||vis(c);if(!v)return 0;let m=2;for(const l in v)m=Math.min(m,st(ik(c[0],l)));return m};
+const cnew=(c,v)=>Object.keys(v).some(l=>{const i=ik(c[0],l);return!st(i)&&!S.s[i]});
+const cknown=(c,v)=>Object.keys(v).some(l=>{const i=ik(c[0],l);return st(i)||S.s[i]});
+const markSeen=k=>{if(GK[k]||!K[k]){S.s[k]=1;return}const v=vis(K[k]);if(v)Object.keys(v).forEach(l=>S.s[ik(k,l)]=1)};
+function migKeys(langs){let n=0;const L=c=>Object.keys(c[3]).filter(l=>!langs||!langs.length||langs.includes(l));
+ for(const bag of['p','s','srs']){const o=S[bag];for(const k of Object.keys(o)){if(k.indexOf(SEP)>=0||!K[k])continue;
+  S.legacy=S.legacy||{p:{},s:{},srs:{}};S.legacy[bag][k]=o[k];
+  for(const l of L(K[k])){const i=ik(k,l);if(o[i]===undefined){o[i]=bag=='srs'?JSON.parse(JSON.stringify(o[k])):o[k];n++}}
+  delete o[k]}}
+ return n}
+function migLegacy(langs){const lg=S.legacy;if(!lg)return 0;let n=0;
+ for(const bag of['p','s','srs'])for(const k in lg[bag]){if(!K[k])continue;
+  for(const l of Object.keys(K[k][3]).filter(x=>!langs.length||langs.includes(x))){const i=ik(k,l);if(S[bag][i]===undefined){S[bag][i]=bag=='srs'?JSON.parse(JSON.stringify(lg[bag][k])):lg[bag][k];n++}}}
+ return n}
 const DO=new Set(),dtag=id=>`<details data-d="${id}"${DO.has(id)?' open':''}>`;
 const ART=/^((?:der|die|das)(?:\/(?:der|die|das))*)(\s+)(.+)$/i;
 function wd(t,pos,ctx,lang,force){const m=pos=='N'&&lang=='de'&&String(t).match(ART);if(!m||force||S.o['cg'+ctx]!='blur')return esc(t);return`<span class=cz>${esc(m[1])}</span>${esc(m[2]+m[3])}`}
@@ -16,7 +33,7 @@ function fmx(e,pos,lang,force){if(lang!='de'||!DX)return'';let t,l,md;
 const csel=(k,l,op,di)=>`<label class=fcl><span>${l}</span><select data-i="${di||k}" style="width:auto;margin:0">${op.map(([v,t])=>`<option value="${v}"${S.o[k]==v?' selected':''}>${t}</option>`).join('')}</select></label>`;
 const SH=[['show','Tampil'],['blur','Sensor (blur)']],SH3=[['show','Tampil'],['blur','Sensor (blur)'],['off','Tidak ditampilkan']];
 function sensor(){const o=S.o;return`<div class=card><b>Sensor</b><p class=gsub style="margin-top:2px">Semua pengaturan penyensoran ada di sini. Teks yang diblur bisa diketuk untuk melihatnya.</p>`+
- `<div class=gsec>Kosakata (tab Kata &amp; Daftar)</div>`+csel('cv','Sisi yang disensor',[['none','Tidak ada (semua tampil)'],['fo','Bahasa asing (Indonesia jadi soal)'],['id','Bahasa Indonesia (asing jadi soal)']])+
+ `<div class=gsec>Kosakata (bagian Kata &amp; tab Daftar)</div>`+csel('cv','Sisi yang disensor',[['none','Tidak ada (semua tampil)'],['fo','Bahasa asing (Indonesia jadi soal)'],['id','Bahasa Indonesia (asing jadi soal)']])+
  `<small>Berlaku untuk Acak 4 kata. Ketuk kartu untuk membuka sisi yang disensor.</small>`+
  `<div class=gsec>Romanisasi</div><label class=fcl><span><input type=checkbox data-i=rom${o.rom?' checked':''}> Sembunyikan romanisasi (pinyin/romaji) di semua tab</span></label>`+
  `<div class=gsec>Bahasa Jerman</div>`+csel('cgK','Gender (der/die/das): Kata &amp; Daftar',SH)+csel('cgF','Gender: Kartu',SH)+csel('cgL','Gender: Latihan',SH)+
@@ -27,21 +44,33 @@ function sensor(){const o=S.o;return`<div class=card><b>Sensor</b><p class=gsub 
 function vis(c,all){const v={};let n=0;for(const[id,,,]of D.L){const e=(c[3][id]||[]).filter(x=>all||!S.f.length||S.f.includes(id+':'+x[3]));if(e.length){v[id]=e;n++}}return all?(n?v:null):(n>=S.o.minL&&n?v:null)}
 const pool=p=>D.C.filter(c=>c[1]==p&&vis(c));
 const ORD={new:[0],rev:[1,2,0],mix:[0,1,2]};
-function choose(P){const m=S.o.mode;if(m=='new')P=P.filter(c=>!st(c[0])&&!S.s[c[0]]);else if(m=='rev')P=P.filter(c=>st(c[0])||S.s[c[0]]);
-for(const s of ORD[m]){const g=P.filter(c=>st(c[0])==s);if(g.length){const r=g[Math.random()*g.length|0][0];S.s[r]=1;return r}}return null}
+function choose(P){const m=S.o.mode,V=new Map(),vv=c=>{let x=V.get(c);if(x===undefined){x=GK[c[0]]?{}:vis(c)||{};V.set(c,x)}return x};
+if(m=='new')P=P.filter(c=>GK[c[0]]?!st(c[0])&&!S.s[c[0]]:cnew(c,vv(c)));else if(m=='rev')P=P.filter(c=>GK[c[0]]?st(c[0])||S.s[c[0]]:cknown(c,vv(c)));
+for(const s of ORD[m]){const g=P.filter(c=>cs(c,vv(c))==s);if(g.length){const r=g[Math.random()*g.length|0][0];markSeen(r);return r}}return null}
 const pick=(p,ex)=>choose(pool(p).filter(c=>c[0]!=ex)),gp=()=>D.G.filter(g=>!S.gf.length||S.gf.includes(g[1]+':'+g[2]));
 const msel=()=>'<small>Mode belajar</small><select data-i=mode>'+[['mix','Campur (prioritas Belum)'],['new','Hafalan baru'],['rev','Mengingat kembali']].map(([v,x])=>`<option value=${v}${S.o.mode==v?' selected':''}>${x}</option>`).join('')+'</select>';
-function card(k,full){const c=K[k],v=c&&vis(c,full);if(!v)return'<div class=card>Tidak ada kata yang cocok dengan filter saat ini.</div>';const s=st(k);
-return`<div class="card${shown.has(k)?' show':''}${S.o.cv=='fo'?' hidm':''}${S.o.cv=='id'?' hidd':''}" data-a=flip data-k="${esc(k)}"><div class=hd><span>${PN[c[1]]}</span><span>${STN[s]}${fcTag(k)}</span></div><div class=mean>${esc(c[2])}</div><div class=grid>`+
-D.L.filter(l=>v[l[0]]).map(([id,n,col])=>`<div class="lg${S.o.cv=='fo'?' hid':''}" style="--lc:${col}"><small>${n}</small>`+v[id].map(e=>`<div class=w>${wd(e[0],c[1],'K',id)}</div>${e[1]?`<div class="r rom">${esc(e[1])}</div>`:''}${fmx(e,c[1],id)}${e[2]?`<div class=ex>${esc(e[2])}</div>`:''}`).join('')+'</div>').join('')+
-`</div>${wSent(k,full)}<div class=btns>${STN.map((n,i)=>`<button class="sb sb${i}${i==s?' on':''}" data-a=set data-k="${esc(k)}" data-v=${i}>${n}</button>`).join('')}</div></div>`}
-function filt(){return dtag('f1')+'<summary>Filter level &amp; bahasa'+(S.f.length?` (${S.f.length} aktif)`:'')+'</summary><div class=chips><button class="chip'+(S.f.length?'':' on')+'" data-a=fall>Semua</button></div>'+
-D.L.map(l=>`<div><small>${l[1]}</small><div class=chips>`+l[4].map(v=>{const x=l[0]+':'+v;return`<button class="chip${S.f.includes(x)?' on':''}" data-a=fl data-v="${x}">${v}</button>`}).join('')+'</div></div>').join('')+
-'</details>'}
-function vset(){return dtag('vs')+'<summary>Pengaturan kosakata</summary><div class=card>'+msel()+`<small>Minimal bahasa per kartu</small><select data-i=minL>${[1,2,3,4].map(n=>`<option${S.o.minL==n?' selected':''}>${n}</option>`).join('')}</select><small>Sensor/blur (sisi asing atau Indonesia, gender, jamak, dll.) diatur di tab Atur → Sensor.</small></div></details>`}
-function ses(){const s=S.ses;return filt()+vset()+'<button class=pri data-a=roll>Acak 4 kata: Benda, Sifat, Kerja, Lain</button><p></p>'+['N','A','V','O'].map(p=>p in s?card(s[p])+`<button data-a=re data-v=${p} style="width:100%;margin:-4px 0 12px">Ganti ${PN[p]}</button>`:'').join('')||''}
-function stats0(){return filt()+vset()+['N','A','V','O'].map(p=>{const P=pool(p),n=[0,0,0];P.forEach(c=>n[st(c[0])]++);const t=P.length||1;
-return`<div class=card><b>${PN[p]}</b> — ${P.length} kartu<div class=bar><i style="width:${n[2]/t*100}%;background:var(--s2)"></i><i style="width:${n[1]/t*100}%;background:var(--s1)"></i></div>Belum ${n[0]} · Sedang ${n[1]} · Selesai ${n[2]}${wUsed(P)}</div>`}).join('')}
+function card(k,full){const c=K[k],v=c&&vis(c,full);if(!v)return'<div class=card>Tidak ada kata yang cocok dengan filter saat ini.</div>';const ls=Object.keys(v),dn=ls.filter(l=>st(ik(k,l))==2).length;
+return`<div class="card${shown.has(k)?' show':''}${S.o.cv=='fo'?' hidm':''}${S.o.cv=='id'?' hidd':''}" data-a=flip data-k="${esc(k)}"><div class=hd><span>${PN[c[1]]}</span><span>${dn}/${ls.length} bahasa selesai</span></div><div class=mean>${esc(c[2])}</div><div class=grid>`+
+D.L.filter(l=>v[l[0]]).map(([id,n,col])=>{const i=ik(k,id),s=st(i);return`<div class="lg${S.o.cv=='fo'?' hid':''}" style="--lc:${col}"><small class=lgh>${n}<button class="stp stp${s}" data-a=cyc data-k="${esc(i)}" title="Ketuk untuk mengubah status ${n}">${STN[s]}${fcTag(i)}</button></small>`+v[id].map(e=>`<div class=w>${wd(e[0],c[1],'K',id)}</div>${e[1]?`<div class="r rom">${esc(e[1])}</div>`:''}${fmx(e,c[1],id)}${e[2]?`<div class=ex>${esc(e[2])}</div>`:''}`).join('')+'</div>'}).join('')+
+`</div><div class=hint>Ketuk kartu untuk membuka</div>${wSent(k,full)}</div>`}
+function filtBody(){return'<div class=chips><button class="chip'+(S.f.length?'':' on')+'" data-a=fall>Semua bahasa</button></div>'+
+D.L.map(l=>`<div><small>${l[1]}</small><div class=chips>`+l[4].map(v=>{const x=l[0]+':'+v;return`<button class="chip${S.f.includes(x)?' on':''}" data-a=fl data-v="${x}">${v}</button>`}).join('')+'</div></div>').join('')}
+const fcnt=n=>n?`<em class=cnt>${n} aktif</em>`:''
+function filt(){return dtag('f1')+'<summary><span>Filter level &amp; bahasa</span>'+fcnt(S.f.length)+'</summary>'+filtBody()+'</details>'}
+function vsetBody(){return'<div class=card>'+msel()+`<small>Minimal bahasa per kartu</small><select data-i=minL>${[1,2,3,4].map(n=>`<option${S.o.minL==n?' selected':''}>${n}</option>`).join('')}</select><small>Sensor/blur (sisi asing atau Indonesia, gender, jamak, dll.) diatur lewat tombol ⚙ Sensor.</small></div>`}
+function vset(){return dtag('vs')+'<summary>Pengaturan kosakata</summary>'+vsetBody()+'</details>'}
+const SEC_HEAD=(t,s)=>`<div class=sech><h2>${t}</h2><p>${s}</p></div>`;
+function kataSec(){const s=S.ses,has=['N','A','V','O'].some(p=>p in s);
+ return SEC_HEAD('Kata','Acak 4 kata sekaligus: benda, sifat, kerja, lain-lain')+
+ dtag('f1')+'<summary><span>Filter &amp; mode kata</span>'+fcnt(S.f.length)+'</summary>'+filtBody()+vsetBody()+'</details>'+
+ '<button class=pri data-a=roll style="margin-bottom:14px">Acak 4 kata</button>'+
+ (has?['N','A','V','O'].map(p=>p in s?card(s[p])+(s[p]?`<div class=kact><button data-a=re data-v=${p}>↻ Ganti ${PN[p]}</button><button data-a=ltfw data-k="${esc(s[p])}">✎ Pakai di latihan</button></div>`:''):'').join(''):'<div class="card empty"><b>Belum ada kata</b>Tekan “Acak 4 kata” untuk mulai belajar.</div>')}
+function ses(){return`<div class=pills><div><button class=on data-a=jump data-v=k>Kata</button><button data-a=jump data-v=l>Latihan kalimat</button></div></div><div class=cols><section class=sec id=sec-k>${kataSec()}</section><section class=sec id=sec-l>${ltView()}</section></div>`}
+function stats0(){let per=D.L.map(l=>[l,[0,0,0]]);const PM={};for(const c of D.C){const v=vis(c);if(!v)continue;for(const l in v){const s=st(ik(c[0],l));(PM[c[1]]||(PM[c[1]]=[0,0,0]))[s]++;per.find(x=>x[0][0]==l)[1][s]++}}
+ const bar=(n,t)=>`<div class=bar><i style="width:${n[2]/t*100}%;background:var(--s2)"></i><i style="width:${n[1]/t*100}%;background:var(--s1)"></i></div>`;
+ return filt()+vset()+`<div class=card><b>Kosakata per bahasa</b><p class=gsub style="margin:2px 0 8px">Progres dihitung terpisah untuk tiap bahasa pada setiap kata.</p>`+per.filter(x=>x[1][0]+x[1][1]+x[1][2]).map(([l,n])=>{const t=(n[0]+n[1]+n[2])||1;return`<div class=lg style="--lc:${l[2]};margin:8px 0"><small>${l[1]} — ${t} kata</small>${bar(n,t)}Belum ${n[0]} · Sedang ${n[1]} · Selesai ${n[2]}</div>`}).join('')+'</div>'+
+ ['N','A','V','O'].map(p=>{const P=pool(p),n=PM[p]||[0,0,0],t=(n[0]+n[1]+n[2])||1;
+ return`<div class=card><b>${PN[p]}</b> — ${P.length} kartu · ${t} entri bahasa${bar(n,t)}Belum ${n[0]} · Sedang ${n[1]} · Selesai ${n[2]}${wUsed(P)}</div>`}).join('')}
 function gbody(g){const L=t=>`<div class=gsec>${t}</div>`,kv=g[10]||[],CJ=['Ich','Du','Er/Sie/Es/Man','Wir','Ihr','sie/Sie'],cj=kv.filter(p=>CJ.includes(p[0])),isC=cj.length>=3,rest=isC?kv.filter(p=>!CJ.includes(p[0])):kv;let h='';
  if(rest.length)h+=`<dl class=gkv>${rest.map(p=>`<dt>${esc(p[0])}</dt><dd>${esc(p[1])}</dd>`).join('')}</dl>`;
  if(isC)h+=`<div class=gwrap><table class=gtb><tr>${CJ.map(c=>`<th>${c}</th>`).join('')}</tr><tr>${CJ.map(c=>{const p=cj.find(x=>x[0]==c);return`<td>${p?esc(p[1]):'–'}</td>`}).join('')}</tr></table></div>`;
@@ -53,17 +82,20 @@ function gbody(g){const L=t=>`<div class=gsec>${t}</div>`,kv=g[10]||[],CJ=['Ich'
  if(g[9].length)h+=num(g[9],'Kasus khusus','gnt gkk');
  return h}
 function gcard(k){const g=GK[k];if(!g)return'<div class=card>Tidak ada grammar untuk filter/mode ini.</div>';const s=st(k);
-return`<div class=card><div class=hd><span>${LN[g[1]]||'Jerman'} ${g[2]}${g[3]?' · '+esc(g[3]):''}</span><span>${STN[s]}${fcTag(k)}</span></div><div class=mean>${esc(g[4])}</div>${gbody(g)}${gSent(k,1)}<div class=btns>${STN.map((x,i)=>`<button class="sb sb${i}${i==s?' on':''}" data-a=set data-k="${esc(k)}" data-v=${i}>${x}</button>`).join('')}</div></div>`}
+return`<div class=card><div class=hd><span>${LN[g[1]]||'Jerman'} ${g[2]}${g[3]?' · '+esc(g[3]):''}</span><span><i class="dot dot${s}"></i>${STN[s]}${fcTag(k)}</span></div><div class=mean>${esc(g[4])}</div>${gbody(g)}${gSent(k,1)}<div class="seg">${STN.map((x,i)=>`<button class="sb sb${i}${i==s?' on':''}" data-a=set data-k="${esc(k)}" data-v=${i}>${x}</button>`).join('')}</div></div>`}
 function gram(){const P=gp();return dtag('gf')+'<summary>Filter grammar'+(S.gf.length?` (${S.gf.length} aktif)`:'')+'</summary><div class=chips><button class="chip'+(S.gf.length?'':' on')+'" data-a=gall>Semua</button></div>'+D.GL.map(l=>`<small>${l[1]}</small><div class=chips>`+l[3].map(v=>{const x=l[0]+':'+v;return`<button class="chip${S.gf.includes(x)?' on':''}" data-a=gfl data-v="${x}">${v}</button>`}).join('')+'</div>').join('')+msel()+'</details><label class=fcl><span><input type=checkbox data-i=gseq'+(S.o.gseq?' checked':'')+'> Belajar grammar tanpa diacak (berurutan sesuai daftar &amp; filter)</span></label>'+(S.o.gseq?(()=>{const i=P.findIndex(g=>g[0]==S.gs);return'<div class=btns><button data-a=gprev>‹ Sebelumnya</button><button class=pri data-a=gnext style="width:auto;flex:2">Grammar berikutnya</button></div>'+(i>=0?'<p class=gsub style="text-align:center">'+(i+1)+' / '+P.length+'</p>':'')})():'<button class=pri data-a=groll>Acak 1 grammar</button>')+'<p></p>'+(S.gs===0?'':gcard(S.gs))+`<h1>Semua topik (${P.length})</h1>`+
-P.slice(0,lim).map(g=>`<div class=row><div data-a=gopen data-k="${esc(g[0])}"><b>${esc(g[4])}</b><br><small>${LN[g[1]]||'Jerman'} ${g[2]}${g[3]?' · '+esc(g[3]):''}</small>${gBdg(g[0])}</div><button data-a=cyc data-k="${esc(g[0])}">${STN[st(g[0])]}</button></div>`).join('')+(P.length>lim?'<button data-a=more style="width:100%;margin-top:8px">Tampilkan lebih banyak</button>':'')}
+P.slice(0,lim).map(g=>`<div class=row><div data-a=gopen data-k="${esc(g[0])}"><b>${esc(g[4])}</b><br><small>${LN[g[1]]||'Jerman'} ${g[2]}${g[3]?' · '+esc(g[3]):''}</small>${gBdg(g[0])}</div><button class="stp stp${st(g[0])}" data-a=cyc data-k="${esc(g[0])}">${STN[st(g[0])]}</button></div>`).join('')+(P.length>lim?'<button data-a=more style="width:100%;margin-top:8px">Tampilkan lebih banyak</button>':'')}
 function stats(){return stats1()+actCard()+fcStatsCard()+ltStatsCard()}function stats1(){const P=gp(),n=[0,0,0];P.forEach(g=>n[st(g[0])]++);const t=P.length||1;return stats0()+`<div class=card><b>Grammar</b> — ${P.length} topik<div class=bar><i style="width:${n[2]/t*100}%;background:var(--s2)"></i><i style="width:${n[1]/t*100}%;background:var(--s1)"></i></div>Belum ${n[0]} · Sedang ${n[1]} · Selesai ${n[2]}${gUsed(P)}</div>`}
-function list(){const t=q.toLowerCase();let r=D.C.filter(c=>{const v=vis(c);if(!v)return 0;const k=c[0],ss=SI.w[k]||[];if(fs!==''&&st(k)!=fs)return 0;
+function list(){const t=q.toLowerCase();let r=D.C.filter(c=>{const v=vis(c);if(!v)return 0;const k=c[0],ss=SI.w[k]||[];if(fs!==''&&!Object.keys(v).some(l=>st(ik(k,l))==fs))return 0;
 if(fk=='s'&&!ss.length)return 0;if(fk=='n'&&ss.length)return 0;if(fk=='w'&&!ss.some(h=>h.r==0))return 0;
 return!t||c[2].toLowerCase().includes(t)||Object.values(v).flat().some(e=>(e[0]+e[1]).toLowerCase().includes(t))||ss.some(h=>h.s.toLowerCase().includes(t))});const n=r.length;
-return(foc&&K[foc]?`<div class=gsub style="margin:0 0 6px">Dibuka dari tab lain · <button class="lnk" data-a=wclose>tutup</button></div>`+card(foc,1):'')+
-`<input type=search placeholder="Cari arti, kata, bacaan, atau kalimat buatanmu" value="${esc(q)}" data-i=q><select data-i=fs>${['Semua status',...STN].map((x,i)=>`<option value="${i?i-1:''}"${fs==(i?i-1:'')?' selected':''}>${x}</option>`).join('')}</select><select data-i=fk>${[['','Semua kartu'],['s','Punya kalimat latihan'],['n','Belum pernah dibuatkan kalimat'],['w','Pernah salah (belum tepat)']].map(([v,x])=>`<option value="${v}"${fk==v?' selected':''}>${x}</option>`).join('')}</select><small>${n} kartu · ketuk kata untuk melihat detail &amp; kalimatmu</small>`+
-r.slice(0,lim).map(c=>{const v=vis(c),k=c[0];return`<div class=row><div data-a=wtog data-k="${esc(k)}"><b>${esc(c[2])}</b> <small>${PN[c[1]]}</small>${wBdg(k)}<br><small>${Object.entries(v).map(([id,e])=>wd(e[0][0],c[1],'K',id)).join(' · ')}</small></div><button data-a=cyc data-k="${esc(k)}">${STN[st(k)]}</button></div>`+(xo.has(k)?card(k,1):'')}).join('')+(n>lim?'<button data-a=more style="width:100%;margin-top:8px">Tampilkan lebih banyak</button>':'')}
-function set(){return vrCard()+vrAppCard()+sensor()+`<div class=card><button class=pri data-a=exp>Cadangkan progres (unduh JSON)</button><p><input type=file accept=.json data-i=imp></p><button data-a=rst>Hapus semua progres</button></div><p><small>${ok?'Penyimpanan lokal aktif.':'Penyimpanan lokal tidak tersedia.'} ${Object.keys(S.p).length} kartu bertanda, ${S.lt.h.length} kalimat latihan. Buat cadangan sesekali, karena data browser bisa terhapus.</small></p>`}
+return(foc&&K[foc]?`<div class=gsub style="margin:0 0 6px">Dibuka dari bagian lain · <button class="lnk" data-a=wclose>tutup</button></div>`+card(foc,1):'')+
+`<div class=sbar><input type=search placeholder="Cari arti, kata, bacaan, atau kalimat buatanmu" value="${esc(q)}" data-i=q><select data-i=fs>${['Semua status',...STN].map((x,i)=>`<option value="${i?i-1:''}"${String(fs)===String(i?i-1:'')?' selected':''}>${x}</option>`).join('')}</select><select data-i=fk>${[['','Semua kartu'],['s','Punya kalimat latihan'],['n','Belum pernah dibuatkan kalimat'],['w','Pernah salah (belum tepat)']].map(([v,x])=>`<option value="${v}"${fk==v?' selected':''}>${x}</option>`).join('')}</select></div><small>${n} kartu · ketuk kata untuk detail · ketuk kode bahasa (ZH, JA, DE, EO) untuk mengubah status per bahasa</small>`+
+r.slice(0,lim).map(c=>{const v=vis(c),k=c[0];return`<div class=row><div data-a=wtog data-k="${esc(k)}"><b>${esc(c[2])}</b> <small>${PN[c[1]]}</small>${wBdg(k)}<br><small>${Object.entries(v).map(([id,e])=>wd(e[0][0],c[1],'K',id)).join(' · ')}</small></div><div class=pls>${Object.keys(v).map(l=>{const i=ik(k,l),s=st(i);return`<button class="stp stpl stp${s}" data-a=cyc data-k="${esc(i)}" title="${esc(LN[l])}: ${STN[s]}">${l.toUpperCase()} · ${STN[s]}</button>`}).join('')}</div></div>`+(xo.has(k)?card(k,1):'')}).join('')+(n>lim?'<button data-a=more style="width:100%;margin-top:8px">Tampilkan lebih banyak</button>':'')}
+function pcard(){const lg=S.legacy,nl=lg?Object.keys(lg.p).length:0,act=[...new Set(S.f.map(x=>String(x).split(':')[0]))];
+ return`<div class=card><b>Progres per bahasa</b><p class=gsub style="margin:2px 0 8px">Status & jadwal flashcard kini terpisah untuk tiap bahasa pada kata yang sama (mis. “manusia” Jerman sudah Selesai, Esperanto tetap Belum).</p>`+
+ (nl?`<small>${nl} kartu dari progres lama (per kartu) tersimpan sebagai cadangan. Tombol di bawah menyalinnya ke bahasa yang aktif di filter Kata (${act.length?act.map(x=>LN[x]).join(', '):'semua bahasa'}), hanya untuk item yang belum punya status.</small><button data-a=miglg style="width:100%;margin-top:8px">Terapkan progres lama ke bahasa aktif</button>`:'<small>Tidak ada progres lama yang perlu dimigrasi.</small>')+'</div>'}
+function set(){return vrCard()+vrAppCard()+sensor()+pcard()+`<div class=card><button class=pri data-a=exp>Cadangkan progres (unduh JSON)</button><p><input type=file accept=.json data-i=imp></p><button data-a=rst>Hapus semua progres</button></div><p><small>${ok?'Penyimpanan lokal aktif.':'Penyimpanan lokal tidak tersedia.'} ${Object.keys(S.p).length} kartu bertanda, ${S.lt.h.length} kalimat latihan. Buat cadangan sesekali, karena data browser bisa terhapus.</small></p>`}
 /* ===== Flashcard + SRS (algoritma ala Anki / SM-2) ===== */
 const FCNUM={fmin:[1,4],nl:[0,9999],rl:[0,9999],gi:[1,365],ei:[1,365],se:[130,500],eb:[100,300],hi:[100,200],ni:[0,100],im:[50,200],mx:[1,36500]};
 let fcCur=null,fcRevd=false,fcFr='id',fcFrK=null,fcUn=[],fcWait=0;
@@ -101,12 +133,12 @@ function fcAL(){const ff=S.o.ff,al={};D.L.forEach(l=>{const lv=ff.length?l[4].fi
 function fcVis(c,al){al=al||fcAL();const v={},ids=Object.keys(al),o=S.o;let n=0;
  for(const id of ids){const lv=al[id],e=(c[3][id]||[]).filter(x=>!lv||lv.includes(x[3]));if(e.length){v[id]=e;n++}}
  return n&&(o.fm=='and'?n==ids.length:n>=Math.min(o.fmin,ids.length))?v:null}
-function fcFront(k){const o=S.o;if(GK[k]||o.fd=='id')return'id';const v=K[k]&&fcVis(K[k]);if(!v)return'id';const L=Object.keys(v),f=L[Math.random()*L.length|0];return o.fd=='fo'||Math.random()<.5?f:'id'}
+function fcFront(k){const o=S.o;if(GK[k]||o.fd=='id')return'id';const L=lang(k),v=K[base(k)]&&fcVis(K[base(k)]);if(!v||!v[L])return'id';return o.fd=='fo'||Math.random()<.5?L:'id'}
 function fcOk(k){const c=S.srs[k];if(c&&c.z)return 0;const o=S.o;
  if(GK[k])return o.deck!='v'&&gp().includes(GK[k]);
- const v=K[k];return!!v&&o.deck!='g'&&!!fcVis(v)&&(!o.sp.length||o.sp.includes(v[1]))}
+ const b=K[base(k)],L=lang(k),v=b&&fcVis(b);return!!v&&!!v[L]&&o.deck!='g'&&(!o.sp.length||o.sp.includes(b[1]))}
 function fcPool(){const o=S.o,al=fcAL();let a=[];
- if(o.deck!='g')a=D.C.filter(c=>(!o.sp.length||o.sp.includes(c[1]))&&fcVis(c,al)).map(c=>c[0]);
+ if(o.deck!='g')for(const c of D.C){if(o.sp.length&&!o.sp.includes(c[1]))continue;const v=fcVis(c,al);if(v)for(const l in v)a.push(ik(c[0],l))}
  if(o.deck!='v')a=a.concat(gp().map(g=>g[0]));
  return a.filter(k=>!(S.srs[k]&&S.srs[k].z))}
 function fcQ(){fcRoll();const now=Date.now(),td=fcDay(now),o=S.o,sd=S.sd,L=[],R=[],Nw=[],ah=[];let next=0,tm=0;
@@ -170,14 +202,13 @@ function fcSet(i,el){const f=i.slice(3),o=S.o;
 function fcInfo(c){if(!c||!c.t)return'Baru';if(c.t==1)return'Belajar';if(c.t==3)return'Belajar ulang';return`Ulas · ${c.i} hr · ease ${c.e}%`+(c.l?` · ${c.l}× lupa`:'')}
 function fcBody(k,rev){const g=GK[k];
  if(g){const t=(g[3]?`<div class=gsub>${esc(g[3])}</div>`:'')+`<div class=mean>${esc(g[4])}</div>`;return rev?t+'<hr><div style="text-align:left">'+gbody(g)+gSent(k,0)+'</div>':t}
- const c=K[k],v=fcVis(c),L=Object.keys(v),f=fcFr,mean=`<div class=mean>${esc(c[2])}</div>`;
- const blk=(ids,full)=>'<div class=grid>'+D.L.filter(l=>ids.includes(l[0])).map(([id,n,col])=>`<div class=lg style="--lc:${col}"><small>${n}</small>`+v[id].map(e=>`<div class=w>${wd(e[0],c[1],'F',id)}</div>${e[1]?`<div class="r rom">${esc(e[1])}</div>`:''}${full?fmx(e,c[1],id):''}${full&&e[2]?`<div class=ex>${esc(e[2])}</div>`:''}`).join('')+'</div>').join('')+'</div>';
- if(rev)return mean+'<hr>'+blk(L,1)+wSent(k,0);
+ const b=base(k),L=lang(k),c=K[b],v0=fcVis(c)||{},v=v0[L]?{[L]:v0[L]}:v0,f=fcFr,mean=`<div class=mean>${esc(c[2])}</div>`;
  const lc=id=>D.L.find(l=>l[0]==id),ch=(n,col)=>`<span class=fch style="--lc:${col}">${esc(n)}</span>`;
+ const blk=(ids,full)=>'<div class=grid>'+D.L.filter(l=>ids.includes(l[0])).map(([id,n,col])=>`<div class=lg style="--lc:${col}"><small>${n}</small>`+v[id].map(e=>`<div class=w>${wd(e[0],c[1],'F',id)}</div>${e[1]?`<div class="r rom">${esc(e[1])}</div>`:''}${full?fmx(e,c[1],id):''}${full&&e[2]?`<div class=ex>${esc(e[2])}</div>`:''}`).join('')+'</div>').join('')+'</div>';
+ if(rev)return mean+'<hr>'+blk(Object.keys(v),1)+wSent(b,0);
  let p,t;
- if(f=='id'||!v[f]){p=mean;t=L.map(id=>ch(LN[id],lc(id)[2]))}
- else{p=`<div class=fcp>${ch(LN[f],lc(f)[2])}`+v[f].map(e=>`<div class=w style="font-size:1.8rem">${wd(e[0],c[1],'F',f)}</div>${e[1]?`<div class="r rom">${esc(e[1])}</div>`:''}`).join('')+'</div>';
-  t=[ch('Indonesia','var(--a)'),...L.filter(id=>id!=f).map(id=>ch(LN[id],lc(id)[2]))]}
+ if(f=='id'||!v[f]){p=mean;t=[ch(LN[L],lc(L)[2])]}
+ else{p=`<div class=fcp>${ch(LN[f],lc(f)[2])}`+v[f].map(e=>`<div class=w style="font-size:1.8rem">${wd(e[0],c[1],'F',f)}</div>${e[1]?`<div class="r rom">${esc(e[1])}</div>`:''}`).join('')+'</div>';t=[ch('Indonesia','var(--a)')]}
  return p+`<div class=fchint><small>Ingat dalam:</small>${t.join('')}</div>`}
 const fcN=(f,l,mn,mx)=>`<label class=fcl><span>${l}</span><input type=number inputmode=numeric data-i="fc_${f}" value="${S.o[f]}" min=${mn} max=${mx}></label>`;
 const fcS=(f,l,op)=>`<label class=fcl><span>${l}</span><select data-i="fc_${f}" style="width:auto;margin:0">${op.map(([v,t])=>`<option value="${v}"${S.o[f]==v?' selected':''}>${t}</option>`).join('')}</select></label>`;
@@ -194,7 +225,7 @@ function fcSett(){const o=S.o,sz=Object.values(S.srs).filter(c=>c.z).length;
  fcN('nl','Kartu baru per hari',0,9999)+fcN('rl','Maks. ulasan per hari',0,9999)+
  fcS('ord','Urutan kartu baru',[['seq','Berurutan'],['rand','Acak']])+
  fcS('no','Kartu baru vs ulasan',[['after','Baru setelah ulasan'],['before','Baru sebelum ulasan'],['mix','Campur']])+
- `<label class=fcl><span><input type=checkbox data-i=fc_lk${o.lk?' checked':''}> Integrasikan progres Kartu ↔ Kosakata</span></label><small>Jawaban flashcard otomatis memperbarui status (Selesai = interval ≥ 21 hari). Sebaliknya, mengubah status di tab Kosakata/Grammar menyesuaikan jadwal: Selesai → masuk jadwal ulasan, Sedang → masuk belajar, Belum → jadwal kartu direset.</small><div class=btns><button data-a=fcsyncall>Sinkronkan sekarang</button></div>`+
+ `<label class=fcl><span><input type=checkbox data-i=fc_lk${o.lk?' checked':''}> Integrasikan progres Kartu ↔ Kosakata</span></label><small>Jawaban flashcard otomatis memperbarui status (Selesai = interval ≥ 21 hari). Sebaliknya, mengubah status di Belajar/Daftar/Grammar menyesuaikan jadwal: Selesai → masuk jadwal ulasan, Sedang → masuk belajar, Belum → jadwal kartu direset.</small><div class=btns><button data-a=fcsyncall>Sinkronkan sekarang</button></div>`+
  dtag('fl')+'<summary>Lanjutan (parameter algoritma)</summary>'+
  `<label class=fcl><span>Langkah belajar (menit)</span><input data-i=fc_ls value="${esc(o.ls)}"></label>`+
  `<label class=fcl><span>Langkah belajar ulang (menit)</span><input data-i=fc_rs value="${esc(o.rs)}"></label>`+
@@ -215,12 +246,12 @@ function fcView(){const q=fcQ(),o=S.o,now=Date.now();
  const nn=Math.min(q.Nw.length,q.nL),rr=Math.min(q.R.length,q.rL),ln=q.L.length+(nn+rr?0:q.ah.length);
  let h=`<div class=fcc><span class=k1><b>${nn}</b><small>Baru</small></span><span class=k2><b>${ln}</b><small>Belajar</small></span><span class=k3><b>${rr}</b><small>Ulas</small></span></div>`;
  if(fcCur){const k=fcCur,c=S.srs[k],g=GK[k],rev=fcRevd;
-  const hd=g?`${LN[g[1]]||'Jerman'} ${g[2]} · Grammar`:PN[K[k][1]];
+  const hd=g?`${LN[g[1]]||'Jerman'} ${g[2]} · Grammar`:PN[K[base(k)][1]]+' · '+(LN[lang(k)]||'');
   h+=`<div class="card fcard"${rev?'':' data-a=fcshow'}><div class=hd><span>${esc(hd)}</span><span class=${c&&c.t?(c.t==2?'k3':'k2'):'k1'}>${fcInfo(c)}</span></div><div class=fcf>${fcBody(k,rev)}</div></div>`;
-  h+=rev?`<div class=fcb>${[1,2,3,4].map(r=>{const n=fcCalc(c,r,now,false);return`<button class="fb fb${r}" data-a=fcans data-v=${r}><small>${n.t==2?fcFmtD(n.i):fcFmt(n.d-now)}</small>${['Lagi','Sulit','Baik','Mudah'][r-1]}</button>`}).join('')}</div>`:'<button class=pri data-a=fcshow style="margin-bottom:12px">Tampilkan jawaban</button>';
+  h+=rev?`<div class=dock><div class=fcb>${[1,2,3,4].map(r=>{const n=fcCalc(c,r,now,false);return`<button class="fb fb${r}" data-a=fcans data-v=${r}><small>${n.t==2?fcFmtD(n.i):fcFmt(n.d-now)}</small>${['Lagi','Sulit','Baik','Mudah'][r-1]}</button>`}).join('')}</div></div>`:'<div class=dock><button class=pri data-a=fcshow>Tampilkan jawaban</button></div>';
   h+=`<div class=fct><button data-a=fcundo${fcUn.length?'':' disabled'}>Urungkan</button><button data-a=fcsusp data-k="${esc(k)}">Tangguhkan</button>${c&&c.t?`<button data-a=fcforget data-k="${esc(k)}">Reset kartu</button>`:''}</div>`}
  else h+=fcDone(q,nn,rr);
- return fcFilt()+fcSett()+h+'<p><small>Filter flashcard terpisah dari tab Kosakata; filter grammar diatur di tab Grammar. Pintasan: Spasi = tampilkan / Baik, 1–4 = nilai, Z = urungkan.</small></p>'}
+ return fcFilt()+fcSett()+h+'<p><small>Filter flashcard terpisah dari tab Belajar; filter grammar diatur di tab Grammar. Pintasan: Spasi = tampilkan / Baik, 1–4 = nilai, Z = urungkan.</small></p>'}
 function fcStatsCard(){fcRoll();const td=fcDay(Date.now()),P=fcPool(),n={n:0,l:0,y:0,m:0},fc=Array(7).fill(0);
  for(const k of P){const c=S.srs[k];if(!c||!c.t){n.n++;continue}
   if(c.t!=2)n.l++;else{c.i>=21?n.m++:n.y++;const d=c.d-td;if(d<=6)fc[Math.max(0,d)]++}}
@@ -237,15 +268,16 @@ document.addEventListener('keydown',e=>{if(tab!='fc'||e.ctrlKey||e.metaKey||e.al
  if(go){e.preventDefault();save();render()}});
 setInterval(()=>{if(tab=='fc'&&!fcCur&&fcWait&&fcWait<=Date.now()+12e5&&!document.hidden)render()},15000);
 
+{const mf=Object.keys(S.p).concat(Object.keys(S.srs),Object.keys(S.s)).some(k=>k.indexOf(SEP)<0&&K[k]);if(mf){const L=[...new Set(S.f.map(x=>String(x).split(':')[0]))];migKeys(L);save()}}
 if(S.o.lk&&!S.o.mig){fcSyncAll();S.o.mig=1;save()}
 /* ===== Latihan membuat kalimat ===== */
 const LTLV={zh:['HSK 1','HSK 2','HSK 3','HSK 4','HSK 5','HSK 6'],ja:['N5','N4','N3','N2','N1'],de:['A1','A2','B1','B2','C1'],eo:['A1','A2','B1','B2','C1','C2']};
 const LTCJ=['Ich','Du','Er/Sie/Es/Man','Wir','Ihr','sie/Sie'];
 let ltCur=null,ltNote=[];
-const ltKnown=k=>st(k)>0||!!(S.srs[k]&&S.srs[k].t);
+const ltKnown=(k,L)=>{if(L)k=ik(k,L);return st(k)>0||!!(S.srs[k]&&S.srs[k].t)};
 const ltLang=()=>D.L.find(l=>l[0]==S.o.pl);
 function ltPool(p,need){const o=S.o,L=o.pl,lv=o.plv,okl=x=>!lv.length||lv.includes(x),s=[],l=[],a=[];
- for(const c of D.C){if(c[1]!=p)continue;const es=c[3][L];if(!es)continue;a.push([c,es]);const g=es.filter(e=>okl(e[3]));if(g.length){l.push([c,g]);if(o.pw=='all'||(o.pw=='weak'?weakW(c[0]):ltKnown(c[0])))s.push([c,g])}}
+ for(const c of D.C){if(c[1]!=p)continue;const es=c[3][L];if(!es)continue;a.push([c,es]);const g=es.filter(e=>okl(e[3]));if(g.length){l.push([c,g]);if(o.pw=='all'||(o.pw=='weak'?weakW(c[0],L):ltKnown(c[0],L)))s.push([c,g])}}
  if(s.length>=need)return{a:s};
  if(l.length>=need)return{a:l,n:'Kata sesuai sumber terpilih kurang untuk '+PN[p].toLowerCase()+' — memakai semua kata di level terpilih.'};
  return{a:a,n:'Kata '+PN[p].toLowerCase()+' di level terpilih kurang — memakai semua level.'}}
@@ -285,12 +317,12 @@ function ltPromptGen(){const c=ltCur,g=GK[c.g],L=ltLang()[1],o=S.o,rm=o.pl=='zh'
 function ltCopy(t){try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).catch(()=>{});return}}catch(e){}
  const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}a.remove()}
 function ltAct(a,x,k){const c=ltCur,o=S.o;if(a!='ltrate')ltMsg='';
- if(a=='ltnew')ltNew();
+ if(a=='ltnew'){ltNew();goSec='sec-l'}
  else if(a=='ltrg'&&c){ltNote=[];const g=ltPickG(c.g);if(g){c.g=g[0];c.rev=0;c.copiedP=0}}
  else if(a=='ltrw'&&c){ltNote=[];let w=[];for(const[p,f]of[['N','pn'],['A','pa'],['V','pv'],['O','po']])if(o[f]>0)w=w.concat(ltDraw(p,o[f],c.w.filter(z=>z.p==p).map(z=>z.k)));c.w=w;c.rev=0;c.copiedP=0}
  else if(a=='ltre'&&c){ltNote=[];const w=c.w[+x];if(w){const n=ltDraw(w.p,1,c.w.filter(z=>z.p==w.p).map(z=>z.k));if(n.length){c.w[+x]=n[0];c.copiedP=0}}}
- else if(a=='ltchk'&&c)c.rev=1;
- else if(a=='ltedit'&&c)c.rev=0;
+ else if(a=='ltchk'&&c){c.rev=1;goSec='lt-rev'}
+ else if(a=='ltedit'&&c){c.rev=0;goSec='ltTxt'}
  else if(a=='ltcopy'&&c&&c.g){ltCopy(ltPrompt());c.copied=1}
   else if(a=='ltcopyp'&&c&&c.g){ltCopy(ltPromptGen());c.copiedP=1}
  else if(a=='ltrate'&&c&&c.g){const r=+x,g=GK[c.g],td=fcDay(Date.now());let up=0;
@@ -298,12 +330,13 @@ function ltAct(a,x,k){const c=ltCur,o=S.o;if(a!='ltrate')ltMsg='';
   if(has){S.lt.h.push({t:Date.now(),g:c.g,gt:g[4],lv:g[2],l:c.lang,w:c.w.map(w=>[w.e[0],w.e[1],w.m,w.p]),k:c.w.map(w=>w.k),s:c.txt.trim(),r});if(S.lt.h.length>1000)S.lt.h=S.lt.h.slice(-1000)}
   const d=S.lt.d[td]||(S.lt.d[td]=[0,0,0]);d[0]++;if(r==2)d[1]++;if(r==1)d[2]++;
   const s=S.lt.g[c.g]||(S.lt.g[c.g]={n:0,ok:0});s.n++;if(r==2)s.ok++;
-  if(r==2&&has&&o.lx)[c.g,...c.w.map(w=>w.k)].forEach(z=>{if(z&&!st(z)){S.p[z]=1;S.s[z]=1;fcFS(z);up++}});
-  sBuild();ltNew();ltMsg=up?'Status naik ke Sedang: '+up+' item (kata/grammar) karena kalimatmu tepat.':''}
- else if(a=='ltgo'&&GK[k]){const L=GK[k][1];if(o.pl!=L){o.pl=L;o.plv=[]}ltNew();ltCur.g=k;ltCur.rev=0;tab='lt';goTop=1}
+  if(r==2&&has&&o.lx)[c.g,...c.w.map(w=>ik(w.k,c.lang))].forEach(z=>{if(z&&!st(z)){S.p[z]=1;S.s[z]=1;fcFS(z);up++}});
+  sBuild();ltNew();goSec='sec-l';ltMsg=up?'Status naik ke Sedang: '+up+' item (kata/grammar) karena kalimatmu tepat.':''}
+ else if(a=='ltgo'&&GK[k]){const L=GK[k][1];if(o.pl!=L){o.pl=L;o.plv=[]}ltNew();ltCur.g=k;ltCur.rev=0;tab='ses';goSec='sec-l'}
  else if(a=='ltfw'&&K[k]){const cd=K[k],ls=Object.keys(cd[3]).filter(l=>LTLV[l]);if(!ls.length){alert('Bahasa kata ini belum tersedia di Latihan.');return}
   const L=ls.includes(o.pl)?o.pl:ls[0];if(o.pl!=L){o.pl=L;o.plv=[]}ltNew();const es=cd[3][L];
-  ltCur.w=ltCur.w.filter(z=>z.k!=k);const w={k,p:cd[1],m:cd[2],e:es[Math.random()*es.length|0]},i=ltCur.w.findIndex(z=>z.p==cd[1]);i<0?ltCur.w.push(w):ltCur.w[i]=w;tab='lt';goTop=1}
+  ltCur.w=ltCur.w.filter(z=>z.k!=k);const w={k,p:cd[1],m:cd[2],e:es[Math.random()*es.length|0]},i=ltCur.w.findIndex(z=>z.p==cd[1]);i<0?ltCur.w.push(w):ltCur.w[i]=w;tab='ses';goSec='sec-l'}
+ else if(a=='ltlang'){if(LTLV[x]){o.pl=x;o.plv=[];ltCur=null}}
  else if(a=='ltlv'){const f=o.plv.slice(),i=f.indexOf(x);i<0?f.push(x):f.splice(i,1);o.plv=f;ltCur=null}
  else if(a=='ltlvall'){o.plv=[];ltCur=null}
  else if(a=='ltclr'){if(confirm('Hapus semua riwayat kalimat?')){S.lt.h=[];sBuild()}}}
@@ -317,8 +350,7 @@ function ltSet(i,el){const f=i.slice(3),o=S.o;
 const ltN=(f,l)=>`<label class=fcl><span>${l}</span><input type=number inputmode=numeric data-i="lt_${f}" value="${S.o[f]}" min=0 max=10></label>`;
 const ltS=(f,l,op)=>`<label class=fcl><span>${l}</span><select data-i="lt_${f}" style="width:auto;margin:0">${op.map(([v,t])=>`<option value="${v}"${S.o[f]==v?' selected':''}>${t}</option>`).join('')}</select></label>`;
 function ltSett(){const o=S.o,lv=LTLV[o.pl]||[];
- return dtag('lt')+`<summary>Pengaturan latihan · ${ltLang()[1]}</summary><div class=card>`+
- ltS('pl','Bahasa',[['zh','Mandarin'],['ja','Jepang'],['de','Jerman'],['eo','Esperanto']])+
+ return dtag('lt')+`<summary><span>Pengaturan latihan</span>${o.plv.length?`<em class=cnt>${o.plv.join(', ')}</em>`:''}</summary><div class=card>`+
  `<small>Level (grammar &amp; kosakata)</small><div class=chips><button class="chip${o.plv.length?'':' on'}" data-a=ltlvall>Semua</button>${lv.map(v=>`<button class="chip${o.plv.includes(v)?' on':''}" data-a=ltlv data-v="${v}">${v}</button>`).join('')}</div>`+
  '<small>Jumlah kata per soal (selain grammar), 0–10 per jenis</small>'+ltN('pn','Kata benda')+ltN('pa','Kata sifat')+ltN('pv','Kata kerja')+ltN('po','Kosakata lain')+
  ltS('pw','Sumber kosakata',[['all','Semua kata'],['seen','Hanya yang sudah dipelajari'],['weak','Kata yang lemah']])+
@@ -329,29 +361,36 @@ function ltSett(){const o=S.o,lv=LTLV[o.pl]||[];
 function ltHist(){const H=S.lt.h,n=H.length;
  return dtag('hist')+`<summary>Riwayat kalimat (${n})</summary><div class=card>`+(n?H.slice(-Math.min(lim,n)).reverse().map(x=>sItem(x,{g:1,w:1,del:1})).join('')+(n>lim?'<button data-a=more style="width:100%;margin-top:8px">Tampilkan lebih banyak</button>':'')+'<div class=btns><button data-a=ltclr>Hapus riwayat</button></div>':'<small>Belum ada kalimat tersimpan. Kalimat yang kamu nilai di Latihan akan muncul juga di detail tiap kata dan grammar.</small>')+'</div></details>'}
 function gpre(g){const t=g.slice();t[7]=[];t[8]=[];t[9]=[];t[10]=(g[10]||[]).filter(p=>!LTCJ.includes(p[0]));return gbody(t)}
+const LTSTEP=['Grammar','Kata','Tulis','Nilai'];
+function ltTop(c,Lg,dd){const cur=c&&c.rev?3:2;
+ return SEC_HEAD('Latihan kalimat','Buat satu kalimat dengan grammar dan kata di bawah')+
+ `<div class=langs role=tablist>${Object.keys(LTLV).map(id=>{const l=D.L.find(z=>z[0]==id);return l?`<button class="${id==S.o.pl?'on':''}" data-a=ltlang data-v=${id} style="--lc:${l[2]}"><i></i>${l[1]}</button>`:''}).join('')}</div>`+
+ ltSett()+
+ `<ol class=steps>${LTSTEP.map((x,i)=>`<li class="${i<cur?'d':''}${i==cur?' cur':''}">${x}</li>`).join('')}</ol>`+
+ `<div class=chipline><span>Hari ini ${dd[0]} soal</span><span>${dd[1]} tepat</span></div>`+(ltMsg?`<div class=okmsg>${esc(ltMsg)}</div>`:'')}
 function ltView(){const o=S.o;if(!ltCur||ltCur.lang!=o.pl)ltNew();
  const c=ltCur,g=c.g&&GK[c.g],Lg=ltLang(),dd=S.lt.d[fcDay(Date.now())]||[0,0,0];
- let h=ltSett()+`<div class=gsub style="margin:0 0 8px">${Lg[1]} · hari ini ${dd[0]} soal, ${dd[1]} tepat</div>`+(ltMsg?`<div class=gsub style="margin:0 0 8px;color:var(--s2)">${esc(ltMsg)}</div>`:'');
- if(!g)return h+'<div class=card>Tidak ada grammar yang cocok dengan pengaturan ini. Ubah level atau sumber grammar di pengaturan.</div>';
+ let h=ltTop(c,Lg,dd);
+ if(!g)return h+'<div class="card empty"><b>Tidak ada grammar</b>Tidak ada grammar yang cocok dengan pengaturan ini. Ubah level atau sumber grammar di pengaturan.</div>';
  const gs=S.lt.g[c.g];
- h+=`<div class=card><div class=hd><span>${Lg[1]} ${esc(g[2])}${g[3]?' · '+esc(g[3]):''}</span><button class=mini data-a=ltrg>Ganti grammar</button></div><div class=mean>${esc(g[4])}</div>${c.rev?gbody(g):gpre(g)}<div class=gsub style="margin-top:8px">${STN[st(c.g)]}${gs&&gs.n?` · pernah dilatih ${gs.n}× (${Math.round(gs.ok/gs.n*100)}% tepat)`:' · belum pernah dilatih'} · <button class="lnk" data-a=gopen data-k="${esc(c.g)}">buka di Grammar</button></div></div>`;
- h+=`<div class=card><div class=hd><span>Kata yang harus dipakai</span><button class=mini data-a=ltrw>Acak ulang</button></div>`+(c.w.length?c.w.map((w,i)=>{const hit=c.rev?ltHit(c.txt,w.e,o.pl):-1,hid=o.ps=='id'&&!c.rev,nw=(SI.w[w.k]||[]).length;
-  return`<div class=ltw><span class=fch style="--lc:var(--m)">${PN[w.p]}</span>${hid?`<span class=w>${esc(w.m)}</span>`:`<span class=w style="color:${Lg[2]}">${wd(w.e[0],w.p,'L',o.pl,c.rev)}</span>${w.e[1]?`<span class="r rom">${esc(w.e[1])}</span>`:''}<small class="${o.lm&&!c.rev?'ltm mnh':''}">${esc(w.m)}</small>`}<span class=bdg>${STN[st(w.k)]}${nw?' · ✎'+nw:''}</span><span class=sp>${c.rev?`<b class="${hit?'k3':'k2'}">${hit?'✓ terdeteksi':'? belum terdeteksi'}</b>`:`<button class=mini data-a=ltre data-v=${i}>↻</button>`}<button class=mini data-a=wopen data-k="${esc(w.k)}" title="Detail kata">ⓘ</button></span>${hid?'':fmx(w.e,w.p,o.pl,c.rev)}</div>`}).join(''):'<small>Tidak ada kata tambahan (atur jumlah kata di pengaturan).</small>')+(c.rev&&c.w.length?'<small>Deteksi kata hanya perkiraan; bentuk kata yang berubah (konjugasi, partikel) bisa tidak terbaca.</small>':'')+'</div>';
+ h+=`<div class=card><div class=hd><span>${Lg[1]} ${esc(g[2])}${g[3]?' · '+esc(g[3]):''}</span><button class=mini data-a=ltrg>↻ Ganti grammar</button></div><div class=mean>${esc(g[4])}</div>${c.rev?gbody(g):gpre(g)}<div class=gsub style="margin-top:10px">${STN[st(c.g)]}${gs&&gs.n?` · pernah dilatih ${gs.n}× (${Math.round(gs.ok/gs.n*100)}% tepat)`:' · belum pernah dilatih'} · <button class="lnk" data-a=gopen data-k="${esc(c.g)}">buka di Grammar</button></div></div>`;
+ h+=`<div class=card><div class=hd><span>Kata yang harus dipakai</span><button class=mini data-a=ltrw>↻ Acak ulang</button></div>`+(c.w.length?c.w.map((w,i)=>{const hit=c.rev?ltHit(c.txt,w.e,o.pl):-1,hid=o.ps=='id'&&!c.rev,nw=(SI.w[w.k]||[]).length;
+  return`<div class=ltw><span class=fch style="--lc:var(--m)">${PN[w.p]}</span>${hid?`<span class=w>${esc(w.m)}</span>`:`<span class=w style="color:${Lg[2]}">${wd(w.e[0],w.p,'L',o.pl,c.rev)}</span>${w.e[1]?`<span class="r rom">${esc(w.e[1])}</span>`:''}<small class="${o.lm&&!c.rev?'ltm mnh':''}">${esc(w.m)}</small>`}<span class=bdg>${STN[st(ik(w.k,o.pl))]}${nw?' · ✎'+nw:''}</span><span class=sp>${c.rev?`<b class="${hit?'k3':'k2'}">${hit?'✓ terdeteksi':'? belum terdeteksi'}</b>`:`<button class=mini data-a=ltre data-v=${i} title="Ganti kata ini" aria-label="Ganti kata ini">↻</button>`}<button class=mini data-a=wopen data-k="${esc(w.k)}" title="Detail kata" aria-label="Detail kata">ⓘ</button></span>${hid?'':fmx(w.e,w.p,o.pl,c.rev)}</div>`}).join(''):'<small>Tidak ada kata tambahan (atur jumlah kata di pengaturan).</small>')+(c.rev&&c.w.length?'<small>Deteksi kata hanya perkiraan; bentuk kata yang berubah (konjugasi, partikel) bisa tidak terbaca.</small>':'')+'</div>';
  const nt=[...new Set(ltNote)];if(nt.length)h+=`<p><small>${nt.map(esc).join('<br>')}</small></p>`;
  if(!c.rev){
-  h+=`<textarea id=ltTxt rows=3 placeholder="Tulis kalimat dalam bahasa ${Lg[1]} yang memakai grammar dan semua kata di atas">${esc(c.txt)}</textarea>`;
-  h+=`<button class=pri data-a=ltchk style="margin:8px 0">Periksa &amp; lihat referensi</button><div class=fct><button data-a=ltnew>Soal baru</button><button data-a=ltcopy>${c.copied?'Tersalin ✓':'Salin untuk dikoreksi AI'}</button></div><button data-a=ltcopyp style="width:100%;margin-top:6px">${c.copiedP?'Prompt tersalin ✓':'Salin prompt untuk membuat kalimat di AI'}</button>`;
+  h+=`<textarea id=ltTxt rows=3 placeholder="Tulis kalimat dalam bahasa ${Lg[1]} yang memakai grammar dan semua kata di atas">${esc(c.txt)}</textarea><div class=gsub style="margin:4px 2px 10px">Ctrl/⌘ + Enter untuk memeriksa</div>`;
+  h+=`<button class=pri data-a=ltchk style="margin:0 0 10px">Periksa &amp; lihat referensi</button><div class=fct><button data-a=ltnew>Soal baru</button><button data-a=ltcopy>${c.copied?'Tersalin ✓':'Salin untuk koreksi AI'}</button><button data-a=ltcopyp>${c.copiedP?'Tersalin ✓':'Prompt buat kalimat'}</button></div>`;
  }else{
-  h+=`<div class=card><div class=gsec style="margin:0 0 4px">Kalimatmu</div><div class=gtx>${c.txt.trim()?esc(c.txt):'(belum ditulis)'}</div><div class=btns><button data-a=ltedit>Edit lagi</button><button data-a=ltcopy>${c.copied?'Tersalin ✓':'Salin untuk dikoreksi AI'}</button></div><button data-a=ltcopyp style="width:100%;margin-top:6px">${c.copiedP?'Prompt tersalin ✓':'Salin prompt untuk membuat kalimat di AI'}</button></div>`;
+  h+=`<div class=card id=lt-rev><div class=gsec style="margin:0 0 4px">Kalimatmu</div><div class=gtx style="font-size:1.1rem">${c.txt.trim()?esc(c.txt):'(belum ditulis)'}</div><div class=btns><button data-a=ltedit>Edit lagi</button><button data-a=ltcopy>${c.copied?'Tersalin ✓':'Salin untuk koreksi AI'}</button><button data-a=ltcopyp>${c.copiedP?'Tersalin ✓':'Prompt buat kalimat'}</button></div></div>`;
   const pg=(SI.g[c.g]||[]).slice(-3).reverse(),seen=new Set(pg.map(x=>x.t)),pw=[];
   c.w.forEach(w=>(SI.w[w.k]||[]).slice().reverse().forEach(x=>{if(!seen.has(x.t)&&pw.length<3){seen.add(x.t);pw.push(x)}}));
   if(pg.length)h+=`<div class=card><div class=gsec style="margin-top:0">Kalimatmu sebelumnya dengan grammar ini</div>${pg.map(x=>sItem(x,{w:1})).join('')}</div>`;
   if(pw.length)h+=`<div class=card><div class=gsec style="margin-top:0">Kalimatmu sebelumnya dengan kata-kata ini</div>${pw.map(x=>sItem(x,{g:1,w:1})).join('')}</div>`;
-  h+=`<p><small>Bandingkan dengan contoh dan keterangan di atas, lalu nilai kalimatmu:</small></p><div class=fcb style="grid-template-columns:repeat(3,1fr)"><button class="fb fb1" data-a=ltrate data-v=0>Belum tepat</button><button class="fb fb2" data-a=ltrate data-v=1>Hampir</button><button class="fb fb3" data-a=ltrate data-v=2>Tepat</button></div><div class=fct><button data-a=ltnew>Lewati, soal baru</button></div>`}
+  h+=`<p><small>Bandingkan dengan contoh dan keterangan di atas, lalu nilai kalimatmu:</small></p><div class=dock><div class=fcb style="grid-template-columns:repeat(3,1fr)"><button class="fb fb1" data-a=ltrate data-v=0>Belum tepat</button><button class="fb fb2" data-a=ltrate data-v=1>Hampir</button><button class="fb fb3" data-a=ltrate data-v=2>Tepat</button></div></div><div class=fct><button data-a=ltnew>Lewati, soal baru</button></div>`}
  return h+ltHist()}
 function ltStatsCard(){const d=S.lt.d,td=fcDay(Date.now());let t=0,ok=0,ha=0,w=0,wo=0;
  for(const k in d){const x=d[k];t+=x[0];ok+=x[1];ha+=x[2]|0;if(+k>td-7){w+=x[0];wo+=x[1]}}
- if(!t)return'<div class=card><b>Latihan kalimat</b><p><small>Belum ada latihan. Mulai dari tab Latihan — hasilnya muncul di sini dan di detail tiap kata &amp; grammar yang dipakai.</small></p></div>';
+ if(!t)return'<div class=card><b>Latihan kalimat</b><p><small>Belum ada latihan. Mulai dari tab Belajar (bagian Latihan kalimat) — hasilnya muncul di sini dan di detail tiap kata &amp; grammar yang dipakai.</small></p></div>';
  const bad=Math.max(0,t-ok-ha),pc=x=>x/t*100,lg={};
  D.G.forEach(g=>{(lg[g[1]]||(lg[g[1]]={n:0,ok:0,u:0,tot:0})).tot++});
  for(const k in S.lt.g){const g=GK[k];if(!g)continue;const s=S.lt.g[k],l=lg[g[1]];l.n+=s.n;l.ok+=s.ok;if(s.n)l.u++}
@@ -362,14 +401,15 @@ function ltStatsCard(){const d=S.lt.d,td=fcDay(Date.now());let t=0,ok=0,ha=0,w=0
  Object.entries(lg).filter(([,l])=>l.n).map(([id,l])=>`<div class=lg style="--lc:${(D.L.find(z=>z[0]==id)||[])[2]||'var(--m)'};margin:6px 0"><small>${esc(LN[id]||id)}</small><div>${l.n} soal · ${Math.round(l.ok/l.n*100)}% tepat · ${l.u}/${l.tot} grammar pernah dilatih</div></div>`).join('')+'</div>'+
  (wg.length?`<div class=card><b>Grammar yang perlu latihan</b>`+wg.map(([k,s])=>{const g=GK[k];return`<div class=row><div data-a=gopen data-k="${esc(k)}"><b>${esc(g[4])}</b><br><small>${esc(LN[g[1]]||'Jerman')} ${esc(g[2])} · ${s.ok}/${s.n} tepat (${Math.round(s.ok/s.n*100)}%)</small></div><button data-a=ltgo data-k="${esc(k)}">Latih</button></div>`}).join('')+'</div>':'')+
  (ww.length?`<div class=card><b>Kata yang sering salah</b>`+ww.map(([k,o])=>{const c=K[k];return`<div class=row><div data-a=wopen data-k="${esc(k)}"><b>${esc(c[2])}</b> <small>${PN[c[1]]}</small><br><small>${o.b}× belum tepat dari ${o.n} kalimat</small></div><button data-a=ltfw data-k="${esc(k)}">Latih</button></div>`}).join('')+'</div>':'')}
-document.addEventListener('input',e=>{if(e.target.id=='ltTxt'&&ltCur)ltCur.txt=e.target.value});
+document.addEventListener('input',e=>{if(e.target.id=='ltTxt'&&ltCur){ltCur.txt=e.target.value;e.target.style.height='auto';e.target.style.height=Math.max(e.target.scrollHeight+2,96)+'px'}});
+document.addEventListener('keydown',e=>{if(e.target.id=='ltTxt'&&ltCur&&(e.ctrlKey||e.metaKey)&&e.key=='Enter'){e.preventDefault();ltCur.txt=e.target.value;ltAct('ltchk');save();render();const el=document.getElementById('lt-rev');el&&el.scrollIntoView({block:'start'});goSec=''}});
 /* ===== Integrasi antar bagian: kalimat latihan <-> kosakata <-> grammar <-> statistik ===== */
 const RT=['Belum tepat','Hampir','Tepat'],WI={};D.C.forEach(c=>{(WI[c[1]+'|'+c[2]]||(WI[c[1]+'|'+c[2]]=[])).push(c)});
-let SI={w:{},g:{}},xo=new Set,foc='',fk='',ltMsg='',goTop=0,hop=false;
+let SI={w:{},g:{}},xo=new Set,foc='',fk='',ltMsg='',goTop=0,hop=false,goSec='',goSm=0,lastTab='';
 function wkey(w,l){for(const c of WI[w[3]+'|'+w[2]]||[])for(const L of l?[l]:Object.keys(c[3]))if((c[3][L]||[]).some(e=>e[0]==w[0]))return c[0];return''}
 function sMig(){let ch=0;for(const h of S.lt.h)if(!h.k){h.l=h.l||(GK[h.g]?GK[h.g][1]:'');h.k=h.w.map(w=>wkey(w,h.l)||wkey(w));ch=1}if(ch)save()}
 function sBuild(){const w={},g={};for(const h of S.lt.h){(h.k||[]).forEach(k=>{if(k&&!(w[k]&&w[k].includes(h)))(w[k]||(w[k]=[])).push(h)});(g[h.g]||(g[h.g]=[])).push(h)}SI={w,g}}
-const weakW=k=>{const a=SI.w[k]||[],c=S.srs[k];return(a.length&&a[a.length-1].r<2)||!!(c&&c.l>0)};
+const weakW=(k,L)=>{const a=SI.w[k]||[],c=S.srs[L?ik(k,L):k];return(a.length&&a[a.length-1].r<2)||!!(c&&c.l>0)};
 function sItem(h,o){o=o||{};
  return`<div class="sn sn${h.r}"><span class=gl>${RT[h.r]} · ${new Date(h.t).toLocaleDateString('id-ID')}${o.g?` · <button class=lnk data-a=gopen data-k="${esc(h.g)}">${esc(h.gt)} (${esc(h.lv)})</button>`:''}</span><span class=tx>${esc(h.s)}</span>`+
  (o.w?`<div class=snw>${h.w.map((w,i)=>h.k&&h.k[i]?`<button class=lnk data-a=wopen data-k="${esc(h.k[i])}">${esc(w[0])}</button>`:esc(w[0])).join(' · ')}</div>`:'')+
@@ -397,24 +437,31 @@ function actCard(){fcRoll();const td=fcDay(Date.now()),off=new Date().getTimezon
 document.addEventListener('toggle',e=>{const d=e.target.dataset&&e.target.dataset.d;if(d){e.target.open?DO.add(d):DO.delete(d)}},true);
 sMig();
 document.addEventListener('click',e=>{let m=e.target.closest&&e.target.closest('.mnh:not(.rv),.cz:not(.rv)');if(m&&m.classList.contains('cz')&&m.closest('.hid')&&!m.closest('.show'))m=null;if(m){m.classList.add('rv');e.stopPropagation();e.preventDefault();return}const r=e.target.closest&&e.target.closest('.rom');if(r&&document.body.classList.contains('romh')&&!r.classList.contains('rv')){r.classList.add('rv');e.stopPropagation();e.preventDefault()}},true);
-function render(){document.querySelectorAll('details[data-d]').forEach(d=>d.open?DO.add(d.dataset.d):DO.delete(d.dataset.d));sBuild();document.body.classList.toggle('romh',!!S.o.rom);const T={ses:['Kosakata',ses,'Kata'],fc:['Kartu',()=>vrPromo()+fcView(),'Kartu'+vrBadge()],lt:['Latihan',ltView,'Latihan'],gr:['Grammar',gram,'Grammar'],list:['Daftar',list,'Daftar'],stats:['Statistik',stats,'Stat'],set:['Setelan',set,'Atur']};
+const IC={ses:'<path d="M3 5.5A1.5 1.5 0 0 1 4.5 4H11v15H4.5A1.5 1.5 0 0 0 3 20.5zM21 5.5A1.5 1.5 0 0 0 19.5 4H13v15h6.5a1.5 1.5 0 0 1 1.5 1.5z"/>',fc:'<rect x="3" y="7" width="15" height="12" rx="2"/><path d="M6 4h15v12"/>',gr:'<path d="M4 6h16M4 12h10M4 18h14"/>',list:'<path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/>',stats:'<path d="M5 20V11M12 20V4M19 20v-6"/>',set:'<path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/>'};
+function spy(){const l=document.getElementById('sec-l');if(!l||tab!='ses')return;const on=l.getBoundingClientRect().top<innerHeight*.45?'l':'k';document.querySelectorAll('.pills button').forEach(b=>b.classList.toggle('on',b.dataset.v==on))}
+function render(){if(tab=='lt')tab='ses';document.querySelectorAll('details[data-d]').forEach(d=>d.open?DO.add(d.dataset.d):DO.delete(d.dataset.d));sBuild();document.body.classList.toggle('romh',!!S.o.rom);const T={ses:['Belajar',ses,'Belajar'],fc:['Kartu',()=>vrPromo()+fcView(),'Kartu'+vrBadge()],gr:['Grammar',gram,'Grammar'],list:['Daftar',list,'Daftar'],stats:['Statistik',stats,'Statistik'],set:['Pengaturan',set,'Atur']};
+const ch=tab!==lastTab;lastTab=tab;v.className=(tab=='ses'?'wide':'')+(ch?' fade':'');
 v.innerHTML=vrBanner()+(ok?'':'<div class=warn>Penyimpanan lokal diblokir, progres tidak akan tersimpan. Matikan mode privat atau izinkan penyimpanan situs.</div>')+`<h1>${T[tab][0]}${['stats','set'].includes(tab)?'':`<button class=mini data-a=gosen>⚙ Sensor</button>`}</h1>`+T[tab][1]();
-n.innerHTML=Object.entries(T).map(([k,x])=>`<button class="${k==tab?'on':''}" data-a=tab data-v=${k}>${x[2]||x[0]}</button>`).join('')}
+n.innerHTML='<div class=navi>'+Object.entries(T).map(([k,x])=>`<button class="${k==tab?'on':''}" data-a=tab data-v=${k}${k==tab?' aria-current=page':''}><svg viewBox="0 0 24 24" aria-hidden="true">${IC[k]}</svg><span>${x[2]||x[0]}</span></button>`).join('')+'</div>';
+const ta=document.getElementById('ltTxt');if(ta){ta.style.height='auto';ta.style.height=Math.max(ta.scrollHeight+2,96)+'px'}
+spy()}
+addEventListener('scroll',()=>{if(!spy.p){spy.p=1;requestAnimationFrame(()=>{spy.p=0;spy()})}},{passive:true});
 document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,k=b.dataset.k,x=b.dataset.v,y=scrollY;
-if(a.slice(0,2)=='fc'){fcAct(a,x,k)}else if(a.slice(0,2)=='lt'){ltAct(a,x,k)}else if(a=='tab'){tab=x;lim=50}else if(a=='set'){e.stopPropagation();S.p[k]=+x;if(!+x)delete S.p[k];fcFS(k)}else if(a=='flip'){shown.has(k)?shown.delete(k):shown.add(k)}
+if(a.slice(0,2)=='fc'){fcAct(a,x,k)}else if(a.slice(0,2)=='lt'){ltAct(a,x,k)}else if(a=='tab'){tab=x;lim=50;goTop=1}else if(a=='jump'){goSec='sec-'+x;goSm=1}else if(a=='set'){e.stopPropagation();S.p[k]=+x;if(!+x)delete S.p[k];fcFS(k)}else if(a=='flip'){shown.has(k)?shown.delete(k):shown.add(k)}
 else if(a=='cyc'){const s=(st(k)+1)%3;s?S.p[k]=s:delete S.p[k];fcFS(k)}else if(a=='roll'){shown.clear();S.ses={};['N','A','V','O'].forEach(p=>S.ses[p]=pick(p))}
 else if(a=='re'){S.ses[x]=pick(x,S.ses[x])}else if(a=='fl'){const i=S.f.indexOf(x);i<0?S.f.push(x):S.f.splice(i,1)}else if(a=='fall')S.f=[];else if(a=='gfl'){const i=S.gf.indexOf(x);i<0?S.gf.push(x):S.gf.splice(i,1)}else if(a=='gall')S.gf=[];else if(a=='groll'){S.gs=choose(gp().filter(g=>g[0]!=S.gs))}
 else if(a=='gnext'||a=='gprev'){const P=gp(),n=P.length;if(n){const i=P.findIndex(g=>g[0]==S.gs),d=a=='gnext'?1:-1,j=i<0?(d>0?0:n-1):((i+d)%n+n)%n;S.gs=P[j][0];S.s[S.gs]=1}}
 else if(a=='gopen'){S.gs=k;tab='gr';save();render();scrollTo(0,0);return}
 else if(a=='wopen'){tab='list';q='';fs='';fk='';foc=k;lim=50;goTop=1}else if(a=='wtog'){xo.has(k)?xo.delete(k):xo.add(k)}else if(a=='wclose'){foc=''}else if(a=='sdel'){sDel(+b.dataset.t)}
 else if(a=='gosen'){tab='set';goTop=1}
-else if(a=='more')lim+=50;
+else if(a=='more')lim+=50;else if(a=='miglg'){const L=[...new Set(S.f.map(x=>String(x).split(':')[0]))],n=migLegacy(L);alert(n+' item bahasa diperbarui dari progres lama.')}
 else if(a=='exp'){const u=URL.createObjectURL(new Blob([JSON.stringify({v:2,p:S.p,s:S.s,srs:S.srs,lg:S.lg,lt:S.lt})],{type:'application/json'})),l=document.createElement('a');l.href=u;l.download='progres-kosakata.json';l.click();return}
 else if(a=='rst'){if(!confirm('Hapus semua progres?'))return;S.p={};S.s={};S.srs={};S.lg={};S.lt={h:[],g:{},d:{}};ltCur=null;xo=new Set;foc='';S.sd={d:-1,n:0,r:0,x:0,y:0};fcUn=[];fcCur=null}
-save();render();scrollTo(0,goTop?0:y);goTop=0});
+save();render();
+if(goSec){const el=document.getElementById(goSec),sm=goSm,id=goSec;goSec='';goSm=0;if(el){el.scrollIntoView({block:'start',behavior:sm?'smooth':'auto'});if(id=='ltTxt')el.focus({preventScroll:true})}else scrollTo(0,goTop?0:y)}else scrollTo(0,goTop?0:y);goTop=0});
 document.addEventListener('change',e=>{const i=e.target.dataset.i;if(!i)return;
 if(i.slice(0,3)=='fc_')fcSet(i,e.target);else if(i.slice(0,3)=='lt_')ltSet(i,e.target);else if(i=='mode')S.o.mode=e.target.value;else if(i=='minL')S.o.minL=+e.target.value;else if(i=='fs')fs=e.target.value;else if(i=='fk')fk=e.target.value;else if(i=='gseq')S.o.gseq=+e.target.checked;else if(['cv','cgL','cgK','cgF','cpl','cvb'].includes(i))S.o[i]=e.target.value;else if(i=='rom')S.o.rom=+e.target.checked;
-else if(i=='imp'){const f=e.target.files[0];if(!f)return;f.text().then(t=>{try{const d=JSON.parse(t);Object.assign(S.p,d.p);Object.assign(S.s,d.s||{});Object.assign(S.srs,d.srs||{});Object.assign(S.lg,d.lg||{});if(d.lt){const m=new Map();(S.lt.h||[]).concat(d.lt.h||[]).forEach(x=>m.set(x.t+'|'+x.s,x));S.lt.h=[...m.values()].sort((a,b)=>a.t-b.t).slice(-1000);sMig();Object.assign(S.lt.g,d.lt.g||{});Object.assign(S.lt.d,d.lt.d||{})}save();render();alert('Progres dipulihkan.')}catch(_){alert('File tidak valid.')}});return}
+else if(i=='imp'){const f=e.target.files[0];if(!f)return;f.text().then(t=>{try{const d=JSON.parse(t);Object.assign(S.p,d.p);Object.assign(S.s,d.s||{});Object.assign(S.srs,d.srs||{});Object.assign(S.lg,d.lg||{});migKeys([...new Set(S.f.map(x=>String(x).split(':')[0]))]);if(d.lt){const m=new Map();(S.lt.h||[]).concat(d.lt.h||[]).forEach(x=>m.set(x.t+'|'+x.s,x));S.lt.h=[...m.values()].sort((a,b)=>a.t-b.t).slice(-1000);sMig();Object.assign(S.lt.g,d.lt.g||{});Object.assign(S.lt.d,d.lt.d||{})}save();render();alert('Progres dipulihkan.')}catch(_){alert('File tidak valid.')}});return}
 save();render()});
 document.addEventListener('input',e=>{if(e.target.dataset.i=='q'){q=e.target.value;const p=e.target.selectionStart;render();const el=document.querySelector('[data-i=q]');el.focus();el.setSelectionRange(p,p)}});
 try{const _t=new URLSearchParams(location.search).get('tab');if(_t&&['ses','fc','lt','gr','list','stats','set'].includes(_t))tab=_t}catch(e){}

@@ -4,7 +4,8 @@ Aplikasi flashcard kosakata (Mandarin, Jepang, Jerman, Esperanto) dengan jadwal 
 latihan kalimat, grammar, **pengingat hafalan**, dan bisa dipasang seperti aplikasi biasa (PWA) — gratis lewat GitHub Pages.
 
 - Semua kode ada di folder [`docs/`](docs) (HTML + CSS + JS biasa, tanpa build).
-- **Panduan lengkap dari nol: [TUTORIAL.md](TUTORIAL.md)**
+- **Panduan lengkap dari nol: [TUTORIAL.md](TUTORIAL.md)** · Riwayat perubahan: [CHANGELOG.md](CHANGELOG.md)
+- Versi saat ini: **2.0** (tampilan & progres per bahasa dari `kosakata_flashcard_v3.html`)
 
 ## Coba di komputer sendiri
 

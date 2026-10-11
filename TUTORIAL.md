@@ -106,7 +106,7 @@ Setelah terpasang, Vortaro bisa dibuka **tanpa internet**.
 
 Progres di file `kosakata_flashcard.html` lama tersimpan di browser terpisah, jadi tidak otomatis ikut. Pindahkan manual (sekali saja):
 
-1. Buka **file lama** seperti biasa → tab **Atur** → **Cadangkan progres (unduh JSON)**. File `progres-kosakata.json` terunduh.
+1. Buka **file lama** (`kosakata_flashcard.html` atau `kosakata_flashcard_v3.html`) seperti biasa → tab **Atur** → **Cadangkan progres (unduh JSON)**. File `progres-kosakata.json` terunduh.
 2. Buka **Vortaro** (yang sudah terpasang) → tab **Atur** → bagian cadangan → pilih berkas tadi pada kolom file (impor).
 3. Cek tab **Stat**: jumlah kartu & aktivitas harus sudah muncul.
 
@@ -152,6 +152,32 @@ Catatan: GitHub kadang menunda jadwal beberapa menit. Pada repositori publik, ja
 ---
 
 ## 9. Memperbarui aplikasi
+
+### 9a. Naik ke Vortaro 2.0 (dari kosakata_flashcard_v3.html)
+
+Versi 2.0 membawa tampilan & fitur dari `kosakata_flashcard_v3.html` (lihat [CHANGELOG.md](CHANGELOG.md)). Alamat aplikasimu **tidak berubah** (`https://USERNAME.github.io/vortaro/`) karena repositorinya sama.
+
+**Lewat web GitHub (tanpa Git):**
+1. Ekstrak `vortaro-v2.zip`.
+2. Di repositori `vortaro` → **Add file → Upload files**.
+3. Seret isi folder `vortaro` hasil ekstrak (`docs`, `.github`, `README.md`, `TUTORIAL.md`, `CHANGELOG.md`, `.gitignore`) ke area unggah. File dengan nama sama akan tertimpa.
+4. **Commit changes**. Buka tab **Actions** (atau Settings → Pages) dan tunggu 1–3 menit sampai deploy selesai.
+5. Buka alamat Vortaro-mu. Di HP: **Atur → Cek pembaruan aplikasi**.
+
+**Lewat Git:**
+```bash
+cd vortaro            # folder repositori-mu
+# salin isi zip v2 ke sini (timpa file lama), lalu:
+git add -A
+git commit -m "Vortaro 2.0: tampilan baru + progres per bahasa"
+git push
+```
+
+Progres belajarmu tetap aman: pada pembukaan pertama, progres lama (per kartu) otomatis disalin menjadi progres **per bahasa** untuk bahasa yang aktif di filter, dan versi lamanya disimpan sebagai cadangan di dalam data aplikasi. Lihat **Atur → Progres per bahasa** bila ingin menerapkannya ke bahasa lain.
+
+> Tips: sebelum memperbarui, tekan **Atur → Cadangkan progres** dulu.
+
+### 9b. Pembaruan biasa
 
 Untuk mengubah sesuatu (mis. menambah kosakata di `docs/js/data.js`):
 
