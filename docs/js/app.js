@@ -1,6 +1,6 @@
 let S={p:{},s:{},ses:{},gs:0,f:[],gf:[],srs:{},sd:{d:-1,n:0,r:0,x:0,y:0},lg:{},lt:{h:[],g:{},d:{}},o:{}},ok=true,tab='ses',q='',fs='',lim=50,shown=new Set;
 try{if(!localStorage.getItem(SK)&&localStorage.getItem('kosakata_v1'))localStorage.setItem(SK,localStorage.getItem('kosakata_v1'));Object.assign(S,JSON.parse(localStorage.getItem(SK)||'{}'));localStorage.setItem(SK+'_t',1);navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(e){ok=false}
-const FCD={nl:20,rl:200,fd:'id',ff:[],fm:'or',fmin:1,deck:'v',ord:'seq',no:'after',ls:'1 10',rs:'10',gi:1,ei:4,se:250,eb:130,hi:120,ni:0,im:100,mx:36500,lk:1,mig:0,sp:[]};const LTD={lm:1,pl:'zh',plv:[],pn:1,pa:1,pv:1,po:1,ps:'full',pw:'all',pg:'all',pe:1,lx:1};S.o={hide:0,rom:0,minL:1,mode:'mix',...FCD,...LTD,...S.o};if(!S.o.cv)S.o.cv=S.o.hide?'fo':'none';S.o={cgL:'blur',cgK:'show',cgF:'show',cpl:'blur',cvb:'blur',...S.o};S.o={th:'auto',ac:'indigo',fz:'m',tts:1,ttsa:0,hap:1,...S.o};
+const FCD={nl:20,rl:200,fd:'id',ff:[],fm:'or',fmin:1,deck:'v',ord:'seq',no:'after',ls:'1 10',rs:'10',gi:1,ei:4,se:250,eb:130,hi:120,ni:0,im:100,mx:36500,lk:1,mig:0,sp:[]};const LTD={lm:1,pl:'zh',plv:[],pn:1,pa:1,pv:1,po:1,ps:'full',pw:'all',pg:'all',pe:1,lx:1};S.o={hide:0,rom:0,minL:1,mode:'mix',...FCD,...LTD,...S.o};if(!S.o.cv)S.o.cv=S.o.hide?'fo':'none';S.o={cgL:'blur',cgK:'show',cgF:'show',cpl:'blur',cvb:'blur',...S.o};S.o={th:'auto',ac:'indigo',fz:'m',tts:1,ttsa:0,hap:1,gr:25,...S.o};if(!Array.isArray(S.o.gff))S.o.gff=(S.gf||[]).slice();
 const save=()=>{try{localStorage.setItem(SK,JSON.stringify(S))}catch(e){ok=false}window.vrSnapSoon&&vrSnapSoon()};
 const K={};D.C.forEach(c=>K[c[0]]=c);
 const LN={};D.L.forEach(l=>LN[l[0]]=l[1]);{const ok=x=>LN[String(x).split(':')[0]];S.f=S.f.filter(ok);S.o.ff=S.o.ff.filter(ok)}const GK={};D.G.forEach(g=>GK[g[0]]=g);
@@ -50,7 +50,7 @@ for(const s of ORD[m]){const g=P.filter(c=>cs(c,vv(c))==s);if(g.length){const r=
 const pick=(p,ex)=>choose(pool(p).filter(c=>c[0]!=ex)),gp=()=>D.G.filter(g=>!S.gf.length||S.gf.includes(g[1]+':'+g[2]));
 const msel=()=>'<small>Mode belajar</small><select data-i=mode>'+[['mix','Campur (prioritas Belum)'],['new','Hafalan baru'],['rev','Mengingat kembali']].map(([v,x])=>`<option value=${v}${S.o.mode==v?' selected':''}>${x}</option>`).join('')+'</select>';
 function card(k,full){const c=K[k],v=c&&vis(c,full);if(!v)return'<div class=card>Tidak ada kata yang cocok dengan filter saat ini.</div>';const ls=Object.keys(v),dn=ls.filter(l=>st(ik(k,l))==2).length;
-return`<div class="card${shown.has(k)?' show':''}${S.o.cv=='fo'?' hidm':''}${S.o.cv=='id'?' hidd':''}" data-a=flip data-k="${esc(k)}"><div class=hd><span>${PN[c[1]]}</span><span>${dn}/${ls.length} bahasa selesai</span></div><div class=mean>${esc(c[2])}</div><div class=grid>`+
+return`<div class="card${shown.has(k)?' show':''}${S.o.cv=='fo'?' hidm':''}${S.o.cv=='id'?' hidd':''}" data-a=flip data-k="${esc(k)}"><div class=hd><span>${PN[c[1]]}</span><span>${dn}/${ls.length} bahasa selesai${edBtn('v',k)}</span></div><div class=mean>${esc(c[2])}</div><div class=grid>`+
 D.L.filter(l=>v[l[0]]).map(([id,n,col])=>{const i=ik(k,id),s=st(i);return`<div class="lg${S.o.cv=='fo'?' hid':''}" style="--lc:${col}"><small class=lgh>${n}<button class="stp stp${s}" data-a=cyc data-k="${esc(i)}" title="Ketuk untuk mengubah status ${n}">${STN[s]}${fcTag(i)}</button></small>`+v[id].map(e=>`<div class=w>${wd(e[0],c[1],'K',id)}${spk(e[0],id)}</div>${e[1]?`<div class="r rom">${esc(e[1])}</div>`:''}${fmx(e,c[1],id)}${e[2]?`<div class=ex>${esc(e[2])}</div>`:''}`).join('')+'</div>'}).join('')+
 `</div><div class=hint>Ketuk kartu untuk membuka</div>${wSent(k,full)}</div>`}
 function filtBody(){return'<div class=chips><button class="chip'+(S.f.length?'':' on')+'" data-a=fall>Semua bahasa</button></div>'+
@@ -82,7 +82,7 @@ function gbody(g){const L=t=>`<div class=gsec>${t}</div>`,kv=g[10]||[],CJ=['Ich'
  if(g[9].length)h+=num(g[9],'Kasus khusus','gnt gkk');
  return h}
 function gcard(k){const g=GK[k];if(!g)return'<div class=card>Tidak ada grammar untuk filter/mode ini.</div>';const s=st(k);
-return`<div class=card><div class=hd><span>${LN[g[1]]||'Jerman'} ${g[2]}${g[3]?' · '+esc(g[3]):''}</span><span><i class="dot dot${s}"></i>${STN[s]}${fcTag(k)}</span></div><div class=mean>${esc(g[4])}</div>${gbody(g)}${gSent(k,1)}<div class="seg">${STN.map((x,i)=>`<button class="sb sb${i}${i==s?' on':''}" data-a=set data-k="${esc(k)}" data-v=${i}>${x}</button>`).join('')}</div></div>`}
+return`<div class=card><div class=hd><span>${LN[g[1]]||'Jerman'} ${g[2]}${g[3]?' · '+esc(g[3]):''}</span><span><i class="dot dot${s}"></i>${STN[s]}${fcTag(k)}${edBtn('g',k)}</span></div><div class=mean>${esc(g[4])}</div>${gbody(g)}${gSent(k,1)}<div class="seg">${STN.map((x,i)=>`<button class="sb sb${i}${i==s?' on':''}" data-a=set data-k="${esc(k)}" data-v=${i}>${x}</button>`).join('')}</div></div>`}
 function gram(){const P=gp();return dtag('gf')+'<summary>Filter grammar'+(S.gf.length?` (${S.gf.length} aktif)`:'')+'</summary><div class=chips><button class="chip'+(S.gf.length?'':' on')+'" data-a=gall>Semua</button></div>'+D.GL.map(l=>`<small>${l[1]}</small><div class=chips>`+l[3].map(v=>{const x=l[0]+':'+v;return`<button class="chip${S.gf.includes(x)?' on':''}" data-a=gfl data-v="${x}">${v}</button>`}).join('')+'</div>').join('')+msel()+'</details><label class=fcl><span><input type=checkbox data-i=gseq'+(S.o.gseq?' checked':'')+'> Belajar grammar tanpa diacak (berurutan sesuai daftar &amp; filter)</span></label>'+(S.o.gseq?(()=>{const i=P.findIndex(g=>g[0]==S.gs);return'<div class=btns><button data-a=gprev>‹ Sebelumnya</button><button class=pri data-a=gnext style="width:auto;flex:2">Grammar berikutnya</button></div>'+(i>=0?'<p class=gsub style="text-align:center">'+(i+1)+' / '+P.length+'</p>':'')})():'<button class=pri data-a=groll>Acak 1 grammar</button>')+'<p></p>'+(S.gs===0?'':gcard(S.gs))+`<h1>Semua topik (${P.length})</h1>`+
 P.slice(0,lim).map(g=>`<div class=row><div data-a=gopen data-k="${esc(g[0])}"><b>${esc(g[4])}</b><br><small>${LN[g[1]]||'Jerman'} ${g[2]}${g[3]?' · '+esc(g[3]):''}</small>${gBdg(g[0])}</div><button class="stp stp${st(g[0])}" data-a=cyc data-k="${esc(g[0])}">${STN[st(g[0])]}</button></div>`).join('')+(P.length>lim?'<button data-a=more style="width:100%;margin-top:8px">Tampilkan lebih banyak</button>':'')}
 function stats(){return kpiCard()+fcastCard()+fcStatsCard()+heatCard()+actCard()+stats1()+ltStatsCard()}function stats1(){const P=gp(),n=[0,0,0];P.forEach(g=>n[st(g[0])]++);const t=P.length||1;return stats0()+`<div class=card><b>Grammar</b> — ${P.length} topik<div class=bar><i style="width:${n[2]/t*100}%;background:var(--s2)"></i><i style="width:${n[1]/t*100}%;background:var(--s1)"></i></div>Belum ${n[0]} · Sedang ${n[1]} · Selesai ${n[2]}${gUsed(P)}</div>`}
@@ -95,9 +95,9 @@ r.slice(0,lim).map(c=>{const v=vis(c),k=c[0];return`<div class=row><div data-a=w
 function pcard(){const lg=S.legacy,nl=lg?Object.keys(lg.p).length:0,act=[...new Set(S.f.map(x=>String(x).split(':')[0]))];
  return`<div class=card><b>Progres per bahasa</b><p class=gsub style="margin:2px 0 8px">Status & jadwal flashcard kini terpisah untuk tiap bahasa pada kata yang sama (mis. “manusia” Jerman sudah Selesai, Esperanto tetap Belum).</p>`+
  (nl?`<small>${nl} kartu dari progres lama (per kartu) tersimpan sebagai cadangan. Tombol di bawah menyalinnya ke bahasa yang aktif di filter Kata (${act.length?act.map(x=>LN[x]).join(', '):'semua bahasa'}), hanya untuk item yang belum punya status.</small><button data-a=miglg style="width:100%;margin-top:8px">Terapkan progres lama ke bahasa aktif</button>`:'<small>Tidak ada progres lama yang perlu dimigrasi.</small>')+'</div>'}
-function set(){return vrCard()+vrAppCard()+uiCard()+sensor()+pcard()+`<div class=card><button class=pri data-a=exp>Cadangkan progres (unduh JSON)</button><p><input type=file accept=.json data-i=imp></p><button data-a=rst>Hapus semua progres</button></div><p><small>${ok?'Penyimpanan lokal aktif.':'Penyimpanan lokal tidak tersedia.'} ${Object.keys(S.p).length} kartu bertanda, ${S.lt.h.length} kalimat latihan. Buat cadangan sesekali, karena data browser bisa terhapus.</small></p>`}
+function set(){return vrCard()+vrAppCard()+uiCard()+sensor()+pcard()+edCard()+`<div class=card><button class=pri data-a=exp>Cadangkan progres (unduh JSON)</button><p><input type=file accept=.json data-i=imp></p><button data-a=rst>Hapus semua progres</button></div><p><small>${ok?'Penyimpanan lokal aktif.':'Penyimpanan lokal tidak tersedia.'} ${Object.keys(S.p).length} kartu bertanda, ${S.lt.h.length} kalimat latihan. Buat cadangan sesekali, karena data browser bisa terhapus.</small></p>`}
 /* ===== Flashcard + SRS (algoritma ala Anki / SM-2) ===== */
-const FCNUM={fmin:[1,4],nl:[0,9999],rl:[0,9999],gi:[1,365],ei:[1,365],se:[130,500],eb:[100,300],hi:[100,200],ni:[0,100],im:[50,200],mx:[1,36500]};
+const FCNUM={gr:[0,100],fmin:[1,4],nl:[0,9999],rl:[0,9999],gi:[1,365],ei:[1,365],se:[130,500],eb:[100,300],hi:[100,200],ni:[0,100],im:[50,200],mx:[1,36500]};
 let fcCur=null,fcRevd=false,fcFr='id',fcFrK=null,fcUn=[],fcWait=0;
 const fcDay=t=>Math.floor((t-new Date(t).getTimezoneOffset()*60000-144e5)/864e5);
 const fcSt=(s,d)=>{const a=String(s||'').split(/[\s,;]+/).map(parseFloat).filter(x=>x>0);return a.length?a:d};
@@ -135,21 +135,21 @@ function fcVis(c,al){al=al||fcAL();const v={},ids=Object.keys(al),o=S.o;let n=0;
  return n&&(o.fm=='and'?n==ids.length:n>=Math.min(o.fmin,ids.length))?v:null}
 function fcFront(k){const o=S.o;if(GK[k]||o.fd=='id')return'id';const L=lang(k),v=K[base(k)]&&fcVis(K[base(k)]);if(!v||!v[L])return'id';return o.fd=='fo'||Math.random()<.5?L:'id'}
 function fcOk(k){const c=S.srs[k];if(c&&c.z)return 0;const o=S.o;
- if(GK[k])return o.deck!='v'&&gp().includes(GK[k]);
+ if(GK[k])return o.deck!='v'&&fcGOk(GK[k]);
  const b=K[base(k)],L=lang(k),v=b&&fcVis(b);return!!v&&!!v[L]&&o.deck!='g'&&(!o.sp.length||o.sp.includes(b[1]))}
-function fcPool(){const o=S.o,al=fcAL();let a=[];
- if(o.deck!='g')for(const c of D.C){if(o.sp.length&&!o.sp.includes(c[1]))continue;const v=fcVis(c,al);if(v)for(const l in v)a.push(ik(c[0],l))}
- if(o.deck!='v')a=a.concat(gp().map(g=>g[0]));
+function fcPool(){const o=S.o;let a=[];
+ if(o.deck!='g')a=fcPoolV();
+ if(o.deck!='v')a=a.concat(fcGP().map(g=>g[0]));
  return a.filter(k=>!(S.srs[k]&&S.srs[k].z))}
 function fcQ(){fcRoll();const now=Date.now(),td=fcDay(now),o=S.o,sd=S.sd,L=[],R=[],Nw=[],ah=[];let next=0,tm=0;
  for(const k of fcPool()){const c=S.srs[k];if(!c||!c.t){Nw.push(k);continue}
   if(c.t==2){if(c.d<=td)R.push(k);else if(c.d==td+1)tm++}
   else if(c.d<=now)L.push(k);else if(c.d<=now+12e5)ah.push(k);else if(!next||c.d<next)next=c.d}
- return{L,R,Nw,ah,next,tm,nL:Math.max(0,o.nl+(sd.x|0)-sd.n),rL:Math.max(0,o.rl+(sd.y|0)-sd.r)}}
+ return{L,R,Nw:fcMixNew(Nw),ah,next,tm,nL:Math.max(0,o.nl+(sd.x|0)-sd.n),rL:Math.max(0,o.rl+(sd.y|0)-sd.r)}}
 const fcMin=a=>a.reduce((x,y)=>S.srs[x].d<=S.srs[y].d?x:y);
 function fcPick(q){const o=S.o;if(q.L.length)return fcMin(q.L);
  const nn=Math.min(q.Nw.length,q.nL),rr=Math.min(q.R.length,q.rL);
- const pn=()=>o.ord=='rand'?q.Nw[Math.random()*q.Nw.length|0]:q.Nw[0],pr=()=>q.R[Math.random()*q.R.length|0];
+ const pn=()=>{if(o.ord!='rand')return q.Nw[0];if(o.deck=='all'){const G=q.Nw.filter(k=>GK[k]),V=q.Nw.filter(k=>!GK[k]);if(G.length&&V.length){const A=Math.random()<(o.gr==null?25:o.gr)/100?G:V;return A[Math.random()*A.length|0]}}return q.Nw[Math.random()*q.Nw.length|0]},pr=()=>q.R[Math.random()*q.R.length|0];
  if(nn&&rr){const useN=o.no=='before'||(o.no=='mix'&&Math.random()<nn/(nn+rr));return useN?pn():pr()}
  if(nn)return pn();if(rr)return pr();if(q.ah.length)return fcMin(q.ah);return null}
 function fcSync(k,n){if(!S.o.lk)return;S.p[k]=n.t==2&&n.i>=21?2:1;S.s[k]=1}
@@ -188,6 +188,11 @@ function fcAct(a,x,k){
  else if(a=='fcpos'){const sp=S.o.sp.slice();if(x=='all')S.o.sp=[];else{const i=sp.indexOf(x);i<0?sp.push(x):sp.splice(i,1);S.o.sp=sp}fcCur=null}
  else if(a=='fcfl'){const f=S.o.ff.slice(),i=f.indexOf(x);i<0?f.push(x):f.splice(i,1);S.o.ff=f;fcCur=null}
  else if(a=='fcfall'){S.o.ff=[];fcCur=null}
+ else if(a=='fcdeck'){S.o.deck=x;fcCur=null}
+ else if(a=='fcgall'){S.o.gff=[];fcCur=null}
+ else if(a=='fcgl'){const f=S.o.gff.slice(),i=f.indexOf(x);i<0?f.push(x):f.splice(i,1);S.o.gff=f;fcCur=null}
+ else if(a=='fcglg'){const xs=D.GL.find(l=>l[0]==x)[3].map(v=>x+':'+v);let f=S.o.gff.slice();f=xs.every(y=>f.includes(y))?f.filter(y=>!xs.includes(y)):f.concat(xs.filter(y=>!f.includes(y)));S.o.gff=f;fcCur=null}
+ else if(a=='fcrstf'){S.o.ff=[];S.o.gff=[];S.o.sp=[];S.o.fm='or';S.o.fmin=1;fcCur=null}
  else if(a=='fclg'){const xs=D.L.find(l=>l[0]==x)[4].map(v=>x+':'+v);let f=S.o.ff.slice();f=xs.every(y=>f.includes(y))?f.filter(y=>!xs.includes(y)):f.concat(xs.filter(y=>!f.includes(y)));S.o.ff=f;fcCur=null}
  else if(a=='fcmore')S.sd.x=(S.sd.x|0)+10;
  else if(a=='fcmoreR')S.sd.y=(S.sd.y|0)+50;
@@ -212,16 +217,9 @@ function fcBody(k,rev){const g=GK[k];
  return p+`<div class=fchint><small>Ingat dalam:</small>${t.join('')}</div>`}
 const fcN=(f,l,mn,mx)=>`<label class=fcl><span>${l}</span><input type=number inputmode=numeric data-i="fc_${f}" value="${S.o[f]}" min=${mn} max=${mx}></label>`;
 const fcS=(f,l,op)=>`<label class=fcl><span>${l}</span><select data-i="fc_${f}" style="width:auto;margin:0">${op.map(([v,t])=>`<option value="${v}"${S.o[f]==v?' selected':''}>${t}</option>`).join('')}</select></label>`;
-function fcFilt(){const o=S.o,ff=o.ff;
- return dtag('ff')+`<summary>Filter bahasa &amp; level flashcard${ff.length?` (${ff.length} aktif)`:''}</summary><div class=card><small>Bahasa/level yang aktif = diizinkan masuk hafalan. Kosong = semua bahasa.</small><div class=chips><button class="chip${ff.length?'':' on'}" data-a=fcfall>Semua</button></div>`+
- D.L.map(l=>{const all=ff.length&&l[4].every(v=>ff.includes(l[0]+':'+v));return`<div><small>${l[1]}</small><div class=chips><button class="chip${all?' on':''}" data-a=fclg data-v=${l[0]}>Semua level</button>`+l[4].map(v=>{const x=l[0]+':'+v;return`<button class="chip${ff.includes(x)?' on':''}" data-a=fcfl data-v="${x}">${v}</button>`}).join('')+'</div></div>'}).join('')+
- fcS('fm','Cara menyaring',[['or','Salah satu (OR)'],['and','Semua bahasa aktif (AND)']])+fcN('fmin','Minimal bahasa per kartu (mode OR)',1,4)+
- '<small>OR: kartu masuk jika punya padanan di salah satu bahasa aktif, dan hanya bahasa aktif yang perlu diingat. AND: kartu hanya masuk jika punya padanan di semua bahasa aktif.</small></div></details>'}
 function fcSett(){const o=S.o,sz=Object.values(S.srs).filter(c=>c.z).length;
  return dtag('fs')+'<summary>Pengaturan flashcard</summary><div class=card>'+
- fcS('deck','Deck',[['v','Kosakata'],['g','Grammar'],['all','Keduanya']])+
- fcS('fd','Sisi depan kartu',[['id','Bahasa Indonesia'],['fo','Bahasa asing (acak)'],['mix','Campur Indonesia & asing']])+
- `<small>Jenis kata (kosakata)</small><div class=chips><button class="chip${o.sp.length?'':' on'}" data-a=fcpos data-v=all>Semua</button>`+['N','A','V','O'].map(p=>`<button class="chip${o.sp.includes(p)?' on':''}" data-a=fcpos data-v=${p}>${PN[p]}</button>`).join('')+'</div>'+
+ fcS('fd','Sisi depan kartu (kosakata)',[['id','Bahasa Indonesia'],['fo','Bahasa asing (acak)'],['mix','Campur Indonesia & asing']])+
  fcN('nl','Kartu baru per hari',0,9999)+fcN('rl','Maks. ulasan per hari',0,9999)+
  fcS('ord','Urutan kartu baru',[['seq','Berurutan'],['rand','Acak']])+
  fcS('no','Kartu baru vs ulasan',[['after','Baru setelah ulasan'],['before','Baru sebelum ulasan'],['mix','Campur']])+
@@ -232,7 +230,7 @@ function fcSett(){const o=S.o,sz=Object.values(S.srs).filter(c=>c.z).length;
  fcN('gi','Interval lulus (hari)',1,365)+fcN('ei','Interval "Mudah" (hari)',1,365)+fcN('se','Ease awal (%)',130,500)+fcN('eb','Bonus Mudah (%)',100,300)+fcN('hi','Pengali Sulit (%)',100,200)+fcN('ni','Interval setelah lupa (%)',0,100)+fcN('im','Pengubah interval (%)',50,200)+fcN('mx','Interval maksimum (hari)',1,36500)+'</details>'+
  `<div class=btns>${sz?`<button data-a=fcunsusp>Aktifkan kembali ${sz} kartu ditangguhkan</button>`:''}<button data-a=fcrst>Reset jadwal flashcard</button></div></div></details>`}
 function fcDone(q,nn,rr){const now=Date.now();
- if(!fcPool().length)return'<div class=card>Tidak ada kartu yang cocok dengan filter/deck saat ini.</div>';
+ if(!fcPool().length)return`<div class="card empty"><b>Tidak ada kartu yang cocok</b>Deck ${DK.find(d=>d[0]==S.o.deck)[1]} dengan filter saat ini tidak punya kartu aktif (kartu yang ditangguhkan tidak dihitung).<div class=btns><button data-a=fcrstf>Reset semua filter</button><button data-a=fcunsusp>Aktifkan lagi yang ditangguhkan</button></div></div>`;
  let h='<div class=card style="text-align:center"><div class=mean>'+(((S.lg[fcDay(Date.now())]||[0])[0]|0)>0?'🎉 ':'')+'Selesai untuk saat ini</div>';
  if(q.next)h+=`<p>Kartu belajar berikutnya muncul sekitar ${fcFmt(q.next-now)} lagi.</p>`;
  h+=`<p><small>Besok: ${q.tm} ulasan terjadwal · Hari ini: ${S.sd.n} baru &amp; ${S.sd.r} ulasan</small></p><div class=btns>`;
@@ -249,9 +247,9 @@ function fcView(){const q=fcQ(),o=S.o,now=Date.now();
   const hd=g?`${LN[g[1]]||'Jerman'} ${g[2]} · Grammar`:PN[K[base(k)][1]]+' · '+(LN[lang(k)]||'');
   h+=`<div class="card fcard"${rev?'':' data-a=fcshow'}><div class=hd><span>${esc(hd)}</span><span class=${c&&c.t?(c.t==2?'k3':'k2'):'k1'}>${fcInfo(c)}</span></div><div class=fcf>${fcBody(k,rev)}</div></div>`;
   h+=rev?`<div class=dock><div class=fcb>${[1,2,3,4].map(r=>{const n=fcCalc(c,r,now,false);return`<button class="fb fb${r}" data-a=fcans data-v=${r}><small>${n.t==2?fcFmtD(n.i):fcFmt(n.d-now)}</small>${['Lagi','Sulit','Baik','Mudah'][r-1]}</button>`}).join('')}</div></div>`:'<div class=dock><button class=pri data-a=fcshow>Tampilkan jawaban</button></div>';
-  h+=`<div class=fct><button data-a=fcundo${fcUn.length?'':' disabled'}>Urungkan</button><button data-a=fcsusp data-k="${esc(k)}">Tangguhkan</button>${c&&c.t?`<button data-a=fcforget data-k="${esc(k)}">Reset kartu</button>`:''}</div>`}
+  h+=`<div class=fct><button data-a=fcundo${fcUn.length?'':' disabled'}>Urungkan</button><button data-a=fcsusp data-k="${esc(k)}">Tangguhkan</button><button class="${S.ed[g?'g':'v'][g?k:base(k)]?'on':''}" data-a=edit data-k="${esc(g?k:base(k))}" data-v=${g?'g':'v'}>✎ ${S.ed[g?'g':'v'][g?k:base(k)]?'Diedit':'Edit'}</button>${c&&c.t?`<button data-a=fcforget data-k="${esc(k)}">Reset kartu</button>`:''}</div>`}
  else{h+=fcDone(q,nn,rr);fcCelebrate(q,nn,rr)}
- return fcFilt()+fcSett()+h+'<p><small>Filter flashcard terpisah dari tab Belajar; filter grammar diatur di tab Grammar. Pintasan: Spasi = tampilkan / Baik, 1–4 = nilai, Z = urungkan.</small></p>'}
+ return fcDeckBar()+fcFilt()+fcSett()+h+'<p><small>Filter flashcard (kosakata &amp; grammar) terpisah dari tab Belajar dan tab Grammar. Pintasan: Spasi = tampilkan / Baik, 1–4 = nilai, Z = urungkan.</small></p>'}
 function fcStatsCard(){fcRoll();const td=fcDay(Date.now()),P=fcPool(),n={n:0,l:0,y:0,m:0},fc=Array(7).fill(0);
  for(const k of P){const c=S.srs[k];if(!c||!c.t){n.n++;continue}
   if(c.t!=2)n.l++;else{c.i>=21?n.m++:n.y++;const d=c.d-td;if(d<=6)fc[Math.max(0,d)]++}}
@@ -259,7 +257,7 @@ function fcStatsCard(){fcRoll();const td=fcDay(Date.now()),P=fcPool(),n={n:0,l:0
  for(let d=td-29;d<=td;d++){const x=S.lg[d];if(x){t30+=x[0];a30+=x[1]}}
  const mv=Math.max(1,...fc),w=x=>x/t*100;
  return`<div class=card><b>Flashcard (SRS)</b> — ${P.length} kartu<div class=bar><i style="width:${w(n.m)}%;background:#1a8a4a"></i><i style="width:${w(n.y)}%;background:#6cc48f"></i><i style="width:${w(n.l)}%;background:var(--s1)"></i></div>Baru ${n.n} · Belajar ${n.l} · Muda ${n.y} · Matang ${n.m}${sz?` · Ditangguhkan ${sz}`:''}<p><small>Hari ini: ${lg[0]} ulasan · 30 hari: ${t30} ulasan${t30?`, ${Math.round((1-a30/t30)*100)}% benar`:''}</small></p></div>`}
-document.addEventListener('keydown',e=>{if(tab!='fc'||e.ctrlKey||e.metaKey||e.altKey||/INPUT|SELECT|TEXTAREA/.test(e.target.tagName))return;
+document.addEventListener('keydown',e=>{if(tab!='fc'||document.getElementById('edm')||e.ctrlKey||e.metaKey||e.altKey||/INPUT|SELECT|TEXTAREA/.test(e.target.tagName))return;
  const k=e.key;let go=0;
  if(k=='z'||k=='Z'){fcUndo();go=1}
  else if(fcCur&&!fcRevd&&(k==' '||k=='Enter')){fcRevd=true;fcAuto();go=1}
@@ -453,15 +451,15 @@ else if(a=='re'){S.ses[x]=pick(x,S.ses[x])}else if(a=='fl'){const i=S.f.indexOf(
 else if(a=='gnext'||a=='gprev'){const P=gp(),n=P.length;if(n){const i=P.findIndex(g=>g[0]==S.gs),d=a=='gnext'?1:-1,j=i<0?(d>0?0:n-1):((i+d)%n+n)%n;S.gs=P[j][0];S.s[S.gs]=1}}
 else if(a=='gopen'){S.gs=k;tab='gr';save();render();scrollTo(0,0);return}
 else if(a=='wopen'){tab='list';q='';fs='';fk='';foc=k;lim=50;goTop=1}else if(a=='wtog'){xo.has(k)?xo.delete(k):xo.add(k)}else if(a=='wclose'){foc=''}else if(a=='sdel'){sDel(+b.dataset.t)}
-else if(a=='gosen'){tab='set';goTop=1}else if(a=='say'){say(k,x);return}else if(a=='ui'){S.o[k]=x;applyTheme()}else if(a=='sday'){fcSel=+x}else if(a=='srng'){fcRg=+x;fcSel=0}else if(a=='slg'){fcLgF=x;fcSel=0}else if(a=='hday'){heatSel=+x}
+else if(a=='gosen'){tab='set';goTop=1}else if(a=='say'){say(k,x);return}else if(a=='edit'){edOpen(x,k);return}else if(a=='edall'){if(!confirm('Kembalikan semua grammar & kosakata yang diedit ke versi asli?'))return;for(const t of['g','v'])for(const id in S.ed[t])edRestore(t,id);S.ed={g:{},v:{}};toast('Semua edit dikembalikan.')}else if(a=='ui'){S.o[k]=x;applyTheme()}else if(a=='sday'){fcSel=+x}else if(a=='srng'){fcRg=+x;fcSel=0}else if(a=='slg'){fcLgF=x;fcSel=0}else if(a=='hday'){heatSel=+x}
 else if(a=='more')lim+=50;else if(a=='miglg'){const L=[...new Set(S.f.map(x=>String(x).split(':')[0]))],n=migLegacy(L);toast(n+' item bahasa diperbarui dari progres lama.')}
-else if(a=='exp'){const u=URL.createObjectURL(new Blob([JSON.stringify({v:2,p:S.p,s:S.s,srs:S.srs,lg:S.lg,lt:S.lt})],{type:'application/json'})),l=document.createElement('a');l.href=u;l.download='progres-kosakata.json';l.click();return}
+else if(a=='exp'){const u=URL.createObjectURL(new Blob([JSON.stringify({v:2,p:S.p,s:S.s,srs:S.srs,lg:S.lg,lt:S.lt,ed:S.ed})],{type:'application/json'})),l=document.createElement('a');l.href=u;l.download='progres-kosakata.json';l.click();return}
 else if(a=='rst'){if(!confirm('Hapus semua progres?'))return;S.p={};S.s={};S.srs={};S.lg={};S.lt={h:[],g:{},d:{}};ltCur=null;xo=new Set;foc='';S.sd={d:-1,n:0,r:0,x:0,y:0};fcUn=[];fcCur=null}
 save();render();
 if(goSec){const el=document.getElementById(goSec),sm=goSm,id=goSec;goSec='';goSm=0;if(el){el.scrollIntoView({block:'start',behavior:sm?'smooth':'auto'});if(id=='ltTxt')el.focus({preventScroll:true})}else scrollTo(0,goTop?0:y)}else scrollTo(0,goTop?0:y);goTop=0});
 document.addEventListener('change',e=>{const i=e.target.dataset.i;if(!i)return;
 if(i.slice(0,3)=='fc_')fcSet(i,e.target);else if(i.slice(0,3)=='lt_')ltSet(i,e.target);else if(i.slice(0,3)=='ui_'){S.o[i.slice(3)]=e.target.type=='checkbox'?+e.target.checked:e.target.value;applyTheme()}else if(i=='mode')S.o.mode=e.target.value;else if(i=='minL')S.o.minL=+e.target.value;else if(i=='fs')fs=e.target.value;else if(i=='fk')fk=e.target.value;else if(i=='gseq')S.o.gseq=+e.target.checked;else if(['cv','cgL','cgK','cgF','cpl','cvb'].includes(i))S.o[i]=e.target.value;else if(i=='rom')S.o.rom=+e.target.checked;
-else if(i=='imp'){const f=e.target.files[0];if(!f)return;f.text().then(t=>{try{const d=JSON.parse(t);Object.assign(S.p,d.p);Object.assign(S.s,d.s||{});Object.assign(S.srs,d.srs||{});Object.assign(S.lg,d.lg||{});migKeys([...new Set(S.f.map(x=>String(x).split(':')[0]))]);if(d.lt){const m=new Map();(S.lt.h||[]).concat(d.lt.h||[]).forEach(x=>m.set(x.t+'|'+x.s,x));S.lt.h=[...m.values()].sort((a,b)=>a.t-b.t).slice(-1000);sMig();Object.assign(S.lt.g,d.lt.g||{});Object.assign(S.lt.d,d.lt.d||{})}save();render();toast('Progres dipulihkan.')}catch(_){toast('File tidak valid.')}});return}
+else if(i=='imp'){const f=e.target.files[0];if(!f)return;f.text().then(t=>{try{const d=JSON.parse(t);Object.assign(S.p,d.p);Object.assign(S.s,d.s||{});Object.assign(S.srs,d.srs||{});Object.assign(S.lg,d.lg||{});if(d.ed){for(const t of['g','v'])Object.assign(S.ed[t],d.ed[t]||{});edApplyAll()}migKeys([...new Set(S.f.map(x=>String(x).split(':')[0]))]);if(d.lt){const m=new Map();(S.lt.h||[]).concat(d.lt.h||[]).forEach(x=>m.set(x.t+'|'+x.s,x));S.lt.h=[...m.values()].sort((a,b)=>a.t-b.t).slice(-1000);sMig();Object.assign(S.lt.g,d.lt.g||{});Object.assign(S.lt.d,d.lt.d||{})}save();render();toast('Progres dipulihkan.')}catch(_){toast('File tidak valid.')}});return}
 save();render()});
 document.addEventListener('input',e=>{if(e.target.dataset.i=='q'){q=e.target.value;const p=e.target.selectionStart;render();const el=document.querySelector('[data-i=q]');el.focus();el.setSelectionRange(p,p)}});
 /* ===== Vortaro 3.0: prakiraan ulasan, ringkasan, heatmap, tema, suara, perayaan ===== */
@@ -573,6 +571,75 @@ function uiCard(){const o=S.o,seg=(k,op)=>`<div class=seg2>${op.map(([v,t])=>`<b
  `<small class=lbl>Ukuran huruf kata</small>`+seg('fz',[['m','Normal'],['l','Besar'],['xl','Sangat besar']])+
  ck('tts','Tampilkan tombol suara 🔊 di samping kata')+ck('ttsa','Ucapkan otomatis saat jawaban dibuka')+ck('hap','Getar halus saat menilai kartu (HP)')+
  `<small>Suara memakai mesin teks-ke-ucapan di perangkatmu. Untuk Esperanto dipakai suara Italia bila suara Esperanto tidak tersedia.</small></div>`}
+
+/* ===== Filter deck flashcard (kosakata / grammar / keduanya) ===== */
+const DK=[['v','Kosakata'],['g','Grammar'],['all','Keduanya']];
+function fcPoolV(al){al=al||fcAL();const o=S.o,a=[];for(const c of D.C){if(o.sp.length&&!o.sp.includes(c[1]))continue;const v=fcVis(c,al);if(v)for(const l in v)a.push(ik(c[0],l))}return a}
+function fcGOk(g){const f=S.o.gff;return!f.length||f.includes(g[1]+':'+g[2])}
+function fcGP(){return D.G.filter(fcGOk)}
+function fcMixNew(N){const o=S.o;if(o.deck!='all')return N;
+ const g=[],v=[];for(const k of N)(GK[k]?g:v).push(k);if(!g.length||!v.length)return N;
+ const p=Math.min(1,Math.max(0,(o.gr==null?25:o.gr)/100)),out=[];let gi=0,vi=0,acc=0;
+ while(gi<g.length||vi<v.length){acc+=p;if(vi>=v.length||(acc>=1&&gi<g.length)){acc=Math.max(0,acc-1);out.push(g[gi++])}else out.push(v[vi++])}
+ return out}
+function fcDeckBar(){const o=S.o,nv=fcPoolV().length,ng=fcGP().length,n={v:nv,g:ng,all:nv+ng},f=x=>x.toLocaleString('id-ID');
+ return`<div class=deckbar role=tablist aria-label="Deck flashcard">${DK.map(([v,t])=>`<button role=tab aria-selected="${o.deck==v}" class="${o.deck==v?'on':''}" data-a=fcdeck data-v=${v}><span>${t}</span><small>${f(n[v])} kartu</small></button>`).join('')}</div>`}
+function fcFilt(){const o=S.o,ff=o.ff,gf=o.gff,dk=o.deck,sv=dk!='g',sg=dk!='v',act=(sv?ff.length:0)+(sg?gf.length:0);
+ const chips=(L,lvIdx,cur,aAll,aLg,aOne)=>`<div class=chips><button class="chip${cur.length?'':' on'}" data-a=${aAll}>Semua bahasa</button></div>`+L.map(l=>{const lv=l[lvIdx],all=cur.length&&lv.every(v=>cur.includes(l[0]+':'+v));return`<div><small>${l[1]}</small><div class=chips><button class="chip${all?' on':''}" data-a=${aLg} data-v=${l[0]}>Semua level</button>`+lv.map(v=>{const x=l[0]+':'+v;return`<button class="chip${cur.includes(x)?' on':''}" data-a=${aOne} data-v="${x}">${v}</button>`}).join('')+'</div></div>'}).join('');
+ let h=dtag('ff')+`<summary><span>Filter flashcard</span>${act?`<em class=cnt>${act} aktif</em>`:''}</summary><div class=card>`;
+ if(sv)h+=`<div class=fsec><b>Kosakata</b><small>Bahasa &amp; level yang aktif diizinkan masuk hafalan. Kosong = semua.</small>`+chips(D.L,4,ff,'fcfall','fclg','fcfl')+
+  fcS('fm','Cara menyaring',[['or','Salah satu (OR)'],['and','Semua bahasa aktif (AND)']])+fcN('fmin','Minimal bahasa per kartu (mode OR)',1,4)+
+  '<small>OR: kartu masuk jika punya padanan di salah satu bahasa aktif, dan hanya bahasa aktif yang perlu diingat. AND: kartu hanya masuk jika punya padanan di semua bahasa aktif.</small>'+
+  `<small>Jenis kata</small><div class=chips><button class="chip${o.sp.length?'':' on'}" data-a=fcpos data-v=all>Semua</button>`+['N','A','V','O'].map(p=>`<button class="chip${o.sp.includes(p)?' on':''}" data-a=fcpos data-v=${p}>${PN[p]}</button>`).join('')+'</div></div>';
+ if(sg)h+=`<div class=fsec><b>Grammar</b><small>Bahasa &amp; level grammar yang masuk hafalan. Kosong = semua. Filter ini terpisah dari filter di tab Grammar.</small>`+chips(D.GL,3,gf,'fcgall','fcglg','fcgl')+
+  (dk=='all'?fcN('gr','Porsi grammar di kartu baru (%)',0,100)+'<small>Khusus deck Keduanya: 25 berarti tiap 4 kartu baru ada 1 grammar, sisanya kosakata.</small>':'')+'</div>';
+ return h+'<div class=btns><button data-a=fcrstf>Reset semua filter</button></div></div></details>'}
+
+/* ===== Edit keterangan grammar & kosakata ===== */
+S.ed=S.ed||{};S.ed.g=S.ed.g||{};S.ed.v=S.ed.v||{};
+const OG=new Map(),cp=x=>JSON.parse(JSON.stringify(x)),edSrc=(t,id)=>t=='g'?GK[id]:K[id];
+let edCtx=null;
+function edApply(t,id){const ed=S.ed[t][id],s=edSrc(t,id);if(!ed||!s)return;if(!OG.has(t+id))OG.set(t+id,cp(s));
+ if(t=='g'){if(ed.t!=null)s[4]=ed.t;if(ed.f!=null)s[5]=ed.f;if(ed.p!=null)s[6]=ed.p;if(ed.x)s[7]=cp(ed.x);if(ed.n)s[8]=cp(ed.n);if(ed.k)s[9]=cp(ed.k);if(ed.r)s[10]=cp(ed.r)}
+ else{if(ed.m!=null)s[2]=ed.m;if(ed.e)for(const l in ed.e){const ar=s[3][l];if(ar)ed.e[l].forEach((x,i)=>{if(ar[i]&&x){ar[i][0]=x[0];ar[i][1]=x[1];ar[i][2]=x[2]}})}}}
+function edRestore(t,id){const o=OG.get(t+id),s=edSrc(t,id);if(!o||!s)return;o.forEach((v,i)=>{s[i]=cp(v)})}
+function edApplyAll(){for(const t of['g','v'])for(const id in S.ed[t])edApply(t,id)}
+edApplyAll();
+function edBtn(t,id){const on=!!S.ed[t][id];return`<button class="mini ed${on?' on':''}" data-a=edit data-k="${esc(id)}" data-v=${t} title="${on?'Sudah diedit · ':''}Edit keterangan" aria-label="Edit keterangan">✎${on?' diedit':''}</button>`}
+function edOpen(t,id){const s=edSrc(t,id);if(!s)return;edClose();if(!OG.has(t+id))OG.set(t+id,cp(s));edCtx={t,id};
+ const I=(k,l,v)=>`<label class=edl>${l}<input data-f="${k}" value="${esc(v)}" autocomplete=off></label>`,
+  T=(k,l,v,r,h)=>`<label class=edl>${l}${h?`<small>${h}</small>`:''}<textarea data-f="${k}" rows=${r}>${esc(v)}</textarea></label>`;
+ let b,ttl,sub;
+ if(t=='g'){ttl='Edit grammar';sub=`${LN[s[1]]||''} ${s[2]}`;
+  b=I('t','Judul',s[4])+T('f',s[11]||'Fungsi',s[5],3)+T('p','Pola / rumus',s[6],2)+
+   T('x','Contoh',s[7].join('\n\n'),Math.min(14,s[7].length*3+1),'Satu contoh = beberapa baris. Pisahkan antar contoh dengan baris kosong.')+
+   T('n',s[12]||'Keterangan',s[8].join('\n'),Math.min(10,s[8].length+2),'Satu poin per baris.')+
+   T('k','Kasus khusus',s[9].join('\n'),2,'Satu poin per baris (boleh kosong).')+
+   T('r','Rincian (tabel)',(s[10]||[]).map(p=>p[0]+' | '+p[1]).join('\n'),Math.min(10,(s[10]||[]).length+1),'Format: label | isi, satu per baris (boleh kosong).')}
+ else{ttl='Edit kosakata';sub=PN[s[1]];b=I('m','Arti (Bahasa Indonesia)',s[2]);
+  D.L.filter(l=>s[3][l[0]]).forEach(([lid,n,col])=>{s[3][lid].forEach((e,i)=>{b+=`<fieldset class=edfs style="--lc:${col}"><legend>${n}${s[3][lid].length>1?' '+(i+1):''}</legend>`+I(`e.${lid}.${i}.0`,'Kata',e[0])+I(`e.${lid}.${i}.1`,'Bacaan',e[1]||'')+T(`e.${lid}.${i}.2`,'Keterangan / contoh',e[2]||'',3)+'</fieldset>'})})}
+ const m=document.createElement('div');m.id='edm';m.className='edm';
+ m.innerHTML=`<div class=eds role=dialog aria-modal=true aria-label="${ttl}"><div class=edh><div><b>${ttl}</b><small>${esc(sub)} · ${esc(t=='g'?s[4]:s[2])}</small></div><button class=mini data-e=close aria-label=Tutup>✕</button></div><div class=edb>${b}<p class=gsub style="margin:12px 0 0">Perubahan tersimpan di perangkat ini dan ikut dalam cadangan progres.</p></div><div class=edf><button data-e=reset${S.ed[t][id]?'':' disabled'}>Kembalikan asli</button><button class=pri data-e=save>Simpan</button></div></div>`;
+ document.body.appendChild(m);document.body.style.overflow='hidden';
+ const f=m.querySelector('input,textarea');if(f&&!matchMedia('(pointer:coarse)').matches)f.focus()}
+function edClose(q){const m=document.getElementById('edm');if(m)m.remove();document.body.style.overflow='';edCtx=null}
+function edSave(){if(!edCtx)return;const{t,id}=edCtx,m=document.getElementById('edm'),base=OG.get(t+id);if(!m||!base)return;
+ const V=k=>{const el=m.querySelector(`[data-f="${k}"]`);return el?el.value:''},lines=s=>String(s||'').split('\n').map(x=>x.trim()).filter(Boolean),J=JSON.stringify,ed={};
+ if(t=='g'){const t1=V('t').trim(),f=V('f').trim(),p=V('p').trim(),
+   x=V('x').split(/\n\s*\n/).map(z=>z.split('\n').map(y=>y.trim()).filter(Boolean).join('\n')).filter(Boolean),
+   n=lines(V('n')),k=lines(V('k')),r=lines(V('r')).map(l=>{const i=l.indexOf('|');return i<0?[l,'']:[l.slice(0,i).trim(),l.slice(i+1).trim()]});
+  if(!t1)return toast('Judul tidak boleh kosong.');
+  if(t1!==base[4])ed.t=t1;if(f!==base[5])ed.f=f;if(p!==base[6])ed.p=p;if(J(x)!==J(base[7]))ed.x=x;if(J(n)!==J(base[8]))ed.n=n;if(J(k)!==J(base[9]))ed.k=k;if(J(r)!==J(base[10]||[]))ed.r=r}
+ else{const m1=V('m').trim();if(!m1)return toast('Arti tidak boleh kosong.');if(m1!==base[2])ed.m=m1;
+  for(const l in base[3]){const o=base[3][l],arr=o.map((e,i)=>{const w=V(`e.${l}.${i}.0`).trim();return[w||e[0],V(`e.${l}.${i}.1`).trim(),V(`e.${l}.${i}.2`).trim()]});
+   if(arr.some((x,i)=>x[0]!==o[i][0]||x[1]!==(o[i][1]||'')||x[2]!==(o[i][2]||'')))(ed.e=ed.e||{})[l]=arr}}
+ edRestore(t,id);const any=Object.keys(ed).length;if(any)S.ed[t][id]=ed;else delete S.ed[t][id];edApply(t,id);
+ edClose();save();render();toast(any?'Perubahan disimpan ✓':'Tidak ada perubahan.')}
+function edReset(){if(!edCtx)return;const{t,id}=edCtx;edRestore(t,id);delete S.ed[t][id];edClose();save();render();toast('Dikembalikan ke versi asli.')}
+document.addEventListener('click',e=>{const m=document.getElementById('edm');if(!m)return;if(e.target===m){edClose();return}const b=e.target.closest('[data-e]');if(!b)return;const a=b.dataset.e;if(a=='close')edClose();else if(a=='save')edSave();else if(a=='reset')edReset()});
+document.addEventListener('keydown',e=>{if(!document.getElementById('edm'))return;if(e.key=='Escape'){edClose()}else if((e.ctrlKey||e.metaKey)&&e.key=='Enter'){e.preventDefault();edSave()}});
+function edCard(){const ng=Object.keys(S.ed.g).length,nv=Object.keys(S.ed.v).length;
+ return`<div class=card><b>Edit keterangan</b><p class=gsub style="margin:2px 0 8px">Ketuk ✎ pada kartu kosakata, grammar, atau flashcard untuk mengubah arti, keterangan, contoh, dan catatan. Hasil edit tersimpan di perangkat ini dan ikut dalam cadangan progres.</p><small>${ng} grammar · ${nv} kosakata sudah diedit.</small>${ng+nv?'<button data-a=edall style="width:100%;margin-top:8px">Kembalikan semua ke asli</button>':''}</div>`}
 
 applyTheme();
 try{const _t=new URLSearchParams(location.search).get('tab');if(_t&&['ses','fc','lt','gr','list','stats','set'].includes(_t))tab=_t}catch(e){}

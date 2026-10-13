@@ -1,6 +1,23 @@
 # Riwayat Perubahan
 
-## 3.0.0
+## 3.1.0
+**Perbaikan filter flashcard**
+- Deck **Kosakata / Grammar / Keduanya** kini dipilih lewat bilah deck yang selalu terlihat, lengkap dengan jumlah kartu yang cocok.
+- **Grammar punya filter sendiri** (bahasa & level) di panel Filter flashcard, terpisah dari filter tab Grammar. Sebelumnya deck Grammar diam-diam memakai filter tab Grammar sehingga chip di flashcard seolah tidak berfungsi.
+- Level grammar kini lengkap (mis. Jepang **N1** dan Esperanto C2), sebelumnya tidak bisa dipilih di flashcard.
+- Panel filter menyesuaikan deck: opsi kosakata (OR/AND, jenis kata) hanya muncul untuk Kosakata/Keduanya, opsi grammar untuk Grammar/Keduanya.
+- Deck **Keduanya**: kartu baru kini dicampur sesuai **porsi grammar** (default 25%). Sebelumnya kosakata (±20 ribu kartu) selalu habis lebih dulu sehingga grammar hampir tidak pernah muncul.
+- Tombol **Reset semua filter** dan pesan "tidak ada kartu yang cocok" yang lebih membantu.
+
+**Edit keterangan**
+- Tombol ✎ pada kartu kosakata, kartu grammar, dan flashcard membuka dialog edit.
+- Grammar: judul, fungsi, pola, contoh, catatan, kasus khusus, dan rincian tabel. Kosakata: arti, serta kata, bacaan, dan keterangan di tiap bahasa.
+- Hasil edit tersimpan di perangkat, ikut dalam cadangan progres, bisa dikembalikan per kartu atau semuanya (Atur → Edit keterangan).
+
+## 3.0.0 (ringkas)
+Jadwal ulasan 30 hari, ringkasan & heatmap, cincin target harian, suara, tema/aksen, konfeti, lencana ikon. Lihat riwayat di bawah.
+
+### Rincian 3.0.0
 **Statistik**
 - **Ulasan terjadwal 30 hari ke depan:** grafik batang bertumpuk (Belajar / Muda / Matang) dengan pilihan 7, 14, atau 30 hari. Ketuk batang untuk rincian per hari dan per bahasa, lengkap dengan garis rata-rata, penanda batas ulasan harian, dan jumlah kartu yang terlambat. Bisa difilter per bahasa atau Grammar.
 - **Ringkasan** di puncak halaman: rentetan hari, ulasan hari ini, kartu matang, item selesai.
