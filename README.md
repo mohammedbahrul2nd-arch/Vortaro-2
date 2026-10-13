@@ -5,7 +5,7 @@ latihan kalimat, grammar, **pengingat hafalan**, dan bisa dipasang seperti aplik
 
 - Semua kode ada di folder [`docs/`](docs) (HTML + CSS + JS biasa, tanpa build).
 - **Panduan lengkap dari nol: [TUTORIAL.md](TUTORIAL.md)** · Riwayat perubahan: [CHANGELOG.md](CHANGELOG.md)
-- Versi saat ini: **2.0** (tampilan & progres per bahasa dari `kosakata_flashcard_v3.html`)
+- Versi saat ini: **3.0** — jadwal ulasan 30 hari, ringkasan & heatmap konsistensi, cincin target harian, suara pengucapan, tema/aksen, dan perayaan saat target tercapai.
 
 ## Coba di komputer sendiri
 

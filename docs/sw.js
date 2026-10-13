@@ -1,5 +1,5 @@
 /* Vortaro service worker — offline + pengingat latar belakang */
-const VERSION='2.0.0',CACHE='vortaro-'+VERSION;
+const VERSION='3.0.0',CACHE='vortaro-'+VERSION;
 importScripts('js/vr-core.js');
 const SHELL=['./','index.html','css/app.css','js/data.js','js/vr-core.js','js/reminder.js','js/app.js','manifest.webmanifest','icons/icon.svg','icons/icon-192.png','icons/icon-512.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting()))});
@@ -15,7 +15,7 @@ self.addEventListener('fetch',e=>{
   return(await net)||new Response('Offline',{status:503});
  })());
 });
-const show=m=>self.registration.showNotification(m.title,{body:m.body,icon:'icons/icon-192.png',tag:'vortaro-reminder',data:{url:'./?tab=fc'},actions:[{action:'study',title:'Mulai belajar'},{action:'later',title:'Nanti'}]});
+const show=m=>{try{self.navigator.setAppBadge&&m.n>0&&self.navigator.setAppBadge(m.n)}catch(e){}return self.registration.showNotification(m.title,{body:m.body,icon:'icons/icon-192.png',tag:'vortaro-reminder',data:{url:'./?tab=fc'},actions:[{action:'study',title:'Mulai belajar'},{action:'later',title:'Nanti'}]})};
 self.addEventListener('periodicsync',e=>{if(e.tag==='vortaro-reminder')e.waitUntil(VR.check(show))});
 self.addEventListener('message',e=>{if(e.data==='skip')self.skipWaiting()});
 self.addEventListener('notificationclick',e=>{

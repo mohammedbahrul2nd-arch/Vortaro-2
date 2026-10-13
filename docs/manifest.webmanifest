@@ -1,7 +1,7 @@
 {
   "name": "Vortaro",
   "short_name": "Vortaro",
-  "description": "Flashcard kosakata Mandarin, Jepang, Jerman & Esperanto dengan pengingat hafalan.",
+  "description": "Flashcard kosakata Mandarin, Jepang, Jerman & Esperanto dengan jadwal ulasan 30 hari, suara, dan pengingat hafalan.",
   "lang": "id",
   "start_url": "./?source=pwa",
   "scope": "./",
@@ -9,13 +9,51 @@
   "orientation": "portrait",
   "background_color": "#eef1f5",
   "theme_color": "#1f3a5f",
-  "categories": ["education"],
+  "categories": [
+    "education"
+  ],
   "icons": [
-    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
-    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
-    {"src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ],
   "shortcuts": [
-    {"name": "Kartu hari ini", "short_name": "Kartu", "url": "./?tab=fc", "icons": [{"src": "icons/icon-192.png", "sizes": "192x192"}]}
+    {
+      "name": "Kartu hari ini",
+      "short_name": "Kartu",
+      "url": "./?tab=fc",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Statistik & jadwal ulasan",
+      "short_name": "Statistik",
+      "url": "./?tab=stats",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
   ]
 }

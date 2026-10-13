@@ -1,6 +1,6 @@
 let S={p:{},s:{},ses:{},gs:0,f:[],gf:[],srs:{},sd:{d:-1,n:0,r:0,x:0,y:0},lg:{},lt:{h:[],g:{},d:{}},o:{}},ok=true,tab='ses',q='',fs='',lim=50,shown=new Set;
 try{if(!localStorage.getItem(SK)&&localStorage.getItem('kosakata_v1'))localStorage.setItem(SK,localStorage.getItem('kosakata_v1'));Object.assign(S,JSON.parse(localStorage.getItem(SK)||'{}'));localStorage.setItem(SK+'_t',1);navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(e){ok=false}
-const FCD={nl:20,rl:200,fd:'id',ff:[],fm:'or',fmin:1,deck:'v',ord:'seq',no:'after',ls:'1 10',rs:'10',gi:1,ei:4,se:250,eb:130,hi:120,ni:0,im:100,mx:36500,lk:1,mig:0,sp:[]};const LTD={lm:1,pl:'zh',plv:[],pn:1,pa:1,pv:1,po:1,ps:'full',pw:'all',pg:'all',pe:1,lx:1};S.o={hide:0,rom:0,minL:1,mode:'mix',...FCD,...LTD,...S.o};if(!S.o.cv)S.o.cv=S.o.hide?'fo':'none';S.o={cgL:'blur',cgK:'show',cgF:'show',cpl:'blur',cvb:'blur',...S.o};
+const FCD={nl:20,rl:200,fd:'id',ff:[],fm:'or',fmin:1,deck:'v',ord:'seq',no:'after',ls:'1 10',rs:'10',gi:1,ei:4,se:250,eb:130,hi:120,ni:0,im:100,mx:36500,lk:1,mig:0,sp:[]};const LTD={lm:1,pl:'zh',plv:[],pn:1,pa:1,pv:1,po:1,ps:'full',pw:'all',pg:'all',pe:1,lx:1};S.o={hide:0,rom:0,minL:1,mode:'mix',...FCD,...LTD,...S.o};if(!S.o.cv)S.o.cv=S.o.hide?'fo':'none';S.o={cgL:'blur',cgK:'show',cgF:'show',cpl:'blur',cvb:'blur',...S.o};S.o={th:'auto',ac:'indigo',fz:'m',tts:1,ttsa:0,hap:1,...S.o};
 const save=()=>{try{localStorage.setItem(SK,JSON.stringify(S))}catch(e){ok=false}window.vrSnapSoon&&vrSnapSoon()};
 const K={};D.C.forEach(c=>K[c[0]]=c);
 const LN={};D.L.forEach(l=>LN[l[0]]=l[1]);{const ok=x=>LN[String(x).split(':')[0]];S.f=S.f.filter(ok);S.o.ff=S.o.ff.filter(ok)}const GK={};D.G.forEach(g=>GK[g[0]]=g);
@@ -51,7 +51,7 @@ const pick=(p,ex)=>choose(pool(p).filter(c=>c[0]!=ex)),gp=()=>D.G.filter(g=>!S.g
 const msel=()=>'<small>Mode belajar</small><select data-i=mode>'+[['mix','Campur (prioritas Belum)'],['new','Hafalan baru'],['rev','Mengingat kembali']].map(([v,x])=>`<option value=${v}${S.o.mode==v?' selected':''}>${x}</option>`).join('')+'</select>';
 function card(k,full){const c=K[k],v=c&&vis(c,full);if(!v)return'<div class=card>Tidak ada kata yang cocok dengan filter saat ini.</div>';const ls=Object.keys(v),dn=ls.filter(l=>st(ik(k,l))==2).length;
 return`<div class="card${shown.has(k)?' show':''}${S.o.cv=='fo'?' hidm':''}${S.o.cv=='id'?' hidd':''}" data-a=flip data-k="${esc(k)}"><div class=hd><span>${PN[c[1]]}</span><span>${dn}/${ls.length} bahasa selesai</span></div><div class=mean>${esc(c[2])}</div><div class=grid>`+
-D.L.filter(l=>v[l[0]]).map(([id,n,col])=>{const i=ik(k,id),s=st(i);return`<div class="lg${S.o.cv=='fo'?' hid':''}" style="--lc:${col}"><small class=lgh>${n}<button class="stp stp${s}" data-a=cyc data-k="${esc(i)}" title="Ketuk untuk mengubah status ${n}">${STN[s]}${fcTag(i)}</button></small>`+v[id].map(e=>`<div class=w>${wd(e[0],c[1],'K',id)}</div>${e[1]?`<div class="r rom">${esc(e[1])}</div>`:''}${fmx(e,c[1],id)}${e[2]?`<div class=ex>${esc(e[2])}</div>`:''}`).join('')+'</div>'}).join('')+
+D.L.filter(l=>v[l[0]]).map(([id,n,col])=>{const i=ik(k,id),s=st(i);return`<div class="lg${S.o.cv=='fo'?' hid':''}" style="--lc:${col}"><small class=lgh>${n}<button class="stp stp${s}" data-a=cyc data-k="${esc(i)}" title="Ketuk untuk mengubah status ${n}">${STN[s]}${fcTag(i)}</button></small>`+v[id].map(e=>`<div class=w>${wd(e[0],c[1],'K',id)}${spk(e[0],id)}</div>${e[1]?`<div class="r rom">${esc(e[1])}</div>`:''}${fmx(e,c[1],id)}${e[2]?`<div class=ex>${esc(e[2])}</div>`:''}`).join('')+'</div>'}).join('')+
 `</div><div class=hint>Ketuk kartu untuk membuka</div>${wSent(k,full)}</div>`}
 function filtBody(){return'<div class=chips><button class="chip'+(S.f.length?'':' on')+'" data-a=fall>Semua bahasa</button></div>'+
 D.L.map(l=>`<div><small>${l[1]}</small><div class=chips>`+l[4].map(v=>{const x=l[0]+':'+v;return`<button class="chip${S.f.includes(x)?' on':''}" data-a=fl data-v="${x}">${v}</button>`}).join('')+'</div></div>').join('')}
@@ -85,7 +85,7 @@ function gcard(k){const g=GK[k];if(!g)return'<div class=card>Tidak ada grammar u
 return`<div class=card><div class=hd><span>${LN[g[1]]||'Jerman'} ${g[2]}${g[3]?' · '+esc(g[3]):''}</span><span><i class="dot dot${s}"></i>${STN[s]}${fcTag(k)}</span></div><div class=mean>${esc(g[4])}</div>${gbody(g)}${gSent(k,1)}<div class="seg">${STN.map((x,i)=>`<button class="sb sb${i}${i==s?' on':''}" data-a=set data-k="${esc(k)}" data-v=${i}>${x}</button>`).join('')}</div></div>`}
 function gram(){const P=gp();return dtag('gf')+'<summary>Filter grammar'+(S.gf.length?` (${S.gf.length} aktif)`:'')+'</summary><div class=chips><button class="chip'+(S.gf.length?'':' on')+'" data-a=gall>Semua</button></div>'+D.GL.map(l=>`<small>${l[1]}</small><div class=chips>`+l[3].map(v=>{const x=l[0]+':'+v;return`<button class="chip${S.gf.includes(x)?' on':''}" data-a=gfl data-v="${x}">${v}</button>`}).join('')+'</div>').join('')+msel()+'</details><label class=fcl><span><input type=checkbox data-i=gseq'+(S.o.gseq?' checked':'')+'> Belajar grammar tanpa diacak (berurutan sesuai daftar &amp; filter)</span></label>'+(S.o.gseq?(()=>{const i=P.findIndex(g=>g[0]==S.gs);return'<div class=btns><button data-a=gprev>‹ Sebelumnya</button><button class=pri data-a=gnext style="width:auto;flex:2">Grammar berikutnya</button></div>'+(i>=0?'<p class=gsub style="text-align:center">'+(i+1)+' / '+P.length+'</p>':'')})():'<button class=pri data-a=groll>Acak 1 grammar</button>')+'<p></p>'+(S.gs===0?'':gcard(S.gs))+`<h1>Semua topik (${P.length})</h1>`+
 P.slice(0,lim).map(g=>`<div class=row><div data-a=gopen data-k="${esc(g[0])}"><b>${esc(g[4])}</b><br><small>${LN[g[1]]||'Jerman'} ${g[2]}${g[3]?' · '+esc(g[3]):''}</small>${gBdg(g[0])}</div><button class="stp stp${st(g[0])}" data-a=cyc data-k="${esc(g[0])}">${STN[st(g[0])]}</button></div>`).join('')+(P.length>lim?'<button data-a=more style="width:100%;margin-top:8px">Tampilkan lebih banyak</button>':'')}
-function stats(){return stats1()+actCard()+fcStatsCard()+ltStatsCard()}function stats1(){const P=gp(),n=[0,0,0];P.forEach(g=>n[st(g[0])]++);const t=P.length||1;return stats0()+`<div class=card><b>Grammar</b> — ${P.length} topik<div class=bar><i style="width:${n[2]/t*100}%;background:var(--s2)"></i><i style="width:${n[1]/t*100}%;background:var(--s1)"></i></div>Belum ${n[0]} · Sedang ${n[1]} · Selesai ${n[2]}${gUsed(P)}</div>`}
+function stats(){return kpiCard()+fcastCard()+fcStatsCard()+heatCard()+actCard()+stats1()+ltStatsCard()}function stats1(){const P=gp(),n=[0,0,0];P.forEach(g=>n[st(g[0])]++);const t=P.length||1;return stats0()+`<div class=card><b>Grammar</b> — ${P.length} topik<div class=bar><i style="width:${n[2]/t*100}%;background:var(--s2)"></i><i style="width:${n[1]/t*100}%;background:var(--s1)"></i></div>Belum ${n[0]} · Sedang ${n[1]} · Selesai ${n[2]}${gUsed(P)}</div>`}
 function list(){const t=q.toLowerCase();let r=D.C.filter(c=>{const v=vis(c);if(!v)return 0;const k=c[0],ss=SI.w[k]||[];if(fs!==''&&!Object.keys(v).some(l=>st(ik(k,l))==fs))return 0;
 if(fk=='s'&&!ss.length)return 0;if(fk=='n'&&ss.length)return 0;if(fk=='w'&&!ss.some(h=>h.r==0))return 0;
 return!t||c[2].toLowerCase().includes(t)||Object.values(v).flat().some(e=>(e[0]+e[1]).toLowerCase().includes(t))||ss.some(h=>h.s.toLowerCase().includes(t))});const n=r.length;
@@ -95,7 +95,7 @@ r.slice(0,lim).map(c=>{const v=vis(c),k=c[0];return`<div class=row><div data-a=w
 function pcard(){const lg=S.legacy,nl=lg?Object.keys(lg.p).length:0,act=[...new Set(S.f.map(x=>String(x).split(':')[0]))];
  return`<div class=card><b>Progres per bahasa</b><p class=gsub style="margin:2px 0 8px">Status & jadwal flashcard kini terpisah untuk tiap bahasa pada kata yang sama (mis. “manusia” Jerman sudah Selesai, Esperanto tetap Belum).</p>`+
  (nl?`<small>${nl} kartu dari progres lama (per kartu) tersimpan sebagai cadangan. Tombol di bawah menyalinnya ke bahasa yang aktif di filter Kata (${act.length?act.map(x=>LN[x]).join(', '):'semua bahasa'}), hanya untuk item yang belum punya status.</small><button data-a=miglg style="width:100%;margin-top:8px">Terapkan progres lama ke bahasa aktif</button>`:'<small>Tidak ada progres lama yang perlu dimigrasi.</small>')+'</div>'}
-function set(){return vrCard()+vrAppCard()+sensor()+pcard()+`<div class=card><button class=pri data-a=exp>Cadangkan progres (unduh JSON)</button><p><input type=file accept=.json data-i=imp></p><button data-a=rst>Hapus semua progres</button></div><p><small>${ok?'Penyimpanan lokal aktif.':'Penyimpanan lokal tidak tersedia.'} ${Object.keys(S.p).length} kartu bertanda, ${S.lt.h.length} kalimat latihan. Buat cadangan sesekali, karena data browser bisa terhapus.</small></p>`}
+function set(){return vrCard()+vrAppCard()+uiCard()+sensor()+pcard()+`<div class=card><button class=pri data-a=exp>Cadangkan progres (unduh JSON)</button><p><input type=file accept=.json data-i=imp></p><button data-a=rst>Hapus semua progres</button></div><p><small>${ok?'Penyimpanan lokal aktif.':'Penyimpanan lokal tidak tersedia.'} ${Object.keys(S.p).length} kartu bertanda, ${S.lt.h.length} kalimat latihan. Buat cadangan sesekali, karena data browser bisa terhapus.</small></p>`}
 /* ===== Flashcard + SRS (algoritma ala Anki / SM-2) ===== */
 const FCNUM={fmin:[1,4],nl:[0,9999],rl:[0,9999],gi:[1,365],ei:[1,365],se:[130,500],eb:[100,300],hi:[100,200],ni:[0,100],im:[50,200],mx:[1,36500]};
 let fcCur=null,fcRevd=false,fcFr='id',fcFrK=null,fcUn=[],fcWait=0;
@@ -170,7 +170,7 @@ function fcSyncAll(){let a=0,b=0;
 function fcTag(k){const c=S.srs[k];if(!c||!c.t)return'';if(c.t!=2)return' · belajar';const d=c.d-fcDay(Date.now());return' · ulas '+(d<=0?'hari ini':d==1?'besok':d+' hr')}
 function fcAns(r){const k=fcCur;if(!k||!fcRevd)return;fcRoll();const now=Date.now(),td=fcDay(now),c=S.srs[k],had=c&&c.t;
  fcUn.push({k,c:c?{...c}:undefined,sd:{...S.sd},p:S.p[k],td,lg:S.lg[td]?[...S.lg[td]]:undefined});if(fcUn.length>30)fcUn.shift();
- const n=fcCalc(c,r,now,true);S.srs[k]=n;
+ const n=fcCalc(c,r,now,true);S.srs[k]=n;buzz(r==1?[16,40,16]:10);
  if(!had)S.sd.n++;else if(c.t==2)S.sd.r++;
  const L=S.lg[td]||(S.lg[td]=[0,0]);L[0]++;if(r==1)L[1]++;
  for(const d in S.lg)if(+d<td-400)delete S.lg[d];
@@ -178,12 +178,12 @@ function fcAns(r){const k=fcCur;if(!k||!fcRevd)return;fcRoll();const now=Date.no
 function fcUndo(){const u=fcUn.pop();if(!u)return;if(u.c)S.srs[u.k]=u.c;else delete S.srs[u.k];S.sd=u.sd;
  if(u.p===undefined)delete S.p[u.k];else S.p[u.k]=u.p;if(u.lg)S.lg[u.td]=u.lg;else delete S.lg[u.td];fcCur=u.k;fcRevd=false;fcFrK=null}
 function fcAct(a,x,k){
- if(a=='fcshow')fcRevd=true;
+ if(a=='fcshow'){fcRevd=true;fcAuto()}
  else if(a=='fcans')fcAns(+x);
  else if(a=='fcundo')fcUndo();
  else if(a=='fcsusp'){S.srs[k]=Object.assign(S.srs[k]||{},{z:1});fcCur=null}
  else if(a=='fcforget'){delete S.srs[k];if(S.o.lk)delete S.p[k];fcCur=null}
- else if(a=='fcsyncall'){const r=fcSyncAll();alert(r[0]+' status diterapkan ke jadwal kartu, '+r[1]+' status diperbarui dari jadwal kartu.')}
+ else if(a=='fcsyncall'){const r=fcSyncAll();toast(r[0]+' status diterapkan ke jadwal kartu, '+r[1]+' status diperbarui dari jadwal kartu.')}
  else if(a=='fcunsusp'){for(const j in S.srs){delete S.srs[j].z;if(!S.srs[j].t)delete S.srs[j]}fcCur=null}
  else if(a=='fcpos'){const sp=S.o.sp.slice();if(x=='all')S.o.sp=[];else{const i=sp.indexOf(x);i<0?sp.push(x):sp.splice(i,1);S.o.sp=sp}fcCur=null}
  else if(a=='fcfl'){const f=S.o.ff.slice(),i=f.indexOf(x);i<0?f.push(x):f.splice(i,1);S.o.ff=f;fcCur=null}
@@ -204,11 +204,11 @@ function fcBody(k,rev){const g=GK[k];
  if(g){const t=(g[3]?`<div class=gsub>${esc(g[3])}</div>`:'')+`<div class=mean>${esc(g[4])}</div>`;return rev?t+'<hr><div style="text-align:left">'+gbody(g)+gSent(k,0)+'</div>':t}
  const b=base(k),L=lang(k),c=K[b],v0=fcVis(c)||{},v=v0[L]?{[L]:v0[L]}:v0,f=fcFr,mean=`<div class=mean>${esc(c[2])}</div>`;
  const lc=id=>D.L.find(l=>l[0]==id),ch=(n,col)=>`<span class=fch style="--lc:${col}">${esc(n)}</span>`;
- const blk=(ids,full)=>'<div class=grid>'+D.L.filter(l=>ids.includes(l[0])).map(([id,n,col])=>`<div class=lg style="--lc:${col}"><small>${n}</small>`+v[id].map(e=>`<div class=w>${wd(e[0],c[1],'F',id)}</div>${e[1]?`<div class="r rom">${esc(e[1])}</div>`:''}${full?fmx(e,c[1],id):''}${full&&e[2]?`<div class=ex>${esc(e[2])}</div>`:''}`).join('')+'</div>').join('')+'</div>';
+ const blk=(ids,full)=>'<div class=grid>'+D.L.filter(l=>ids.includes(l[0])).map(([id,n,col])=>`<div class=lg style="--lc:${col}"><small>${n}</small>`+v[id].map(e=>`<div class=w>${wd(e[0],c[1],'F',id)}${spk(e[0],id)}</div>${e[1]?`<div class="r rom">${esc(e[1])}</div>`:''}${full?fmx(e,c[1],id):''}${full&&e[2]?`<div class=ex>${esc(e[2])}</div>`:''}`).join('')+'</div>').join('')+'</div>';
  if(rev)return mean+'<hr>'+blk(Object.keys(v),1)+wSent(b,0);
  let p,t;
  if(f=='id'||!v[f]){p=mean;t=[ch(LN[L],lc(L)[2])]}
- else{p=`<div class=fcp>${ch(LN[f],lc(f)[2])}`+v[f].map(e=>`<div class=w style="font-size:1.8rem">${wd(e[0],c[1],'F',f)}</div>${e[1]?`<div class="r rom">${esc(e[1])}</div>`:''}`).join('')+'</div>';t=[ch('Indonesia','var(--a)')]}
+ else{p=`<div class=fcp>${ch(LN[f],lc(f)[2])}`+v[f].map(e=>`<div class=w style="font-size:1.8rem">${wd(e[0],c[1],'F',f)}${spk(e[0],f)}</div>${e[1]?`<div class="r rom">${esc(e[1])}</div>`:''}`).join('')+'</div>';t=[ch('Indonesia','var(--a)')]}
  return p+`<div class=fchint><small>Ingat dalam:</small>${t.join('')}</div>`}
 const fcN=(f,l,mn,mx)=>`<label class=fcl><span>${l}</span><input type=number inputmode=numeric data-i="fc_${f}" value="${S.o[f]}" min=${mn} max=${mx}></label>`;
 const fcS=(f,l,op)=>`<label class=fcl><span>${l}</span><select data-i="fc_${f}" style="width:auto;margin:0">${op.map(([v,t])=>`<option value="${v}"${S.o[f]==v?' selected':''}>${t}</option>`).join('')}</select></label>`;
@@ -233,7 +233,7 @@ function fcSett(){const o=S.o,sz=Object.values(S.srs).filter(c=>c.z).length;
  `<div class=btns>${sz?`<button data-a=fcunsusp>Aktifkan kembali ${sz} kartu ditangguhkan</button>`:''}<button data-a=fcrst>Reset jadwal flashcard</button></div></div></details>`}
 function fcDone(q,nn,rr){const now=Date.now();
  if(!fcPool().length)return'<div class=card>Tidak ada kartu yang cocok dengan filter/deck saat ini.</div>';
- let h='<div class=card style="text-align:center"><div class=mean>Selesai untuk saat ini</div>';
+ let h='<div class=card style="text-align:center"><div class=mean>'+(((S.lg[fcDay(Date.now())]||[0])[0]|0)>0?'🎉 ':'')+'Selesai untuk saat ini</div>';
  if(q.next)h+=`<p>Kartu belajar berikutnya muncul sekitar ${fcFmt(q.next-now)} lagi.</p>`;
  h+=`<p><small>Besok: ${q.tm} ulasan terjadwal · Hari ini: ${S.sd.n} baru &amp; ${S.sd.r} ulasan</small></p><div class=btns>`;
  if(q.Nw.length)h+='<button data-a=fcmore>+10 kartu baru</button>';
@@ -244,13 +244,13 @@ function fcView(){const q=fcQ(),o=S.o,now=Date.now();
  if(fcCur&&fcFrK!==fcCur){fcFr=fcFront(fcCur);fcFrK=fcCur}
  fcWait=fcCur?0:q.next;
  const nn=Math.min(q.Nw.length,q.nL),rr=Math.min(q.R.length,q.rL),ln=q.L.length+(nn+rr?0:q.ah.length);
- let h=`<div class=fcc><span class=k1><b>${nn}</b><small>Baru</small></span><span class=k2><b>${ln}</b><small>Belajar</small></span><span class=k3><b>${rr}</b><small>Ulas</small></span></div>`;
+ let h=fcHero(q,nn,rr)+`<div class=fcc><span class=k1><b>${nn}</b><small>Baru</small></span><span class=k2><b>${ln}</b><small>Belajar</small></span><span class=k3><b>${rr}</b><small>Ulas</small></span></div>`;
  if(fcCur){const k=fcCur,c=S.srs[k],g=GK[k],rev=fcRevd;
   const hd=g?`${LN[g[1]]||'Jerman'} ${g[2]} · Grammar`:PN[K[base(k)][1]]+' · '+(LN[lang(k)]||'');
   h+=`<div class="card fcard"${rev?'':' data-a=fcshow'}><div class=hd><span>${esc(hd)}</span><span class=${c&&c.t?(c.t==2?'k3':'k2'):'k1'}>${fcInfo(c)}</span></div><div class=fcf>${fcBody(k,rev)}</div></div>`;
   h+=rev?`<div class=dock><div class=fcb>${[1,2,3,4].map(r=>{const n=fcCalc(c,r,now,false);return`<button class="fb fb${r}" data-a=fcans data-v=${r}><small>${n.t==2?fcFmtD(n.i):fcFmt(n.d-now)}</small>${['Lagi','Sulit','Baik','Mudah'][r-1]}</button>`}).join('')}</div></div>`:'<div class=dock><button class=pri data-a=fcshow>Tampilkan jawaban</button></div>';
   h+=`<div class=fct><button data-a=fcundo${fcUn.length?'':' disabled'}>Urungkan</button><button data-a=fcsusp data-k="${esc(k)}">Tangguhkan</button>${c&&c.t?`<button data-a=fcforget data-k="${esc(k)}">Reset kartu</button>`:''}</div>`}
- else h+=fcDone(q,nn,rr);
+ else{h+=fcDone(q,nn,rr);fcCelebrate(q,nn,rr)}
  return fcFilt()+fcSett()+h+'<p><small>Filter flashcard terpisah dari tab Belajar; filter grammar diatur di tab Grammar. Pintasan: Spasi = tampilkan / Baik, 1–4 = nilai, Z = urungkan.</small></p>'}
 function fcStatsCard(){fcRoll();const td=fcDay(Date.now()),P=fcPool(),n={n:0,l:0,y:0,m:0},fc=Array(7).fill(0);
  for(const k of P){const c=S.srs[k];if(!c||!c.t){n.n++;continue}
@@ -258,11 +258,11 @@ function fcStatsCard(){fcRoll();const td=fcDay(Date.now()),P=fcPool(),n={n:0,l:0
  const t=P.length||1,sz=Object.values(S.srs).filter(c=>c.z).length,lg=S.lg[td]||[0,0];let t30=0,a30=0;
  for(let d=td-29;d<=td;d++){const x=S.lg[d];if(x){t30+=x[0];a30+=x[1]}}
  const mv=Math.max(1,...fc),w=x=>x/t*100;
- return`<div class=card><b>Flashcard (SRS)</b> — ${P.length} kartu<div class=bar><i style="width:${w(n.m)}%;background:#1a8a4a"></i><i style="width:${w(n.y)}%;background:#6cc48f"></i><i style="width:${w(n.l)}%;background:var(--s1)"></i></div>Baru ${n.n} · Belajar ${n.l} · Muda ${n.y} · Matang ${n.m}${sz?` · Ditangguhkan ${sz}`:''}<p><small>Hari ini: ${lg[0]} ulasan · 30 hari: ${t30} ulasan${t30?`, ${Math.round((1-a30/t30)*100)}% benar`:''}</small></p><small>Ulasan terjadwal 7 hari ke depan</small><div class=fcg>${fc.map((x,i)=>`<div><small>${x}</small><i style="height:${Math.round(x/mv*40)+2}px"></i><small>${i?'+'+i:'Hr ini'}</small></div>`).join('')}</div></div>`}
+ return`<div class=card><b>Flashcard (SRS)</b> — ${P.length} kartu<div class=bar><i style="width:${w(n.m)}%;background:#1a8a4a"></i><i style="width:${w(n.y)}%;background:#6cc48f"></i><i style="width:${w(n.l)}%;background:var(--s1)"></i></div>Baru ${n.n} · Belajar ${n.l} · Muda ${n.y} · Matang ${n.m}${sz?` · Ditangguhkan ${sz}`:''}<p><small>Hari ini: ${lg[0]} ulasan · 30 hari: ${t30} ulasan${t30?`, ${Math.round((1-a30/t30)*100)}% benar`:''}</small></p></div>`}
 document.addEventListener('keydown',e=>{if(tab!='fc'||e.ctrlKey||e.metaKey||e.altKey||/INPUT|SELECT|TEXTAREA/.test(e.target.tagName))return;
  const k=e.key;let go=0;
  if(k=='z'||k=='Z'){fcUndo();go=1}
- else if(fcCur&&!fcRevd&&(k==' '||k=='Enter')){fcRevd=true;go=1}
+ else if(fcCur&&!fcRevd&&(k==' '||k=='Enter')){fcRevd=true;fcAuto();go=1}
  else if(fcCur&&fcRevd&&(k==' '||k=='Enter')){fcAns(3);go=1}
  else if(fcCur&&fcRevd&&/^[1-4]$/.test(k)){fcAns(+k);go=1}
  if(go){e.preventDefault();save();render()}});
@@ -333,7 +333,7 @@ function ltAct(a,x,k){const c=ltCur,o=S.o;if(a!='ltrate')ltMsg='';
   if(r==2&&has&&o.lx)[c.g,...c.w.map(w=>ik(w.k,c.lang))].forEach(z=>{if(z&&!st(z)){S.p[z]=1;S.s[z]=1;fcFS(z);up++}});
   sBuild();ltNew();goSec='sec-l';ltMsg=up?'Status naik ke Sedang: '+up+' item (kata/grammar) karena kalimatmu tepat.':''}
  else if(a=='ltgo'&&GK[k]){const L=GK[k][1];if(o.pl!=L){o.pl=L;o.plv=[]}ltNew();ltCur.g=k;ltCur.rev=0;tab='ses';goSec='sec-l'}
- else if(a=='ltfw'&&K[k]){const cd=K[k],ls=Object.keys(cd[3]).filter(l=>LTLV[l]);if(!ls.length){alert('Bahasa kata ini belum tersedia di Latihan.');return}
+ else if(a=='ltfw'&&K[k]){const cd=K[k],ls=Object.keys(cd[3]).filter(l=>LTLV[l]);if(!ls.length){toast('Bahasa kata ini belum tersedia di Latihan.');return}
   const L=ls.includes(o.pl)?o.pl:ls[0];if(o.pl!=L){o.pl=L;o.plv=[]}ltNew();const es=cd[3][L];
   ltCur.w=ltCur.w.filter(z=>z.k!=k);const w={k,p:cd[1],m:cd[2],e:es[Math.random()*es.length|0]},i=ltCur.w.findIndex(z=>z.p==cd[1]);i<0?ltCur.w.push(w):ltCur.w[i]=w;tab='ses';goSec='sec-l'}
  else if(a=='ltlang'){if(LTLV[x]){o.pl=x;o.plv=[];ltCur=null}}
@@ -453,16 +453,127 @@ else if(a=='re'){S.ses[x]=pick(x,S.ses[x])}else if(a=='fl'){const i=S.f.indexOf(
 else if(a=='gnext'||a=='gprev'){const P=gp(),n=P.length;if(n){const i=P.findIndex(g=>g[0]==S.gs),d=a=='gnext'?1:-1,j=i<0?(d>0?0:n-1):((i+d)%n+n)%n;S.gs=P[j][0];S.s[S.gs]=1}}
 else if(a=='gopen'){S.gs=k;tab='gr';save();render();scrollTo(0,0);return}
 else if(a=='wopen'){tab='list';q='';fs='';fk='';foc=k;lim=50;goTop=1}else if(a=='wtog'){xo.has(k)?xo.delete(k):xo.add(k)}else if(a=='wclose'){foc=''}else if(a=='sdel'){sDel(+b.dataset.t)}
-else if(a=='gosen'){tab='set';goTop=1}
-else if(a=='more')lim+=50;else if(a=='miglg'){const L=[...new Set(S.f.map(x=>String(x).split(':')[0]))],n=migLegacy(L);alert(n+' item bahasa diperbarui dari progres lama.')}
+else if(a=='gosen'){tab='set';goTop=1}else if(a=='say'){say(k,x);return}else if(a=='ui'){S.o[k]=x;applyTheme()}else if(a=='sday'){fcSel=+x}else if(a=='srng'){fcRg=+x;fcSel=0}else if(a=='slg'){fcLgF=x;fcSel=0}else if(a=='hday'){heatSel=+x}
+else if(a=='more')lim+=50;else if(a=='miglg'){const L=[...new Set(S.f.map(x=>String(x).split(':')[0]))],n=migLegacy(L);toast(n+' item bahasa diperbarui dari progres lama.')}
 else if(a=='exp'){const u=URL.createObjectURL(new Blob([JSON.stringify({v:2,p:S.p,s:S.s,srs:S.srs,lg:S.lg,lt:S.lt})],{type:'application/json'})),l=document.createElement('a');l.href=u;l.download='progres-kosakata.json';l.click();return}
 else if(a=='rst'){if(!confirm('Hapus semua progres?'))return;S.p={};S.s={};S.srs={};S.lg={};S.lt={h:[],g:{},d:{}};ltCur=null;xo=new Set;foc='';S.sd={d:-1,n:0,r:0,x:0,y:0};fcUn=[];fcCur=null}
 save();render();
 if(goSec){const el=document.getElementById(goSec),sm=goSm,id=goSec;goSec='';goSm=0;if(el){el.scrollIntoView({block:'start',behavior:sm?'smooth':'auto'});if(id=='ltTxt')el.focus({preventScroll:true})}else scrollTo(0,goTop?0:y)}else scrollTo(0,goTop?0:y);goTop=0});
 document.addEventListener('change',e=>{const i=e.target.dataset.i;if(!i)return;
-if(i.slice(0,3)=='fc_')fcSet(i,e.target);else if(i.slice(0,3)=='lt_')ltSet(i,e.target);else if(i=='mode')S.o.mode=e.target.value;else if(i=='minL')S.o.minL=+e.target.value;else if(i=='fs')fs=e.target.value;else if(i=='fk')fk=e.target.value;else if(i=='gseq')S.o.gseq=+e.target.checked;else if(['cv','cgL','cgK','cgF','cpl','cvb'].includes(i))S.o[i]=e.target.value;else if(i=='rom')S.o.rom=+e.target.checked;
-else if(i=='imp'){const f=e.target.files[0];if(!f)return;f.text().then(t=>{try{const d=JSON.parse(t);Object.assign(S.p,d.p);Object.assign(S.s,d.s||{});Object.assign(S.srs,d.srs||{});Object.assign(S.lg,d.lg||{});migKeys([...new Set(S.f.map(x=>String(x).split(':')[0]))]);if(d.lt){const m=new Map();(S.lt.h||[]).concat(d.lt.h||[]).forEach(x=>m.set(x.t+'|'+x.s,x));S.lt.h=[...m.values()].sort((a,b)=>a.t-b.t).slice(-1000);sMig();Object.assign(S.lt.g,d.lt.g||{});Object.assign(S.lt.d,d.lt.d||{})}save();render();alert('Progres dipulihkan.')}catch(_){alert('File tidak valid.')}});return}
+if(i.slice(0,3)=='fc_')fcSet(i,e.target);else if(i.slice(0,3)=='lt_')ltSet(i,e.target);else if(i.slice(0,3)=='ui_'){S.o[i.slice(3)]=e.target.type=='checkbox'?+e.target.checked:e.target.value;applyTheme()}else if(i=='mode')S.o.mode=e.target.value;else if(i=='minL')S.o.minL=+e.target.value;else if(i=='fs')fs=e.target.value;else if(i=='fk')fk=e.target.value;else if(i=='gseq')S.o.gseq=+e.target.checked;else if(['cv','cgL','cgK','cgF','cpl','cvb'].includes(i))S.o[i]=e.target.value;else if(i=='rom')S.o.rom=+e.target.checked;
+else if(i=='imp'){const f=e.target.files[0];if(!f)return;f.text().then(t=>{try{const d=JSON.parse(t);Object.assign(S.p,d.p);Object.assign(S.s,d.s||{});Object.assign(S.srs,d.srs||{});Object.assign(S.lg,d.lg||{});migKeys([...new Set(S.f.map(x=>String(x).split(':')[0]))]);if(d.lt){const m=new Map();(S.lt.h||[]).concat(d.lt.h||[]).forEach(x=>m.set(x.t+'|'+x.s,x));S.lt.h=[...m.values()].sort((a,b)=>a.t-b.t).slice(-1000);sMig();Object.assign(S.lt.g,d.lt.g||{});Object.assign(S.lt.d,d.lt.d||{})}save();render();toast('Progres dipulihkan.')}catch(_){toast('File tidak valid.')}});return}
 save();render()});
 document.addEventListener('input',e=>{if(e.target.dataset.i=='q'){q=e.target.value;const p=e.target.selectionStart;render();const el=document.querySelector('[data-i=q]');el.focus();el.setSelectionRange(p,p)}});
+/* ===== Vortaro 3.0: prakiraan ulasan, ringkasan, heatmap, tema, suara, perayaan ===== */
+const HF=['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],BL=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+const dDate=d=>new Date(d*864e5+144e5+new Date().getTimezoneOffset()*6e4+216e5);
+const dLbl=d=>{const x=dDate(d);return HF[x.getDay()]+', '+x.getDate()+' '+BL[x.getMonth()]};
+let fcRg=30,fcLgF='',fcSel=0,heatSel=-1;
+const buzz=p=>{if(S.o.hap&&navigator.vibrate)try{navigator.vibrate(p)}catch(e){}};
+function toast(m){let t=document.getElementById('toast');if(!t){t=document.createElement('div');t.id='toast';t.setAttribute('role','status');document.body.appendChild(t)}t.textContent=m;t.className='on';clearTimeout(toast.t);toast.t=setTimeout(()=>{t.className=''},3200)}
+
+/* ---------- tema, aksen, ukuran huruf ---------- */
+const ACC={indigo:null,teal:['#0f766e','#2dd4bf'],sky:['#0369a1','#38bdf8'],violet:['#7c3aed','#a78bfa'],rose:['#e11d48','#fb7185'],amber:['#b45309','#fbbf24']};
+function applyTheme(){const o=S.o,r=document.documentElement,dk=o.th=='dark'||(o.th!='light'&&matchMedia('(prefers-color-scheme:dark)').matches);
+ if(o.th=='auto')r.removeAttribute('data-theme');else r.setAttribute('data-theme',o.th);
+ r.setAttribute('data-fz',o.fz||'m');
+ const a=ACC[o.ac];
+ if(a){const c=dk?a[1]:a[0];r.style.setProperty('--a',c);r.style.setProperty('--a2','color-mix(in srgb,'+c+(dk?' 22%':' 13%')+',var(--c))')}
+ else{r.style.removeProperty('--a');r.style.removeProperty('--a2')}
+ try{let m=document.querySelector('meta[name=theme-color]');if(m&&!m.dataset.o)m.dataset.o=m.content;if(m)m.content=getComputedStyle(r).getPropertyValue('--bg').trim()||m.dataset.o}catch(e){}}
+try{matchMedia('(prefers-color-scheme:dark)').addEventListener('change',()=>{if(S.o.th=='auto')applyTheme()})}catch(e){}
+
+/* ---------- suara (text-to-speech) ---------- */
+const TL={zh:'zh-CN',ja:'ja-JP',de:'de-DE',eo:'eo'};let VZ=[];
+try{const lv=()=>{VZ=speechSynthesis.getVoices()};lv();speechSynthesis.addEventListener('voiceschanged',lv)}catch(e){}
+const canSay=()=>'speechSynthesis' in window&&'SpeechSynthesisUtterance' in window;
+function say(t,l){if(!canSay())return toast('Perangkat ini belum mendukung suara.');
+ const code=TL[l];if(!code)return;
+ const find=c=>{const p=c.toLowerCase().split('-')[0];return VZ.find(v=>v.lang.replace('_','-').toLowerCase()==c.toLowerCase())||VZ.find(v=>v.lang.toLowerCase().replace('_','-').split('-')[0]==p)};
+ let v=find(code),lc=code;
+ if(!v&&l=='eo'){v=find('it-IT');lc='it-IT'}
+ if(!v&&VZ.length){return toast('Suara '+(LN[l]||l)+' belum terpasang di perangkat ini.')}
+ try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(String(t).replace(/[~〜]/g,'').trim());u.lang=v?v.lang:lc;if(v)u.voice=v;u.rate=.9;speechSynthesis.speak(u)}catch(e){}}
+const spk=(t,l)=>S.o.tts&&canSay()&&TL[l]?`<button class=spk data-a=say data-k="${esc(t)}" data-v=${l} title="Dengarkan" aria-label="Dengarkan">🔊</button>`:'';
+function fcAuto(){if(!S.o.ttsa||!fcCur||GK[fcCur])return;const L=lang(fcCur),c=K[base(fcCur)],v=c&&fcVis(c);if(v&&v[L]&&v[L][0])say(v[L][0][0],L)}
+
+/* ---------- rentetan & ringkasan ---------- */
+function fcStreak(){const td=fcDay(Date.now()),set=new Set();
+ for(const d in S.lg)if((S.lg[d][0]|0)>0)set.add(+d);
+ for(const d in S.lt.d)if((S.lt.d[d][0]|0)>0)set.add(+d);
+ let run=0;for(let d=td;;d--){if(set.has(d))run++;else if(d<td)break}
+ const a=[...set].sort((x,y)=>x-y);let best=0,c=0,p=null;
+ for(const d of a){c=p!==null&&d==p+1?c+1:1;p=d;if(c>best)best=c}
+ return{run,best,days:set.size,today:set.has(td)}}
+function fcHero(q,nn,rr){const td=fcDay(Date.now()),done=(S.lg[td]||[0])[0]|0,left=q.L.length+nn+rr,tot=done+left,pct=tot?Math.min(1,done/tot):0,sk=fcStreak(),R=28,C=2*Math.PI*R;
+ const msg=left==0?(done?'Target hari ini tercapai 🎉':'Tidak ada kartu yang menunggu'):`${left} kartu lagi · ±${Math.max(1,Math.ceil(left*25/60))} menit`;
+ return`<div class=hero><div class=ring><svg viewBox="0 0 64 64" aria-hidden="true"><circle class=tr cx=32 cy=32 r=${R}></circle><circle class=pg cx=32 cy=32 r=${R} style="stroke-dasharray:${C.toFixed(1)};stroke-dashoffset:${(C*(1-pct)).toFixed(1)}"></circle></svg><b>${Math.round(pct*100)}%</b></div><div class=ht><b>${done} dari ${tot} kartu hari ini</b><small>${msg}</small></div><div class=streak title="Hari beruntun belajar">🔥 ${sk.run}<small>hari</small></div></div>`}
+function confetti(){if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+ const c=document.createElement('canvas');c.className='confetti';c.width=innerWidth;c.height=innerHeight;document.body.appendChild(c);
+ const x=c.getContext('2d'),cl=['#f59e0b','#10b981','#3b82f6','#ef4444','#a855f7','#eab308'];
+ const P=Array.from({length:110},()=>({x:innerWidth/2+(Math.random()-.5)*90,y:innerHeight*.6,vx:(Math.random()-.5)*10,vy:-Math.random()*14-4,s:5+Math.random()*5,r:Math.random()*6,vr:(Math.random()-.5)*.4,c:cl[Math.random()*cl.length|0]}));
+ let f=0;(function t(){x.clearRect(0,0,c.width,c.height);P.forEach(p=>{p.vy+=.28;p.x+=p.vx;p.y+=p.vy;p.vx*=.99;p.r+=p.vr;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.fillStyle=p.c;x.globalAlpha=Math.max(0,1-f/120);x.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6);x.restore()});if(++f<130)requestAnimationFrame(t);else c.remove()})()}
+function fcCelebrate(q,nn,rr){const td=fcDay(Date.now()),done=(S.lg[td]||[0])[0]|0;
+ if(done<1||q.L.length||nn||rr||S.o.cfd===td)return;S.o.cfd=td;save();setTimeout(()=>{confetti();buzz([30,60,30,60,90])},300)}
+
+/* ---------- prakiraan ulasan terjadwal (sampai 30 hari) ---------- */
+function fcForecast(N){const td=fcDay(Date.now()),days=Array.from({length:N},()=>({l:0,y:0,m:0,lg:{}}));let late=0;
+ for(const k of fcPool()){const c=S.srs[k];if(!c||!c.t)continue;const g=GK[k]?'g':lang(k);if(fcLgF&&fcLgF!=g)continue;
+  let i;if(c.t==2){i=Math.max(0,c.d-td);if(c.d<td)late++}else i=Math.max(0,fcDay(c.d)-td);
+  if(i>=N)continue;const x=days[i];if(c.t==2){c.i>=21?x.m++:x.y++}else x.l++;x.lg[g]=(x.lg[g]|0)+1}
+ days.forEach(x=>{x.t=x.l+x.y+x.m});return{days,late}}
+function fcastCard(){const td=fcDay(Date.now()),F=fcForecast(30),rg=fcRg,days=F.days.slice(0,rg);
+ const tot=days.reduce((a,x)=>a+x.t,0),avg=tot/rg,mx=Math.max(1,...days.map(x=>x.t)),sel=Math.min(fcSel,rg-1),X=days[sel];
+ let busy=0;days.forEach((x,i)=>{if(x.t>days[busy].t)busy=i});
+ const rl=S.o.rl|0,over=rl>0&&days.some(x=>x.y+x.m>rl);
+ const steps=[1,2,5,10,20,25,50,100,200,250,500,1000,2000],step=steps.find(s=>mx/s<=4)||5000,ym=Math.ceil(mx/step)*step;
+ const W=340,H=178,pl=28,pr=4,pt=10,pb=22,cw=(W-pl-pr)/rg,chh=H-pt-pb,Y=v=>pt+chh-v/ym*chh;
+ let g='';for(let v=0;v<=ym;v+=step)g+=`<line x1=${pl} x2=${W-pr} y1=${Y(v)} y2=${Y(v)} stroke="var(--b)" stroke-width=${v?.6:1}></line><text x=${pl-5} y=${Y(v)+3} text-anchor=end>${v}</text>`;
+ let bars='',lab='';
+ days.forEach((x,i)=>{const x0=pl+i*cw,bw=Math.max(2.5,cw*.66),bx=x0+(cw-bw)/2,dd=dDate(td+i),wk=dd.getDay()==0||dd.getDay()==6;
+  if(i==sel)bars+=`<rect x=${x0} y=${pt-4} width=${cw} height=${chh+4} rx=4 style="fill:var(--a);opacity:.13"></rect>`;
+  let yb=Y(0);
+  for(const[k,col]of[['m','var(--s2)'],['y','color-mix(in srgb,var(--s2) 45%,var(--c))'],['l','var(--s1)']]){const hh=x[k]/ym*chh;if(hh>0){yb-=hh;bars+=`<rect x=${bx.toFixed(1)} y=${yb.toFixed(1)} width=${bw.toFixed(1)} height=${hh.toFixed(1)} rx=1.5 style="fill:${col}"></rect>`}}
+  bars+=`<rect data-a=sday data-v=${i} x=${x0.toFixed(1)} y=0 width=${cw.toFixed(1)} height=${H-pb+2} style="fill:transparent;cursor:pointer"><title>${dLbl(td+i)}: ${x.t} kartu</title></rect>`;
+  if(rg<=14||i%5==0||i==sel)lab+=`<text x=${(x0+cw/2).toFixed(1)} y=${H-7} text-anchor=middle class="${i==0?'td':wk?'wk':''}${i==sel?' sl':''}">${i==0?'Hari ini':dd.getDate()}</text>`});
+ let ln=`<line x1=${pl} x2=${W-pr} y1=${Y(avg).toFixed(1)} y2=${Y(avg).toFixed(1)} stroke="var(--a)" stroke-width=1.3 stroke-dasharray="4 3"></line>`;
+ if(over)ln+=`<line x1=${pl} x2=${W-pr} y1=${Y(rl).toFixed(1)} y2=${Y(rl).toFixed(1)} stroke="var(--bad)" stroke-width=1.3 stroke-dasharray="2 3"></line>`;
+ const svg=`<svg class=fcsvg viewBox="0 0 ${W} ${H}" role=img aria-label="Grafik ulasan terjadwal ${rg} hari">${g}${bars}${ln}${lab}</svg>`;
+ let cum=0;for(let i=0;i<=sel;i++)cum+=days[i].t;
+ const lgs=Object.entries(X.lg).sort((a,b)=>b[1]-a[1]),lm=Math.max(1,...lgs.map(z=>z[1]));
+ const det=`<div class=fdet><div class=fdh><b>${dLbl(td+sel)}${sel==0?' · hari ini':sel==1?' · besok':''}</b><span>${X.t} kartu</span></div>`+
+  (X.t?`<small>Belajar ${X.l} · Muda ${X.y} · Matang ${X.m} · kumulatif ${cum}</small>`+lgs.map(([k,n])=>{const l=D.L.find(z=>z[0]==k);return`<div class=lgb style="--lc:${l?l[2]:'var(--m)'}"><em>${l?l[1]:'Grammar'}</em><span class=tr><i style="width:${n/lm*100}%"></i></span><b>${n}</b></div>`}).join(''):'<small>Tidak ada ulasan pada hari ini.</small>')+
+  (sel==0&&F.late?`<p class=gsub style="margin:8px 0 0">⚠ ${F.late} kartu sudah lewat jadwal (tercakup di hari ini).</p>`:'')+'</div>';
+ const any=Object.values(S.srs).some(c=>c.t);
+ const chips=`<div class=chips><button class="chip${fcLgF?'':' on'}" data-a=slg data-v="">Semua</button>`+D.L.map(l=>`<button class="chip${fcLgF==l[0]?' on':''}" data-a=slg data-v=${l[0]}>${l[0].toUpperCase()}</button>`).join('')+`<button class="chip${fcLgF=='g'?' on':''}" data-a=slg data-v=g>Grammar</button></div>`;
+ return`<div class=card><b>Ulasan terjadwal</b> — ${rg} hari ke depan<p class=gsub style="margin:2px 0 10px">Mengikuti filter flashcard · belum termasuk kartu baru. Ketuk batang untuk melihat rincian.</p>`+
+  `<div class=seg2>${[7,14,30].map(n=>`<button class="${rg==n?'on':''}" data-a=srng data-v=${n}>${n} hari</button>`).join('')}</div>`+chips+
+  (any?`<div class=kpis><div><b>${tot}</b><small>Total</small></div><div><b>${avg>=10?Math.round(avg):avg.toFixed(1)}</b><small>Rata-rata/hari</small></div><div><b>${days[busy].t}</b><small>Tersibuk · ${dDate(td+busy).getDate()} ${BL[dDate(td+busy).getMonth()]}</small></div><div><b>${F.late}</b><small>Terlambat</small></div></div>`+svg+
+  `<div class=leg><span><i style="background:var(--s1)"></i>Belajar</span><span><i style="background:color-mix(in srgb,var(--s2) 45%,var(--c))"></i>Muda</span><span><i style="background:var(--s2)"></i>Matang</span><span><i class=ln style="border-color:var(--a)"></i>Rata-rata</span>${over?`<span><i class=ln style="border-color:var(--bad)"></i>Batas ulasan (${rl})</span>`:''}</div>`+det:
+  '<div class="card empty" style="margin:0"><b>Belum ada kartu terjadwal</b>Mulai belajar di tab Kartu — jadwal ulasan 30 hari ke depan akan muncul di sini.</div>')+'</div>'}
+
+/* ---------- ringkasan, heatmap konsistensi ---------- */
+function kpiCard(){const td=fcDay(Date.now()),done=(S.lg[td]||[0])[0]|0,sk=fcStreak();let mat=0;
+ for(const k of fcPool()){const c=S.srs[k];if(c&&c.t==2&&c.i>=21)mat++}
+ const fin=Object.keys(S.p).filter(k=>S.p[k]==2).length;
+ return`<div class=kpis>${[['🔥',sk.run,'hari beruntun'],['✅',done,'ulasan hari ini'],['🌳',mat,'kartu matang'],['🏁',fin,'item selesai']].map(([i,n,t])=>`<div><span>${i}</span><b>${n}</b><small>${t}</small></div>`).join('')}</div>`}
+function heatCard(){fcRoll();const td=fcDay(Date.now()),W=14,w0=dDate(td).getDay(),start=td-(W-1)*7-w0,sk=fcStreak();
+ const lv=n=>n==0?0:n<10?1:n<30?2:n<60?3:4;let cells='',act=0,tot=0,span=0;
+ const sd=heatSel<0||heatSel>td?td:heatSel;
+ for(let i=0;i<W*7;i++){const d=start+i;if(d>td){cells+='<i class=hn></i>';continue}span++;
+  const f=(S.lg[d]||[0])[0]|0,l=(S.lt.d[d]||[0])[0]|0,n=f+l;if(n){act++;tot+=n}
+  cells+=`<button class="hz${lv(n)}${d==sd?' sel':''}" data-a=hday data-v=${d} title="${esc(dLbl(d))}: ${n}" aria-label="${esc(dLbl(d))}: ${n} aktivitas"></button>`}
+ const f=(S.lg[sd]||[0])[0]|0,l=(S.lt.d[sd]||[0])[0]|0;
+ return`<div class=card><b>Konsistensi belajar</b> — ${W} minggu<p class=gsub style="margin:2px 0 10px">Makin pekat warna, makin banyak aktivitas hari itu.</p><div class=heat>${cells}</div><div class=hcap><b>${dLbl(sd)}</b> · ${f} ulasan kartu · ${l} soal latihan</div><div class=kpis style="margin:10px 0 0"><div><b>${sk.run}</b><small>Rentetan kini</small></div><div><b>${sk.best}</b><small>Terbaik</small></div><div><b>${act}/${span}</b><small>Hari aktif</small></div><div><b>${tot}</b><small>Total aktivitas</small></div></div><div class=leg style="margin-top:10px"><span>Sedikit</span>${[0,1,2,3,4].map(n=>`<i class="hz${n}" style="width:12px;height:12px;display:inline-block;border-radius:3px;border:1px solid var(--b)"></i>`).join('')}<span>Banyak</span></div></div>`}
+
+/* ---------- kartu pengaturan tampilan ---------- */
+function uiCard(){const o=S.o,seg=(k,op)=>`<div class=seg2>${op.map(([v,t])=>`<button class="${o[k]==v?'on':''}" data-a=ui data-k=${k} data-v=${v}>${t}</button>`).join('')}</div>`,ck=(k,t)=>`<label class=fcl><span><input type=checkbox data-i="ui_${k}"${o[k]?' checked':''}> ${t}</span></label>`;
+ return`<div class=card><b>Tampilan &amp; kenyamanan</b><small class=lbl>Tema</small>`+seg('th',[['auto','Otomatis'],['light','Terang'],['dark','Gelap']])+
+ `<small class=lbl>Warna aksen</small><div class=swatches>${Object.entries(ACC).map(([n,a])=>`<button class="sw${(o.ac||'indigo')==n?' on':''}" data-a=ui data-k=ac data-v=${n} style="--sw:${a?a[0]:'#4f46e5'}" aria-label="Aksen ${n}" title="${n}"></button>`).join('')}</div>`+
+ `<small class=lbl>Ukuran huruf kata</small>`+seg('fz',[['m','Normal'],['l','Besar'],['xl','Sangat besar']])+
+ ck('tts','Tampilkan tombol suara 🔊 di samping kata')+ck('ttsa','Ucapkan otomatis saat jawaban dibuka')+ck('hap','Getar halus saat menilai kartu (HP)')+
+ `<small>Suara memakai mesin teks-ke-ucapan di perangkatmu. Untuk Esperanto dipakai suara Italia bila suara Esperanto tidak tersedia.</small></div>`}
+
+applyTheme();
 try{const _t=new URLSearchParams(location.search).get('tab');if(_t&&['ses','fc','lt','gr','list','stats','set'].includes(_t))tab=_t}catch(e){}
 render();vrInit();

@@ -153,12 +153,12 @@ Catatan: GitHub kadang menunda jadwal beberapa menit. Pada repositori publik, ja
 
 ## 9. Memperbarui aplikasi
 
-### 9a. Naik ke Vortaro 2.0 (dari kosakata_flashcard_v3.html)
+### 9a. Naik ke Vortaro 3.0
 
-Versi 2.0 membawa tampilan & fitur dari `kosakata_flashcard_v3.html` (lihat [CHANGELOG.md](CHANGELOG.md)). Alamat aplikasimu **tidak berubah** (`https://USERNAME.github.io/vortaro/`) karena repositorinya sama.
+Versi 3.0 menambah jadwal ulasan 30 hari, heatmap konsistensi, suara, tema, dan banyak penyempurnaan UI/UX (lihat [CHANGELOG.md](CHANGELOG.md)). Alamat aplikasimu **tidak berubah** (`https://USERNAME.github.io/vortaro/`) karena repositorinya sama.
 
 **Lewat web GitHub (tanpa Git):**
-1. Ekstrak `vortaro-v2.zip`.
+1. Ekstrak `vortaro-v3.zip`.
 2. Di repositori `vortaro` → **Add file → Upload files**.
 3. Seret isi folder `vortaro` hasil ekstrak (`docs`, `.github`, `README.md`, `TUTORIAL.md`, `CHANGELOG.md`, `.gitignore`) ke area unggah. File dengan nama sama akan tertimpa.
 4. **Commit changes**. Buka tab **Actions** (atau Settings → Pages) dan tunggu 1–3 menit sampai deploy selesai.
@@ -167,13 +167,13 @@ Versi 2.0 membawa tampilan & fitur dari `kosakata_flashcard_v3.html` (lihat [CHA
 **Lewat Git:**
 ```bash
 cd vortaro            # folder repositori-mu
-# salin isi zip v2 ke sini (timpa file lama), lalu:
+# salin isi zip v3 ke sini (timpa file lama), lalu:
 git add -A
-git commit -m "Vortaro 2.0: tampilan baru + progres per bahasa"
+git commit -m "Vortaro 3.0: jadwal ulasan 30 hari + UI/UX baru"
 git push
 ```
 
-Progres belajarmu tetap aman: pada pembukaan pertama, progres lama (per kartu) otomatis disalin menjadi progres **per bahasa** untuk bahasa yang aktif di filter, dan versi lamanya disimpan sebagai cadangan di dalam data aplikasi. Lihat **Atur → Progres per bahasa** bila ingin menerapkannya ke bahasa lain.
+Progres belajarmu tetap aman, termasuk dari 2.0 maupun 1.0. Bila masih memakai format lama (per kartu), pada pembukaan pertama progres otomatis disalin menjadi progres **per bahasa** untuk bahasa yang aktif di filter, dan versi lamanya disimpan sebagai cadangan di dalam data aplikasi. Lihat **Atur → Progres per bahasa** bila ingin menerapkannya ke bahasa lain.
 
 > Tips: sebelum memperbarui, tekan **Atur → Cadangkan progres** dulu.
 

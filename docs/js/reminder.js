@@ -77,6 +77,7 @@ function vrBadge(){
  try{
   const now=Date.now();
   if(now-vrBC.at>5e3){const q=fcQ();vrBC={at:now,n:q.L.length+Math.min(q.R.length,q.rL)+Math.min(q.Nw.length,q.nL)}}
+  try{if(navigator.setAppBadge){vrBC.n>0?navigator.setAppBadge(vrBC.n):navigator.clearAppBadge()}}catch(e){}
   return vrBC.n>0?`<span class=nb>${vrBC.n>99?'99+':vrBC.n}</span>`:'';
  }catch(e){return ''}
 }
@@ -108,7 +109,7 @@ function vrAppCard(){
  return`<div class=card><b>📲 Aplikasi Vortaro</b><p class=gsub style="margin:4px 0 8px">${sa?'Terpasang sebagai aplikasi ✅ — berjalan offline.':'Pasang ke layar utama agar terbuka seperti aplikasi biasa dan bisa dipakai offline.'}</p>`+
  (!sa&&vrInst?`<button class=pri data-r=install style="width:100%;margin-bottom:8px">Pasang Vortaro</button>`:'')+
  (!sa&&!vrInst?`<small>${vrIOS()?'iPhone/iPad (Safari): ketuk Bagikan → “Tambah ke Layar Utama”.':'Chrome Android: menu ⋮ → “Instal aplikasi” / “Tambahkan ke layar utama”.'}</small>`:'')+
- `<div class=btns><button data-r=upd>Cek pembaruan aplikasi</button></div><small style="display:block;margin-top:6px">Vortaro 2.0 · data tersimpan di perangkat ini. Cadangkan progres secara berkala.</small></div>`;
+ `<div class=btns><button data-r=upd>Cek pembaruan aplikasi</button></div><small style="display:block;margin-top:6px">Vortaro 3.0 · data tersimpan di perangkat ini. Cadangkan progres secara berkala.</small></div>`;
 }
 
 /* ---------- penangan event (pakai atribut data-r agar tidak bentrok dengan app.js) ---------- */
