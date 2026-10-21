@@ -153,12 +153,12 @@ Catatan: GitHub kadang menunda jadwal beberapa menit. Pada repositori publik, ja
 
 ## 9. Memperbarui aplikasi
 
-### 9a. Naik ke Vortaro 3.1
+### 9a. Naik ke Vortaro 4.0
 
-Versi 3.1 memperbaiki filter flashcard (deck Kosakata/Grammar/Keduanya) dan menambah edit keterangan, di atas jadwal ulasan 30 hari, heatmap, suara, dan tema (lihat [CHANGELOG.md](CHANGELOG.md)). Alamat aplikasimu **tidak berubah** (`https://USERNAME.github.io/vortaro/`) karena repositorinya sama.
+Versi 4.0 menambah bahasa Belanda, Bacaan Esperanto, taksonomi grammar, dan penyempurnaan lain dari `kosakata_flashcard` v4.8 (lihat [CHANGELOG.md](CHANGELOG.md)). Alamat aplikasimu **tidak berubah** (`https://USERNAME.github.io/vortaro/`) karena repositorinya sama.
 
 **Lewat web GitHub (tanpa Git):**
-1. Ekstrak `vortaro-v3.1.zip`.
+1. Ekstrak `vortaro-v4.zip`.
 2. Di repositori `vortaro` → **Add file → Upload files**.
 3. Seret isi folder `vortaro` hasil ekstrak (`docs`, `.github`, `README.md`, `TUTORIAL.md`, `CHANGELOG.md`, `.gitignore`) ke area unggah. File dengan nama sama akan tertimpa.
 4. **Commit changes**. Buka tab **Actions** (atau Settings → Pages) dan tunggu 1–3 menit sampai deploy selesai.
@@ -167,9 +167,9 @@ Versi 3.1 memperbaiki filter flashcard (deck Kosakata/Grammar/Keduanya) dan mena
 **Lewat Git:**
 ```bash
 cd vortaro            # folder repositori-mu
-# salin isi zip v3.1 ke sini (timpa file lama), lalu:
+# salin isi zip v4 ke sini (timpa file lama), lalu:
 git add -A
-git commit -m "Vortaro 3.1: perbaikan filter + edit keterangan"
+git commit -m "Vortaro 4.0: bahasa Belanda + Bacaan Esperanto"
 git push
 ```
 

@@ -1,23 +1,26 @@
 # Riwayat Perubahan
 
-## 3.1.0
-**Perbaikan filter flashcard**
-- Deck **Kosakata / Grammar / Keduanya** kini dipilih lewat bilah deck yang selalu terlihat, lengkap dengan jumlah kartu yang cocok.
-- **Grammar punya filter sendiri** (bahasa & level) di panel Filter flashcard, terpisah dari filter tab Grammar. Sebelumnya deck Grammar diam-diam memakai filter tab Grammar sehingga chip di flashcard seolah tidak berfungsi.
-- Level grammar kini lengkap (mis. Jepang **N1** dan Esperanto C2), sebelumnya tidak bisa dipilih di flashcard.
-- Panel filter menyesuaikan deck: opsi kosakata (OR/AND, jenis kata) hanya muncul untuk Kosakata/Keduanya, opsi grammar untuk Grammar/Keduanya.
-- Deck **Keduanya**: kartu baru kini dicampur sesuai **porsi grammar** (default 25%). Sebelumnya kosakata (±20 ribu kartu) selalu habis lebih dulu sehingga grammar hampir tidak pernah muncul.
-- Tombol **Reset semua filter** dan pesan "tidak ada kartu yang cocok" yang lebih membantu.
+## 4.0.0
+Disinkronkan dengan `kosakata_flashcard_v4_8.html`. Semua fitur Vortaro (PWA, offline, pengingat, ntfy, statistik 3.0) dipertahankan; kunci penyimpanan `vortaro_v1` tidak berubah, jadi progres lama tetap aman.
 
-**Edit keterangan**
-- Tombol ✎ pada kartu kosakata, kartu grammar, dan flashcard membuka dialog edit.
-- Grammar: judul, fungsi, pola, contoh, catatan, kasus khusus, dan rincian tabel. Kosakata: arti, serta kata, bacaan, dan keterangan di tiap bahasa.
-- Hasil edit tersimpan di perangkat, ikut dalam cadangan progres, bisa dikembalikan per kartu atau semuanya (Atur → Edit keterangan).
+**Bahasa baru: Belanda (NL)**
+- **4.998 entri kosakata A1–B2** digabung ke kartu yang sudah ada: kata dengan arti sama berbagi kartu dengan Mandarin/Jepang/Jerman/Esperanto, ditambah 1.294 kartu baru khusus Belanda.
+- Gender **de/het** (bisa disensor seperti der/die/das), **bentuk jamak**, **bentuk kata kerja** (hij/zij/het · verleden · voltooid), dan **komparatif** kata sifat; ketiganya punya pengaturan sensor sendiri di Atur → Sensor.
+- **Grammar Belanda A1–C2 (380 topik)**: pelafalan, kata kerja & konjugasi, kata benda & artikel, kalimat, angka & waktu, dan seterusnya, dengan tabel konjugasi Ik/Jij/Hij/Wij/Jullie/Zij; 223 topik punya contoh kalimat sehingga bisa dipakai di Latihan kalimat.
+- **Taksonomi grammar Belanda** (fungsi, prioritas, register, nuansa; gid `nl-a1-001` … `nl-c2-043`) dengan filter, rekomendasi berikutnya, dan peta grammar seperti bahasa lain.
+- Suara **nl-NL**, filter level A1–B2 (kosakata) dan A1–C2 (grammar), Flashcard, Daftar, Latihan kalimat, dan Statistik ikut mendukung Belanda.
 
-## 3.0.0 (ringkas)
-Jadwal ulasan 30 hari, ringkasan & heatmap, cincin target harian, suara, tema/aksen, konfeti, lencana ikon. Lihat riwayat di bawah.
+**Bacaan Esperanto**
+- **61 teks bacaan** per pelajaran (A1–C2) di tab Belajar → **Bacaan**: terjemahan Indonesia per kalimat (bisa disensor), suara 🔊 per kalimat atau seluruh teks, penanda sudah dibaca, dan ringkasan di Statistik. Penanda ikut dalam cadangan progres.
 
-### Rincian 3.0.0
+**Dari seri v4 (sebelumnya belum ada di Vortaro)**
+- Taksonomi grammar (fungsi, prioritas, register, nuansa) untuk Mandarin, Jepang, Jerman, Esperanto (dan Belanda), lengkap dengan filter prioritas/fungsi, rekomendasi grammar berikutnya, peta grammar, dan matriks fungsi × level.
+- Edit keterangan (✎) untuk kosakata, grammar, dan flashcard, serta penyempurnaan Latihan kalimat dan Flashcard dari v4.2–v4.6.
+
+**Teknis**
+- Service worker 4.0.0. `data.js` kini memuat juga taksonomi dan teks bacaan (±4,5 MB), jadi pembukaan pertama setelah pembaruan sedikit lebih lama.
+
+## 3.0.0
 **Statistik**
 - **Ulasan terjadwal 30 hari ke depan:** grafik batang bertumpuk (Belajar / Muda / Matang) dengan pilihan 7, 14, atau 30 hari. Ketuk batang untuk rincian per hari dan per bahasa, lengkap dengan garis rata-rata, penanda batas ulasan harian, dan jumlah kartu yang terlambat. Bisa difilter per bahasa atau Grammar.
 - **Ringkasan** di puncak halaman: rentetan hari, ulasan hari ini, kartu matang, item selesai.

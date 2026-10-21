@@ -1,11 +1,11 @@
 # Vortaro
 
-Aplikasi flashcard kosakata (Mandarin, Jepang, Jerman, Esperanto) dengan jadwal ulasan SRS,
+Aplikasi flashcard kosakata (Mandarin, Jepang, Jerman, Belanda, Esperanto) dengan jadwal ulasan SRS,
 latihan kalimat, grammar, **pengingat hafalan**, dan bisa dipasang seperti aplikasi biasa (PWA) — gratis lewat GitHub Pages.
 
 - Semua kode ada di folder [`docs/`](docs) (HTML + CSS + JS biasa, tanpa build).
 - **Panduan lengkap dari nol: [TUTORIAL.md](TUTORIAL.md)** · Riwayat perubahan: [CHANGELOG.md](CHANGELOG.md)
-- Versi saat ini: **3.1** — jadwal ulasan 30 hari, ringkasan & heatmap konsistensi, cincin target harian, suara pengucapan, tema/aksen, perayaan saat target tercapai, filter deck yang diperbaiki, dan edit keterangan grammar & kosakata.
+- Versi saat ini: **4.0** — bahasa **Belanda** (kosakata A1–B2 + grammar & taksonomi A1–C2), **Bacaan Esperanto** per pelajaran, taksonomi grammar, edit keterangan, dan semua fitur 3.0 (jadwal ulasan 30 hari, heatmap, suara, tema, pengingat).
 
 ## Coba di komputer sendiri
 
@@ -23,7 +23,7 @@ docs/
   manifest.webmanifest  data "aplikasi" (nama, ikon, warna)
   sw.js                 service worker: offline + pengingat latar belakang
   css/app.css           tampilan
-  js/data.js            seluruh kosakata & grammar (±3 MB)
+  js/data.js            seluruh kosakata, grammar, taksonomi & teks bacaan (±4,5 MB)
   js/app.js             logika aplikasi (flashcard, SRS, latihan, statistik)
   js/vr-core.js         inti pengingat (dipakai halaman & service worker)
   js/reminder.js        UI pengingat + tombol pasang aplikasi

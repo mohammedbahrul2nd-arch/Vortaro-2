@@ -1,7 +1,7 @@
 {
   "name": "Vortaro",
   "short_name": "Vortaro",
-  "description": "Flashcard kosakata Mandarin, Jepang, Jerman & Esperanto dengan jadwal ulasan 30 hari, suara, dan pengingat hafalan.",
+  "description": "Flashcard kosakata Mandarin, Jepang, Jerman, Belanda & Esperanto dengan jadwal ulasan 30 hari, suara, bacaan, dan pengingat hafalan.",
   "lang": "id",
   "start_url": "./?source=pwa",
   "scope": "./",
