@@ -1,5 +1,12 @@
 # Riwayat Perubahan
 
+## 5.1.0
+**Kelas AI: aturan kalimat yang ketat.** Prompt kini memuat bagian “ATURAN WAJIB UNTUK SETIAP KALIMAT”:
+- Salin **grammar X** → SETIAP kalimat (contoh, dialog, soal tes, kartu hafalan) wajib memuat grammar X, ditambah minimal 1 kosakata atau grammar lemah (sering lupa / masih dipelajari) dalam bahasa yang sama.
+- Salin **kosakata X** → SETIAP kalimat wajib memuat kata X (boleh berubah bentuk), ditambah minimal 1 kosakata atau grammar lemah.
+- Topik utama dan elemen tambahan ditandai berbeda (**tebal** / _garis bawah_), maksimal 3 elemen tambahan per kalimat, dan tiap contoh diberi baris label “Topik utama | Tambahan” agar mudah diperiksa.
+- Service worker 5.1.0 (memaksa aplikasi terpasang memuat versi baru).
+
 ## 5.0.0
 **Fitur baru: Kelas AI — salin prompt belajar komprehensif untuk ChatGPT / Claude / Gemini** (semua bahasa: Mandarin, Jepang, Jerman, Belanda, Esperanto).
 - Tombol **🎓** di kartu grammar, setiap blok bahasa pada kartu kosakata, dan toolbar Flashcard (“Kelas AI”), plus kartu pintas **“Yang paling perlu diulang sekarang”** di tab Grammar.
