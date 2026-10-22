@@ -277,3 +277,28 @@ nav button{position:relative}
 .rds{padding:8px 0;border-bottom:1px solid var(--b)}.rds:last-of-type{border-bottom:0}
 .rds .eo{font-size:1.08rem;line-height:1.55}.rds .idn{color:var(--m);font-size:.9rem;margin-top:2px}
 .rdh{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}.rdh button{flex:1 1 auto}
+/* Kelas AI (v5.0) */
+.aibtn{min-height:28px;min-width:30px;padding:0 9px;margin-left:8px;border-radius:99px;font-size:.78rem;color:var(--a);background:var(--a2);border:1px solid transparent;box-shadow:none;vertical-align:middle;white-space:nowrap}
+.aibtn:hover{border-color:var(--a)}
+.row .aibtn{margin-left:0;flex:none}
+.aiopts{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;margin-top:10px}
+@media(max-width:520px){.aiopts{grid-template-columns:1fr}}
+.aio small{display:block;color:var(--m);font-weight:600;margin-bottom:4px}
+.aio .chips{margin:0}
+.aih{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.aiws{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.aiw{display:inline-flex;flex-wrap:wrap;align-items:baseline;gap:2px 6px;text-align:left;padding:7px 10px;border-radius:12px;border:1px solid var(--b);background:var(--c);font-size:.84rem;line-height:1.3;max-width:100%}
+.aiw b{font-weight:700}.aiw small{display:inline;margin:0;font-weight:500}.aiw>span:not(.aitg){color:var(--m)}
+.aiw.off{opacity:.38;text-decoration:line-through}
+.aitg{display:inline-block;font-size:.68rem;font-weight:700;padding:1px 7px;border-radius:99px;white-space:nowrap}
+.aitg.t1{background:color-mix(in srgb,var(--bad) 14%,transparent);color:var(--bad)}
+.aitg.t2{background:color-mix(in srgb,var(--s1) 18%,transparent);color:var(--s1)}
+.aigr{display:flex;flex-wrap:wrap;gap:6px}
+#aiTxt{display:block;width:100%;height:34vh;min-height:180px;resize:vertical;padding:10px 12px;border:1px solid var(--b);border-radius:12px;background:var(--c);color:var(--t);font:400 .78rem/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+#aiTxt:focus{outline:2px solid var(--a)}
+.aicnt{font-style:normal;font-weight:500;margin-left:4px}
+.aif{flex-wrap:wrap;align-items:center}
+.aif .pri{flex:1 1 100%;width:auto}
+.aisites{display:flex;gap:6px;flex:1 1 100%}
+.aisites a,.aisites button{flex:1;text-align:center;padding:9px 6px;border-radius:12px;border:1px solid var(--b);background:var(--c);color:var(--t);font-size:.85rem;font-weight:600;text-decoration:none}
+.aih .mini{white-space:nowrap;flex:none}

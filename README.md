@@ -5,7 +5,7 @@ latihan kalimat, grammar, **pengingat hafalan**, dan bisa dipasang seperti aplik
 
 - Semua kode ada di folder [`docs/`](docs) (HTML + CSS + JS biasa, tanpa build).
 - **Panduan lengkap dari nol: [TUTORIAL.md](TUTORIAL.md)** · Riwayat perubahan: [CHANGELOG.md](CHANGELOG.md)
-- Versi saat ini: **4.0** — bahasa **Belanda** (kosakata A1–B2 + grammar & taksonomi A1–C2), **Bacaan Esperanto** per pelajaran, taksonomi grammar, edit keterangan, dan semua fitur 3.0 (jadwal ulasan 30 hari, heatmap, suara, tema, pengingat).
+- Versi saat ini: **5.0** — **Kelas AI** (salin prompt belajar grammar & kosakata komprehensif untuk ChatGPT/Claude/Gemini, memakai kosakata lemahmu), dan semua fitur 4.0: bahasa **Belanda** (kosakata A1–B2 + grammar & taksonomi A1–C2), **Bacaan Esperanto** per pelajaran, taksonomi grammar, edit keterangan, dan semua fitur 3.0 (jadwal ulasan 30 hari, heatmap, suara, tema, pengingat).
 
 ## Coba di komputer sendiri
 
@@ -25,6 +25,7 @@ docs/
   css/app.css           tampilan
   js/data.js            seluruh kosakata, grammar, taksonomi & teks bacaan (±4,5 MB)
   js/app.js             logika aplikasi (flashcard, SRS, latihan, statistik)
+  js/ai-class.js        Kelas AI: penyusun prompt belajar untuk AI (grammar & kosakata)
   js/vr-core.js         inti pengingat (dipakai halaman & service worker)
   js/reminder.js        UI pengingat + tombol pasang aplikasi
   icons/                ikon aplikasi

@@ -1,7 +1,7 @@
 /* Vortaro service worker — offline + pengingat latar belakang */
-const VERSION='4.0.0',CACHE='vortaro-'+VERSION;
+const VERSION='5.0.0',CACHE='vortaro-'+VERSION;
 importScripts('js/vr-core.js');
-const SHELL=['./','index.html','css/app.css','js/data.js','js/vr-core.js','js/reminder.js','js/app.js','manifest.webmanifest','icons/icon.svg','icons/icon-192.png','icons/icon-512.png'];
+const SHELL=['./','index.html','css/app.css','js/data.js','js/ai-class.js','js/vr-core.js','js/reminder.js','js/app.js','manifest.webmanifest','icons/icon.svg','icons/icon-192.png','icons/icon-512.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k.startsWith('vortaro-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
 /* stale-while-revalidate: cepat & offline, lalu diperbarui diam-diam */

@@ -1,0 +1,213 @@
+/* ===== Kelas AI (v5.0): salin prompt belajar komprehensif untuk ChatGPT / Claude / Gemini =====
+   Prompt dibangun dari materi aplikasi + kosakata/grammar yang masih lemah (lupa, belajar ulang,
+   salah di latihan kalimat, masih belajar) PADA BAHASA YANG SAMA. Berlaku untuk semua bahasa.
+   Modul ini hanya memakai fungsi/data app.js saat dipanggil, jadi aman dimuat sebelum app.js. */
+const AIP={
+ zh:{n:'Mandarin',fmt:'汉字 (spasi antar kata) / pinyin bertanda nada / arti Indonesia',
+  lens:['urutan kata dan posisi keterangan (waktu, tempat, cara)','partikel & aspek yang terlibat (了, 过, 着, 的/得/地, 吗, 呢) bila relevan','penggolong / kata bilangan yang dipakai','nada dan perubahan nada yang rawan salah dengar (不, 一, nada 3)','lisan vs tulis, santai vs formal'],
+  mn:'pecah hanzi menjadi radikal/komponen bermakna, cerita visual, kaitkan nada dengan gerakan tangan/gambar, kata majemuk lain yang memakai hanzi yang sama',
+  jb:'jangan menerjemahkan kata per kata dari bahasa Indonesia (tidak ada imbuhan, jamak, atau kala seperti di Indonesia)'},
+ ja:{n:'Jepang',fmt:'tulisan Jepang asli (kanji+kana) / hiragana atau furigana / romaji / arti Indonesia',
+  lens:['tingkat kesopanan (kasual, です・ます, hormat) dan kapan dipakai','partikel yang terlibat (は・が・を・に・で・へ・と dst.) dan alasan pemilihannya','bentuk kata kerja / kata sifat yang terlibat (kelompok 1/2/3, bentuk kamus・ます・て・た・ない) dan cara membentuknya','urutan kata SOV dan pelesapan subjek','nuansa: sopan vs memaksa, lisan vs tulis'],
+  mn:'pecah kanji menjadi komponen + bacaan on/kun, kata serumpun yang memakai kanji sama, gambar mental, kaitkan bunyi dengan kata Indonesia',
+  jb:'jangan memindahkan struktur Indonesia (subjek-dulu, tanpa partikel) ke bahasa Jepang'},
+ de:{n:'Jerman',fmt:'kalimat Jerman / arti Indonesia',
+  lens:['gender & artikel (der/die/das) beserta bentuk jamaknya','kasus (Nominativ/Akkusativ/Dativ/Genitiv) dan akhiran yang berubah','posisi kata kerja (V2, akhir klausa, Satzklammer)','konjugasi, kata kerja kuat/tak beraturan, kata kerja terpisah, Perfekt vs Präteritum','Du vs Sie dan register'],
+  mn:'kognat dengan bahasa Inggris/Belanda/Indonesia, warna untuk gender (der biru, die merah, das hijau), kata majemuk dipecah, kalimat jangkar yang memuat artikelnya',
+  jb:'jangan memakai urutan kata Indonesia/Inggris begitu saja; perhatikan posisi kata kerja dan kasus'},
+ nl:{n:'Belanda',fmt:'kalimat Belanda / arti Indonesia',
+  lens:['de vs het dan bentuk jamak (-en / -s)','posisi kata kerja (V2, akhir klausa) dan urutan waktu-cara-tempat','kata kerja tak beraturan, kata kerja terpisah, voltooid (hebben/zijn)','kata "er", diminutif -je','jij/je vs u dan register','pelafalan khas (g, ui, ij, eu) yang rawan salah dengar'],
+  mn:'kognat dengan Jerman/Inggris/Indonesia (banyak serapan Belanda), asosiasi bunyi, kata majemuk dipecah, kalimat jangkar yang memuat de/het-nya',
+  jb:'jangan menyamakan urutan kata dengan bahasa Indonesia/Inggris; waspadai "false friend" dengan Jerman'},
+ eo:{n:'Esperanto',fmt:'kalimat Esperanto / arti Indonesia',
+  lens:['akhiran kelas kata (-o, -a, -e, -i, -as/-is/-os/-us/-u)','akusatif -n (objek & arah) dan urutan kata yang fleksibel','awalan/akhiran pembentuk kata (mal-, -ig-, -iĝ-, -ej-, -ul-, -ad-, -et-, -eg- dst.)','tabel korelatif (ki-, ti-, i-, ĉi-, neni-)','pembentukan kata dari akar'],
+  mn:'pecah menjadi akar + afiks, kemiripan dengan bahasa Latin/Roman/Inggris, satu akar membuka satu keluarga kata',
+  jb:'jangan lupa -n pada objek dan jangan membuat kata baru tanpa dasar akar yang jelas'}};
+const AIX=['','Sering lupa'];
+let aiCtx=null;
+const aiO=()=>{const o=S.o;if(!o.aiM)o.aiM='all';if(!o.aiN)o.aiN=10;if(!o.aiW)o.aiW=8;if(o.aiG==null)o.aiG=1;return o};
+const aiClean=s=>String(s||'').replace(/\s*\$\\rightarrow\$\s*/g,' → ').replace(/\s+/g,' ').trim();
+const aiIsV=k=>String(k).indexOf('@')>=0;
+const aiPC=c=>PN[c[1]]||'Kata';
+
+/* ---------- label & skor kelemahan ---------- */
+function aiTags(k,wrongN){const c=S.srs[k],t=[];if(c&&c.z)return null;
+ if(c&&c.l>0)t.push('lupa '+c.l+'×');
+ if(c&&c.t==3)t.push('belajar ulang');
+ if(wrongN>0)t.push('salah di latihan kalimat '+wrongN+'×');
+ if(!t.length){if(c&&c.t==1)t.push('masih belajar');else if(S.p[k]==1)t.push('sedang dipelajari');else if(c&&c.t==2&&c.i<21)t.push('ulasan muda ('+c.i+' hr)')}
+ return t}
+function aiScore(k,wrongN,extra){const c=S.srs[k];if(c&&c.z)return 0;let s=0;
+ if(c&&c.l>0)s+=10+4*Math.min(c.l,5);
+ if(c&&c.t==3)s+=8;
+ s+=6*Math.min(wrongN||0,3);
+ if(c&&c.t==1)s+=5;
+ if(S.p[k]==1)s+=3;
+ if(c&&c.t==2&&c.i<21)s+=2;
+ if(c&&c.t==2&&c.i>=30&&(c.l|0)<2&&!wrongN)s=0;
+ return s+(extra||0)}
+const aiTier=(k,wrongN)=>{const c=S.srs[k];return(c&&(c.l>0||c.t==3))||wrongN>0?1:2};
+
+/* kandidat kosakata lemah untuk satu bahasa */
+function aiPoolV(L,exK){const keys=new Set();Object.keys(S.srs).forEach(k=>keys.add(k));Object.keys(S.p).forEach(k=>{if(S.p[k]==1)keys.add(k)});
+ const out=[];keys.forEach(k=>{if(!aiIsV(k)||lang(k)!=L||k==exK)return;const c=K[base(k)];if(!c||!(c[3][L]||[]).length)return;
+  const wr=(SI.w[base(k)]||[]).filter(h=>h.r==0&&(h.l||'')==L).length,tg=aiTags(k,wr);if(!tg||!tg.length)return;const s=aiScore(k,wr);if(s<=0)return;
+  out.push({k,c,s,tags:tg,tier:aiTier(k,wr),pos:c[1]})});return out}
+/* kandidat grammar lemah */
+function aiPoolG(L,exK){const keys=new Set();Object.keys(S.srs).forEach(k=>{if(GK[k])keys.add(k)});Object.keys(S.p).forEach(k=>{if(GK[k]&&S.p[k]==1)keys.add(k)});Object.keys(S.lt.g||{}).forEach(k=>{if(GK[k])keys.add(k)});
+ const out=[];keys.forEach(k=>{const g=GK[k];if(!g||g[1]!=L||k==exK)return;const c=S.srs[k];if(c&&c.z)return;
+  const r=gRec(k),ls=S.lt.g[k],bad=(r!=null&&r>=.4)||(ls&&ls.n>0&&ls.ok/ls.n<.7),wrongN=bad?Math.max(1,Math.round((r!=null?r:1-ls.ok/ls.n)*3)):0;
+  const tg=aiTags(k,wrongN);if(!tg||!tg.length)return;const s=aiScore(k,wrongN,r!=null?r*4:0);if(s<=0)return;
+  out.push({k,g,s,tags:tg,tier:aiTier(k,wrongN)})});return out}
+function aiSort(a,jit){return a.map(x=>({...x,j:x.s+Math.random()*(jit||0)})).sort((x,y)=>y.j-x.j)}
+function aiTake(a,N){const q={V:Math.ceil(N*.4),N:Math.ceil(N*.35),A:Math.ceil(N*.25),O:Math.ceil(N*.15)},u={},out=[],rest=[];
+ for(const x of a){const p=x.pos||'O';if(out.length<N&&(u[p]||0)<(q[p]||1)){out.push(x);u[p]=(u[p]||0)+1}else rest.push(x)}
+ for(const x of rest){if(out.length>=N)break;out.push(x)}
+ return out.sort((x,y)=>x.tier-y.tier||y.j-x.j)}
+
+/* ---------- teks bantu ---------- */
+function aiForm(e,pos,L){let t='';
+ if(L=='de'&&typeof DX!='undefined'&&DX){if(pos=='N'&&DX.n[e[0]])t='jamak: '+DX.n[e[0]];else if(pos=='V'&&DX.v[e[0]])t='er/sie/es · Präteritum · Perfekt: '+DX.v[e[0]]}
+ else if(L=='nl'&&typeof DXN!='undefined'&&DXN){if(pos=='N'&&DXN.n[e[0]])t='jamak: '+DXN.n[e[0]];else if(pos=='V'&&DXN.v[e[0]])t='hij/zij/het · verleden · voltooid: '+DXN.v[e[0]];else if(pos=='A'&&DXN.a[e[0]])t='komparatif: '+DXN.a[e[0]]}
+ return t}
+function aiWordLine(c,L,x){const seen=new Set(),es=(c[3][L]||[]).filter(e=>!seen.has(e[0])&&seen.add(e[0])).slice(0,2);
+ const w=es.map(e=>e[0]+(e[1]?' ('+e[1]+')':'')).join(' / '),f=es.map(e=>aiForm(e,c[1],L)).filter(Boolean)[0];
+ return `${w} = ${c[2]} [${aiPC(c)}]`+(f?` · ${f}`:'')}
+const aiLvOf=(c,L)=>{const e=(c[3][L]||[])[0];return e&&e[3]?e[3]:''};
+function aiExLines(g,n){return(g[7]||[]).slice(0,n).map(e=>'- '+e.split('\n').join(' | '))}
+function aiSentHist(h){return h.s.replace(/\s+/g,' ').trim()}
+
+/* konteks taksonomi grammar */
+function aiTax(k){const out=[];if(!TX.G[k])return out;
+ const t=txT(k),fn=txFn(k).map(x=>txL(x)),pr=txPri(k),reg=t.find(x=>x.startsWith('reg.')),nu=t.filter(x=>x.startsWith('nu.')),as=t.filter(x=>/^(kas|gen|pos|slot|cls|fin|ser|kol|afk)\./.test(x));
+ const bits=[];if(fn.length)bits.push('fungsi: '+fn.join(' · '));if(pr)bits.push('prioritas: '+PRIL[pr]);if(reg)bits.push('register: '+txL(reg));if(nu.length)bits.push('nuansa: '+nu.map(txL).join(', '));if(as.length)bits.push('aspek: '+as.map(txL).join(', '));
+ if(bits.length)out.push('Peta grammar: '+bits.join(' | '));
+ const w=o=>{const wk=aiTags(o,0);return(st(o)==1||(wk&&wk.length))?' (aku masih lemah di sini)':''};
+ (KM[k]||[]).forEach(i=>{const c=TX.K[i],oth=c[1].map(([s,n])=>[txK(s),n]).filter(x=>x[0]&&x[0]!=k);if(oth.length)out.push(`Sering tertukar (${c[0]}):\n`+oth.map(([o,n])=>`  - ${txNm(o)} [${GK[o][2]}]${w(o)} — ${n}`).join('\n'))});
+ const pk=PRK[k]||[],pb=PRR[k]||[];
+ if(pk.length)out.push('Prasyarat (idealnya sudah dikuasai): '+pk.map(o=>txNm(o)+w(o)).join(', '));
+ if(pb.length)out.push('Jadi dasar untuk: '+pb.slice(0,8).map(o=>txNm(o)).join(', '));
+ return out}
+
+/* ---------- pemilihan bahan ---------- */
+function aiGather(k,jit){const o=aiO(),v=aiIsV(k),L=v?lang(k):GK[k][1];
+ const pv=aiSort(aiPoolV(L,k),jit),pg=aiSort(aiPoolG(L,k),jit);
+ return{k,v,L,poolV:pv,poolG:pg,words:aiTake(pv,o.aiW),gr:pg.slice(0,v?2:3),off:new Set()}}
+
+/* ---------- penyusun prompt ---------- */
+function aiWeakBlock(ctx){const L=ctx.L,P=AIP[L],o=aiO(),ws=ctx.words.filter((x,i)=>!ctx.off.has(i)),h=[];
+ const line=x=>`- ${aiWordLine(x.c,L,x)} — ${x.tags.join('; ')}`;
+ const t1=ws.filter(x=>x.tier==1),t2=ws.filter(x=>x.tier==2);
+ h.push(`### Kosakata ${P.n} yang masih lemah (data nyata dari riwayat belajarku)`);
+ if(!ws.length)h.push(`(Aku belum punya kosakata ${P.n} yang tercatat lemah. Pakai kosakata umum yang sederhana untuk level ini.)`);
+ else{if(t1.length)h.push(`SERING LUPA / SALAH (prioritas tertinggi, ulang paling sering):\n`+t1.map(line).join('\n'));
+  if(t2.length)h.push(`MASIH BELAJAR / PENGULANGAN:\n`+t2.map(line).join('\n'))}
+ const gs=o.aiG?ctx.gr:[];
+ if(gs.length)h.push(`### Grammar ${P.n} lain yang masih lemah (sentuh ringan di contoh bila wajar, jangan jadi fokus)\n`+gs.map(x=>`- ${x.g[4]} [${x.g[2]}] — ${x.tags.join('; ')}${x.g[6]?' · pola: '+aiClean(x.g[6]):''}`).join('\n'));
+ return h.join('\n\n')}
+
+function aiBuildG(ctx){const o=aiO(),g=GK[ctx.k],L=ctx.L,P=AIP[L],N=o.aiN,step=o.aiM=='step',ws=ctx.words.filter((x,i)=>!ctx.off.has(i)),hasW=ws.length>0;
+ const kv=(g[10]||[]).filter(p=>p[0]||p[1]),cat=aiClean(g[3]),hist=(SI.g[ctx.k]||[]).filter(h=>h.r<2).slice(-3);
+ const T=[];
+ T.push(`## 🎯 PERAN\nKamu guru ${P.n} berpengalaman sekaligus pelatih memori. Muridmu: penutur bahasa Indonesia yang belajar ${P.n} (level ${g[2]}). Jelaskan dalam bahasa Indonesia, tulis semua contoh dalam bahasa ${P.n}. Gaya: jelas, hangat, konkret, tanpa basa-basi panjang. Jika ragu soal fakta bahasa (pengecualian, nuansa), katakan ragu, jangan mengarang. Pakai bentuk yang natural, bukan terjemahan harfiah.`);
+ const tp=[`Grammar: ${g[4]} (${P.n} ${g[2]})`];if(cat)tp.push(`Kategori: ${cat}`);if(g[5])tp.push(`${g[11]||'Fungsi'}: ${g[5]}`);if(g[6])tp.push(`Pola: ${g[6]}`);
+ if(kv.length)tp.push(`Tabel/rincian: ${kv.map(p=>p[0]+' = '+p[1]).join('; ')}`);
+ if(g[8].length)tp.push(`${g[12]||'Keterangan'}:\n`+g[8].map(x=>'- '+x).join('\n'));
+ if(g[9].length)tp.push(`Kasus khusus:\n`+g[9].map(x=>'- '+x).join('\n'));
+ if(g[7].length)tp.push(`Contoh dari materiku (jadikan acuan, jangan disalin mentah):\n`+aiExLines(g,3).join('\n'));
+ aiTax(ctx.k).forEach(x=>tp.push(x));
+ T.push(`## 📘 TOPIK HARI INI\n`+tp.join('\n'));
+ let pr=`## 🧠 PROFIL BELAJARKU (dari aplikasi Vortaro)\nPakai data ini sebagai BAHAN contoh supaya aku sekalian mengulang apa yang paling sering kulupa.\n\n`+aiWeakBlock(ctx);
+ if(hist.length)pr+=`\n\n### Kalimat buatanku sebelumnya dengan grammar ini (belum tepat)\n`+hist.map(h=>'- '+aiSentHist(h)).join('\n')+`\nAnalisis pola kesalahanku, koreksi, lalu sebut 1–2 kebiasaan yang perlu kuwaspadai.`;
+ T.push(pr);
+ const lens=P.lens.map(x=>'   · '+x).join('\n');
+ const S1=[
+ `**1. Gambaran besar** — 3–4 kalimat: grammar ini untuk apa dan intuisi intinya, dengan analogi ke bahasa Indonesia.`,
+ `**2. Rumus & cara membentuk** — langkah demi langkah (tabel bila ada pola/bentuk), termasuk pengecualian. Pastikan poin-poin berikut tercakup bila relevan:\n${lens}`,
+ `**3. Kapan dipakai & kapan JANGAN** — situasi nyata, nuansa, register; beri 2 contoh “benar tapi tidak natural” beserta alasannya.`,
+ `**4. Jebakan penutur Indonesia** — kesalahan paling sering; ingat: ${P.jb}. Tiap jebakan dengan contoh salah → benar.`,
+ `**5. Pembeda dengan pola mirip** — tabel perbandingan singkat dengan pola yang sering tertukar${(KM[ctx.k]||[]).length?' (lihat “Sering tertukar” di atas)':''}.`,
+ `**6. ${N} contoh kalimat berjenjang** (mudah → sulit; 1–3 pendek, sisanya makin natural). Untuk tiap kalimat: (a) ${P.fmt}; (b) bedah kata per kata singkat; (c) 1 kalimat “kenapa grammar ini dipakai di sini”.`+
+  (hasW?`\n   Aturan memakai kosakata lemahku: SEMUA kata di profil harus muncul minimal 1×, kata SERING LUPA minimal 2× dalam konteks/bentuk berbeda; maksimal 3 kata lemah per kalimat; **tebalkan** kata lemah saat muncul. Kalau sebuah kata tidak cocok secara gramatikal, ubah bentuknya atau jadikan objek/pelengkap, atau tulis “(dilewati: alasan)”. JANGAN membuat kalimat yang tidak natural demi memaksa kata. Kata di luar daftar: pakai kosakata sederhana (≤ level ${g[2]}) dan beri arti bila ada kata baru.\n   Tutup dengan tabel rekap: kata | bentuk yang dipakai | nomor kalimat.`:`\n   Pakai kosakata sederhana yang umum untuk level ${g[2]}.`),
+ `**7. Mini dialog** 5–6 baris yang memakai grammar ini secara alami${hasW?' dan sebanyak mungkin kosakata lemahku (tebalkan)':''}, lengkap dengan terjemahan.`,
+ `**8. Jembatan ingatan (mnemonik)** — ${hasW?'untuk setiap kata SERING LUPA di profilku, buat 1 asosiasi yang mudah diingat':'untuk 3 kata kunci dari pelajaran ini, buat 1 asosiasi yang mudah diingat'}; teknik yang bisa dipakai: ${P.mn}. Tambahkan 1 kalimat “jangkar” pendek yang gampang diingat, dan 1 rumus mnemonik untuk grammar ini.`,
+ `**9. Tes ingat aktif** — JANGAN tampilkan jawaban dulu; tunggu jawabanku, lalu koreksi satu per satu dan jelaskan kesalahanku:\n   A. 5 soal isian rumpang (cloze)${hasW?' yang memakai kosakata lemahku':''};\n   B. 5 soal terjemahan Indonesia → ${P.n};\n   C. 3 kalimat salah yang harus kuperbaiki (jebakan yang umum);\n   D. 3 soal “pilih yang tepat” antara pola mirip;\n   E. 1 tantangan produksi: aku menulis 3 kalimat sendiri dengan grammar ini + 3 kata dari profilku, kamu koreksi.`,
+ `**10. Rangkuman & kartu hafalan** — rumus 1 kalimat + cheat-sheet 5 baris; lalu 8 kartu flashcard (campur grammar & kata lemah) format “depan | belakang”, satu per baris, siap disalin.`,
+ `**11. Jadwal ulang** — saran apa yang diulang hari ini, besok, +3, +7, +14 hari, dan 1 aktivitas 5 menit untuk setiap sesi.`];
+ if(!step)T.push(`## 🛠️ CARA MENGAJAR (ikuti urutan, beri judul bernomor)\n`+S1.join('\n\n')+`\n\nAturan format: tabel untuk rumus/perbandingan/rekap; **tebal** untuk kata lemahku; jangan memotong di tengah bagian. Jika jawaban terlalu panjang, bagi jadi beberapa pesan dan akhiri tiap pesan dengan “ketik: lanjut”. Di akhir, tanya bagian mana yang masih membingungkan dan tawarkan sesi latihan lanjutan.`);
+ else T.push(`## 🛠️ CARA MENGAJAR — MODE INTERAKTIF BERTAHAP\nAjari aku seperti les privat, bukan ceramah: kirim SATU tahap per pesan lalu berhenti dan tanya “sudah paham / lanjut?”. Jika aku bilang bingung, jelaskan ulang dengan cara berbeda sebelum lanjut.\nTahap 1–5 (konsep): ceritakan secara ringkas, lalu ajukan 1 pertanyaan cek-pemahaman sebelum lanjut.\nTahap 6–7: contoh dan dialog (aturan kosakata lemah di bawah).\nTahap 8: mnemonik.\nTahap 9: tes ingat — SATU soal per giliran, tunggu jawabanku, beri umpan balik, dan ULANGI soal/kata yang kujawab salah beberapa soal kemudian.\nTahap 10–11: rangkuman, kartu hafalan, jadwal ulang.\n\nIsi tiap tahap:\n`+S1.join('\n')+`\n\nMulai dari tahap 1 sekarang.`);
+ return T.join('\n\n')}
+
+function aiBuildV(ctx){const o=aiO(),L=ctx.L,P=AIP[L],c=K[base(ctx.k)],N=o.aiN,step=o.aiM=='step',ws=ctx.words.filter((x,i)=>!ctx.off.has(i)),hasW=ws.length>0;
+ const es=c[3][L]||[],lv=aiLvOf(c,L),wr=(SI.w[base(ctx.k)]||[]).filter(h=>h.r==0&&(h.l||'')==L).length,tg=aiTags(ctx.k,wr),hist=(SI.w[base(ctx.k)]||[]).filter(h=>h.r<2&&(h.l||'')==L).slice(-2);
+ const T=[];
+ T.push(`## 🎯 PERAN\nKamu guru ${P.n} berpengalaman sekaligus pelatih memori. Muridku penutur bahasa Indonesia yang belajar ${P.n}${lv?` (level ${lv})`:''}. Jelaskan dalam bahasa Indonesia; semua contoh dalam bahasa ${P.n}. Gaya: jelas, hangat, konkret, tanpa basa-basi. Jika ragu soal fakta bahasa, katakan ragu, jangan mengarang. Pakai bentuk natural, bukan terjemahan harfiah.`);
+ const tp=[`Kata: ${aiWordLine(c,L)}${lv?' · level '+lv:''}`];
+ {const sn=new Set(),us=es.filter(e=>!sn.has(e[0])&&sn.add(e[0]));us.forEach(e=>{if(e[2])tp.push(`Contoh dari materiku${us.length>1?' ('+e[0]+')':''}: ${e[2]}`)})}
+ if(tg&&tg.length)tp.push(`Status belajarku untuk kata ini: ${tg.join('; ')}`);
+ T.push(`## 📘 KATA YANG DIPELAJARI\n`+tp.join('\n'));
+ let pr=`## 🧠 PROFIL BELAJARKU (dari aplikasi Vortaro)\nPasangkan kata utama dengan kosakata ${P.n} lain di bawah ini (yang sering kulupa atau masih kupelajari) supaya aku sekalian mengulang.\n\n`+aiWeakBlock(ctx);
+ if(hist.length)pr+=`\n\n### Kalimat buatanku sebelumnya dengan kata ini (belum tepat)\n`+hist.map(h=>'- '+aiSentHist(h)).join('\n')+`\nKoreksi dan jelaskan kebiasaan salahku.`;
+ T.push(pr);
+ const S1=[
+ `**1. Inti kata** — makna utama + nuansa, ragam makna lain, kelas kata, bentuk-bentuk pentingnya (konjugasi/jamak/gender/bentuk sopan bila ada), pelafalan atau bacaan beserta jebakannya, register, dan seberapa sering dipakai.`,
+ `**2. Anatomi & asal-usul** — komponen/akar/kognat/etimologi yang menjelaskan KENAPA artinya begitu. Teknik yang bisa dipakai: ${P.mn}.`,
+ `**3. Kolokasi & frasa tetap** — 6–8 pasangan kata/pola yang paling sering dipakai penutur asli (termasuk partikel/preposisi/kasus yang menyertainya), masing-masing dengan arti.`,
+ `**4. Keluarga kata & pembeda** — sinonim, antonim, kata turunan, dan kata mirip yang sering tertukar${hasW?' (cek juga daftar kata lemahku di atas)':''}: beda tegas + contoh minimal pasangan.`,
+ `**5. ${N} contoh kalimat berjenjang** (mudah → sulit). Tiap kalimat memuat kata utama${hasW?' DAN 1–2 kosakata dari profilku (**tebalkan** semua kata target)':''}. Untuk tiap kalimat: ${P.fmt}; bedah singkat; catatan bila ada perubahan bentuk.`+(hasW?`\n   Semua kata di profilku harus muncul minimal 1×, kata SERING LUPA minimal 2× dengan konteks berbeda. Jika sebuah kata tidak cocok, jangan dipaksakan: tulis “(dilewati: alasan)”. Kata di luar daftar: kosakata sederhana. Tutup dengan tabel rekap: kata | bentuk | nomor kalimat.`:''),
+ `**6. Mini cerita/dialog** 5–7 kalimat yang memuat kata utama${hasW?' dan SEMUA kata di profilku':''}, dengan terjemahan.`,
+ `**7. Jembatan ingatan** — untuk kata utama${hasW?' dan setiap kata SERING LUPA':''}: 1 asosiasi (bunyi/gambar/cerita/komponen) + 1 kalimat jangkar yang mudah diingat.`,
+ `**8. Tes ingat aktif** — JANGAN tampilkan jawaban dulu; tunggu jawabanku lalu koreksi satu per satu:\n   A. arti → ${P.n} (5 soal)  B. ${P.n} → arti (5 soal)  C. isian rumpang (5 soal)  D. pilih kata yang tepat di antara kata mirip (3 soal)  E. 1 tantangan: aku menulis 3 kalimat dengan kata utama + kata dari profilku, kamu koreksi.`,
+ `**9. Kartu hafalan & jadwal ulang** — 8 flashcard “depan | belakang” (satu per baris, siap disalin) dan jadwal ulang hari ini, besok, +3, +7, +14 hari.`];
+ if(!step)T.push(`## 🛠️ CARA MENGAJAR (ikuti urutan, beri judul bernomor)\n`+S1.join('\n\n')+`\n\nAturan format: tabel untuk perbandingan/rekap; **tebal** untuk kata target. Jika jawaban terlalu panjang, bagi jadi beberapa pesan dan akhiri tiap pesan dengan “ketik: lanjut”. Di akhir, tanya bagian mana yang masih membingungkan.`);
+ else T.push(`## 🛠️ CARA MENGAJAR — MODE INTERAKTIF BERTAHAP\nAjari seperti les privat: kirim SATU tahap per pesan lalu berhenti dan tanya “lanjut?”. Pada tahap 8 beri SATU soal per giliran, tunggu jawabanku, beri umpan balik, dan ULANGI soal/kata yang kujawab salah beberapa soal kemudian.\n\n`+S1.join('\n')+`\n\nMulai dari tahap 1 sekarang.`);
+ return T.join('\n\n')}
+
+const aiBuild=ctx=>ctx.v?aiBuildV(ctx):aiBuildG(ctx);
+
+/* ---------- UI ---------- */
+const aiBtn=(k,txt)=>`<button class="mini aibtn" data-ai=open data-k="${esc(k)}" title="Salin prompt belajar komprehensif untuk AI (ChatGPT / Claude / Gemini)" aria-label="Kelas AI">🎓${txt?' '+txt:''}</button>`;
+function aiTitle(ctx){return ctx.v?`${AIP[ctx.L].n} · ${K[base(ctx.k)][3][ctx.L][0][0]}`:`${AIP[ctx.L].n} ${GK[ctx.k][2]} · ${GK[ctx.k][4]}`}
+function aiPanel(){const c=aiCtx,o=aiO(),m=document.getElementById('aim');if(!m)return;
+ const opt=(n,l,ops)=>`<div class=aio><small>${l}</small><div class=chips>${ops.map(([v,t])=>`<button class="chip${o[n]==v?' on':''}" data-ai=opt data-o=${n} data-v="${v}">${t}</button>`).join('')}</div></div>`;
+ const tg=x=>`<span class="aitg ${x.tier==1?'t1':'t2'}">${esc(x.tags[0])}</span>`;
+ const chips=c.words.map((x,i)=>{const e=(x.c[3][c.L]||[])[0]||['',''];return`<button class="aiw${c.off.has(i)?' off':''}" data-ai=chip data-v=${i} title="Ketuk untuk ${c.off.has(i)?'menyertakan':'mengeluarkan'} kata ini"><b>${esc(e[0])}</b>${e[1]?` <small>${esc(e[1])}</small>`:''}<span>${esc(x.c[2])}</span>${tg(x)}</button>`}).join('');
+ const gch=o.aiG&&c.gr.length?`<div class=aio><small>Grammar lemah ikut disebut</small><div class=aigr>${c.gr.map(x=>`<span class="aitg ${x.tier==1?'t1':'t2'}">${esc(x.g[4])} · ${esc(x.tags[0])}</span>`).join('')}</div></div>`:'';
+ const text=aiBuild(c);c.text=text;
+ const nW=c.words.filter((x,i)=>!c.off.has(i)).length;
+ m.querySelector('.edb').innerHTML=`<p class=gsub style="margin:4px 0 2px">Salin prompt ini ke <b>ChatGPT</b>, <b>Claude</b>, atau <b>Gemini</b>. Isinya materi lengkap, urutan mengajar, tes ingat aktif, dan kosakata ${AIP[c.L].n} milikmu yang masih lemah.</p>`+
+  `<div class=aiopts>${opt('aiM','Gaya belajar',[['all','Lengkap sekaligus'],['step','Interaktif bertahap']])}${opt('aiN','Contoh kalimat',[[6,'6'],[10,'10'],[15,'15']])}${opt('aiW','Kata lemah maks.',[[5,'5'],[8,'8'],[12,'12']])}${opt('aiG','Grammar lemah ikut',[[1,'Ya'],[0,'Tidak']])}</div>`+
+  `<div class=aio style="margin-top:12px"><div class=aih><small>Kosakata dari progresmu (${nW}/${c.words.length}) — ketuk untuk mengeluarkan</small><button class=mini data-ai=reroll>↻ Acak ulang</button></div>${c.words.length?`<div class=aiws>${chips}</div>`:`<div class="card empty" style="margin:6px 0 0;padding:12px"><b>Belum ada kosakata ${AIP[c.L].n} yang tercatat lemah</b>Setelah kamu memakai Flashcard (tombol “Lagi”) atau menandai kata sebagai “Sedang”, kata-kata itu otomatis masuk ke sini. Untuk sekarang AI memakai kosakata umum.</div>`}</div>${gch}`+
+  `<div class=aio style="margin-top:12px"><div class=aih><small>Pratinjau prompt <i class=aicnt>${text.length.toLocaleString('id-ID')} karakter</i> — boleh diedit sebelum disalin</small></div><textarea id=aiTxt spellcheck=false>${esc(text)}</textarea></div>`}
+function aiOpen(k){if(!k||(!aiIsV(k)&&!GK[k])||(aiIsV(k)&&!K[base(k)]))return;const L=aiIsV(k)?lang(k):GK[k][1];if(!AIP[L]){toast('Bahasa ini belum didukung Kelas AI.');return}
+ aiClose();aiCtx=aiGather(k,0);
+ const m=document.createElement('div');m.id='aim';m.className='edm';
+ m.innerHTML=`<div class=eds role=dialog aria-modal=true aria-label="Kelas AI"><div class=edh><div><b>🎓 Kelas AI · salin prompt belajar</b><small>${esc(aiTitle(aiCtx))}</small></div><button class=mini data-ai=close aria-label=Tutup>✕</button></div><div class=edb></div><div class="edf aif"><button class=pri data-ai=copy>Salin prompt</button><div class=aisites><a data-ai=site href="https://chatgpt.com/" target=_blank rel=noopener>ChatGPT</a><a data-ai=site href="https://claude.ai/new" target=_blank rel=noopener>Claude</a><a data-ai=site href="https://gemini.google.com/app" target=_blank rel=noopener>Gemini</a>${navigator.share?'<button data-ai=share>Bagikan</button>':''}</div></div></div>`;
+ document.body.appendChild(m);document.body.style.overflow='hidden';aiPanel()}
+function aiClose(){const m=document.getElementById('aim');if(m)m.remove();document.body.style.overflow='';aiCtx=null}
+const aiText=()=>{const t=document.getElementById('aiTxt');return t&&t.value.trim()?t.value:(aiCtx?aiCtx.text:'')};
+function aiCopy(){const t=aiText();if(!t)return false;ltCopy(t);toast('Prompt disalin ✓ Tempel di AI favoritmu');return true}
+document.addEventListener('click',e=>{const m=document.getElementById('aim');
+ if(m&&e.target===m){e.stopPropagation();aiClose();return}
+ const b=e.target.closest&&e.target.closest('[data-ai]');if(!b)return;const a=b.dataset.ai;
+ if(a=='site'){aiCopy();return}
+ e.stopPropagation();e.preventDefault();
+ if(a=='open'){aiOpen(b.dataset.k)}
+ else if(!aiCtx)return;
+ else if(a=='close')aiClose();
+ else if(a=='copy')aiCopy();
+ else if(a=='share'){const t=aiText();try{navigator.share({title:'Prompt Kelas AI',text:t}).catch(()=>{})}catch(x){}}
+ else if(a=='reroll'){const o=aiO();aiCtx.poolV=aiSort(aiPoolV(aiCtx.L,aiCtx.k),4);aiCtx.poolG=aiSort(aiPoolG(aiCtx.L,aiCtx.k),4);aiCtx.words=aiTake(aiCtx.poolV,o.aiW);aiCtx.gr=aiCtx.poolG.slice(0,aiCtx.v?2:3);aiCtx.off=new Set();aiPanel()}
+ else if(a=='chip'){const i=+b.dataset.v;aiCtx.off.has(i)?aiCtx.off.delete(i):aiCtx.off.add(i);aiPanel()}
+ else if(a=='opt'){const o=aiO(),n=b.dataset.o;o[n]=n=='aiM'?b.dataset.v:+b.dataset.v;if(n=='aiW'){aiCtx.words=aiTake(aiCtx.poolV,o.aiW);aiCtx.off=new Set()}save();aiPanel()}
+},true);
+document.addEventListener('keydown',e=>{if(!document.getElementById('aim'))return;if(e.key=='Escape'){aiClose()}else if((e.ctrlKey||e.metaKey)&&e.key=='Enter'){e.preventDefault();aiCopy()}});
+
+/* kartu pintas di tab Grammar: grammar & kata paling lemah per bahasa */
+function aiHub(){const rows=[];
+ for(const L of Object.keys(AIP)){if(!D.L.some(l=>l[0]==L))continue;
+  const g=aiSort(aiPoolG(L),0)[0],w=aiSort(aiPoolV(L),0)[0],lbl=AIP[L].n;
+  if(g)rows.push(`<div class=row><div data-ai=open data-k="${esc(g.k)}" style="cursor:pointer"><b>${esc(g.g[4])}</b><br><small>${lbl} ${g.g[2]} · grammar · ${esc(g.tags[0])}</small></div>${aiBtn(g.k,'Prompt')}</div>`);
+  if(w){const e=w.c[3][L][0];rows.push(`<div class=row><div data-ai=open data-k="${esc(w.k)}" style="cursor:pointer"><b>${esc(e[0])}</b> <small>${esc(e[1]||'')}</small><br><small>${lbl} · kata · ${esc(w.c[2])} · ${esc(w.tags[0])}</small></div>${aiBtn(w.k,'Prompt')}</div>`)}}
+ return`<div class=card><b>🎓 Kelas AI</b><p class=gsub style="margin:2px 0 8px">Salin prompt belajar komprehensif (penjelasan → contoh → mnemonik → tes ingat → kartu hafalan) untuk ChatGPT, Claude, atau Gemini. Contoh kalimatnya otomatis memakai kosakata bahasa yang sama yang sering kamu lupa atau masih dipelajari. Tekan 🎓 di kartu grammar, kartu kata, atau Flashcard mana pun.</p>`+
+ (rows.length?`<div class=gsec style="margin-top:6px">Yang paling perlu diulang sekarang</div>`+rows.join(''):'<small>Belum ada data lemah. Pakai Flashcard dulu; item yang kamu tandai “Lagi” atau “Sedang” akan muncul di sini. Kamu tetap bisa menekan 🎓 di grammar atau kata apa pun.</small>')+`</div>`}

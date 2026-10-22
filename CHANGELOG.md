@@ -1,5 +1,18 @@
 # Riwayat Perubahan
 
+## 5.0.0
+**Fitur baru: Kelas AI — salin prompt belajar komprehensif untuk ChatGPT / Claude / Gemini** (semua bahasa: Mandarin, Jepang, Jerman, Belanda, Esperanto).
+- Tombol **🎓** di kartu grammar, setiap blok bahasa pada kartu kosakata, dan toolbar Flashcard (“Kelas AI”), plus kartu pintas **“Yang paling perlu diulang sekarang”** di tab Grammar.
+- **Prompt grammar** (mis. 〜てください): peran guru + topik lengkap dari materi aplikasi (pola, rincian, catatan, kasus khusus, contoh, peta taksonomi: prioritas, register, nuansa, *sering tertukar*, prasyarat) → urutan mengajar 11 tahap (gambaran besar, rumus, kapan dipakai/jangan, jebakan penutur Indonesia, pembeda pola mirip, contoh kalimat berjenjang, dialog, mnemonik, tes ingat aktif, kartu hafalan, jadwal ulang).
+- **Prompt kosakata**: inti kata, anatomi/asal-usul, kolokasi, keluarga kata & kata mirip, contoh kalimat, mini cerita, mnemonik, tes ingat aktif, kartu hafalan, jadwal ulang.
+- **Contoh kalimat memakai kosakata lemahmu, tanpa peduli level, selalu dalam bahasa yang sama dengan kartunya.** Label yang dipakai: *sering lupa* (jumlah “Lagi” di Flashcard), *belajar ulang*, *salah di latihan kalimat*, lalu *masih belajar* / *sedang dipelajari* / *ulasan muda* bila tidak ada yang sering lupa. Kata sering lupa wajib muncul minimal 2×; campuran kata kerja/benda/sifat dijaga agar kalimat tetap natural. Grammar lemah dalam bahasa yang sama ikut disebut ringan.
+- Bagian khusus per bahasa: pinyin & nada (Mandarin), kesopanan/partikel/bentuk kata kerja (Jepang), gender/kasus/posisi kata kerja (Jerman), de/het & V2 (Belanda), akhiran/afiks/korelatif (Esperanto), lengkap dengan teknik mnemonik yang cocok.
+- Kalimat buatanmu yang sebelumnya belum tepat ikut dilampirkan agar AI menganalisis kebiasaan salahmu.
+- Panel pratinjau: pilih gaya **Lengkap sekaligus** / **Interaktif bertahap**, jumlah contoh (6/10/15), jumlah kata lemah (5/8/12), ketuk kata untuk mengeluarkan, **Acak ulang**, edit prompt sebelum disalin, tombol Salin / ChatGPT / Claude / Gemini (menyalin otomatis lalu membuka) / Bagikan.
+
+**Teknis**
+- Berkas baru `js/ai-class.js`; service worker 5.0.0. Progres tetap aman (kunci `vortaro_v1` tidak berubah); preferensi Kelas AI disimpan di pengaturan yang sama.
+
 ## 4.0.0
 Disinkronkan dengan `kosakata_flashcard_v4_8.html`. Semua fitur Vortaro (PWA, offline, pengingat, ntfy, statistik 3.0) dipertahankan; kunci penyimpanan `vortaro_v1` tidak berubah, jadi progres lama tetap aman.
 
