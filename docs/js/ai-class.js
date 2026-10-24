@@ -25,7 +25,7 @@ const AIP={
   jb:'jangan lupa -n pada objek dan jangan membuat kata baru tanpa dasar akar yang jelas'}};
 const AIX=['','Sering lupa'];
 let aiCtx=null;
-const aiO=()=>{const o=S.o;if(!o.aiM)o.aiM='all';if(!o.aiN)o.aiN=10;if(!o.aiW)o.aiW=8;if(o.aiG==null)o.aiG=1;if(!o.aiT)o.aiT='long';return o};
+const aiO=()=>{const o=S.o;if(!o.aiM)o.aiM='all';if(!o.aiN)o.aiN=10;if(!o.aiW)o.aiW=8;if(o.aiG==null)o.aiG=1;if(!o.aiT)o.aiT='long';if(!o.aiP)o.aiP=4;return o};
 const aiClean=s=>String(s||'').replace(/\s*\$\\rightarrow\$\s*/g,' → ').replace(/\s+/g,' ').trim();
 const aiIsV=k=>String(k).indexOf('@')>=0;
 const aiPC=c=>PN[c[1]]||'Kata';
@@ -186,7 +186,23 @@ function aiBuildS(ctx){const o=aiO(),L=ctx.L,P=AIP[L],N=o.aiN,ws=ctx.words.filte
  T.push(`ATURAN:\n1. SETIAP kalimat memuat topik utama (**tebalkan**).\n`+(add.length?`2. SETIAP kalimat juga memuat minimal 1 dan maksimal 3 pembentuk dari daftar di atas (_garis bawah_). Semua pembentuk harus muncul minimal 1×; yang sering lupa minimal 2×. Jika tidak cocok secara gramatikal/makna, pakai pembentuk lain, jangan memaksa.\n3.`:`2.`)+` Kalimat natural, urut dari mudah ke sulit (pendek → panjang), sesuai level${lv?' '+lv:''}. Kata di luar daftar: sederhana.`);
  T.push(`FORMAT (hanya daftar, tanpa penjelasan panjang). Untuk tiap nomor tulis persis:\n1. [kalimat ${P.n}]\n`+(rom?`   [${rom}]\n`:'')+`   [arti bahasa Indonesia]\n   Pembentuk: [topik utama + kata/grammar tambahan yang dipakai]`);
  return T.join('\n\n')}
-const aiBuild=ctx=>aiO().aiT=='short'?aiBuildS(ctx):ctx.v?aiBuildV(ctx):aiBuildG(ctx);
+
+/* ---------- prompt sedang: teks bacaan berparagraf ---------- */
+function aiBuildM(ctx){const o=aiO(),L=ctx.L,P=AIP[L],NP=o.aiP,ws=ctx.words.filter((x,i)=>!ctx.off.has(i)),gs=o.aiG?ctx.gr:[],hasW=ws.length>0,hasG=gs.length>0;
+ const rom=L=='ja'?'romaji':L=='zh'?'pinyin bertanda nada':'',T=[];let main,lv,mainShort;
+ if(ctx.v){const c=K[base(ctx.k)],es=c[3][L]||[],sn=new Set(),us=es.filter(e=>!sn.has(e[0])&&sn.add(e[0]));lv=aiLvOf(c,L);mainShort=`kata “${us.map(e=>e[0]).join(' / ')}” (boleh berubah bentuk)`;
+  main=`Kata: ${aiWordLine(c,L)}${lv?' [level '+lv+']':''}`;const ex=us.map(e=>e[2]).filter(Boolean)[0];if(ex)main+=`\nContoh dari materiku: ${ex}`}
+ else{const g=GK[ctx.k];lv=g[2];mainShort=`grammar “${g[4]}”${g[6]?' (pola: '+aiClean(g[6])+')':''}`;main=`Grammar: ${g[4]} [${g[2]}]`+(g[5]?`\n${g[11]||'Fungsi'}: ${g[5]}`:'')+(g[6]?`\nPola: ${aiClean(g[6])}`:'')+(g[8].length?`\n${g[12]||'Keterangan'}: ${g[8].slice(0,3).join(' ')}`:'')+(g[7].length?`\nContoh dari materiku:\n`+aiExLines(g,2).join('\n'):'')}
+ T.push(`Tulis sebuah teks bacaan bahasa ${P.n} untuk latihan membacaku (penutur Indonesia${lv?', level '+lv:''}) sepanjang ${NP} paragraf, ±4–5 kalimat per paragraf.`);
+ T.push(`TOPIK UTAMA (wajib ada di SETIAP kalimat):\n${main}`);
+ const add=[];
+ if(hasW)add.push(`Kosakata ${P.n} (sering lupa / sedang kupelajari):\n`+ws.map(x=>`- ${aiWordLine(x.c,L,x)} — ${x.tags[0]}`).join('\n'));
+ if(hasG)add.push(`Grammar ${P.n} (sering lupa / sedang kupelajari):\n`+gs.map(x=>`- ${x.g[4]} [${x.g[2]}]${x.g[6]?' · pola: '+aiClean(x.g[6]):''} — ${x.tags[0]}`).join('\n'));
+ T.push(`PEMBENTUK KALIMAT (kartu lain milikku):\n`+(add.length?add.join('\n\n'):`(belum ada yang tercatat lemah; pakai kosakata sederhana yang umum)`));
+ T.push(`ATURAN:\n1. SETIAP kalimat dalam teks memuat ${mainShort} (**tebalkan**). Tidak boleh ada kalimat tanpa unsur ini.\n`+(add.length?`2. SETIAP kalimat juga memuat minimal 1 dan maksimal 3 pembentuk dari daftar di atas (_garis bawah_). Semua pembentuk harus muncul minimal 1× di seluruh teks; yang sering lupa minimal 2× dalam konteks berbeda. Jika tidak cocok secara gramatikal/makna, pakai pembentuk lain, jangan memaksa.\n3.`:`2.`)+` Teks harus mengalir sebagai satu cerita atau topik yang utuh (misalnya kejadian sehari-hari, surat, atau dialog singkat dalam narasi) dengan judul, bukan kumpulan kalimat lepas. Natural, sesuai level${lv?' '+lv:''}, mudah → sedikit menantang. Kata di luar daftar: sederhana.`);
+ T.push(`FORMAT:\nJudul teks (${P.n} + arti Indonesia).\nLalu untuk SETIAP paragraf, tulis berurutan:\n   [paragraf ${P.n} utuh]\n`+(rom?`   [${rom} untuk seluruh paragraf]\n`:'')+`   [terjemahan Indonesia paragraf itu]\nDi akhir teks beri “Daftar pembentuk yang dipakai”: topik utama + setiap kata/grammar tambahan dan di paragraf mana ia muncul. Tanpa penjelasan panjang di luar format ini.`);
+ return T.join('\n\n')}
+const aiBuild=ctx=>{const t=aiO().aiT;return t=='short'?aiBuildS(ctx):t=='mid'?aiBuildM(ctx):ctx.v?aiBuildV(ctx):aiBuildG(ctx)};
 
 /* ---------- UI ---------- */
 const aiBtn=(k,txt)=>`<button class="mini aibtn" data-ai=open data-k="${esc(k)}" title="Salin prompt belajar komprehensif untuk AI (ChatGPT / Claude / Gemini)" aria-label="Kelas AI">🎓${txt?' '+txt:''}</button>`;
@@ -198,8 +214,8 @@ function aiPanel(){const c=aiCtx,o=aiO(),m=document.getElementById('aim');if(!m)
  const gch=o.aiG&&c.gr.length?`<div class=aio><small>Grammar lemah ikut disebut</small><div class=aigr>${c.gr.map(x=>`<span class="aitg ${x.tier==1?'t1':'t2'}">${esc(x.g[4])} · ${esc(x.tags[0])}</span>`).join('')}</div></div>`:'';
  const text=aiBuild(c);c.text=text;
  const nW=c.words.filter((x,i)=>!c.off.has(i)).length;
- m.querySelector('.edb').innerHTML=`<div class=aitabs role=tablist>${[['long','Prompt panjang','Penjelasan lengkap + tes + hafalan'],['short','Prompt pendek','Daftar kalimat + arti'+(c.L=='ja'?' + romaji':c.L=='zh'?' + pinyin':'')]].map(([v,t,d])=>`<button class="${o.aiT==v?'on':''}" data-ai=opt data-o=aiT data-v=${v} role=tab><b>${t}</b><small>${d}</small></button>`).join('')}</div><p class=gsub style="margin:4px 0 2px">Salin prompt ini ke <b>ChatGPT</b>, <b>Claude</b>, atau <b>Gemini</b>. ${o.aiT=='short'?`Isinya daftar kalimat + arti${c.L=='ja'?' + romaji':c.L=='zh'?' + pinyin':''}: topik utama di setiap kalimat, dibentuk bersama kosakata/grammar ${AIP[c.L].n} milikmu yang masih lemah.`:`Isinya materi lengkap, urutan mengajar, tes ingat aktif, dan kosakata ${AIP[c.L].n} milikmu yang masih lemah.`}</p>`+
-  `<div class=aiopts>${o.aiT=='short'?'':opt('aiM','Gaya belajar',[['all','Lengkap sekaligus'],['step','Interaktif bertahap']])}${opt('aiN','Contoh kalimat',[[6,'6'],[10,'10'],[15,'15']])}${opt('aiW','Kata lemah maks.',[[5,'5'],[8,'8'],[12,'12']])}${opt('aiG','Grammar lemah ikut',[[1,'Ya'],[0,'Tidak']])}</div>`+
+ m.querySelector('.edb').innerHTML=`<div class=aitabs role=tablist>${[['long','Panjang','Pelajaran lengkap + tes'],['mid','Sedang','Teks bacaan berparagraf'],['short','Pendek','Daftar kalimat + arti']].map(([v,t,d])=>`<button class="${o.aiT==v?'on':''}" data-ai=opt data-o=aiT data-v=${v} role=tab><b>${t}</b><small>${d}</small></button>`).join('')}</div><p class=gsub style="margin:4px 0 2px">Salin prompt ini ke <b>ChatGPT</b>, <b>Claude</b>, atau <b>Gemini</b>. ${o.aiT=='mid'?`Isinya teks bacaan berparagraf${c.L=='ja'?' + romaji':c.L=='zh'?' + pinyin':''} dan terjemahannya: topik utama di setiap kalimat, dibentuk bersama kosakata/grammar ${AIP[c.L].n} milikmu yang masih lemah.`:o.aiT=='short'?`Isinya daftar kalimat + arti${c.L=='ja'?' + romaji':c.L=='zh'?' + pinyin':''}: topik utama di setiap kalimat, dibentuk bersama kosakata/grammar ${AIP[c.L].n} milikmu yang masih lemah.`:`Isinya materi lengkap, urutan mengajar, tes ingat aktif, dan kosakata ${AIP[c.L].n} milikmu yang masih lemah.`}</p>`+
+  `<div class=aiopts>${o.aiT!='long'?'':opt('aiM','Gaya belajar',[['all','Lengkap sekaligus'],['step','Interaktif bertahap']])}${o.aiT=='mid'?opt('aiP','Panjang bacaan',[[3,'3 paragraf'],[4,'4'],[6,'6']]):opt('aiN','Contoh kalimat',[[6,'6'],[10,'10'],[15,'15']])}${opt('aiW','Kata lemah maks.',[[5,'5'],[8,'8'],[12,'12']])}${opt('aiG','Grammar lemah ikut',[[1,'Ya'],[0,'Tidak']])}</div>`+
   `<div class=aio style="margin-top:12px"><div class=aih><small>Kosakata dari progresmu (${nW}/${c.words.length}) — ketuk untuk mengeluarkan</small><button class=mini data-ai=reroll>↻ Acak ulang</button></div>${c.words.length?`<div class=aiws>${chips}</div>`:`<div class="card empty" style="margin:6px 0 0;padding:12px"><b>Belum ada kosakata ${AIP[c.L].n} yang tercatat lemah</b>Setelah kamu memakai Flashcard (tombol “Lagi”) atau menandai kata sebagai “Sedang”, kata-kata itu otomatis masuk ke sini. Untuk sekarang AI memakai kosakata umum.</div>`}</div>${gch}`+
   `<div class=aio style="margin-top:12px"><div class=aih><small>Pratinjau prompt <i class=aicnt>${text.length.toLocaleString('id-ID')} karakter</i> — boleh diedit sebelum disalin</small></div><textarea id=aiTxt spellcheck=false>${esc(text)}</textarea></div>`}
 function aiOpen(k){if(!k||(!aiIsV(k)&&!GK[k])||(aiIsV(k)&&!K[base(k)]))return;const L=aiIsV(k)?lang(k):GK[k][1];if(!AIP[L]){toast('Bahasa ini belum didukung Kelas AI.');return}

@@ -1,5 +1,9 @@
 # Riwayat Perubahan
 
+## 6.1.0
+- **Kelas AI: prompt “Sedang”** (tab baru di antara Panjang dan Pendek): hasilnya **teks bacaan berparagraf** (judul + paragraf utuh + terjemahan Indonesia per paragraf; Jepang ditambah romaji, Mandarin ditambah pinyin). Aturannya sama dengan prompt lain: topik utama ada di SETIAP kalimat, ditambah kosakata/grammar yang sering lupa atau sedang dipelajari dalam bahasa yang sama. Panjang bacaan bisa dipilih (3 / 4 / 6 paragraf), dan di akhir ada daftar pembentuk beserta paragraf tempat munculnya.
+- Service worker 6.1.0.
+
 ## 6.0.0
 **Kelas AI: dua jenis prompt** (pilih lewat tab di panel 🎓)
 - **Prompt panjang**: seperti sebelumnya (tidak diubah).

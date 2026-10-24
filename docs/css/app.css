@@ -309,7 +309,7 @@ nav button{position:relative}
 .rdtog{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:14px 16px;background:var(--c);border:1px solid var(--b);border-radius:var(--r);box-shadow:var(--sh);font-size:.98rem;font-weight:650;color:var(--t)}
 .rdtog span{flex:1}.rdtog small{color:var(--m);font-weight:500}.rdtog i{font-style:normal;color:var(--m)}
 .rdtog.on{border-color:var(--a)}
-.aitabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:6px 0 8px}
+.aitabs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:6px 0 8px}
 .aitabs button{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;padding:10px 12px;border-radius:12px;border:1px solid var(--b);background:var(--c);color:var(--t)}
 .aitabs button small{color:var(--m);font-weight:500;font-size:.74rem;line-height:1.3}
 .aitabs button.on{border-color:var(--a);background:var(--a2)}
