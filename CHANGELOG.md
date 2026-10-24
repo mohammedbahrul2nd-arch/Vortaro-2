@@ -1,5 +1,21 @@
 # Riwayat Perubahan
 
+## 6.0.0
+**Kelas AI: dua jenis prompt** (pilih lewat tab di panel 🎓)
+- **Prompt panjang**: seperti sebelumnya (tidak diubah).
+- **Prompt pendek** (baru): hanya daftar contoh kalimat + arti. Jepang menambah **romaji**, Mandarin menambah **pinyin**. Topik utama (kartu yang kamu salin) wajib ada di setiap kalimat; pembentuk kalimat adalah kosakata/grammar lain dalam bahasa yang sama yang sering lupa atau sedang dipelajari. Tiap kalimat diberi baris “Pembentuk” untuk dicek.
+
+**Belajar**
+- Kini hanya dua bagian utama: **Kata** dan **Latihan kalimat**.
+- **Bacaan** menjadi tombol “📖 Kumpulan bacaan Esperanto” yang harus ditekan untuk menampilkan daftar bacaan.
+
+**Statistik**
+- **Kartu matang** dan **kartu selesai** (sebelumnya “item selesai”) bisa diketuk untuk melihat daftarnya (filter per bahasa, urut interval, ketuk item untuk membuka).
+- **Perkiraan tuntas** (baru): kapan semua kartu pada cakupan aktif (ikut Filter flashcard, atau semua bahasa & level) dikenalkan, matang, dan selesai. Memakai laju rata-rata sejak mulai, laju 14 hari terakhir, batas kartu baru harian, atau skenario “jika kartu baru/hari = N”; waktu matang tiap kartu disimulasikan dengan pengaturan SRS dan tingkat lupa dari riwayatmu. Ada rincian per bahasa dan penjelasan asumsi.
+- Aplikasi kini mencatat kartu baru per hari per bahasa (`nw`, ikut cadangan progres) agar laju 14 hari terakhir akurat.
+
+**Teknis**: service worker 6.0.0; kunci penyimpanan `vortaro_v1` tidak berubah.
+
 ## 5.1.0
 **Kelas AI: aturan kalimat yang ketat.** Prompt kini memuat bagian “ATURAN WAJIB UNTUK SETIAP KALIMAT”:
 - Salin **grammar X** → SETIAP kalimat (contoh, dialog, soal tes, kartu hafalan) wajib memuat grammar X, ditambah minimal 1 kosakata atau grammar lemah (sering lupa / masih dipelajari) dalam bahasa yang sama.
