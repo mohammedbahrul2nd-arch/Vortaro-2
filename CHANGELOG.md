@@ -1,5 +1,11 @@
 # Riwayat Perubahan
 
+## 6.2.0
+- **Tab Belajar disembunyikan** dari antarmuka (kodenya tetap ada; ubah `SHOW_BELAJAR` di `js/app.js` menjadi `true` untuk menampilkannya lagi). Aplikasi kini dibuka di tab Kartu, dan tombol “Latih grammar ini / Buat kalimat” serta riwayat kalimat di kartu ikut disembunyikan.
+- **Kelas AI memilih kosakata/grammar berdasarkan status sekarang**, bukan riwayat lupa seumur hidup. Kartu yang sudah **matang** (interval ≥ 21 hari; grammar ≥ batas 20 hari) tidak dimasukkan walau pernah lupa berkali-kali. Yang dipilih: baru lupa / belajar ulang, lupa yang intervalnya belum pulih (ditampilkan bersama interval sekarang), masih belajar, ulasan muda, sedang dipelajari, dan kesalahan latihan yang baru (21 hari) serta belum tepat pada percobaan terakhir. Berlaku untuk prompt panjang, sedang, dan pendek, serta kartu pintas di tab Grammar.
+- **Prompt Sedang: dua format bacaan.** (1) Paragraf utuh + terjemahan per paragraf (seperti sebelumnya); (2) **Per kalimat**: tiap paragraf diberi penanda, lalu tiap kalimat ditulis tiga baris — bahasa asing, romanisasi (Jepang/Mandarin), bahasa Indonesia — dipisah baris kosong.
+- Service worker 6.2.0.
+
 ## 6.1.0
 - **Kelas AI: prompt “Sedang”** (tab baru di antara Panjang dan Pendek): hasilnya **teks bacaan berparagraf** (judul + paragraf utuh + terjemahan Indonesia per paragraf; Jepang ditambah romaji, Mandarin ditambah pinyin). Aturannya sama dengan prompt lain: topik utama ada di SETIAP kalimat, ditambah kosakata/grammar yang sering lupa atau sedang dipelajari dalam bahasa yang sama. Panjang bacaan bisa dipilih (3 / 4 / 6 paragraf), dan di akhir ada daftar pembentuk beserta paragraf tempat munculnya.
 - Service worker 6.1.0.

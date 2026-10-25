@@ -314,3 +314,5 @@ nav button{position:relative}
 .aitabs button small{color:var(--m);font-weight:500;font-size:.74rem;line-height:1.3}
 .aitabs button.on{border-color:var(--a);background:var(--a2)}
 .aitabs button.on b{color:var(--a)}
+/* v6.2: Belajar disembunyikan */
+.nobel [data-a=ltfw],.nobel [data-a=ltgo],.nobel .mys{display:none!important}
