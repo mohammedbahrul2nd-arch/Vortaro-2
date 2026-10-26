@@ -331,7 +331,8 @@ document.addEventListener('keydown',e=>{if(!document.getElementById('lbm'))retur
    5. PUSTAKA (tab)
    --------------------------------------------------------------------------------------------- */
 let libLg='',libStt='',libSort='new',libLim=30,libOpenId='',libQ='',libCard='',libAnaF='all',libAnaLim=40;
-const libMinV=()=>Math.max(1,+S.o.libMin||4);
+let libMinOv=0;
+const libMinV=()=>libMinOv||Math.max(1,+S.o.libMin||4);
 let libIdx=null;
 function libIndex(){if(libIdx)return libIdx;libIdx=[];for(const c of D.C)for(const L of LIBL){const es=c[3][L];if(!es||!es.length)continue;libIdx.push({k:ik(c[0],L),L,t:(c[2]+' '+es.map(e=>e[0]+' '+(e[1]||'')).join(' ')).toLowerCase()})}
  for(const g of D.G)if(LIBL.includes(g[1]))libIdx.push({k:g[0],L:g[1],g:1,t:(g[4]+' '+g[6]).toLowerCase()});return libIdx}
@@ -359,12 +360,28 @@ function libFilter(){let a=S.lib.slice();const mc={},ws={};
  else if(libSort=='title')a.sort((x,y)=>x.t.localeCompare(y.t));else a.sort((x,y)=>y.c-x.c);
  return{a,mc,ws}}
 const libDt=ts=>{const d=new Date(ts);return d.getDate()+' '+['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'][d.getMonth()]};
+
+/* kalimat yang memuat kartu/grammar + penyorotan */
+const libSD=new Map();
+function libSentDoc(it,pi,si){const key=it.id+'|'+pi+'|'+si;let d=libSD.get(key);if(d)return d;const L=it.L,f=it.ps[pi].f[si];
+ d={L,sents:[f],flat:f.replace(/\s+/g,'')};if(L!='ja'&&L!='zh'){const tk=libTok(f,L),cnt=new Map();tk.forEach(w=>cnt.set(w,(cnt.get(w)|0)+1));d.cnt=cnt;d.sT=[new Set(tk)]}
+ libSD.set(key,d);return d}
+function libHits(it,key){const out=[];let g=0;it.ps.forEach((p,pi)=>p.f.forEach((f,si)=>{const n=libCountKey(libSentDoc(it,pi,si),key);if(n>0)out.push({pi,si,g:g,n,f,i:p.a!==0&&p.i&&p.i[si]?p.i[si]:''});g++}));return out}
+function libHL(f,key,L){const F=libForms(key);if(!F)return esc(f);
+ if(L=='ja'||L=='zh'){const t=f.replace(/\s+/g,'');let res=[];const add=re=>{if(!re)return;re.lastIndex=0;let m;while((m=re.exec(t))){if(!m[0].length){re.lastIndex++;continue}res.push([m.index,m.index+m[0].length])}};
+  F.alts.forEach(a=>{add(a.re);(a.ord||[]).forEach(add);(a.co||[]).forEach(parts=>parts.forEach(pt=>{let i=t.indexOf(pt);while(i>=0){res.push([i,i+pt.length]);i=t.indexOf(pt,i+pt.length)}}))});
+  res.sort((a,b)=>a[0]-b[0]);const mg=[];res.forEach(r=>{const l=mg[mg.length-1];if(l&&r[0]<=l[1])l[1]=Math.max(l[1],r[1]);else mg.push(r.slice())});
+  let h='',p=0;mg.forEach(r=>{h+=esc(t.slice(p,r[0]))+'<mark>'+esc(t.slice(r[0],r[1]))+'</mark>';p=r[1]});return h+esc(t.slice(p))}
+ const sets=[],aff=[];F.alts.forEach(a=>{if(a.k=='tok')a.sets.forEach(x=>sets.push(x));else if(a.k=='aff')aff.push(a)});
+ return esc(f).replace(/[\p{L}]+/gu,w=>{const l=libTok(w,L)[0]||'';const hit=sets.some(x=>x.has(l))||aff.some(a=>a.pre.some(q=>l.startsWith(q))||a.cont.some(q=>l.includes(q)));return hit?'<mark>'+w+'</mark>':w})}
+function libSnips(it){const H=libHits(it,libCard);if(!H.length)return'';const L=it.L;
+ return`<div class=lbsn><small class=lbl>Ada di ${H.length} kalimat</small>`+H.slice(0,6).map(h=>`<div class=lbs data-a=libgo data-k="${esc(it.id)}" data-v=${h.g}><small>Paragraf ${h.pi+1} · kalimat ${h.si+1}</small><div class=eo>${libHL(h.f,libCard,L)}</div>${h.i?`<div class=idn>${esc(h.i)}</div>`:''}<span class=lbgo>▶ Putar dari sini</span></div>`).join('')+(H.length>6?`<small>…dan ${H.length-6} kalimat lain (buka Rincian).</small>`:'')+`</div>`}
 function libRow(it,mc,ws){const ns=libNS(it),op=libOpenId==it.id;
  return`<div class="card lbi"><div class=hd><span>${esc(libNm(it.L))} · ${it.ps.length} paragraf · ${ns} kalimat · ${libDt(it.c)}</span><span>${it.h?'<span class=bdg>🎧 didengar</span>':''}${it.r?'<span class=bdg>📖 dibaca</span>':''}</span></div>`+
   `<div class=mean style="font-size:1.12rem;margin:2px 0 6px">${esc(it.t)}</div>`+
   (mc!=null?`<div class=lbm1><b>${esc(libLbl(libCard).w)}</b> muncul <b>${mc}×</b> di teks ini</div>`:'')+
   (ws?`<div class=lbm1>Memuat <b>${ws.n}</b> dari ${ws.of} kartu lemahmu</div>`:'')+
-  `<div class=fct><button class=pri data-a=libplay data-k="${esc(it.id)}" style="flex:1.4">▶ Putar</button><button data-a=libdet data-k="${esc(it.id)}">${op?'Tutup':'Rincian'}</button><button class="${it.h?'on':''}" data-a=libh data-k="${esc(it.id)}">${it.h?'✓ Didengar':'Tandai didengar'}</button><button class="${it.r?'on':''}" data-a=libr data-k="${esc(it.id)}">${it.r?'✓ Dibaca':'Tandai dibaca'}</button></div>`+(op?libDetail(it):'')+`</div>`}
+  (mc!=null?libSnips(it):'')+`<div class=fct><button class=pri data-a=libplay data-k="${esc(it.id)}" style="flex:1.4">▶ Putar</button><button data-a=libdet data-k="${esc(it.id)}">${op?'Tutup':'Rincian'}</button><button class="${it.h?'on':''}" data-a=libh data-k="${esc(it.id)}">${it.h?'✓ Didengar':'Tandai didengar'}</button><button class="${it.r?'on':''}" data-a=libr data-k="${esc(it.id)}">${it.r?'✓ Dibaca':'Tandai dibaca'}</button></div>`+(op?libDetail(it):'')+`</div>`}
 function libDetail(it){const m=S.o.rdt=='off'?0:S.o.rdt=='blur'?1:2,rm=it.ps.some(p=>p.r&&p.r.length);
  let h=`<div class=lbd><div class=rdh><button data-a=libren data-k="${esc(it.id)}">✎ Ganti judul</button><button data-a=libdel data-k="${esc(it.id)}" style="color:var(--bad)">🗑 Hapus</button></div>`;
  h+=it.ps.map((p,pi)=>{const a=p.a!==0;return`<div class=lbp><small class=lbl>Paragraf ${pi+1}</small>`+p.f.map((f,si)=>`<div class=rds><div class=eo>${esc(f)}${spk(f,it.L)}</div>${p.r&&p.r.length&&a?`<div class="r rom">${esc(p.r[si]||'')}</div>`:''}${a&&p.i[si]&&m?`<div class="idn${m==1?' ltm mnh':''}">${esc(p.i[si])}</div>`:''}</div>`).join('')+
@@ -394,6 +411,7 @@ function libView(){const lib=S.lib,cnt={};lib.forEach(t=>cnt[t.L]=(cnt[t.L]|0)+1
 function libAct(a,x,k,b){const it=k&&S.lib.find(t=>t.id==k);
  if(a=='libadd'){libAddOpen();return 1}
  else if(a=='libplay'){if(it)lpOpen(it);return 1}
+ else if(a=='libgo'){if(it)lpOpen(it,+x);return 1}
  else if(a=='libdet'){libOpenId=libOpenId==k?'':k;libAnaF='all';libAnaLim=40}
  else if(a=='libh'&&it){it.h=it.h?0:Date.now()}
  else if(a=='libr'&&it){it.r=it.r?0:Date.now()}
@@ -401,18 +419,18 @@ function libAct(a,x,k,b){const it=k&&S.lib.find(t=>t.id==k);
  else if(a=='libren'&&it){const n=prompt('Judul baru:',it.t);if(n&&n.trim())it.t=n.trim().slice(0,120);else return 1}
  else if(a=='liblg'){libLg=x||'';libLim=30}else if(a=='libst'){libStt=x||'';libLim=30}else if(a=='libsrt'){libSort=x}
  else if(a=='libmore')libLim+=30;
- else if(a=='libpick'){libCard=k;libLg='';libQ='';libLim=30;const l=libOfKey(k);if(!S.lib.some(t=>t.L==l))toast('Belum ada teks '+libNm(l)+' di Pustaka.');DO.add('libf')}
- else if(a=='libclr'){libCard='';libQ=''}
- else if(a=='libmin'){S.o.libMin=+x}
+ else if(a=='libpick'){libMinOv=0;libCard=k;libLg='';libQ='';libLim=30;const l=libOfKey(k);if(!S.lib.some(t=>t.L==l))toast('Belum ada teks '+libNm(l)+' di Pustaka.');DO.add('libf')}
+ else if(a=='libclr'){libCard='';libQ='';libMinOv=0}
+ else if(a=='libmin'){libMinOv=0;S.o.libMin=+x}
  else if(a=='libana'){libAnaF=x;libAnaLim=40}else if(a=='libanamore')libAnaLim+=60;
- else if(a=='libfind'){libCard=k;libLg='';libQ='';libLim=30;tab='lib';goTop=1}
+ else if(a=='libfind'){libCard=k;libLg='';libQ='';libLim=30;libMinOv=1;libStt='';tab='lib';goTop=1;DO.add('libf')}
  return 0}
 
 /* ---------------------------------------------------------------------------------------------
    6. PEMUTAR LISTENING
    --------------------------------------------------------------------------------------------- */
 let LP=null;
-const lpO=()=>{const o=S.o;if(o.lpM==null)o.lpM='s';if(o.lpPause==null)o.lpPause=1;if(o.lpRep==null)o.lpRep=1;if(o.lpAuto==null)o.lpAuto=1;if(o.lpLoop==null)o.lpLoop=0;if(!o.lpTr)o.lpTr='blur';if(o.lpRom==null)o.lpRom=1;return o};
+const lpO=()=>{const o=S.o;if(o.lpM==null)o.lpM='s';if(o.lpPause==null)o.lpPause=1;if(o.lpRep==null)o.lpRep=1;if(o.lpAuto==null)o.lpAuto=1;if(o.lpLoop==null)o.lpLoop=0;if(!o.lpT)o.lpT='show';if(o.lpRom==null)o.lpRom=1;return o};
 function lpBuild(it,mode){const sents=[],paras=[];
  it.ps.forEach((p,pi)=>{const a=p.a!==0,from=sents.length;
   p.f.forEach((f,si)=>sents.push({f,pi,si,r:p.r&&p.r.length?(a?(p.r[si]||''):p.r.join(' ')):'',i:p.i&&p.i.length?(a?(p.i[si]||''):p.i.join(' ')):'',pa:!a}));
@@ -420,8 +438,8 @@ function lpBuild(it,mode){const sents=[],paras=[];
  const units=mode=='p'?paras.map(q=>{const ss=sents.slice(q.from,q.to+1),a=it.ps[q.pi].a!==0;return{chunks:ss.map(s=>s.f),from:q.from,to:q.to,pi:q.pi,f:ss.map(s=>s.f).join(' '),r:ss.map(s=>s.r).filter(Boolean).join(' '),i:a?ss.map(s=>s.i).filter(Boolean).join(' '):ss[0].i}})
   :sents.map((s,i)=>({chunks:[s.f],from:i,to:i,pi:s.pi,f:s.f,r:s.r,i:s.i}));
  return{sents,units}}
-function lpOpen(it){lpClose(true);const o=lpO(),b=lpBuild(it,o.lpM);
- LP={it,L:it.L,mode:o.lpM,sents:b.sents,units:b.units,idx:0,rep:0,tok:0,playing:false,peek:0,timer:null,t0:0,wl:null};
+function lpOpen(it,startS){lpClose(true);const o=lpO(),b=lpBuild(it,o.lpM);
+ LP={it,L:it.L,mode:o.lpM,sents:b.sents,units:b.units,idx:Math.max(0,b.units.findIndex(u=>startS>=u.from&&startS<=u.to)),rep:0,tok:0,playing:false,peek:0,timer:null,t0:0,wl:null};
  const m=document.createElement('div');m.id='lpm';m.className='edm';
  m.innerHTML=`<div class="eds lps" role=dialog aria-modal=true aria-label="Pemutar listening"><div class=edh><div><b>🎧 ${esc(it.t)}</b><small>${esc(libNm(it.L))} · <span id=lpPos></span></small></div><button class=mini data-lp=close aria-label=Tutup>✕</button></div><div class="edb lpb"><div id=lpNow></div><div id=lpCtl></div><div id=lpSet></div><div class=gsec style="margin-top:12px" id=lpLh></div><div id=lpList class=lpl></div></div><div class=edf><button data-lp=heard id=lpHd>Tandai didengar</button><button data-lp=close>Tutup</button></div></div>`;
  document.body.appendChild(m);document.body.style.overflow='hidden';
@@ -461,7 +479,7 @@ function lpMode(m){const P=LP;if(!P||P.mode==m)return;const cur=P.units[P.idx],s
  const was=P.playing;lpPause();const b=lpBuild(P.it,m);P.mode=m;P.sents=b.sents;P.units=b.units;P.idx=Math.max(0,b.units.findIndex(u=>sent>=u.from&&sent<=u.to));P.rep=0;P.peek=0;lpNow();lpCtl();lpSetR();lpListR();if(was)lpSpeak()}
 function lpNow(){const P=LP,e=document.getElementById('lpNow');if(!P||!e)return;const u=P.units[P.idx]||{f:'',r:'',i:''},o=lpO();
  const pos=document.getElementById('lpPos');if(pos)pos.textContent=(P.mode=='p'?'Paragraf ':'Kalimat ')+(P.idx+1)+' / '+P.units.length;
- let tr='';if(u.i){if(o.lpTr=='show')tr=`<div class=idn>${esc(u.i)}</div>`;else if(o.lpTr=='blur')tr=`<div class="idn ltm mnh">${esc(u.i)}</div>`;else tr=P.peek?`<div class=idn>${esc(u.i)}</div>`:`<button class=mini data-lp=peek>👁 Lihat arti</button>`}
+ let tr='';if(u.i){if(o.lpT=='show')tr=`<div class=idn>${esc(u.i)}</div>`;else if(o.lpT=='blur')tr=`<div class="idn ltm mnh">${esc(u.i)}</div>`;else tr=P.peek?`<div class=idn>${esc(u.i)}</div>`:`<button class=mini data-lp=peek>👁 Lihat arti</button>`}
  else tr=`<small class=lbl>Tidak ada terjemahan untuk teks ini.</small>`;
  e.innerHTML=`<div class=lpn><div class=lpf>${esc(u.f)}</div>${o.lpRom&&u.r?`<div class="r rom">${esc(u.r)}</div>`:''}${tr}${u.pa&&u.i?`<small class=lbl>Terjemahan seluruh paragraf</small>`:''}</div>`}
 function lpCtl(){const P=LP,e=document.getElementById('lpCtl');if(!P||!e)return;const sp=ttsRate();
@@ -473,7 +491,7 @@ function lpSetR(){const P=LP,e=document.getElementById('lpSet');if(!P||!e)return
   `<small class=lbl>Satuan putar</small>${sg('lpM',[['s','Per kalimat'],['p','Per paragraf']])}`+
   `<small class=lbl>Jeda antar ${P.mode=='p'?'paragraf':'kalimat'}</small>${sg('lpPause',[[0,'0'],[1,'1 dtk'],[2,'2 dtk'],[3,'3 dtk'],[5,'5 dtk'],['sd','Seperti durasinya']])}`+
   `<small class=lbl>Ulangi tiap ${P.mode=='p'?'paragraf':'kalimat'}</small>${sg('lpRep',[[1,'1×'],[2,'2×'],[3,'3×']])}`+
-  `<small class=lbl>Terjemahan Indonesia</small>${sg('lpTr',[['show','Tampil'],['blur','Sensor'],['hide','Sembunyi']])}`+
+  `<small class=lbl>Terjemahan Indonesia</small>${sg('lpT',[['show','Tampil'],['blur','Sensor'],['hide','Sembunyi']])}`+
   (P.it.ps.some(p=>p.r&&p.r.length)?`<small class=lbl>Romanisasi</small>${sg('lpRom',[[1,'Tampil'],[0,'Sembunyi']])}`:'')+
   `<label class=fcl><span><input type=checkbox data-lpc=lpAuto${o.lpAuto?' checked':''}> Lanjut otomatis ke berikutnya</span></label><label class=fcl><span><input type=checkbox data-lpc=lpLoop${+o.lpLoop?' checked':''}> Ulangi dari awal setelah selesai</span></label>`+
   `<label class=fcl><span>Suara</span><select data-lpv=1 style="width:auto;max-width:60%"><option value="">Otomatis</option>${vs.map(v=>`<option value="${esc(v.voiceURI)}"${(S.o.lpV||{})[P.L]==v.voiceURI?' selected':''}>${esc(v.name)} (${esc(v.lang)})</option>`).join('')}</select></label>`+
@@ -490,7 +508,7 @@ document.addEventListener('click',e=>{const m=document.getElementById('lpm');if(
  else if(a=='go')lpGo(+b.dataset.v);
  else if(a=='peek'){P.peek=1;lpNow()}
  else if(a=='spd'){S.o.ttsr=+b.dataset.v;save();lpCtl();if(P.playing)lpSpeak()}
- else if(a=='opt'){const n=b.dataset.o,v=b.dataset.v;if(n=='lpM')lpMode(v);else{o[n]=(n=='lpTr')?v:(v=='sd'?'sd':+v);save();P.setOpen=1;lpSetR();lpNow();if(n=='lpPause'||n=='lpRep')lpCtl()}}
+ else if(a=='opt'){const n=b.dataset.o,v=b.dataset.v;if(n=='lpM')lpMode(v);else{o[n]=(n=='lpT')?v:(v=='sd'?'sd':+v);save();P.setOpen=1;lpSetR();lpNow();if(n=='lpPause'||n=='lpRep')lpCtl()}}
  else if(a=='heard'&&!P.it.temp){P.it.h=P.it.h?0:Date.now();save();lpCtl();if(typeof tab!='undefined'&&tab=='lib')render()}},true);
 document.addEventListener('input',e=>{const t=e.target;if(t.dataset&&t.dataset.lpr=='sp'&&LP){const v=+t.value,s=document.getElementById('lpSpv');if(s)s.textContent=v.toFixed(2).replace(/0$/,'')+'×'}});
 document.addEventListener('change',e=>{const t=e.target;if(!LP||!t.dataset)return;
