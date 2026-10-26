@@ -1,5 +1,25 @@
 # Riwayat Perubahan
 
+## 7.0.0
+**Pustaka teks + pemutar listening (tab baru “Pustaka”)**
+- Tempel teks dari AI lewat “＋ Tambah teks”. Format yang dikenali otomatis: **Audio / listening** (`=== TEKS … ===` + `=== TERJEMAHAN INDONESIA ===`), **per kalimat** (“Paragraf N”, tiga baris: asing · romanisasi · Indonesia), paragraf + terjemahan, daftar bernomor dari prompt Pendek, dan teks polos. Bahasa terdeteksi otomatis (bisa dipilih manual); ada pratinjau sebelum disimpan.
+- **Pemutar Listening**: dipecah per kalimat atau per paragraf, memakai suara bawaan perangkat. Kecepatan **0.5×–1.2×** (slider + preset), jeda antar kalimat (0–5 dtk atau “seperti durasinya”), ulangi tiap kalimat 1–3×, tombol **ulang kalimat**, sebelumnya/berikutnya, lanjut otomatis, ulang dari awal, pilihan suara per bahasa, daftar kalimat yang bisa diketuk, terjemahan **Tampil / Sensor / Sembunyi**, romanisasi bisa disembunyikan, layar tetap menyala saat memutar. Pintasan: Spasi, ←/→, R.
+- `say()` (tombol 🔊) kini mengikuti pengaturan kecepatan suara (Atur → Tampilan) dan suara pilihan, tidak lagi tetap 0.9×. Bacaan Esperanto punya tombol “🎧 Pemutar”.
+- Tandai **sudah didengar / sudah dibaca**, filter status, urutkan, ganti judul, hapus. Pustaka ikut **cadangan progres** (digabung per id saat impor).
+- **Cari teks berdasarkan kartu**: pilih satu kartu (mis. 私 / watashi), atur “minimal muncul” (mis. 4×), dapatkan teks yang memuatnya. Pencocokan memahami **bentuk kata yang berubah**: kata kerja Jepang (godan/ichidan, ます・て・た・ない…, する/来る), kata sifat -い, bacaan kana dari romaji, Mandarin (kata sambung berpola, tanpa spasi), Jerman & Belanda (jamak, konjugasi, kata kerja kuat/lemah, partisip, kata kerja terpisah, kata sifat bertingkat, diminutif), Esperanto (semua akhiran, partisip, korelatif, pronomina). Juga urutan **“Cocok untuk kartu lemahku”**.
+- **Grammar ikut bisa dicari** (dan dideteksi di rincian teks): pola literal dari judul/pola grammar dicocokkan ke teks — Jepang & Mandarin lewat fragmen kana/hanzi (urutan dalam satu kalimat bila polanya punya beberapa bagian, mis. 着…着), Jerman/Belanda/Esperanto lewat kata kunci yang terbukti muncul di contoh grammar, termasuk bentuk kata kerjanya dan awalan/akhiran (mis. -ebl-, ver-). Sifatnya perkiraan; grammar yang murni abstrak tidak bisa dicari. Tombol 📚 ada di kartu grammar dan toolbar flashcard.
+- Rincian tiap teks menampilkan **semua kartu milikmu yang muncul dalam teks** (jumlah kemunculan, status lemah/baru/matang), bisa difilter; ketuk kartu untuk mencari teks lain.
+
+**Kelas AI: prompt keempat “Bicara”**
+- **Percakapan (mode suara)**: AI jadi lawan bicara yang bicara pelan dan pendek, memakai topik utama + kartu lemahmu, menunggu jawabanmu, tanpa koreksi di tengah, lalu **koreksi akhir** (skor, kesalahan, pola, pemakaian kartu, 5 kalimat untuk diulang). Pilihan situasi dan jumlah giliran; kata bantuan “arti / pelan / bantu / selesai”.
+- **Koreksi tulisanku**: AI memberi tugas menulis, menunggu tulisanmu, lalu mengoreksi tiap ronde (menggantikan fungsi Latihan kalimat yang disembunyikan).
+
+**Kartu bandel**
+- Kartu yang dilupa ≥ 4× (ambang bisa diubah di Pengaturan flashcard → Lanjutan) ditandai “🪨 bandel” di kartu dan muncul di daftar **Statistik → Kartu bandel**.
+- Tombol **🧠 Mnemonik** menyalin prompt khusus kartu itu: diagnosis, **3 jembatan ingatan** berbeda teknik, **1 kalimat jangkar**, dan tes ingat mini. Ada notifikasi saat sebuah kartu baru menjadi bandel.
+
+**Teknis**: berkas baru `js/pustaka.js`; service worker 7.0.0; kunci penyimpanan `vortaro_v1` tidak berubah (data baru: `lib`, opsi `ttsr`, `lp*`, `lch`).
+
 ## 6.3.0
 - **Kelas AI: opsi “Level kalimat” di semua prompt** (panjang, sedang, pendek): *Sesuai topik* (seperti sebelumnya) atau *Level tertinggi pilihanku*. Pilihan kedua mengambil level tertinggi bahasa itu dari pengaturan aktif (Filter flashcard kosakata & grammar; bila kosong, filter tab Kata/Grammar), mis. Jepang N5–N3 → N3. Kalimat dan kosakata pendamping boleh setingkat itu, tetapi semua kartu yang sedang dipelajari tetap wajib dipakai. Level topik sendiri tetap ditulis di prompt.
 - **Prompt Sedang: format ketiga “Audio / listening”** untuk text-to-speech: tiga blok berurutan — `=== TEKS (bahasa asing) ===` berisi semua paragraf, `=== TERJEMAHAN INDONESIA ===` berisi semua paragrafnya, lalu daftar pembentuk. Teks bersih tanpa tebal/garis bawah/nomor/romanisasi agar enak dibacakan.
