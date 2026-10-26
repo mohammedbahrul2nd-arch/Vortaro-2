@@ -1,5 +1,10 @@
 # Riwayat Perubahan
 
+## 6.3.0
+- **Kelas AI: opsi “Level kalimat” di semua prompt** (panjang, sedang, pendek): *Sesuai topik* (seperti sebelumnya) atau *Level tertinggi pilihanku*. Pilihan kedua mengambil level tertinggi bahasa itu dari pengaturan aktif (Filter flashcard kosakata & grammar; bila kosong, filter tab Kata/Grammar), mis. Jepang N5–N3 → N3. Kalimat dan kosakata pendamping boleh setingkat itu, tetapi semua kartu yang sedang dipelajari tetap wajib dipakai. Level topik sendiri tetap ditulis di prompt.
+- **Prompt Sedang: format ketiga “Audio / listening”** untuk text-to-speech: tiga blok berurutan — `=== TEKS (bahasa asing) ===` berisi semua paragraf, `=== TERJEMAHAN INDONESIA ===` berisi semua paragrafnya, lalu daftar pembentuk. Teks bersih tanpa tebal/garis bawah/nomor/romanisasi agar enak dibacakan.
+- Service worker 6.3.0.
+
 ## 6.2.0
 - **Tab Belajar disembunyikan** dari antarmuka (kodenya tetap ada; ubah `SHOW_BELAJAR` di `js/app.js` menjadi `true` untuk menampilkannya lagi). Aplikasi kini dibuka di tab Kartu, dan tombol “Latih grammar ini / Buat kalimat” serta riwayat kalimat di kartu ikut disembunyikan.
 - **Kelas AI memilih kosakata/grammar berdasarkan status sekarang**, bukan riwayat lupa seumur hidup. Kartu yang sudah **matang** (interval ≥ 21 hari; grammar ≥ batas 20 hari) tidak dimasukkan walau pernah lupa berkali-kali. Yang dipilih: baru lupa / belajar ulang, lupa yang intervalnya belum pulih (ditampilkan bersama interval sekarang), masih belajar, ulasan muda, sedang dipelajari, dan kesalahan latihan yang baru (21 hari) serta belum tepat pada percobaan terakhir. Berlaku untuk prompt panjang, sedang, dan pendek, serta kartu pintas di tab Grammar.
