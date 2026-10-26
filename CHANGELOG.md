@@ -1,5 +1,9 @@
 # Riwayat Perubahan
 
+## 7.0.1
+- Daftar & Grammar: mengubah filter/pencarian tidak lagi melempar halaman ke atas (posisi scroll dipertahankan).
+- Daftar: tombol "reset filter", bilah filter menempel di atas saat scroll.
+
 ## 7.0.0
 **Pustaka teks + pemutar listening (tab baru “Pustaka”)**
 - Tempel teks dari AI lewat “＋ Tambah teks”. Format yang dikenali otomatis: **Audio / listening** (`=== TEKS … ===` + `=== TERJEMAHAN INDONESIA ===`), **per kalimat** (“Paragraf N”, tiga baris: asing · romanisasi · Indonesia), paragraf + terjemahan, daftar bernomor dari prompt Pendek, dan teks polos. Bahasa terdeteksi otomatis (bisa dipilih manual); ada pratinjau sebelum disimpan.
