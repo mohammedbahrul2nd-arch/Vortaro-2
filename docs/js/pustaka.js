@@ -155,6 +155,8 @@ let libRepd=0;
 function libRepairAll(){if(libRepd||typeof S=='undefined')return;libRepd=1;let ch=0;
  for(const it of S.lib){if((it.L!='zh'&&it.L!='ja')||it.ps.some(p=>p.r&&p.r.length))continue;
   const g=libGrouped(it.ps.flatMap(p=>p.f).map(x=>libClean(x)),it.L);if(g&&g.ps.length){it.ps=g.ps;if(g.title&&(!it.t||/^\d+$/.test(it.t)))it.t=g.title;libForget(it.id);ch++}}
+ for(const it of S.lib){const n=libPolishPs(it.ps,it.L,libKind(it)=='d');if(n){libForget(it.id);ch+=n}}
+ for(const x of S.sl){const q=libSan(x.f,x.L);if(q.f!==x.f){x.f=q.f;ch++}if(q.r&&!x.r){x.r=q.r;ch++}if(q.i&&!x.i){x.i=q.i;ch++}if(ch)libSD.delete(x.id+'|0|0')}
  if(ch){try{save()}catch(e){}}}
 function libParseOld(raw,opt){opt=opt||{};let t=libClean(raw).trim();if(!t)return{err:'Teks kosong.'};
  let L=opt.L||'',title=(opt.title||'').trim(),note='',ps=[],fmt='',fm=opt.fmt||'auto';
@@ -204,42 +206,178 @@ function libParseOld(raw,opt){opt=opt||{};let t=libClean(raw).trim();if(!t)retur
 const LIBSPK=/^\s*([A-Za-zÀ-ž]{1,12}|[㐀-鿿぀-ヿ]{1,6}|[ＡＢＣＤ])\s*[:：]\s*/;
 function libSpeakers(ps){let n=0,t=0;ps.forEach(p=>p.f.forEach(f=>{t++;if(LIBSPK.test(f))n++}));if(!t||n<t*.6)return;
  ps.forEach(p=>{p.sp=p.f.map(f=>{const m=f.match(LIBSPK);return m?m[1].trim():''});p.f=p.f.map(f=>f.replace(LIBSPK,'').trim())})}
-/* bank kalimat: banyak kalimat tunggal sekaligus. Dikenali: [n] kelompok 3 baris, “asing | romaji | arti”, tab, atau baris biasa */
-function libParseSents(raw,opt){opt=opt||{};let t=libClean(raw).trim();if(!t)return{err:'Teks kosong.'};
- let note='';const mi=t.search(/^\s*(?:daftar\s+)?(?:kartu\s+)?pembentuk(?:\s+yang\s+(?:dipakai|digunakan))?\s*:?\s*$/im);if(mi>=0){note=t.slice(mi);t=t.slice(0,mi)}
- const lines=t.split('\n').map(x=>x.trim()).filter(x=>x&&!/^(?:judul|title)\s*[:：]/i.test(x)&&!libHead(x)),ID1=/^\s*[\[【〔［]\s*(\d{1,4})(?:\s*[.\-:·．]\s*\d{1,3})?\s*[\]】〕］]\s*[:：.)\-–—]?\s*/;
- let L=opt.L||'';if(!L)L=libDetectL(lines.join('\n'));if(!L)return{err:'Bahasa tidak terdeteksi. Pilih bahasa secara manual.'};
- const rom=L=='ja'||L=='zh',G=[],warn=[];let cur=null,fmt='';
- if(lines.some(l=>ID1.test(l))){fmt='id';
-  for(const ln of lines){const m=ln.match(ID1);if(m){cur={n:m[1],f:ln.slice(m[0].length).trim(),x:[]};G.push(cur)}else if(cur)cur.x.push(ln)}}
- else if(lines.filter(l=>/\s\|\s|\t/.test(l)).length>=Math.max(1,lines.length*.6)){fmt='pipe';
-  for(const ln of lines){const q=ln.split(/\s+\|\s+|\t+/).map(x=>x.trim()).filter(Boolean);if(q.length)G.push({f:q[0],x:q.slice(1)})}}
- else{fmt='line';
-  const isF=l=>rom?libCJK(l):!libIsIndo(l)&&(libScore(l)[L]>0||!/\b(?:yang|dan|di|ke)\b/i.test(l));
-  for(const ln of lines){const l=ln.replace(/^\s*(?:\d{1,3}[.)]\s+)/,'');if(!cur||isF(l)){cur={f:l,x:[]};G.push(cur)}else cur.x.push(l)}}
- const out=[];let missR=0,missI=0;
- for(const g of G){if(!g.f)continue;const e=libGrpFRI(g,rom);if(!e.f)continue;if(rom&&!e.r)missR++;if(!e.i)missI++;out.push({f:e.f,r:e.r,i:e.i,n:g.n||''})}
- if(!out.length)return{err:'Tidak ada kalimat yang bisa dibaca.'};
- if(rom&&missR&&missR<out.length)warn.push(missR+' dari '+out.length+' kalimat tanpa romanisasi (dibuat otomatis, perkiraan).');
- if(missI&&missI<out.length)warn.push(missI+' dari '+out.length+' kalimat tanpa terjemahan.');
- const pb={};note.split('\n').forEach(l=>{const m=l.match(ID1);if(m)pb[m[1]]=l.slice(m[0].length).trim().slice(0,200)});
- out.forEach(o=>{if(o.n&&pb[o.n])o.pb=pb[o.n]});
- return{L,sents:out,fmt,warn}}
-/* pintu masuk parser: coba format berpenanda / berblok dulu, lalu cara lama */
+/* pintu masuk parser: blok === (Listening) -> pengurai blok; selain itu pengurai terpadu v7.3.1; terakhir cara lama (teks polos) */
 function libParse(raw,opt){opt=opt||{};const t=libClean(raw).trim();if(!t)return{err:'Teks kosong.'};
- const fm=opt.fmt||'auto',L0=opt.L||'',lines=t.split('\n'),hasF=lines.some(l=>{const h=libHead(l);return h&&h.k=='f'}),nId=lines.filter(l=>LIBID.test(l)).length;
+ const fm=opt.fmt||'auto',L0=opt.L||'',lines=t.split('\n'),hasF=lines.some(l=>{const h=libHead(l);return h&&h.k=='f'});
  let r=null;
  if(fm=='aud'||(fm=='auto'&&hasF))r=libParseBlocks(t,L0,0);
- else if(fm=='stk'||(fm=='auto'&&nId>=2)){let note='';const m=t.search(/^\s*(?:daftar\s+)?(?:kartu\s+)?pembentuk(?:\s+yang\s+(?:dipakai|digunakan))?\s*:?\s*$/im);let b=t;if(m>=0){note=t.slice(m).trim();b=t.slice(0,m)}
-  r=libParseStack(b,L0);if(r)r.note=note.slice(0,800)}
- if(!r){r=libParseOld(raw,opt);if(r.err)return r;if(opt.dlg)libSpeakers(r.ps);return r}
+ else if(fm!='txt')r=libParseU(t,opt);
+ if(!r){r=libParseOld(raw,opt);if(r.err)return r;if(opt.dlg)libSpeakers(r.ps)}
  if(r.err)return r;
  const L=L0||r.L;if(!L)return{err:'Bahasa tidak terdeteksi. Pilih bahasa teks secara manual.'};
  r.L=L;r.ps=r.ps.filter(p=>p.f.length);if(!r.ps.length)return{err:'Tidak ada kalimat yang bisa dibaca dari teks ini.'};
+ libPolishPs(r.ps,L,!!opt.dlg);
  let title=(opt.title||'').trim()||r.title||'';if(!title){const x=r.ps[0].f[0].replace(/\s+/g,' ');title=x.length>34?x.slice(0,32)+'…':x}
- r.title=title;r.note=r.note||'';r.warn=r.warn||[];if(opt.dlg)libSpeakers(r.ps);return r}
+ r.title=title;r.note=r.note||'';r.warn=r.warn||[];return r}
 const libNS=it=>it.ps.reduce((a,p)=>a+p.f.length,0);
 const libHasTr=it=>it.ps.some(p=>p.i&&p.i.length);
+
+/* ---------------------------------------------------------------------------------------------
+   v7.3.1 — PEMISAH BAHASA: kalimat asing / romanisasi / terjemahan Indonesia tidak boleh tercampur.
+   Dasarnya: tiap potongan teks DIKLASIFIKASI sendiri (asing · romaji/pinyin · Indonesia), bukan hanya
+   mengandalkan urutan baris. Jadi format yang melenceng (satu baris “asing | romaji | arti”, romaji dalam
+   kurung, nomor di setiap baris, dialog tanpa nomor, dll.) tetap terpisah, dan suara (TTS) hanya
+   membacakan bahasa asing.
+   --------------------------------------------------------------------------------------------- */
+const LIBIDW=new Set(('yang dan di ke dari untuk dengan ini itu saya aku kamu anda dia kami kita mereka tidak bukan belum sudah telah akan sedang masih juga hanya sangat lebih paling sekali apa siapa mana kapan bagaimana mengapa kenapa adalah ialah merupakan ada punya bisa dapat boleh harus mau ingin perlu karena jika kalau tetapi tapi atau serta pada dalam oleh agar supaya sambil sebelum sesudah setelah ketika saat hari besok kemarin pagi siang sore malam minggu bulan tahun rumah sekolah buku makan minum pergi datang pulang melihat membaca menulis belajar bekerja bermain suka tolong terima kasih maaf selamat silakan silahkan permisi halo baik sehat kabar nama orang teman ibu bapak ayah anak kakak adik guru murid mahasiswa pelajar air kopi teh roti nasi uang mobil kereta jalan kota negara sini situ sana semua banyak sedikit satu dua tiga empat lima enam tujuh delapan sembilan sepuluh jam menit pukul sekarang nanti tadi lalu kemudian lagi dulu baru bersama bagi seorang sebuah seekor beberapa setiap tiap membeli menjual naik turun masuk keluar duduk berdiri tidur bangun mandi memasak minta ingat lupa tahu mengerti bicara berbicara berkata bertanya menjawab membantu membuka menutup mencari menemukan memakai membawa mengambil memberi menunggu bertemu tinggal hidup senang sedih marah takut lapar haus lelah capek cantik tampan besar kecil panjang pendek tinggi rendah lama murah mahal dingin panas enak sibuk mudah sulit susah penting benar salah kemana dimana berapa mungkin pasti tentu jangan ayo mari sampai kepada terhadap tentang antara tanpa melalui seperti sebagai menjadi menurut yaitu yakni').split(/\s+/));
+/* kata Indonesia yang bentuknya sama dengan kata bahasa lain: jangan dihitung sebagai bukti */
+const LIBIDX={ja:['kita','kami','aku','mana','sana','hari','mari','baru','lama','tahu'],zh:['ke','di','dan','mana','sana'],nl:['dan','kan','mau','sana'],eo:['ke','dia','sana'],de:['mau','sana']};
+const LIBJAW=new Set('wa ga wo o ni no de to mo ka ne yo da desu deshita masu mashita masen mashou deshou dewa janai nai imasu arimasu imashita arimasen kudasai onegai watashi boku ore anata kare kanojo kore sore are kono sono ano koko soko asoko doko nani dare itsu naze doushite totemo sugoku ima kyo ashita kinou ohayo konnichiwa konbanwa sayonara arigato sumimasen gomen hon gakusei sensei tomodachi nihon nihongo taberu nomu iku kuru miru suki kirai ii yoi warui ookii chiisai tte kara made yori demo mada mou desuka masuka'.split(' '));
+const libFold=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+const libToks=s=>libFold(s).match(/[a-z]+/g)||[];
+function libIdHits(x,L){const ex=LIBIDX[L]||[];let n=0;for(const w of libToks(x))if(LIBIDW.has(w)&&!ex.includes(w))n++;return n}
+/* klasifikasi satu potongan teks: 'f' asing · 'r' romanisasi · 'i' Indonesia · '' tidak yakin */
+function libCls(x,L){x=libSp(x);if(!x)return'';const rom=L=='ja'||L=='zh';
+ if(rom){if(libCJK(x))return'f';if(!/[A-Za-zāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]/.test(x))return'';if(libTone(x))return'r';
+  const id=libIdHits(x,L);let jh=0;if(L=='ja')for(const w of libToks(x))if(LIBJAW.has(w))jh++;
+  if(id>jh)return'i';if(jh>id)return'r';
+  if(L=='zh'&&!id){const t=libToks(x);if(t.length&&t.every(w=>w.length<=7)&&t.reduce((a,w)=>a+w.length,0)/t.length<=4)return'r'}
+  return''}
+ const id=libIdHits(x,L),q=libScore(x)[L]||0;if(id>q)return'i';if(q>id)return'f';return''}
+const LIBSEPS=/\s*[|｜]\s*|\t+|\s+[–—―]\s+|\s+-{1,2}\s+|\s+(?:=>|->|→|⇒|=)\s+|\s+\/\/\s+/;
+const libCJKCh=/[぀-ヿ㐀-鿿々。、！？，：；「」『』（）～〜ー]/;
+/* satu baris -> potongan-potongan (asing, lalu romaji/arti yang menempel di baris yang sama) */
+function libSplitLine(line,L){const rom=L=='ja'||L=='zh';let s=libSp(line);if(!s)return[];const ex=[];
+ s=s.replace(/[（(]([^()（）]{1,240})[）)]/g,(m,inner)=>{const c=libCls(inner,L);if(c=='i'||(rom&&c=='r')){ex.push(libSp(inner));return' '}return m});s=libSp(s);
+ let parts=s.split(LIBSEPS).map(libSp).filter(Boolean);
+ if(!(parts.length>1&&parts.slice(1).some(p=>{const c=libCls(p,L);return c=='r'||c=='i'})))parts=[s];
+ if(parts.length==1){
+  if(rom){let e=-1;for(let k=s.length-1;k>=0;k--)if(libCJKCh.test(s[k])){e=k;break}
+   if(e>=0&&e<s.length-1){const head=s.slice(0,e+1),tail=libSp(s.slice(e+1));
+    if(tail&&/[A-Za-zāīūēōǎ]{2,}/.test(tail)&&(/\s/.test(tail)||libCls(tail,L)=='r'||libCls(tail,L)=='i')){parts=[libSp(head)].concat(libSplit(tail,'rom'))}}}
+  else{const ss=libSplit(s,L);if(ss.length>=2){let k=ss.length;while(k>1&&libCls(ss[k-1],L)=='i')k--;if(k<ss.length)parts=[ss.slice(0,k).join(' '),ss.slice(k).join(' ')]}}}
+ return parts.concat(ex)}
+const LIBSPKS=/^\s*(?:(?:speaker|penutur|pembicara|orang|person)\s+)?([A-HＡ-Ｈ])\s*[:：]\s*/;
+const libSpN=x=>String(x).replace(/[Ａ-Ｈ]/g,c=>String.fromCharCode(c.charCodeAt(0)-0xFEE0)).toUpperCase();
+/* furigana / sisa tanda kurung pada kalimat asing */
+function libFixFText(f,L){let s=String(f||'');
+ if(L=='ja')s=s.replace(/([㐀-鿿々]+)[（(][ぁ-ゟ゠-ヿー・\s]{1,24}[）)]/g,'$1');
+ s=s.replace(/^\s*[\[【〔［(（]\s*\d{1,3}\s*(?:[.\-:·．]\s*\d{1,3})?\s*[\]】〕］)）]\s*[:：.)\-–—]?\s*/,'');
+ return libSp(s)}
+/* rakit satu kelompok baris -> {f,r,i}. Baris pertama selalu kalimat asing. */
+function libAsm(lines,L,dlg){const rom=L=='ja'||L=='zh',F=[],R=[],I=[];let seenI=0,dropped=0;
+ lines.forEach((ln0,li)=>{let ln=String(ln0||'').trim();if(!ln)return;
+  const lb=libLabel(ln);let forced=lb.k;ln=lb.t;if(dlg&&li>0)ln=ln.replace(LIBSPKS,'');
+  if(forced&&!rom&&forced=='r')return;
+  const pcs=libSplitLine(ln,L);
+  pcs.forEach((p,pi)=>{p=libSp(p);if(!p)return;
+   let c=(li==0&&pi==0)?'f':(forced||libCls(p,L));
+   if(c==''){c=rom?((!R.length&&!seenI)?'r':'i'):'i'}
+   if(c=='f'){if(rom||!seenI)F.push(p);else dropped++}
+   else if(c=='r'){if(rom)R.push(p);else{I.push(p);seenI=1}}
+   else{I.push(p);seenI=1}})});
+ return{f:libFixFText(F.join(rom?'':' '),L),r:libSp(R.join(' ')),i:libSp(I.join(' ')),dropped}}
+/* satu kalimat asing apa adanya -> bersihkan campuran; ekstra dikembalikan sebagai r / i */
+function libSan(f,L){const a=libAsm([String(f||'')],L);return{f:a.f||libSp(f),r:a.r,i:a.i}}
+/* teks yang BOLEH dibacakan suara: hanya bahasa asing */
+function ttsClean(t,L){let s=libSan(String(t||''),L).f;s=s.replace(LIBSPKS,'');
+ if(L=='ja'||L=='zh')s=s.replace(/[（(][^（）()]*[A-Za-zāīūēōǎ][^（）()]*[）)]/g,'');
+ return libSp(s)}
+const LIBMARK=l=>/^(?:第[一二三四五六七八九十百\d]+[段章节部分]|paragra[fp]h?\s*\d+|段落?\s*\d+|[①-⑩])\s*[:：.]?$/i.test(l);
+const LIBNOTE=/^\s*(?:daftar\s+)?(?:kartu\s+)?pembentuk\b[^\n]{0,45}$/im;
+const LIBIDP=/^\s*[\[【〔［(（]\s*(\d{1,3})\s*[.\-:·．]\s*(\d{1,3})\s*[\]】〕］)）]\s*[:：.)\-–—]?\s*/;
+const LIBIDB=/^\s*#?(\d{1,3})[.\-:·．](\d{1,3})(?:[.):：]|\s)\s*(?=\S)/;
+const LIBID1=/^\s*[\[【〔［]\s*(\d{1,4})(?:\s*[.\-:·．]\s*\d{1,3})?\s*[\]】〕］]\s*[:：.)\-–—]?\s*/;
+const LIBID1P=/^\s*[(（]\s*(\d{1,4})\s*[)）]\s*[:：.\-–—]?\s*/;
+/* baris -> kelompok (satu kelompok = satu kalimat beserta romanisasi/arti-nya) */
+function libGroups(lines,L,o){const rom=L=='ja'||L=='zh',sent=!!o.sent,G=[],pre=[];let idRe=null;
+ const tiers=sent?[LIBID1,LIBID1P]:[LIBID,LIBIDP,LIBIDB];
+ for(const re of tiers){const n=lines.filter(l=>re.test(l)).length;if(n>=(re===LIBIDB?2:1)){idRe=re;break}}
+ const build=re=>{const out=[];let cur=null;
+  for(const raw of lines){const ln=raw.trim();if(!ln)continue;if(LIBMARK(ln)){cur=null;continue}
+   const m=re&&ln.match(re);
+   if(m){const key=sent?m[1]:(m[1]+'.'+m[2]),body=ln.slice(m[0].length).trim();
+    if(cur&&cur.key===key)cur.lines.push(body);else{cur={key,p:+m[1],s:sent?0:+m[2],lines:[body]};out.push(cur)}}
+   else if(cur)cur.lines.push(ln);else if(!out.length)pre.push(ln)}
+  return out};
+ if(idRe){let g=build(idRe);
+  /* nomor dipakai di SETIAP baris (asing, romaji, arti diberi nomor berurutan)? -> abaikan nomor */
+  const bad=g.filter(x=>{const c=libCls(libSplitLine(x.lines[0],L)[0]||'',L);return rom?c!='f':c=='i'}).length;
+  if(g.length>=3&&bad>=g.length*.4){idRe=null;pre.length=0;lines=lines.map(l=>{for(const re of tiers){const m=l.match(re);if(m)return l.slice(m[0].length)}return l})}
+  else return{G:g,pre,id:1}}
+ /* tanpa nomor: kelompok dimulai pada baris asing (atau baris dengan penutur A:/B:) */
+ const spStrict=o.dlg&&lines.filter(l=>LIBSPKS.test(l.trim())&&!libLabel(l.trim()).k).length>=2;
+ let cur=null,blank=true,mk=false;
+ for(const raw of lines){const ln=raw.trim();if(!ln){blank=true;continue}
+  if(LIBMARK(ln)){mk=true;blank=true;continue}
+  if(!G.length&&!cur&&/^(?:judul|title)\s*[:：]/i.test(ln)){pre.push(ln);continue}
+  const body=ln.replace(LIBSPKS,''),lead=libSplitLine(body,L)[0]||'',c=libCls(lead,L),hasSp=spStrict&&LIBSPKS.test(ln)&&!libLabel(ln).k;
+  let start=false;
+  if(hasSp)start=true;else if(spStrict&&cur)start=false;
+  else if(c=='f'&&!libLabel(ln).k)start=true;else if(!cur)start=true;
+  else if(c==''&&!rom&&cur.lines.slice(1).some(x=>libCls(libSplitLine(x,L)[0]||'',L)=='i'))start=true;
+  if(start){cur={lines:[ln],blank,mk};G.push(cur)}else cur.lines.push(ln);blank=false;mk=false}
+ return{G,pre,id:0}}
+/* pengurai terpadu untuk Reading / Listening (tanpa blok ===) / Dialog */
+function libParseU(t,opt){let note='',L=opt.L||'';const mi=t.search(LIBNOTE);let b=t;if(mi>=0){note=t.slice(mi).trim();b=t.slice(0,mi)}
+ let lines=b.split('\n').map(x=>x.replace(/[ \t]+$/,''));
+ if(!L)L=libDetectL(lines.join('\n'));if(!L)return null;
+ const rom=L=='ja'||L=='zh',dlg=!!opt.dlg,warn=[];
+ let r0=libGroups(lines,L,{dlg});let G=r0.G,pre=r0.pre,title='';
+ if(!G.length)return null;
+ /* judul */
+ const pj=pre.find(x=>/^(?:judul|title)\s*[:：]/i.test(x));if(pj)title=libTitleOf(pj);
+ else if(r0.id&&pre.length&&pre[0].length<=90&&!libEndsS(pre[0]))title=libTitleOf(pre[0]);
+ else if(!r0.id&&G.length>1){const g0=G[0];if(g0.lines.length==1&&g0.lines[0].length<=60&&!libEndsS(g0.lines[0])&&(G[1].blank||G[1].mk||g0.mk)){title=libTitleOf(g0.lines[0]);G=G.slice(1)}}
+ /* penutur */
+ const E=G.map(g=>{const l0=g.lines[0]||'';let sp='';
+  if(dlg){const m=l0.match(LIBSPKS);if(m&&!libLabel(l0).k){sp=libSpN(m[1]);g=Object.assign({},g,{lines:[l0.slice(m[0].length)].concat(g.lines.slice(1))})}}
+  const e=libAsm(g.lines,L,dlg);return Object.assign(e,{g,sp})}).filter(e=>e.f);
+ if(!E.length)return null;
+ const hasTr=E.some(e=>e.i||e.r);
+ if(!r0.id&&!hasTr&&!dlg)return null;
+ /* paragraf */
+ const ps=[];let curP=null,par=0;const anyMk=E.some(x=>x.g.mk);
+ const fb=E.length>1?E.slice(1).filter(e=>e.g.blank||e.g.mk).length/(E.length-1):0;
+ E.forEach((e,k)=>{let key;
+  if(dlg)key=1;else if(r0.id)key=e.g.p;
+  else if(fb>=.8&&!anyMk)key=Math.floor(k/5);
+  else{if(k>0&&(e.g.mk||(e.g.blank&&fb<.8)))par++;key=par}
+  if(!curP||curP.key!==key){curP={key,f:[],i:[],r:rom?[]:null,sp:[],a:1};ps.push(curP)}
+  curP.f.push(e.f);curP.i.push(e.i||'');if(rom)curP.r.push(e.r||'');curP.sp.push(e.sp||'')});
+ let miR=0,miI=0,tot=E.length,dr=E.reduce((a,e)=>a+e.dropped,0);
+ ps.forEach(p=>{p.f.forEach((f,k)=>{if(rom&&!p.r[k])miR++;if(!p.i[k])miI++});
+  if(!p.i.some(Boolean))p.i=[];if(p.r&&!p.r.some(Boolean))p.r=null;
+  if(!p.sp.some(Boolean))delete p.sp;delete p.key});
+ if(rom&&miR&&miR<tot)warn.push(miR+' dari '+tot+' kalimat tidak punya baris romanisasi (dikosongkan, tidak digeser).');
+ if(miI&&miI<tot)warn.push(miI+' dari '+tot+' kalimat tidak punya terjemahan.');
+ if(dr)warn.push(dr+' potongan teks asing di dalam baris terjemahan diabaikan (agar suara tidak membaca campuran).');
+ if(dlg&&!ps.some(p=>p.sp)){const p0=ps[0];p0.sp=p0.f.map((_,k)=>k%2?'B':'A');warn.push('Penutur A:/B: tidak ditemukan; penutur diselang A/B otomatis.')}
+ if(!hasTr)warn.push('Tidak ada baris terjemahan yang dikenali.');
+ return{L,title,ps,note:note.slice(0,800),warn,fmt:'stk'}}
+/* bank kalimat: banyak kalimat tunggal sekaligus */
+function libParseSents(raw,opt){opt=opt||{};let t=libClean(raw).trim();if(!t)return{err:'Teks kosong.'};
+ let note='';const mi=t.search(LIBNOTE);if(mi>=0){note=t.slice(mi);t=t.slice(0,mi)}
+ const lines=t.split('\n').map(x=>x.trim()).filter(x=>!/^(?:judul|title)\s*[:：]/i.test(x)&&!libHead(x));
+ let L=opt.L||'';if(!L)L=libDetectL(lines.join('\n'));if(!L)return{err:'Bahasa tidak terdeteksi. Pilih bahasa secara manual.'};
+ const rom=L=='ja'||L=='zh',warn=[],g0=libGroups(lines,L,{sent:true}),out=[];let missR=0,missI=0,dr=0;
+ for(const g of g0.G){const e=libAsm(g.lines,L,false);if(!e.f)continue;dr+=e.dropped;if(rom&&!e.r)missR++;if(!e.i)missI++;out.push({f:e.f,r:e.r,i:e.i,n:g.key||''})}
+ if(!out.length)return{err:'Tidak ada kalimat yang bisa dibaca.'};
+ if(rom&&missR&&missR<out.length)warn.push(missR+' dari '+out.length+' kalimat tanpa romanisasi (dibuat otomatis, perkiraan).');
+ if(missI&&missI<out.length)warn.push(missI+' dari '+out.length+' kalimat tanpa terjemahan.');
+ if(dr)warn.push(dr+' potongan teks asing di dalam baris terjemahan diabaikan.');
+ const pb={};note.split('\n').forEach(l=>{const m=l.match(LIBID1)||l.match(LIBID1P);if(m)pb[m[1]]=l.slice(m[0].length).trim().slice(0,200)});
+ out.forEach(o=>{if(o.n&&pb[o.n])o.pb=pb[o.n]});
+ return{L,sents:out,fmt:g0.id?'id':'line',warn}}
+/* rapikan hasil parser (juga teks lama di Pustaka): kalimat asing dibersihkan, ekstra dipindah ke romanisasi/arti */
+function libPolishPs(ps,L,dlg){const rom=L=='ja'||L=='zh';let ch=0;
+ ps.forEach(p=>{if(p.a===0)return;p.f=p.f.map((f,k)=>{const s=libSan(f,L);
+   if(s.f!==f)ch++;
+   if(s.r&&rom){if(!p.r)p.r=p.f.map(()=>'');if(!p.r[k]){p.r[k]=s.r;ch++}}
+   if(s.i){if(!p.i||!p.i.length)p.i=p.f.map(()=>'');if(!p.i[k]){p.i[k]=s.i;ch++}}
+   return s.f});
+  if(p.r&&!p.r.some(Boolean))p.r=null});
+ if(dlg)libSpeakers(ps);return ch}
 
 /* ---------------------------------------------------------------------------------------------
    2. PENCOCOK KOSAKATA: bentuk kata berubah (konjugasi, jamak, partisip, kata kerja terpisah, ...)
@@ -484,7 +622,7 @@ function ttsVoice(l){const code=TL[l];if(!code)return{v:null,lc:''};
  const find=c=>{const p=c.toLowerCase().split('-')[0];return VZ.find(v=>v.lang.replace('_','-').toLowerCase()==c.toLowerCase())||VZ.find(v=>v.lang.toLowerCase().replace('_','-').split('-')[0]==p)};
  const pref=(S.o.lpV||{})[l];let v=pref&&VZ.find(x=>x.voiceURI==pref),lc=code;
  if(!v)v=find(code);if(!v&&l=='eo'){v=find('it-IT');lc='it-IT'}return{v,lc}}
-const lpClean=(t,L)=>{let s=String(t).replace(/[~〜*_#`]/g,'').replace(/\s+/g,' ').trim();if(L=='ja'||L=='zh')s=s.replace(/\s+/g,'');return s};
+const lpClean=(t,L)=>{let s=ttsClean(t,L).replace(/[~〜*_#`]/g,'').replace(/\s+/g,' ').trim();if(L=='ja'||L=='zh')s=s.replace(/\s+/g,'');return s};
 
 /* ---------------------------------------------------------------------------------------------
    4. TAMBAH TEKS (modal)
@@ -495,12 +633,12 @@ const LIBKN={r:'Reading',l:'Listening',d:'Dialog',s:'Kalimat'};
 const LIBKI={r:'📖',l:'🎧',d:'💬',s:'🔤'};
 let libAddK='r';
 const libPH={
- r:`Judul: [judul] | [arti judul]&#10;&#10;Paragraf 1&#10;[1.1] [kalimat asing]&#10;[romaji / pinyin (Jepang & Mandarin)]&#10;[arti Indonesia]&#10;&#10;[1.2] …`,
+ r:`Judul: [judul] | [arti judul]&#10;&#10;Paragraf 1&#10;[1.1] [kalimat asing]&#10;Romaji: [romaji / pinyin (Jepang & Mandarin)]&#10;Arti: [arti Indonesia]&#10;&#10;[1.2] …`,
  l:`=== TEKS JEPANG ===&#10;[1.1] …&#10;[1.2] …&#10;&#10;=== ROMAJI ===&#10;[1.1] …&#10;&#10;=== TERJEMAHAN INDONESIA ===&#10;[1.1] …`,
- d:`Judul: [judul] | [arti judul]&#10;&#10;[1.1] A: [kalimat asing]&#10;[romaji / pinyin (Jepang & Mandarin)]&#10;[arti Indonesia]&#10;&#10;[1.2] B: …`,
- s:`[1] [kalimat asing]&#10;[romaji / pinyin (Jepang & Mandarin)]&#10;[arti Indonesia]&#10;&#10;[2] …&#10;&#10;Atau satu baris per kalimat:&#10;kalimat asing | romaji | arti`};
+ d:`Judul: [judul] | [arti judul]&#10;&#10;[1.1] A: [kalimat asing]&#10;Romaji: [romaji / pinyin (Jepang & Mandarin)]&#10;Arti: [arti Indonesia]&#10;&#10;[1.2] B: …`,
+ s:`[1] [kalimat asing]&#10;Romaji: [romaji / pinyin (Jepang & Mandarin)]&#10;Arti: [arti Indonesia]&#10;&#10;[2] …&#10;&#10;Atau satu baris per kalimat:&#10;kalimat asing | romaji | arti`};
 const libHelp={
- r:'Reading: tempel hasil Kelas AI → tab Reading. Format apa pun tetap dibaca, tetapi format dari Kelas AI paling aman karena tiap kalimat bernomor [1.1] sehingga romanisasi & terjemahan tidak bisa bergeser.',
+ r:'Reading: tempel hasil Kelas AI → tab Reading. Format apa pun tetap dibaca: kalimat asing, romanisasi, dan arti dipisahkan otomatis per bahasa (suara hanya membacakan bahasa asing). Format dari Kelas AI paling aman karena tiap kalimat bernomor [1.1].',
  l:'Listening: tempel hasil Kelas AI → tab Listening (blok === TEKS ===, ROMAJI/PINYIN, TERJEMAHAN; tiap kalimat bernomor). Teks polos atau format lain juga dikenali.',
  d:'Dialog: tempel hasil Kelas AI → tab Dialog (tiap baris “[1.1] A: …” + romanisasi + arti). Penutur dikenali dari awalan A: / B:.',
  s:'Kalimat: tempel BANYAK kalimat sekaligus (hasil Kelas AI → tab Kalimat, atau tulis sendiri). Tiap kalimat disimpan terpisah. Dikenali: kelompok [1] [2] …, “asing | romaji | arti”, atau satu kalimat per baris.'};

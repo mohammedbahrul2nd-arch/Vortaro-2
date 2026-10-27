@@ -649,7 +649,7 @@ const canSay=()=>'speechSynthesis' in window&&'SpeechSynthesisUtterance' in wind
 function say(t,l){if(!canSay())return toast('Perangkat ini belum mendukung suara.');
  const code=TL[l];if(!code)return;const r=ttsVoice(l);
  if(!r.v&&VZ.length){return toast('Suara '+(LN[l]||l)+' belum terpasang di perangkat ini.')}
- try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(String(t).replace(/[~〜]/g,'').trim());u.lang=r.v?r.v.lang:r.lc;if(r.v)u.voice=r.v;u.rate=ttsRate();speechSynthesis.speak(u)}catch(e){}}
+ try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance((typeof ttsClean=='function'?ttsClean(t,l):String(t)).replace(/[~〜]/g,'').trim());u.lang=r.v?r.v.lang:r.lc;if(r.v)u.voice=r.v;u.rate=ttsRate();speechSynthesis.speak(u)}catch(e){}}
 const spk=(t,l)=>S.o.tts&&canSay()&&TL[l]?`<button class=spk data-a=say data-k="${esc(t)}" data-v=${l} title="Dengarkan" aria-label="Dengarkan">🔊</button>`:'';
 function fcAuto(){if(!S.o.ttsa||!fcCur||GK[fcCur])return;const L=lang(fcCur),c=K[base(fcCur)],v=c&&fcVis(c);if(v&&v[L]&&v[L][0])say(v[L][0][0],L)}
 

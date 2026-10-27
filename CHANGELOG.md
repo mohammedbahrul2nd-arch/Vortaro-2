@@ -1,5 +1,17 @@
 # Riwayat Perubahan
 
+## 7.3.1
+**Perbaikan: bahasa asing, romanisasi, dan terjemahan Indonesia tidak lagi tercampur di Pustaka (Reading, Listening, Dialog, Kalimat).**
+- **Masalah:** bila keluaran AI sedikit melenceng dari format (satu baris “asing | romaji | arti”, romaji/arti dalam kurung, dipisah “–”, nomor [1.1] diulang di setiap baris, dialog tanpa nomor, label A:/B: di baris romaji/arti), semuanya masuk ke kolom “teks asing”. Akibatnya tombol 🔊 dan pemutar membacakan romaji dan bahasa Indonesia juga, dengan suara bahasa asing.
+- **Pengurai terpadu baru:** tiap potongan teks diklasifikasi sendiri sebagai *asing*, *romaji/pinyin*, atau *Indonesia* (dari aksara, tanda nada/makron, kata-kata Indonesia & partikel romaji, kata fungsi tiap bahasa), bukan hanya dari urutan baris. Dipakai oleh Reading, Listening (tanpa blok ===), Dialog, dan Kalimat.
+- Dikenali: satu baris dipisah `|` `｜` tab `–` `—` `-` `→`; romaji/arti di dalam kurung; romaji/arti menempel di ujung baris yang sama; label `Romaji:` `Pinyin:` `Arti:`; nomor `[1.1]` `(1.1)` `1.1` `【1.1】`; nomor yang diulang di setiap baris; nomor yang berurutan di baris asing, romaji, dan arti (nomor diabaikan); dialog tanpa nomor (penutur A:/B:, `A：`, “Speaker A:”); judul & penanda “Paragraf N / 第一段”; bagian “Pembentuk yang dipakai” dipotong.
+- Dialog tanpa label penutur diselang A/B otomatis (dengan peringatan) agar nada suara tetap berbeda.
+- **Suara hanya membacakan bahasa asing:** `ttsClean()` dipakai oleh pemutar, tombol 🔊, dan kartu. Ia membuang sisa nomor, label penutur, furigana dalam kurung, romaji/pinyin, dan kalimat terjemahan Indonesia yang tertinggal di kalimat asing.
+- **Teks lama yang sudah tersimpan tercampur diperbaiki otomatis** saat Pustaka dibuka (romaji dan arti dipindahkan ke tempatnya bila kosong).
+- Pratinjau “＋ Tambah teks” menampilkan peringatan bila ada potongan asing yang diabaikan atau penutur tidak terbaca.
+- **Prompt Kelas AI (Reading, Dialog, Kalimat, Listening)** kini meminta: satu bahasa per baris, baris romaji diawali `Romaji:`/`Pinyin:` dan baris arti diawali `Arti:`, baris 1 berisi aksara asli saja (tanpa huruf Latin), serta larangan menyambung bahasa dengan `|`, `–`, atau tanda kurung.
+- Service worker 7.3.1.
+
 ## 7.3.0
 - **Kelas AI didefinisikan ulang — istilah Panjang / Sedang / Pendek dihapus.** Enam jenis prompt: **Penjelasan** (pelajaran lengkap + tes), **📖 Reading**, **🎧 Listening**, **💬 Dialog** (baru), **🔤 Kalimat** (baru), dan **Bicara**. Tiap tab menyebut ke mana hasilnya pergi (Pustaka → Reading / Listening / Dialog / Kalimat, atau “dibaca langsung di chat AI” untuk Penjelasan & Bicara) dan punya tombol “Buka Pustaka”.
 - **Pustaka kini empat bagian:** Reading, Listening, **Dialog**, dan **Kalimat**.
