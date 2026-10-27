@@ -10,6 +10,8 @@
 - **Teks lama yang sudah tersimpan tercampur diperbaiki otomatis** saat Pustaka dibuka (romaji dan arti dipindahkan ke tempatnya bila kosong).
 - Pratinjau “＋ Tambah teks” menampilkan peringatan bila ada potongan asing yang diabaikan atau penutur tidak terbaca.
 - **Prompt Kelas AI (Reading, Dialog, Kalimat, Listening)** kini meminta: satu bahasa per baris, baris romaji diawali `Romaji:`/`Pinyin:` dan baris arti diawali `Arti:`, baris 1 berisi aksara asli saja (tanpa huruf Latin), serta larangan menyambung bahasa dengan `|`, `–`, atau tanda kurung.
+- **Salinan dari ChatGPT:** tanda markdown yang di-escape (`\[1\.1\]`, `\.`, `\!`, `\’`) dan `\` di akhir baris (pemisah baris markdown) dibersihkan sebelum diurai.
+- **Pustaka → Kalimat:** tombol 🗑 Hapus, “Tandai hafal”, “Tampilkan lebih banyak”, dan “Putar semua” tidak bekerja karena aksinya tidak diteruskan ke Pustaka; sekarang berfungsi (hapus meminta konfirmasi).
 - Service worker 7.3.1.
 
 ## 7.3.0

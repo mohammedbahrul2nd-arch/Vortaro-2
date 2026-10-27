@@ -20,7 +20,7 @@ const libCJK=s=>/[぀-ヿ㐀-鿿]/.test(s);
 function libDetectL(t){const kana=(t.match(/[぀-ヿ]/g)||[]).length,han=(t.match(/[㐀-鿿]/g)||[]).length;
  if(kana>=2||(kana>0&&han&&kana/han>.03))return'ja';if(han>=2)return'zh';
  const s=libScore(t);let b='',bv=1;for(const l of['de','nl','eo'])if(s[l]>bv){b=l;bv=s[l]}return b}
-function libClean(s){return String(s||'').replace(/\r\n?/g,'\n').replace(/^[ \t]*```[^\n`]*$/gm,'').replace(/\\([*_`#~\[\]()<>!|-])/g,'$1').replace(/<\/?(?:underline|u|b|i|em|strong|mark|span|ins|del|br)\b[^>]*>/gi,'').replace(/[\u00a0\u200b\u2028\u2029]/g,' ')
+function libClean(s){return String(s||'').replace(/\r\n?/g,'\n').replace(/^[ \t]*```[^\n`]*$/gm,'').replace(/\\[ \t]*$/gm,'').replace(/\\([!-\/:-@\[-`{-~’‘“”])/g,'$1').replace(/<\/?(?:underline|u|b|i|em|strong|mark|span|ins|del|br)\b[^>]*>/gi,'').replace(/[\u00a0\u200b\u2028\u2029]/g,' ')
  .replace(/(\*\*|__|`)/g,'').replace(/(^|[\s(「『“"])[*_]([^*_\n]+?)[*_](?=[\s.,!?;:)」』”"。、！？]|$)/g,'$1$2')
  .split('\n').map(l=>l.replace(/^\s*(?:#{1,6}\s+|>\s+|[-•]\s+|\d{1,2}[.)]\s+)/,'').replace(/[ \t]+$/,'')).join('\n')}
 const LIBAB=/(?:\bz\.\s?B|\bd\.\s?h|\bu\.\s?a|\bo\.\s?a|\bbzw|\busw|\bca|\bDr|\bHr|\bFr|\bNr|\bSt|\bvgl|\bbijv|\benz|\bmevr|\bdhr|\bmr|\bvs)\.$/i;
@@ -821,7 +821,7 @@ function libAct(a,x,k,b){const it=k&&S.lib.find(t=>t.id==k);
  else if(a=='libgo'){if(it)lpOpen(it,+x);return 1}
  else if(a=='libdet'){libOpenId=libOpenId==k?'':k;libAnaF='all';libAnaLim=40}
  else if(a=='slh'){const x2=S.sl.find(y=>y.id==k);if(x2)x2.d=x2.d?0:Date.now()}
- else if(a=='sldel'){S.sl=S.sl.filter(y=>y.id!=k);libSD.delete(k+'|0|0')}
+ else if(a=='sldel'){if(!confirm('Hapus kalimat ini dari Pustaka?'))return 1;S.sl=S.sl.filter(y=>y.id!=k);libSD.delete(k+'|0|0');save();render();return 1}
  else if(a=='slmore')slLim+=40;
  else if(a=='slplay'){const l=x||k,list=slFiltered().filter(y=>y.L==l).slice(0,300);if(!list.length)return 1;lpOpenTemp({id:'sl:'+l,L:l,t:'Kalimat '+libNm(l),ps:[{f:list.map(y=>y.f),i:list.map(y=>y.i||''),r:list.some(y=>y.r)?list.map(y=>y.r||''):null,a:1}]});return 1}
  else if(a=='libh'&&it){it.h=it.h?0:Date.now()}
