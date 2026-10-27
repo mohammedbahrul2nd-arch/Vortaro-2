@@ -1,5 +1,41 @@
 # Riwayat Perubahan
 
+## 7.3.0
+- **Kelas AI didefinisikan ulang — istilah Panjang / Sedang / Pendek dihapus.** Enam jenis prompt: **Penjelasan** (pelajaran lengkap + tes), **📖 Reading**, **🎧 Listening**, **💬 Dialog** (baru), **🔤 Kalimat** (baru), dan **Bicara**. Tiap tab menyebut ke mana hasilnya pergi (Pustaka → Reading / Listening / Dialog / Kalimat, atau “dibaca langsung di chat AI” untuk Penjelasan & Bicara) dan punya tombol “Buka Pustaka”.
+- **Pustaka kini empat bagian:** Reading, Listening, **Dialog**, dan **Kalimat**.
+  - **Dialog**: dua penutur (A:/B:) bernomor [1.1]; dibaca dengan label penutur, atau diputar dengan nada suara berbeda per penutur.
+  - **Kalimat**: bank kalimat tunggal. Tempel **banyak kalimat sekaligus** (kelompok [1] [2] …, “asing | romaji | arti”, atau satu kalimat per baris); duplikat dilewati; cari teks, saring per bahasa/status/kartu (kata disorot), urut “cocok untuk kartu lemahku”, tandai hafal, putar semua kalimat satu bahasa. Ikut cadangan progres.
+- **Prompt Dialog**: situasi + jumlah baris (6/10/14), topik utama & kartu lemah di setiap baris, format bernomor dengan penutur, aturan romanisasi dan teks bersih untuk suara.
+- **Prompt Kalimat**: 10/20/30/50 kalimat yang berdiri sendiri, bervariasi, format bernomor [n]; bila AI terpotong, ketik “lanjut” dan penomoran diteruskan.
+- Semua format keluaran bernomor sehingga romaji/pinyin dan terjemahan dicocokkan lewat nomor (anti-mismatch).
+- Service worker 7.3.0.
+
+## 7.2.0
+- **Pustaka dibagi dua: 📖 Reading dan 🎧 Listening.** Tiap bagian punya hitungan, filter status (dibaca / didengar), pencarian kartu, dan tombol “＋ Tambah teks” sendiri. Reading: tombol 📖 Baca (teks + romanisasi + terjemahan per kalimat) dan “Tandai dibaca”. Listening: pemutar suara seperti sebelumnya. Teks lama otomatis masuk Listening; “⇄ Pindah ke Reading/Listening” ada di Rincian.
+- **Kelas AI → prompt Sedang & Pendek punya “Tujuan hasil”: Pustaka → Reading atau Pustaka → Listening**, lengkap dengan keterangan ke mana hasilnya ditempel dan tombol “Buka Pustaka”. Tab Panjang & Bicara memberi tahu bahwa hasilnya dibaca di chat AI, bukan Pustaka. Pilihan “Format bacaan” lama diganti tujuan ini.
+- **Format keluaran baru yang anti-mismatch (penting untuk Jepang & Mandarin).** Tiap kalimat diberi nomor `[paragraf.kalimat]` (mis. `[1.1]`) di semua baris/blok. Parser mencocokkan teks asing, romaji/pinyin, dan terjemahan **lewat nomor**, bukan lewat urutan atau tanda baca. Bila AI melewatkan satu baris romaji, hanya kalimat itu yang kosong; kalimat lain tidak bergeser. Reading memakai kelompok 3 baris (kalimat · romanisasi · arti; 2 baris untuk bahasa lain); Listening memakai blok `=== TEKS ===`, `=== ROMAJI/PINYIN ===`, `=== TERJEMAHAN INDONESIA ===`, `=== PEMBENTUK ===`. Prompt memuat aturan romanisasi (Hepburn dengan makron / pinyin bertanda nada), larangan menggabung/memecah kalimat, dan instruksi menghitung sebelum menulis.
+- Parser lebih toleran: pagar blok kode ```, judul blok tanpa `===` (mis. **TEKS JEPANG**), label “Romaji:” / “Arti:”, urutan romaji/arti tertukar, baris lanjutan; format lama tanpa nomor tetap dibaca. Pratinjau menampilkan format terdeteksi, “romanisasi selaras n/n”, dan peringatan bila ada yang tidak cocok.
+- Romanisasi otomatis (perkiraan, miring) kini juga muncul di Reading dan mengisi kalimat yang romanisasinya kosong.
+- **Pemutar listening:** bagian atas (kalimat sekarang + ⏮ ▶ ⏭ 🔁) kini menempel dan tetap terlihat saat menggulung daftar; layar tidak lagi meloncat ke bawah tiap kalimat berganti (penyebabnya `scrollIntoView`; diganti tombol “↧ Ke yang sedang diputar”). Mode per paragraf: terjemahan dan “Lihat arti” per kalimat. Suara: kalimat panjang dipecah di koma, dan kalimat dianggap selesai bila antrean suara kosong (Android kadang tidak mengirim `onend`).
+- **Sensor per item:** di kartu Kata (mode sensor bahasa asing / Indonesia) mengetuk bagian yang diblur hanya membuka bagian itu (satu bahasa, arti, atau kalimat saya), bukan seluruh kartu.
+- Service worker 7.2.0.
+
+## 7.1.2
+- Pustaka: pengurai format terkelompok (teks / romanisasi / terjemahan per paragraf) lebih toleran: judul Mandarin/Jepang + judul Indonesia, penanda 第一段 atau tanpa penanda, jumlah baris tak seimbang.
+- Pustaka: teks Mandarin/Jepang lama yang tersimpan salah format diperbaiki otomatis saat Pustaka atau pemutar dibuka.
+
+## 7.1.1
+- Grammar: membuka satu grammar kini menampilkan mode fokus (hanya materi + tombol sebelumnya/berikutnya + kembali ke Bahasa / Level / Daftar).
+- Pustaka: pengurai membaca format Mandarin/Jepang yang dikelompokkan per paragraf (n baris teks, n baris romanisasi, n baris terjemahan, penanda seperti 第一段) dan membersihkan sisa markdown (\*\*, <underline>). Teks yang sudah tersimpan salah format perlu ditambahkan ulang.
+
+## 7.1.0
+- Grammar: alur baru pilih bahasa → pilih level → daftar grammar (level bisa ditambah/dikurangi tanpa kembali).
+- Pustaka: pemutar menampilkan romanisasi Jepang/Mandarin; bila teks tidak memuatnya dibuat otomatis (perkiraan, dari kamus kartu).
+- Kelas AI: format Audio untuk Jepang/Mandarin kini meminta blok `=== ROMAJI ===` / `=== PINYIN ===`; pengurai Pustaka membacanya. (Teks lama tetap bisa dipakai.)
+- Statistik: hanya statistik; Kartu bandel, Perkiraan selesai, Proyeksi beban, dan Peta grammar menjadi tombol yang dibuka satu per satu.
+- Pengaturan baru: jumlah kartu baru dan ulasan tambahan per ketukan setelah target hari ini selesai.
+- Pustaka: deteksi grammar lebih akurat (konjugasi kata kerja bantu Jepang, awalan て/で, label kategori diabaikan, pola dari contoh untuk Eropa); pola yang terlalu umum diberi penanda dan diurutkan paling bawah.
+
 ## 7.0.1
 - Daftar & Grammar: mengubah filter/pencarian tidak lagi melempar halaman ke atas (posisi scroll dipertahankan).
 - Daftar: tombol "reset filter", bilah filter menempel di atas saat scroll.

@@ -1,5 +1,5 @@
 /* Vortaro service worker — offline + pengingat latar belakang */
-const VERSION='7.0.1',CACHE='vortaro-'+VERSION;
+const VERSION='7.3.0',CACHE='vortaro-'+VERSION;
 importScripts('js/vr-core.js');
 const SHELL=['./','index.html','css/app.css','js/data.js','js/ai-class.js','js/pustaka.js','js/vr-core.js','js/reminder.js','js/app.js','manifest.webmanifest','icons/icon.svg','icons/icon-192.png','icons/icon-512.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting()))});

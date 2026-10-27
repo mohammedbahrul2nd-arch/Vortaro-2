@@ -20,7 +20,7 @@ const libCJK=s=>/[぀-ヿ㐀-鿿]/.test(s);
 function libDetectL(t){const kana=(t.match(/[぀-ヿ]/g)||[]).length,han=(t.match(/[㐀-鿿]/g)||[]).length;
  if(kana>=2||(kana>0&&han&&kana/han>.03))return'ja';if(han>=2)return'zh';
  const s=libScore(t);let b='',bv=1;for(const l of['de','nl','eo'])if(s[l]>bv){b=l;bv=s[l]}return b}
-function libClean(s){return String(s||'').replace(/\r\n?/g,'\n').replace(/[\u00a0\u200b\u2028\u2029]/g,' ')
+function libClean(s){return String(s||'').replace(/\r\n?/g,'\n').replace(/^[ \t]*```[^\n`]*$/gm,'').replace(/\\([*_`#~\[\]()<>!|-])/g,'$1').replace(/<\/?(?:underline|u|b|i|em|strong|mark|span|ins|del|br)\b[^>]*>/gi,'').replace(/[\u00a0\u200b\u2028\u2029]/g,' ')
  .replace(/(\*\*|__|`)/g,'').replace(/(^|[\s(「『“"])[*_]([^*_\n]+?)[*_](?=[\s.,!?;:)」』”"。、！？]|$)/g,'$1$2')
  .split('\n').map(l=>l.replace(/^\s*(?:#{1,6}\s+|>\s+|[-•]\s+|\d{1,2}[.)]\s+)/,'').replace(/[ \t]+$/,'')).join('\n')}
 const LIBAB=/(?:\bz\.\s?B|\bd\.\s?h|\bu\.\s?a|\bo\.\s?a|\bbzw|\busw|\bca|\bDr|\bHr|\bFr|\bNr|\bSt|\bvgl|\bbijv|\benz|\bmevr|\bdhr|\bmr|\bvs)\.$/i;
@@ -35,18 +35,139 @@ function libMkPara(f,i,r,L){const fa=libSplit(f,L),ia=i?libSplit(i,'id'):[],ra=r
  if(okI&&okR)return{f:fa,i:ia,r:ra.length?ra:null,a:1};
  return{f:fa,i:i?[i.replace(/\s+/g,' ').trim()]:[],r:r?[r.replace(/\s+/g,' ').trim()]:null,a:0}}
 /* hasil: {L,title,ps:[{f:[],i:[],r:[]|null,a}],note,fmt} atau {err} */
-function libParse(raw,opt){opt=opt||{};let t=libClean(raw).trim();if(!t)return{err:'Teks kosong.'};
+/* format terkelompok per paragraf: n baris teks, n baris romanisasi, n baris terjemahan (penanda seperti 第一段 / Paragraf 1 opsional) */
+function libGrouped(lines,L){const mark=l=>/^(?:第[一二三四五六七八九十百\d]+[段章节部分]|paragra[fp]h?\s*\d+|段落?\s*\d+|[①-⑩])\s*[:：.]?$/i.test(l);
+ let ln=lines.map(x=>String(x).trim()).filter(Boolean),title='',i=0;const mi=ln.findIndex(mark);if(mi>0){title=ln[0];ln=ln.slice(mi)}const ls=ln.filter(x=>!mark(x)),ps=[];
+ while(i<ls.length){let n=0;while(i+n<ls.length&&libCJK(ls[i+n]))n++;
+  if(!n){if(!ps.length&&!title){title=ls[i];i++;continue}return null}
+  let m=0;while(i+n+m<ls.length&&!libCJK(ls[i+n+m]))m++;
+  if(!ps.length&&n==1&&m<2&&i+n+m<ls.length){title=title||ls[i];i+=n+m;continue}
+  if(m!=2*n){/* jumlah baris tak seimbang: pisahkan romanisasi | terjemahan dengan menebak titik belahnya */
+   if(m<2)return null;const nl=ls.slice(i+n,i+n+m),isId=x=>{const q=libScore(x);return q.id>=2||(q.id>=1&&!/[āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]/.test(x)&&/[a-z]{4,}/.test(x)&&/\b(?:yang|dan|di|ke|dengan|itu|ini|adalah|saya|kami|dia|tidak)\b/i.test(x))};
+   let bj=-1,bc=1e9;for(let j=1;j<m;j++){let c=0;for(let k=0;k<m;k++){const id=isId(nl[k]);if(k<j&&id)c++;if(k>=j&&!id)c++}if(c<bc){bc=c;bj=j}}
+   if(bj<0||bc>Math.ceil(m*.25))return null;
+   ps.push(libMkPara(ls.slice(i,i+n).join(' '),nl.slice(bj).join(' '),nl.slice(0,bj).join(' '),L));i+=n+m;continue}
+  ps.push({f:ls.slice(i,i+n),r:ls.slice(i+n,i+2*n),i:ls.slice(i+2*n,i+3*n),a:1});i+=3*n}
+ return ps.length?{ps,title}:null}
+/* ---------------------------------------------------------------------------------------------
+   v7.2 — PENANDA ID [paragraf.kalimat]
+   Supaya romanisasi / terjemahan TIDAK PERNAH bergeser dari kalimatnya, prompt Kelas AI meminta tiap kalimat
+   diberi nomor [1.1] [1.2] [2.1] … di SEMUA blok (teks, romaji/pinyin, terjemahan). Parser mencocokkan lewat
+   nomor itu, bukan lewat urutan atau tanda baca. Kalimat yang hilang di satu blok hanya kehilangan bagiannya
+   sendiri; kalimat lain tetap selaras. Tanpa nomor, parser memakai pencocokan baris / paragraf seperti sebelumnya.
+   --------------------------------------------------------------------------------------------- */
+const LIBID=/^\s*[\[【〔［]\s*(\d{1,3})\s*[.\-:·．]\s*(\d{1,3})\s*[\]】〕］]\s*[:：.)\-–—]?\s*/;
+const LIBHD=/^\s*(?:={2,}\s*)?(?:DAFTAR\s+)?(?:KARTU\s+)?(TEKS|TEXT|ROMAJI|ROMANISASI|ROMANIZATION|PINYIN|TERJEMAHAN|TRANSLATION|ARTI|PEMBENTUK|JUDUL|TITLE)\b([^=\n]{0,45}?)\s*(?:={2,})?\s*:?\s*$/i;
+const LIBHK={TEKS:'f',TEXT:'f',ROMAJI:'r',ROMANISASI:'r',ROMANIZATION:'r',PINYIN:'r',TERJEMAHAN:'i',TRANSLATION:'i',ARTI:'i',PEMBENTUK:'n',JUDUL:'t',TITLE:'t'};
+const LIBHW={JEPANG:'ja',JAPANESE:'ja',MANDARIN:'zh',CHINESE:'zh',JERMAN:'de',GERMAN:'de',BELANDA:'nl',DUTCH:'nl',ESPERANTO:'eo'};
+function libHead(l){if(l.length>70)return null;const m=l.match(LIBHD);if(!m)return null;
+ const strong=/={2,}/.test(l)||/:\s*$/.test(l)||(l===l.toUpperCase()&&/[A-Z]/.test(l))||/^\s*(?:DAFTAR\s+)?(?:KARTU\s+)?(?:TEKS|TEXT|ROMAJI|ROMANISASI|PINYIN|TERJEMAHAN|TRANSLATION|ARTI|JUDUL|TITLE|PEMBENTUK)(?:\s+(?:BAHASA|YANG|DIPAKAI|DIGUNAKAN|JEPANG|MANDARIN|JERMAN|BELANDA|ESPERANTO|INDONESIA|ASING|JAPANESE|CHINESE|GERMAN|DUTCH))*\s*$/i.test(l);if(!strong)return null;
+ const k=LIBHK[m[1].toUpperCase()];const w=(m[2]||'').trim().toUpperCase().split(/\s+/).map(x=>LIBHW[x]).find(Boolean)||'';
+ /* “TEKS INDONESIA” / “TERJEMAHAN” bukan blok teks asing */
+ if(k=='f'&&/\bINDONESIA\b/i.test(m[2]||''))return{k:'i',w:''};
+ return{k,w}}
+const libTone=x=>/[āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜńňḿ]/i.test(x);
+const libIsIndo=x=>{const q=libScore(x);return!libTone(x)&&(q.id>=2||(q.id>=1&&/\b(?:yang|dan|di|ke|dengan|itu|ini|adalah|saya|kami|dia|tidak|aku|kamu|sedang|sudah)\b/i.test(x)))};
+const libLabel=x=>{const m=String(x).match(/^\s*(romaji|rōmaji|romanisasi|pinyin|arti|terjemahan|indonesia|bahasa indonesia)\s*[:：]\s*/i);if(!m)return{t:x,k:''};
+ const w=m[1].toLowerCase();return{t:x.slice(m[0].length),k:/^(?:romaji|rōmaji|romanisasi|pinyin)$/.test(w)?'r':'i'}};
+const libSp=x=>String(x||'').replace(/\s+/g,' ').trim();
+/* baris -> entri bernomor; baris tanpa nomor yang mengikuti baris bernomor dianggap lanjutan kalimat itu */
+function libIdEntries(lines){const ents=[];let last=null,has=false;
+ for(const raw of lines){const ln=raw.trim();if(!ln){last=null;continue}const m=ln.match(LIBID);
+  if(m){has=true;last={p:+m[1],s:+m[2],t:ln.slice(m[0].length).trim()};ents.push(last)}
+  else if(last&&has)last.t=libSp(last.t+' '+ln);else ents.push({p:0,s:0,t:ln,x:1})}
+ return{has:has&&ents.some(e=>!e.x),ents:ents.filter(e=>!e.x||!has)}}
+/* paragraf (dipisah baris kosong) -> daftar baris */
+const libParaLines=lines=>{const out=[];let cur=[];for(const raw of lines){const l=raw.trim();if(!l){if(cur.length)out.push(cur);cur=[]}else cur.push(l)}if(cur.length)out.push(cur);return out};
+const libEndsS=x=>/[.!?…。！？]["”’»)」』）]*$/.test(x);
+function libTitleOf(s){s=libSp(s).replace(/^(?:judul|title)\s*[:：]\s*/i,'');const q=s.split(/\s+[|｜]\s+|\s+\/\/\s+/);return q[0].replace(/\s*\([^)]*\)\s*$/,'').trim().slice(0,120)}
+/* a) format blok: === TEKS … === / === ROMAJI|PINYIN === / === TERJEMAHAN INDONESIA === (+ PEMBENTUK, JUDUL) */
+function libParseBlocks(t,L,wn){const lines=t.split('\n'),B=[];let cur={k:'pre',l:[]};B.push(cur);
+ for(const ln of lines){const h=libHead(ln);if(h){cur={k:h.k,w:h.w,l:[]};B.push(cur);if(h.w&&!L)L=h.w}else cur.l.push(ln)}
+ const get=k=>B.find(b=>b.k==k),F=get('f'),R=get('r'),I=get('i'),Nn=B.filter(b=>b.k=='n').map(b=>b.l.join('\n').trim()).filter(Boolean).join('\n'),Tt=get('t');
+ if(!F||!F.l.join('').trim())return{err:'Blok “=== TEKS … ===” tidak ditemukan atau kosong.'};
+ if(!L)L=libDetectL(F.l.join('\n'));
+ let title='';if(Tt&&Tt.l.join('').trim())title=libTitleOf(Tt.l.find(x=>x.trim())||'');
+ if(!title){const pm=B[0].l.map(x=>x.trim()).find(x=>/^(?:judul|title)\s*[:：]/i.test(x));if(pm)title=libTitleOf(pm)}
+ const rom=L=='ja'||L=='zh',warn=[],ps=[];
+ const fe=libIdEntries(F.l),re=R?libIdEntries(R.l):null,ie=I?libIdEntries(I.l):null;let fmt='aud';
+ if(fe.has){
+  /* pencocokan lewat nomor */
+  const key=e=>e.p+'.'+e.s,rm=new Map(),im=new Map();
+  if(re)re.ents.forEach(e=>{if(!rm.has(key(e)))rm.set(key(e),e.t)});if(ie)ie.ents.forEach(e=>{if(!im.has(key(e)))im.set(key(e),e.t)});
+  const groups=new Map();fe.ents.forEach(e=>{if(!groups.has(e.p))groups.set(e.p,[]);groups.get(e.p).push(e)});
+  let missR=0,missI=0,tot=0;
+  const posR=re&&!re.has?re.ents.map(e=>e.t):null,posI=ie&&!ie.has?ie.ents.map(e=>e.t):null;let gi=0;
+  for(const [pn,es] of groups){const p={f:[],i:[],r:rom&&(R||posR)?[]:null,a:1};
+   es.forEach(e=>{tot++;p.f.push(e.t);
+    if(p.r){let v=re&&re.has?rm.get(key(e)):posR&&posR.length==fe.ents.length?posR[gi]:'';if(!v)missR++;p.r.push(v||'')}
+    let w=ie&&ie.has?im.get(key(e)):posI&&posI.length==fe.ents.length?posI[gi]:'';if(!w&&I)missI++;p.i.push(w||'');gi++});
+   if(!p.i.some(Boolean))p.i=[];if(p.r&&!p.r.some(Boolean))p.r=null;ps.push(p)}
+  if(R&&!(re.has||(posR&&posR.length==fe.ents.length)))warn.push('Romanisasi tidak bernomor dan jumlah barisnya ('+(posR?posR.length:0)+') ≠ jumlah kalimat ('+fe.ents.length+'): romanisasi dilewati.');
+  if(I&&!(ie.has||(posI&&posI.length==fe.ents.length)))warn.push('Terjemahan tidak bernomor dan jumlah barisnya ≠ jumlah kalimat: terjemahan dilewati.');
+  if(missR&&rom&&R)warn.push(missR+' dari '+tot+' kalimat tidak punya baris romanisasi bernomor sama (dikosongkan, tidak digeser).');
+  if(missI&&I)warn.push(missI+' dari '+tot+' kalimat tidak punya terjemahan bernomor sama.');
+  const extraR=re&&re.has?[...rm.keys()].filter(k=>!fe.ents.some(e=>key(e)==k)).length:0;if(extraR)warn.push(extraR+' nomor romanisasi tidak ada di teks asing (diabaikan).');
+  fmt='aud'
+ }else{
+  /* tanpa nomor: baris-ke-baris bila selaras, selain itu pecah per tanda baca (cara lama) */
+  const fp=libParaLines(F.l),rp=R?libParaLines(R.l):null,ip=I?libParaLines(I.l):null;
+  const lineMode=fp.some(b=>b.length>1)&&fp.every(b=>b.length>=1)&&fp.flat().filter(libEndsS).length>=fp.flat().length*.9&&
+   [rp,ip].every(q=>!q||(q.length==fp.length&&q.every((b,k)=>b.length==fp[k].length)));
+  fp.forEach((b,k)=>{if(lineMode){const p={f:b,i:ip?ip[k]:[],r:rom&&rp?rp[k]:null,a:1};if(!p.i||!p.i.length)p.i=[];ps.push(p)}
+   else ps.push(libMkPara(b.join(' '),ip&&ip[k]?ip[k].join(' '):'',rp&&rp[k]?rp[k].join(' '):'',L))});
+  if(R&&rom&&!lineMode&&ps.some(p=>p.a===0))warn.push('Jumlah kalimat romanisasi tidak sama dengan teks asing di sebagian paragraf, jadi romanisasi ditampilkan per paragraf. Pakai nomor [1.1] agar selaras per kalimat.');
+  fmt='aud'}
+ return{L,title,ps:ps.filter(p=>p.f.length),note:Nn.slice(0,800),fmt,warn}}
+/* isi satu kelompok kalimat: baris 1 = kalimat asing (+ lanjutan), baris berikut = romanisasi dan/atau arti */
+function libGrpFRI(g,rom){let f=[g.f],x=g.x.slice(),i0=0;
+ if(rom)while(i0<x.length&&libCJK(x[i0])){f.push(x[i0]);i0++}
+ x=x.slice(i0).map(libLabel);let r='',tr='';
+ if(rom){
+  if(x.length>=2){let a=x[0],b=x.slice(1);
+   if(!a.k&&!b[0].k&&libIsIndo(a.t)&&!libIsIndo(b[0].t)){r=b[0].t;tr=libSp(a.t)}
+   else if(a.k=='i'||(b[0].k=='r')){r=(b.find(q=>q.k=='r')||{}).t||'';tr=libSp(x.filter(q=>q.k!='r').map(q=>q.t).join(' '))}
+   else{r=a.t;tr=libSp(b.map(q=>q.t).join(' '))}}
+  else if(x.length==1){const q=x[0];if(q.k=='r'||(!q.k&&!libIsIndo(q.t)))r=q.t;else tr=q.t}}
+ else tr=libSp(x.map(q=>q.t).join(' '));
+ return{f:libSp(f.join(rom?'':' ')),r:libSp(r),i:libSp(tr)}}
+/* b) format kelompok berpenanda (Reading): [1.1] kalimat asing / romanisasi / terjemahan, satu kelompok per kalimat */
+function libParseStack(t,L){const lines=t.split('\n').map(x=>x.trim()),mark=l=>/^(?:paragra[fp]h?\s*\d+|第[一二三四五六七八九十百\d]+[段章节部分]|段落?\s*\d+|[①-⑩])\s*[:：.]?$/i.test(l);
+ let title='',G=[],cur=null;
+ for(const ln of lines){if(!ln)continue;const m=ln.match(LIBID);
+  if(m){cur={p:+m[1],s:+m[2],f:ln.slice(m[0].length).trim(),x:[]};G.push(cur);continue}
+  if(mark(ln)){cur=null;continue}
+  if(!G.length){if(/^(?:judul|title)\s*[:：]/i.test(ln))title=libTitleOf(ln);else if(!title&&ln.length<=90&&!libEndsS(ln))title=libTitleOf(ln);continue}
+  if(cur)cur.x.push(ln)}
+ if(G.length<1)return null;
+ if(!L)L=libDetectL(G.map(g=>g.f).join('\n'));const rom=L=='ja'||L=='zh',warn=[],groups=new Map();let missR=0,missI=0;
+ for(const g of G){const e=libGrpFRI(g,rom);
+  if(!groups.has(g.p))groups.set(g.p,[]);groups.get(g.p).push(e)}
+ const ps=[];let tot=0;
+ for(const [,es] of groups){const p={f:[],i:[],r:rom?[]:null,a:1};
+  es.forEach(e=>{tot++;p.f.push(e.f);p.i.push(e.i);if(rom){p.r.push(e.r);if(!e.r)missR++}if(!e.i)missI++});
+  if(!p.i.some(Boolean))p.i=[];if(p.r&&!p.r.some(Boolean))p.r=null;ps.push(p)}
+ if(missR&&rom&&missR<tot)warn.push(missR+' dari '+tot+' kalimat tidak punya baris romanisasi.');
+ if(missI&&missI<tot)warn.push(missI+' dari '+tot+' kalimat tidak punya terjemahan.');
+ return{L,title,ps,warn,fmt:'stk'}}
+
+let libRepd=0;
+function libRepairAll(){if(libRepd||typeof S=='undefined')return;libRepd=1;let ch=0;
+ for(const it of S.lib){if((it.L!='zh'&&it.L!='ja')||it.ps.some(p=>p.r&&p.r.length))continue;
+  const g=libGrouped(it.ps.flatMap(p=>p.f).map(x=>libClean(x)),it.L);if(g&&g.ps.length){it.ps=g.ps;if(g.title&&(!it.t||/^\d+$/.test(it.t)))it.t=g.title;libForget(it.id);ch++}}
+ if(ch){try{save()}catch(e){}}}
+function libParseOld(raw,opt){opt=opt||{};let t=libClean(raw).trim();if(!t)return{err:'Teks kosong.'};
  let L=opt.L||'',title=(opt.title||'').trim(),note='',ps=[],fmt='',fm=opt.fmt||'auto';
  const cut=s=>{const m=s.search(/^\s*(?:daftar\s+)?(?:kartu\s+)?pembentuk(?:\s+yang\s+(?:dipakai|digunakan))?\s*:?\s*$/im);if(m>=0){note=s.slice(m).trim();return s.slice(0,m)}return s},
   dropLbl=s=>s.split('\n').filter(l=>!/^\s*(?:pembentuk|topik utama|tambahan)\s*:/i.test(l)).join('\n');
  /* a) format Audio / listening: tiga blok === ... === */
  if(fm=='auto'&&/^\s*={2,}\s*TEKS/im.test(t)||fm=='aud'){
-  const parts=t.split(/^\s*={2,}\s*([^=\n]+?)\s*={2,}\s*$/m);let fb='',ib='';
+  const parts=t.split(/^\s*={2,}\s*([^=\n]+?)\s*={2,}\s*$/m);let fb='',ib='',rb='';
   for(let k=1;k<parts.length;k+=2){const nm=parts[k].trim().toUpperCase(),body=parts[k+1]||'';
-   if(/^TEKS/.test(nm)){fb=body;if(!L){const w=nm.split(/\s+/)[1];if(LIBHN[w])L=LIBHN[w]}}else if(/^TERJEMAHAN/.test(nm))ib=body;else note=(note?note+'\n':'')+body.trim()}
+   if(/^TEKS/.test(nm)){fb=body;if(!L){const w=nm.split(/\s+/)[1];if(LIBHN[w])L=LIBHN[w]}}else if(/^TERJEMAHAN/.test(nm))ib=body;else if(/^(ROMAJI|ROMANISASI|PINYIN|ROMANIZATION)/.test(nm))rb=body;else note=(note?note+'\n':'')+body.trim()}
   if(!fb.trim())return{err:'Blok “=== TEKS … ===” tidak ditemukan atau kosong.'};
   if(!L)L=libDetectL(fb);
-  const pf=libParas(fb),pi=libParas(ib);pf.forEach((p,k)=>ps.push(libMkPara(p,pi[k]||'','',L)));fmt='aud'}
+  const pf=libParas(fb),pi=libParas(ib),pr=libParas(rb);pf.forEach((p,k)=>ps.push(libMkPara(p,pi[k]||'',pr[k]||'',L)));fmt='aud'}
  /* b) format per kalimat: penanda “Paragraf N” */
  else if((fm=='auto'||fm=='sen')&&/^\s*(?:paragraf|paragraph)\s+\d+\s*:?\s*$/im.test(t)){
   t=cut(dropLbl(t));const parts=t.split(/^\s*(?:paragraf|paragraph)\s+\d+\s*:?\s*$/im);if(!title){const h=parts[0].split('\n').map(x=>x.trim()).filter(Boolean);if(h.length)title=h[0]}
@@ -62,7 +183,8 @@ function libParse(raw,opt){opt=opt||{};let t=libClean(raw).trim();if(!t)return{e
  else{t=cut(dropLbl(t));let B=t.split(/\n\s*\n/).map(b=>b.split('\n').map(x=>x.trim()).filter(Boolean)).filter(b=>b.length);
   if(!B.length)return{err:'Teks kosong.'};
   if(!L)L=libDetectL(B.map(b=>b.join(' ')).join('\n'));
-  const rom=L=='ja'||L=='zh';
+  const rom=L=='ja'||L=='zh',GR=rom?libGrouped(B.flat(),L):null;
+  if(GR){ps=GR.ps;if(!title&&GR.title)title=GR.title;fmt='grp'}else{
   if(B.length>=2&&B[0].length==1&&B[0][0].length<=90&&!/[.!?。！？]["”)」』]?$/.test(B[0][0])){if(!title)title=B[0][0];B=B.slice(1)}
   const J=b=>b.join(' '),tgt=s=>{const x=libScore(s);return x[L]>x.id},idn=s=>{const x=libScore(s);return x.id>x[L]};
   const allLines=B.every(b=>b.length==(rom?3:2));
@@ -72,12 +194,50 @@ function libParse(raw,opt){opt=opt||{};let t=libClean(raw).trim();if(!t)return{e
   else if(rom&&B.length>=3&&B.every((b,k)=>k%3==0?libCJK(J(b)):!libCJK(J(b)))){for(let k=0;k+2<B.length+0;k+=3)ps.push(libMkPara(J(B[k]),J(B[k+2]),J(B[k+1]),L));fmt='blk'}
   else if(rom&&B.length>=2&&B.every((b,k)=>k%2==0?libCJK(J(b)):!libCJK(J(b)))){for(let k=0;k<B.length;k+=2)ps.push(libMkPara(J(B[k]),B[k+1]?J(B[k+1]):'','',L));fmt='blk'}
   else if(!rom&&B.length>=2&&B.every((b,k)=>k%2==0?tgt(J(b)):idn(J(b)))){for(let k=0;k<B.length;k+=2)ps.push(libMkPara(J(B[k]),B[k+1]?J(B[k+1]):'','',L));fmt='blk'}
-  else{B.forEach(b=>ps.push(libMkPara(J(b),'','',L)));fmt='txt'}}
+  else{B.forEach(b=>ps.push(libMkPara(J(b),'','',L)));fmt='txt'}}}
  ps=ps.filter(p=>p.f.length);
  if(!L)return{err:'Bahasa tidak terdeteksi. Pilih bahasa teks secara manual.'};
  if(!ps.length)return{err:'Tidak ada kalimat yang bisa dibaca dari teks ini.'};
  if(!title){const s=ps[0].f[0].replace(/\s+/g,' ');title=s.length>34?s.slice(0,32)+'…':s}
  return{L,title,ps,note:note.slice(0,800),fmt}}
+/* dialog: awalan penutur “A:” / “B:” / “小明：” di kalimat asing dipisah ke p.sp */
+const LIBSPK=/^\s*([A-Za-zÀ-ž]{1,12}|[㐀-鿿぀-ヿ]{1,6}|[ＡＢＣＤ])\s*[:：]\s*/;
+function libSpeakers(ps){let n=0,t=0;ps.forEach(p=>p.f.forEach(f=>{t++;if(LIBSPK.test(f))n++}));if(!t||n<t*.6)return;
+ ps.forEach(p=>{p.sp=p.f.map(f=>{const m=f.match(LIBSPK);return m?m[1].trim():''});p.f=p.f.map(f=>f.replace(LIBSPK,'').trim())})}
+/* bank kalimat: banyak kalimat tunggal sekaligus. Dikenali: [n] kelompok 3 baris, “asing | romaji | arti”, tab, atau baris biasa */
+function libParseSents(raw,opt){opt=opt||{};let t=libClean(raw).trim();if(!t)return{err:'Teks kosong.'};
+ let note='';const mi=t.search(/^\s*(?:daftar\s+)?(?:kartu\s+)?pembentuk(?:\s+yang\s+(?:dipakai|digunakan))?\s*:?\s*$/im);if(mi>=0){note=t.slice(mi);t=t.slice(0,mi)}
+ const lines=t.split('\n').map(x=>x.trim()).filter(x=>x&&!/^(?:judul|title)\s*[:：]/i.test(x)&&!libHead(x)),ID1=/^\s*[\[【〔［]\s*(\d{1,4})(?:\s*[.\-:·．]\s*\d{1,3})?\s*[\]】〕］]\s*[:：.)\-–—]?\s*/;
+ let L=opt.L||'';if(!L)L=libDetectL(lines.join('\n'));if(!L)return{err:'Bahasa tidak terdeteksi. Pilih bahasa secara manual.'};
+ const rom=L=='ja'||L=='zh',G=[],warn=[];let cur=null,fmt='';
+ if(lines.some(l=>ID1.test(l))){fmt='id';
+  for(const ln of lines){const m=ln.match(ID1);if(m){cur={n:m[1],f:ln.slice(m[0].length).trim(),x:[]};G.push(cur)}else if(cur)cur.x.push(ln)}}
+ else if(lines.filter(l=>/\s\|\s|\t/.test(l)).length>=Math.max(1,lines.length*.6)){fmt='pipe';
+  for(const ln of lines){const q=ln.split(/\s+\|\s+|\t+/).map(x=>x.trim()).filter(Boolean);if(q.length)G.push({f:q[0],x:q.slice(1)})}}
+ else{fmt='line';
+  const isF=l=>rom?libCJK(l):!libIsIndo(l)&&(libScore(l)[L]>0||!/\b(?:yang|dan|di|ke)\b/i.test(l));
+  for(const ln of lines){const l=ln.replace(/^\s*(?:\d{1,3}[.)]\s+)/,'');if(!cur||isF(l)){cur={f:l,x:[]};G.push(cur)}else cur.x.push(l)}}
+ const out=[];let missR=0,missI=0;
+ for(const g of G){if(!g.f)continue;const e=libGrpFRI(g,rom);if(!e.f)continue;if(rom&&!e.r)missR++;if(!e.i)missI++;out.push({f:e.f,r:e.r,i:e.i,n:g.n||''})}
+ if(!out.length)return{err:'Tidak ada kalimat yang bisa dibaca.'};
+ if(rom&&missR&&missR<out.length)warn.push(missR+' dari '+out.length+' kalimat tanpa romanisasi (dibuat otomatis, perkiraan).');
+ if(missI&&missI<out.length)warn.push(missI+' dari '+out.length+' kalimat tanpa terjemahan.');
+ const pb={};note.split('\n').forEach(l=>{const m=l.match(ID1);if(m)pb[m[1]]=l.slice(m[0].length).trim().slice(0,200)});
+ out.forEach(o=>{if(o.n&&pb[o.n])o.pb=pb[o.n]});
+ return{L,sents:out,fmt,warn}}
+/* pintu masuk parser: coba format berpenanda / berblok dulu, lalu cara lama */
+function libParse(raw,opt){opt=opt||{};const t=libClean(raw).trim();if(!t)return{err:'Teks kosong.'};
+ const fm=opt.fmt||'auto',L0=opt.L||'',lines=t.split('\n'),hasF=lines.some(l=>{const h=libHead(l);return h&&h.k=='f'}),nId=lines.filter(l=>LIBID.test(l)).length;
+ let r=null;
+ if(fm=='aud'||(fm=='auto'&&hasF))r=libParseBlocks(t,L0,0);
+ else if(fm=='stk'||(fm=='auto'&&nId>=2)){let note='';const m=t.search(/^\s*(?:daftar\s+)?(?:kartu\s+)?pembentuk(?:\s+yang\s+(?:dipakai|digunakan))?\s*:?\s*$/im);let b=t;if(m>=0){note=t.slice(m).trim();b=t.slice(0,m)}
+  r=libParseStack(b,L0);if(r)r.note=note.slice(0,800)}
+ if(!r){r=libParseOld(raw,opt);if(r.err)return r;if(opt.dlg)libSpeakers(r.ps);return r}
+ if(r.err)return r;
+ const L=L0||r.L;if(!L)return{err:'Bahasa tidak terdeteksi. Pilih bahasa teks secara manual.'};
+ r.L=L;r.ps=r.ps.filter(p=>p.f.length);if(!r.ps.length)return{err:'Tidak ada kalimat yang bisa dibaca dari teks ini.'};
+ let title=(opt.title||'').trim()||r.title||'';if(!title){const x=r.ps[0].f[0].replace(/\s+/g,' ');title=x.length>34?x.slice(0,32)+'…':x}
+ r.title=title;r.note=r.note||'';r.warn=r.warn||[];if(opt.dlg)libSpeakers(r.ps);return r}
 const libNS=it=>it.ps.reduce((a,p)=>a+p.f.length,0);
 const libHasTr=it=>it.ps.some(p=>p.i&&p.i.length);
 
@@ -196,7 +356,7 @@ function libJaPats(base,pos){const P=new Set(),add=x=>x&&P.add(libEsc(x));
   else if(base=='する')['する','します','しません','しない','した','して','しよう','しろ','すれば','させ','され','しな','しま'].forEach(add);
   else if(base=='来る'||base=='くる'){(base=='来る'?['来る','来ます','来ません','来ない','来た','来て','来よう','来れ','来い','来られ','来させ','来な','来ま']:['くる','きます','きません','こない','きた','きて','こよう','こい','くれば','こられ','こさせ','きな']).forEach(add)}
   else if(base=='ある'||base=='有る'||base=='在る'){[base,base.slice(0,-1)+'ります',base.slice(0,-1)+'りません',base.slice(0,-1)+'った',base.slice(0,-1)+'って',base.slice(0,-1)+'れば'].forEach(add)}
-  else if(LIBROW[last]&&stem.length>=1){let row=LIBROW[last];if(base=='行く'||base=='いく')row+='っ';
+  else if(LIBROW[last]&&stem.length>=1){let row=LIBROW[last];if(/(^|[てにへ])(行く|いく)$/.test(base))row+='っ';
    if(stem.length>=2||!kanaOnly)P.add(libEsc(stem)+'['+row+']');else{['ます','ません','ました','ない','なかった','た','て'].forEach(s=>add(stem+s))}}}
  else if(pos=='A'&&last=='い'&&base.length>=2){
   if(base=='いい'||base=='よい'){['いい','よい','よく','よかっ','よければ','よさ'].forEach(add)}
@@ -216,13 +376,36 @@ function libJaF(entries,pos){const P=new Set(),co=[];
 /* ---- GRAMMAR: pola literal dari judul/pola (perkiraan terbaik) ---- */
 const LIBGSTOP=new Set('kata kerja bantu benda sifat keterangan dan di ke untuk dengan yang orang tunggal jamak akhiran awalan bentuk pola kalimat subjek objek predikat klausa atau dari pada dalam sebagai saat waktu tempat arah sebab akibat nama akar subjekt verb partizip akkusativ dativ genitiv nominativ nebensatz hauptsatz imperfectum perfectum'.split(' '));
 const libCjkRuns=t=>String(t).replace(/\([^)]*\)|（[^）]*）/g,' ').match(/[぀-ヿ㐀-鿿々ー]+/g)||[];
+const LIBGCAT=new Set(['量词','名词','动词','形容词','副词','代词','数词','助词','介词','连词','主语','谓语','宾语','补语','状语','定语','疑问代词','人称代词','名量词','动量词','数量短语','陈述句','疑问句','祈使句','感叹句','时间词','方位词','名詞','動詞','形容詞','副詞','助詞','他動詞','自動詞','主語','述語','目的語','連体詞','接続詞','形容動詞','助動詞','名詞句']);
+const LIBJVB=/(する|なる|ある|いる|くる|できる|みる|おく|しまう|くれる|あげる|もらう|やる|すぎる|[行い]く)$/;
+const LIBPT=/^[のがをにはもでとへ]$/;
+function libJaRun(r,before,sibNoRun,j,n){let run=r;
+ if(/^(.)\1/.test(run)&&run.length>2)run=run.slice(1);
+ if(j==0&&/^[のがで]/.test(run)&&run.length>=4)run=run.slice(1);
+ if(/(?:だ|です)$/.test(run)&&run.length>=3)run=run.replace(/(?:だ|です)$/,'');
+ const te=!sibNoRun&&!/^[てで]/.test(run)&&/(?:\bV|Sifat|Adj)[-‑ ]?(?:te|て)(?:\s*\([^)]*\))?\s*\+?\s*$/i.test(before),vm=/(^|[\s+(])V[-‑ ]/.test(before);
+ let src=libEsc(run);
+ if(/する$/.test(run)&&run.length>=3){src=libEsc(run.slice(0,-2))+'[すしさせ]'}
+ else if(run.length>=2&&LIBROW[run.slice(-1)]&&(vm||te||LIBJVB.test(run)||(/[㐀-鿿]/.test(run)&&run.length>=3))&&!/(?:ます|ませ|です)$/.test(run)){
+  if(run.length==2&&!/[㐀-鿿]/.test(run)&&run!='くる'&&run!='あげる')src=libEsc(run[0])+'['+LIBROW[run[1]]+']';
+  else{const P=libJaPats(run,'V');if(P.size)src='(?:'+[...P].sort((x,y)=>y.length-x.length).join('|')+')'}}
+ else if(run.length>=3&&/い$/.test(run)&&/Sifat|Adj|やすい|にくい|づらい/.test(before+run)){const P=libJaPats(run,'A');if(P.size)src='(?:'+[...P].join('|')+')'}
+ if(te)src='[てで](?:'+src+')';
+ return src}
 function libGramF(gid){const g=GK[gid];if(!g)return null;const L=g[1],title=String(g[4]||''),pat=String(g[6]||''),ex=(g[7]||[]).map(e=>String(e).split('\n')[0]);
  if(L=='zh'||L=='ja'){const alts=[];
+  const gl=t=>String(t).replace(/\([^)]*\)|（[^）]*）/g,' '),exN=ex.map(e=>e.replace(/\s+/g,''));
+  const isCat=r=>LIBGCAT.has(r)||/^[぀-ヿ㐀-鿿]{1,3}形$/.test(r)||(r.length>=3&&/(副词|短语|谓语|定语|状语|补语|主语|宾语|词语|量词|名词|动词|形容词|结构|类型|后缀|复句|副詞|名詞|動詞|形容詞)/.test(r));
   for(const src of[pat,title]){if(alts.length)break;
-   for(const a of src.split(/\s*[\/／、;]\s*|\n/)){const runs=libCjkRuns(a);if(!runs.length)continue;if(runs.join('').length>12)continue;alts.push(runs)}}
-  if(!alts.length)return null;const single=new Set(),ord=[];
-  for(const r of alts){if(r.length==1)single.add(r[0]);else ord.push(new RegExp(r.map(libEsc).join('.{0,15}?'),'g'))}
-  const f={k:'sub'};if(single.size)f.re=new RegExp([...single].sort((a,b)=>b.length-a.length).map(libEsc).join('|'),'g');if(ord.length)f.ord=ord;return{alts:[f]}}
+   if(src===title&&/[A-Za-z]/.test(gl(title)))continue;
+   const parts=src.split(/\s*[\/／、;]\s*|\n/),sib=parts.some(x=>!libCjkRuns(x).length);
+   for(const a of parts){const g=gl(a),toks=[...g.matchAll(/[぀-ヿ㐀-鿿々ー]+/g)].map(m=>({r:m[0],i:m.index,e:m.index+m[0].length}));
+    let ts=toks.filter(t=>!isCat(t.r)&&(src!==title||!exN.length||exN.some(e=>e.includes(t.r))));if(!ts.length)continue;if(L=='ja'&&ts.length>1&&LIBPT.test(ts[0].r))ts=ts.slice(1);
+    if(ts.map(t=>t.r).join('').length>12)continue;alts.push({ts,g,toks,sib})}}
+  if(!alts.length)return null;const single=new Set(),ord=[];let gen=1;
+  for(const {ts,g,toks,sib} of alts){const srcs=ts.map((t,j)=>{if(L!='ja')return libEsc(t.r);const k=toks.indexOf(t),pe=k>0?toks[k-1].e:0;return libJaRun(t.r,g.slice(pe,t.i),sib,j,ts.length)});
+   if(ts.length==1&&srcs[0]==libEsc(ts[0].r))single.add(ts[0].r);else ord.push(new RegExp(srcs.join('.{0,15}?'),'g'));if(ts.map(t=>t.r).join('').length>1)gen=0}
+  const f={k:'sub'};if(single.size)f.re=new RegExp([...single].sort((a,b)=>b.length-a.length).map(libEsc).join('|'),'g');if(ord.length)f.ord=ord;return{alts:[f],gen}}
  const exT=ex.map(e=>new Set(libTok(e,L))),need=exT.length?Math.max(1,Math.ceil(exT.length*.4)):0,words=new Set(),pre=[],cont=[];
  const ok=w=>w.length>=2&&!LIBGSTOP.has(w)&&!LIBSWS.id.has(w);
  const inEx=w=>!need||exT.filter(t=>t.has(w)).length>=need;
@@ -238,7 +421,14 @@ function libGramF(gid){const g=GK[gid];if(!g)return null;const L=g[1],title=Stri
   else if(L=='nl'&&/en$/.test(w)&&w.length>4)libNlVerb(w).forEach(x=>sets.add(x));
   else if(L=='eo'&&/[aeo]?i$/.test(w)&&w.length>3)libEo(w,'V')[0].forEach(x=>sets.add(x))}
  const alts=[];if(sets.size)alts.push({k:'tok',sets:[sets]});if(pre.length||cont.length)alts.push({k:'aff',pre,cont});
- return alts.length?{alts}:null}
+ if(!alts.length&&exT.length>=2){/* tanpa pola eksplisit: tambang kata ciri dari contoh sendiri (kata yang ada di >=60% contoh & jarang di korpus) */
+  const D0=libExDF(L),cnt=new Map();exT.forEach(t=>t.forEach(w=>cnt.set(w,(cnt.get(w)|0)+1)));const mn=Math.max(2,Math.ceil(exT.length*.6)),cand=[];
+  for(const [w,c] of cnt){if(c<mn||w.length<3||LIBGSTOP.has(w)||LIBSWS.id.has(w)||(LIBSWS[L]&&LIBSWS[L].has(w)))continue;const df=(D0.df.get(w)|0)/D0.n;if(df<=.03)cand.push([df,w])}
+  cand.sort((a,b)=>a[0]-b[0]);if(cand.length){const st=new Set(cand.slice(0,6).map(x=>x[1]));st.forEach(w=>{if(L=='de'&&/en$/.test(w)&&w.length>4)libDeVerb(w).forEach(x=>st.add(x));else if(L=='nl'&&/en$/.test(w)&&w.length>4)libNlVerb(w).forEach(x=>st.add(x))});return{alts:[{k:'tok',sets:[st]}],gen:0,mined:1}}}
+ const gen=!sets.size&&alts.every(a=>a.k=='aff'&&[...a.pre,...a.cont].every(x=>x.length<=2))?1:0;
+ return alts.length?{alts,gen}:null}
+const LIBEXDF={};
+function libExDF(L){if(LIBEXDF[L])return LIBEXDF[L];const df=new Map();let n=0;for(const g of Object.values(GK)){if(g[1]!=L)continue;for(const e of(g[7]||[])){n++;new Set(libTok(String(e).split('\n')[0],L)).forEach(w=>df.set(w,(df.get(w)|0)+1))}}return LIBEXDF[L]={df,n:Math.max(1,n)}}
 
 /* ---- pembangun utama: kunci kartu "id@bahasa" -> bentuk-bentuk pencarian ---- */
 const libFM=new Map();
@@ -275,7 +465,7 @@ function libAnalyze(it){if(libAna.has(it.id))return libAna.get(it.id);const d=li
 const libAnaG=new Map();
 function libGKeys(L){return D.G.filter(g=>g[1]==L).map(g=>g[0])}
 function libAnalyzeG(it){if(libAnaG.has(it.id))return libAnaG.get(it.id);const d=libDoc(it),out=[];
- for(const k of libGKeys(it.L)){const n=libCountKey(d,k);if(n>0)out.push({k,n})}out.sort((a,b)=>b.n-a.n);libAnaG.set(it.id,out);return out}
+ for(const k of libGKeys(it.L)){const n=libCountKey(d,k);if(n>0){const F=libForms(k);out.push({k,n,gen:F&&F.gen?1:0,mi:F&&F.mined?1:0})}}out.sort((a,b)=>(a.gen-b.gen)||b.n-a.n);libAnaG.set(it.id,out);return out}
 function libForget(id){libDocs.delete(id);libAna.delete(id);libAnaG.delete(id)}
 /* status kartu: w = lemah/sedang dipelajari, m = matang/selesai, n = belum dipelajari */
 function libSt(k){const g=GK[k]?1:0,s=typeof aiState=='function'?aiState(k,g):null;if(s&&s.t.length)return'w';const c=S.srs[k];if(aiRem(c,g)||S.p[k]==2)return'm';return c&&c.t?'w':S.p[k]==1?'w':'n'}
@@ -299,29 +489,61 @@ const lpClean=(t,L)=>{let s=String(t).replace(/[~〜*_#`]/g,'').replace(/\s+/g,'
 /* ---------------------------------------------------------------------------------------------
    4. TAMBAH TEKS (modal)
    --------------------------------------------------------------------------------------------- */
-function libAddOpen(pre){libAddClose();const m=document.createElement('div');m.id='lbm';m.className='edm';
- m.innerHTML=`<div class=eds role=dialog aria-modal=true aria-label="Tambah teks"><div class=edh><div><b>＋ Tambah teks ke Pustaka</b><small>Tempel hasil dari ChatGPT / Claude / Gemini</small></div><button class=mini data-lb=close aria-label=Tutup>✕</button></div><div class=edb>`+
- `<label class=edl>Teks<small>Paling pas: format “Audio / listening” dari Kelas AI (Sedang). Format paragraf, per kalimat, atau teks polos juga dikenali.</small><textarea id=lbX rows=11 spellcheck=false placeholder="=== TEKS JEPANG ===&#10;…&#10;&#10;=== TERJEMAHAN INDONESIA ===&#10;…">${esc(pre||'')}</textarea></label>`+
+/* jenis teks: 'r' = Reading, 'l' = Listening (teks lama tanpa penanda dianggap Listening) */
+const libKind=it=>it&&(it.k=='r'||it.k=='d')?it.k:'l';
+const LIBKN={r:'Reading',l:'Listening',d:'Dialog',s:'Kalimat'};
+const LIBKI={r:'📖',l:'🎧',d:'💬',s:'🔤'};
+let libAddK='r';
+const libPH={
+ r:`Judul: [judul] | [arti judul]&#10;&#10;Paragraf 1&#10;[1.1] [kalimat asing]&#10;[romaji / pinyin (Jepang & Mandarin)]&#10;[arti Indonesia]&#10;&#10;[1.2] …`,
+ l:`=== TEKS JEPANG ===&#10;[1.1] …&#10;[1.2] …&#10;&#10;=== ROMAJI ===&#10;[1.1] …&#10;&#10;=== TERJEMAHAN INDONESIA ===&#10;[1.1] …`,
+ d:`Judul: [judul] | [arti judul]&#10;&#10;[1.1] A: [kalimat asing]&#10;[romaji / pinyin (Jepang & Mandarin)]&#10;[arti Indonesia]&#10;&#10;[1.2] B: …`,
+ s:`[1] [kalimat asing]&#10;[romaji / pinyin (Jepang & Mandarin)]&#10;[arti Indonesia]&#10;&#10;[2] …&#10;&#10;Atau satu baris per kalimat:&#10;kalimat asing | romaji | arti`};
+const libHelp={
+ r:'Reading: tempel hasil Kelas AI → tab Reading. Format apa pun tetap dibaca, tetapi format dari Kelas AI paling aman karena tiap kalimat bernomor [1.1] sehingga romanisasi & terjemahan tidak bisa bergeser.',
+ l:'Listening: tempel hasil Kelas AI → tab Listening (blok === TEKS ===, ROMAJI/PINYIN, TERJEMAHAN; tiap kalimat bernomor). Teks polos atau format lain juga dikenali.',
+ d:'Dialog: tempel hasil Kelas AI → tab Dialog (tiap baris “[1.1] A: …” + romanisasi + arti). Penutur dikenali dari awalan A: / B:.',
+ s:'Kalimat: tempel BANYAK kalimat sekaligus (hasil Kelas AI → tab Kalimat, atau tulis sendiri). Tiap kalimat disimpan terpisah. Dikenali: kelompok [1] [2] …, “asing | romaji | arti”, atau satu kalimat per baris.'};
+function libAddOpen(pre,kind){libAddClose();libAddK=kind||(typeof S!='undefined'&&S.o&&S.o.libSec)||'r';const m=document.createElement('div');m.id='lbm';m.className='edm';
+ m.innerHTML=`<div class=eds role=dialog aria-modal=true aria-label="Tambah teks"><div class=edh><div><b>＋ Tambah ke Pustaka</b><small>Tempel hasil dari ChatGPT / Claude / Gemini</small></div><button class=mini data-lb=close aria-label=Tutup>✕</button></div><div class=edb>`+
+ `<div class=aio style="margin-top:8px"><small>Simpan ke</small><div class=chips id=lbK></div></div>`+
+ `<label class=edl>Teks<small id=lbH></small><textarea id=lbX rows=11 spellcheck=false>${esc(pre||'')}</textarea></label>`+
  `<button data-lb=paste style="margin:8px 0">📋 Tempel dari clipboard</button><div class=gsub id=lbP style="margin:4px 0 10px"></div>`+
- `<label class=edl>Judul (boleh kosong)<input id=lbT autocomplete=off placeholder="Otomatis dari kalimat pertama"></label>`+
+ `<label class=edl id=lbTw>Judul (boleh kosong)<input id=lbT autocomplete=off placeholder="Otomatis dari judul / kalimat pertama"></label>`+
  `<div class=aiopts><label class=edl style="flex:1">Bahasa<select id=lbL><option value="">Otomatis (deteksi)</option>${LIBL.map(l=>`<option value=${l}>${libNm(l)}</option>`).join('')}</select></label>`+
- `<label class=edl style="flex:1">Format<select id=lbF><option value=auto>Otomatis</option><option value=aud>Audio (3 blok ===)</option><option value=sen>Per kalimat (Paragraf N)</option><option value=txt>Teks polos (tanpa terjemahan)</option></select></label></div>`+
- `</div><div class=edf><button data-lb=close>Batal</button><button data-lb=save>Simpan</button><button class=pri data-lb=saveplay>Simpan &amp; putar</button></div></div>`;
- document.body.appendChild(m);document.body.style.overflow='hidden';libAddPrev()}
+ `<label class=edl style="flex:1" id=lbFw>Format<select id=lbF><option value=auto>Otomatis (disarankan)</option><option value=stk>Kelompok per kalimat [1.1]</option><option value=aud>Blok === (Listening)</option><option value=sen>Per kalimat “Paragraf N” (lama)</option><option value=txt>Teks polos (tanpa terjemahan)</option></select></label></div>`+
+ `</div><div class=edf><button data-lb=close>Batal</button><button data-lb=save>Simpan</button><button class=pri data-lb=saveplay id=lbSP></button></div></div>`;
+ document.body.appendChild(m);document.body.style.overflow='hidden';libAddKR();libAddPrev()}
+function libAddKR(){const k=document.getElementById('lbK');if(!k)return;
+ k.innerHTML=['r','l','d','s'].map(v=>`<button class="chip${libAddK==v?' on':''}" data-lb=tk data-v=${v}>${LIBKI[v]} ${LIBKN[v]}</button>`).join('');
+ const h=document.getElementById('lbH');if(h)h.textContent=libHelp[libAddK];const x=document.getElementById('lbX');if(x)x.placeholder=libPH[libAddK].replace(/&#10;/g,'\n');
+ const tw=document.getElementById('lbTw'),fw=document.getElementById('lbFw');if(tw)tw.style.display=libAddK=='s'?'none':'';if(fw)fw.style.display=libAddK=='s'?'none':'';
+ const sp=document.getElementById('lbSP');if(sp){sp.style.display=libAddK=='s'?'none':'';sp.innerHTML=libAddK=='r'?'Simpan &amp; baca':'Simpan &amp; putar'}}
 function libAddClose(){const m=document.getElementById('lbm');if(m)m.remove();if(!document.getElementById('lpm')&&!document.getElementById('aim')&&!document.getElementById('edm'))document.body.style.overflow=''}
 function libAddRead(){const g=id=>{const e=document.getElementById(id);return e?e.value:''};return{x:g('lbX'),t:g('lbT'),L:g('lbL'),f:g('lbF')}}
-function libAddParse(){const v=libAddRead();return libParse(v.x,{L:v.L,title:v.t,fmt:v.f=='txt'?'txt':v.f})}
+function libAddParse(){const v=libAddRead();if(libAddK=='s')return libParseSents(v.x,{L:v.L});return libParse(v.x,{L:v.L,title:v.t,fmt:v.f,dlg:libAddK=='d'})}
 function libAddPrev(){const p=document.getElementById('lbP');if(!p)return;const v=libAddRead();if(!v.x.trim()){p.textContent='Belum ada teks.';return}
  const r=libAddParse();if(r.err){p.innerHTML=`<span style="color:var(--bad)">${esc(r.err)}</span>`;return}
- const ns=r.ps.reduce((a,q)=>a+q.f.length,0),tr=r.ps.some(q=>q.i.length),rm=r.ps.some(q=>q.r&&q.r.length),al=r.ps.every(q=>q.a);
- p.innerHTML=`Terdeteksi: <b>${libNm(r.L)}</b> · ${r.ps.length} paragraf · ${ns} kalimat · terjemahan ${tr?'✓':'—'}${rm?' · romanisasi ✓':''}${tr&&!al?' <small>(sebagian terjemahan per paragraf)</small>':''}`}
+ const wr=(r.warn||[]).length?`<div style="color:var(--s1);margin-top:4px;font-size:.84rem">${r.warn.map(w=>'⚠ '+esc(w)).join('<br>')}</div>`:'';
+ if(libAddK=='s'){const rom=r.L=='ja'||r.L=='zh',n=r.sents.length,nr=r.sents.filter(x=>x.r).length,nt=r.sents.filter(x=>x.i).length,dup=r.sents.filter(x=>S.sl.some(y=>y.L==r.L&&y.f==x.f)).length;
+  p.innerHTML=`Terdeteksi: <b>${libNm(r.L)}</b> · ${n} kalimat · terjemahan ${nt}/${n}`+(rom?` · romanisasi ${nr}/${n}`:'')+(dup?` · <b>${dup}</b> sudah ada (dilewati)`:'')+wr;return}
+ const ns=r.ps.reduce((a,q)=>a+q.f.length,0),tr=r.ps.some(q=>q.i.length),rom=r.L=='ja'||r.L=='zh',rm=r.ps.some(q=>q.r&&q.r.length),al=r.ps.every(q=>q.a);
+ const nr=r.ps.reduce((a,q)=>a+(q.r?q.r.filter(Boolean).length:0),0),nt=r.ps.reduce((a,q)=>a+(q.a?q.i.filter(Boolean).length:q.i.length?q.f.length:0),0);
+ const FM={aud:'blok ===',stk:'kelompok [1.1]',sen:'per kalimat',grp:'terkelompok',blk:'paragraf + terjemahan',txt:'teks polos'},dl=libAddK=='d'?(r.ps.some(q=>q.sp)?' · penutur ✓':' · <b>penutur (A:/B:) tidak terbaca</b>'):'';
+ p.innerHTML=`Terdeteksi: <b>${libNm(r.L)}</b> · format ${FM[r.fmt]||r.fmt} · ${r.ps.length} paragraf · ${ns} kalimat · terjemahan ${tr?(nt==ns||!al?'✓':'✓ '+nt+'/'+ns):'—'}`+
+  (rom?` · romanisasi ${rm?(nr==ns?'✓ selaras '+nr+'/'+ns:'⚠ '+nr+'/'+ns):'— (dibuat otomatis, perkiraan)'}`:'')+dl+(tr&&!al?' <small>(sebagian terjemahan per paragraf)</small>':'')+
+  (r.title?`<br><small>Judul: ${esc(r.title)}</small>`:'')+wr}
 function libAddSave(play){const r=libAddParse();if(r.err)return toast(r.err);
- const it={id:libId(),t:r.title,L:r.L,c:Date.now(),ps:r.ps,h:0,r:0,n:0};if(r.note)it.nt=r.note;
- S.lib.unshift(it);if(S.lib.length>400)S.lib.length=400;save();libAddClose();toast('Teks disimpan di Pustaka ✓');
- if(typeof tab!='undefined'&&tab!='lib'){tab='lib'}render();if(play)lpOpen(it)}
+ if(libAddK=='s'){let n=0,d=0;const seen=new Set(S.sl.map(x=>x.L+'|'+x.f));
+  r.sents.forEach(x=>{const key=r.L+'|'+x.f;if(seen.has(key)){d++;return}seen.add(key);S.sl.unshift({id:libId(),L:r.L,f:x.f,r:x.r||'',i:x.i||'',c:Date.now(),d:0,pb:x.pb||''});n++});
+  if(S.sl.length>5000)S.sl.length=5000;S.o.libSec='s';save();libAddClose();toast(n+' kalimat disimpan di Pustaka → Kalimat'+(d?' ('+d+' sudah ada)':'')+' ✓');if(typeof tab!='undefined'&&tab!='lib')tab='lib';render();return}
+ const it={id:libId(),t:r.title,L:r.L,c:Date.now(),ps:r.ps,h:0,r:0,n:0,k:libAddK};if(r.note)it.nt=r.note;
+ S.lib.unshift(it);if(S.lib.length>400)S.lib.length=400;S.o.libSec=libAddK;save();libAddClose();toast('Disimpan di Pustaka → '+LIBKN[libAddK]+' ✓');
+ if(typeof tab!='undefined'&&tab!='lib'){tab='lib'}if(play&&libAddK=='r')libOpenId=it.id;render();if(play&&libAddK!='r')lpOpen(it)}
 document.addEventListener('click',e=>{const m=document.getElementById('lbm');if(!m)return;if(e.target===m){libAddClose();return}
  const b=e.target.closest('[data-lb]');if(!b)return;const a=b.dataset.lb;
  if(a=='close')libAddClose();else if(a=='save')libAddSave(0);else if(a=='saveplay')libAddSave(1);
+ else if(a=='tk'){libAddK=['r','l','d','s'].includes(b.dataset.v)?b.dataset.v:'r';libAddKR();libAddPrev()}
  else if(a=='paste'){try{navigator.clipboard.readText().then(t=>{const x=document.getElementById('lbX');if(x){x.value=t;libAddPrev()}}).catch(()=>toast('Izin clipboard ditolak. Tempel manual di kotak teks.'))}catch(_){toast('Tempel manual di kotak teks.')}}});
 document.addEventListener('input',e=>{if(e.target.id=='lbX'||e.target.id=='lbT')libAddPrev()});
 document.addEventListener('change',e=>{if(e.target.id=='lbL'||e.target.id=='lbF')libAddPrev()});
@@ -330,13 +552,15 @@ document.addEventListener('keydown',e=>{if(!document.getElementById('lbm'))retur
 /* ---------------------------------------------------------------------------------------------
    5. PUSTAKA (tab)
    --------------------------------------------------------------------------------------------- */
+const libSecV=()=>['r','l','d','s'].includes(S.o.libSec)?S.o.libSec:'r';
+const libSecItems=()=>libSecV()=='s'?S.sl:S.lib.filter(t=>libKind(t)==libSecV());
 let libLg='',libStt='',libSort='new',libLim=30,libOpenId='',libQ='',libCard='',libAnaF='all',libAnaLim=40;
 let libMinOv=0;
 const libMinV=()=>libMinOv||Math.max(1,+S.o.libMin||4);
 let libIdx=null;
 function libIndex(){if(libIdx)return libIdx;libIdx=[];for(const c of D.C)for(const L of LIBL){const es=c[3][L];if(!es||!es.length)continue;libIdx.push({k:ik(c[0],L),L,t:(c[2]+' '+es.map(e=>e[0]+' '+(e[1]||'')).join(' ')).toLowerCase()})}
  for(const g of D.G)if(LIBL.includes(g[1]))libIdx.push({k:g[0],L:g[1],g:1,t:(g[4]+' '+g[6]).toLowerCase()});return libIdx}
-function libFindRes(){const q=libQ.trim().toLowerCase(),langs=new Set(S.lib.map(t=>t.L));
+function libFindRes(){const q=libQ.trim().toLowerCase(),langs=new Set(libSecItems().map(t=>t.L));
  if(!langs.size)return'<small>Tambahkan teks dulu, lalu cari di sini.</small>';if(!q)return'<small>Ketik untuk mencari kartu dari bahasa yang ada di Pustaka.</small>';
  const r=libIndex().filter(x=>langs.has(x.L)&&(!libLg||x.L==libLg)&&x.t.includes(q));
  r.sort((a,b)=>(b.t.startsWith(q)-a.t.startsWith(q))||a.t.length-b.t.length);
@@ -344,13 +568,13 @@ function libFindRes(){const q=libQ.trim().toLowerCase(),langs=new Set(S.lib.map(
  return`<div class=lbcs>`+r.slice(0,10).map(x=>{const l=libLbl(x.k);return`<button class=lbc data-a=libpick data-k="${esc(x.k)}"><b>${esc(l.w)}</b>${l.r?` <small>${esc(l.r)}</small>`:''}<span>${esc(l.m)}</span><i>${x.g?'Grammar · ':''}${esc(libNm(x.L))}</i></button>`}).join('')+`</div>`+(r.length>10?`<small>${r.length-10} lainnya… persempit pencarian.</small>`:'')}
 function libFindRender(){const e=document.getElementById('libfr');if(e)e.innerHTML=libFindRes()}
 document.addEventListener('input',e=>{if(e.target.dataset&&e.target.dataset.l=='fq'){libQ=e.target.value;libFindRender()}});
-function libFinder(){const l=libCard?libLbl(libCard):null,mn=libMinV();
+function libFinder(noMin){const l=libCard?libLbl(libCard):null,mn=libMinV();
  return dtag('libf')+`<summary><span>🔎 Cari teks berdasarkan kartu</span>${libCard?'<em class=cnt>aktif</em>':''}</summary><div class=card style="margin-top:8px">`+
  `<p class=gsub style="margin:0 0 8px">Ketik kata atau arti kartu (mis. <i>watashi</i>, <i>私</i>, <i>saya</i>) atau nama grammar (mis. <i>てください</i>, <i>是</i>, <i>Für</i>), lalu pilih. Bentuk kata yang berubah — konjugasi, jamak, partisip, kata kerja terpisah, kata sifat — ikut dihitung. Untuk grammar, teks dicocokkan lewat bagian literal pola (perkiraan; pola yang murni abstrak tidak bisa dicari).</p>`+
  `<input class=lbq data-l=fq placeholder="Cari kartu…" value="${esc(libQ)}" autocomplete=off><div id=libfr style="margin-top:6px">${libFindRes()}</div>`+
  (libCard?`<div class=lbsel><div><small>${l.g?'Grammar':'Kartu'} dipilih · ${esc(libNm(l.L))}</small><br><b>${esc(l.w)}</b> ${l.r?`<small>${esc(l.r)}</small>`:''} <small>${esc(l.m)}</small></div><button class=mini data-a=libclr>✕ Lepas</button></div>`:'')+
- `<small class=lbl>Minimal muncul</small><div class=chips>${[1,2,3,4,5,6,8,10].map(n=>`<button class="chip${mn==n?' on':''}" data-a=libmin data-v=${n}>${n}×</button>`).join('')}</div></div></details>`}
-function libFilter(){let a=S.lib.slice();const mc={},ws={};
+ (noMin?'':`<small class=lbl>Minimal muncul</small><div class=chips>${[1,2,3,4,5,6,8,10].map(n=>`<button class="chip${mn==n?' on':''}" data-a=libmin data-v=${n}>${n}×</button>`).join('')}</div>`)+`</div></details>`}
+function libFilter(){let a=libSecItems();const mc={},ws={};
  if(libLg)a=a.filter(t=>t.L==libLg);
  if(libStt=='nh')a=a.filter(t=>!t.h);else if(libStt=='nr')a=a.filter(t=>!t.r);else if(libStt=='h')a=a.filter(t=>t.h);else if(libStt=='r')a=a.filter(t=>t.r);
  if(libCard){const L=libOfKey(libCard),mn=libMinV();a=a.filter(t=>t.L==L);a.forEach(t=>mc[t.id]=libCountKey(libDoc(t),libCard));a=a.filter(t=>mc[t.id]>=mn).sort((x,y)=>mc[y.id]-mc[x.id])}
@@ -376,16 +600,24 @@ function libHL(f,key,L){const F=libForms(key);if(!F)return esc(f);
  return esc(f).replace(/[\p{L}]+/gu,w=>{const l=libTok(w,L)[0]||'';const hit=sets.some(x=>x.has(l))||aff.some(a=>a.pre.some(q=>l.startsWith(q))||a.cont.some(q=>l.includes(q)));return hit?'<mark>'+w+'</mark>':w})}
 function libSnips(it){const H=libHits(it,libCard);if(!H.length)return'';const L=it.L;
  return`<div class=lbsn><small class=lbl>Ada di ${H.length} kalimat</small>`+H.slice(0,6).map(h=>`<div class=lbs data-a=libgo data-k="${esc(it.id)}" data-v=${h.g}><small>Paragraf ${h.pi+1} · kalimat ${h.si+1}</small><div class=eo>${libHL(h.f,libCard,L)}</div>${h.i?`<div class=idn>${esc(h.i)}</div>`:''}<span class=lbgo>▶ Putar dari sini</span></div>`).join('')+(H.length>6?`<small>…dan ${H.length-6} kalimat lain (buka Rincian).</small>`:'')+`</div>`}
-function libRow(it,mc,ws){const ns=libNS(it),op=libOpenId==it.id;
- return`<div class="card lbi"><div class=hd><span>${esc(libNm(it.L))} · ${it.ps.length} paragraf · ${ns} kalimat · ${libDt(it.c)}</span><span>${it.h?'<span class=bdg>🎧 didengar</span>':''}${it.r?'<span class=bdg>📖 dibaca</span>':''}</span></div>`+
+function libRow(it,mc,ws){const ns=libNS(it),op=libOpenId==it.id,kd=libKind(it),id=esc(it.id);
+ const btn=kd=='r'?`<button class=pri data-a=libdet data-k="${id}" style="flex:1.4">${op?'Tutup bacaan':'📖 Baca'}</button><button class="${it.r?'on':''}" data-a=libr data-k="${id}">${it.r?'✓ Dibaca':'Tandai dibaca'}</button>`
+  :kd=='d'?`<button class=pri data-a=libplay data-k="${id}" style="flex:1.4">▶ Putar</button><button data-a=libdet data-k="${id}">${op?'Tutup':'📖 Baca'}</button><button class="${it.h?'on':''}" data-a=libh data-k="${id}">${it.h?'✓ Selesai':'Tandai selesai'}</button>`
+  :`<button class=pri data-a=libplay data-k="${id}" style="flex:1.4">▶ Putar</button><button data-a=libdet data-k="${id}">${op?'Tutup':'Rincian'}</button><button class="${it.h?'on':''}" data-a=libh data-k="${id}">${it.h?'✓ Didengar':'Tandai didengar'}</button>`;
+ const bd=kd=='r'?(it.r?'<span class=bdg>📖 dibaca</span>':''):(it.h?(kd=='d'?'<span class=bdg>💬 selesai</span>':'<span class=bdg>🎧 didengar</span>'):'');
+ return`<div class="card lbi"><div class=hd><span>${esc(libNm(it.L))} · ${it.ps.length} paragraf · ${ns} kalimat · ${libDt(it.c)}</span><span>${bd}</span></div>`+
   `<div class=mean style="font-size:1.12rem;margin:2px 0 6px">${esc(it.t)}</div>`+
   (mc!=null?`<div class=lbm1><b>${esc(libLbl(libCard).w)}</b> muncul <b>${mc}×</b> di teks ini</div>`:'')+
   (ws?`<div class=lbm1>Memuat <b>${ws.n}</b> dari ${ws.of} kartu lemahmu</div>`:'')+
-  (mc!=null?libSnips(it):'')+`<div class=fct><button class=pri data-a=libplay data-k="${esc(it.id)}" style="flex:1.4">▶ Putar</button><button data-a=libdet data-k="${esc(it.id)}">${op?'Tutup':'Rincian'}</button><button class="${it.h?'on':''}" data-a=libh data-k="${esc(it.id)}">${it.h?'✓ Didengar':'Tandai didengar'}</button><button class="${it.r?'on':''}" data-a=libr data-k="${esc(it.id)}">${it.r?'✓ Dibaca':'Tandai dibaca'}</button></div>`+(op?libDetail(it):'')+`</div>`}
-function libDetail(it){const m=S.o.rdt=='off'?0:S.o.rdt=='blur'?1:2,rm=it.ps.some(p=>p.r&&p.r.length);
- let h=`<div class=lbd><div class=rdh><button data-a=libren data-k="${esc(it.id)}">✎ Ganti judul</button><button data-a=libdel data-k="${esc(it.id)}" style="color:var(--bad)">🗑 Hapus</button></div>`;
- h+=it.ps.map((p,pi)=>{const a=p.a!==0;return`<div class=lbp><small class=lbl>Paragraf ${pi+1}</small>`+p.f.map((f,si)=>`<div class=rds><div class=eo>${esc(f)}${spk(f,it.L)}</div>${p.r&&p.r.length&&a?`<div class="r rom">${esc(p.r[si]||'')}</div>`:''}${a&&p.i[si]&&m?`<div class="idn${m==1?' ltm mnh':''}">${esc(p.i[si])}</div>`:''}</div>`).join('')+
+  (mc!=null?libSnips(it):'')+`<div class=fct>${btn}</div>`+(op?libDetail(it):'')+`</div>`}
+function libDetail(it){const m=S.o.rdt=='off'?0:S.o.rdt=='blur'?1:2,rom=it.L=='ja'||it.L=='zh',hasR=it.ps.some(p=>p.r&&p.r.some(Boolean)),rd=libKind(it)=='r';
+ let h=`<div class=lbd><div class=rdh><button data-a=libren data-k="${esc(it.id)}">✎ Ganti judul</button><button data-a=libmv data-k="${esc(it.id)}">⇄ Pindah ke ${libKind(it)=='r'?'Listening':libKind(it)=='l'?'Dialog':'Reading'}</button><button data-a=libdel data-k="${esc(it.id)}" style="color:var(--bad)">🗑 Hapus</button></div>`;
+ h+=it.ps.map((p,pi)=>{const a=p.a!==0;return`<div class=lbp><small class=lbl>Paragraf ${pi+1}</small>`+p.f.map((f,si)=>{
+   let rr=p.r&&p.r.length&&a?(p.r[si]||''):'',au=0;if(!rr&&rom&&a){rr=libAutoRom(it.L,f);au=1}
+   const sp=p.sp&&p.sp[si]?`<b class=spk>${esc(p.sp[si])}</b> `:'';
+   return`<div class=rds><div class=eo>${sp}${esc(f)}${spk(f,it.L)}</div>${rr?`<div class="r rom${au?' auto':''}"${au?' title="Romanisasi otomatis (perkiraan)"':''}>${esc(rr)}</div>`:''}${a&&p.i[si]&&m?`<div class="idn${m==1?' ltm mnh':''}">${esc(p.i[si])}</div>`:''}</div>`}).join('')+
    (!a&&m?`${p.r&&p.r.length?`<div class="r rom">${esc(p.r.join(' '))}</div>`:''}${p.i.length?`<div class="idn${m==1?' ltm mnh':''}"><small>Terjemahan paragraf:</small> ${esc(p.i.join(' '))}</div>`:''}`:'')+`</div>`}).join('');
+ if(rom&&!hasR)h+=`<small class=lbl>Romanisasi dibuat otomatis dari kamus kartu (perkiraan, miring). Pakai tujuan Reading/Listening di Kelas AI agar romanisasi dari AI ikut tersimpan.</small>`;
  if(it.nt)h+=`<details class=lbn><summary>Catatan pembentuk dari AI</summary><div class=gsub style="white-space:pre-line">${esc(it.nt)}</div></details>`;
  h+=libAnaView(it)+`</div>`;return h}
 function libAnaView(it){const A=libAnalyze(it),tot=A.length,occ=A.reduce((s,x)=>s+x.n,0),cl=A.map(x=>libSt(x.k)),cw=cl.filter(x=>x=='w').length,cn=cl.filter(x=>x=='n').length,cm=tot-cw-cn;
@@ -395,35 +627,76 @@ function libAnaView(it){const A=libAnalyze(it),tot=A.length,occ=A.reduce((s,x)=>
  return`<div class=lbana><div class=gsec style="margin-top:12px">Kosakata kartumu dalam teks ini</div><p class=gsub style="margin:2px 0 6px"><b>${tot}</b> kartu berbeda · ${occ} kemunculan${libHasTr(it)?'':''}. Ketuk satu kartu untuk mencari teks lain yang juga memuatnya.</p>`+
   `<div class=chips>${chip('all','Semua',tot)}${chip('w','Lemah / dipelajari',cw)}${chip('n','Belum dipelajari',cn)}${chip('m','Matang',cm)}${chip('2','≥ 2×',A.filter(x=>x.n>=2).length)}</div>`+
   (rows.length?rows.slice(0,libAnaLim).map(x=>{const l=libLbl(x.k);return`<div class=row><div data-a=libpick data-k="${esc(x.k)}"><b>${esc(l.w)}</b> ${l.r?`<small>${esc(l.r)}</small>`:''}<br><small>${esc(l.m)} · ${LIBSTN[x.s]}</small></div><span class=bdg>${x.n}×</span></div>`}).join('')+(rows.length>libAnaLim?`<button data-a=libanamore style="width:100%;margin-top:8px">Tampilkan lebih banyak (${rows.length-libAnaLim})</button>`:''):'<small>Tidak ada kartu pada kategori ini.</small>')+
-  `<div class=gsec style="margin-top:14px">Grammar yang terdeteksi <small>(perkiraan dari pola literal)</small></div>`+(AG.length?AG.slice(0,libAnaLim).map(x=>{const g=GK[x.k];return`<div class=row><div data-a=libpick data-k="${esc(x.k)}"><b>${esc(g[4])}</b><br><small>${esc(libNm(g[1]))} ${esc(g[2])} · ${LIBSTN[libSt(x.k)]}</small></div><span class=bdg>${x.n}×</span></div>`}).join(''):'<small>Tidak ada grammar yang terdeteksi.</small>')+`</div>`}
-function libView(){const lib=S.lib,cnt={};lib.forEach(t=>cnt[t.L]=(cnt[t.L]|0)+1);
- let h=`<div class=card><div class=hd><span>🎧 Pustaka teks</span><span>${lib.length} teks · ${lib.filter(t=>t.h).length} didengar · ${lib.filter(t=>t.r).length} dibaca</span></div><p class=gsub style="margin:2px 0 10px">Simpan teks dari AI (terutama format <b>Audio / listening</b> dari Kelas AI → Sedang), dengarkan dengan suara perangkat, tandai sudah didengar atau dibaca, dan cari teks yang memuat kartumu. Ikut dalam cadangan progres.</p><button class=pri data-a=libadd>＋ Tambah teks</button></div>`;
- if(!lib.length)return h+`<div class="card empty"><b>Pustaka masih kosong</b>Di kartu mana pun tekan 🎓 → tab <b>Sedang</b> → format <b>Audio / listening</b>, salin prompt ke AI, lalu tempel hasilnya lewat “＋ Tambah teks”.</div>`;
- h+=libFinder();
+  `<div class=gsec style="margin-top:14px">Grammar yang terdeteksi <small>(perkiraan dari pola; pola umum diurutkan paling bawah)</small></div>`+(AG.length?AG.slice(0,libAnaLim).map(x=>{const g=GK[x.k];return`<div class=row><div data-a=libpick data-k="${esc(x.k)}"><b>${esc(g[4])}</b><br><small>${esc(libNm(g[1]))} ${esc(g[2])} · ${LIBSTN[libSt(x.k)]}${x.gen?' · pola umum (bisa meleset)':x.mi?' · dikenali dari contoh':''}</small></div><span class=bdg>${x.n}×</span></div>`}).join(''):'<small>Tidak ada grammar yang terdeteksi.</small>')+`</div>`}
+const LIBDESC={r:'simpan teks bacaan dari AI (Kelas AI → tab <b>Reading</b>), baca dengan terjemahan yang bisa disensor per kalimat, tandai sudah dibaca, dan cari teks yang memuat kartumu.',
+ l:'simpan teks audio dari AI (Kelas AI → tab <b>Listening</b>), dengarkan dengan suara perangkat, tandai sudah didengar, dan cari teks yang memuat kartumu.',
+ d:'simpan dialog dua penutur dari AI (Kelas AI → tab <b>Dialog</b>); baca per penutur atau putar dengan suara, tandai selesai.',
+ s:'kumpulan kalimat tunggal dalam jumlah banyak (Kelas AI → tab <b>Kalimat</b>, atau tempel sendiri sekaligus): cari, saring per kartu, dengarkan, tandai hafal.'};
+function libView(){libRepairAll();const sec=libSecV(),all=S.lib,lib=libSecItems(),cnt={},N={r:0,l:0,d:0,s:S.sl.length};all.forEach(t=>N[libKind(t)]++);lib.forEach(t=>cnt[t.L]=(cnt[t.L]|0)+1);
+ const prog=sec=='s'?lib.filter(t=>t.d).length+' hafal':sec=='r'?lib.filter(t=>t.r).length+' dibaca':lib.filter(t=>t.h).length+(sec=='d'?' selesai':' didengar');
+ let h=`<div class=card><div class=hd><span>📚 Pustaka</span><span>${all.length+N.s} item</span></div>`+
+  `<div class=aitabs role=tablist style="grid-template-columns:1fr 1fr">${[['r','Baca + terjemahan'],['l','Pemutar suara'],['d','Dua penutur'],['s','Kalimat tunggal']].map(([v,d])=>`<button class="${sec==v?'on':''}" data-a=libsec data-v=${v} role=tab><b>${LIBKI[v]} ${LIBKN[v]} · ${N[v]}</b><small>${d}</small></button>`).join('')}</div>`+
+  `<p class=gsub style="margin:2px 0 10px"><b>${LIBKN[sec]}</b>: ${LIBDESC[sec]} ${lib.length?`${lib.length} ${sec=='s'?'kalimat':'teks'} · ${prog}. `:''}Ikut dalam cadangan progres.</p><button class=pri data-a=libadd>＋ Tambah ${sec=='s'?'kalimat (banyak sekaligus)':'teks ke '+LIBKN[sec]}</button></div>`;
+ if(!lib.length){const oth=Object.keys(N).filter(x=>x!=sec&&N[x]);return h+`<div class="card empty"><b>${LIBKN[sec]} masih kosong</b>Di kartu mana pun tekan 🎓 → tab <b>${LIBKN[sec]}</b>, salin prompt ke AI, lalu tempel hasilnya lewat “＋ Tambah”.${sec=='l'&&N.l==0&&0?'':''}${oth.length?`<br><small>Bagian lain berisi: ${oth.map(x=>LIBKN[x]+' '+N[x]).join(', ')}.${sec=='r'&&N.l?' Teks lama dari versi sebelumnya ada di Listening; buka Rincian → “Pindah ke…”.':''}</small>`:''}</div>`}
+ h+=libFinder(sec=='s');
  const langs=LIBL.filter(l=>cnt[l]);
- h+=`<div class=chips><button class="chip${libLg?'':' on'}" data-a=liblg data-v="">Semua <small>${lib.length}</small></button>${langs.map(l=>`<button class="chip${libLg==l?' on':''}" data-a=liblg data-v=${l}>${libNm(l)} <small>${cnt[l]}</small></button>`).join('')}</div>`+
-  `<div class=chips>${[['','Semua status'],['nh','Belum didengar'],['nr','Belum dibaca'],['h','Sudah didengar'],['r','Sudah dibaca']].map(([v,t])=>`<button class="chip${libStt==v?' on':''}" data-a=libst data-v="${v}">${t}</button>`).join('')}</div>`+
+ h+=`<div class=chips><button class="chip${libLg?'':' on'}" data-a=liblg data-v="">Semua <small>${lib.length}</small></button>${langs.map(l=>`<button class="chip${libLg==l?' on':''}" data-a=liblg data-v=${l}>${libNm(l)} <small>${cnt[l]}</small></button>`).join('')}</div>`;
+ if(sec=='s')return h+slView();
+ h+=`<div class=chips>${(sec=='r'?[['','Semua status'],['nr','Belum dibaca'],['r','Sudah dibaca']]:[['','Semua status'],['nh','Belum '+(sec=='d'?'selesai':'didengar')],['h','Sudah '+(sec=='d'?'selesai':'didengar')]]).map(([v,t])=>`<button class="chip${libStt==v?' on':''}" data-a=libst data-v="${v}">${t}</button>`).join('')}</div>`+
   (libCard?'':`<div class=chips>${[['new','Terbaru'],['title','Judul'],['weak','Cocok untuk kartu lemahku']].map(([v,t])=>`<button class="chip${libSort==v?' on':''}" data-a=libsrt data-v=${v}>${t}</button>`).join('')}</div>`);
  const {a,mc,ws}=libFilter();
  if(libCard){const l=libLbl(libCard);h+=`<div class=gsub style="margin:0 0 8px">Teks ${esc(libNm(l.L))} dengan <b>${esc(l.w)}</b> ≥ ${libMinV()}× · ${a.length} teks · <button class=lnk data-a=libclr>lepas filter</button></div>`}
  if(!a.length)return h+`<div class="card empty"><b>Tidak ada teks</b>${libCard?'Belum ada teks yang memuat kartu ini sebanyak itu. Turunkan angka “Minimal muncul”.':'Tidak ada teks dengan filter ini.'}</div>`;
  return h+a.slice(0,libLim).map(t=>libRow(t,libCard?mc[t.id]:null,libCard?null:libSort=='weak'?ws[t.id]:null)).join('')+(a.length>libLim?`<button data-a=libmore style="width:100%;margin-top:8px">Tampilkan lebih banyak (${a.length-libLim})</button>`:'')}
+
+/* ---------- Pustaka → Kalimat: bank kalimat tunggal ---------- */
+let slQ='',slLim=40;
+const slPs=x=>({id:x.id,L:x.L,ps:[{f:[x.f]}]});
+const slCnt=(x,key)=>libCountKey(libSentDoc(slPs(x),0,0),key);
+function slFiltered(){let a=S.sl.slice();if(libLg)a=a.filter(x=>x.L==libLg);if(libStt=='n')a=a.filter(x=>!x.d);else if(libStt=='d')a=a.filter(x=>x.d);
+ const q=slQ.trim().toLowerCase();if(q)a=a.filter(x=>(x.f+' '+(x.r||'')+' '+(x.i||'')).toLowerCase().includes(q));
+ if(libCard){const L=libOfKey(libCard);a=a.filter(x=>x.L==L&&slCnt(x,libCard)>0)}
+ if(libSort=='weak'&&!libCard){const W={};a.forEach(x=>{if(!W[x.L])W[x.L]=aiSort(aiPoolV(x.L),0).slice(0,25)});
+  const sc=new Map();a.forEach(x=>{let v=0;W[x.L].forEach(w=>{if(slCnt(x,w.k)>0)v+=w.tier==1?2:1});sc.set(x.id,v)});a.sort((p,q2)=>sc.get(q2.id)-sc.get(p.id)||q2.c-p.c)}
+ else if(libSort=='old')a.reverse();
+ return a}
+function slRow(x){const m=S.o.rdt=='off'?0:S.o.rdt=='blur'?1:2,rom=x.L=='ja'||x.L=='zh';let rr=x.r||'',au=0;if(!rr&&rom){rr=libAutoRom(x.L,x.f);au=1}
+ return`<div class="card lbi sli"><div class=hd><span>${esc(libNm(x.L))} · ${libDt(x.c)}</span><span>${x.d?'<span class=bdg>✓ hafal</span>':''}</span></div>`+
+  `<div class=eo style="font-size:1.25rem;font-weight:600;line-height:1.5">${libCard?libHL(x.f,libCard,x.L):esc(x.f)}${spk(x.f,x.L)}</div>`+
+  (rr?`<div class="r rom${au?' auto':''}">${esc(rr)}</div>`:'')+(x.i&&m?`<div class="idn${m==1?' ltm mnh':''}">${esc(x.i)}</div>`:'')+
+  (x.pb?`<small class=lbl>Pembentuk: ${esc(x.pb)}</small>`:'')+
+  `<div class=fct><button class="${x.d?'on':''}" data-a=slh data-k="${esc(x.id)}">${x.d?'✓ Hafal':'Tandai hafal'}</button><button data-a=sldel data-k="${esc(x.id)}" style="color:var(--bad);flex:.5">🗑</button></div></div>`}
+function slList(){const a=slFiltered();if(!a.length)return`<div class="card empty"><b>Tidak ada kalimat</b>Tidak ada kalimat dengan filter ini.</div>`;
+ return`<div class=gsub style="margin:0 0 8px">${a.length} kalimat${libCard?` memuat <b>${esc(libLbl(libCard).w)}</b> · <button class=lnk data-a=libclr>lepas filter</button>`:''}</div>`+a.slice(0,slLim).map(slRow).join('')+(a.length>slLim?`<button data-a=slmore style="width:100%;margin-top:8px">Tampilkan lebih banyak (${a.length-slLim})</button>`:'')}
+function slView(){const langs=[...new Set(S.sl.map(x=>x.L))],L=libLg||(langs.length==1?langs[0]:'');
+ return`<div class=chips>${[['','Semua status'],['n','Belum hafal'],['d','Sudah hafal']].map(([v,t])=>`<button class="chip${libStt==v?' on':''}" data-a=libst data-v="${v}">${t}</button>`).join('')}</div>`+
+  `<div class=chips>${[['new','Terbaru'],['old','Terlama'],['weak','Cocok untuk kartu lemahku']].map(([v,t])=>`<button class="chip${(libSort==v||(v=='new'&&libSort=='title'))?' on':''}" data-a=libsrt data-v=${v}>${t}</button>`).join('')}</div>`+
+  `<input class=lbq data-l=slq placeholder="Cari di kalimat / arti…" value="${esc(slQ)}" autocomplete=off style="margin:2px 0 8px">`+
+  (L?`<button data-a=slplay data-k=${L} style="width:100%;margin-bottom:8px">▶ Putar semua kalimat ${esc(libNm(L))} yang tampil</button>`:'<small>Pilih satu bahasa untuk memutar semua kalimatnya.</small>')+
+  `<div id=slist>${slList()}</div>`}
+document.addEventListener('input',e=>{if(e.target.dataset&&e.target.dataset.l=='slq'){slQ=e.target.value;slLim=40;const l=document.getElementById('slist');if(l)l.innerHTML=slList()}});
 function libAct(a,x,k,b){const it=k&&S.lib.find(t=>t.id==k);
- if(a=='libadd'){libAddOpen();return 1}
+ if(a=='libadd'){libAddOpen('',libSecV());return 1}
+ else if(a=='libsec'){S.o.libSec=['r','l','d','s'].includes(x)?x:'r';slQ='';slLim=40;libStt='';libLg='';libLim=30;libOpenId='';libCard='';libQ='';save()}
+ else if(a=='libmv'&&it){it.k=libKind(it)=='r'?'l':libKind(it)=='l'?'d':'r';S.o.libSec=it.k;libOpenId=it.id;libStt='';libLg='';save();toast('Dipindah ke '+LIBKN[it.k]+' ✓')}
  else if(a=='libplay'){if(it)lpOpen(it);return 1}
  else if(a=='libgo'){if(it)lpOpen(it,+x);return 1}
  else if(a=='libdet'){libOpenId=libOpenId==k?'':k;libAnaF='all';libAnaLim=40}
+ else if(a=='slh'){const x2=S.sl.find(y=>y.id==k);if(x2)x2.d=x2.d?0:Date.now()}
+ else if(a=='sldel'){S.sl=S.sl.filter(y=>y.id!=k);libSD.delete(k+'|0|0')}
+ else if(a=='slmore')slLim+=40;
+ else if(a=='slplay'){const l=x||k,list=slFiltered().filter(y=>y.L==l).slice(0,300);if(!list.length)return 1;lpOpenTemp({id:'sl:'+l,L:l,t:'Kalimat '+libNm(l),ps:[{f:list.map(y=>y.f),i:list.map(y=>y.i||''),r:list.some(y=>y.r)?list.map(y=>y.r||''):null,a:1}]});return 1}
  else if(a=='libh'&&it){it.h=it.h?0:Date.now()}
  else if(a=='libr'&&it){it.r=it.r?0:Date.now()}
  else if(a=='libdel'&&it){if(!confirm('Hapus teks “'+it.t+'” dari Pustaka?'))return 1;S.lib=S.lib.filter(t=>t.id!=k);libForget(k);libOpenId='';save();render();return 1}
  else if(a=='libren'&&it){const n=prompt('Judul baru:',it.t);if(n&&n.trim())it.t=n.trim().slice(0,120);else return 1}
  else if(a=='liblg'){libLg=x||'';libLim=30}else if(a=='libst'){libStt=x||'';libLim=30}else if(a=='libsrt'){libSort=x}
  else if(a=='libmore')libLim+=30;
- else if(a=='libpick'){libMinOv=0;libCard=k;libLg='';libQ='';libLim=30;const l=libOfKey(k);if(!S.lib.some(t=>t.L==l))toast('Belum ada teks '+libNm(l)+' di Pustaka.');DO.add('libf')}
+ else if(a=='libpick'){libMinOv=0;libCard=k;libLg='';libQ='';libLim=30;const l=libOfKey(k);if(!libSecItems().some(t=>t.L==l))toast('Belum ada teks '+libNm(l)+' di '+LIBKN[libSecV()]+'.');DO.add('libf')}
  else if(a=='libclr'){libCard='';libQ='';libMinOv=0}
  else if(a=='libmin'){libMinOv=0;S.o.libMin=+x}
  else if(a=='libana'){libAnaF=x;libAnaLim=40}else if(a=='libanamore')libAnaLim+=60;
- else if(a=='libfind'){libCard=k;libLg='';libQ='';libLim=30;libMinOv=1;libStt='';tab='lib';goTop=1;DO.add('libf')}
+ else if(a=='libfind'){const l0=libOfKey(k),cur=libSecV(),oth=cur=='r'?'l':'r',has=q=>S.lib.some(t=>libKind(t)==q&&t.L==l0);if(!has(cur)&&has(oth))S.o.libSec=oth;libCard=k;libLg='';libQ='';libLim=30;libMinOv=1;libStt='';tab='lib';goTop=1;DO.add('libf')}
  return 0}
 
 /* ---------------------------------------------------------------------------------------------
@@ -433,15 +706,15 @@ let LP=null;
 const lpO=()=>{const o=S.o;if(o.lpM==null)o.lpM='s';if(o.lpPause==null)o.lpPause=1;if(o.lpRep==null)o.lpRep=1;if(o.lpAuto==null)o.lpAuto=1;if(o.lpLoop==null)o.lpLoop=0;if(!o.lpT)o.lpT='show';if(o.lpRom==null)o.lpRom=1;return o};
 function lpBuild(it,mode){const sents=[],paras=[];
  it.ps.forEach((p,pi)=>{const a=p.a!==0,from=sents.length;
-  p.f.forEach((f,si)=>sents.push({f,pi,si,r:p.r&&p.r.length?(a?(p.r[si]||''):p.r.join(' ')):'',i:p.i&&p.i.length?(a?(p.i[si]||''):p.i.join(' ')):'',pa:!a}));
+  p.f.forEach((f,si)=>sents.push({f,pi,si,r:p.r&&p.r.length?(a?(p.r[si]||((it.L=='ja'||it.L=='zh')?libAutoRom(it.L,f):'')):p.r.join(' ')):((it.L=='ja'||it.L=='zh')?libAutoRom(it.L,f):''),au:!(p.r&&p.r.length),sp:p.sp&&p.sp[si]||'',i:p.i&&p.i.length?(a?(p.i[si]||''):p.i.join(' ')):'',pa:!a}));
   paras.push({pi,from,to:sents.length-1})});
- const units=mode=='p'?paras.map(q=>{const ss=sents.slice(q.from,q.to+1),a=it.ps[q.pi].a!==0;return{chunks:ss.map(s=>s.f),from:q.from,to:q.to,pi:q.pi,f:ss.map(s=>s.f).join(' '),r:ss.map(s=>s.r).filter(Boolean).join(' '),i:a?ss.map(s=>s.i).filter(Boolean).join(' '):ss[0].i}})
-  :sents.map((s,i)=>({chunks:[s.f],from:i,to:i,pi:s.pi,f:s.f,r:s.r,i:s.i}));
+ const units=mode=='p'?paras.map(q=>{const ss=sents.slice(q.from,q.to+1),a=it.ps[q.pi].a!==0;return{chunks:ss.map(s=>s.f),cs:ss.map(s=>s.sp),from:q.from,to:q.to,pi:q.pi,f:ss.map(s=>s.f).join(' '),r:ss.map(s=>s.r).filter(Boolean).join(' '),i:a?ss.map(s=>s.i).filter(Boolean).join(' '):ss[0].i,is:a?ss.map(s=>s.i):null,rs:ss.map(s=>s.r)}})
+  :sents.map((s,i)=>({chunks:[s.f],cs:[s.sp],from:i,to:i,pi:s.pi,f:s.f,r:s.r,i:s.i}));
  return{sents,units}}
-function lpOpen(it,startS){lpClose(true);const o=lpO(),b=lpBuild(it,o.lpM);
+function lpOpen(it,startS){libRepairAll();lpClose(true);const o=lpO(),b=lpBuild(it,o.lpM);
  LP={it,L:it.L,mode:o.lpM,sents:b.sents,units:b.units,idx:Math.max(0,b.units.findIndex(u=>startS>=u.from&&startS<=u.to)),rep:0,tok:0,playing:false,peek:0,timer:null,t0:0,wl:null};
  const m=document.createElement('div');m.id='lpm';m.className='edm';
- m.innerHTML=`<div class="eds lps" role=dialog aria-modal=true aria-label="Pemutar listening"><div class=edh><div><b>🎧 ${esc(it.t)}</b><small>${esc(libNm(it.L))} · <span id=lpPos></span></small></div><button class=mini data-lp=close aria-label=Tutup>✕</button></div><div class="edb lpb"><div id=lpNow></div><div id=lpCtl></div><div id=lpSet></div><div class=gsec style="margin-top:12px" id=lpLh></div><div id=lpList class=lpl></div></div><div class=edf><button data-lp=heard id=lpHd>Tandai didengar</button><button data-lp=close>Tutup</button></div></div>`;
+ m.innerHTML=`<div class="eds lps" role=dialog aria-modal=true aria-label="Pemutar listening"><div class=edh><div><b>🎧 ${esc(it.t)}</b><small>${esc(libNm(it.L))} · <span id=lpPos></span></small></div><button class=mini data-lp=close aria-label=Tutup>✕</button></div><div class=lpt><div id=lpNow></div><div id=lpCtl></div></div><div class="edb lpb"><div id=lpSpd></div><div id=lpSet></div><div class=gsec style="margin-top:12px" id=lpLh></div><div id=lpList class=lpl></div></div><div class=edf><button data-lp=heard id=lpHd>Tandai didengar</button><button data-lp=close>Tutup</button></div></div>`;
  document.body.appendChild(m);document.body.style.overflow='hidden';
  lpNow();lpCtl();lpSetR();lpListR();
  if(!canSay()){toast('Perangkat ini belum mendukung suara. Teks tetap bisa dibaca.')}else lpSpeak()}
@@ -450,16 +723,26 @@ function lpClose(quiet){if(!LP){const m=document.getElementById('lpm');if(m)m.re
  LP.tok++;clearTimeout(LP.timer);try{speechSynthesis.cancel()}catch(e){}lpWake(0);LP=null;const m=document.getElementById('lpm');if(m)m.remove();
  if(!quiet&&!document.getElementById('aim')&&!document.getElementById('lbm'))document.body.style.overflow=''}
 async function lpWake(on){try{if(!LP&&on)return;if(on){if(LP&&!LP.wl&&navigator.wakeLock)LP.wl=await navigator.wakeLock.request('screen')}else if(LP&&LP.wl){LP.wl.release();LP.wl=null}}catch(e){}}
+/* kalimat panjang dipecah di tanda koma agar tidak terputus di tengah (Android/Chrome sering memotong ucapan panjang) */
+function lpSplitLong(t,L){const max=(L=='ja'||L=='zh')?70:170;if(t.length<=max)return[t];
+ const parts=t.match(/[^、，,;；:：]+[、，,;；:：]?\s*/g)||[t],out=[];let cur='';
+ for(const q of parts){if(cur&&(cur+q).length>max){out.push(cur.trim());cur=q}else cur+=q}if(cur.trim())out.push(cur.trim());return out}
 function lpSpeak(){const P=LP;if(!P||!canSay())return;const tok=++P.tok;clearTimeout(P.timer);try{speechSynthesis.cancel()}catch(e){}
  const u=P.units[P.idx];if(!u)return;P.t0=Date.now();P.playing=true;lpCtl();lpNow();lpListCur();lpWake(1);
- const ch=u.chunks,vv=ttsVoice(P.L),rate=ttsRate();
+ const ch=u.chunks.flatMap((c,ci)=>lpSplitLong(lpClean(c,P.L),P.L).map(t=>({t,sp:(u.cs||[])[ci]||''}))).filter(x=>x.t),vv=ttsVoice(P.L),rate=ttsRate();
+ P.spm=P.spm||{};const pitchOf=sp=>{if(!sp)return 1;if(!(sp in P.spm))P.spm[sp]=[1,1.3,.8,1.15][Object.keys(P.spm).length%4];return P.spm[sp]};
  if(!vv.v&&VZ.length){P.playing=false;lpCtl();return toast('Suara '+libNm(P.L)+' belum terpasang di perangkat ini.')}
+ if(!ch.length){lpDone();return}
  const next=j=>{if(P.tok!=tok)return;if(j+1<ch.length)run(j+1);else lpDone()};
- const run=j=>{if(P.tok!=tok)return;const text=lpClean(ch[j],P.L);if(!text){next(j);return}
-  const ut=new SpeechSynthesisUtterance(text);ut.lang=vv.v?vv.v.lang:vv.lc;if(vv.v)ut.voice=vv.v;ut.rate=rate;
-  let done=0,wd=0;const fin=()=>{if(done||P.tok!=tok)return;done=1;clearTimeout(wd);next(j)};
-  const est=text.length*((P.L=='ja'||P.L=='zh')?200:120)/rate+3000;wd=setTimeout(fin,est*2.5);
+ const run=j=>{if(P.tok!=tok)return;const text=ch[j]&&ch[j].t;if(!text){next(j);return}
+  const ut=new SpeechSynthesisUtterance(text);ut.lang=vv.v?vv.v.lang:vv.lc;if(vv.v)ut.voice=vv.v;ut.rate=rate;ut.pitch=pitchOf(ch[j].sp);
+  let done=0,wd=0,poll=0,idle=0;const t1=Date.now();
+  const fin=()=>{if(done||P.tok!=tok)return;done=1;clearTimeout(wd);clearInterval(poll);next(j)};
+  const est=text.length*((P.L=='ja'||P.L=='zh')?200:120)/rate+3000;wd=setTimeout(fin,est*1.8);
   ut.onend=fin;ut.onerror=e=>{if(P.tok!=tok)return;if(e&&(e.error=='canceled'||e.error=='interrupted'))return;fin()};
+  /* Android kadang tidak mengirim onend: bila antrean suara sudah kosong, anggap ucapan selesai */
+  poll=setInterval(()=>{if(P.tok!=tok){clearInterval(poll);return}
+   try{if(Date.now()-t1>900&&!speechSynthesis.speaking&&!speechSynthesis.pending){if(++idle>=3)fin()}else idle=0}catch(_){}},400);
   setTimeout(()=>{if(P.tok==tok){try{speechSynthesis.speak(ut)}catch(e){fin()}}},40)};
  run(0)}
 function lpAfter(fn,el){const o=lpO(),tok=LP.tok;const ms=o.lpPause=='sd'?Math.min(12000,Math.max(1000,el)):Math.max(0,+o.lpPause)*1000;
@@ -479,12 +762,23 @@ function lpMode(m){const P=LP;if(!P||P.mode==m)return;const cur=P.units[P.idx],s
  const was=P.playing;lpPause();const b=lpBuild(P.it,m);P.mode=m;P.sents=b.sents;P.units=b.units;P.idx=Math.max(0,b.units.findIndex(u=>sent>=u.from&&sent<=u.to));P.rep=0;P.peek=0;lpNow();lpCtl();lpSetR();lpListR();if(was)lpSpeak()}
 function lpNow(){const P=LP,e=document.getElementById('lpNow');if(!P||!e)return;const u=P.units[P.idx]||{f:'',r:'',i:''},o=lpO();
  const pos=document.getElementById('lpPos');if(pos)pos.textContent=(P.mode=='p'?'Paragraf ':'Kalimat ')+(P.idx+1)+' / '+P.units.length;
- let tr='';if(u.i){if(o.lpT=='show')tr=`<div class=idn>${esc(u.i)}</div>`;else if(o.lpT=='blur')tr=`<div class="idn ltm mnh">${esc(u.i)}</div>`;else tr=P.peek?`<div class=idn>${esc(u.i)}</div>`:`<button class=mini data-lp=peek>👁 Lihat arti</button>`}
+ /* terjemahan: tiap kalimat punya blok sendiri, jadi sensor / lihat arti hanya membuka SATU blok yang diketuk */
+ const parts=u.is&&u.is.filter(Boolean).length>1?u.is.filter(Boolean):(u.i?[u.i]:[]);let tr='';
+ if(parts.length){tr=parts.map((t,j)=>{const pk=P.peek&&P.peek[j];
+   if(o.lpT=='show')return`<div class=idn>${esc(t)}</div>`;
+   if(o.lpT=='blur')return`<div class="idn ltm mnh">${esc(t)}</div>`;
+   return pk?`<div class=idn>${esc(t)}</div>`:`<button class=mini data-lp=peek data-v=${j}>👁 Lihat arti${parts.length>1?' '+(j+1):''}</button>`}).join('')}
  else tr=`<small class=lbl>Tidak ada terjemahan untuk teks ini.</small>`;
- e.innerHTML=`<div class=lpn><div class=lpf>${esc(u.f)}</div>${o.lpRom&&u.r?`<div class="r rom">${esc(u.r)}</div>`:''}${tr}${u.pa&&u.i?`<small class=lbl>Terjemahan seluruh paragraf</small>`:''}</div>`}
+ const rom=u.rs&&u.rs.filter(Boolean).length>1?u.rs.filter(Boolean).join(' '):u.r;
+ const lf=u.cs&&u.cs.some(Boolean)?u.chunks.map((t,j)=>`<div class=lpf><b class=spk>${esc(u.cs[j]||'')}</b> ${esc(t)}</div>`).join(''):`<div class=lpf>${esc(u.f)}</div>`;
+ e.innerHTML=`<div class=lpn>${lf}${o.lpRom&&rom?`<div class="r rom">${esc(rom)}</div>`:''}${tr}${u.pa&&u.i?`<small class=lbl>Terjemahan seluruh paragraf</small>`:''}</div>`}
 function lpCtl(){const P=LP,e=document.getElementById('lpCtl');if(!P||!e)return;const sp=ttsRate();
- e.innerHTML=`<div class=lpc><button data-lp=prev aria-label="Sebelumnya">⏮</button><button class="lpp" data-lp=${P.playing?'pause':'play'} aria-label="${P.playing?'Jeda':'Putar'}">${P.playing?'⏸':'▶'}</button><button data-lp=next aria-label="Berikutnya">⏭</button><button data-lp=rep title="Ulang ${P.mode=='p'?'paragraf':'kalimat'} ini" aria-label="Ulang">🔁</button></div>`+
-  `<div class=lps2><label>Kecepatan <b id=lpSpv>${sp.toFixed(2).replace(/0$/,'')}×</b></label><input type=range min=.5 max=1.2 step=.05 value="${sp}" data-lpr=sp aria-label="Kecepatan suara"><div class=chips style="margin:4px 0 0">${[.5,.7,.8,.9,1,1.2].map(v=>`<button class="chip${Math.abs(sp-v)<.001?' on':''}" data-lp=spd data-v=${v}>${v}×</button>`).join('')}</div></div>`;
+ e.innerHTML=`<div class=lpc><button data-lp=prev aria-label="Sebelumnya">⏮</button><button class="lpp" data-lp=${P.playing?'pause':'play'} aria-label="${P.playing?'Jeda':'Putar'}">${P.playing?'⏸':'▶'}</button><button data-lp=next aria-label="Berikutnya">⏭</button><button data-lp=rep title="Ulang ${P.mode=='p'?'paragraf':'kalimat'} ini" aria-label="Ulang">🔁</button></div>`;
+ const sd=document.getElementById('lpSpd');
+ if(sd&&!sd.firstChild)sd.innerHTML=`<div class=lps2><label>Kecepatan <b id=lpSpv></b></label><input type=range min=.5 max=1.2 step=.05 data-lpr=sp aria-label="Kecepatan suara"><div class=chips id=lpSpc style="margin:4px 0 0"></div></div>`;
+ if(sd){const r=sd.querySelector('input[type=range]'),v=document.getElementById('lpSpv'),c=document.getElementById('lpSpc');
+  if(r&&document.activeElement!==r)r.value=sp;if(v)v.textContent=sp.toFixed(2).replace(/0$/,'')+'×';
+  if(c)c.innerHTML=[.5,.7,.8,.9,1,1.2].map(x=>`<button class="chip${Math.abs(sp-x)<.001?' on':''}" data-lp=spd data-v=${x}>${x}×</button>`).join('')}
  const hd=document.getElementById('lpHd');if(hd)hd.textContent=P.it.temp?'—':(P.it.h?'✓ Sudah didengar':'Tandai didengar');if(hd)hd.disabled=!!P.it.temp}
 function lpSetR(){const P=LP,e=document.getElementById('lpSet');if(!P||!e)return;const o=lpO(),sg=(n,ops)=>`<div class=seg2>${ops.map(([v,t])=>`<button class="${o[n]==v?'on':''}" data-lp=opt data-o=${n} data-v="${v}">${t}</button>`).join('')}</div>`,vs=ttsVoices(P.L);
  e.innerHTML=`<details class=lpd${P.setOpen?' open':''} data-lpd=1><summary>Pengaturan pemutar</summary>`+
@@ -492,13 +786,15 @@ function lpSetR(){const P=LP,e=document.getElementById('lpSet');if(!P||!e)return
   `<small class=lbl>Jeda antar ${P.mode=='p'?'paragraf':'kalimat'}</small>${sg('lpPause',[[0,'0'],[1,'1 dtk'],[2,'2 dtk'],[3,'3 dtk'],[5,'5 dtk'],['sd','Seperti durasinya']])}`+
   `<small class=lbl>Ulangi tiap ${P.mode=='p'?'paragraf':'kalimat'}</small>${sg('lpRep',[[1,'1×'],[2,'2×'],[3,'3×']])}`+
   `<small class=lbl>Terjemahan Indonesia</small>${sg('lpT',[['show','Tampil'],['blur','Sensor'],['hide','Sembunyi']])}`+
-  (P.it.ps.some(p=>p.r&&p.r.length)?`<small class=lbl>Romanisasi</small>${sg('lpRom',[[1,'Tampil'],[0,'Sembunyi']])}`:'')+
+  ((P.L=='ja'||P.L=='zh')?`<small class=lbl>Romanisasi${P.it.ps.some(p=>p.r&&p.r.length)?'':' (otomatis, perkiraan)'}</small>${sg('lpRom',[[1,'Tampil'],[0,'Sembunyi']])}`:'')+
   `<label class=fcl><span><input type=checkbox data-lpc=lpAuto${o.lpAuto?' checked':''}> Lanjut otomatis ke berikutnya</span></label><label class=fcl><span><input type=checkbox data-lpc=lpLoop${+o.lpLoop?' checked':''}> Ulangi dari awal setelah selesai</span></label>`+
   `<label class=fcl><span>Suara</span><select data-lpv=1 style="width:auto;max-width:60%"><option value="">Otomatis</option>${vs.map(v=>`<option value="${esc(v.voiceURI)}"${(S.o.lpV||{})[P.L]==v.voiceURI?' selected':''}>${esc(v.name)} (${esc(v.lang)})</option>`).join('')}</select></label>`+
   `<small>${vs.length?'Kualitas dan kecepatan dasar tiap suara berbeda; coba suara lain bila terasa lambat atau kaku.':'Belum ada suara '+esc(libNm(P.L))+' di perangkat ini. Pasang suara bahasa tersebut di pengaturan sistem (Text-to-speech).'}</small></details>`}
-function lpListR(){const P=LP,e=document.getElementById('lpList'),h=document.getElementById('lpLh');if(!P||!e)return;if(h)h.textContent=(P.mode=='p'?'Daftar paragraf':'Daftar kalimat');
+function lpListR(){const P=LP,e=document.getElementById('lpList'),h=document.getElementById('lpLh');if(!P||!e)return;if(h)h.innerHTML=(P.mode=='p'?'Daftar paragraf':'Daftar kalimat')+` <button class="mini lnk" data-lp=cur style="float:right">↧ Ke yang sedang diputar</button>`;
  e.innerHTML=P.units.map((u,i)=>`<div class="lpi${i==P.idx?' cur':''}" data-lp=go data-v=${i}><i>${i+1}</i><span>${esc(u.f)}</span></div>`).join('');lpListCur(1)}
-function lpListCur(first){const P=LP,e=document.getElementById('lpList');if(!P||!e)return;e.querySelectorAll('.lpi').forEach((x,i)=>x.classList.toggle('cur',i==P.idx));const c=e.querySelector('.lpi.cur');if(c&&!first){try{const r=c.getBoundingClientRect(),b=e.getBoundingClientRect();if(r.top<b.top||r.bottom>b.bottom)c.scrollIntoView({block:'nearest',behavior:'smooth'})}catch(_){}}}
+function lpListCur(){const P=LP,e=document.getElementById('lpList');if(!P||!e)return;e.querySelectorAll('.lpi').forEach((x,i)=>x.classList.toggle('cur',i==P.idx))}
+/* tidak ada scroll otomatis: pergantian kalimat tidak boleh menggeser layar. Tombol “Ke yang sedang diputar” menggulung atas permintaan. */
+function lpScrollCur(){const c=document.querySelector('#lpList .lpi.cur'),sc=document.querySelector('#lpm .lpb');if(c&&sc)sc.scrollTop+=c.getBoundingClientRect().top-sc.getBoundingClientRect().top-8}
 document.addEventListener('click',e=>{const m=document.getElementById('lpm');if(!m)return;
  if(e.target===m){lpClose();return}
  const b=e.target.closest('[data-lp]');if(!b||!LP)return;const a=b.dataset.lp,P=LP,o=lpO();
@@ -506,7 +802,8 @@ document.addEventListener('click',e=>{const m=document.getElementById('lpm');if(
  e.stopPropagation();
  if(a=='play')lpSpeak();else if(a=='pause')lpPause();else if(a=='next')lpGo(P.idx+1);else if(a=='prev')lpGo(P.idx-1);else if(a=='rep'){P.rep=0;lpSpeak()}
  else if(a=='go')lpGo(+b.dataset.v);
- else if(a=='peek'){P.peek=1;lpNow()}
+ else if(a=='cur')lpScrollCur();
+ else if(a=='peek'){P.peek=P.peek||{};P.peek[+b.dataset.v||0]=1;lpNow()}
  else if(a=='spd'){S.o.ttsr=+b.dataset.v;save();lpCtl();if(P.playing)lpSpeak()}
  else if(a=='opt'){const n=b.dataset.o,v=b.dataset.v;if(n=='lpM')lpMode(v);else{o[n]=(n=='lpT')?v:(v=='sd'?'sd':+v);save();P.setOpen=1;lpSetR();lpNow();if(n=='lpPause'||n=='lpRep')lpCtl()}}
  else if(a=='heard'&&!P.it.temp){P.it.h=P.it.h?0:Date.now();save();lpCtl();if(typeof tab!='undefined'&&tab=='lib')render()}},true);
@@ -520,6 +817,7 @@ document.addEventListener('keydown',e=>{if(!LP||!document.getElementById('lpm'))
  if(e.key=='Escape')lpClose();else if(e.key==' '){e.preventDefault();LP.playing?lpPause():lpSpeak()}else if(e.key=='ArrowRight'){e.preventDefault();lpGo(LP.idx+1)}else if(e.key=='ArrowLeft'){e.preventDefault();lpGo(LP.idx-1)}else if(e.key=='r'||e.key=='R'){LP.rep=0;lpSpeak()}});
 try{speechSynthesis.addEventListener('voiceschanged',()=>{if(LP)lpSetR()})}catch(e){}
 document.addEventListener('visibilitychange',()=>{if(LP&&!document.hidden&&LP.playing&&!LP.wl)lpWake(1)});
+
 
 /* ---------------------------------------------------------------------------------------------
    7. KARTU BANDEL (leech): lupa >= ambang (default 4×)
@@ -538,3 +836,48 @@ function leechCard(){const all=lchItems();if(!all.length)return`<div class=card>
   (lgs.length>1?`<div class=chips><button class="chip${lchLg?'':' on'}" data-a=lchlg data-v="">Semua</button>${lgs.map(l=>`<button class="chip${lchLg==l?' on':''}" data-a=lchlg data-v=${l}>${esc(LN[l]||l)}</button>`).join('')}</div>`:'')+
   rows.slice(0,lchLim).map(x=>`<div class=row><div data-a=${x.g?'gopen':'wopen'} data-k="${esc(x.g?x.k:base(x.k))}"><b>${esc(x.t)}</b> ${x.r?`<small>${esc(x.r)}</small>`:''}<br><small>${esc(x.sub)} · ${esc(x.m)} · lupa ${x.l}× · ${x.c.t==2?'interval '+x.c.i+' hr':x.c.t==3?'belajar ulang':'belajar'}</small></div><button class="mini aibtn on" data-ai=leech data-k="${esc(x.k)}">🧠 Mnemonik</button></div>`).join('')+
   (rows.length>lchLim?`<button data-a=lchmore style="width:100%;margin-top:8px">Tampilkan lebih banyak (${rows.length-lchLim})</button>`:'')+`</div>`}
+
+/* ---------- v7.1: romanisasi otomatis (perkiraan) untuk teks ja/zh yang tidak memuat romanisasi ---------- */
+const LRK={};
+(function(){const t='a i u e o ka ki ku ke ko sa shi su se so ta chi tsu te to na ni nu ne no ha hi fu he ho ma mi mu me mo ya yu yo ra ri ru re ro wa wo n ga gi gu ge go za ji zu ze zo da ji zu de do ba bi bu be bo pa pi pu pe po'.split(' ');
+ const H='あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんがぎぐげござじずぜぞだぢづでどばびぶべぼぱぴぷぺぽ';
+ for(let i=0;i<H.length;i++){LRK[H[i]]=t[i];LRK[String.fromCharCode(H.charCodeAt(i)+96)]=t[i]}
+ LRK['ゔ']='vu';LRK['ヴ']='vu'})();
+const LRKS={'ゃ':'ya','ゅ':'yu','ょ':'yo','ャ':'ya','ュ':'yu','ョ':'yo'};
+function libKana2Rom(s){let o='';const ch=[...s];
+ for(let i=0;i<ch.length;i++){const c=ch[i];
+  if(c=='っ'||c=='ッ'){const n=LRK[ch[i+1]]||'';o+=n?(n[0]=='c'?'t':n[0]):'';continue}
+  if(c=='ー'){const m=o.match(/[aiueo]$/);o+=m?m[0]:'';continue}
+  const r=LRK[c];if(!r){o+=c;continue}
+  if(LRKS[ch[i+1]]){const y=LRKS[ch[i+1]];let b=r.replace(/i$/,'');if(r=='shi'||r=='chi'||r=='ji')b=r.slice(0,-1)=='sh'?'sh':r.slice(0,-1);o+=(b=='sh'||b=='ch'||b=='j')?b+y.slice(1):b+y;i++;continue}
+  o+=r}
+ return o}
+let LRD=null;
+function libRomDict(){if(LRD)return LRD;LRD={ja:new Map(),zh:new Map(),st:new Set()};const add=(L,w,r)=>{w=String(w||'').replace(/[\s~〜～・]/g,'');r=String(r||'').split(/\s*[\/,;]\s*/)[0].replace(/\([^)]*\)/g,'').trim().toLowerCase();if(!w||!r||/[぀-ヿ㐀-鿿]/.test(r))return;const ol=LRD[L].get(w);if(ol==null||(r.length<ol.length&&L=='ja'))LRD[L].set(w,r)};
+ const jv=(w,r)=>{add('ja',w,r);const m=w.match(/^([^ぁ-ん]+[ぁ-ん]*?)([うくぐすつぬぶむる])$/);
+  if(m&&/[㐀-鿿]/.test(m[1])){const e=libKana2Rom(m[2]);if(r.toLowerCase().endsWith(e)){add('ja',m[1],r.slice(0,-e.length));LRD.st.add(m[1])}}
+  const a=w.match(/^(.*[㐀-鿿])い$/);if(a&&/i$/.test(r)){add('ja',a[1],r.slice(0,-1));LRD.st.add(a[1])};
+  const s=w.match(/^(.+)する$/);if(s&&/suru$/.test(r))add('ja',s[1],r.slice(0,-4))};
+ for(const c of D.C){const e=c[3]||{};(e.ja||[]).forEach(x=>jv(x[0],x[1]));(e.zh||[]).forEach(x=>add('zh',x[0],x[1]))}
+ for(const g of Object.values(GK)){if(g[1]!='ja'&&g[1]!='zh')continue;(g[7]||[]).forEach(ex=>{const p=String(ex).split('\n');if(p.length>=3&&p[1]){const f=p[0].replace(/[\s。、！？.,!?]/g,'');if(f.length>1&&!LRD[g[1]].has('\u0001'+f))LRD[g[1]].set('\u0001'+f,p[1].trim())}})}
+ return LRD}
+const LRP={'。':'.','、':',','！':'!','？':'?','，':',','；':';','：':':','「':'"','」':'"','『':'"','』':'"','（':'(','）':')','～':'~','・':' ','·':' '};
+function libAutoRom(L,text){if(L!='ja'&&L!='zh')return'';const d=libRomDict()[L],src=String(text||'');
+ const ex=d.get('\u0001'+src.replace(/[\s。、！？.,!?]/g,''));if(ex&&String(src).replace(/\s/g,'').length>1)return ex;
+ const ch=[...src.replace(/\s+/g,L=='zh'?'':' ')],out=[];let kb='',i=0,glue=0;
+ const FW=['でしょう','ました','ません','でした','です','ます','から','まで','ので','のに','より','たい','ない','ね','よ'],PA={'は':'wa','へ':'e','を':'o'};
+ const seg=k=>{if(k.length==1)return PA[k]||libKana2Rom(k);const o=[];let u='',i=0;const fu=()=>{if(u){o.push(libKana2Rom(u));u=''}};
+  while(i<k.length){const w=FW.find(x=>k.startsWith(x,i)&&(x.length>1||i>0&&/[ねよ]/.test(x)&&i==k.length-1));if(w){fu();o.push(libKana2Rom(w));i+=w.length}else if(k[i]=='を'){fu();o.push('o');i++}else if(/[はがをにでともの]/.test(k[i])&&i==k.length-1&&i>0&&!/[ゃゅょっ]/.test(k[i-1])){fu();o.push(PA[k[i]]||libKana2Rom(k[i]));i++}else{u+=k[i];i++}}
+  fu();return o.join(' ')};
+ const flush=()=>{if(!kb)return;let t=seg(kb);if(glue){if(out.length){out[out.length-1]+=t.replace(/ /g,'');t=''}glue=0}if(t)out.push(t);kb=''};
+ while(i<ch.length){let hit=0;
+  for(let n=Math.min(8,ch.length-i);n>=1;n--){const w=ch.slice(i,i+n).join('');if(!d.has(w))continue;
+   const kanaOnly=!/[㐀-鿿]/.test(w);if(L=='ja'&&kanaOnly&&n<2)continue;
+   flush();out.push(d.get(w));i+=n;hit=1;if(L=='ja'&&libRomDict().st.has(w)&&/[ぁ-ゟ]/.test(ch[i]||'')){glue=1}break}
+  if(hit)continue;const c=ch[i];
+  if(L=='ja'&&/[぀-ヿー]/.test(c)){if(kb&&(/[ァ-ヶー]/.test(c)!=/[ァ-ヶー]/.test(kb[kb.length-1])&&c!='ー'))flush();kb+=c;i++;continue}
+  flush();out.push(LRP[c]!=null?LRP[c]:c);i++}
+ flush();
+ let r=out.join(' ').replace(/\s+([.,!?;:)])/g,'$1').replace(/([("])\s+/g,'$1').replace(/\s+/g,' ').trim();
+ if(L=='ja')r=r.replace(/ (wa|e|o)(?= )/g,' $1');
+ return r.charAt(0).toUpperCase()+r.slice(1)}
