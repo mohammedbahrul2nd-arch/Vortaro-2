@@ -364,3 +364,19 @@ mark{background:color-mix(in srgb,var(--a) 28%,transparent);color:inherit;border
 .r.rom.auto{font-style:italic;opacity:.8}
 .spk{display:inline-block;min-width:1.4em;padding:0 6px;margin-right:4px;border-radius:99px;background:var(--a2);color:var(--a);font-size:.8em;text-align:center}
 .sli .fct button.on{border-color:var(--s2)}
+
+/* v7.4 — contoh dari Pustaka, tag AI, bentuk kata kerja */
+.gmx{margin-top:6px}
+.gmr{padding:9px 12px;background:var(--c2);border:1px solid var(--b);border-radius:12px;margin:0 0 7px;text-align:left}
+.gmr .eo{font-size:1.02rem;line-height:1.55}
+.gmr .idn{font-size:.9rem;color:var(--m);margin-top:2px}
+.gmr .rom{font-size:.82rem;color:var(--m)}
+.gmsrc{display:block;margin-top:3px;font-size:.72rem;color:var(--m)}
+.gmts{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px}
+.gmt{display:inline-block;padding:1px 9px;border-radius:99px;font-size:.72rem;line-height:1.6;background:var(--a2);color:var(--a);border:1px solid color-mix(in srgb,var(--a) 25%,transparent)}
+.gmt.v{background:color-mix(in srgb,var(--s2) 14%,transparent);color:var(--s2);border-color:color-mix(in srgb,var(--s2) 30%,transparent)}
+.gmt:not(.ok):not(.v){background:var(--c2);color:var(--m);border-color:var(--b)}
+.gmt i,.gmt em{font-style:normal;opacity:.85}
+.gmt em{margin-left:3px;font-weight:650}
+.gmf{display:inline-block;margin:3px 6px 0 0;padding:0 8px;border-radius:8px;background:var(--c2);border:1px solid var(--b);font-size:.76rem;line-height:1.7;color:var(--m)}
+.gmf i{font-style:normal;color:var(--t);font-weight:600}

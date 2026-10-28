@@ -194,24 +194,36 @@ const aiSplitRule=(P,R,L)=>`PISAHKAN BAHASA. Kalimat ${P.n} (baris 1) hanya beri
 const aiNum=(arr)=>arr.map((x,i)=>`${i+1}. ${x}`).join('\n');
 const aiIntroFmt=d=>`FORMAT KELUARAN — ikuti PERSIS. Hasilnya akan langsung ditempel ke ${AIDEST[d].lib} di aplikasi hafalanku dan dibaca otomatis oleh program, jadi format yang melenceng berarti error.`;
 
+/* ---------- blok TAG: grammar & bentuk kata kerja per kalimat (dibaca program untuk menghubungkan kartu ⇄ Pustaka) ---------- */
+const AIFORM={ja:'ます形, ない形, て形, た形, 意向形, 使役, 受身, 可能, 条件(ば), 命令, たい形, たら, たり; gabungkan dengan “+” bila bertumpuk (mis. 使役+た形)',de:'Präsens, Präteritum, Partizip II, Infinitiv mit zu, trennbar (tulis dua bagian dipisah “ … ”, mis. steht … auf), Konjunktiv II, Imperativ',nl:'Presens, Imperfectum, Voltooid deelwoord, scheidbaar (tulis dua bagian dipisah “ … ”, mis. belt … op), Imperatief'};
+function aiTagSpec(ctx,i1,i2){const o=aiO(),L=ctx.L,gs=[];
+ if(!ctx.v&&GK[ctx.k])gs.push(GK[ctx.k]);(o.aiG?ctx.gr:[]).forEach(x=>{if(!gs.includes(x.g))gs.push(x.g)});
+ const leg=gs.slice(0,6).map((g,k)=>`G${k+1} = ${aiClean(g[4])} (${g[2]})`),hasV=!!AIFORM[L];
+ const fmt=`TAG GRAMMAR & KATA KERJA\n`+(leg.length?leg.join('\n')+'\n':'')+`${i1} ${leg.length?'G1: [potongan persis dari kalimat]':'G: [nama pola] = [potongan persis dari kalimat]'}${hasV?' ; V: [bentuk kamus] > [bentuk di kalimat] ([nama bentuk])':''}\n${i2} …`;
+ const r=[`Setelah blok “Pembentuk yang dipakai”, tulis blok TAG (judul persis “TAG GRAMMAR & KATA KERJA”) di PALING AKHIR. Blok ini dibaca program untuk menghubungkan kartuku dengan kalimat, bukan untuk dibacakan.`];
+ if(leg.length)r.push(`Di awal blok TAG, salin legenda G1, G2, … di atas APA ADANYA. Lalu untuk tiap nomor tulis satu baris: nomor, lalu item dipisah “ ; ”. Tiap grammar dari legenda yang benar-benar dipakai di kalimat itu ditulis “Gn: [potongan persis dari kalimat]”. Grammar lain di luar legenda (maksimal 2) ditulis “G: [nama pola] = [potongan persis dari kalimat]”.`);
+ else r.push(`Untuk tiap nomor tulis satu baris: nomor, lalu item dipisah “ ; ”. Tiap pola grammar yang dipakai di kalimat itu (maksimal 3) ditulis “G: [nama pola] = [potongan persis dari kalimat]”.`);
+ if(hasV)r.push(`Untuk SETIAP kata kerja${L=='ja'?' (dan kata sifat)':''} yang bentuknya BERUBAH dari bentuk kamus, tulis “V: [bentuk kamus] > [bentuk di kalimat] ([nama bentuk])”. Nama bentuk${L=='ja'?'':' (contoh)'}: ${AIFORM[L]}.`);
+ r.push(`“Potongan” harus disalin KARAKTER DEMI KARAKTER dari baris 1 nomor itu${L=='ja'||L=='zh'?' (tanpa spasi tambahan, tanpa romanisasi)':''}. Untuk partikel 1 huruf tulis kata/frasa di sekitarnya (mis. ${L=='ja'?'写真を':L=='zh'?'吃了':'mit dem Bus'}), bukan huruf sendirian. Bila tidak yakin, jangan tulis tag itu; jangan mengarang.`);
+ return{fmt,r}}
 /* Reading (kelompok berpenanda) & Listening (blok berpenanda) */
-function aiOutSpec(ctx,dest){const o=aiO(),L=ctx.L,P=AIP[L],R=AIROM[L],rom=!!R,lis=dest=='listen',NP=o.aiP,eos=rom?R.eos:'. ! ?',T=[aiIntroFmt(dest)];
+function aiOutSpec(ctx,dest){const o=aiO(),L=ctx.L,P=AIP[L],R=AIROM[L],rom=!!R,lis=dest=='listen',NP=o.aiP,eos=rom?R.eos:'. ! ?',T=[aiIntroFmt(dest)],tg=aiTagSpec(ctx,'[1.1]','[1.2]');
  const ids=`[1.1], [1.2], … lalu [2.1], [2.2], … sampai paragraf ${NP}`;
  if(!lis){
-  T.push(`Judul: [judul bahasa ${P.n}] | [judul bahasa Indonesia]\n\nParagraf 1\n${aiGroup(P,R,'[1.1]')}\n\n${aiGroup(P,R,'[1.2]').replace(/^\[1\.2\]/,'[1.2]')}\n\nParagraf 2\n${aiGroup(P,R,'[2.1]')}\n\n… (terus sampai paragraf ${NP})\n\nPembentuk yang dipakai:\n[1.1] topik utama + kata/grammar tambahan yang dipakai di kalimat ini\n[1.2] …`);
+  T.push(`Judul: [judul bahasa ${P.n}] | [judul bahasa Indonesia]\n\nParagraf 1\n${aiGroup(P,R,'[1.1]')}\n\n${aiGroup(P,R,'[1.2]').replace(/^\[1\.2\]/,'[1.2]')}\n\nParagraf 2\n${aiGroup(P,R,'[2.1]')}\n\n… (terus sampai paragraf ${NP})\n\nPembentuk yang dipakai:\n[1.1] topik utama + kata/grammar tambahan yang dipakai di kalimat ini\n[1.2] …\n\n${tg.fmt}`);
   const r=[`Satu kalimat = satu kelompok TEPAT ${rom?3:2} baris: baris 1 diawali nomor [paragraf.kalimat] lalu kalimat ${P.n}; ${rom?`baris 2 = ${R.n} kalimat itu; baris 3`:'baris 2'} = arti bahasa Indonesia kalimat itu. HANYA baris 1 yang diberi nomor. Satu baris kosong memisahkan satu kelompok dari kelompok berikutnya.`,
    `Nomor: ${ids}; mulai dari 1, berurutan, tanpa lompat dan tanpa pengulangan. Nomor adalah penyelaras untuk program, jangan dihilangkan.`,
-   `Satu nomor = satu kalimat utuh (berakhir ${eos}). Jangan menggabungkan dua kalimat dalam satu nomor dan jangan memecah satu kalimat ke dua nomor.`,aiSplitRule(P,R,L)];
+   `Satu nomor = satu kalimat utuh (berakhir ${eos}). Jangan menggabungkan dua kalimat dalam satu nomor dan jangan memecah satu kalimat ke dua nomor.`,aiSplitRule(P,R,L),...tg.r];
   if(rom)r.push(aiRomRule(R,'kalimat di baris 1'));
   r.push(aiNoDeco,`Sebelum menulis, rencanakan dan hitung jumlah paragraf dan kalimat; setelah selesai, periksa bahwa setiap nomor punya ${rom?`kalimat, ${R.n}, dan arti`:'kalimat dan arti'}.`);
   T.push(`ATURAN FORMAT:\n`+aiNum(r))}
  else{
   const blk=(h,w)=>`=== ${h} ===\n[1.1] ${w} kalimat 1 paragraf 1\n[1.2] ${w} kalimat 2 paragraf 1\n\n[2.1] ${w} kalimat 1 paragraf 2\n… (sampai paragraf ${NP}; baris kosong di antara paragraf)`;
-  T.push(blk('TEKS '+P.n.toUpperCase(),`[${P.n}]`)+(rom?`\n\n`+blk(R.H,`[${R.n}]`):'')+`\n\n`+blk('TERJEMAHAN INDONESIA','[Indonesia]')+`\n\n=== PEMBENTUK YANG DIPAKAI ===\n[1.1] topik utama + kata/grammar tambahan yang dipakai\n[1.2] …`);
+  T.push(blk('TEKS '+P.n.toUpperCase(),`[${P.n}]`)+(rom?`\n\n`+blk(R.H,`[${R.n}]`):'')+`\n\n`+blk('TERJEMAHAN INDONESIA','[Indonesia]')+`\n\n=== PEMBENTUK YANG DIPAKAI ===\n[1.1] topik utama + kata/grammar tambahan yang dipakai\n[1.2] …\n\n${tg.fmt}`);
   const r=[`Tulis TEPAT ${rom?'empat':'tiga'} blok berurutan dengan judul persis seperti di atas (lengkap dengan tanda ===), lalu blok PEMBENTUK. Tidak ada teks lain di luar blok dan jangan dibungkus blok kode.`,
    `Blok TEKS${rom?', '+R.H:''}, dan TERJEMAHAN memakai himpunan nomor yang SAMA PERSIS dengan urutan yang sama: ${ids}. Tiap nomor muncul tepat 1× di tiap blok. Hanya nomor yang dipakai untuk menyelaraskan; jangan menyelaraskan lewat urutan atau tanda baca.`,
    `Satu nomor = satu kalimat utuh (berakhir ${eos}) = satu baris. Jangan menggabungkan dua kalimat dalam satu nomor, jangan memecah satu kalimat ke dua nomor, jangan memecah baris. Baris kosong memisahkan paragraf (saat angka paragraf berganti). Nomor ditaruh di AWAL baris sebagai penanda saja; setelah nomor, teks kalimat harus bersih.`,
-   `PISAHKAN BAHASA: blok TEKS hanya berisi bahasa ${P.n}${rom?` dengan aksara aslinya (tanpa huruf Latin, tanpa ${R.n})`:''}; ${rom?`blok ${R.H} hanya berisi ${R.n}; `:''}blok TERJEMAHAN hanya berisi bahasa Indonesia. Jangan menyisipkan satu bahasa ke blok bahasa lain dan jangan memakai | atau tanda kurung untuk menyambungnya.`];
+   `PISAHKAN BAHASA: blok TEKS hanya berisi bahasa ${P.n}${rom?` dengan aksara aslinya (tanpa huruf Latin, tanpa ${R.n})`:''}; ${rom?`blok ${R.H} hanya berisi ${R.n}; `:''}blok TERJEMAHAN hanya berisi bahasa Indonesia. Jangan menyisipkan satu bahasa ke blok bahasa lain dan jangan memakai | atau tanda kurung untuk menyambungnya.`,...tg.r];
   if(rom)r.push(`Blok ${R.H}: `+aiRomRule(R,'kalimat bernomor sama di blok TEKS')+` Jumlah baris ${R.H} = jumlah baris TEKS.`);
   r.push(aiTts(P,rom,L),`Sebelum menulis, rencanakan dan hitung jumlah paragraf dan kalimat; setelah selesai, periksa bahwa ${rom?`blok TEKS, ${R.H}, dan TERJEMAHAN`:'blok TEKS dan TERJEMAHAN'} punya nomor yang sama persis.`);
   T.push(`ATURAN FORMAT:\n`+aiNum(r))}
@@ -235,10 +247,10 @@ function aiBuildDialog(ctx){const o=aiO(),L=ctx.L,P=AIP[L],R=AIROM[L],rom=!!R,N=
  const head=`Tulis sebuah dialog bahasa ${P.n} antara dua orang (A dan B) untuk latihanku (penutur Indonesia${lv?', level '+lv:''}) sebanyak ${N} baris. ${AISIT[o.aiSit]||AISIT.free}${mi.lvN}`;
  const b=aiBodyParts(ctx,[`Dialog natural dan bergantian A → B → A …, satu topik yang mengalir, dengan judul. Kalimat pendek–sedang, sesuai level${lv?' '+lv:''}, mudah → sedikit menantang. Jawaban satu kata (“ya”, “oke”) tetap harus memuat topik utama.`]);
  const T=[aiIntroFmt('dialog')];
- T.push(`Judul: [judul bahasa ${P.n}] | [judul bahasa Indonesia]\n\n${aiGroup(P,R,'[1.1]',1)}\n\n${aiGroup(P,R,'[1.2]',1).replace('A: ','B: ')}\n\n${aiGroup(P,R,'[1.3]',1)}\n\n… (terus sampai [1.${N}])\n\nPembentuk yang dipakai:\n[1.1] topik utama + kata/grammar tambahan yang dipakai di baris ini\n[1.2] …`);
+ T.push(`Judul: [judul bahasa ${P.n}] | [judul bahasa Indonesia]\n\n${aiGroup(P,R,'[1.1]',1)}\n\n${aiGroup(P,R,'[1.2]',1).replace('A: ','B: ')}\n\n${aiGroup(P,R,'[1.3]',1)}\n\n… (terus sampai [1.${N}])\n\nPembentuk yang dipakai:\n[1.1] topik utama + kata/grammar tambahan yang dipakai di baris ini\n[1.2] …\n\n${aiTagSpec(ctx,'[1.1]','[1.2]').fmt}`);
  const r=[`Satu baris dialog = satu kalimat utuh = satu kelompok TEPAT ${rom?3:2} baris: baris 1 = nomor [1.n] + penutur (“A: ” atau “B: ”) + kalimat ${P.n}; ${rom?`baris 2 = ${R.n} kalimat itu; baris 3`:'baris 2'} = arti bahasa Indonesia. Hanya baris 1 yang diberi nomor dan penutur. Satu baris kosong antar kelompok.`,
   `Nomor [1.1] sampai [1.${N}] berurutan, tanpa lompat dan tanpa pengulangan; semua dialog satu paragraf (angka pertama selalu 1). Penutur hanya “A:” atau “B:” (huruf besar, titik dua), selalu di baris 1 setelah nomor.`,
-  `Satu nomor = satu kalimat utuh (berakhir ${eos}). Bila satu giliran bicara berisi dua kalimat, beri dua nomor dengan penutur yang sama. Jangan menggabungkan atau memecah kalimat.`,aiSplitRule(P,R,L)];
+  `Satu nomor = satu kalimat utuh (berakhir ${eos}). Bila satu giliran bicara berisi dua kalimat, beri dua nomor dengan penutur yang sama. Jangan menggabungkan atau memecah kalimat.`,aiSplitRule(P,R,L),...aiTagSpec(ctx,'[1.1]','[1.2]').r];
  if(rom)r.push(aiRomRule(R,'kalimat di baris 1 (tanpa awalan A:/B:)'));
  r.push(`Teks akan dibacakan text-to-speech: tanpa arahan panggung atau keterangan dalam kurung, tanpa emoji, singkatan, atau simbol; angka, jam, dan tanggal ditulis dengan kata/aksara. Label A:/B: HANYA di baris 1, tidak di baris ${rom?'romanisasi dan arti':'arti'}.`,aiNoDeco,`Sebelum menulis, hitung: tepat ${N} baris dialog; setelah selesai, periksa bahwa setiap nomor punya kalimat${rom?`, ${R.n},`:''} dan arti.`);
  T.push(`ATURAN FORMAT:\n`+aiNum(r));
@@ -248,10 +260,10 @@ function aiBuildSent(ctx){const o=aiO(),L=ctx.L,P=AIP[L],R=AIROM[L],rom=!!R,N=o.
  const head=`Buatkan ${N} kalimat contoh bahasa ${P.n} yang masing-masing BERDIRI SENDIRI (tidak saling berkaitan; tiap kalimat disimpan terpisah di bank kalimatku) untuk latihanku (penutur Indonesia${lv?', level '+lv:''}).${mi.lvN}`;
  const b=aiBodyParts(ctx,[`Kalimat natural dan bervariasi (jenis kalimat, panjang, konteks, subjek), urut dari mudah ke sulit (pendek → panjang), sesuai level${lv?' '+lv:''}. Jangan ada dua kalimat yang hampir sama. Tiap kalimat harus utuh dan dapat dipahami tanpa kalimat lain (jangan memakai kata ganti yang merujuk kalimat sebelumnya).`]);
  const T=[aiIntroFmt('sent')];
- T.push(`${aiGroup(P,R,'[1]')}\n\n${aiGroup(P,R,'[2]')}\n\n… (terus sampai [${N}])\n\nPembentuk yang dipakai:\n[1] topik utama + kata/grammar tambahan yang dipakai di kalimat ini\n[2] …`);
+ T.push(`${aiGroup(P,R,'[1]')}\n\n${aiGroup(P,R,'[2]')}\n\n… (terus sampai [${N}])\n\nPembentuk yang dipakai:\n[1] topik utama + kata/grammar tambahan yang dipakai di kalimat ini\n[2] …\n\n${aiTagSpec(ctx,'[1]','[2]').fmt}`);
  const r=[`Satu kalimat = satu kelompok TEPAT ${rom?3:2} baris: baris 1 diawali nomor [n] lalu kalimat ${P.n}; ${rom?`baris 2 = ${R.n} kalimat itu; baris 3`:'baris 2'} = arti bahasa Indonesia. HANYA baris 1 yang diberi nomor. Satu baris kosong antar kelompok.`,
   `Nomor [1] sampai [${N}], berurutan, tanpa lompat dan tanpa pengulangan. Nomor adalah penyelaras untuk program, jangan dihilangkan. Tidak ada judul dan tidak ada paragraf.`,
-  `Satu nomor = satu kalimat utuh (berakhir ${eos}). Jangan menggabungkan atau memecah kalimat.`,aiSplitRule(P,R,L)];
+  `Satu nomor = satu kalimat utuh (berakhir ${eos}). Jangan menggabungkan atau memecah kalimat.`,aiSplitRule(P,R,L),...aiTagSpec(ctx,'[1]','[2]').r];
  if(rom)r.push(aiRomRule(R,'kalimat di baris 1'));
  r.push(aiNoDeco,`Sebelum menulis, hitung: tepat ${N} kalimat. Bila jawabanmu terpotong dan aku mengetik “lanjut”, teruskan penomoran dari nomor terakhir dengan format yang sama (tanpa mengulang) dan tutup dengan blok “Pembentuk yang dipakai” untuk bagian itu.`);
  T.push(`ATURAN FORMAT:\n`+aiNum(r));

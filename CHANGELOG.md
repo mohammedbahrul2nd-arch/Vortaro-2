@@ -1,5 +1,18 @@
 # Riwayat Perubahan
 
+## 7.4.0 — Rabu, 28 Okt 2026 · 06.20 WIB
+**Penghubung kartu ⇄ Pustaka yang jauh lebih akurat, dua file JSON cadangan, dan 5 contoh kalimat saat kartu dibuka.**
+- **Dua JSON terpisah:** *Ekspor progres* (`progres-kosakata_TANGGAL_JAM.json`) dan *Ekspor pustaka* (`pustaka-kosakata_…json`), masing-masing bermeta (`type`, versi, waktu). Impor menerima beberapa file sekaligus dan tetap membaca cadangan lama (satu file gabungan). Tag grammar ikut tersimpan dan digabung saat impor.
+- **Tag dari AI:** prompt Kelas AI (Reading, Listening, Dialog, Kalimat) kini meminta blok `TAG GRAMMAR & KATA KERJA` berisi legenda kartu (G1, G2 …), potongan persis kalimat untuk tiap grammar, dan bentuk kata kerja yang berubah (`V: 食べる > 食べさせた (使役+た形)`). Parser memverifikasi tiap potongan benar-benar ada di kalimat (yang tidak ada dibuang), lalu menautkannya ke kartu lewat judul + level. Kalimat bertag = tingkat ✓ paling pasti, disorot persis di bagian yang ditandai.
+- **Jepang:** konjugator berlabel dari kosakata kartumu (ます・ない・て・た・たり・たら・ば・意向・命令・たい・可能・受身・使役・使役受身, termasuk gabungan seperti 使役+て) dan kata sifat い/な. Pola ber-slot seperti *V-て + いる*, *V-ない + で*, *V-た + ら*, *V-masu(stem) + たい*, *V-意向 + と思う* diverifikasi: teks sebelum literal harus berupa bentuk kata kerja yang benar. Kartu bentuk (意向形, 受身形, られる, させる, させられる) dicocokkan lewat bentuk kata kerja yang terdeteksi.
+- **Partikel / pola 1 huruf (は を が の さ …):** tidak lagi menandai semua kalimat. Tanpa konteks terverifikasi hanya dianggap *perkiraan lemah* (disembunyikan; ada tombol “Sertakan perkiraan lemah”). Dengan tag AI tetap tampil.
+- **Mandarin:** hanzi dicocokkan dengan **pinyin per suku kata** (selaras posisi hanzi ⇄ suku kata). Suku kata yang diharapkan diambil dari contoh bertingkat di kartu, atau tabel bawaan untuk partikel umum — mis. *了 (le)* tidak lagi cocok dengan *了解 (liǎo)*, *得 (de)* dibedakan dari *得 (děi)*. Kata kunci bahasa Indonesia dari kartu dipakai sebagai penguat bila pinyin tidak ada.
+- **Jerman & Belanda:** deteksi fitur struktural memakai bentuk kata kerja dari kartu verbmu (infinitif / 3.Sg / Präteritum / Partizip II / kata kerja terpisah): Perfekt, Plusquamperfekt, Präteritum, Passiv, Futur, Konjunktiv II, Modal, trennbar/scheidbaar, zu-Infinitiv / om…te, Nebensatz/bijzin, refleksif. Kartu verb-spesifik (mis. *lernen*, *haben*) mensyaratkan bentuk kata kerja itu.
+- **Pustaka → analisis teks:** bagian baru **“Kata kerja yang berubah bentuk”** mengelompokkan per kartu kata kerja (Jepang: て形, 使役形 …; Jerman/Belanda: Präteritum, Partizip II …), memadukan deteksi otomatis dan tag AI. Kalimat menampilkan chip tag.
+- **Saat kartu dibuka** (Kartu & Grammar): **“📚 Contoh dari Pustakamu”** — sampai 5 kalimat dari Pustaka (dipilih acak dari 10 kalimat berskor tertinggi: bertag AI → terverifikasi → punya terjemahan → panjang wajar; diacak ulang tiap berpindah kartu), dengan suara 🔊, romanisasi/terjemahan, dan tombol *Lihat semua di Pustaka*.
+- **Info versi** (tanggal & jam) di Pengaturan; service worker 7.4.0; berkas baru `js/gram.js`.
+
+
 ## 7.3.1
 **Perbaikan: bahasa asing, romanisasi, dan terjemahan Indonesia tidak lagi tercampur di Pustaka (Reading, Listening, Dialog, Kalimat).**
 - **Masalah:** bila keluaran AI sedikit melenceng dari format (satu baris “asing | romaji | arti”, romaji/arti dalam kurung, dipisah “–”, nomor [1.1] diulang di setiap baris, dialog tanpa nomor, label A:/B: di baris romaji/arti), semuanya masuk ke kolom “teks asing”. Akibatnya tombol 🔊 dan pemutar membacakan romaji dan bahasa Indonesia juga, dengan suara bahasa asing.
