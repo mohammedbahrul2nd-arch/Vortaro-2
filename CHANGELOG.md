@@ -1,14 +1,15 @@
 # Riwayat Perubahan
 
-## 7.5.0 — Jumat, 30 Okt 2026
-**Sensor selalu aktif, onboarding bahasa & level, dan kartu mahir ikut membentuk kalimat di Kelas AI.**
-- **Sensor tidak lagi bisa dikonfigurasi:** semua sensor (sisi asing & Indonesia di kosakata, romanisasi, gender, jamak, bentuk kata kerja, komparatif, arti Indonesia di latihan, terjemahan Bacaan dan Pustaka) selalu aktif dan dipaksa tiap muat. Kartu “Sensor” di Atur, tombol ⚙ Sensor, dan pemilih terjemahan di pemutar Pustaka dihapus. Ketuk bagian yang diblur untuk membukanya.
-- **Onboarding pertama kali:** pengguna baru memilih bahasa yang dipelajari, lalu level (boleh lebih dari satu). Pilihan mengisi filter Kosakata, Flashcard, dan Grammar. Pengguna lama yang sudah punya data tidak melihat layar ini.
-- **Kelas AI:** kartu yang sudah mahir (matang ≥ 21 hari atau berstatus Selesai), baik kosakata maupun grammar, kini juga jadi pembentuk kalimat di prompt **Reading, Listening, Dialog, dan Kalimat**, di samping kartu lupa / sedang belajar. Panel menampilkan chip “mahir” yang bisa dikeluarkan satu per satu.
-- **Atur:** kartu Taksonomi grammar disembunyikan.
-- **Statistik:** bagian Latihan kalimat dan Bacaan Esperanto dihapus.
-- **Grammar:** membuka tab Grammar selalu dimulai dari pilihan bahasa, lalu level.
+## 7.5.0
+- **Onboarding pertama kali:** pengguna baru memilih **bahasa** yang dipelajari, lalu **level** (boleh lebih dari satu). Pilihan itu mengisi filter kosakata & grammar sekaligus. Pengguna lama yang sudah punya progres/pustaka tidak dipaksa.
+- **Sensor selalu aktif & tidak bisa dikonfigurasi:** kartu pengaturan Sensor dihapus. Bagian asing dan Indonesia sama-sama diblur dan bisa diketuk satu per satu; romanisasi, gender, jamak, bentuk kata kerja, komparatif, dan terjemahan bacaan selalu disensor.
+- **Kelas AI — kartu mahir ikut jadi pembentuk kalimat** (kosakata & grammar yang sudah matang di SRS atau berstatus Selesai) di prompt **Reading, Listening, Dialog, dan Kalimat**. Jumlahnya lebih banyak secara bawaan (12 kata + 4 grammar) dan bisa diatur (6/12/20 dan 2/4/6). Grammar mahir ikut masuk legenda TAG.
+- **Kelas AI di Pustaka (🎓 di tiap bagian Pustaka):** cukup pilih bahasa. Aplikasi menghitung jumlah contoh kalimat tiap kartu di Pustaka (Kalimat, Reading, Listening, Dialog) lalu prompt memprioritaskan kartu yang **belum punya contoh** atau contohnya paling sedikit (kosakata + grammar), dengan aturan “kartu 0 contoh minimal 2×”. Kartu lemah dan mahir tetap jadi pembentuk pelengkap.
+- **Kualitas kalimat:** semua prompt Pustaka kini mewajibkan kalimat yang natural dan masuk akal (bukan sekadar memenuhi daftar kartu), boleh melewati kartu yang sulit dimasukkan secara alami (“Dilewati: …”), dan meminta pemeriksaan ulang sebelum menjawab.
+- **Tab Grammar** selalu dibuka dari pilihan bahasa, lalu level.
+- **Atur:** bagian taksonomi grammar disembunyikan. **Statistik:** bagian Latihan kalimat dan Bacaan Esperanto dihapus.
 - Service worker 7.5.0.
+
 
 ## 7.4.0 — Rabu, 28 Okt 2026 · 06.20 WIB
 **Penghubung kartu ⇄ Pustaka yang jauh lebih akurat, dua file JSON cadangan, dan 5 contoh kalimat saat kartu dibuka.**

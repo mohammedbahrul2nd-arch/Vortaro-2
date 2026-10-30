@@ -1,9 +1,9 @@
 const SHOW_BELAJAR=false; /* tab Belajar disembunyikan dulu; ubah ke true untuk menampilkannya lagi */
 let S={rd:{},p:{},s:{},ses:{},gs:0,f:[],gf:[],srs:{},sd:{d:-1,n:0,r:0,x:0,y:0},lg:{},nw:{},lib:[],sl:[],lt:{h:[],g:{},d:{}},o:{}},ok=true,tab=SHOW_BELAJAR?'ses':'fc',q='',fs='',lim=50,shown=new Set;
 try{if(!localStorage.getItem(SK)&&localStorage.getItem('kosakata_v1'))localStorage.setItem(SK,localStorage.getItem('kosakata_v1'));Object.assign(S,JSON.parse(localStorage.getItem(SK)||'{}'));localStorage.setItem(SK+'_t',1);navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(e){ok=false}
-const FCD={nl:20,rl:200,fd:'id',ff:[],fm:'or',fmin:1,deck:'v',ord:'seq',no:'after',ls:'1 10',rs:'10',gi:1,ei:4,se:250,eb:130,hi:120,ni:0,im:100,mx:36500,lk:1,mig:0,sp:[],lch:4,xn:10,xr:50};const LTD={lm:1,pl:'zh',plv:[],pn:1,pa:1,pv:1,po:1,ps:'full',pw:'all',pg:'all',pe:1,lx:1};S.o={hide:0,rom:0,minL:1,mode:'mix',...FCD,...LTD,...S.o};if(!S.o.cv)S.o.cv=S.o.hide?'fo':'none';S.o={cgL:'blur',cgK:'show',cgF:'show',cpl:'blur',cvb:'blur',ckp:'blur',rdt:'blur',...S.o};S.o={th:'auto',ac:'indigo',fz:'m',tts:1,ttsa:0,hap:1,gr:25,ttsr:.9,libMin:4,...S.o};if(!Array.isArray(S.lib))S.lib=[];if(!Array.isArray(S.o.gff))S.o.gff=(S.gf||[]).slice();
-/* v7.5: semua sensor SELALU aktif dan tidak bisa dikonfigurasi (nilai dipaksa tiap muat & tiap render) */
-const SENSOR_ON={cv:'all',rom:1,cgK:'blur',cgF:'blur',cgL:'blur',cpl:'blur',cvb:'blur',ckp:'blur',rdt:'blur',lm:1,lpT:'blur'};Object.assign(S.o,SENSOR_ON);
+const FCD={nl:20,rl:200,fd:'id',ff:[],fm:'or',fmin:1,deck:'v',ord:'seq',no:'after',ls:'1 10',rs:'10',gi:1,ei:4,se:250,eb:130,hi:120,ni:0,im:100,mx:36500,lk:1,mig:0,sp:[],lch:4,xn:10,xr:50};const LTD={lm:1,pl:'zh',plv:[],pn:1,pa:1,pv:1,po:1,ps:'full',pw:'all',pg:'all',pe:1,lx:1};S.o={hide:0,rom:0,minL:1,mode:'mix',...FCD,...LTD,...S.o};if(!S.o.cv)S.o.cv=S.o.hide?'fo':'none';S.o={cgL:'blur',cgK:'show',cgF:'show',cpl:'blur',cvb:'blur',ckp:'blur',rdt:'blur',...S.o};
+/* v7.5: semua sensor SELALU aktif dan tidak bisa dikonfigurasi (pengaturannya dihapus). cv:'both' = bahasa asing & Indonesia sama-sama disensor per bagian. */
+const SENS={cv:'both',rom:1,cgL:'blur',cgK:'blur',cgF:'blur',cpl:'blur',cvb:'blur',ckp:'blur',rdt:'blur',lm:1,ps:'id'};S.o=Object.assign(S.o,SENS);S.o={th:'auto',ac:'indigo',fz:'m',tts:1,ttsa:0,hap:1,gr:25,ttsr:.9,libMin:4,...S.o};if(!Array.isArray(S.lib))S.lib=[];if(!Array.isArray(S.o.gff))S.o.gff=(S.gf||[]).slice();
 const save=()=>{try{localStorage.setItem(SK,JSON.stringify(S))}catch(e){ok=false}window.vrSnapSoon&&vrSnapSoon()};
 const K={};D.C.forEach(c=>K[c[0]]=c);
 const LN={};D.L.forEach(l=>LN[l[0]]=l[1]);{const ok=x=>LN[String(x).split(':')[0]];S.f=S.f.filter(ok);S.o.ff=S.o.ff.filter(ok)}D.GL.forEach(l=>{if(!LN[l[0]])LN[l[0]]=l[1]});const GK={};D.G.forEach(g=>GK[g[0]]=g);
@@ -36,6 +36,15 @@ function fmx(e,pos,lang,force){if((lang!='de'&&lang!='nl')||!DX)return'';let t,l
  return`<div class="r fx"><span class=gl>${l}</span><span class="${md=='blur'&&!force?'cz':''}">${esc(t)}</span></div>`}
 const csel=(k,l,op,di)=>`<label class=fcl><span>${l}</span><select data-i="${di||k}" style="width:auto;margin:0">${op.map(([v,t])=>`<option value="${v}"${S.o[k]==v?' selected':''}>${t}</option>`).join('')}</select></label>`;
 const SH=[['show','Tampil'],['blur','Sensor (blur)']],SH3=[['show','Tampil'],['blur','Sensor (blur)'],['off','Tidak ditampilkan']];
+function sensor(){const o=S.o;return`<div class=card><b>Sensor</b><p class=gsub style="margin-top:2px">Semua pengaturan penyensoran ada di sini. Teks yang diblur bisa diketuk untuk melihatnya.</p>`+
+ `<div class=gsec>Kosakata (bagian Kata &amp; tab Daftar)</div>`+csel('cv','Sisi yang disensor',[['none','Tidak ada (semua tampil)'],['fo','Bahasa asing (Indonesia jadi soal)'],['id','Bahasa Indonesia (asing jadi soal)']])+
+ `<small>Berlaku untuk Acak 4 kata. Ketuk bagian yang diblur untuk membukanya — hanya bagian yang diketuk yang terbuka, bagian lain tetap tersensor.</small>`+
+ `<div class=gsec>Romanisasi</div><label class=fcl><span><input type=checkbox data-i=rom${o.rom?' checked':''}> Sembunyikan romanisasi (pinyin/romaji) di semua tab</span></label>`+
+ `<div class=gsec>Bahasa Jerman &amp; Belanda</div>`+csel('cgK','Gender (der/die/das · de/het): Kata &amp; Daftar',SH)+csel('cgF','Gender: Kartu',SH)+csel('cgL','Gender: Latihan',SH)+
+ csel('cpl','Bentuk jamak kata benda',SH3)+csel('cvb','Bentuk lain kata kerja',SH3)+csel('ckp','Komparatif kata sifat (Belanda)',SH3)+
+ `<small>Bentuk jamak ditampilkan di Kata, Daftar, Kartu (sisi jawaban), dan Latihan. Bentuk kata kerja = er/sie/es, Präteritum, Perfekt (Belanda: hij/zij/het, verleden, voltooid). Komparatif kata sifat khusus Belanda. Di Latihan, gender &amp; bentuk lain otomatis terbuka setelah kamu menekan "Periksa".</small>`+
+ `<div class=gsec>Latihan kalimat</div><label class=fcl><span><input type=checkbox data-i=lt_lm${o.lm?' checked':''}> Sensor arti Indonesia di bawah kata (ketuk untuk melihat)</span></label>`+
+ csel('ps','Tampilan kata',[['full','Kata target + arti'],['id','Hanya arti Indonesia']],'lt_ps')+'</div>'}
 function vis(c,all){const v={};let n=0;for(const[id,,,]of D.L){const e=(c[3][id]||[]).filter(x=>all||!S.f.length||S.f.includes(id+':'+x[3]));if(e.length){v[id]=e;n++}}return all?(n?v:null):(n>=S.o.minL&&n?v:null)}
 const pool=p=>D.C.filter(c=>c[1]==p&&vis(c));
 const ORD={new:[0],rev:[1,2,0],mix:[0,1,2]};
@@ -46,7 +55,7 @@ const pick=(p,ex)=>choose(pool(p).filter(c=>c[0]!=ex)),gp=()=>D.G.filter(g=>(!S.
 const msel=()=>'<small>Mode belajar</small><select data-i=mode>'+[['mix','Campur (prioritas Belum)'],['new','Hafalan baru'],['rev','Mengingat kembali']].map(([v,x])=>`<option value=${v}${S.o.mode==v?' selected':''}>${x}</option>`).join('')+'</select>';
 function card(k,full){const c=K[k],v=c&&vis(c,full);if(!v)return'<div class=card>Tidak ada kata yang cocok dengan filter saat ini.</div>';const ls=Object.keys(v),dn=ls.filter(l=>st(ik(k,l))==2).length;
 /* sensor per item: tiap bagian yang diblur punya penanda sendiri (data-rv) dan hanya bagian yang diketuk yang terbuka */
-const fo=1,idm=1,rva=(key,on,base)=>{const rk=k+'|'+key;return on?` data-rv="${esc(rk)}" class="${base?base+' ':''}rvl${shown.has(rk)?' rv':''}"`:(base?` class="${base}"`:'')};
+const fo=S.o.cv=='fo'||S.o.cv=='both',idm=S.o.cv=='id'||S.o.cv=='both',rva=(key,on,base)=>{const rk=k+'|'+key;return on?` data-rv="${esc(rk)}" class="${base?base+' ':''}rvl${shown.has(rk)?' rv':''}"`:(base?` class="${base}"`:'')};
 return`<div class="card" data-k="${esc(k)}"><div class=hd><span>${PN[c[1]]}</span><span>${dn}/${ls.length} bahasa selesai${edBtn('v',k)}</span></div><div${rva('m',idm,'mean')}>${esc(c[2])}</div><div class=grid>`+
 D.L.filter(l=>v[l[0]]).map(([id,n,col])=>{const i=ik(k,id),s=st(i);return`<div class=lg style="--lc:${col}"><small class=lgh>${n}<button class="stp stp${s}" data-a=cyc data-k="${esc(i)}" title="Ketuk untuk mengubah status ${n}">${STN[s]}${fcTag(i)}</button>${aiBtn(i)}</small><div${rva(id,fo)}>`+v[id].map(e=>`<div class=w>${wd(e[0],c[1],'K',id)}${spk(e[0],id)}</div>${e[1]?`<div class="r rom">${esc(e[1])}</div>`:''}${fmx(e,c[1],id)}${e[2]?`<div class=ex>${esc(e[2])}</div>`:''}`).join('')+'</div></div>'}).join('')+
 `</div>${fo||idm?'<div class=hint style="display:block">Ketuk bagian yang diblur untuk membukanya satu per satu</div>':''}${wSent(k,full)}</div>`}
@@ -54,7 +63,7 @@ function filtBody(){return'<div class=chips><button class="chip'+(S.f.length?'':
 D.L.map(l=>`<div><small>${l[1]}</small><div class=chips>`+l[4].map(v=>{const x=l[0]+':'+v;return`<button class="chip${S.f.includes(x)?' on':''}" data-a=fl data-v="${x}">${v}</button>`}).join('')+'</div></div>').join('')}
 const fcnt=n=>n?`<em class=cnt>${n} aktif</em>`:''
 function filt(){return dtag('f1')+'<summary><span>Filter level &amp; bahasa</span>'+fcnt(S.f.length)+'</summary>'+filtBody()+'</details>'}
-function vsetBody(){return'<div class=card>'+msel()+`<small>Minimal bahasa per kartu</small><select data-i=minL>${[1,2,3,4].map(n=>`<option${S.o.minL==n?' selected':''}>${n}</option>`).join('')}</select></div>`}
+function vsetBody(){return'<div class=card>'+msel()+`<small>Minimal bahasa per kartu</small><select data-i=minL>${[1,2,3,4].map(n=>`<option${S.o.minL==n?' selected':''}>${n}</option>`).join('')}</select><small>Sensor selalu aktif: bagian yang diblur (asing, Indonesia, gender, jamak, bentuk kata kerja) bisa diketuk satu per satu untuk dibuka.</small></div>`}
 function vset(){return dtag('vs')+'<summary>Pengaturan kosakata</summary>'+vsetBody()+'</details>'}
 const SEC_HEAD=(t,s)=>`<div class=sech><h2>${t}</h2><p>${s}</p></div>`;
 function kataSec(){const s=S.ses,has=['N','A','V','O'].some(p=>p in s);
@@ -67,7 +76,7 @@ function stats0(){let per=D.L.map(l=>[l,[0,0,0]]);const PM={};for(const c of D.C
  const bar=(n,t)=>`<div class=bar><i style="width:${n[2]/t*100}%;background:var(--s2)"></i><i style="width:${n[1]/t*100}%;background:var(--s1)"></i></div>`;
  return filt()+vset()+`<div class=card><b>Kosakata per bahasa</b><p class=gsub style="margin:2px 0 8px">Progres dihitung terpisah untuk tiap bahasa pada setiap kata.</p>`+per.filter(x=>x[1][0]+x[1][1]+x[1][2]).map(([l,n])=>{const t=(n[0]+n[1]+n[2])||1;return`<div class=lg style="--lc:${l[2]};margin:8px 0"><small>${l[1]} — ${t} kata</small>${bar(n,t)}Belum ${n[0]} · Sedang ${n[1]} · Selesai ${n[2]}</div>`}).join('')+'</div>'+
  ['N','A','V','O'].map(p=>{const P=pool(p),n=PM[p]||[0,0,0],t=(n[0]+n[1]+n[2])||1;
- return`<div class=card><b>${PN[p]}</b> — ${P.length} kartu · ${t} entri bahasa${bar(n,t)}Belum ${n[0]} · Sedang ${n[1]} · Selesai ${n[2]}</div>`}).join('')}
+ return`<div class=card><b>${PN[p]}</b> — ${P.length} kartu · ${t} entri bahasa${bar(n,t)}Belum ${n[0]} · Sedang ${n[1]} · Selesai ${n[2]}${wUsed(P)}</div>`}).join('')}
 function gbody(g){const L=t=>`<div class=gsec>${t}</div>`,kv=g[10]||[],CJ=g[1]=='nl'?['Ik','Jij / U','Hij / Zij / Het','Wij','Jullie','Zij']:['Ich','Du','Er/Sie/Es/Man','Wir','Ihr','sie/Sie'],cj=kv.filter(p=>CJ.includes(p[0])),isC=cj.length>=3,rest=isC?kv.filter(p=>!CJ.includes(p[0])):kv;let h='';
  if(rest.length)h+=`<dl class=gkv>${rest.map(p=>`<dt>${esc(p[0])}</dt><dd>${esc(p[1])}</dd>`).join('')}</dl>`;
  if(isC)h+=`<div class=gwrap><table class=gtb><tr>${CJ.map(c=>`<th>${c}</th>`).join('')}</tr><tr>${CJ.map(c=>{const p=cj.find(x=>x[0]==c);return`<td>${p?esc(p[1]):'–'}</td>`}).join('')}</tr></table></div>`;
@@ -80,9 +89,9 @@ function gbody(g){const L=t=>`<div class=gsec>${t}</div>`,kv=g[10]||[],CJ=g[1]==
  return h}
 function gcard(k){const g=GK[k];if(!g)return'<div class=card>Tidak ada grammar untuk filter/mode ini.</div>';const s=st(k);
 return`<div class=card><div class=hd><span>${LN[g[1]]||'Jerman'} ${g[2]}${g[3]?' · '+esc(g[3]):''}</span><span><i class="dot dot${s}"></i>${STN[s]}${fcTag(k)}${aiBtn(k)}${S.lib.some(t=>t.L==g[1])?`<button class="mini" data-a=libfind data-k="${esc(k)}" title="Cari teks di Pustaka">📚</button>`:''}${edBtn('g',k)}</span></div><div class=mean>${esc(g[4])}</div>${gbody(g)}${gTax(k)}${gSent(k,1)}${gmExBlock(k)}<div class="seg">${STN.map((x,i)=>`<button class="sb sb${i}${i==s?' on':''}" data-a=set data-k="${esc(k)}" data-v=${i}>${x}</button>`).join('')}</div></div>`}
-let gLg='',gLv=0,gFoc=0;const gAll0=l=>gLvs(l).map(v=>l+':'+v);
+let gLg='',gLv=0,gFoc=0,gFresh=1;const gAll0=l=>gLvs(l).map(v=>l+':'+v);
 const gLvs=l=>(D.GL.find(x=>x[0]==l)||[0,0,0,[]])[3];
-function gSync(){if(S.gf.length){const l=S.gf[0].split(':')[0];if(S.gf.some(x=>!x.startsWith(l+':')))S.gf=S.gf.filter(x=>x.startsWith(l+':'));if(gLg!=l){gLg=l;gLv=1}}else if(gLv||gLg){gLg='';gLv=0}}
+function gSync(){if(S.gf.length){const l=S.gf[0].split(':')[0];if(S.gf.some(x=>!x.startsWith(l+':')))S.gf=S.gf.filter(x=>x.startsWith(l+':'));if(!gFresh&&gLg!=l){gLg=l;gLv=1}}else if(gLv||gLg){gLg='';gLv=0}}
 function gStat(l,v){const a=D.G.filter(g=>g[1]==l&&(!v||g[2]==v));const d=a.filter(g=>st(g[0])==2).length;return{n:a.length,d}}
 function gPick(){const bt=(c,v,t,sub,pct)=>`<button class=gpk data-a=${c} data-v="${v}"><b>${t}</b><small>${sub}</small>${pct?`<i style="width:${pct}%"></i>`:''}</button>`;
  if(!gLg)return`<div class=card><b>Pilih bahasa grammar</b><p class=gsub style="margin:2px 0 8px">Langkah 1 dari 2. Setelah itu pilih level, lalu daftar grammar muncul.</p><div class=gpg>`+D.GL.map(l=>{const t=gStat(l[0]);return bt('glg',l[0],esc(l[1]),t.n+' topik · '+t.d+' selesai',t.n?Math.round(t.d/t.n*100):0)}).join('')+`</div></div>`;
@@ -97,7 +106,7 @@ let stFeat='';
 const STF=[['leech','🪨','Kartu bandel',()=>leechCard()],['eta','⏳','Perkiraan selesai',()=>etaCard()],['fcast','📈','Proyeksi beban',()=>fcastCard()],['gmap','🗺','Peta grammar',()=>gMap()||'<div class=card><small>Belum ada peta grammar.</small></div>']];
 function stFeatBar(){let n=0;try{n=lchItems().length}catch(e){}
  return`<div class=stf role=group aria-label="Fitur lain">`+STF.map(([k,i,t])=>`<button class="stfb${stFeat==k?' on':''}" data-a=stf data-v=${k} aria-expanded=${stFeat==k}><span>${i}</span><b>${t}</b>${k=='leech'&&n?`<em>${n}</em>`:''}</button>`).join('')+`</div>`+(stFeat?(STF.find(x=>x[0]==stFeat)||[0,0,0,()=>''])[3]():'')}
-function stats(){return kpiCard()+stFeatBar()+fcStatsCard()+heatCard()+actCard()+stats1()}function stats1(){const P=gp(),n=[0,0,0];P.forEach(g=>n[st(g[0])]++);const t=P.length||1;return stats0()+`<div class=card><b>Grammar</b> — ${P.length} topik<div class=bar><i style="width:${n[2]/t*100}%;background:var(--s2)"></i><i style="width:${n[1]/t*100}%;background:var(--s1)"></i></div>Belum ${n[0]} · Sedang ${n[1]} · Selesai ${n[2]}</div>`}
+function stats(){return kpiCard()+stFeatBar()+fcStatsCard()+heatCard()+actCard()+stats1()}function stats1(){const P=gp(),n=[0,0,0];P.forEach(g=>n[st(g[0])]++);const t=P.length||1;return stats0()+`<div class=card><b>Grammar</b> — ${P.length} topik<div class=bar><i style="width:${n[2]/t*100}%;background:var(--s2)"></i><i style="width:${n[1]/t*100}%;background:var(--s1)"></i></div>Belum ${n[0]} · Sedang ${n[1]} · Selesai ${n[2]}${gUsed(P)}</div>`}
 function list(){const t=q.toLowerCase();let r=D.C.filter(c=>{const v=vis(c);if(!v)return 0;const k=c[0],ss=SI.w[k]||[];if(fs!==''&&!Object.keys(v).some(l=>st(ik(k,l))==fs))return 0;
 if(fk=='s'&&!ss.length)return 0;if(fk=='n'&&ss.length)return 0;if(fk=='w'&&!ss.some(h=>h.r==0))return 0;
 return!t||c[2].toLowerCase().includes(t)||Object.values(v).flat().some(e=>(e[0]+e[1]).toLowerCase().includes(t))||ss.some(h=>h.s.toLowerCase().includes(t))});const n=r.length;
@@ -485,7 +494,7 @@ function ltSett(){const o=S.o,lv=LTLV[o.pl]||[];
  ltS('pg','Sumber grammar',[['all','Semua grammar'],['seen','Hanya yang sudah dipelajari'],['weak','Grammar yang sering salah']])+
  `<label class=fcl><span><input type=checkbox data-i=lt_pe${o.pe?' checked':''}> Hanya grammar yang punya contoh kalimat</span></label>`+
 `<label class=fcl><span><input type=checkbox data-i=lt_lx${o.lx?' checked':''}> Nilai "Tepat" menaikkan status Belum → Sedang (kata &amp; grammar yang dipakai)</span></label>`+
- '<small>"Sudah dipelajari" = berstatus Sedang/Selesai atau sudah ada di jadwal flashcard. Grammar yang sering salah akan lebih sering muncul. "Lemah" = kalimat terakhir dengan kata itu belum tepat, atau pernah dilupakan di flashcard; grammar lemah = akurasi di bawah 70%.</small></div></details>'}
+ '<small>Sensor kata/gender/jamak diatur di tab Atur → Sensor. "Sudah dipelajari" = berstatus Sedang/Selesai atau sudah ada di jadwal flashcard. Grammar yang sering salah akan lebih sering muncul. "Lemah" = kalimat terakhir dengan kata itu belum tepat, atau pernah dilupakan di flashcard; grammar lemah = akurasi di bawah 70%.</small></div></details>'}
 function ltHist(){const H=S.lt.h,n=H.length;
  return dtag('hist')+`<summary>Riwayat kalimat (${n})</summary><div class=card>`+(n?H.slice(-Math.min(lim,n)).reverse().map(x=>sItem(x,{g:1,w:1,del:1})).join('')+(n>lim?'<button data-a=more style="width:100%;margin-top:8px">Tampilkan lebih banyak</button>':'')+'<div class=btns><button data-a=ltclr>Hapus riwayat</button></div>':'<small>Belum ada kalimat tersimpan. Kalimat yang kamu nilai di Latihan akan muncul juga di detail tiap kata dan grammar.</small>')+'</div></details>'}
 function gpre(g){const t=g.slice();t[7]=[];t[8]=[];t[9]=[];t[10]=(g[10]||[]).filter(p=>!LTCJ.includes(p[0]));return gbody(t)}
@@ -546,7 +555,7 @@ function sItem(h,o){o=o||{};
 function wSent(k,full){const a=SI.w[k]||[],act=`<div class=btns><button data-a=ltfw data-k="${esc(k)}">${a.length?'Buat kalimat lagi':'Buat kalimat dengan kata ini'}</button></div>`;
  if(!a.length)return full?`<div class=mys><div class=gsec style="margin-top:0">Kalimat saya</div><small>Belum ada kalimat latihan dengan kata ini.</small>${act}</div>`:'';
  const ok=a.filter(h=>h.r==2).length,rec=a.slice().reverse(),sh=rec.slice(0,full?30:2);
- return`<div class=mys><div class=gsec style="margin-top:0">Kalimat saya · ${a.length} · ${ok} tepat</div>`+sh.map(h=>sItem(h,{g:full,del:full,rv:k+'|s'+h.t})).join('')+(!full&&a.length>2?`<button class=lnk data-a=wopen data-k="${esc(k)}">Lihat semua ${a.length} kalimat</button>`:'')+(full?act:'')+'</div>'}
+ return`<div class=mys><div class=gsec style="margin-top:0">Kalimat saya · ${a.length} · ${ok} tepat</div>`+sh.map(h=>sItem(h,{g:full,del:full,rv:(S.o.cv=='fo'||S.o.cv=='both')?k+'|s'+h.t:''})).join('')+(!full&&a.length>2?`<button class=lnk data-a=wopen data-k="${esc(k)}">Lihat semua ${a.length} kalimat</button>`:'')+(full?act:'')+'</div>'}
 function gSent(k,full){const a=SI.g[k]||[],s=S.lt.g[k],n=s?s.n:0,act=LTLV[(GK[k]||[])[1]]?`<div class=btns><button data-a=ltgo data-k="${esc(k)}">Latih grammar ini</button></div>`:'';
  if(!n&&!a.length)return full?`<div class=mys><div class=gsec style="margin-top:0">Kalimat saya</div><small>Belum pernah dilatih membuat kalimat dengan grammar ini.</small>${act}</div>`:'';
  const sh=a.slice().reverse().slice(0,full?30:2);
@@ -558,32 +567,32 @@ function gUsed(P){const u=P.filter(g=>(S.lt.g[g[0]]||{}).n>0).length;return u?`<
 function sDel(t){const i=S.lt.h.findIndex(x=>x.t==t);if(i<0||!confirm('Hapus kalimat ini? Nilainya juga dikeluarkan dari statistik latihan.'))return;const h=S.lt.h[i];S.lt.h.splice(i,1);
  const s=S.lt.g[h.g];if(s){s.n=Math.max(0,s.n-1);if(h.r==2)s.ok=Math.max(0,s.ok-1)}
  const d=S.lt.d[fcDay(h.t)];if(d){d[0]=Math.max(0,d[0]-1);if(h.r==2)d[1]=Math.max(0,d[1]-1);if(h.r==1)d[2]=Math.max(0,(d[2]|0)-1)}}
-function actCard(){fcRoll();const td=fcDay(Date.now()),off=new Date().getTimezoneOffset(),cols=[];let sf=0;
- for(let i=13;i>=0;i--){const d=td-i,f=(S.lg[d]||[0])[0]|0;sf+=f;cols.push([d,f])}
+function actCard(){fcRoll();const td=fcDay(Date.now()),off=new Date().getTimezoneOffset(),cols=[];let sf=0,sl=0;
+ for(let i=13;i>=0;i--){const d=td-i,f=(S.lg[d]||[0])[0]|0,l=(S.lt.d[d]||[0])[0]|0;sf+=f;sl+=l;cols.push([d,f,l])}
  let run=0;for(let d=td;;d--){const a=((S.lg[d]||[0])[0]|0)+((S.lt.d[d]||[0])[0]|0);if(a>0)run++;else if(d<td)break}
- const mv=Math.max(1,...cols.map(x=>x[1])),px=x=>Math.round(x/mv*54);
- return`<div class=card><b>Aktivitas belajar</b> — ${run} hari beruntun<p><small>14 hari terakhir: ${sf} ulasan kartu</small></p><div class=fcg>${cols.map(([d,f])=>`<div><small>${f||''}</small>${f?`<i style="height:${px(f)}px;background:var(--a);border-radius:3px 3px 0 0"></i>`:''}<small>${new Date(d*864e5+144e5+off*6e4+216e5).getDate()}</small></div>`).join('')}</div><small><span style="color:var(--a)">■</span> Flashcard</small></div>`}
+ const mv=Math.max(1,...cols.map(x=>x[1]+x[2])),px=x=>Math.round(x/mv*54);
+ return`<div class=card><b>Aktivitas belajar</b> — ${run} hari beruntun<p><small>14 hari terakhir: ${sf} ulasan kartu · ${sl} soal latihan kalimat</small></p><div class=fcg>${cols.map(([d,f,l])=>`<div><small>${f+l||''}</small>${l?`<i style="height:${px(l)}px;background:#1a8a4a"></i>`:''}${f?`<i style="height:${px(f)}px;background:var(--a);border-radius:${l?'0':'3px 3px 0 0'}"></i>`:''}<small>${new Date(d*864e5+144e5+off*6e4+216e5).getDate()}</small></div>`).join('')}</div><small><span style="color:var(--a)">■</span> Flashcard &nbsp; <span style="color:#1a8a4a">■</span> Latihan kalimat</small></div>`}
 document.addEventListener('toggle',e=>{const d=e.target.dataset&&e.target.dataset.d;if(d){e.target.open?DO.add(d):DO.delete(d)}},true);
 sMig();
 document.addEventListener('click',e=>{let m=e.target.closest&&e.target.closest('.rvl:not(.rv),.mnh:not(.rv),.cz:not(.rv)');if(m){m.classList.add('rv');if(m.dataset.rv)shown.add(m.dataset.rv);e.stopPropagation();e.preventDefault();return}const r=e.target.closest&&e.target.closest('.rom');if(r&&document.body.classList.contains('romh')&&!r.classList.contains('rv')){r.classList.add('rv');e.stopPropagation();e.preventDefault()}},true);
 const IC={ses:'<path d="M3 5.5A1.5 1.5 0 0 1 4.5 4H11v15H4.5A1.5 1.5 0 0 0 3 20.5zM21 5.5A1.5 1.5 0 0 0 19.5 4H13v15h6.5a1.5 1.5 0 0 1 1.5 1.5z"/>',fc:'<rect x="3" y="7" width="15" height="12" rx="2"/><path d="M6 4h15v12"/>',gr:'<path d="M4 6h16M4 12h10M4 18h14"/>',list:'<path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/>',stats:'<path d="M5 20V11M12 20V4M19 20v-6"/>',lib:'<path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/>',set:'<path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/>'};
 function spy(){const l=document.getElementById('sec-l');if(!l||tab!='ses')return;let on='k';for(const x of['l']){const e=document.getElementById('sec-'+x);if(e&&e.getBoundingClientRect().top<innerHeight*.45)on=x}document.querySelectorAll('.pills button').forEach(b=>b.classList.toggle('on',b.dataset.v==on))}
-function render(){Object.assign(S.o,SENSOR_ON);if(tab=='lt'||tab=='ses')tab=SHOW_BELAJAR?'ses':'fc';document.body.classList.toggle('nobel',!SHOW_BELAJAR);document.querySelectorAll('details[data-d]').forEach(d=>d.open?DO.add(d.dataset.d):DO.delete(d.dataset.d));sBuild();document.body.classList.toggle('romh',!!S.o.rom);const T={ses:['Belajar',ses,'Belajar'],fc:['Kartu',()=>vrPromo()+fcView(),'Kartu'+vrBadge()],gr:['Grammar',gram,'Grammar'],list:['Daftar',list,'Daftar'],lib:['Pustaka',libView,'Pustaka'],stats:['Statistik',stats,'Statistik'],set:['Pengaturan',set,'Atur']};
+function render(){if(tab=='lt'||tab=='ses')tab=SHOW_BELAJAR?'ses':'fc';document.body.classList.toggle('nobel',!SHOW_BELAJAR);document.querySelectorAll('details[data-d]').forEach(d=>d.open?DO.add(d.dataset.d):DO.delete(d.dataset.d));sBuild();document.body.classList.toggle('romh',!!S.o.rom);const T={ses:['Belajar',ses,'Belajar'],fc:['Kartu',()=>vrPromo()+fcView(),'Kartu'+vrBadge()],gr:['Grammar',gram,'Grammar'],list:['Daftar',list,'Daftar'],lib:['Pustaka',libView,'Pustaka'],stats:['Statistik',stats,'Statistik'],set:['Pengaturan',set,'Atur']};
 const ch=tab!==lastTab,sy=window.scrollY;lastTab=tab;v.className=(tab=='ses'?'wide':'')+(ch?' fade':'');
-v.innerHTML=vrBanner()+(ok?'':'<div class=warn>Penyimpanan lokal diblokir, progres tidak akan tersimpan. Matikan mode privat atau izinkan penyimpanan situs.</div>')+`<h1>${T[tab][0]}</h1>`+T[tab][1]();
+v.innerHTML=vrBanner()+(ok?'':'<div class=warn>Penyimpanan lokal diblokir, progres tidak akan tersimpan. Matikan mode privat atau izinkan penyimpanan situs.</div>')+`<h1>${T[tab][0]}${['stats','set','lib'].includes(tab)?'':`<button class=mini data-a=gosen>⚙ Sensor</button>`}</h1>`+T[tab][1]();
 n.innerHTML='<div class=navi>'+Object.entries(T).filter(([k])=>k!='ses'||SHOW_BELAJAR).map(([k,x])=>`<button class="${k==tab?'on':''}" data-a=tab data-v=${k}${k==tab?' aria-current=page':''}><svg viewBox="0 0 24 24" aria-hidden="true">${IC[k]}</svg><span>${x[2]||x[0]}</span></button>`).join('')+'</div>';
 if(!ch&&sy>0){const de=document.documentElement,pm=de.style.scrollBehavior;de.style.scrollBehavior='auto';window.scrollTo(0,sy);de.style.scrollBehavior=pm}
 const ta=document.getElementById('ltTxt');if(ta){ta.style.height='auto';ta.style.height=Math.max(ta.scrollHeight+2,96)+'px'}
 spy()}
 addEventListener('scroll',()=>{if(!spy.p){spy.p=1;requestAnimationFrame(()=>{spy.p=0;spy()})}},{passive:true});
 document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,k=b.dataset.k,x=b.dataset.v,y=scrollY;
-if(a.slice(0,2)=='fc'){fcAct(a,x,k)}else if(a.slice(0,3)=='kpi'){kpiAct(a,x)}else if(a.slice(0,3)=='lib'||a=='slh'||a=='sldel'||a=='slmore'||a=='slplay'){if(libAct(a,x,k,b))return}else if(a.slice(0,3)=='lch'){lchAct(a,x)}else if(a.slice(0,3)=='eta'){etaAct(a,x)}else if(a.slice(0,2)=='lt'){ltAct(a,x,k)}else if(a.slice(0,2)=='rd'){if(rdAct(a,x,k))return}else if(a=='tab'){tab=x;lim=50;goTop=1;if(x=='gr'){gLg='';gLv=0;gFoc=0;S.gf=[];S.o.gpri='';S.o.gfn='';S.gs=0}}else if(a=='jump'){goSec='sec-'+x;goSm=1}else if(a=='set'){e.stopPropagation();S.p[k]=+x;if(!+x)delete S.p[k];fcFS(k)}else if(a=='flip'){shown.has(k)?shown.delete(k):shown.add(k)}
+if(a.slice(0,2)=='fc'){fcAct(a,x,k)}else if(a.slice(0,3)=='kpi'){kpiAct(a,x)}else if(a.slice(0,3)=='lib'||a=='slh'||a=='sldel'||a=='slmore'||a=='slplay'){if(libAct(a,x,k,b))return}else if(a.slice(0,3)=='lch'){lchAct(a,x)}else if(a.slice(0,3)=='eta'){etaAct(a,x)}else if(a.slice(0,2)=='lt'){ltAct(a,x,k)}else if(a.slice(0,2)=='rd'){if(rdAct(a,x,k))return}else if(a=='tab'){if(x=='gr'&&tab!='gr'){gLg='';gLv=0;gFoc=0;gFresh=1}tab=x;lim=50;goTop=1}else if(a=='jump'){goSec='sec-'+x;goSm=1}else if(a=='set'){e.stopPropagation();S.p[k]=+x;if(!+x)delete S.p[k];fcFS(k)}else if(a=='flip'){shown.has(k)?shown.delete(k):shown.add(k)}
 else if(a=='cyc'){const s=(st(k)+1)%3;s?S.p[k]=s:delete S.p[k];fcFS(k)}else if(a=='roll'){shown.clear();S.ses={};['N','A','V','O'].forEach(p=>S.ses[p]=pick(p))}
-else if(a=='re'){S.ses[x]=pick(x,S.ses[x])}else if(a=='fl'){const i=S.f.indexOf(x);i<0?S.f.push(x):S.f.splice(i,1)}else if(a=='fall')S.f=[];else if(a=='gfl'){const i=S.gf.indexOf(x);i<0?S.gf.push(x):S.gf.splice(i,1)}else if(a=='gall'){S.gf=[];S.o.gpri='';S.o.gfn=''}else if(a=='glg'){gLg=x;gLv=0;S.gf=D.GL.find(l=>l[0]==x)[3].map(v=>x+':'+v);S.o.gpri='';S.o.gfn='';S.gs=0;lim=50;goTop=1}else if(a=='gback'){gLg='';gLv=0;S.gf=[];S.o.gpri='';S.o.gfn='';S.gs=0;goTop=1}else if(a=='glv'){const all=gAll0(gLg);if(x=='all')S.gf=all;else if(S.gf.length>=all.length||!gLv)S.gf=[gLg+':'+x];else{const i=S.gf.indexOf(gLg+':'+x);i<0?S.gf.push(gLg+':'+x):S.gf.splice(i,1);if(!S.gf.length)S.gf=all}if(!gLv){goTop=1}gLv=1;lim=50;S.gs=0}else if(a=='gmap'){const[lp,d]=k.split('|'),[lg,l]=lp.split(':');S.gf=l?[lg+':'+l]:(TXLV[lg]||[]).map(v=>lg+':'+v);S.o.gfn=d;S.o.gpri='';S.gs=0;tab='gr';goTop=1}else if(a=='groll'){S.gs=choose(gp().filter(g=>g[0]!=S.gs));gFoc=1;goTop=1}else if(a=='glist'){gFoc=0;goTop=1}else if(a=='gtolv'){gFoc=0;gLv=0;goTop=1}
+else if(a=='re'){S.ses[x]=pick(x,S.ses[x])}else if(a=='fl'){const i=S.f.indexOf(x);i<0?S.f.push(x):S.f.splice(i,1)}else if(a=='fall')S.f=[];else if(a=='gfl'){const i=S.gf.indexOf(x);i<0?S.gf.push(x):S.gf.splice(i,1)}else if(a=='gall'){S.gf=[];S.o.gpri='';S.o.gfn=''}else if(a=='glg'){gFresh=0;gLg=x;gLv=0;S.gf=D.GL.find(l=>l[0]==x)[3].map(v=>x+':'+v);S.o.gpri='';S.o.gfn='';S.gs=0;lim=50;goTop=1}else if(a=='gback'){gLg='';gLv=0;S.gf=[];S.o.gpri='';S.o.gfn='';S.gs=0;goTop=1}else if(a=='glv'){const all=gAll0(gLg);if(x=='all')S.gf=all;else if(S.gf.length>=all.length||!gLv)S.gf=[gLg+':'+x];else{const i=S.gf.indexOf(gLg+':'+x);i<0?S.gf.push(gLg+':'+x):S.gf.splice(i,1);if(!S.gf.length)S.gf=all}if(!gLv){goTop=1}gLv=1;lim=50;S.gs=0}else if(a=='gmap'){const[lp,d]=k.split('|'),[lg,l]=lp.split(':');S.gf=l?[lg+':'+l]:(TXLV[lg]||[]).map(v=>lg+':'+v);S.o.gfn=d;S.o.gpri='';S.gs=0;gFresh=0;tab='gr';goTop=1}else if(a=='groll'){S.gs=choose(gp().filter(g=>g[0]!=S.gs));gFoc=1;goTop=1}else if(a=='glist'){gFoc=0;goTop=1}else if(a=='gtolv'){gFoc=0;gLv=0;goTop=1}
 else if(a=='gnext'||a=='gprev'){const P=gp(),n=P.length;if(n){const i=P.findIndex(g=>g[0]==S.gs),d=a=='gnext'?1:-1,j=i<0?(d>0?0:n-1):((i+d)%n+n)%n;S.gs=P[j][0];S.s[S.gs]=1;gFoc=1;goTop=1}}
-else if(a=='gopen'){S.gs=k;tab='gr';gFoc=1;const g0=GK[k];if(g0){const f=g0[1]+':'+g0[2];if(!S.gf.includes(f)){S.gf=[f];S.o.gpri='';S.o.gfn=''}gLg=g0[1];gLv=1}save();render();scrollTo(0,0);return}
+else if(a=='gopen'){gFresh=0;S.gs=k;tab='gr';gFoc=1;const g0=GK[k];if(g0){const f=g0[1]+':'+g0[2];if(!S.gf.includes(f)){S.gf=[f];S.o.gpri='';S.o.gfn=''}gLg=g0[1];gLv=1}save();render();scrollTo(0,0);return}
 else if(a=='stf'){stFeat=stFeat==x?'':x}else if(a=='lreset'){q='';fs='';fk='';lim=50}else if(a=='wopen'){tab='list';q='';fs='';fk='';foc=k;lim=50;goTop=1}else if(a=='wtog'){xo.has(k)?xo.delete(k):xo.add(k)}else if(a=='wclose'){foc=''}else if(a=='sdel'){sDel(+b.dataset.t)}
-else if(a=='say'){say(k,x);return}else if(a=='edit'){edOpen(x,k);return}else if(a=='edall'){if(!confirm('Kembalikan semua grammar & kosakata yang diedit ke versi asli?'))return;for(const t of['g','v'])for(const id in S.ed[t])edRestore(t,id);S.ed={g:{},v:{}};toast('Semua edit dikembalikan.')}else if(a=='ui'){S.o[k]=x;applyTheme()}else if(a=='sday'){fcSel=+x}else if(a=='srng'){fcRg=+x;fcSel=0}else if(a=='slg'){fcLgF=x;fcSel=0}else if(a=='hday'){heatSel=+x}
+else if(a=='gosen'){tab='set';goTop=1}else if(a=='say'){say(k,x);return}else if(a=='edit'){edOpen(x,k);return}else if(a=='edall'){if(!confirm('Kembalikan semua grammar & kosakata yang diedit ke versi asli?'))return;for(const t of['g','v'])for(const id in S.ed[t])edRestore(t,id);S.ed={g:{},v:{}};toast('Semua edit dikembalikan.')}else if(a=='ui'){S.o[k]=x;applyTheme()}else if(a=='sday'){fcSel=+x}else if(a=='srng'){fcRg=+x;fcSel=0}else if(a=='slg'){fcLgF=x;fcSel=0}else if(a=='hday'){heatSel=+x}
 else if(a=='more')lim+=50;else if(a=='miglg'){const L=[...new Set(S.f.map(x=>String(x).split(':')[0]))],n=migLegacy(L);toast(n+' item bahasa diperbarui dari progres lama.')}
 else if(a=='exp'){gmExpProgress();setTimeout(gmExpLibrary,600);return}else if(a=='expp'){gmExpProgress();return}else if(a=='expl'){gmExpLibrary();return}
 else if(a=='rst'){if(!confirm('Hapus semua progres?'))return;S.p={};S.s={};S.srs={};S.lg={};S.nw={};S.rd={};S.lib.forEach(t=>{t.h=0;t.r=0});S.sl.forEach(t=>{t.d=0});S.lt={h:[],g:{},d:{},a:{},x:{},q:{},pt:{}};ltCur=null;xo=new Set;foc='';S.sd={d:-1,n:0,r:0,x:0,y:0};fcUn=[];fcCur=null}
@@ -779,7 +788,7 @@ function heatCard(){fcRoll();const td=fcDay(Date.now()),W=14,w0=dDate(td).getDay
   const f=(S.lg[d]||[0])[0]|0,l=(S.lt.d[d]||[0])[0]|0,n=f+l;if(n){act++;tot+=n}
   cells+=`<button class="hz${lv(n)}${d==sd?' sel':''}" data-a=hday data-v=${d} title="${esc(dLbl(d))}: ${n}" aria-label="${esc(dLbl(d))}: ${n} aktivitas"></button>`}
  const f=(S.lg[sd]||[0])[0]|0,l=(S.lt.d[sd]||[0])[0]|0;
- return`<div class=card><b>Konsistensi belajar</b> — ${W} minggu<p class=gsub style="margin:2px 0 10px">Makin pekat warna, makin banyak aktivitas hari itu.</p><div class=heat>${cells}</div><div class=hcap><b>${dLbl(sd)}</b> · ${f} ulasan kartu</div><div class=kpis style="margin:10px 0 0"><div><b>${sk.run}</b><small>Rentetan kini</small></div><div><b>${sk.best}</b><small>Terbaik</small></div><div><b>${act}/${span}</b><small>Hari aktif</small></div><div><b>${tot}</b><small>Total aktivitas</small></div></div><div class=leg style="margin-top:10px"><span>Sedikit</span>${[0,1,2,3,4].map(n=>`<i class="hz${n}" style="width:12px;height:12px;display:inline-block;border-radius:3px;border:1px solid var(--b)"></i>`).join('')}<span>Banyak</span></div></div>`}
+ return`<div class=card><b>Konsistensi belajar</b> — ${W} minggu<p class=gsub style="margin:2px 0 10px">Makin pekat warna, makin banyak aktivitas hari itu.</p><div class=heat>${cells}</div><div class=hcap><b>${dLbl(sd)}</b> · ${f} ulasan kartu · ${l} soal latihan</div><div class=kpis style="margin:10px 0 0"><div><b>${sk.run}</b><small>Rentetan kini</small></div><div><b>${sk.best}</b><small>Terbaik</small></div><div><b>${act}/${span}</b><small>Hari aktif</small></div><div><b>${tot}</b><small>Total aktivitas</small></div></div><div class=leg style="margin-top:10px"><span>Sedikit</span>${[0,1,2,3,4].map(n=>`<i class="hz${n}" style="width:12px;height:12px;display:inline-block;border-radius:3px;border:1px solid var(--b)"></i>`).join('')}<span>Banyak</span></div></div>`}
 
 /* ---------- kartu pengaturan tampilan ---------- */
 function uiCard(){const o=S.o,seg=(k,op)=>`<div class=seg2>${op.map(([v,t])=>`<button class="${o[k]==v?'on':''}" data-a=ui data-k=${k} data-v=${v}>${t}</button>`).join('')}</div>`,ck=(k,t)=>`<label class=fcl><span><input type=checkbox data-i="ui_${k}"${o[k]?' checked':''}> ${t}</span></label>`;
@@ -858,27 +867,31 @@ document.addEventListener('keydown',e=>{if(!document.getElementById('edm'))retur
 function edCard(){const ng=Object.keys(S.ed.g).length,nv=Object.keys(S.ed.v).length;
  return`<div class=card><b>Edit keterangan</b><p class=gsub style="margin:2px 0 8px">Ketuk ✎ pada kartu kosakata, grammar, atau flashcard untuk mengubah arti, keterangan, contoh, dan catatan. Hasil edit tersimpan di perangkat ini dan ikut dalam cadangan progres.</p><small>${ng} grammar · ${nv} kosakata sudah diedit.</small>${ng+nv?'<button data-a=edall style="width:100%;margin-top:8px">Kembalikan semua ke asli</button>':''}</div>`}
 
-/* ===== v7.5: Onboarding pertama kali — pilih bahasa yang dipelajari, lalu level (boleh lebih dari satu) ===== */
-const OBORD=['HSK 1','HSK 2','HSK 3','HSK 4','HSK 5','HSK 6','N5','N4','N3','N2','N1','A1','A2','B1','B2','C1','C2'];
-const obVL=L=>(D.L.find(x=>x[0]==L)||[0,0,0,0,[]])[4],obGL=L=>(D.GL.find(x=>x[0]==L)||[0,0,0,[]])[3];
-const obLvs=L=>[...new Set([...obVL(L),...obGL(L)])].sort((x,y)=>OBORD.indexOf(x)-OBORD.indexOf(y));
-let obL='',obSel=new Set();
-const obFresh=()=>!(Object.keys(S.p).length||Object.keys(S.srs).length||Object.keys(S.s).length||S.lib.length||S.sl.length||S.lt.h.length||S.f.length||S.o.ff.length||S.o.gff.length);
-function obHtml(){
- if(!obL)return`<div class=obh><h2>Selamat datang di Vortaro</h2><p>Langkah 1 dari 2 · Bahasa apa yang sedang kamu pelajari?</p></div><div class=obg>`+D.L.map(l=>`<button class=obb data-ob=lang data-v="${l[0]}" style="--lc:${l[2]}"><b>${esc(l[1])}</b><small>${obLvs(l[0]).join(' · ')}</small></button>`).join('')+`</div>`;
- const l=D.L.find(x=>x[0]==obL),lv=obLvs(obL),n=obSel.size;
- return`<div class=obh><h2>${esc(l[1])}</h2><p>Langkah 2 dari 2 · Dari level mana kamu ingin belajar? Boleh pilih lebih dari satu.</p></div><div class=obg>`+lv.map(v=>`<button class="obb obl${obSel.has(v)?' on':''}" data-ob=lv data-v="${esc(v)}" aria-pressed="${obSel.has(v)}"><b>${esc(v)}</b></button>`).join('')+`</div><div class=obf><button data-ob=back>‹ Ganti bahasa</button><button data-ob=all>${n==lv.length?'Kosongkan':'Pilih semua'}</button><button class=pri data-ob=go${n?'':' disabled'}>Mulai belajar${n?' ('+n+' level)':''}</button></div>`}
-function obShow(){let m=document.getElementById('ob');if(!m){m=document.createElement('div');m.id='ob';m.className='obw';m.setAttribute('role','dialog');m.setAttribute('aria-modal','true');m.setAttribute('aria-label','Pilih bahasa dan level');document.body.appendChild(m);document.body.style.overflow='hidden'}m.innerHTML='<div class=obc>'+obHtml()+'</div>'}
-function obDone(){const L=obL,sel=[...obSel];let fv=obVL(L).filter(v=>sel.includes(v)),fg=obGL(L).filter(v=>sel.includes(v));if(!fv.length)fv=obVL(L);if(!fg.length)fg=obGL(L);
- S.f=fv.map(v=>L+':'+v);S.o.ff=S.f.slice();S.o.gff=fg.map(v=>L+':'+v);S.o.studyL=L;S.o.onb=1;
- const m=document.getElementById('ob');if(m)m.remove();document.body.style.overflow='';save();render();scrollTo(0,0)}
-document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-ob]');if(!b)return;e.stopPropagation();e.preventDefault();const a=b.dataset.ob,x=b.dataset.v;
- if(a=='lang'){obL=x;obSel=new Set()}else if(a=='back'){obL='';obSel=new Set()}else if(a=='lv'){obSel.has(x)?obSel.delete(x):obSel.add(x)}
- else if(a=='all'){const lv=obLvs(obL);obSel=obSel.size==lv.length?new Set():new Set(lv)}
- else if(a=='go'){if(obSel.size)obDone();return}
- obShow()},true);
-
 applyTheme();
 try{const _t=new URLSearchParams(location.search).get('tab');if(_t&&['ses','fc','lt','gr','list','lib','stats','set'].includes(_t))tab=_t}catch(e){}
-render();vrInit();
-if(!S.o.onb){if(obFresh())obShow();else{S.o.onb=1;save()}}
+
+/* ---------- v7.5: pertama kali membuka aplikasi → pilih bahasa, lalu level (boleh lebih dari satu) ---------- */
+const onb={step:1,lang:'',lv:new Set()};
+function onbFresh(){return!S.o.onb&&!Object.keys(S.p).length&&!Object.keys(S.srs).length&&!S.lib.length&&!S.sl.length&&!S.f.length&&!S.gf.length&&!(S.o.ff||[]).length&&!(S.o.gff||[]).length&&!Object.keys(S.rd||{}).length}
+function onbLevels(L){const l=D.L.find(x=>x[0]==L),g=D.GL.find(x=>x[0]==L),vs=l?l[4]:[],gs=g?g[3]:[],all=[...gs];vs.forEach(v=>{if(!all.includes(v))all.push(v)});
+ const wc={},gc={};D.C.forEach(c=>{(c[3][L]||[]).forEach(e=>{wc[e[3]]=(wc[e[3]]||0)+1})});D.G.forEach(x=>{if(x[1]==L)gc[x[2]]=(gc[x[2]]||0)+1});
+ return all.map(v=>({v,w:vs.includes(v)?(wc[v]||0):0,g:gs.includes(v)?(gc[v]||0):0}))}
+function onbHtml(){const h=[];
+ if(onb.step==1){h.push(`<div class=onbs>Langkah 1 dari 2</div><h1>Selamat datang di Vortaro 👋</h1><p class=gsub>Bahasa apa yang sedang kamu pelajari?</p><div class=onbg>`+D.L.map(l=>{const n=D.C.filter(c=>(c[3][l[0]]||[]).length).length;return`<button class=onbb data-o=lg data-v="${l[0]}" style="--lc:${l[2]}"><b>${esc(l[1])}</b><small>${n.toLocaleString('id-ID')} kata · ${D.G.filter(g=>g[1]==l[0]).length} grammar</small></button>`}).join('')+`</div><p class=gsub style="margin-top:12px">Bahasa lain bisa ditambahkan kapan saja lewat filter.</p>`)}
+ else{const L0=D.L.find(x=>x[0]==onb.lang),lv=onbLevels(onb.lang);
+  h.push(`<div class=onbs>Langkah 2 dari 2</div><button class=mini data-o=back>‹ Ganti bahasa</button><h1>${esc(L0[1])} — dari level mana?</h1><p class=gsub>Boleh pilih lebih dari satu level.</p><div class=onbg>`+lv.map(x=>`<button class="onbb${onb.lv.has(x.v)?' on':''}" data-o=lv data-v="${esc(x.v)}" style="--lc:${L0[2]}"><b>${esc(x.v)}</b><small>${x.w?x.w.toLocaleString('id-ID')+' kata':''}${x.w&&x.g?' · ':''}${x.g?x.g+' grammar':''}</small></button>`).join('')+`</div><div class=btns style="margin-top:14px"><button data-o=all>${onb.lv.size>=lv.length?'Kosongkan':'Pilih semua'}</button><button class=pri data-o=go${onb.lv.size?'':' disabled'}>Mulai belajar${onb.lv.size?' ('+onb.lv.size+' level)':''}</button></div>`)}
+ return`<div class=onbc>${h.join('')}</div>`}
+function onbDraw(){const m=document.getElementById('onb');if(m)m.innerHTML=onbHtml()}
+function onbFinish(){const L=onb.lang,l=D.L.find(x=>x[0]==L),g=D.GL.find(x=>x[0]==L),lv=[...onb.lv];
+ const vf=lv.filter(v=>l&&l[4].includes(v)).map(v=>L+':'+v),gf=lv.filter(v=>g&&g[3].includes(v)).map(v=>L+':'+v);
+ S.f=vf;S.o.ff=vf.slice();S.gf=gf;S.o.gff=gf.slice();S.o.pl=L;S.o.onb=1;S.o.lang=L;S.o.plv=[];
+ const m=document.getElementById('onb');if(m)m.remove();document.body.style.overflow='';tab='fc';gFresh=1;gLg='';gLv=0;save();render();scrollTo(0,0);toast('Siap! Kartu & grammar disesuaikan ke '+l[1]+' ('+lv.join(', ')+')')}
+function onbClick(e){const b=e.target.closest&&e.target.closest('[data-o]');if(!b||b.disabled)return;const a=b.dataset.o,v=b.dataset.v;
+ if(a=='lg'){onb.lang=v;onb.step=2;onb.lv=new Set();const lv=onbLevels(v);if(lv[0])onb.lv.add(lv[0].v);onbDraw()}
+ else if(a=='back'){onb.step=1;onbDraw()}
+ else if(a=='lv'){onb.lv.has(v)?onb.lv.delete(v):onb.lv.add(v);onbDraw()}
+ else if(a=='all'){const lv=onbLevels(onb.lang);onb.lv=onb.lv.size>=lv.length?new Set():new Set(lv.map(x=>x.v));onbDraw()}
+ else if(a=='go'&&onb.lv.size)onbFinish()}
+function onbCheck(){if(S.o.onb)return;if(!onbFresh()){S.o.onb=1;try{save()}catch(e){}return}
+ const m=document.createElement('div');m.id='onb';m.className='onb';m.setAttribute('role','dialog');m.setAttribute('aria-modal','true');m.addEventListener('click',onbClick);document.body.appendChild(m);document.body.style.overflow='hidden';onbDraw()}
+render();vrInit();onbCheck();

@@ -774,7 +774,7 @@ function libView(){libRepairAll();const sec=libSecV(),all=S.lib,lib=libSecItems(
  const prog=sec=='s'?lib.filter(t=>t.d).length+' hafal':sec=='r'?lib.filter(t=>t.r).length+' dibaca':lib.filter(t=>t.h).length+(sec=='d'?' selesai':' didengar');
  let h=`<div class=card><div class=hd><span>📚 Pustaka</span><span>${all.length+N.s} item</span></div>`+
   `<div class=aitabs role=tablist style="grid-template-columns:1fr 1fr">${[['r','Baca + terjemahan'],['l','Pemutar suara'],['d','Dua penutur'],['s','Kalimat tunggal']].map(([v,d])=>`<button class="${sec==v?'on':''}" data-a=libsec data-v=${v} role=tab><b>${LIBKI[v]} ${LIBKN[v]} · ${N[v]}</b><small>${d}</small></button>`).join('')}</div>`+
-  `<p class=gsub style="margin:2px 0 10px"><b>${LIBKN[sec]}</b>: ${LIBDESC[sec]} ${lib.length?`${lib.length} ${sec=='s'?'kalimat':'teks'} · ${prog}. `:''}Ikut dalam cadangan progres.</p><button class=pri data-a=libadd>＋ Tambah ${sec=='s'?'kalimat (banyak sekaligus)':'teks ke '+LIBKN[sec]}</button></div>`;
+  `<p class=gsub style="margin:2px 0 10px"><b>${LIBKN[sec]}</b>: ${LIBDESC[sec]} ${lib.length?`${lib.length} ${sec=='s'?'kalimat':'teks'} · ${prog}. `:''}Ikut dalam cadangan pustaka.</p><div class=btns style="margin-top:0"><button class=pri data-a=libadd>＋ Tambah ${sec=='s'?'kalimat (banyak sekaligus)':'teks ke '+LIBKN[sec]}</button><button data-a=libai title="Prompt AI untuk kartu yang belum punya contoh kalimat">🎓 Kelas AI</button></div></div>`;
  if(!lib.length){const oth=Object.keys(N).filter(x=>x!=sec&&N[x]);return h+`<div class="card empty"><b>${LIBKN[sec]} masih kosong</b>Di kartu mana pun tekan 🎓 → tab <b>${LIBKN[sec]}</b>, salin prompt ke AI, lalu tempel hasilnya lewat “＋ Tambah”.${sec=='l'&&N.l==0&&0?'':''}${oth.length?`<br><small>Bagian lain berisi: ${oth.map(x=>LIBKN[x]+' '+N[x]).join(', ')}.${sec=='r'&&N.l?' Teks lama dari versi sebelumnya ada di Listening; buka Rincian → “Pindah ke…”.':''}</small>`:''}</div>`}
  h+=libFinder(sec=='s');
  const langs=LIBL.filter(l=>cnt[l]);
@@ -815,6 +815,7 @@ function slView(){const langs=[...new Set(S.sl.map(x=>x.L))],L=libLg||(langs.len
 document.addEventListener('input',e=>{if(e.target.dataset&&e.target.dataset.l=='slq'){slQ=e.target.value;slLim=40;const l=document.getElementById('slist');if(l)l.innerHTML=slList()}});
 function libAct(a,x,k,b){const it=k&&S.lib.find(t=>t.id==k);
  if(a=='libadd'){libAddOpen('',libSecV());return 1}
+  else if(a=='libai'){aiLibOpen();return 1}
   else if(a=='libgm'){S.o.gmMin=S.o.gmMin==1?2:1;libAna.clear();libAnaG.clear();GMEXC.clear();save()}
  else if(a=='libsec'){S.o.libSec=['r','l','d','s'].includes(x)?x:'r';slQ='';slLim=40;libStt='';libLg='';libLim=30;libOpenId='';libCard='';libQ='';save()}
  else if(a=='libmv'&&it){it.k=libKind(it)=='r'?'l':libKind(it)=='l'?'d':'r';S.o.libSec=it.k;libOpenId=it.id;libStt='';libLg='';save();toast('Dipindah ke '+LIBKN[it.k]+' ✓')}
@@ -842,7 +843,7 @@ function libAct(a,x,k,b){const it=k&&S.lib.find(t=>t.id==k);
    6. PEMUTAR LISTENING
    --------------------------------------------------------------------------------------------- */
 let LP=null;
-const lpO=()=>{const o=S.o;if(o.lpM==null)o.lpM='s';if(o.lpPause==null)o.lpPause=1;if(o.lpRep==null)o.lpRep=1;if(o.lpAuto==null)o.lpAuto=1;if(o.lpLoop==null)o.lpLoop=0;o.lpT='blur';if(o.lpRom==null)o.lpRom=1;return o};
+const lpO=()=>{const o=S.o;if(o.lpM==null)o.lpM='s';if(o.lpPause==null)o.lpPause=1;if(o.lpRep==null)o.lpRep=1;if(o.lpAuto==null)o.lpAuto=1;if(o.lpLoop==null)o.lpLoop=0;if(!o.lpT)o.lpT='show';if(o.lpRom==null)o.lpRom=1;return o};
 function lpBuild(it,mode){const sents=[],paras=[];
  it.ps.forEach((p,pi)=>{const a=p.a!==0,from=sents.length;
   p.f.forEach((f,si)=>sents.push({f,pi,si,r:p.r&&p.r.length?(a?(p.r[si]||((it.L=='ja'||it.L=='zh')?libAutoRom(it.L,f):'')):p.r.join(' ')):((it.L=='ja'||it.L=='zh')?libAutoRom(it.L,f):''),au:!(p.r&&p.r.length),sp:p.sp&&p.sp[si]||'',i:p.i&&p.i.length?(a?(p.i[si]||''):p.i.join(' ')):'',pa:!a}));
@@ -924,6 +925,7 @@ function lpSetR(){const P=LP,e=document.getElementById('lpSet');if(!P||!e)return
   `<small class=lbl>Satuan putar</small>${sg('lpM',[['s','Per kalimat'],['p','Per paragraf']])}`+
   `<small class=lbl>Jeda antar ${P.mode=='p'?'paragraf':'kalimat'}</small>${sg('lpPause',[[0,'0'],[1,'1 dtk'],[2,'2 dtk'],[3,'3 dtk'],[5,'5 dtk'],['sd','Seperti durasinya']])}`+
   `<small class=lbl>Ulangi tiap ${P.mode=='p'?'paragraf':'kalimat'}</small>${sg('lpRep',[[1,'1×'],[2,'2×'],[3,'3×']])}`+
+  `<small class=lbl>Terjemahan Indonesia</small>${sg('lpT',[['show','Tampil'],['blur','Sensor'],['hide','Sembunyi']])}`+
   ((P.L=='ja'||P.L=='zh')?`<small class=lbl>Romanisasi${P.it.ps.some(p=>p.r&&p.r.length)?'':' (otomatis, perkiraan)'}</small>${sg('lpRom',[[1,'Tampil'],[0,'Sembunyi']])}`:'')+
   `<label class=fcl><span><input type=checkbox data-lpc=lpAuto${o.lpAuto?' checked':''}> Lanjut otomatis ke berikutnya</span></label><label class=fcl><span><input type=checkbox data-lpc=lpLoop${+o.lpLoop?' checked':''}> Ulangi dari awal setelah selesai</span></label>`+
   `<label class=fcl><span>Suara</span><select data-lpv=1 style="width:auto;max-width:60%"><option value="">Otomatis</option>${vs.map(v=>`<option value="${esc(v.voiceURI)}"${(S.o.lpV||{})[P.L]==v.voiceURI?' selected':''}>${esc(v.name)} (${esc(v.lang)})</option>`).join('')}</select></label>`+
