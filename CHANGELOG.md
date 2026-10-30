@@ -1,5 +1,15 @@
 # Riwayat Perubahan
 
+## 7.5.0 — Jumat, 30 Okt 2026
+**Sensor selalu aktif, onboarding bahasa & level, dan kartu mahir ikut membentuk kalimat di Kelas AI.**
+- **Sensor tidak lagi bisa dikonfigurasi:** semua sensor (sisi asing & Indonesia di kosakata, romanisasi, gender, jamak, bentuk kata kerja, komparatif, arti Indonesia di latihan, terjemahan Bacaan dan Pustaka) selalu aktif dan dipaksa tiap muat. Kartu “Sensor” di Atur, tombol ⚙ Sensor, dan pemilih terjemahan di pemutar Pustaka dihapus. Ketuk bagian yang diblur untuk membukanya.
+- **Onboarding pertama kali:** pengguna baru memilih bahasa yang dipelajari, lalu level (boleh lebih dari satu). Pilihan mengisi filter Kosakata, Flashcard, dan Grammar. Pengguna lama yang sudah punya data tidak melihat layar ini.
+- **Kelas AI:** kartu yang sudah mahir (matang ≥ 21 hari atau berstatus Selesai), baik kosakata maupun grammar, kini juga jadi pembentuk kalimat di prompt **Reading, Listening, Dialog, dan Kalimat**, di samping kartu lupa / sedang belajar. Panel menampilkan chip “mahir” yang bisa dikeluarkan satu per satu.
+- **Atur:** kartu Taksonomi grammar disembunyikan.
+- **Statistik:** bagian Latihan kalimat dan Bacaan Esperanto dihapus.
+- **Grammar:** membuka tab Grammar selalu dimulai dari pilihan bahasa, lalu level.
+- Service worker 7.5.0.
+
 ## 7.4.0 — Rabu, 28 Okt 2026 · 06.20 WIB
 **Penghubung kartu ⇄ Pustaka yang jauh lebih akurat, dua file JSON cadangan, dan 5 contoh kalimat saat kartu dibuka.**
 - **Dua JSON terpisah:** *Ekspor progres* (`progres-kosakata_TANGGAL_JAM.json`) dan *Ekspor pustaka* (`pustaka-kosakata_…json`), masing-masing bermeta (`type`, versi, waktu). Impor menerima beberapa file sekaligus dan tetap membaca cadangan lama (satu file gabungan). Tag grammar ikut tersimpan dan digabung saat impor.

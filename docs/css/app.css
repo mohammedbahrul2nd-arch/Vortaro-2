@@ -290,7 +290,19 @@ nav button{position:relative}
 .aitg{display:inline-block;font-size:.68rem;font-weight:700;padding:1px 7px;border-radius:99px;white-space:nowrap}
 .aitg.t1{background:color-mix(in srgb,var(--bad) 14%,transparent);color:var(--bad)}
 .aitg.t2{background:color-mix(in srgb,var(--s1) 18%,transparent);color:var(--s1)}
+.aitg.t3{background:color-mix(in srgb,var(--s2) 18%,transparent);color:var(--s2)}
 .aigr{display:flex;flex-wrap:wrap;gap:6px}
+/* onboarding pertama kali */
+.obw{position:fixed;inset:0;z-index:300;background:var(--bg);color:var(--t);overflow-y:auto;-webkit-overflow-scrolling:touch;display:flex;justify-content:center;padding:max(20px,env(safe-area-inset-top)) 16px max(20px,env(safe-area-inset-bottom))}
+.obc{width:100%;max-width:520px;margin:auto 0;display:flex;flex-direction:column;gap:18px}
+.obh h2{margin:0 0 6px;font-size:1.5rem}.obh p{margin:0;color:var(--m);font-size:.95rem;line-height:1.45}
+.obg{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.obb{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;padding:14px 14px;border-radius:14px;border:1.5px solid var(--b);background:var(--c);color:var(--t);font:inherit;cursor:pointer;min-height:56px;border-left:5px solid var(--lc,var(--a))}
+.obb b{font-size:1.02rem}.obb small{color:var(--m);font-size:.74rem;line-height:1.35}
+.obl{border-left:1.5px solid var(--b);justify-content:center;align-items:center;text-align:center}
+.obb:hover{border-color:var(--a)}.obb.on{border-color:var(--a);background:var(--a2);box-shadow:0 0 0 1px var(--a) inset}
+.obf{display:flex;flex-wrap:wrap;gap:8px}.obf button{flex:1 1 auto}.obf .pri{flex:2 1 180px}.obf button[disabled]{opacity:.45;cursor:not-allowed}
+
 #aiTxt{display:block;width:100%;height:34vh;min-height:180px;resize:vertical;padding:10px 12px;border:1px solid var(--b);border-radius:12px;background:var(--c);color:var(--t);font:400 .78rem/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
 #aiTxt:focus{outline:2px solid var(--a)}
 .aicnt{font-style:normal;font-weight:500;margin-left:4px}
