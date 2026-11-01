@@ -1,5 +1,25 @@
 # Riwayat Perubahan
 
+## 7.6.1 — Sabtu, 31 Okt 2026
+- **Kelas AI Pustaka — level aktif:** chip level per bahasa (A1…C2 / HSK / N5…) di panel; tanpa pilihan, tetap mengikuti filter flashcard seperti sebelumnya. Tombol “Semua” dan “Ikuti filter”.
+- **Kelas AI Pustaka — kartu yang benar-benar belum pernah muncul** (belum dinilai, belum diberi status, tidak ditangguhkan) di level terpilih kini ikut jadi pembentuk kalimat, **grammar dan kosakata**, sebagai blok “KARTU BARU” terpisah dari “KARTU PRIORITAS”. Urutan: yang belum punya contoh dulu, level terendah dulu, sehingga seluruh level terisi bertahap. Opsi: ikut/tidak, jumlah kosakata baru (3/6/10/15) dan grammar baru (0–8) per prompt. Aturan prompt: tiap kartu baru muncul ≥1×, yang 0 contoh ≥2×; grammar baru dicatat di blok TAG.
+- Cakupan di panel kini dihitung untuk seluruh kartu di level terpilih (bukan hanya sampel), termasuk jumlah yang belum pernah muncul.
+- **Romaji / pinyin:** baris romanisasi di Pustaka kini ikut mencocokkan kartu Jepang & Mandarin. Batas kata = spasi; bacaan kartu (≥4 huruf, nada pinyin dipertahankan) harus cocok pada batas kata; dihitung sebagai nilai terbesar dari aksara asli dan romanisasi (tanpa hitung ganda). Prompt meminta segmentasi kata yang konsisten. Bahasa berhuruf Latin sudah dicocokkan per kata (spasi/huruf) beserta bentuk turunannya.
+
+
+## 7.6.0 — Sabtu, 31 Okt 2026
+- **Bahasa baru: Inggris (EN)**, warna lime, level A1–C2, suara `en-US`.
+- **Kosakata:** 10.103 entri dari `English_Vocab_Grammar_A1-C2_v3.xlsx` (A1 639 · A2 1.102 · B1 3.541 · B2 2.193 · C1 1.494 · C2 1.134). Bacaan = **IPA**, contoh = kalimat sederhana dari sheet. Seperti Belanda, kata berarti sama digabung ke kartu yang sudah ada (6.348 entri bergabung, **3.755 kartu baru**); kelas kata sheet dipetakan ke N/V/A/O (phrasal & modal verb → V; adverbia, preposisi, frasa, idiom, numeralia, konjungsi, pronomina, determiner, interjeksi → O).
+- **Bentuk kata Inggris (`DXE`):** jamak (5.459, termasuk tanda *tak terhitung* / *selalu jamak*), `3sg · past · participle · -ing` (2.394 kata kerja & phrasal verb) dan komparatif · superlatif (1.297 kata sifat). Dibuat dari aturan + kamus tak beraturan (ejaan Amerika; penggandaan konsonan memakai tekanan dari IPA); catatan bentuk tak beraturan dari sheet menimpa hasil aturan. Ikut disensor (jamak / bentuk kata kerja / komparatif) dan tampil di kartu, prompt AI, dan pencocokan Pustaka.
+- **Grammar:** 623 pola (A1 65 · A2 153 · B1 203 · B2 117 · C1 65 · C2 20) dengan fungsi/aturan, pola, 3 contoh + terjemahan, kasus khusus & kesalahan umum, alasan level dan sumber. ID progres `g|en|A1|judul`.
+- **Taksonomi Inggris:** gid `en-a1-001` … `en-c2-020`; tag fungsi (kala, non-finite, artikel/determiner, modal, kondisional, pasif, klausa, preposisi …), prioritas Inti 139 · Umum 411 · Jarang 73, register (formal/literer) dan nuansa, 5 tetangga per pola, **46 kluster tertukar**, 25 pasangan kontras/mirip, 150-an relasi prasyarat. Tag lama yang dipakai bersama diberi label netral lintas bahasa.
+- **Kelas AI:** profil bahasa Inggris (kala/aspek, bentuk kata kerja, artikel & countability, preposisi & phrasal verb, register, pelafalan) + daftar nama bentuk kata kerja untuk tag AI (Present perfect, Passive, Phrasal verb terpisah “pick … up”, dll.).
+- **Pustaka:** bahasa Inggris di pemilih bahasa & judul `TEKS INGGRIS`, deteksi otomatis, singkatan (Mr., Mrs., Dr., e.g., i.e.) tidak memotong kalimat, pencocok bentuk kata (jamak, -s/-ed/-ing, tak beraturan, phrasal verb dengan urutan bebas), suara `en-US`.
+- **Penghubung grammar ⇄ Pustaka:** pola kala (present/past perfect, continuous), pasif, masa depan, modal, kondisional, past simple, gerund, to-infinitive, dan relative dikenali dari kalimat Pustaka; tampilan “kata kerja yang berubah bentuk” mencakup Inggris.
+- Latihan kalimat mengenali bentuk Inggris (jamak, past, -ing, tak beraturan). Sensor: label romanisasi mencakup IPA.
+- Service worker 7.6.0.
+
+
 ## 7.5.0
 - **Onboarding pertama kali:** pengguna baru memilih **bahasa** yang dipelajari, lalu **level** (boleh lebih dari satu). Pilihan itu mengisi filter kosakata & grammar sekaligus. Pengguna lama yang sudah punya progres/pustaka tidak dipaksa.
 - **Sensor selalu aktif & tidak bisa dikonfigurasi:** kartu pengaturan Sensor dihapus. Bagian asing dan Indonesia sama-sama diblur dan bisa diketuk satu per satu; romanisasi, gender, jamak, bentuk kata kerja, komparatif, dan terjemahan bacaan selalu disensor.

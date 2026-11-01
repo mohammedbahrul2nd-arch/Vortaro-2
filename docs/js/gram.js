@@ -9,7 +9,7 @@
       trennbar, zu-Infinitiv, Nebensatz, …) memakai bentuk kata kerja dari kartu verbmu
    6. 5 contoh dari Pustaka saat kartu dibuka
    ============================================================================================= */
-const GM_VER='7.5.0',GM_AT='2026-10-30T11:53:00+07:00';
+const GM_VER='7.6.1',GM_AT='2026-10-31T23:30:00+07:00';
 const gmB={n:0};
 const gmNorm=s=>String(s||'').toLowerCase().normalize('NFC').replace(/[〜～~\s()（）「」『』\[\]【】\/／・…*+,，、.。:：;；!！?？"'’`\-–—]/g,'');
 const gmHan=ch=>/[\u3400-\u9fff]/.test(ch);
@@ -159,7 +159,7 @@ function gmRec(d,i){d.rc=d.rc||[];let r=d.rc[i];if(r)return r;const f=d.sents[i]
 function gmRaw(rec,key){const F=libForms(key);if(!F)return 0;let n=0;for(const a of F.alts)n+=libCount1(rec.d1,a);return n}
 const GMS=new Map();
 function gmSpec(key){if(GMS.has(key))return GMS.get(key);const g=GK[key];let sp=null;try{sp=g?gmBuild(g,key):null}catch(e){sp=null}GMS.set(key,sp);return sp}
-function gmBuild(g,key){const L=g[1];if(L=='ja')return gmJaSpec(g,key);if(L=='zh')return gmZhSpec(g,key);if(L=='de'||L=='nl')return gmEuSpec(g,key);return{L,k:'raw'}}
+function gmBuild(g,key){const L=g[1];if(L=='ja')return gmJaSpec(g,key);if(L=='zh')return gmZhSpec(g,key);if(L=='de'||L=='nl')return gmEuSpec(g,key);if(L=='en')return gmEnSpec(g,key);return{L,k:'raw'}}
 
 /* --- Jepang --- */
 const GMJ_CATRE=/(副词|短语|谓语|定语|状语|补语|主语|宾语|词语|量词|名词|动词|形容词|结构|类型|后缀|复句|副詞|名詞|動詞|形容詞)/;
@@ -237,7 +237,7 @@ const GMNL={HEB:gmW('heb hebt heeft hebben'),ZIJ:gmW('ben bent is zijn'),WOR:gmW
  AUX:{hebben:'heb hebt heeft hebben had hadden gehad',zijn:'ben bent is zijn was waren geweest',worden:'word wordt worden werd werden geworden',kunnen:'kan kunt kunnen kon konden gekund',willen:'wil wilt willen wilde wilden gewild',moeten:'moet moeten moest moesten gemoeten',mogen:'mag mogen mocht mochten gemogen',zullen:'zal zult zullen zou zouden'}};
 const GM_PART=gmW('ab an auf aus bei ein mit nach vor weg zu zurück fest her hin los um über durch unter zusammen vorbei heraus herein hinaus hinein voraus vorüber empor op af aan uit in mee na om over toe voor terug samen door neer rond');
 const GMV={};
-function gmVerbK(L){if(GMV[L])return GMV[L];const X=L=='de'?DX:DXN,inf=new Map(),pp=new Map(),prt=new Map(),p3=new Map(),sep=[];
+function gmVerbK(L){if(GMV[L])return GMV[L];if(L=='en')return GMV[L]=gmEnVerbK();const X=L=='de'?DX:DXN,inf=new Map(),pp=new Map(),prt=new Map(),p3=new Map(),sep=[];
  if(X&&X.v)for(const raw in X.v){const info=String(X.v[raw]).split(' · ').map(x=>x.trim()),w=libLow(libC1(raw).replace(/^(?:sich|zich)\s+/i,''));if(!w||/\s/.test(w))continue;inf.set(w,raw);
   if(info.length>=2&&info[0]){const a=info[0].split(/\s+/),b=info[1].split(/\s+/),c=(info[2]||'').split(/\s+/),h3=libLow(a[0]),hr=libLow(b[0]),pw=libLow(c[c.length-1]||'');
    p3.set(h3,w);prt.set(hr,w);if(pw&&!/^(?:hat|ist|heeft|is|haben|sein|hebben|zijn)$/.test(pw))pp.set(pw,w);
@@ -251,7 +251,7 @@ function gmClauseVerbFinal(f,SUB,K,L,isPP){const vlike=e=>K.inf.has(e)||K.p3.has
  for(const c of String(f).split(/[,;:.!?]/)){const tk=libTok(c,L);if(tk.length<3)continue;
   let j=SUB.has(tk[0])?0:-1;if(j<0&&L=='nl')j=tk.findIndex((w,i)=>i>0&&GMNL_ANY.has(w));
   if(j>=0&&tk.length-j>=3&&vlike(tk[tk.length-1]))return true}return false}
-function gmEuFeat(rec,L){if(rec.fe)return rec.fe;const K=gmVerbK(L),T=rec.tk||[],S=new Set(T),has=s=>{for(const x of T)if(s.has(x))return true;return false},fe=new Set();
+function gmEuFeat(rec,L){if(L=='en')return gmEnFeat(rec);if(rec.fe)return rec.fe;const K=gmVerbK(L),T=rec.tk||[],S=new Set(T),has=s=>{for(const x of T)if(s.has(x))return true;return false},fe=new Set();
  const inf=T.some(t=>K.inf.has(t));
  if(L=='de'){const hab=has(GMDE.HAB)||['hatte','hattest','hatten','hattet'].some(x=>S.has(x)),sei=has(GMDE.SEI)||['war','warst','waren','wart'].some(x=>S.has(x)),wer=has(GMDE.WER),wur=has(GMDE.WUR),pp=T.some(t=>gmDePP(t,K)),pra=has(GMDE.PRA),hp=['hatte','hattest','hatten','hattet','war','warst','waren','wart'].some(x=>S.has(x));
   if(hab||sei){if(pp)fe.add(hp?'plus':'perfekt')}
@@ -287,6 +287,33 @@ function gmEuSpec(g,key){const L=g[1],sec=String(g[3]||'').toLowerCase(),title=S
  return{L,k:'eu',feat,req:req.size?req:null}}
 function gmEuLv(rec,sp){const fe=gmEuFeat(rec,sp.L);if(!fe.has(sp.feat))return 0;if(sp.req&&!rec.tk.some(t=>sp.req.has(t)))return 0;return 2}
 
+/* ---- Inggris (v7.6): daftar bentuk kata kerja dari DXE.v ('3sg · past · participle · -ing') ---- */
+const GMEN={BE:gmW('am is are was were be been being m s re'),MOD:gmW('can could may might must should would shall cannot ought'),REL:gmW('who whom whose which that where'),
+ NOTING:gmW('something nothing anything everything morning evening during ceiling spring string bring sing king ring thing things wing swing sting cling fling sling wring darling sibling pudding wedding building painting clothing feeling meeting ending beginning')};
+const GM_ENNOTPP=gmW('need indeed speed seed feed weed bleed breed proceed succeed exceed hundred red bed shed sacred naked wicked kindred embed');
+function gmEnVerbK(){const inf=new Map(),pp=new Map(),prt=new Map(),p3=new Map(),ing=new Map();
+ if(typeof DXE!='undefined'&&DXE&&DXE.v)for(const raw in DXE.v){const w=libLow(libC1(raw));if(!w||/\s/.test(w))continue;const f=String(DXE.v[raw]).split(' · ').map(x=>libLow(x.trim()));if(f.length<4)continue;inf.set(w,raw);
+  p3.set(f[0],w);for(const a of f[1].split('/'))prt.set(a.trim(),w);for(const a of f[2].split('/'))pp.set(a.trim(),w);ing.set(f[3],w)}
+ return{inf,pp,prt,p3,ing,sep:[]}}
+const gmEnPP=(t,K)=>K.pp.has(t)||(/^[a-z]{3,}ed$/.test(t)&&!GM_ENNOTPP.has(t));
+const gmEnIng=(t,K)=>K.ing.has(t)||(/^[a-z]{3,}ing$/.test(t)&&t.length>=5&&!GMEN.NOTING.has(t));
+function gmEnFeat(rec){if(rec.fe)return rec.fe;const K=gmVerbK('en'),T=rec.tk||[],S=new Set(T),has=s=>{for(const x of T)if(s.has(x))return true;return false},fe=new Set();
+ const be=has(GMEN.BE),pps=T.filter(t=>gmEnPP(t,K)),pp=pps.length>0,ppn=pps.some(t=>t!='been'),ing=T.some(t=>gmEnIng(t,K)),hv=S.has('have')||S.has('has')||S.has('ve'),hd=S.has('had')||(S.has('d')&&pp);
+ if(hv&&pp&&!S.has('will')&&!S.has('ll')&&!S.has('would'))fe.add('pperf');if(hd&&pp)fe.add('plup');if(be&&ppn&&!(S.has('being')&&!S.has('is')&&!S.has('are')&&!S.has('was')&&!S.has('were')&&!S.has('be')&&!S.has('been')&&!S.has('am')))fe.add('pass');
+ if(be&&ing)fe.add('prog');if(S.has('will')||S.has('ll')||S.has('shall')||(S.has('going')&&S.has('to')&&T.indexOf('to')==T.indexOf('going')+1))fe.add('fut');
+ if(has(GMEN.MOD)||S.has('can')||S.has('won')||S.has('ca'))fe.add('modal');if(S.has('if')||S.has('wish')||S.has('unless'))fe.add('cond');
+ if(T.some(t=>K.prt.has(t)&&!K.inf.has(t))||T.some(t=>/^[a-z]{3,}ed$/.test(t)&&!GM_ENNOTPP.has(t))){if(!(pp&&(hv||hd||be)))fe.add('past')}
+ if(ing&&!be)fe.add('ger');if(T.some((t,i)=>t=='to'&&T[i+1]&&K.inf.has(T[i+1])))fe.add('toinf');if(has(GMEN.REL))fe.add('rel');
+ return rec.fe=fe}
+const GMEN_F=[[/past perfect|plusquam/,'plup'],[/present perfect|perfect continuous|have gotten/,'pperf'],[/pasif|passive|\bvoice\b/,'pass'],[/future|going to|will vs shall/,'fut'],[/conditional|\bwish\b|if only|subjunctive|were to/,'cond'],[/continuous|progressive/,'prog'],[/past simple|past tense/,'past'],[/gerund/,'ger'],[/infinitive/,'toinf'],[/relative|klausa relatif/,'rel'],[/^(?:can|could|may|might|must|should|would|shall|will|ought|need|dare)\b|modal/,'modal']];
+function gmEnSpec(g,key){const title=String(g[4]||'').toLowerCase(),sec=String(g[3]||'').toLowerCase();let feat='';
+ for(const [re,f] of GMEN_F)if(re.test(title)){feat=f;break}
+ if(!feat&&/modal/.test(sec))feat='modal';
+ if(!feat)return{L:'en',k:'raw'};const req=new Set();
+ if(feat=='modal'){for(const m of title.match(/\b(?:can|could|may|might|must|should|would|shall|will|ought|need|dare)\b/g)||[])req.add(m);if(req.has('can'))req.add('cannot');if(req.has('will'))req.add('ll')}
+ if(feat=='fut'&&/going to/.test(title))req.add('going');
+ if(feat=='prog'){if(/past continuous/.test(title)){req.add('was');req.add('were')}else if(/present continuous/.test(title))['am','is','are','m','s','re'].forEach(x=>req.add(x))}
+ return{L:'en',k:'eu',feat,req:req.size?req:null}}
 /* --- penilai utama --- */
 function gmLv(d,i,key){const rec=gmRec(d,i);
  if(rec.tg)for(const t of rec.tg)if(t.t=='g'&&t.k==key)return t.s?3:2;
@@ -299,20 +326,21 @@ function gmCountL(d,key){const r={n3:0,n2:0,n1:0};for(let i=0;i<d.sents.length;i
 
 /* ---------- 4. Pengelompokan bentuk kata kerja per teks ---------- */
 const GMEU_L={inf:'Infinitiv',p3:'Präsens (3. Pers.)',prt:'Präteritum',pp:'Partizip II'};
-const GMNL_L={inf:'Infinitief',p3:'Presens (3e pers.)',prt:'Imperfectum',pp:'Voltooid deelwoord'};
+const GMNL_L={inf:'Infinitief',p3:'Presens (3e pers.)',prt:'Imperfectum',pp:'Voltooid deelwoord'},GMEN_L={inf:'Infinitive',p3:'Present (3sg -s)',prt:'Past simple',pp:'Past participle',ing:'-ing form'};
 function gmVerbForms(it){const L=it.L,G=new Map(),seen=new Set();
  const add=(k,lem,form,s,ref)=>{const dk=ref+'|'+s;if(seen.has(dk))return;seen.add(dk);let g=G.get(k||'~'+lem);if(!g){g={k:k||'',lem,total:0,forms:new Map()};G.set(k||'~'+lem,g)}
   g.total++;let f=g.forms.get(form);if(!f){f={n:0,s:new Set()};g.forms.set(form,f)}f.n++;f.s.add(s)};
- let K=null;if(L=='de'||L=='nl')K=gmVerbK(L);
+ let K=null;if(L=='de'||L=='nl'||L=='en')K=gmVerbK(L);
  it.ps.forEach((p,pi)=>p.f.forEach((f,si)=>{const ref=pi+'.'+si,tg=p.tg&&p.tg[si];
   if(tg)for(const t of tg)if(t.t=='v')add(t.k,t.n,t.f||'tag AI',t.s,ref);
   if(L=='ja'){for(const h of gmJaScan(f)){const a=h.a[0];if(a.f=='dict'||a.f=='Ai'||a.f=='Ana')continue;add(a.k,a.lem,gmFormName(a.f),h.s,ref)}}
-  else if(K){const lab=L=='de'?GMEU_L:GMNL_L;for(const t of libTok(f,L)){
-    if(K.pp.has(t))add(gmWordKey(K.pp.get(t),L),K.pp.get(t),lab.pp,t,ref);
+  else if(K){const lab=L=='de'?GMEU_L:L=='en'?GMEN_L:GMNL_L;for(const t of libTok(f,L)){
+    if(L=='en'&&K.ing.has(t)&&!K.inf.has(t)&&!K.pp.has(t))add(gmWordKey(K.ing.get(t),L),K.ing.get(t),lab.ing,t,ref);
+    else if(K.pp.has(t))add(gmWordKey(K.pp.get(t),L),K.pp.get(t),L=='en'&&K.prt.has(t)&&!K.inf.has(t)?lab.prt+' / participle':lab.pp,t,ref);
     else if(K.prt.has(t)&&!K.inf.has(t))add(gmWordKey(K.prt.get(t),L),K.prt.get(t),lab.prt,t,ref);
     else if(K.p3.has(t)&&!K.inf.has(t))add(gmWordKey(K.p3.get(t),L),K.p3.get(t),lab.p3,t,ref)}}}));
  return[...G.values()].sort((a,b)=>b.total-a.total)}
-function gmVerbView(it){if(it.L!='ja'&&it.L!='de'&&it.L!='nl')return'';const V=gmVerbForms(it);if(!V.length)return'';
+function gmVerbView(it){if(it.L!='ja'&&it.L!='de'&&it.L!='nl'&&it.L!='en')return'';const V=gmVerbForms(it);if(!V.length)return'';
  return`<div class=gsec style="margin-top:12px">Kata kerja yang berubah bentuk <small>(${V.length} kata kerja · dikelompokkan per kartu)</small></div><p class=gsub style="margin:2px 0 6px">${it.L=='ja'?'Bentuk て・た・ない・意向・使役・受身… dikenali dari kosakata kartumu (+ tag dari AI).':'Bentuk dikenali dari daftar bentuk di kartu verbmu (+ tag dari AI).'} Ketuk satu untuk mencari teks lain.</p>`+
   V.slice(0,12).map(g=>{const l=g.k?libLbl(g.k):{w:g.lem,r:'',m:''};
    return`<div class=row><div ${g.k?`data-a=libpick data-k="${esc(g.k)}"`:''}><b>${esc(l.w||g.lem)}</b> ${l.r?`<small>${esc(l.r)}</small>`:''}${l.m?` <small>${esc(l.m)}</small>`:''}<br>`+
@@ -336,7 +364,7 @@ function gmCollect(key){const L=libOfKey(key),isG=!!GK[key],m=gmMin(),out=[];
  for(const x of S.sl){if(x.L!=L)continue;const it=slPs(x),d=libSentDoc(it,0,0),lv=test(d);if(lv>=m)out.push({lv,f:x.f,r:x.r||'',i:x.i||'',t:'s',tg:x.tg||null,L})}
  for(const it of S.lib){if(it.L!=L)continue;it.ps.forEach((p,pi)=>p.f.forEach((f,si)=>{const d=libSentDoc(it,pi,si),lv=test(d);if(lv>=m)out.push({lv,f,r:p.a!==0&&p.r?p.r[si]||'':'',i:p.a!==0&&p.i?p.i[si]||'':'',t:libKind(it),tg:p.tg&&p.tg[si]||null,L,sp:p.sp&&p.sp[si]||''})}))}
  return out}
-function gmPick(c,N){const seen=new Set(),sc=x=>x.lv*100+(x.i?12:0)+(x.r||x.L=='de'||x.L=='nl'||x.L=='eo'?4:0)-Math.abs(String(x.f).replace(/\s+/g,'').length-(x.L=='ja'||x.L=='zh'?14:60))*.4;
+function gmPick(c,N){const seen=new Set(),sc=x=>x.lv*100+(x.i?12:0)+(x.r||x.L=='de'||x.L=='nl'||x.L=='en'||x.L=='eo'?4:0)-Math.abs(String(x.f).replace(/\s+/g,'').length-(x.L=='ja'||x.L=='zh'?14:60))*.4;
  return c.map(x=>({...x,s:sc(x)})).sort((a,b)=>b.s-a.s).filter(x=>{const k=String(x.f).replace(/\s+/g,'').toLowerCase();if(seen.has(k))return false;seen.add(k);return true}).slice(0,N)}
 const GMSRC={s:'🔤 Kalimat',r:'📖 Reading',l:'🎧 Listening',d:'💬 Dialog'};
 function gmExamples(key,N){N=N||5;const sig=gmSig(),c=GMEXC.get(key);if(c&&c.sig==sig&&c.N==N)return c.v;
@@ -382,7 +410,7 @@ function gmImpFiles(files){const fs=[...files];if(!fs.length)return;let done=[],
   save();render();toast(done.length?'Dipulihkan: '+done.join(' · ')+(bad?' · '+bad+' file tidak valid':''):'File tidak valid.')})}
 
 /* ---------- 8. Info versi ---------- */
-const GM_NEWS=["Pertama kali membuka aplikasi: pilih bahasa, lalu level (boleh lebih dari satu).", "Sensor kini selalu aktif dan tidak bisa dikonfigurasi (pengaturannya dihapus).", "Kelas AI: kartu yang sudah mahir (kosakata & grammar) ikut jadi pembentuk kalimat di Reading, Listening, Dialog, dan Kalimat — jumlahnya bisa diatur.", "Pustaka punya Kelas AI sendiri: cukup pilih bahasa, prompt memprioritaskan kartu yang belum / paling sedikit punya contoh kalimat.", "Prompt meminta kalimat yang natural dan masuk akal, bukan sekadar memenuhi daftar kartu.", "Tab Grammar selalu dimulai dari pilihan bahasa, lalu level. Atur lebih ringkas (tanpa kartu sensor & taksonomi); Statistik tanpa Latihan kalimat & Bacaan Esperanto."];
+const GM_NEWS=["Pertama kali membuka aplikasi: pilih bahasa, lalu level (boleh lebih dari satu).", "Sensor kini selalu aktif dan tidak bisa dikonfigurasi (pengaturannya dihapus).", "Kelas AI: kartu yang sudah mahir (kosakata & grammar) ikut jadi pembentuk kalimat di Reading, Listening, Dialog, dan Kalimat — jumlahnya bisa diatur.", "Pustaka punya Kelas AI sendiri: cukup pilih bahasa, prompt memprioritaskan kartu yang belum / paling sedikit punya contoh kalimat.", "Prompt meminta kalimat yang natural dan masuk akal, bukan sekadar memenuhi daftar kartu.", "Kelas AI Pustaka: pilih level aktif per bahasa, dan kartu yang benar-benar belum pernah muncul (grammar & kosakata) ikut jadi pembentuk kalimat supaya semua kartu di level itu punya contoh. Baris romaji/pinyin kini ikut dipakai mencocokkan kartu Jepang/Mandarin (batas kata = spasi).", "Bahasa Inggris (EN) A1–C2: 10.103 kata (dengan IPA) + 623 pola grammar lengkap dengan taksonomi, bentuk kata (jamak, past, participle, -ing, komparatif), dan dukungan Pustaka, Kelas AI, serta penghubung grammar ⇄ Pustaka.", "Tab Grammar selalu dimulai dari pilihan bahasa, lalu level. Atur lebih ringkas (tanpa kartu sensor & taksonomi); Statistik tanpa Latihan kalimat & Bacaan Esperanto."];
 function gmWhen(){const m=GM_AT.match(/^(\d{4})-(\d\d)-(\d\d)T(\d\d):(\d\d)/);if(!m)return GM_AT;const hr=['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],bl=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'],dt=new Date(Date.UTC(+m[1],+m[2]-1,+m[3]));
  return hr[dt.getUTCDay()]+', '+(+m[3])+' '+bl[+m[2]-1]+' '+m[1]+' · pukul '+m[4]+'.'+m[5]+' WIB'}
 function verCard(){return`<div class=card><div class=hd><span><b>Vortaro v${GM_VER}</b></span><span class=bdg>terbaru</span></div><small>Diperbarui ${gmWhen()}</small><ul style="margin:8px 0 0;padding-left:18px;font-size:.85rem;line-height:1.5">${GM_NEWS.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`}

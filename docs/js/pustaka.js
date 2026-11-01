@@ -4,14 +4,15 @@
 /* ---------------------------------------------------------------------------------------------
    1. PARSER: teks tempelan dari AI -> paragraf -> kalimat (+ romanisasi + terjemahan)
    --------------------------------------------------------------------------------------------- */
-const LIBL=['zh','ja','de','nl','eo'];
-const libNm=l=>(typeof LN!='undefined'&&LN[l])||({zh:'Mandarin',ja:'Jepang',de:'Jerman',nl:'Belanda',eo:'Esperanto'}[l])||l;
+const LIBL=['zh','ja','de','nl','en','eo'];
+const libNm=l=>(typeof LN!='undefined'&&LN[l])||({zh:'Mandarin',ja:'Jepang',de:'Jerman',nl:'Belanda',en:'Inggris',eo:'Esperanto'}[l])||l;
 const libId=()=>'t'+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
-const LIBHN={JEPANG:'ja',MANDARIN:'zh',JERMAN:'de',BELANDA:'nl',ESPERANTO:'eo'};
+const LIBHN={JEPANG:'ja',MANDARIN:'zh',JERMAN:'de',BELANDA:'nl',INGGRIS:'en',ENGLISH:'en',ESPERANTO:'eo'};
 const LIBSW={
  id:'yang dan di untuk dengan ini itu saya tidak adalah ke dari pada akan juga dalam sudah bisa kami kita mereka dia aku kamu ada atau karena seperti oleh sebuah lebih sangat sedang mau harus hari'.split(' '),
  de:'der die das und ist nicht ich du er sie es wir ihr ein eine einen mit auf für von zu den dem im auch sich aber wie wenn bin sind war hat haben wird'.split(' '),
  nl:'de het een en is niet ik jij je hij zij ze wij we jullie van op voor met dat die dit zijn was heeft hebben wordt ook maar als naar bij'.split(' '),
+  en:'the and are were of to that it you he she we they have has had will not for with this but be as at by on from or an his her their its our your my there which would could should been being does did than then them these those what when who'.split(' '),
  eo:'la kaj estas mi vi li ŝi ni ili ne en al por kun sur ĉi tio kio ke sed aŭ mia via lia ŝia'.split(' ')};
 const LIBSWS={};for(const l in LIBSW)LIBSWS[l]=new Set(LIBSW[l]);
 function libScore(text){const t=String(text).toLowerCase().match(/[\p{L}]+/gu)||[],o={};for(const l in LIBSWS)o[l]=t.reduce((a,w)=>a+(LIBSWS[l].has(w)?1:0),0);
@@ -19,11 +20,11 @@ function libScore(text){const t=String(text).toLowerCase().match(/[\p{L}]+/gu)||
 const libCJK=s=>/[぀-ヿ㐀-鿿]/.test(s);
 function libDetectL(t){const kana=(t.match(/[぀-ヿ]/g)||[]).length,han=(t.match(/[㐀-鿿]/g)||[]).length;
  if(kana>=2||(kana>0&&han&&kana/han>.03))return'ja';if(han>=2)return'zh';
- const s=libScore(t);let b='',bv=1;for(const l of['de','nl','eo'])if(s[l]>bv){b=l;bv=s[l]}return b}
+ const s=libScore(t);let b='',bv=1;for(const l of['de','nl','en','eo'])if(s[l]>bv){b=l;bv=s[l]}return b}
 function libClean(s){return String(s||'').replace(/\r\n?/g,'\n').replace(/^[ \t]*```[^\n`]*$/gm,'').replace(/\\[ \t]*$/gm,'').replace(/\\([!-\/:-@\[-`{-~’‘“”])/g,'$1').replace(/<\/?(?:underline|u|b|i|em|strong|mark|span|ins|del|br)\b[^>]*>/gi,'').replace(/[\u00a0\u200b\u2028\u2029]/g,' ')
  .replace(/(\*\*|__|`)/g,'').replace(/(^|[\s(「『“"])[*_]([^*_\n]+?)[*_](?=[\s.,!?;:)」』”"。、！？]|$)/g,'$1$2')
  .split('\n').map(l=>l.replace(/^\s*(?:#{1,6}\s+|>\s+|[-•]\s+|\d{1,2}[.)]\s+)/,'').replace(/[ \t]+$/,'')).join('\n')}
-const LIBAB=/(?:\bz\.\s?B|\bd\.\s?h|\bu\.\s?a|\bo\.\s?a|\bbzw|\busw|\bca|\bDr|\bHr|\bFr|\bNr|\bSt|\bvgl|\bbijv|\benz|\bmevr|\bdhr|\bmr|\bvs)\.$/i;
+const LIBAB=/(?:\bz\.\s?B|\bd\.\s?h|\bu\.\s?a|\bo\.\s?a|\bbzw|\busw|\bca|\bDr|\bHr|\bFr|\bNr|\bSt|\bvgl|\bbijv|\benz|\bmevr|\bdhr|\bmr|\bmrs|\bms|\bprof|\bjr|\bsr|\binc|\bltd|\be\.\s?g|\bi\.\s?e|\bvs)\.$/i;
 function libSplit(t,L){t=String(t||'').replace(/\s+/g,' ').trim();if(!t)return[];
  const m=t.match(/[^.!?…。！？]+(?:[.!?…。！？]+["”’»)」』）]*|$)\s*/g)||[t],out=[],cj=L=='ja'||L=='zh';
  for(const p0 of m){const p=p0.trim();if(!p)continue;const last=out[out.length-1];
@@ -59,7 +60,7 @@ function libGrouped(lines,L){const mark=l=>/^(?:第[一二三四五六七八九�
 const LIBID=/^\s*[\[【〔［]\s*(\d{1,3})\s*[.\-:·．]\s*(\d{1,3})\s*[\]】〕］]\s*[:：.)\-–—]?\s*/;
 const LIBHD=/^\s*(?:={2,}\s*)?(?:DAFTAR\s+)?(?:KARTU\s+)?(TEKS|TEXT|ROMAJI|ROMANISASI|ROMANIZATION|PINYIN|TERJEMAHAN|TRANSLATION|ARTI|PEMBENTUK|JUDUL|TITLE)\b([^=\n]{0,45}?)\s*(?:={2,})?\s*:?\s*$/i;
 const LIBHK={TEKS:'f',TEXT:'f',ROMAJI:'r',ROMANISASI:'r',ROMANIZATION:'r',PINYIN:'r',TERJEMAHAN:'i',TRANSLATION:'i',ARTI:'i',PEMBENTUK:'n',JUDUL:'t',TITLE:'t'};
-const LIBHW={JEPANG:'ja',JAPANESE:'ja',MANDARIN:'zh',CHINESE:'zh',JERMAN:'de',GERMAN:'de',BELANDA:'nl',DUTCH:'nl',ESPERANTO:'eo'};
+const LIBHW={JEPANG:'ja',JAPANESE:'ja',MANDARIN:'zh',CHINESE:'zh',JERMAN:'de',GERMAN:'de',BELANDA:'nl',DUTCH:'nl',INGGRIS:'en',ENGLISH:'en',ESPERANTO:'eo'};
 function libHead(l){if(l.length>70)return null;const m=l.match(LIBHD);if(!m)return null;
  const strong=/={2,}/.test(l)||/:\s*$/.test(l)||(l===l.toUpperCase()&&/[A-Z]/.test(l))||/^\s*(?:DAFTAR\s+)?(?:KARTU\s+)?(?:TEKS|TEXT|ROMAJI|ROMANISASI|PINYIN|TERJEMAHAN|TRANSLATION|ARTI|JUDUL|TITLE|PEMBENTUK)(?:\s+(?:BAHASA|YANG|DIPAKAI|DIGUNAKAN|JEPANG|MANDARIN|JERMAN|BELANDA|ESPERANTO|INDONESIA|ASING|JAPANESE|CHINESE|GERMAN|DUTCH))*\s*$/i.test(l);if(!strong)return null;
  const k=LIBHK[m[1].toUpperCase()];const w=(m[2]||'').trim().toUpperCase().split(/\s+/).map(x=>LIBHW[x]).find(Boolean)||'';
@@ -451,6 +452,36 @@ function libNlSets(raw,pos){const w0=libC1(raw).replace(/^(?:(?:de|het)(?:\/(?:d
  const sets=ws.slice(0,-1).map(x=>{const l=libLow(x),s=new Set([l]);['e','en','er','s','t','te','de'].forEach(e=>s.add(l+e));return s});
  const head=ws[ws.length-1];sets.push(pos=='V'?libNlVerb(head):pos=='N'?libNlNoun(head):one(head,pos));return sets}
 
+/* ---- Inggris (v7.6): bentuk kata dari tabel DXE + aturan reguler; kata kerja frasal dicocokkan per kalimat (urutan bebas, mis. pick it up) ---- */
+const libEnDx=(k,raw)=>((typeof DXE!='undefined'&&DXE&&DXE[k]&&DXE[k][raw])||'');
+function libEnGen(w){const o=new Set([w]),e=/e$/.test(w),y=/[^aeiou]y$/.test(w),st=w.slice(0,-1);o.add(w+'s');o.add(w+'es');
+  if(e){o.add(w+'d');o.add(st+'ing');o.add(w+'r');o.add(w+'st')}else{o.add(w+'ed');o.add(w+'ing');o.add(w+'er');o.add(w+'est')}
+  if(y){o.add(st+'ies');o.add(st+'ied');o.add(st+'ier');o.add(st+'iest');o.add(st+'ying')}
+  if(/[^aeiou][aeiou][^aeiouwxy]$/.test(w)){const d=w+w.slice(-1);['ed','ing','er','est','es'].forEach(x=>o.add(d+x))}return o}
+const libEnForms=(raw,k,strip)=>{const o=new Set(),f=libEnDx(k,raw);if(!f||/^(?:tak terhitung|selalu jamak)/.test(f))return o;
+  for(let x of f.split(' · ')){x=libLow(x).replace(/^(?:more|most)\s+/,'');if(strip)x=x.split(' ')[0];for(const y of x.split('/'))if(y.trim())o.add(y.trim())}return o};
+function libEnNoun(raw){const o=new Set(),w=libLow(libC1(raw)).replace(/'/g,'');if(!w||/\s/.test(w))return o;
+  libEnGen(w).forEach(x=>{if(/s$/.test(x)||x==w)o.add(x)});libEnForms(raw,'n').forEach(x=>o.add(x.replace(/'/g,'')));
+  if(/^(?:tak terhitung)/.test(libEnDx('n',raw)))o.delete(w+'s');return o}
+function libEnVerb(raw){const o=new Set(),w=libLow(libC1(raw)).trim();if(!w)return o;const h=w.split(' ')[0];
+  libEnGen(h).forEach(x=>{if(!/(?:er|est|r|st)$/.test(x)||x==h)o.add(x)});libEnForms(raw,'v',true).forEach(x=>o.add(x));
+  if(h=='be'){['am','is','are','was','were','been','being',"'m","'s","'re"].forEach(x=>o.add(x))}
+  if(h=='have'){['has','had','having']}
+  return o}
+function libEnAdj(raw){const o=new Set(),w=libLow(libC1(raw));if(!w||/\s/.test(w))return o;o.add(w);
+  const f=libEnDx('a',raw);if(f)f.split(' · ').forEach(x=>{x=libLow(x);if(!/^more|^most/.test(x))o.add(x.trim())});
+  if(!/^more|^most/.test(f)&&!f){libEnGen(w).forEach(x=>{if(/(?:er|est)$/.test(x))o.add(x)})}
+  const e=/e$/.test(w);if(e){o.add(w+'r');o.add(w+'st')}if(/[^aeiou]y$/.test(w)){o.add(w.slice(0,-1)+'ier');o.add(w.slice(0,-1)+'iest')}
+  if(/^[^aeiou]*[aeiou][^aeiouwxy]$/.test(w)){o.add(w+w.slice(-1)+'er');o.add(w+w.slice(-1)+'est')}return o}
+function libEnSets(raw,pos){const w0=libLow(libC1(raw)).replace(/^to\s+/,'').replace(/\s*\/\s*/g,' / ');
+  if(/\s\/\s/.test(w0)){const m=new Set();w0.split(' / ').forEach(x=>{const r=libEnSets(x.trim(),pos);if(r.length==1)r[0].forEach(y=>m.add(y))});return[m]}
+  const ws=w0.split(' ').filter(Boolean);
+  const one=(x,p)=>p=='N'?libEnNoun(x):p=='V'?libEnVerb(x):p=='A'?libEnAdj(x):new Set([libLow(libC1(x)).replace(/'/g,"'")]);
+  if(ws.length<=1)return[one(raw,pos)];
+  if(pos=='V'){const sets=[libEnVerb(raw)];for(const x of ws.slice(1))if(!/^(?:sb|sth|somebody|something|one|someone|oneself|your|one's|my|his|her|their|our|a|an|the)$/.test(x)&&!/^\(.*\)$/.test(x))sets.push(new Set([x]));return sets}
+  const head=ws.length>2&&/^(?:cup|piece|bit|glass|bottle|lot|kind|sort|type|pair)$/.test(ws[0])?ws[0]:ws[ws.length-1];
+  const sets=ws.slice(0,-1).map(x=>new Set([libLow(x)]));sets.push(pos=='N'?libEnNoun(head):pos=='A'?libEnAdj(head):new Set([libLow(head)]));return sets}
+
 /* ---- Esperanto ---- */
 const LIBEO_P=new Set(['mi','ni','vi','li','ŝi','ĝi','ili','oni','si','ci']);
 function libEo(raw,pos){const o=new Set(),w=libLow(libC1(raw)).replace(/\s+/g,'');if(!w)return[o];
@@ -557,12 +588,13 @@ function libGramF(gid){const g=GK[gid];if(!g)return null;const L=g[1],title=Stri
  for(const w of words){sets.add(w);
   if(L=='de'&&/en$/.test(w)&&w.length>4)libDeVerb(w).forEach(x=>sets.add(x));
   else if(L=='nl'&&/en$/.test(w)&&w.length>4)libNlVerb(w).forEach(x=>sets.add(x));
-  else if(L=='eo'&&/[aeo]?i$/.test(w)&&w.length>3)libEo(w,'V')[0].forEach(x=>sets.add(x))}
+  else if(L=='en'&&w.length>2)libEnGen(w).forEach(x=>sets.add(x));
+   else if(L=='eo'&&/[aeo]?i$/.test(w)&&w.length>3)libEo(w,'V')[0].forEach(x=>sets.add(x))}
  const alts=[];if(sets.size)alts.push({k:'tok',sets:[sets]});if(pre.length||cont.length)alts.push({k:'aff',pre,cont});
  if(!alts.length&&exT.length>=2){/* tanpa pola eksplisit: tambang kata ciri dari contoh sendiri (kata yang ada di >=60% contoh & jarang di korpus) */
   const D0=libExDF(L),cnt=new Map();exT.forEach(t=>t.forEach(w=>cnt.set(w,(cnt.get(w)|0)+1)));const mn=Math.max(2,Math.ceil(exT.length*.6)),cand=[];
   for(const [w,c] of cnt){if(c<mn||w.length<3||LIBGSTOP.has(w)||LIBSWS.id.has(w)||(LIBSWS[L]&&LIBSWS[L].has(w)))continue;const df=(D0.df.get(w)|0)/D0.n;if(df<=.03)cand.push([df,w])}
-  cand.sort((a,b)=>a[0]-b[0]);if(cand.length){const st=new Set(cand.slice(0,6).map(x=>x[1]));st.forEach(w=>{if(L=='de'&&/en$/.test(w)&&w.length>4)libDeVerb(w).forEach(x=>st.add(x));else if(L=='nl'&&/en$/.test(w)&&w.length>4)libNlVerb(w).forEach(x=>st.add(x))});return{alts:[{k:'tok',sets:[st]}],gen:0,mined:1}}}
+  cand.sort((a,b)=>a[0]-b[0]);if(cand.length){const st=new Set(cand.slice(0,6).map(x=>x[1]));[...st].forEach(w=>{if(L=='de'&&/en$/.test(w)&&w.length>4)libDeVerb(w).forEach(x=>st.add(x));else if(L=='nl'&&/en$/.test(w)&&w.length>4)libNlVerb(w).forEach(x=>st.add(x));else if(L=='en'&&w.length>2)libEnGen(w).forEach(x=>st.add(x))});return{alts:[{k:'tok',sets:[st]}],gen:0,mined:1}}}
  const gen=!sets.size&&alts.every(a=>a.k=='aff'&&[...a.pre,...a.cont].every(x=>x.length<=2))?1:0;
  return alts.length?{alts,gen}:null}
 const LIBEXDF={};
@@ -573,13 +605,20 @@ const libFM=new Map();
 function libForms(key){if(libFM.has(key))return libFM.get(key);let F=null;
  if(GK[key]){try{F=libGramF(key)}catch(e){F=null}libFM.set(key,F);return F}
  try{const b=base(key),L=lang(key),c=K[b],es=c&&c[3][L];if(es&&es.length){const pos=c[1];
-  if(L=='zh')F={alts:[libZhF(es)]};
-  else if(L=='ja')F={alts:[libJaF(es,pos)]};
+  if(L=='zh')F={alts:[libZhF(es)],rom:libRomR(es,L)};
+  else if(L=='ja')F={alts:[libJaF(es,pos)],rom:libRomR(es,L)};
   else{const single=new Set(),alts=[];
-   const mk={de:libDeSets,nl:libNlSets,eo:libEo}[L];
+   const mk={de:libDeSets,nl:libNlSets,en:libEnSets,eo:libEo}[L];
    for(const e of es){const sets=mk(e[0],pos);if(sets.length==1)sets[0].forEach(x=>single.add(x));else alts.push({k:'tok',sets})}
    if(single.size)alts.unshift({k:'tok',sets:[single]});F={alts}}}}catch(e){F=null}
  libFM.set(key,F);return F}
+/* ---- v7.6: pencocokan lewat baris romaji / pinyin. Batas kata = spasi di baris romanisasi; bacaan kartu (≥4 huruf, nada pinyin dipertahankan) harus cocok persis pada batas kata. Dipakai sebagai tambahan di samping pencocokan aksara asli (hasil = nilai terbesar, tanpa hitung ganda) ---- */
+const libRomN=(s,L)=>{let t=String(s).toLowerCase().normalize('NFC');if(L=='ja')t=t.replace(/ā/g,'a').replace(/ī/g,'i').replace(/ū/g,'u').replace(/ē/g,'e').replace(/ō/g,'o').replace(/ou/g,'o').replace(/oo/g,'o').replace(/uu/g,'u').replace(/aa/g,'a').replace(/ii/g,'i');return t};
+const libRomT=(s,L)=>libRomN(s,L).match(/\p{L}+/gu)||[];
+function libRomB(s,L){const tk=libRomT(s,L);if(!tk.length)return null;const b=new Set([0]);let j='';for(const t of tk){j+=t;b.add(j.length)}return{j,b}}
+function libRomR(es,L){const o=new Set();for(const e of es)String(e[1]||'').split(/\s*[\/;,、]\s*/).forEach(v=>{const t=libRomT(v.replace(/\(.*?\)/g,''),L).join('');if(t.length>=4)o.add(t)});return[...o]}
+function libRomCount(d,rom){if(!d.rs||!d.rs.some(Boolean))return 0;if(!d.rb)d.rb=d.rs.map(r=>r?libRomB(r,d.L):null);let n=0;
+ for(const B of d.rb){if(!B)continue;for(const r of rom){let i=B.j.indexOf(r),ok=false;while(i>=0){if(B.b.has(i)&&B.b.has(i+r.length)){ok=true;break}i=B.j.indexOf(r,i+1)}if(ok){n++;break}}}return n}
 const libDocs=new Map();
 function libTok(s,L){let t=libLow(String(s));if(L=='eo')t=t.replace(/([cghjs])x/g,(m,c)=>({c:'ĉ',g:'ĝ',h:'ĥ',j:'ĵ',s:'ŝ'}[c])).replace(/ux/g,'ŭ');return t.match(/\p{L}+/gu)||[]}
 function libDoc(it){let d=libDocs.get(it.id);if(d)return d;const L=it.L,sents=[],rs=[],is=[],tgs=[];it.ps.forEach(p=>p.f.forEach((s,k)=>{sents.push(s);const a=p.a!==0;rs.push(a&&p.r?p.r[k]||'':'');is.push(a&&p.i?p.i[k]||'':'');tgs.push(p.tg&&p.tg[k]||null)}));
@@ -593,7 +632,7 @@ function libCount1(d,F){if(F.k=='aff'){let n=0;for(const [w,c] of d.cnt)if(F.pre
   return n}
  if(F.sets.length==1){let n=0;const S0=F.sets[0];if(S0.size<=d.cnt.size){for(const w of S0)n+=d.cnt.get(w)|0}else{for(const [w,c] of d.cnt)if(S0.has(w))n+=c}return n}
  let n=0;for(const st of d.sT){if(F.sets.every(S0=>{for(const w of S0)if(st.has(w))return true;return false}))n++}return n}
-function libCountKey(d,key){if(GK[key]&&typeof gmCount=='function')return gmCount(d,key);const F=libForms(key);if(!F)return 0;let n=0;for(const a of F.alts)n+=libCount1(d,a);return n}
+function libCountKey(d,key){if(GK[key]&&typeof gmCount=='function')return gmCount(d,key);const F=libForms(key);if(!F)return 0;let n=0;for(const a of F.alts)n+=libCount1(d,a);if(F.rom&&F.rom.length)n=Math.max(n,libRomCount(d,F.rom));return n}
 const libKeysByL={};
 function libKeys(L){if(libKeysByL[L])return libKeysByL[L];const a=[];for(const c of D.C)if(c[3][L]&&c[3][L].length)a.push(ik(c[0],L));return libKeysByL[L]=a}
 const libAna=new Map();
