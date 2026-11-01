@@ -9,7 +9,7 @@
       trennbar, zu-Infinitiv, Nebensatz, …) memakai bentuk kata kerja dari kartu verbmu
    6. 5 contoh dari Pustaka saat kartu dibuka
    ============================================================================================= */
-const GM_VER='7.6.1',GM_AT='2026-10-31T23:30:00+07:00';
+const GM_VER='7.8.0',GM_AT='2026-11-01T22:30:00+07:00';
 const gmB={n:0};
 const gmNorm=s=>String(s||'').toLowerCase().normalize('NFC').replace(/[〜～~\s()（）「」『』\[\]【】\/／・…*+,，、.。:：;；!！?？"'’`\-–—]/g,'');
 const gmHan=ch=>/[\u3400-\u9fff]/.test(ch);
@@ -386,7 +386,7 @@ const gmP2=n=>String(n).padStart(2,'0');
 const gmStamp=()=>{const d=new Date();return d.getFullYear()+'-'+gmP2(d.getMonth()+1)+'-'+gmP2(d.getDate())+'_'+gmP2(d.getHours())+gmP2(d.getMinutes())};
 function gmDownload(name,obj){const u=URL.createObjectURL(new Blob([JSON.stringify(obj)],{type:'application/json'})),l=document.createElement('a');l.href=u;l.download=name;document.body.appendChild(l);l.click();setTimeout(()=>{l.remove();URL.revokeObjectURL(u)},1500)}
 const gmMeta=type=>({type,v:3,app:GM_VER,at:new Date().toISOString()});
-function gmExpProgress(){const o={...gmMeta('vortaro-progress'),p:S.p,s:S.s,srs:S.srs,lg:S.lg,nw:S.nw,lt:S.lt,ed:S.ed,rd:S.rd,gmMin:S.o.gmMin==1?1:2};gmDownload('progres-kosakata_'+gmStamp()+'.json',o);return o}
+function gmExpProgress(){const o={...gmMeta('vortaro-progress'),p:S.p,s:S.s,srs:S.srs,lg:S.lg,nw:S.nw,lt:S.lt,ed:S.ed,rd:S.rd,gg:S.gg||{},ggd:S.ggd||null,gmMin:S.o.gmMin==1?1:2};gmDownload('progres-kosakata_'+gmStamp()+'.json',o);return o}
 function gmExpLibrary(){const o={...gmMeta('vortaro-library'),lib:S.lib,sl:S.sl};gmDownload('pustaka-kosakata_'+gmStamp()+'.json',o);return o}
 function gmMergeLib(d){let a=0,b=0;
  if(Array.isArray(d.lib)){const m=new Map(S.lib.map(t=>[t.id,t]));d.lib.forEach(t=>{if(!t||!t.id||!Array.isArray(t.ps))return;const o=m.get(t.id);
@@ -397,7 +397,7 @@ function gmMergeLib(d){let a=0,b=0;
  return[a,b]}
 function gmImpData(d){const out=[];
  const hasProg=['p','s','srs','lg','nw','rd','lt','ed'].some(k=>d[k]&&typeof d[k]=='object');
- if(hasProg){Object.assign(S.p,d.p||{});Object.assign(S.s,d.s||{});Object.assign(S.srs,d.srs||{});Object.assign(S.lg,d.lg||{});for(const x in(d.nw||{}))S.nw[x]=Object.assign(S.nw[x]||{},d.nw[x]);Object.assign(S.rd,d.rd||{});
+ if(hasProg){Object.assign(S.p,d.p||{});Object.assign(S.s,d.s||{});Object.assign(S.srs,d.srs||{});Object.assign(S.lg,d.lg||{});for(const x in(d.nw||{}))S.nw[x]=Object.assign(S.nw[x]||{},d.nw[x]);Object.assign(S.rd,d.rd||{});S.gg=Object.assign(S.gg||{},d.gg||{});
   if(d.ed){for(const t of['g','v'])Object.assign(S.ed[t],d.ed[t]||{});edApplyAll()}
   migKeys([...new Set(S.f.map(x=>String(x).split(':')[0]))]);
   if(d.lt){const m=new Map();(S.lt.h||[]).concat(d.lt.h||[]).forEach(x=>m.set(x.t+'|'+x.s,x));S.lt.h=[...m.values()].sort((a,b)=>a.t-b.t).slice(-1000);sMig();Object.assign(S.lt.g,d.lt.g||{});Object.assign(S.lt.d,d.lt.d||{})}
@@ -410,9 +410,9 @@ function gmImpFiles(files){const fs=[...files];if(!fs.length)return;let done=[],
   save();render();toast(done.length?'Dipulihkan: '+done.join(' · ')+(bad?' · '+bad+' file tidak valid':''):'File tidak valid.')})}
 
 /* ---------- 8. Info versi ---------- */
-const GM_NEWS=["Pertama kali membuka aplikasi: pilih bahasa, lalu level (boleh lebih dari satu).", "Sensor kini selalu aktif dan tidak bisa dikonfigurasi (pengaturannya dihapus).", "Kelas AI: kartu yang sudah mahir (kosakata & grammar) ikut jadi pembentuk kalimat di Reading, Listening, Dialog, dan Kalimat — jumlahnya bisa diatur.", "Pustaka punya Kelas AI sendiri: cukup pilih bahasa, prompt memprioritaskan kartu yang belum / paling sedikit punya contoh kalimat.", "Prompt meminta kalimat yang natural dan masuk akal, bukan sekadar memenuhi daftar kartu.", "Kelas AI Pustaka: pilih level aktif per bahasa, dan kartu yang benar-benar belum pernah muncul (grammar & kosakata) ikut jadi pembentuk kalimat supaya semua kartu di level itu punya contoh. Baris romaji/pinyin kini ikut dipakai mencocokkan kartu Jepang/Mandarin (batas kata = spasi).", "Bahasa Inggris (EN) A1–C2: 10.103 kata (dengan IPA) + 623 pola grammar lengkap dengan taksonomi, bentuk kata (jamak, past, participle, -ing, komparatif), dan dukungan Pustaka, Kelas AI, serta penghubung grammar ⇄ Pustaka.", "Tab Grammar selalu dimulai dari pilihan bahasa, lalu level. Atur lebih ringkas (tanpa kartu sensor & taksonomi); Statistik tanpa Latihan kalimat & Bacaan Esperanto."];
+const GM_NEWS=["Tab baru Games: Tebak gender noun (Jerman der/die/das, Belanda de/het) dengan filter level dan jadwal SRS sendiri.","Hasil game terlihat di sisi jawaban kartu flashcard.","Tab Belajar & Bacaan Esperanto dihapus; pengaturan flashcard pindah ke Atur; kuota 0 di Kelas AI Pustaka diisi kartu baru."];
 function gmWhen(){const m=GM_AT.match(/^(\d{4})-(\d\d)-(\d\d)T(\d\d):(\d\d)/);if(!m)return GM_AT;const hr=['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],bl=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'],dt=new Date(Date.UTC(+m[1],+m[2]-1,+m[3]));
  return hr[dt.getUTCDay()]+', '+(+m[3])+' '+bl[+m[2]-1]+' '+m[1]+' · pukul '+m[4]+'.'+m[5]+' WIB'}
 function verCard(){return`<div class=card><div class=hd><span><b>Vortaro v${GM_VER}</b></span><span class=bdg>terbaru</span></div><small>Diperbarui ${gmWhen()}</small><ul style="margin:8px 0 0;padding-left:18px;font-size:.85rem;line-height:1.5">${GM_NEWS.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`}
 function gmDataCard(){const nl=S.lib.length,ns=S.sl.length,nt=S.lib.reduce((a,t)=>a+t.ps.reduce((b,p)=>b+(p.tg?p.tg.filter(Boolean).length:0),0),0)+S.sl.filter(x=>x.tg&&x.tg.length).length;
- return`<div class=card><b>Cadangan data</b><p class=gsub style="margin:4px 0 8px">Dua file terpisah, bisa dipulihkan sendiri-sendiri atau sekaligus.</p><div class=btns style="margin-top:0"><button class=pri data-a=expp>Ekspor progres (JSON)</button><button class=pri data-a=expl>Ekspor pustaka (JSON)</button></div><p class=gsub style="margin:6px 0 8px">Progres: ${Object.keys(S.p).length} kartu bertanda, ${S.lt.h.length} kalimat latihan · Pustaka: ${nl} teks, ${ns} kalimat, ${nt} kalimat bertag.</p><p><small>Impor (boleh pilih beberapa file sekaligus, termasuk cadangan versi lama):</small><br><input type=file accept=.json multiple data-i=imp></p><button data-a=rst>Hapus semua progres</button></div>`}
+ return`<div class=card><b>Cadangan data</b><div class=btns style="margin-top:0"><button class=pri data-a=expp>Ekspor progres (JSON)</button><button class=pri data-a=expl>Ekspor pustaka (JSON)</button></div><p class=gsub style="margin:6px 0 8px">Progres: ${Object.keys(S.p).length} kartu bertanda, ${S.lt.h.length} kalimat latihan · Pustaka: ${nl} teks, ${ns} kalimat, ${nt} kalimat bertag.</p><p><small>Impor cadangan</small><br><input type=file accept=.json multiple data-i=imp></p><button data-a=rst>Hapus semua progres</button></div>`}

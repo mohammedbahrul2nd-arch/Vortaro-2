@@ -1,5 +1,16 @@
 # Riwayat Perubahan
 
+## 7.8.0 — Minggu, 1 Nov 2026
+- **Tab Games** (berkas baru `js/games.js`). Game pertama: **Tebak gender noun** untuk Jerman (der/die/das) dan Belanda (de/het). Filter bahasa & level, batas kata baru/ulasan per hari, dan **SRS terpisah** dari flashcard utama (disimpan di `S.gg`, ikut ekspor/impor progres, tombol reset sendiri). Benar = Baik, salah = Lagi.
+- Di sisi jawaban kartu (tab Kartu), kata benda Jerman/Belanda menampilkan hasil game: artikel, status SRS, jadwal ulasan, dan jumlah benar.
+
+## 7.7.0 — Minggu, 1 Nov 2026
+- **Dihapus:** tab Belajar yang disembunyikan (Kata, Latihan kalimat) dan Bacaan Esperanto beserta datanya; tombol ⚙ Sensor di kanan atas; filter/tombol terkait latihan kalimat.
+- **Pengaturan flashcard** pindah dari tab Kartu ke tab Atur (terbuka secara bawaan).
+- **Kelas AI Pustaka:** kosakata prioritas, grammar prioritas, kosakata mahir, dan grammar mahir bisa dipilih **0**. Kuota bawaan yang hilang (8 / 3 / 12 / 4) diganti **kartu baru** yang belum pernah muncul di flashcard (otomatis aktif walau “Ikut” dimatikan). Berlaku untuk Reading, Listening, Dialog, dan Kalimat. Opsi komposisi kini terlihat langsung, tidak di “Opsi lanjutan”.
+- Teks penjelas yang mengganggu dihapus/dipersingkat; tampilan baru (gradien, kartu, navigasi kaca).
+- Service worker 7.7.0.
+
 ## 7.6.1 — Sabtu, 31 Okt 2026
 - **Kelas AI Pustaka — level aktif:** chip level per bahasa (A1…C2 / HSK / N5…) di panel; tanpa pilihan, tetap mengikuti filter flashcard seperti sebelumnya. Tombol “Semua” dan “Ikuti filter”.
 - **Kelas AI Pustaka — kartu yang benar-benar belum pernah muncul** (belum dinilai, belum diberi status, tidak ditangguhkan) di level terpilih kini ikut jadi pembentuk kalimat, **grammar dan kosakata**, sebagai blok “KARTU BARU” terpisah dari “KARTU PRIORITAS”. Urutan: yang belum punya contoh dulu, level terendah dulu, sehingga seluruh level terisi bertahap. Opsi: ikut/tidak, jumlah kosakata baru (3/6/10/15) dan grammar baru (0–8) per prompt. Aturan prompt: tiap kartu baru muncul ≥1×, yang 0 contoh ≥2×; grammar baru dicatat di blok TAG.
