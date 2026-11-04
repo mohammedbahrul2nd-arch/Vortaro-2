@@ -1,5 +1,14 @@
 # Riwayat Perubahan
 
+## 7.9.0 — Rabu, 4 Nov 2026
+- **Penyimpanan pindah dari localStorage ke IndexedDB** (berkas baru `js/vr-store.js`). Progres dan Pustaka tidak lagi dibatasi ±5 MB.
+- **Migrasi otomatis:** saat pertama dibuka, data lama di localStorage disalin ke IndexedDB dan diverifikasi. Tidak perlu ekspor/impor. Salinan lama **dibiarkan** sebagai cadangan; hapus lewat Atur → Penyimpanan bila sudah yakin.
+- **Batas Pustaka dinaikkan:** 400 → 20.000 teks (Reading/Listening/Dialog) dan 5.000 → 200.000 kalimat.
+- Penyimpanan tertunda (satu penulisan untuk banyak perubahan beruntun) dan langsung ditulis saat tab disembunyikan/ditutup.
+- Bila IndexedDB tidak tersedia, aplikasi otomatis memakai localStorage seperti sebelumnya.
+- Atur: kartu **Penyimpanan** (jenis, ukuran data, pemakaian situs, hapus salinan lama).
+- Format ekspor/impor JSON tidak berubah. Service worker 7.9.0.
+
 ## 7.8.0 — Minggu, 1 Nov 2026
 - **Tab Games** (berkas baru `js/games.js`). Game pertama: **Tebak gender noun** untuk Jerman (der/die/das) dan Belanda (de/het). Filter bahasa & level, batas kata baru/ulasan per hari, dan **SRS terpisah** dari flashcard utama (disimpan di `S.gg`, ikut ekspor/impor progres, tombol reset sendiri). Benar = Baik, salah = Lagi.
 - Di sisi jawaban kartu (tab Kartu), kata benda Jerman/Belanda menampilkan hasil game: artikel, status SRS, jadwal ulasan, dan jumlah benar.

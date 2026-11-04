@@ -710,12 +710,14 @@ function libAddPrev(){const p=document.getElementById('lbP');if(!p)return;const 
  p.innerHTML=`Terdeteksi: <b>${libNm(r.L)}</b> · format ${FM[r.fmt]||r.fmt} · ${r.ps.length} paragraf · ${ns} kalimat · terjemahan ${tr?(nt==ns||!al?'✓':'✓ '+nt+'/'+ns):'—'}`+
   (rom?` · romanisasi ${rm?(nr==ns?'✓ selaras '+nr+'/'+ns:'⚠ '+nr+'/'+ns):'— (dibuat otomatis, perkiraan)'}`:'')+dl+(tr&&!al?' <small>(sebagian terjemahan per paragraf)</small>':'')+
   (r.tagN?` · <b>${r.tagN}</b> tag grammar/kata kerja ✓`:'')+(r.title?`<br><small>Judul: ${esc(r.title)}</small>`:'')+wr}
+/* v7.9: batas Pustaka dinaikkan (IndexedDB tidak dibatasi 5 MB) */
+const LIB_MAX=20000,LIB_SL_MAX=200000;
 function libAddSave(play){const r=libAddParse();if(r.err)return toast(r.err);
  if(libAddK=='s'){let n=0,d=0;const seen=new Set(S.sl.map(x=>x.L+'|'+x.f));
   r.sents.forEach(x=>{const key=r.L+'|'+x.f;if(seen.has(key)){d++;return}seen.add(key);S.sl.unshift({id:libId(),L:r.L,f:x.f,r:x.r||'',i:x.i||'',c:Date.now(),d:0,pb:x.pb||'',...(x.tg&&x.tg.length?{tg:x.tg}:{})});n++});
-  if(S.sl.length>5000)S.sl.length=5000;S.o.libSec='s';save();libAddClose();toast(n+' kalimat disimpan di Pustaka → Kalimat'+(d?' ('+d+' sudah ada)':'')+' ✓');if(typeof tab!='undefined'&&tab!='lib')tab='lib';render();return}
+  if(S.sl.length>LIB_SL_MAX)S.sl.length=LIB_SL_MAX;S.o.libSec='s';save();libAddClose();toast(n+' kalimat disimpan di Pustaka → Kalimat'+(d?' ('+d+' sudah ada)':'')+' ✓');if(typeof tab!='undefined'&&tab!='lib')tab='lib';render();return}
  const it={id:libId(),t:r.title,L:r.L,c:Date.now(),ps:r.ps,h:0,r:0,n:0,k:libAddK};if(r.note)it.nt=r.note;
- S.lib.unshift(it);if(S.lib.length>400)S.lib.length=400;S.o.libSec=libAddK;save();libAddClose();toast('Disimpan di Pustaka → '+LIBKN[libAddK]+' ✓');
+ S.lib.unshift(it);if(S.lib.length>LIB_MAX)S.lib.length=LIB_MAX;S.o.libSec=libAddK;save();libAddClose();toast('Disimpan di Pustaka → '+LIBKN[libAddK]+' ✓');
  if(typeof tab!='undefined'&&tab!='lib'){tab='lib'}if(play&&libAddK=='r')libOpenId=it.id;render();if(play&&libAddK!='r')lpOpen(it)}
 document.addEventListener('click',e=>{const m=document.getElementById('lbm');if(!m)return;if(e.target===m){libAddClose();return}
  const b=e.target.closest('[data-lb]');if(!b)return;const a=b.dataset.lb;

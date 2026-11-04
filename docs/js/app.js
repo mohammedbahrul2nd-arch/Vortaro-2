@@ -1,9 +1,10 @@
 let S={rd:{},p:{},s:{},ses:{},gs:0,f:[],gf:[],srs:{},sd:{d:-1,n:0,r:0,x:0,y:0},lg:{},nw:{},lib:[],sl:[],lt:{h:[],g:{},d:{}},o:{}},ok=true,tab='fc',q='',fs='',lim=50,shown=new Set;
-try{if(!localStorage.getItem(SK)&&localStorage.getItem('kosakata_v1'))localStorage.setItem(SK,localStorage.getItem('kosakata_v1'));Object.assign(S,JSON.parse(localStorage.getItem(SK)||'{}'));localStorage.setItem(SK+'_t',1);navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(e){ok=false}
+/* v7.9: data dimuat dari IndexedDB lewat VRS.boot() (dijalankan sebelum berkas ini; migrasi otomatis dari localStorage) */
+try{Object.assign(S,VRS.initial)}catch(e){ok=false}VRS.onError=()=>{ok=false;try{typeof toast=='function'&&toast('Gagal menyimpan ke penyimpanan browser. Buat cadangan (Ekspor) sekarang.')}catch(e){}};
 const FCD={nl:20,rl:200,fd:'id',ff:[],fm:'or',fmin:1,deck:'v',ord:'seq',no:'after',ls:'1 10',rs:'10',gi:1,ei:4,se:250,eb:130,hi:120,ni:0,im:100,mx:36500,lk:1,mig:0,sp:[],lch:4,xn:10,xr:50};const LTD={lm:1,pl:'zh',plv:[],pn:1,pa:1,pv:1,po:1,ps:'full',pw:'all',pg:'all',pe:1,lx:1};S.o={hide:0,rom:0,minL:1,mode:'mix',...FCD,...LTD,...S.o};if(!S.o.cv)S.o.cv=S.o.hide?'fo':'none';S.o={cgL:'blur',cgK:'show',cgF:'show',cpl:'blur',cvb:'blur',ckp:'blur',rdt:'blur',...S.o};
 /* v7.5: semua sensor SELALU aktif dan tidak bisa dikonfigurasi (pengaturannya dihapus). cv:'both' = bahasa asing & Indonesia sama-sama disensor per bagian. */
 const SENS={cv:'both',rom:1,cgL:'blur',cgK:'blur',cgF:'blur',cpl:'blur',cvb:'blur',ckp:'blur',rdt:'blur',lm:1,ps:'id'};S.o=Object.assign(S.o,SENS);S.o={th:'auto',ac:'indigo',fz:'m',tts:1,ttsa:0,hap:1,gr:25,ttsr:.9,libMin:4,...S.o};if(!Array.isArray(S.lib))S.lib=[];if(!Array.isArray(S.o.gff))S.o.gff=(S.gf||[]).slice();
-const save=()=>{try{localStorage.setItem(SK,JSON.stringify(S))}catch(e){ok=false}window.vrSnapSoon&&vrSnapSoon()};
+const save=()=>{VRS.save(S);window.vrSnapSoon&&vrSnapSoon()};
 const K={};D.C.forEach(c=>K[c[0]]=c);
 const LN={};D.L.forEach(l=>LN[l[0]]=l[1]);{const ok=x=>LN[String(x).split(':')[0]];S.f=S.f.filter(ok);S.o.ff=S.o.ff.filter(ok)}D.GL.forEach(l=>{if(!LN[l[0]])LN[l[0]]=l[1]});const GK={};D.G.forEach(g=>GK[g[0]]=g);
 const esc=s=>String(s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
@@ -99,7 +100,7 @@ r.slice(0,lim).map(c=>{const v=vis(c),k=c[0];return`<div class=row><div data-a=w
 function pcard(){const lg=S.legacy,nl=lg?Object.keys(lg.p).length:0,act=[...new Set(S.f.map(x=>String(x).split(':')[0]))];
  return`<div class=card><b>Progres per bahasa</b>`+
  (nl?`<small>${nl} kartu dari progres lama (per kartu) tersimpan sebagai cadangan. Tombol di bawah menyalinnya ke bahasa yang aktif di filter Kata (${act.length?act.map(x=>LN[x]).join(', '):'semua bahasa'}), hanya untuk item yang belum punya status.</small><button data-a=miglg style="width:100%;margin-top:8px">Terapkan progres lama ke bahasa aktif</button>`:'<small>Tidak ada progres lama yang perlu dimigrasi.</small>')+'</div>'}
-function set(){return fcSett()+verCard()+vrCard()+vrAppCard()+uiCard()+pcard()+edCard()+gmDataCard()+`<p><small>${ok?'Penyimpanan lokal aktif.':'Penyimpanan lokal tidak tersedia.'} ${Object.keys(S.p).length} kartu bertanda, ${S.lt.h.length} kalimat latihan. Buat cadangan sesekali, karena data browser bisa terhapus.</small></p>`}
+function set(){return fcSett()+verCard()+vrCard()+vrAppCard()+uiCard()+pcard()+edCard()+gmDataCard()+stoCard()+`<p><small>${ok?'Penyimpanan lokal aktif.':'Penyimpanan lokal tidak tersedia.'} ${Object.keys(S.p).length} kartu bertanda, ${S.lt.h.length} kalimat latihan. Buat cadangan sesekali, karena data browser bisa terhapus.</small></p>`}
 /* ===== Flashcard + SRS (algoritma ala Anki / SM-2) ===== */
 const FCNUM={gr:[0,100],fmin:[1,4],nl:[0,9999],rl:[0,9999],gi:[1,365],ei:[1,365],se:[130,500],eb:[100,300],hi:[100,200],ni:[0,100],im:[50,200],mx:[1,36500],lch:[2,50],xn:[1,200],xr:[1,500]};
 let fcCur=null,fcRevd=false,fcFr='id',fcFrK=null,fcUn=[],fcWait=0;
@@ -675,4 +676,15 @@ function onbClick(e){const b=e.target.closest&&e.target.closest('[data-o]');if(!
  else if(a=='go'&&onb.lv.size)onbFinish()}
 function onbCheck(){if(S.o.onb)return;if(!onbFresh()){S.o.onb=1;try{save()}catch(e){}return}
  const m=document.createElement('div');m.id='onb';m.className='onb';m.setAttribute('role','dialog');m.setAttribute('aria-modal','true');m.addEventListener('click',onbClick);document.body.appendChild(m);document.body.style.overflow='hidden';onbDraw()}
+/* ---------- v7.9: kartu penyimpanan (IndexedDB) ---------- */
+const stoMB=n=>(n/1048576).toFixed(n<1048576*10?1:0)+' MB';
+function stoCard(){const idb=VRS.mode=='idb',lg=VRS.legacyBytes|0;
+ setTimeout(()=>VRS.estimate().then(e=>{const el=document.getElementById('stoq');if(el&&e&&e.quota)el.textContent=' · terpakai situs '+stoMB(e.use)+' dari ±'+stoMB(e.quota)}),0);
+ return`<div class=card><div class=hd><span><b>Penyimpanan</b></span><span class=bdg>${idb?'IndexedDB':'localStorage'}</span></div>`+
+ `<small>${idb?'Progres & Pustaka disimpan di IndexedDB (tanpa batas 5 MB).':'IndexedDB tidak tersedia di browser ini, jadi memakai localStorage (batas ±5 MB).'} Data: ${stoMB(VRS.bytes|0)}<span id=stoq></span>.</small>`+
+ (VRS.err?`<div class=warn style="margin-top:6px">${esc(VRS.err)}</div>`:'')+
+ (idb&&lg?`<div class=btns style="margin-top:8px"><button class=mini data-sto=drop>Hapus salinan lama (localStorage, ${stoMB(lg)})</button></div><small>Salinan lama dibiarkan sebagai cadangan setelah migrasi. Hapus kalau data di sini sudah terlihat lengkap.</small>`:'')+`</div>`}
+document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-sto]');if(!b)return;
+ if(b.dataset.sto=='drop'){if(!confirm('Hapus salinan lama di localStorage? Data aktif di IndexedDB tidak terpengaruh. Pastikan progres & Pustaka sudah lengkap (atau sudah Ekspor).'))return;
+  VRS.flush().then(()=>{VRS.dropLegacy();toast('Salinan lama dihapus ✓');render()})}});
 render();vrInit();onbCheck();

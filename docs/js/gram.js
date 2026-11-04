@@ -9,7 +9,7 @@
       trennbar, zu-Infinitiv, Nebensatz, …) memakai bentuk kata kerja dari kartu verbmu
    6. 5 contoh dari Pustaka saat kartu dibuka
    ============================================================================================= */
-const GM_VER='7.8.0',GM_AT='2026-11-01T22:30:00+07:00';
+const GM_VER='7.9.0',GM_AT='2026-11-04T18:00:00+07:00';
 const gmB={n:0};
 const gmNorm=s=>String(s||'').toLowerCase().normalize('NFC').replace(/[〜～~\s()（）「」『』\[\]【】\/／・…*+,，、.。:：;；!！?？"'’`\-–—]/g,'');
 const gmHan=ch=>/[\u3400-\u9fff]/.test(ch);
@@ -410,7 +410,7 @@ function gmImpFiles(files){const fs=[...files];if(!fs.length)return;let done=[],
   save();render();toast(done.length?'Dipulihkan: '+done.join(' · ')+(bad?' · '+bad+' file tidak valid':''):'File tidak valid.')})}
 
 /* ---------- 8. Info versi ---------- */
-const GM_NEWS=["Tab baru Games: Tebak gender noun (Jerman der/die/das, Belanda de/het) dengan filter level dan jadwal SRS sendiri.","Hasil game terlihat di sisi jawaban kartu flashcard.","Tab Belajar & Bacaan Esperanto dihapus; pengaturan flashcard pindah ke Atur; kuota 0 di Kelas AI Pustaka diisi kartu baru."];
+const GM_NEWS=["Penyimpanan pindah ke IndexedDB: tanpa batas 5 MB (Pustaka kini sampai 20.000 teks & 200.000 kalimat), data lama di localStorage dimigrasikan otomatis saat pertama dibuka.","Tab baru Games: Tebak gender noun (Jerman der/die/das, Belanda de/het) dengan filter level dan jadwal SRS sendiri.","Hasil game terlihat di sisi jawaban kartu flashcard.","Tab Belajar & Bacaan Esperanto dihapus; pengaturan flashcard pindah ke Atur; kuota 0 di Kelas AI Pustaka diisi kartu baru."];
 function gmWhen(){const m=GM_AT.match(/^(\d{4})-(\d\d)-(\d\d)T(\d\d):(\d\d)/);if(!m)return GM_AT;const hr=['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],bl=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'],dt=new Date(Date.UTC(+m[1],+m[2]-1,+m[3]));
  return hr[dt.getUTCDay()]+', '+(+m[3])+' '+bl[+m[2]-1]+' '+m[1]+' · pukul '+m[4]+'.'+m[5]+' WIB'}
 function verCard(){return`<div class=card><div class=hd><span><b>Vortaro v${GM_VER}</b></span><span class=bdg>terbaru</span></div><small>Diperbarui ${gmWhen()}</small><ul style="margin:8px 0 0;padding-left:18px;font-size:.85rem;line-height:1.5">${GM_NEWS.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`}
