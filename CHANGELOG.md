@@ -1,5 +1,19 @@
 # Riwayat Perubahan
 
+## 7.11.0 — Kamis, 5 Nov 2026
+- **Flashcard grammar Mandarin (HSK 1–5) dirombak.** Sisi depan tidak lagi hanya berisi judul/istilah. Kini berisi **fungsi** (apa yang ingin diungkapkan) + **kalimat contoh dengan 1–2 kata kunci pola dikosongkan** (soal rumpang) + arti Indonesia sebagai petunjuk. 358 dari 439 kartu mendapat rumpang otomatis (kata kunci diambil dari kolom Pola). 81 kartu kategori (副词, 量词, 人称代词 …) memakai fungsi + contoh kalimat Mandarin.
+- **Sisi jawaban lebih ringkas:** judul kecil → **rumus pola besar** (kata kunci ditandai) → fungsi → contoh (contoh yang dipakai untuk rumpang tampil pertama, kata kunci ditandai, tombol 🔊). **Keterangan & kasus khusus dilipat** (ketuk untuk membuka). Pinyin tetap diblur sampai diketuk.
+- **Atur → Pengaturan flashcard → “Sisi depan kartu grammar Mandarin”:** Soal rumpang (bawaan) · Fungsi saja · Judul (tampilan lama).
+- **Data tidak berubah.** Tidak ada kartu, judul, ID progres (`g|zh|HSK n|judul`), tag Pustaka, jadwal SRS, atau xlsx yang diubah; semua dihitung saat kartu ditampilkan. Tab Grammar (daftar) tidak berubah. Bahasa lain tampil seperti sebelumnya; fungsi `gz*` di `app.js` disiapkan agar bahasa lain (mis. Jepang) cukup ditambahkan ke peta `GZ`.
+- Service worker 7.11.0.
+
+## 7.10.0 — Kamis, 5 Nov 2026
+- **Mandarin: level baru HSK 7-9** (1.684 kata, 937 di antaranya idiom) dan **1.593 kata baru** di HSK 1–6 (HSK 1 53 · HSK 2 143 · HSK 3 192 · HSK 4 345 · HSK 5 417 · HSK 6 443). Total Mandarin kini 3.277 entri baru.
+- **Belanda: level baru C1 (1.212) dan C2 (762)** dan **3.025 kata baru** di A1–B2 (A1 102 · A2 583 · B1 1.204 · B2 1.136). Total Belanda 4.999 entri baru. De/het, bentuk jamak (2.173), bentuk kata kerja (1.041), dan komparatif kata sifat (616) ikut tersedia dan bisa disensor.
+- Sumber: `English_Vocab_Grammar_A1-C2_v8.xlsx` (sheet HSK 1–7-9 dan NL A1–C2). Kata yang sudah ada **tidak diubah atau digeser level**, kata yang hanya pindah level di xlsx dilewati, sehingga progres dan Pustaka lama tetap utuh. Kata baru bermakna sama digabung ke kartu yang sudah ada; 4.534 kartu baru dibuat.
+- Level baru otomatis muncul di filter flashcard, Games, onboarding, Statistik, dan Kelas AI Pustaka.
+- Service worker 7.10.0.
+
 ## 7.9.0 — Rabu, 4 Nov 2026
 - **Penyimpanan pindah dari localStorage ke IndexedDB** (berkas baru `js/vr-store.js`). Progres dan Pustaka tidak lagi dibatasi ±5 MB.
 - **Migrasi otomatis:** saat pertama dibuka, data lama di localStorage disalin ke IndexedDB dan diverifikasi. Tidak perlu ekspor/impor. Salinan lama **dibiarkan** sebagai cadangan; hapus lewat Atur → Penyimpanan bila sudah yakin.

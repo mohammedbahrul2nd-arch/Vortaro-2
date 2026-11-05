@@ -1,7 +1,7 @@
 let S={rd:{},p:{},s:{},ses:{},gs:0,f:[],gf:[],srs:{},sd:{d:-1,n:0,r:0,x:0,y:0},lg:{},nw:{},lib:[],sl:[],lt:{h:[],g:{},d:{}},o:{}},ok=true,tab='fc',q='',fs='',lim=50,shown=new Set;
 /* v7.9: data dimuat dari IndexedDB lewat VRS.boot() (dijalankan sebelum berkas ini; migrasi otomatis dari localStorage) */
 try{Object.assign(S,VRS.initial)}catch(e){ok=false}VRS.onError=()=>{ok=false;try{typeof toast=='function'&&toast('Gagal menyimpan ke penyimpanan browser. Buat cadangan (Ekspor) sekarang.')}catch(e){}};
-const FCD={nl:20,rl:200,fd:'id',ff:[],fm:'or',fmin:1,deck:'v',ord:'seq',no:'after',ls:'1 10',rs:'10',gi:1,ei:4,se:250,eb:130,hi:120,ni:0,im:100,mx:36500,lk:1,mig:0,sp:[],lch:4,xn:10,xr:50};const LTD={lm:1,pl:'zh',plv:[],pn:1,pa:1,pv:1,po:1,ps:'full',pw:'all',pg:'all',pe:1,lx:1};S.o={hide:0,rom:0,minL:1,mode:'mix',...FCD,...LTD,...S.o};if(!S.o.cv)S.o.cv=S.o.hide?'fo':'none';S.o={cgL:'blur',cgK:'show',cgF:'show',cpl:'blur',cvb:'blur',ckp:'blur',rdt:'blur',...S.o};
+const FCD={gz:'cloze',nl:20,rl:200,fd:'id',ff:[],fm:'or',fmin:1,deck:'v',ord:'seq',no:'after',ls:'1 10',rs:'10',gi:1,ei:4,se:250,eb:130,hi:120,ni:0,im:100,mx:36500,lk:1,mig:0,sp:[],lch:4,xn:10,xr:50};const LTD={lm:1,pl:'zh',plv:[],pn:1,pa:1,pv:1,po:1,ps:'full',pw:'all',pg:'all',pe:1,lx:1};S.o={hide:0,rom:0,minL:1,mode:'mix',...FCD,...LTD,...S.o};if(!S.o.cv)S.o.cv=S.o.hide?'fo':'none';S.o={cgL:'blur',cgK:'show',cgF:'show',cpl:'blur',cvb:'blur',ckp:'blur',rdt:'blur',...S.o};
 /* v7.5: semua sensor SELALU aktif dan tidak bisa dikonfigurasi (pengaturannya dihapus). cv:'both' = bahasa asing & Indonesia sama-sama disensor per bagian. */
 const SENS={cv:'both',rom:1,cgL:'blur',cgK:'blur',cgF:'blur',cpl:'blur',cvb:'blur',ckp:'blur',rdt:'blur',lm:1,ps:'id'};S.o=Object.assign(S.o,SENS);S.o={th:'auto',ac:'indigo',fz:'m',tts:1,ttsa:0,hap:1,gr:25,ttsr:.9,libMin:4,...S.o};if(!Array.isArray(S.lib))S.lib=[];if(!Array.isArray(S.o.gff))S.o.gff=(S.gf||[]).slice();
 const save=()=>{VRS.save(S);window.vrSnapSoon&&vrSnapSoon()};
@@ -72,6 +72,36 @@ function gbody(g){const L=t=>`<div class=gsec>${t}</div>`,kv=g[10]||[],CJ=g[1]==
  if(g[8].length)h+=num(g[8],g[12]||'Keterangan','gnt');
  if(g[9].length)h+=num(g[9],'Kasus khusus','gnt gkk');
  return h}
+/* ===== v7.11: kartu grammar flashcard berbasis rumpang (cloze). Saat ini Mandarin; bahasa lain cukup ditambahkan ke GZ ===== */
+const GZ={zh:/[㐀-鿿]+/g};
+const gzLn=e=>{const a=String(e).split('\n');a[0]=a[0].replace(/^\s*\d+\s*[.、．)]\s*/,'');return a};
+const gzSp=s=>String(s||'').replace(/\s+/g,'');
+const gzOn=g=>!!GZ[g[1]]&&(S.o.gz||'cloze')!='old';
+/* kata kunci = aksara pada kolom Pola (cadangan: judul). Label kategori (副词, 量词, ...) tidak ada di kalimat sehingga otomatis tidak dipakai */
+function gzKeys(g){const re=GZ[g[1]];if(!re)return[];const f=s=>(String(s||'').match(re)||[]).filter(x=>x.length<=6);let k=f(g[6]);if(!k.length)k=f(g[4]);return[...new Set(k)]}
+function gzSplit(h,keys){h=String(h||'');if(!keys.length)return[[h,0]];const re=new RegExp('('+[...keys].sort((a,b)=>b.length-a.length).map(k=>[...k].join('\\s*')).join('|')+')','g'),o=[];let p=0,m;
+ while((m=re.exec(h))){if(!m[0].length){re.lastIndex++;continue}if(m.index>p)o.push([h.slice(p,m.index),0]);o.push([m[0],1]);p=m.index+m[0].length}
+ if(p<h.length)o.push([h.slice(p),0]);return o}
+const gzTr=a=>{let t=a.length>=3?a.slice(2).join('\n'):a.length==2?a[1]:'';t=t.trim();const m=t.match(/^[（(]([\s\S]*)[)）]$/);return m&&!/[（(]/.test(m[1])?m[1].trim():t};
+/* pilih contoh terbaik untuk rumpang: 1-2 kata kunci dikosongkan (maks. 2 agar tidak terlalu sulit), punya pinyin+arti, panjang sedang */
+function gzPick(g){const keys=gzKeys(g);let best=null,bs=-1,mk=[];
+ if(keys.length)(g[7]||[]).forEach((e,i)=>{const a=e.split('\n'),hit=new Set(gzSplit(a[0],keys).filter(x=>x[1]).map(x=>gzSp(x[0])));if(!hit.size)return;const n=hit.size,len=gzSp(a[0]).length,sc=(n>=2?100:50)-(n>2?(n-2)*10:0)+(a.length>=3?20:0)-Math.abs(len-12)*.5;if(sc>bs){bs=sc;best=i;mk=keys.filter(k=>hit.has(k)).slice(0,2)}});
+ return{keys,mk,i:best}}
+function gzFront(g){const m=S.o.gz||'cloze',p=gzPick(g),fn=`<div class="gzq${String(g[5]||'').length>60?' gzl':''}"><span class=gl>${esc(g[11]||'Fungsi')}</span>${esc(g[5])}</div>`;
+ if(m=='cloze'&&p.i!=null){const a=gzLn(g[7][p.i]),tr=gzTr(a);
+  return fn+`<div class=gzc>${gzSplit(a[0],p.mk).map(([t,h])=>h?`<span class=gzb style="--n:${[...gzSp(t)].length}">&nbsp;</span>`:esc(t)).join('')}</div>`+(tr?`<div class=gzm>${esc(tr)}</div>`:'')+`<div class=fchint><small>Isi bagian yang hilang &amp; ingat rumus polanya</small></div>`}
+ let ex='';if(m!='fn'){const k=(g[7]||[]).findIndex(e=>/[\u3400-\u9fff]/.test(e.split('\n')[0])&&e.split('\n').length>=2),a=(g[7]||[])[k>=0?k:0];if(a){const b=gzLn(a),t=gzTr(b);ex=`<div class=gzc style="font-size:1.5rem">${esc(b[0])}</div>`+(t?`<div class=gzm>${esc(t)}</div>`:'')}}
+ return fn+ex+`<div class=fchint><small>Ingat: nama pola &amp; rumusnya</small></div>`}
+function gzBack(g,k){const p=gzPick(g),ks=p.keys,hl=t=>gzSplit(t,ks).map(([x,h])=>h?`<mark class=gzh>${esc(x)}</mark>`:esc(x)).join('');
+ let h=`<div class=gzt1>${esc(g[4])}</div><hr>`;
+ if(g[6])h+=`<div class=gzp>${gzSplit(g[6],ks).map(([x,y])=>y?`<mark class=gzh>${esc(x)}</mark>`:esc(x)).join('')}</div>`;
+ h+=`<div class=gzf>${esc(g[5])}</div>`;
+ const ord=(g[7]||[]).map((e,i)=>i);if(p.i!=null){ord.splice(p.i,1);ord.unshift(p.i)}
+ h+=ord.map(i=>{const a=gzLn(g[7][i]),han=/[㐀-鿿]/.test(a[0]),pin=a.length>=3?a[1]:'',tr=gzTr(a);
+  return`<div class="gex gzx"><div class=g1>${hl(a[0])}${han?spk(gzSp(a[0]),g[1]):''}</div>${pin?`<div class="g2 rom">${esc(pin)}</div>`:''}${tr?`<div class=g2>${esc(tr)}</div>`:''}</div>`}).join('');
+ const n1=(g[8]||[]).length,n2=(g[9]||[]).length,num=(a,n,c)=>a.map((x,i)=>`<div class="${c}"><span class=gl>${n}${a.length>1?' '+(i+1):''}</span>${esc(x)}</div>`).join('');
+ if(n1+n2)h+=`<details class=gzd><summary>${n1?esc(g[12]||'Keterangan'):''}${n1&&n2?' &amp; ':''}${n2?'kasus khusus':''} (${n1+n2})</summary>${num(g[8]||[],g[12]||'Keterangan','gnt')}${num(g[9]||[],'Kasus khusus','gnt gkk')}</details>`;
+ return`<div style="text-align:left">`+h+gmExBlock(k)+`</div>`}
 function gcard(k){const g=GK[k];if(!g)return'<div class=card>Tidak ada grammar untuk filter/mode ini.</div>';const s=st(k);
 return`<div class=card><div class=hd><span>${LN[g[1]]||'Jerman'} ${g[2]}${g[3]?' · '+esc(g[3]):''}</span><span><i class="dot dot${s}"></i>${STN[s]}${fcTag(k)}${aiBtn(k)}${S.lib.some(t=>t.L==g[1])?`<button class="mini" data-a=libfind data-k="${esc(k)}" title="Cari teks di Pustaka">📚</button>`:''}${edBtn('g',k)}</span></div><div class=mean>${esc(g[4])}</div>${gbody(g)}${gTax(k)}${gmExBlock(k)}<div class="seg">${STN.map((x,i)=>`<button class="sb sb${i}${i==s?' on':''}" data-a=set data-k="${esc(k)}" data-v=${i}>${x}</button>`).join('')}</div></div>`}
 let gLg='',gLv=0,gFoc=0,gFresh=1;const gAll0=l=>gLvs(l).map(v=>l+':'+v);
@@ -212,7 +242,7 @@ function fcSet(i,el){const f=i.slice(3),o=S.o;
 function fcInfo(c){const b=fcInfo0(c);return b+(c&&!c.z&&(c.l|0)>=lchN()?' · 🪨 bandel':'')}
 function fcInfo0(c){if(!c||!c.t)return'Baru';if(c.t==1)return'Belajar';if(c.t==3)return'Belajar ulang';return`Ulas · ${c.i} hr · ease ${c.e}%`+(c.l?` · ${c.l}× lupa`:'')}
 function fcBody(k,rev){const g=GK[k];
- if(g){const t=(g[3]?`<div class=gsub>${esc(g[3])}</div>`:'')+`<div class=mean>${esc(g[4])}</div>`;return rev?t+'<hr><div style="text-align:left">'+gbody(g)+gmExBlock(k)+'</div>':t}
+ if(g){if(gzOn(g))return rev?gzBack(g,k):gzFront(g);const t=(g[3]?`<div class=gsub>${esc(g[3])}</div>`:'')+`<div class=mean>${esc(g[4])}</div>`;return rev?t+'<hr><div style="text-align:left">'+gbody(g)+gmExBlock(k)+'</div>':t}
  const b=base(k),L=lang(k),c=K[b],v0=fcVis(c)||{},v=v0[L]?{[L]:v0[L]}:v0,f=fcFr,mean=`<div class=mean>${esc(c[2])}</div>`;
  const lc=id=>D.L.find(l=>l[0]==id),ch=(n,col)=>`<span class=fch style="--lc:${col}">${esc(n)}</span>`;
  const blk=(ids,full)=>'<div class=grid>'+D.L.filter(l=>ids.includes(l[0])).map(([id,n,col])=>`<div class=lg style="--lc:${col}"><small>${n}</small>`+v[id].map(e=>`<div class=w>${wd(e[0],c[1],'F',id)}${spk(e[0],id)}</div>${e[1]?`<div class="r rom">${esc(e[1])}</div>`:''}${full?fmx(e,c[1],id):''}${full&&e[2]?`<div class=ex>${esc(e[2])}</div>`:''}`).join('')+'</div>').join('')+'</div>';
@@ -229,6 +259,7 @@ function fcSett(){const o=S.o,sz=Object.values(S.srs).filter(c=>c.z).length;
  fcN('nl','Kartu baru per hari',0,9999)+fcN('rl','Maks. ulasan per hari',0,9999)+fcN('xn','Tambahan kartu baru saat target selesai (per ketukan)',1,200)+fcN('xr','Tambahan ulasan saat target selesai (per ketukan)',1,500)+
  fcS('ord','Urutan kartu baru',[['seq','Berurutan'],['rand','Acak']])+
  fcS('no','Kartu baru vs ulasan',[['after','Baru setelah ulasan'],['before','Baru sebelum ulasan'],['mix','Campur']])+
+ fcS('gz','Sisi depan kartu grammar Mandarin',[['cloze','Soal rumpang + fungsi (disarankan)'],['fn','Fungsi saja'],['old','Judul (tampilan lama)']])+
  `<label class=fcl><span><input type=checkbox data-i=fc_lk${o.lk?' checked':''}> Integrasikan progres Kartu ↔ Kosakata</span></label><div class=btns><button data-a=fcsyncall>Sinkronkan sekarang</button></div>`+
  dtag('fl')+'<summary>Lanjutan (parameter algoritma)</summary>'+
  `<label class=fcl><span>Langkah belajar (menit)</span><input data-i=fc_ls value="${esc(o.ls)}"></label>`+
