@@ -461,3 +461,5 @@ mark.gzh{background:color-mix(in srgb,var(--a) 24%,transparent);color:inherit;bo
 .gzc.gzen{font-size:1.5rem;font-weight:550;line-height:1.6}
 .gzx.gzw .g1{color:var(--m)}.gzn{font-size:.8rem;color:var(--m);font-style:italic}
 .gzc.gzja .gzb{min-width:min(calc(var(--n,1)*1.15em),6.5em)}.gzc.gzja{font-size:1.6rem;font-weight:550;line-height:1.7}.gzc.gzja.gzpb{font-size:1.35rem;font-weight:650;margin:2px 0 10px}.gzc.gzja.gzsm{font-size:1.1rem;color:var(--m);font-weight:500}
+.gzc.gzde{font-size:1.5rem;font-weight:550;line-height:1.6}.gzc.gzde small{font-size:.8rem;color:var(--m);font-weight:500}.gzc.gzde .gzb{min-width:min(calc(var(--n,1)*.6em + .5em),9em)}.gzm.gzhd{margin:2px 0 6px;font-size:.85rem}
+.gzk{margin:6px 0 4px;text-align:left}.gzr{display:flex;gap:8px;align-items:baseline;padding:3px 0;border-bottom:1px solid color-mix(in srgb,var(--m) 18%,transparent);font-size:.98rem}.gzr .gl{flex:0 0 38%;font-size:.72rem}.gzr+.gzr{margin-top:0}

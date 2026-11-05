@@ -72,8 +72,8 @@ function gbody(g){const L=t=>`<div class=gsec>${t}</div>`,kv=g[10]||[],CJ=g[1]==
  if(g[8].length)h+=num(g[8],g[12]||'Keterangan','gnt');
  if(g[9].length)h+=num(g[9],'Kasus khusus','gnt gkk');
  return h}
-/* ===== v7.11: kartu grammar flashcard berbasis rumpang (cloze). Mandarin, Inggris (v7.12) dan Jepang (v7.13); bahasa lain cukup ditambahkan ke GZ ===== */
-const GZ={zh:/[㐀-鿿]+/g,en:1,ja:1};
+/* ===== v7.11: kartu grammar flashcard berbasis rumpang (cloze). Mandarin, Inggris (v7.12), Jepang (v7.13) dan Jerman (v7.15); bahasa lain cukup ditambahkan ke GZ ===== */
+const GZ={zh:/[㐀-鿿]+/g,en:1,ja:1,de:1};
 const gzLn=e=>{const a=String(e).split('\n');a[0]=a[0].replace(/^\s*\d+\s*[.、．)]\s*/,'');return a};
 const gzSp=s=>String(s||'').replace(/\s+/g,'');
 const gzOn=g=>!!GZ[g[1]]&&(S.o.gz||'cloze')!='old';
@@ -87,12 +87,12 @@ const gzTr=a=>{let t=a.length>=3?a.slice(2).join('\n'):a.length==2?a[1]:'';t=t.t
 function gzPick(g){const keys=gzKeys(g);let best=null,bs=-1,mk=[];
  if(keys.length)(g[7]||[]).forEach((e,i)=>{const a=e.split('\n'),hit=new Set(gzSplit(a[0],keys).filter(x=>x[1]).map(x=>gzSp(x[0])));if(!hit.size)return;const n=hit.size,len=gzSp(a[0]).length,sc=(n>=2?100:50)-(n>2?(n-2)*10:0)+(a.length>=3?20:0)-Math.abs(len-12)*.5;if(sc>bs){bs=sc;best=i;mk=keys.filter(k=>hit.has(k)).slice(0,2)}});
  return{keys,mk,i:best}}
-function gzFront(g){if(g[1]=='en')return gzeFront(g);if(g[1]=='ja')return gzjFront(g);const m=S.o.gz||'cloze',p=gzPick(g),fn=`<div class="gzq${String(g[5]||'').length>60?' gzl':''}"><span class=gl>${esc(g[11]||'Fungsi')}</span>${esc(g[5])}</div>`;
+function gzFront(g){if(g[1]=='en')return gzeFront(g);if(g[1]=='ja')return gzjFront(g);if(g[1]=='de')return gzdFront(g);const m=S.o.gz||'cloze',p=gzPick(g),fn=`<div class="gzq${String(g[5]||'').length>60?' gzl':''}"><span class=gl>${esc(g[11]||'Fungsi')}</span>${esc(g[5])}</div>`;
  if(m=='cloze'&&p.i!=null){const a=gzLn(g[7][p.i]),tr=gzTr(a);
   return fn+`<div class=gzc>${gzSplit(a[0],p.mk).map(([t,h])=>h?`<span class=gzb style="--n:${[...gzSp(t)].length}">&nbsp;</span>`:esc(t)).join('')}</div>`+(tr?`<div class=gzm>${esc(tr)}</div>`:'')+`<div class=fchint><small>Isi bagian yang hilang &amp; ingat rumus polanya</small></div>`}
  let ex='';if(m!='fn'){const k=(g[7]||[]).findIndex(e=>/[\u3400-\u9fff]/.test(e.split('\n')[0])&&e.split('\n').length>=2),a=(g[7]||[])[k>=0?k:0];if(a){const b=gzLn(a),t=gzTr(b);ex=`<div class=gzc style="font-size:1.5rem">${esc(b[0])}</div>`+(t?`<div class=gzm>${esc(t)}</div>`:'')}}
  return fn+ex+`<div class=fchint><small>Ingat: nama pola &amp; rumusnya</small></div>`}
-function gzBack(g,k){if(g[1]=='en')return gzeBack(g,k);if(g[1]=='ja')return gzjBack(g,k);const p=gzPick(g),ks=p.keys,hl=t=>gzSplit(t,ks).map(([x,h])=>h?`<mark class=gzh>${esc(x)}</mark>`:esc(x)).join('');
+function gzBack(g,k){if(g[1]=='en')return gzeBack(g,k);if(g[1]=='ja')return gzjBack(g,k);if(g[1]=='de')return gzdBack(g,k);const p=gzPick(g),ks=p.keys,hl=t=>gzSplit(t,ks).map(([x,h])=>h?`<mark class=gzh>${esc(x)}</mark>`:esc(x)).join('');
  let h=`<div class=gzt1>${esc(g[4])}</div><hr>`;
  if(g[6])h+=`<div class=gzp>${gzSplit(g[6],ks).map(([x,y])=>y?`<mark class=gzh>${esc(x)}</mark>`:esc(x)).join('')}</div>`;
  h+=`<div class=gzf>${esc(g[5])}</div>`;
@@ -298,6 +298,131 @@ function gzjBack(g,k){const p=gjInfo(g);let h=`<div class=gzt1>${esc(g[4])}</div
  const n1=(g[8]||[]).length,n2=(g[9]||[]).length,num=(a,n,c)=>a.map((x,i)=>`<div class="${c}"><span class=gl>${n}${a.length>1?' '+(i+1):''}</span>${esc(x)}</div>`).join('');
  if(n1+n2)h+=`<details class=gzd><summary>${n1?esc(g[12]||'Keterangan'):''}${n1&&n2?' &amp; ':''}${n2?'kasus khusus':''} (${n1+n2})</summary>${num(g[8]||[],g[12]||'Keterangan','gnt')}${num(g[9]||[],'Kasus khusus','gnt gkk')}</details>`;
  return`<div style="text-align:left">`+h+gmExBlock(k)+`</div>`}
+/* ===== v7.15: grammar Jerman (A1–C1) pada kartu rumpang. Kata kunci per jenis kartu: Preposisi → kolom Preposisi, konjungsi/W-Frage/zu → judul, kala (Perfekt, Passiv, Konjunktiv II …) → aturan per sub-bab, deklinasi → sel tabel; tabel tanpa kalimat → soal sel tabel. en/zh/ja tidak disentuh ===== */
+const GD={
+ irr:'sein bin bist ist sind seid war warst waren wart gewesen|haben habe hast hat habt hatte hattest hatten hattet gehabt|werden werde wirst wird werdet wurde wurdest wurden wurdet geworden|können kann kannst könnt konnte konntest konnten konntet|müssen muss musst müsst musste musstest mussten musstet|dürfen darf darfst dürft durfte durftest durften durftet|sollen soll sollst sollt sollte solltest sollten solltet|wollen will willst wollt wollte wolltest wollten wolltet|mögen mag magst mögt mochte mochtest mochten mochtet|wissen weiß weißt wisst wusste wusstest wussten wusstet',
+ con:{im:'in dem',am:'an dem',zum:'zu dem',zur:'zu der',vom:'von dem',beim:'bei dem',ins:'in das',ans:'an das',aufs:'auf das',fürs:'für das',ums:'um das',durchs:'durch das',hinterm:'hinter dem',überm:'über dem',unterm:'unter dem',vorm:'vor dem',übers:'über das',unters:'unter das',vors:'vor das',hinters:'hinter das'},
+ gen:new Set('der die das den dem des ein eine einen einem einer eines in an auf zu mit von bei aus nach um für am im zum zur vom und ist es ich du er sie wir ihr nicht ja wie was wo'.split(' ')),
+ det:new Set('der die das den dem des ein eine einen einem einer eines mein meine meinen meinem meiner meines dein deine sein seine ihr ihre unser euer dieser diese dieses diesen diesem jeder alle kein keine keinen keinem keiner'.split(' ')),
+ de:new Set('ich du er sie es wir ihr der die das den dem des ein eine einen einem einer eines ist sind bin bist war waren hat habe haben hatte nicht kein keine keinen und oder aber denn mit von zu in an auf für bei aus nach um über unter vor durch gegen ohne wie was wo wer wann wohin woher warum wird werden wurde kann können muss will soll mein meine meinen meinem meiner dein dir dich mich mir uns euch ihm ihn ihnen ihre sein seine hier heute gestern morgen sehr auch noch schon nur dass weil wenn als ob ja nein doch bitte gern gut'.split(' ')),
+ id:new Set('saya aku kamu anda dia kami kita mereka yang itu ini dan di ke dari untuk dengan adalah tidak bukan akan sudah sedang bisa mandi dalam kopi pergi sini rumah buku kepada oleh karena atau jika ketika tetapi tapi juga sangat harus boleh punya ada apa siapa kapan mana berapa bagaimana'.split(' ')),
+ pr:{Ich:'ich',Du:'du','Er/Sie/Es/Man':'er/sie/es',Wir:'wir',Ihr:'ihr','sie/Sie':'sie/Sie'},
+ prep:new Set('mit von für an auf in zu bei aus nach über unter um durch gegen ohne vor hinter neben zwischen'.split(' ')),
+ rel:new Set('der die das den dem denen dessen deren'.split(' '))};
+const gdRev={};GD.irr.split('|').forEach(r=>{const f=r.split(' ');f.forEach(w=>gdRev[w]=f[0])});
+const gdW=t=>String(t||'').match(/[\p{L}ß]+(?:-[\p{L}ß]+)*/gu)||[];
+const gdH=s=>{let h=0;for(const c of String(s))h=(h*31+c.charCodeAt(0))>>>0;return h};
+/* kalimat → unit kata; c = bentuk yang dianggap sama (kontraksi im → in; bentuk tak beraturan → infinitif). cons=false: kontraksi tidak dipecah (kartu non-preposisi) */
+function gdU(t,cons){t=String(t||'');const u=[],re=/[\p{L}ß]+(?:-[\p{L}ß]+)*/gu;let m;while((m=re.exec(t))){const l=m[0].toLowerCase(),c=new Set([l]);if(cons&&GD.con[l])c.add(GD.con[l].split(' ')[0]);if(gdRev[l])c.add(gdRev[l]);u.push({s:m.index,e:m.index+m[0].length,l,c})}return u}
+/* apakah teks kalimat Jerman? skor kata fungsi Jerman vs Indonesia; rusak = ada kata Indonesia / huruf tunggal yang terselip (mis. "euch tidak", "Kinder n") */
+function gdIs(t){const w=gdW(t).map(x=>x.toLowerCase());let d=0,i=0;w.forEach(x=>{if(GD.de.has(x))d++;if(GD.id.has(x))i++});return{de:d,id:i,n:w.length}}
+const gdSingle=t=>gdW(t).some(x=>x.length==1&&/[a-zß]/.test(x)&&!/^[aA]$/.test(x))||/[a-zäöüß]\s[a-zäöüß]\s[a-zäöüß]/.test(String(t));
+const gdTr=s=>{s=String(s||'').trim();const q=s.match(/^[（(]([\s\S]*)[)）]\.?$/);return q&&!/[(（]/.test(q[1])?q[1].trim():s};
+function gdPair(a,b){const x=String(a).split(/\s+\/\s+/),y=String(b||'').split(/\s+\/\s+/);return x.length>1&&x.length==y.length?x.map((s,i)=>[s,y[i]]):[[a,b||'']]}
+/* kalimat contoh dari dua tempat: g[7] dan sel kv. Mengembalikan [{s,tr,notes,wrong,dirty,src,row,trRow}] */
+function gdSents(g){const o=[],kv=g[10]||[];
+ (g[7]||[]).forEach((e,i)=>{const a=gzLn(e),s0=String(a[0]||'').trim();let tr='',notes=[];for(let j=1;j<a.length;j++){const l=String(a[j]).trim();if(!l)continue;if(!tr&&j==1&&!GEN_NOTE.test(l))tr=l;else notes.push(l)}
+  const wrong=/^✖/.test(s0)||notes.some(n=>/^salah(?!\s+satu)/i.test(n)),nm=s0.match(/^(.+?[.!?…"”])\s*\(([^()]{6,})\)\.?\s*$/);if(nm&&!tr)gdPair(nm[1],'').forEach(([s])=>o.push({s:s.trim(),tr:'',notes:notes.concat(nm[2]),wrong,src:'c',i}));else gdPair(s0,tr).forEach(([s,t])=>o.push({s:s.trim(),tr:gdTr(t),notes,wrong,src:'c',i}))});
+ const used=new Set();
+ kv.forEach((r,i)=>{if(used.has(i))return;const v=String(r[1]||'').trim();if(!v||v.length<8||/^[\[(]/.test(v)||/\[/.test(v))return;const k=gdIs(v);if(!(k.de>=2&&k.de>=k.id)||k.n<3)return;if(!/[.!?…"”]$/.test(v.replace(/\s*\([^()]*(?:\([^()]*\)[^()]*)*\)\.?\s*$/,'')))return;
+  if(/^(Arti|Kosa|Contoh Kata)/i.test(r[0])&&!/Kalimat|Struktur/i.test(r[0]))return;
+  let s=v,tr='';const m=v.match(/^(.+?[.!?…"”])\s*\(([^()]+(?:\([^()]*\)[^()]*)*)\)\.?\s*$/);if(m){s=m[1];tr=m[2]}else{const nx=kv[i+1];if(nx){const nv=String(nx[1]||'').trim();if(/^Arti/i.test(nx[0])||/^\(.+\)\.?$/.test(nv)){tr=gdTr(nv);used.add(i+1)}}}
+  used.add(i);gdPair(s,tr).forEach(([a,b])=>o.push({s:a.trim(),tr:gdTr(b),notes:[],wrong:false,src:'k',row:i}))});
+ o.forEach(x=>{const k=gdIs(x.s);x.dirty=gdSingle(x.s)||k.id>0||/\(/.test(x.s)||x.s.length<4;x.used=used});return o}
+/* teks pada kalimat yang bukan kalimat Jerman utuh → tidak dipakai */
+const gdSpec={};
+const gdAl=v=>String(v||'').replace(/\$[^$]*\$/g,' ').replace(/\([^)]*\)/g,' ').split(/\s+\/\s+|\s*,\s*|\s+atau\s+/).map(x=>gdW(x).map(y=>y.toLowerCase())).filter(x=>x.length&&x.length<=3);
+const gdPA=v=>{v=String(v||'').replace(/\$[^$]*\$/g,' ');if(/\.\.\./.test(v)){const p=v.split(/\s*\.\.\.\s*/);return{t:'p',a:[gdAl(p[0]),gdAl(p[1])]}}const a=gdAl(v);return a.length?{t:'w',a}:null};
+const SPECIAL={'jawaban positif':{t:'w',a:[['ja']]},'jawaban negatif':{t:'w',a:[['nein']]},'respon khusus: doch':{t:'w',a:[['doch']]},'struktur terbalik (variasi)':{t:'w',a:[['weil'],['wenn']]},'kalimat pernyataan biasa':{t:'pos',n:2},'kalimat pernyataan (variasi keterangan)':{t:'pos',n:2},'pertanyaan umum (konfirmasi)':{t:'pos',n:1},'pengecualian kata kerja terpisah':{t:'w',a:[['zu']]},'konstruksi kata kerja / sifat':{t:'w',a:[['zu']]},'konstruksi kata sifat / kata benda':{t:'w',a:[['zu']]}};
+const SUBR=[[/Kalimat Relatif/,{t:'rel'}],[/Agen Pelaku/,{t:'rx',re:/^(von|vom|durch)$/}],[/Präteritum Passiv/,{t:'rx',re:/^wurd(e|est|en|et)$/}],[/Präsens Passiv/,{t:'rx',re:/^(wird|werden|werde|wirst|werdet)$/}],[/Futur I/,{t:'rx',re:/^(werde|wirst|wird|werden|werdet)$/}],[/Plusquamperfekt/,{t:'rx',re:/^(hatte|hattest|hatten|hattet|war|warst|waren|wart)$/}],[/3\.2 Präteritum/,{t:'rx',re:/^(war|warst|waren|wart|hatte|hattest|hatten|hattet)$/}],[/3\.1 Perfekt/,{t:'last'}],[/Konjunktiv II/,{t:'rx',re:/^(hätt|wär|könnt|würd|sollt|müsst|dürft)(e|est|en|et)?$/}]];
+const gdTK=g=>{const t=String(g[4]||'').replace(/#\d+$/,'').replace(/\([^)]*\)/g,' ').trim();if(!t)return null;const ws=gdW(t);if(!ws.length||ws.some(w=>GD.id.has(w.toLowerCase())))return null;if(!/^[a-zäöüß]/.test(t)&&!/^(Wo|Wer|Was|Wie|Wann|Woher|Wohin|Warum|Wieso|Welche|Welcher)/.test(t))return null;return gdPA(t)};
+const gdList=g=>{const r=(g[10]||[])[0];if(!r)return null;const v=String(r[1]||'');if(!/^[\p{L}ß]+(?:\s*,\s*[\p{L}ß/]+){2,}$/u.test(v))return null;const a=v.split(/\s*,\s*/).map(x=>x.split('/')[0].toLowerCase());return{t:'w',a:a.map(x=>[x])}};
+/* kata kunci yang dicari pada kalimat */
+function gdSpecOf(g){let r=gdSpec[g[0]];if(r!==undefined)return r;const kv=g[10]||[],sub=String(g[3]||''),tt=String(g[4]||'').replace(/#\d+$/,'').trim().toLowerCase();let sp=null,kind='aturan';
+ if(sub=='Preposisi'){sp=gdPA(kv[0]&&kv[0][1]);kind='prep';if(sp)sp.cons=1}
+ else if(SPECIAL[tt])sp=SPECIAL[tt];
+ else{for(const[re,s]of SUBR)if(re.test(sub)){sp=s;break}
+  if(!sp&&/Preposisi Khusus|Wechsel/.test(sub))sp=gdList(g);
+  if(!sp&&/Koordinatif|Subordinatif|W-Frage|Klausa Tujuan|Infinitiv dengan|Preposisi Khusus/.test(sub))sp=gdTK(g);
+  if(!sp){const b=kv.filter(x=>/^Bentuk /.test(x[0]));if(b.length>=2){const a=gdAl(b[b.length-1][1].replace(/\(\+n\)/,''));if(a.length)sp={t:'w',a}}}
+  if(!sp){const ar=kv.filter(x=>/^(Artikel Pasti|Artikel Tidak Pasti|Kepemilikan)/.test(x[0]));if(ar.length>=2){const a=ar.flatMap(x=>gdAl(x[1]));if(a.length)sp={t:'w',a}}}
+  if(!sp){const p=kv.find(x=>/^Posisi Kata Kerja/.test(x[0]));if(p&&/Posisi 2/.test(p[1]))sp={t:'pos',n:2};else if(p&&/Posisi 1/.test(p[1]))sp={t:'pos',n:1}}}
+ return gdSpec[g[0]]={sp,kind:gdKind(g,kind)}}
+const gdForm=v=>/^[\p{L}ß]+(?: \.\.\. [\p{L}ß]+| (?:mich|dich|sich|uns|euch|mir|dir))?$/u.test(String(v||'').trim());
+function gdKind(g,k){if(k=='prep')return k;const kv=g[10]||[],sub=String(g[3]||''),L=kv.map(r=>r[0]);
+ if(L.filter(l=>GD.pr[l]&&gdForm(kv[L.indexOf(l)][1])).length>=3)return'konjugasi';
+ if(/Perfekt|Präteritum|Plusquamperfekt|Futur|Passiv|Konjunktiv II|Agen Pelaku/.test(sub))return'kala';
+ if(kv.some(r=>/^(Maskulin|Feminin|Neutrum|Plural|Bentuk |Artikel Pasti|Artikel Tidak Pasti|Kepemilikan)/.test(r[0])))return'deklinasi';
+ if(/Koordinatif|Subordinatif|W-Frage|Ja\/Nein|Urutan Kata|Kalimat Relatif|Infinitiv|Klausa|Tambahan Pelengkap/.test(sub)||kv.some(r=>/^Posisi Kata Kerja/.test(r[0])))return'konjungsi';
+ return'aturan'}
+/* menandai kemunculan kata kunci pada satu kalimat → {bx:[[s,e]], ph, n} atau null */
+function gdOcc(t,U,ph){const o=[];for(let i=0;i+ph.length<=U.length;i++){let ok=true;for(let j=0;j<ph.length&&ok;j++){ok=U[i+j].c.has(ph[j]);if(ok&&j)ok=!/[^\s]/.test(t.slice(U[i+j-1].e,U[i+j].s))}if(ok)o.push([i,i+ph.length-1])}return o}
+function gdPickOne(oc,U){let b=oc[0];for(const k of oc){const n=U[k[1]+1];if(n&&GD.det.has(n.l)){b=k;break}}return b}
+function gdSel(sp,t,cons){if(!sp)return null;const U=gdU(t,cons);if(!U.length)return null;const R=(oc,ph)=>({bx:oc.map(([a,b])=>[U[a].s,U[b].e]).sort((x,y)=>x[0]-y[0]),ph});
+ if(sp.t=='w'){let best=null;for(const ph of sp.a){const oc=gdOcc(t,U,ph);if(!oc.length)continue;const gen=ph.every(w=>GD.gen.has(w)),pick=gen?[gdPickOne(oc,U)]:oc,sc=(gen?0:50)+ph.length*5-pick[0][0]*.01;if(pick.length>4)continue;if(!best||sc>best.sc)best={sc,oc:pick,ph}}return best?R(best.oc,[best.ph]):null}
+ if(sp.t=='p'){const f=a=>{for(const ph of a){const oc=gdOcc(t,U,ph);if(oc.length)return{oc,ph}}return null},A=f(sp.a[0]),B=f(sp.a[1]);if(!A||!B)return null;const a=A.oc[0],b=B.oc.find(x=>x[0]>a[1]);if(!b)return null;return R([a,b],[A.ph,B.ph])}
+ if(sp.t=='rx'){const i=U.findIndex(u=>sp.re.test(u.l));return i<0?null:R([[i,i]],[[U[i].l]])}
+ if(sp.t=='pos'){const i=sp.n-1;return U[i]?R([[i,i]],[[U[i].l]]):null}
+ if(sp.t=='last'){const i=U.length-1;return U[i]&&U.length>=3?R([[i,i]],[[U[i].l]]):null}
+ if(sp.t=='rel'){const c=t.indexOf(',');if(c<0)return null;let i=U.findIndex(u=>u.s>c);if(i<0)return null;if(GD.prep.has(U[i].l)&&U[i+1])i++;return GD.rel.has(U[i].l)?R([[i,i]],[[U[i].l]]):null}
+ return null}
+const gdWc=s=>gdW(s).length;
+function gdScore(x,sel){return(x.tr?25:0)-((x.s.match(/[.!?]["”]?\s+(?=["“A-ZÄÖÜ])/g)||[]).length)*15-Math.abs(gdWc(x.s)-8)*.8+(sel.bx.length>1?6:0)+(x.src=='c'?3:0)}
+/* soal berbasis tabel: kartu konjugasi, daftar kosakata (angka/hari/bulan), deklinasi/artikel/pronomen */
+const gdCtx=g=>String(g[3]||'').split('›').pop().trim().replace(/^[\d.\s-]+/,'').trim();
+function gdTab(g,kind){const kv=g[10]||[],h=gdH(g[0]),ti=String(g[4]||'').replace(/#\d+$/,'').trim();
+ if(kind=='konjugasi'){const rows=kv.map((r,i)=>[r,i]).filter(([r])=>GD.pr[r[0]]);let ok=[];for(const[r,i]of rows){if(!gdForm(r[1]))break;ok.push([r,i])}
+  const tw=new Set(gdW(ti).map(x=>x.toLowerCase())),nt=a=>a.filter(([r])=>!gdW(r[1]).every(w=>tw.has(w.toLowerCase())));ok=nt(ok.filter(([r])=>r[0]!='Ich'&&r[0]!='sie/Sie'));if(ok.length<2)ok=nt(rows.filter(([r])=>gdForm(r[1])&&r[0]!='Ich'));if(!ok.length)return null;const[r,i]=ok[h%ok.length],ar=kv.find(x=>/^Arti/.test(x[0]));
+  return{t:'konj',row:i,ans:String(r[1]).trim(),head:(/^Konjugasi/i.test(ti)?'':'Konjugasi · ')+ti+(gdCtx(g)&&!/Tambahan|Pelengkap/.test(gdCtx(g))?' · '+gdCtx(g):''),hint:ar?ar[1]:'',pr:GD.pr[r[0]]}}
+ const a=kv.findIndex(r=>/^Kosa Kata/.test(r[0])),b=kv.findIndex(r=>/^Arti \/ Angka/.test(r[0]));
+ if(a>=0&&b>=0){const x=String(kv[a][1]).split(/\s*,\s*/),y=String(kv[b][1]).split(/\s*,\s*/);if(x.length>=3&&x.length==y.length){const j=h%x.length;return{t:'list',row:a,ans:x[j],q:y[j],head:ti,idx:j}}}
+ const bf=kv.map((r,i)=>[r,i]).filter(([r])=>/^Bentuk /.test(r[0]));
+ if(bf.length>=2&&![bf[0],bf[bf.length-1]].some(x=>/[,.!?]/.test(String(x[0][1])))){const[f,l]=[bf[0],bf[bf.length-1]],sh=r=>r[0].replace(/^Bentuk\s+/,'').replace(/\s*\(.*$/,'');return{t:'bentuk',row:l[1],ans:String(l[0][1]).trim(),head:ti+' · '+sh(l[0]),line:String(f[0][1]).trim(),from:sh(f[0]),to:sh(l[0])}}
+ const cr=kv.map((r,i)=>[r,i]).filter(([r])=>/^(Maskulin|Feminin|Neutrum|Plural|Artikel Pasti|Artikel Tidak Pasti|Negasi|Kepemilikan|Orang)/.test(r[0])&&/[\p{L}]/u.test(String(r[1]||'').replace(/\(.*?\)/g,''))&&!/^(Contoh|Arti(?!kel))/.test(r[0])&&String(r[1]).length<40);
+ if(cr.length>=2&&ti.toLowerCase()!='catatan'){const[r,i]=cr[h%cr.length];const art=/^(Artikel|Negasi|Kepemilikan)/.test(r[0]);return{t:'sel',row:i,ans:String(r[1]).trim(),head:(gdCtx(g)&&!art?gdCtx(g)+' · ':art?gdCtx(g)+' · ':'')+ti,lab:(a=>{const w=gdW(String(r[1])).map(x=>x.toLowerCase()),l=r[0].replace(/\s*\(([^)]*)\)\s*$/,(m,x)=>gdW(x).some(y=>w.includes(y.toLowerCase()))?'':m);return l})()}}
+ return null}
+const gdIc=new Map();
+function gdInfo(g){let r=gdIc.get(g[0]);if(r)return r;const{sp,kind}=gdSpecOf(g),ss=gdSents(g);let bi=null,bsel=null,bs=-1e9,hasKeyNoMatch=false;
+ ss.forEach((x,i)=>{if(x.wrong||x.dirty)return;const sel=gdSel(sp,x.s,sp&&sp.cons||kind=='prep');if(!sel)return;const sc=gdScore(x,sel);if(sc>bs){bs=sc;bi=i;bsel=sel}});
+ let sh=null,hs=-1e9;ss.forEach((x,i)=>{if(x.wrong||x.dirty)return;const sc=(x.tr?25:0)-Math.abs(gdWc(x.s)-8)*.8;if(sc>hs){hs=sc;sh=i}});
+ const tab=bi==null?gdTab(g,kind):null;
+ r={kind,sp,ss,i:bi,sel:bsel,show:sh,tab,why:bi!=null?'rumpang':tab?'tabel':!ss.length?'tanpa-kalimat':!sp?(ss.some(x=>!x.dirty&&!x.wrong)?'tanpa-kunci':'tanpa-kunci'):ss.every(x=>x.dirty||x.wrong)?'kalimat-rusak':'kunci-tak-cocok'};
+ return gdIc.set(g[0],r),r}
+const GDAB=/^(mis|dll|dst|dsb|spt|cth|no|vs|dr|yg|dgn|tsb|ex)$/;
+/* kata jawaban untuk menyamarkan fungsi pendek */
+function gdAns(p){const s=new Set();if(p.sel)p.sel.ph.forEach(ph=>ph.forEach(w=>s.add(w)));if(p.tab)gdW(p.tab.ans).forEach(w=>{if(w.length>=2)s.add(w.toLowerCase())});return s}
+function gdFn(g,p){let t=String(g[5]||'').replace(/\s+/g,' ').trim(),re=/[.!?](?=\s+["'(A-ZÄÖÜ0-9])/g,m,cut=t.length;
+ while((m=re.exec(t))){const w=(t.slice(0,m.index).match(/(\S+)$/)||[''])[1].toLowerCase();if(GDAB.test(w))continue;cut=m.index;break}
+ t=t.slice(0,cut).replace(/[.\s]+$/,'');if(t.length>90){const c=t.slice(0,91).replace(/\s+\S*$/,'');t=(c||t.slice(0,90))+'…'}
+ const A=gdAns(p);if(!A.size)return esc(t);const U=gdU(t,true),bx=[];U.forEach(u=>{if([...u.c].some(w=>A.has(w))||A.has(u.l))bx.push([u.s,u.e])});
+ let o='',l=0;for(const[a,b]of bx){if(a<l)continue;o+=esc(t.slice(l,a))+`<span class="gzb gze gzs" style="--n:${b-a}">&nbsp;</span>`;l=b}return o+esc(t.slice(l))}
+const gdSeg=(t,bx,f)=>{let o='',l=0;for(const[a,b]of bx){o+=esc(t.slice(l,a))+f(t.slice(a,b),b-a);l=b}return o+esc(t.slice(l))};
+const gdBox=n=>`<span class="gzb gze" style="--n:${n}">&nbsp;</span>`;
+const gdFnLab=g=>String(g[5]||'').trim()?`<div class="gzq${String(g[5]||'').length>60?' gzl':''}"><span class=gl>${esc(g[11]||'Fungsi')}</span>`:'';
+function gzdFront(g){const m=S.o.gz||'cloze',p=gdInfo(g),fh=gdFn(g,p),ctx=String(g[3]||'').split('›').pop().trim().replace(/^[\d.\s-]+/,''),fn=String(g[5]||'').trim()?`<div class="gzq${String(g[5]||'').length>60?' gzl':''}"><span class=gl>${esc(g[11]||'Fungsi')}</span>${fh}</div>`:(g[3]!='Preposisi'?`<div class="gzq gzl"><span class=gl>Topik</span>${esc(ctx)}</div>`:'');
+ if(m=='cloze'&&p.i!=null){const x=p.ss[p.i];return fn+`<div class="gzc gzen gzde">${gdSeg(x.s,p.sel.bx,(w,n)=>gdBox(n))}</div>`+(x.tr?`<div class=gzm>${esc(x.tr)}</div>`:'')+`<div class=fchint><small>Isi bagian yang hilang &amp; ingat rumus polanya</small></div>`}
+ if(m=='cloze'&&p.tab){const q=p.tab,n=[...q.ans.replace(/\s/g,'')].length;let body;
+  if(q.t=='konj')body=`<div class="gzc gzen gzde">${q.pr} ${gdBox(n)}</div>`+(q.hint?`<div class=gzm>${esc(q.hint)}</div>`:'');
+  else if(q.t=='list')body=`<div class="gzc gzen gzde">${esc(q.q)} → ${gdBox(n)}</div>`;
+  else if(q.t=='bentuk')body=`<div class="gzc gzen gzde">${esc(q.line)} <small>(${esc(q.from)})</small> → ${gdBox(n)}</div>`;
+  else body=`<div class="gzc gzen gzde">${esc(q.lab)} → ${gdBox(n)}</div>`;
+  return fn+`<div class="gzm gzhd">${esc(q.head)}</div>`+body+`<div class=fchint><small>Isi sel tabel yang hilang &amp; ingat rumusnya</small></div>`}
+ let ex='';if(m!='fn'&&p.show!=null){const x=p.ss[p.show];ex=`<div class="gzc gzen gzde">${esc(x.s)}</div>`+(x.tr?`<div class=gzm>${esc(x.tr)}</div>`:'')}
+ return fn+ex+`<div class=fchint><small>Ingat: ${m=='fn'?'nama pola &amp; rumusnya':'pola &amp; rumusnya'}</small></div>`}
+function gzdBack(g,k){const p=gdInfo(g);let h=`<div class=gzt1>${esc(g[4])}</div><hr>`;const kv=g[10]||[],skip=new Set();
+ p.ss.forEach(x=>{if(x.src=='k')skip.add(x.row)});if(p.ss.some(x=>x.src=='k'))p.ss[0]&&p.ss[0].used&&p.ss[0].used.forEach(i=>skip.add(i));
+ const ans=new Set(),sel=p.sel?p.sel:null;
+ if(g[3]=='Preposisi'&&kv.length>=2){const ph=p.sp&&p.sp.t!='p'?p.sp:null,a=String(kv[0][1]).replace(/\$[^$]*\$/g,'').trim();h+=`<div class=gzp><mark class=gzh>${esc(a)}</mark> + ${esc(kv[1][1])}</div>`+(kv[2]?`<div class=gzf style="margin-top:-2px">= ${esc(kv[2][1])}</div>`:'')}
+ else{const rows=kv.map((r,i)=>[r,i]).filter(([r,i])=>!skip.has(i)&&String(r[1]||'').trim());
+  if(rows.length){const mk=(v,i)=>{let hl=false;if(p.tab&&p.tab.row==i)hl=true;return hl?`<mark class=gzh>${esc(v)}</mark>`:esc(v)};
+   const R=rows.map(([r,i])=>`<div class=gzr><span class=gl>${esc(r[0])}</span><span>${mk(String(r[1]),i)}</span></div>`);
+   h+=rows.length>8?`<div class=gzk>${R.slice(0,4).join('')}</div><details class=gzd><summary>Tabel lengkap (${rows.length})</summary><div class=gzk>${R.join('')}</div></details>`:`<div class=gzk>${R.join('')}</div>`}}
+ h+=`<div class=gzf>${esc(g[5])}</div>`;
+ const ord=p.ss.map((x,i)=>i),f=p.i!=null?p.i:p.show;if(f!=null){ord.splice(ord.indexOf(f),1);ord.unshift(f)}
+ h+=ord.map(i=>{const x=p.ss[i],sl=x.wrong||x.dirty?null:i==p.i?p.sel:gdSel(p.sp,x.s,p.sp&&p.sp.cons||p.kind=='prep'),bx=sl?sl.bx:[];
+  const cn=[];if(bx.length)bx.forEach(([a,b])=>{const w=x.s.slice(a,b).toLowerCase();if(GD.con[w])cn.push(`${w} = ${GD.con[w]}`)});
+  return`<div class="gex gzx${x.wrong||x.dirty?' gzw':''}"><div class=g1>${gdSeg(x.s,bx,w=>`<mark class=gzh>${esc(w)}</mark>`)}${x.wrong||x.dirty?'':spk(x.s,'de')}</div>${x.tr?`<div class=g2>${esc(x.tr)}</div>`:''}${cn.map(n=>`<div class="g2 gzn">${esc(n)}</div>`).join('')}${(x.notes||[]).map(n=>`<div class="g2 gzn">${esc(n)}</div>`).join('')}</div>`}).join('');
+ return`<div style="text-align:left">`+h+gmExBlock(k)+`</div>`}
 function gcard(k){const g=GK[k];if(!g)return'<div class=card>Tidak ada grammar untuk filter/mode ini.</div>';const s=st(k);
 return`<div class=card><div class=hd><span>${LN[g[1]]||'Jerman'} ${g[2]}${g[3]?' · '+esc(g[3]):''}</span><span><i class="dot dot${s}"></i>${STN[s]}${fcTag(k)}${aiBtn(k)}${S.lib.some(t=>t.L==g[1])?`<button class="mini" data-a=libfind data-k="${esc(k)}" title="Cari teks di Pustaka">📚</button>`:''}${edBtn('g',k)}</span></div><div class=mean>${esc(g[4])}</div>${gbody(g)}${gTax(k)}${gmExBlock(k)}<div class="seg">${STN.map((x,i)=>`<button class="sb sb${i}${i==s?' on':''}" data-a=set data-k="${esc(k)}" data-v=${i}>${x}</button>`).join('')}</div></div>`}
 let gLg='',gLv=0,gFoc=0,gFresh=1;const gAll0=l=>gLvs(l).map(v=>l+':'+v);
@@ -455,7 +580,7 @@ function fcSett(){const o=S.o,sz=Object.values(S.srs).filter(c=>c.z).length;
  fcN('nl','Kartu baru per hari',0,9999)+fcN('rl','Maks. ulasan per hari',0,9999)+fcN('xn','Tambahan kartu baru saat target selesai (per ketukan)',1,200)+fcN('xr','Tambahan ulasan saat target selesai (per ketukan)',1,500)+
  fcS('ord','Urutan kartu baru',[['seq','Berurutan'],['rand','Acak']])+
  fcS('no','Kartu baru vs ulasan',[['after','Baru setelah ulasan'],['before','Baru sebelum ulasan'],['mix','Campur']])+
- fcS('gz','Sisi depan kartu grammar (Mandarin, Inggris &amp; Jepang)',[['cloze','Soal rumpang + fungsi (disarankan)'],['fn','Fungsi saja'],['old','Judul (tampilan lama)']])+
+ fcS('gz','Sisi depan kartu grammar (Mandarin, Inggris, Jepang &amp; Jerman)',[['cloze','Soal rumpang + fungsi (disarankan)'],['fn','Fungsi saja'],['old','Judul (tampilan lama)']])+
  `<label class=fcl><span><input type=checkbox data-i=fc_lk${o.lk?' checked':''}> Integrasikan progres Kartu ↔ Kosakata</span></label><div class=btns><button data-a=fcsyncall>Sinkronkan sekarang</button></div>`+
  dtag('fl')+'<summary>Lanjutan (parameter algoritma)</summary>'+
  `<label class=fcl><span>Langkah belajar (menit)</span><input data-i=fc_ls value="${esc(o.ls)}"></label>`+

@@ -1,10 +1,22 @@
 # Riwayat Perubahan
 
+## 7.15.0 — Kamis, 5 Nov 2026
+- **Flashcard grammar Jerman (A1–C1, 386 kartu) dirombak** dengan pola yang sama seperti Mandarin, Inggris dan Jepang. Sisi depan tidak lagi memperlihatkan judul (yang pada preposisi berisi jawabannya). Kini berisi **fungsi pendek** (kalimat pertama, ≤ ±90 karakter, kata jawaban disamarkan) + **soal**: kalimat contoh dengan kata kunci dikosongkan + arti Indonesia, atau (untuk tabel tanpa kalimat) **soal sel tabel** seperti `er/sie/es ___` pada kartu konjugasi.
+- **Sumber kata kunci per jenis kartu** (kolom Pola kosong di Jerman): preposisi → kolom Preposisi (termasuk `Bis zu`, `Von … an`, `Anstatt / Statt`); konjungsi, W-Frage dan zu-Infinitiv → judul; kalimat relatif → kata ganti relatif setelah koma; Perfekt, Präteritum, Futur I, Passiv, Konjunktiv II → aturan per sub-bab; kartu artikel/pronomen dengan kalimat → bentuk pada kolom `Bentuk …`; kalimat urutan kata → kata kerja posisi 1/2.
+- **Kalimat contoh dari dua tempat:** kolom contoh dan sel `kv` (`Contoh Struktur Jerman`, `Contoh Kalimat Lengkap`, kalimat dengan arti dalam kurung, dst.), dengan terjemahan dari baris ke-2, baris `Arti …`, atau kurung. Kalimat yang rusak di data (kata Indonesia terselip seperti `tidak`/`dengan`, huruf tunggal seperti `Kinder n`, kurung di dalam kalimat, catatan terpotong) tidak pernah dipakai sebagai soal.
+- **Kontraksi dan bentuk tak beraturan:** `im = in dem`, `zum`, `zur`, `vom`, `beim`, `ins`, `ans`, … cocok dengan kartu preposisinya, dan sisi jawaban menampilkan catatan `im = in dem`. Pencocokan memakai pembatas kata Unicode (ä ö ü ß), jadi `an` tidak jatuh di dalam `Kanne`. Kata umum (`der`, `in`, `zu`, …) hanya dikosongkan satu kemunculan yang paling relevan.
+- **Sisi jawaban:** judul kecil → rumus/tabel (preposisi: `In + Dativ`; tabel: sel jawaban ditandai, tabel panjang dilipat) → fungsi lengkap → kalimat contoh (yang dipakai rumpang paling atas, kata kunci ditandai, tombol 🔊 pada tiap kalimat Jerman, arti).
+- **Hasil:** 340 dari 386 kartu (88,1%) mendapat soal otomatis: 246 rumpang pada kalimat + 94 soal sel tabel. Per jenis: preposisi 179/185, konjugasi 39/39, deklinasi 69/79, konjungsi dan urutan kata 30/36, kala 12/25, aturan 11/22. 46 kartu memakai cadangan (fungsi pendek + kalimat utuh bila ada + “Ingat: pola & rumusnya”, tanpa kotak palsu).
+- Atur → Pengaturan flashcard → “Sisi depan kartu grammar (Mandarin, Inggris, Jepang & Jerman)”: Soal rumpang (bawaan) · Fungsi saja · Judul (tampilan lama). Pilihan “Judul” untuk Jerman identik dengan 7.14.0.
+- Semua dihitung saat kartu ditampilkan; judul, ID progres (`g|de|A1|…`), jumlah/urutan kartu, `kv`, `sub`, tag Pustaka, jadwal SRS, xlsx, dan format ekspor/impor tidak berubah. Mandarin, Inggris, Jepang, Belanda dan Esperanto identik dengan 7.14.0. Tab Grammar (daftar) tidak berubah. Service worker 7.15.0.
+
 ## 7.14.0 — Kamis, 5 Nov 2026
-- **Grammar Mandarin (HSK 1–5): kartu gabungan dipecah.** 40 kartu yang memuat 4 poin atau lebih dijadikan satu kartu per poin (40 kartu → 209 kartu; total kartu Mandarin 439 → 608). Contoh: 介词 把/被/叫/让, 连词 (7 kartu), 语气副词 band 3 (14 kartu), 趋向补语 上/下/进/出/起/过/回/开, 结果补语 (7 kartu), 名量词 di HSK 1–5, 概数, 小数/分数/百分数/倍数, 钱数, 时间表示法, dan lain-lain.
-- Tiap kartu baru punya judul, fungsi, pola, 1–3 contoh (contoh lama dipakai ulang, contoh baru ditambahkan), dan keterangan sendiri. Kode taksonomi, tetangga, prasyarat, dan kluster ikut diperbarui.
+- **Grammar Mandarin (HSK 1–5): kartu gabungan dipecah.** 99 kartu yang memuat dua kata/poin atau lebih yang berbeda dan tidak dipakai bersamaan dijadikan satu kartu per poin (99 kartu → 362 kartu; total kartu Mandarin 439 → 702). Contoh: 常/想, 想/要, 会/能, 可能/可以, 的/地, 是非问句/特指问句, 把/被/叫/让, 连词, 补语, dan klasifier. Yang tetap digabung hanya sinonim/bentuk lain dari satu kata (mis. 常/常常, 一起/一块儿, 仅/仅仅) dan pasangan korelatif (不但……而且……, 虽然……但是……).
+- Kartu lama yang sudah dipecah **dihapus** dari data aplikasi dan taksonomi; tidak akan muncul lagi.
+- Tiap kartu baru punya judul, fungsi, pola, 1–3 contoh, dan keterangan sendiri. Kode taksonomi, tetangga, prasyarat, dan kluster ikut diperbarui.
 - **Progres kartu yang dipecah mulai dari awal** (ID progres `g|zh|HSK n|judul` berubah). Progres kartu lain tidak terpengaruh.
-- `English_Vocab_Grammar_A1-C2_v9.xlsx`: sheet HSK 1–5 diperbarui dengan baris yang sama (penomoran, pita warna, validasi data, dan tinggi baris ikut bergeser). Sheet lain tidak berubah.
+- Perbaikan: contoh salah ketik pada 人称代词 HSK 1 dan 在……下 HSK 4.
+- `English_Vocab_Grammar_A1-C2_v11.xlsx`: sheet HSK 1–5 memuat baris yang sama; sheet lain tidak berubah.
 - Service worker 7.14.0.
 
 ## 7.13.0 — Kamis, 5 Nov 2026
