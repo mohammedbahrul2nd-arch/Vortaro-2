@@ -73,7 +73,7 @@ function gbody(g){const L=t=>`<div class=gsec>${t}</div>`,kv=g[10]||[],CJ=g[1]==
  if(g[9].length)h+=num(g[9],'Kasus khusus','gnt gkk');
  return h}
 /* ===== v7.11: kartu grammar flashcard berbasis rumpang (cloze). Mandarin, Inggris (v7.12), Jepang (v7.13) dan Jerman (v7.15); bahasa lain cukup ditambahkan ke GZ ===== */
-const GZ={zh:/[㐀-鿿]+/g,en:1,ja:1,de:1};
+const GZ={zh:/[㐀-鿿]+/g,en:1,ja:1,de:1,nl:1};
 const gzLn=e=>{const a=String(e).split('\n');a[0]=a[0].replace(/^\s*\d+\s*[.、．)]\s*/,'');return a};
 const gzSp=s=>String(s||'').replace(/\s+/g,'');
 const gzOn=g=>!!GZ[g[1]]&&(S.o.gz||'cloze')!='old';
@@ -87,12 +87,12 @@ const gzTr=a=>{let t=a.length>=3?a.slice(2).join('\n'):a.length==2?a[1]:'';t=t.t
 function gzPick(g){const keys=gzKeys(g);let best=null,bs=-1,mk=[];
  if(keys.length)(g[7]||[]).forEach((e,i)=>{const a=e.split('\n'),hit=new Set(gzSplit(a[0],keys).filter(x=>x[1]).map(x=>gzSp(x[0])));if(!hit.size)return;const n=hit.size,len=gzSp(a[0]).length,sc=(n>=2?100:50)-(n>2?(n-2)*10:0)+(a.length>=3?20:0)-Math.abs(len-12)*.5;if(sc>bs){bs=sc;best=i;mk=keys.filter(k=>hit.has(k)).slice(0,2)}});
  return{keys,mk,i:best}}
-function gzFront(g){if(g[1]=='en')return gzeFront(g);if(g[1]=='ja')return gzjFront(g);if(g[1]=='de')return gzdFront(g);const m=S.o.gz||'cloze',p=gzPick(g),fn=`<div class="gzq${String(g[5]||'').length>60?' gzl':''}"><span class=gl>${esc(g[11]||'Fungsi')}</span>${esc(g[5])}</div>`;
+function gzFront(g){if(g[1]=='en')return gzeFront(g);if(g[1]=='ja')return gzjFront(g);if(g[1]=='de')return gzdFront(g);if(g[1]=='nl')return gznFront(g);const m=S.o.gz||'cloze',p=gzPick(g),fn=`<div class="gzq${String(g[5]||'').length>60?' gzl':''}"><span class=gl>${esc(g[11]||'Fungsi')}</span>${esc(g[5])}</div>`;
  if(m=='cloze'&&p.i!=null){const a=gzLn(g[7][p.i]),tr=gzTr(a);
   return fn+`<div class=gzc>${gzSplit(a[0],p.mk).map(([t,h])=>h?`<span class=gzb style="--n:${[...gzSp(t)].length}">&nbsp;</span>`:esc(t)).join('')}</div>`+(tr?`<div class=gzm>${esc(tr)}</div>`:'')+`<div class=fchint><small>Isi bagian yang hilang &amp; ingat rumus polanya</small></div>`}
  let ex='';if(m!='fn'){const k=(g[7]||[]).findIndex(e=>/[\u3400-\u9fff]/.test(e.split('\n')[0])&&e.split('\n').length>=2),a=(g[7]||[])[k>=0?k:0];if(a){const b=gzLn(a),t=gzTr(b);ex=`<div class=gzc style="font-size:1.5rem">${esc(b[0])}</div>`+(t?`<div class=gzm>${esc(t)}</div>`:'')}}
  return fn+ex+`<div class=fchint><small>Ingat: nama pola &amp; rumusnya</small></div>`}
-function gzBack(g,k){if(g[1]=='en')return gzeBack(g,k);if(g[1]=='ja')return gzjBack(g,k);if(g[1]=='de')return gzdBack(g,k);const p=gzPick(g),ks=p.keys,hl=t=>gzSplit(t,ks).map(([x,h])=>h?`<mark class=gzh>${esc(x)}</mark>`:esc(x)).join('');
+function gzBack(g,k){if(g[1]=='en')return gzeBack(g,k);if(g[1]=='ja')return gzjBack(g,k);if(g[1]=='de')return gzdBack(g,k);if(g[1]=='nl')return gznBack(g,k);const p=gzPick(g),ks=p.keys,hl=t=>gzSplit(t,ks).map(([x,h])=>h?`<mark class=gzh>${esc(x)}</mark>`:esc(x)).join('');
  let h=`<div class=gzt1>${esc(g[4])}</div><hr>`;
  if(g[6])h+=`<div class=gzp>${gzSplit(g[6],ks).map(([x,y])=>y?`<mark class=gzh>${esc(x)}</mark>`:esc(x)).join('')}</div>`;
  h+=`<div class=gzf>${esc(g[5])}</div>`;
@@ -423,6 +423,181 @@ function gzdBack(g,k){const p=gdInfo(g);let h=`<div class=gzt1>${esc(g[4])}</div
   const cn=[];if(bx.length)bx.forEach(([a,b])=>{const w=x.s.slice(a,b).toLowerCase();if(GD.con[w])cn.push(`${w} = ${GD.con[w]}`)});
   return`<div class="gex gzx${x.wrong||x.dirty?' gzw':''}"><div class=g1>${gdSeg(x.s,bx,w=>`<mark class=gzh>${esc(w)}</mark>`)}${x.wrong||x.dirty?'':spk(x.s,'de')}</div>${x.tr?`<div class=g2>${esc(x.tr)}</div>`:''}${cn.map(n=>`<div class="g2 gzn">${esc(n)}</div>`).join('')}${(x.notes||[]).map(n=>`<div class="g2 gzn">${esc(n)}</div>`).join('')}</div>`}).join('');
  return`<div style="text-align:left">`+h+gmExBlock(k)+`</div>`}
+/* ===== v7.16: grammar Belanda (A1–C2) pada kartu rumpang. Kata kunci per jenis kartu: judul (preposisi, konjungsi, partikel, er, …), kata kerja + preposisi (hanya preposisinya), kala (Perfectum, Imperfectum, Pasif, …) → aturan per sub-bab, posisi kata kerja; kata kerja kuat/konjugasi, pronomen, komparatif, daftar kata → soal sel tabel. Kartu ejaan/pelafalan → cadangan. zh/en/ja/de tidak disentuh ===== */
+const GN={
+ irr:'zijn ben bent is was waren geweest|hebben heb hebt heeft had hadden gehad|gaan ga gaat ging gingen gegaan|kunnen kan kunt kon konden gekund|willen wil wilt wilde wilden wou wouden gewild|zullen zal zult zou zouden|mogen mag mocht mochten gemogen|moeten moet moest moesten gemoeten|doen doe doet deed deden gedaan|komen kom komt kwam kwamen gekomen|zien zie ziet zag zagen gezien|worden word wordt werd werden geworden|weten weet weetje wist wisten geweten|staan sta staat stond stonden gestaan|slaan sla slaat sloeg sloegen geslagen|laten laat laten liet lieten gelaten|brengen breng brengt bracht brachten gebracht|denken denk denkt dacht dachten gedacht|houden houd houdt hield hielden gehouden|krijgen krijg krijgt kreeg kregen gekregen|blijven blijf blijft bleef bleven gebleven|nemen neem neemt nam namen genomen|geven geef geeft gaf gaven gegeven|vinden vind vindt vond vonden gevonden|spreken spreek spreekt sprak spraken gesproken|schrijven schrijf schrijft schreef schreven geschreven|lezen lees leest las lazen gelezen|eten eet at aten gegeten|drinken drink drinkt dronk dronken gedronken|kopen koop koopt kocht kochten gekocht|zitten zit zit zat zaten gezeten|liggen lig ligt lag lagen gelegen|lopen loop loopt liep liepen gelopen|rijden rijd rijdt reed reden gereden|beginnen begin begint begon begonnen|zoeken zoek zoekt zocht zochten gezocht|brengen|snijden snij snijdt sneed sneden gesneden',
+ cl:{je:['jij'],jij:['je'],we:['wij'],wij:['we'],ze:['zij'],zij:['ze'],me:['mij'],mij:['me'],"'t":['het'],het:["'t"],"'n":['een'],een:["'n"],"d'r":['haar'],"'k":['ik'],ik:["'k"],"'m":['hem'],hem:["'m"],"'r":['haar']},
+ gen:new Set('de het een in op te van met om aan er is dat die en of ik je jij we wij ze zij hij u dit dus ook niet geen maar als dan nu zo wel al nog toch heel mijn jouw zijn haar ons onze hun naar bij voor uit door'.split(' ')),
+ de:new Set('ik jij je hij zij ze het de een en of maar dat die dit deze is zijn ben bent was waren heb hebt heeft had hebben niet geen wij we jullie u mijn jouw zijn haar ons hun met van voor naar bij op in aan uit door om over na tot als dan nu hier daar er wat wie waar hoe waarom wanneer kan kunt willen wil moet moeten zal zou mag ook nog wel al toch gaan ga gaat naar thuis veel heel te omdat want dus mij jou hem hen'.split(' ')),
+ id:new Set('saya aku kamu anda dia kami kita mereka yang itu ini di ke dari untuk dengan adalah tidak bukan akan sudah sedang bisa dalam pergi sini rumah buku kepada oleh karena atau jika ketika tetapi tapi juga sangat harus boleh punya ada apa siapa kapan mana berapa bagaimana tinggal bekerja membaca pada sebuah seorang kemarin besok hari lebih'.split(' ')),
+ det:new Set('de het een zijn haar mijn jouw ons onze hun dit dat deze die'.split(' ')),
+ ph:new Set('infinitief infinitif participle voltooid deelwoord jumlah agen pelaku prep preposisi adjektif subjek objek kata benda kerja sifat modal'.split(' ')),
+ vb:/Kata Kerja|Reflexif|Scheidbare|Pasif|Passief|Masa Depan|Modal|Perfectum|Imperfectum|Progresif|Pengandaian|Hulpwerkwoord|Verba|Verb|Awalan|Idiom|Ungkapan Tetap|Peribahasa/,
+ pr:{'Ik':'ik','Jij / U':'jij / u','Hij / Zij / Het':'hij / zij / het','Wij':'wij','Jullie':'jullie','Zij':'zij'},
+ pre:new Set('in op naar uit van met zonder bij voor om aan over tegen door achter naast tussen boven onder na tot vanaf sinds tijdens'.split(' '))};
+const gnInv=new Map(),gnVc=new Map();let gnDW=null,gnDF=null,gnInit=0;
+GN.irr.split('|').forEach(r=>{const f=r.split(' ');f.slice(1).forEach(w=>{if(!gnInv.has(w))gnInv.set(w,f[0])})});
+const gnW=t=>String(t||'').match(/(?<![\p{L}])['’]?\p{L}+(?:['’-]\p{L}+)*/gu)||[];
+const gnH=s=>{let h=0;for(const c of String(s))h=(h*31+c.charCodeAt(0))>>>0;return h};
+const gnNorm=w=>String(w).toLowerCase().replace(/’/g,"'");
+const gnWc=s=>gnW(s).length;
+/* data-driven: bentuk tak beraturan diambil dari tabel konjugasi/imperfectum kartu itu sendiri (kv), dan korpus kata Belanda dari contoh */
+function gnBoot(){if(gnInit)return;gnInit=1;gnDW=new Set();gnDF=new Map();const add=(w,inf)=>{w=gnNorm(w);if(w.length>1&&inf&&!gnInv.has(w))gnInv.set(w,inf)};
+ const G=(typeof D!='undefined'?D.G:[]).filter(g=>g[1]=='nl');
+ const dict=s=>gnW(s).forEach(w=>gnDW.add(gnNorm(w)));
+ G.forEach(g=>{const ti=gnNorm(String(g[4]||'').replace(/#\d+$/,'').trim()),kv=g[10]||[],one=/^[\p{L}]+$/u.test(ti);
+  kv.forEach(r=>{const l=r[0],v=String(r[1]||'');
+   if(GN.pr[l]||/^Imperfectum|^Voltooid|^Subjek|^Objek|^Posesif|^Komparatif|^Superlatif|^Kosakata Belanda|^Contoh \(Belanda\)|^Contoh Kalimat|^Arti \/ Contoh/.test(l)){dict(v.replace(/\([^)]*\)/g,' '));
+    if(one&&/en$|^(zijn|gaan|doen|slaan|zien|staan)$/.test(ti)&&(GN.pr[l]||/^Imperfectum|^Voltooid/.test(l)))v.replace(/\([^)]*\)/g,' ').split(/\s*\/\s*/).forEach(x=>{const w=gnW(x)[0];if(w)add(w,ti)})}});
+  });
+ G.forEach(g=>{const seen=new Set();gnSents(g).forEach(x=>{if(x.dirty||x.wrong)return;dict(x.s);gnW(x.s).forEach(w=>{w=gnNorm(w);if(!seen.has(w)){seen.add(w);gnDF.set(w,(gnDF.get(w)||0)+1)}})})})}
+const gnCommon=w=>GN.gen.has(w)||(gnBoot(),(gnDF.get(w)||0)>=60);
+/* bentuk kata kerja: tak beraturan dari tabel + bentuk beraturan (stam, -t, -te(n), -de(n), ge-…-t/d, -end) */
+function gnVF(inf){let s=gnVc.get(inf);if(s)return s;gnBoot();s=new Set([inf]);gnInv.forEach((v,f)=>{if(v==inf)s.add(f)});
+ if(inf.length>=4&&/n$/.test(inf)){let st=inf.replace(/en$/,'');if(st==inf)st=inf.replace(/n$/,'');const A=new Set([st]);const m=st.match(/^(.*?)([aeiou])([^aeiouy])$/);if(m&&m[1]&&!/[aeiou]$/.test(m[1]))A.add(m[1]+m[2]+m[2]+m[3]);if(/([^aeiou])\1$/.test(st))A.add(st.slice(0,-1));
+  [...A].forEach(x=>{if(/z$/.test(x))A.add(x.slice(0,-1)+'s');if(/v$/.test(x))A.add(x.slice(0,-1)+'f')});
+  A.forEach(x=>{[x,x+'t',x+'te',x+'ten',x+'de',x+'den','ge'+x+'t','ge'+x+'d',x+'end',x+'ende'].forEach(y=>s.add(y))})}
+ gnVc.set(inf,s);return s}
+const gnPref='aan af achter bij binnen door in mee na om onder op open over rond samen terug toe uit vast voor vooruit weg thuis neer'.split(' ');
+function gnForms(w,verb){w=gnNorm(w);const s=new Set([w]);(GN.cl[w]||[]).forEach(x=>s.add(x));gnBoot();if(gnInv.has(w)||[...gnInv.values()].includes(w)||(verb&&w.length>=4&&/n$/.test(w)))gnVF(gnInv.get(w)||w).forEach(x=>s.add(x));return s}
+/* kalimat → unit kata; c = bentuk yang dianggap sama (klitik je ~ jij, bentuk tak beraturan → infinitif) */
+function gnU(t){t=String(t||'');const u=[],re=/(?<![\p{L}])['’]?\p{L}+(?:['’-]\p{L}+)*/gu;let m;gnBoot();while((m=re.exec(t))){let l=gnNorm(m[0]),s=m.index;if(l[0]=="'"&&!GN.cl[l]&&l!="'s"){l=l.slice(1);s++}const c=new Set([l]);(GN.cl[l]||[]).forEach(x=>c.add(x));if(gnInv.has(l))c.add(gnInv.get(l));u.push({s,e:m.index+m[0].length,l,c})}return u}
+function gnIs(t){const w=gnW(t).map(gnNorm);let d=0,i=0;w.forEach(x=>{if(GN.de.has(x))d++;if(GN.id.has(x))i++});return{de:d,id:i,n:w.length}}
+const gnSingle=t=>gnW(t).some(x=>x.length==1&&/[a-z]/i.test(x)&&!/^[uU]$/.test(x))||/\b[a-z]\s[a-z]\s[a-z]\b/.test(String(t));
+const gnTr=s=>{s=String(s||'').trim();const q=s.match(/^[（(]([\s\S]*)[)）]\.?$/);return q&&!/[(（]/.test(q[1])?q[1].trim():s};
+const GNAB=/^(bijv|enz|o\.a|m\.b\.t|a\.u\.b|z\.o\.z|t\.o\.v|n\.a\.v|t\.a\.v|d\.w\.z|dhr|mevr|drs|mr|ir|prof|nr|blz|bv|ca|vs|dr|st|etc|tel|mis|dll|dst|dsb|cth|ex)\.?$/i;
+function gnSplit(t){t=String(t||'').trim();const o=[],re=/[.!?…]+["”’']?(?=\s+["“'‘(]?[A-ZÀ-ÖØ-Þ0-9])/g;let st=0,m;while((m=re.exec(t))){const w=(t.slice(st,m.index).match(/(\S+)$/)||[''])[1];if(GNAB.test(w))continue;o.push(t.slice(st,m.index+m[0].length).trim());st=m.index+m[0].length}const r=t.slice(st).trim();if(r)o.push(r);return o}
+/* "a / b" dan "x. y." → pasangan (kalimat, terjemahan); jumlah kalimat Belanda ≠ terjemahan → tanpa terjemahan (tr diberi '' dan mis=true) */
+function gnPairs(a,b){b=String(b||'');const x=a.split(/\s+\/\s+/),y=b.split(/\s+\/\s+/),A=x.length>1&&x.length==y.length?x:[a],B=A.length>1?y:[b],o=[];
+ A.forEach((s,i)=>{const p=gnSplit(s),q=gnSplit(B[i]||'');if(p.length==q.length)p.forEach((z,j)=>o.push([z,q[j],p.length>1?1:0]));else if(p.length==1)o.push([p[0],B[i]||'',0]);else p.forEach(z=>o.push([z,'',2]))});return o}
+/* kalimat contoh dari tiga tempat: g[7], sel kv (Contoh …), dan “Contoh: …” di dalam fungsi */
+const gnSC=new Map();function gnSents(g){let m=gnSC.get(g[0]);if(m)return m;m=gnSents0(g);gnSC.set(g[0],m);return m}
+function gnSents0(g){const o=[],kv=g[10]||[],used=new Set();
+ (g[7]||[]).forEach((e,i)=>{const a=gzLn(e),l0=String(a[0]||'').trim();let tr='',notes=[];for(let j=1;j<a.length;j++){const l=String(a[j]).trim();if(!l)continue;if(!tr&&j==1&&!GEN_NOTE.test(l))tr=l;else notes.push(l)}
+  const wrong=/^✖/.test(l0)||notes.some(n=>/^salah(?!\s+satu)/i.test(n)),nm=l0.match(/^(.+?[.!?…"”])\s*\(([^()]{6,})\)\.?\s*$/);
+  if(nm&&!tr)gnPairs(nm[1],'').forEach(([s,t,m])=>o.push({s:s.trim(),tr:'',notes:notes.concat(nm[2]),wrong,src:'c',i,mis:m}));else gnPairs(l0,tr).forEach(([s,t,m])=>o.push({s:s.trim(),tr:gnTr(t),notes,wrong,src:'c',i,mis:m}))});
+ kv.forEach((r,i)=>{if(used.has(i))return;const v=String(r[1]||'').trim();if(!v||v.length<8||/^[\[(]/.test(v)||/\[/.test(v)||/^(Arti(?!\s*\/)|Penjelasan|Fungsi|Dipakai|Cara Baca|Kosakata)/i.test(r[0]))return;const k=gnIs(v);if(!(k.de>=2&&k.de>=k.id)||k.n<3)return;
+  if(!/[.!?…"”]$/.test(v.replace(/\s*\([^()]*(?:\([^()]*\)[^()]*)*\)\.?\s*$/,'')))return;
+  let s=v,tr='';const m=v.match(/^(.+?[.!?…"”])\s*\(([^()]+(?:\([^()]*\)[^()]*)*)\)\.?\s*$/);if(m){s=m[1];tr=m[2]}else{const nx=kv[i+1];if(nx){const nv=String(nx[1]||'').trim();if(/^Arti/i.test(nx[0])&&!/^Arti \(Bahasa/.test(nx[0])){tr=gnTr(nv);used.add(i+1)}}}
+  used.add(i);gnPairs(s,tr).forEach(([a,b,mm])=>o.push({s:a.trim(),tr:gnTr(b),notes:[],wrong:false,src:'k',row:i,mis:mm}))});
+ const fm=String(g[5]||'').match(/(?:Contoh|Mis\.?)[^:.]{0,30}:\s*(.+)$/);if(fm&&!o.length)gnSplit(fm[1]).forEach(s=>{const k=gnIs(s);if(k.de>=1&&k.de>=k.id&&gnW(s).length>=3&&/[.!?…]["”]?$/.test(s))o.push({s,tr:'',notes:[],wrong:false,src:'f',mis:0})});
+ const seen=new Set();const r=o.filter(x=>{const key=x.s;if(seen.has(key))return false;seen.add(key);return true});
+ r.forEach(x=>{x.s=x.s.replace(/^[AB]:\s+/,'');const k=gnIs(x.s);x.dirty=gnSingle(x.s)||k.id>0||/[()]/.test(x.s)||/[;→=]|\s\/\s|\.\.\./.test(x.s)||x.s.length<4||gnW(x.s).length<2||(!/[.!?…]["”]?$/.test(x.s)&&(x.s.match(/,/g)||[]).length>=2);x.used=used});return r}
+/* judul → alternatif frasa Belanda */
+const gnTitle=(g)=>{let t=String(g[4]||'').replace(/#\d+$/,'').trim();const qs=[...t.matchAll(/'([\p{L}]+)'/gu)].map(m=>m[1]);gnBoot();
+ const eform=new Set();t=t.replace(/(\p{L}+)\(e\)/gu,(m,w)=>{eform.add(w.toLowerCase());return w});
+ t=t.replace(/\[[^\]]*\]/g,' ').replace(/\([^)]*\)/g,' ').replace(/=.*$/,'').trim();
+ const verb=GN.vb.test(String(g[3]||'')),alts=[];
+ t.split(/\s*[\/,;]\s*/).forEach(alt=>{if(!alt.trim())return;const pieces=alt.split(/\s+\.\.\.\s+/).map(p=>{const q=p.split(/\s*\+\s*/).find(x=>gnW(x).some(w=>!GN.ph.has(gnNorm(w))))||'';return q.replace(/\b(zich|iets|ergens|iemand)\s+/gi,'').trim()});let ok=true;const ps=pieces.map(p=>gnW(p).map(gnNorm).filter(w=>!GN.ph.has(w)));
+  const vpc=gnVP(g);ps.forEach(p=>{const ws=vpc&&p.length>1?[p[p.length-1]]:p;if(!p.length||ws.some(w=>!(gnDW.has(w)||[...gnForms(w,verb)].some(f=>gnDW.has(f)))))ok=false});if(ok)alts.push({ps,verb,e:ps.flat().some(w=>eform.has(w)),infl:/Infleksi -e|Perubahan Ejaan/.test(String(g[3]||''))})});
+ if(!alts.length&&qs.length)qs.forEach(w=>{const x=gnNorm(w);if(gnDW.has(x))alts.push({ps:[[x]],verb:false})});return alts};
+const gnInfl=w=>{const s=new Set([w+'e']);s.add(w.replace(/([aeiou])\1([^aeiou])$/,'$1$2')+'e');if(/f$/.test(w))s.add(w.slice(0,-1)+'ve');if(/s$/.test(w))s.add(w.slice(0,-1)+'ze');return s};
+const gnVP=g=>/Kata Kerja \+ Preposisi|Adjektif \+ Preposisi|Daftar Lanjutan/.test(String(g[3]||''));
+const gnSpecC={};
+const GNSUBR=[[/3\.1 Perfectum|Participle Lampau|Pasif Perfectum/,{t:'part'}],[/Imperfectum \(Onvoltooid/,{t:'impf'}],[/Plusquamperfectum|Pengandaian Lampau/,{t:'rx',re:/^(had|hadden|was|waren)$/}],[/Futurum II/,{t:'rx',re:/^(zal|zullen|zult)$/}],[/Passief Imperfectum|Pasif Imperfectum|Subjek Pasif \(Lampau\)/,{t:'rx',re:/^(werd|werden)$/}],[/Passief Presens|Subjek Pasif \(Presens\)/,{t:'rx',re:/^(wordt|worden|word)$/}],[/Agen Pasif/,{t:'rx',re:/^door$/}],[/Pertanyaan Tak Langsung|[Kk]ata tanya \+ S|Kata tanya \+ V/,{t:'rx',re:/^(wie|wat|waar|waarom|wanneer|hoe|welke|welk|waarheen)$/,skip:1}],[/Verb Cluster di Klausa Anak|Kata Kerja Ganda di Klausa Anak|Perfectum di Klausa Anak|Posisi Verba|Verba Pisah di Klausa Anak/,{t:'last'}]];
+function gnKind(g){const kv=g[10]||[],sub=String(g[3]||''),L=kv.map(r=>r[0]);
+ if(/Pelafalan|Abjad|Tekanan Kata|Regional|Sejarah Ejaan|Reformasi Ejaan|Ejaan|Singkatan|Nama Diri|Konvensi Tulis|Archa|Aksen|Huruf Kapital|Surat Formal|Email|Tanda Koma|Gelar/.test(sub)||L.includes('Cara Baca (perkiraan)'))return'ejaan';
+ if(L.filter(l=>GN.pr[l]).length>=4)return'konjugasi';
+ if(L.includes('Voltooid Deelwoord')&&L.some(l=>/^Imperfectum/.test(l)))return'kuat';
+ if(L.includes('Subjek (Onderwerp)'))return'pronomen';
+ if(L.some(l=>/^Komparatif/.test(l)))return'komparatif';
+ if(/Preposisi|Vaste|Adjektif \+ Preposisi/.test(sub))return'preposisi';
+ if(/Koordinatif|Subordinatif|Urutan|Kata Tanya|Ya\/Tidak|Negasi|Relatif|Infinitif|Klausa|Kalimat Majemuk|Verb Cluster|Korelatif|Tak Langsung|Sintaksis/.test(sub)||L.some(r=>/^Posisi Kata Kerja/.test(r)))return'konjungsi';
+ if(/Jamak|Diminutif|Infleksi|Gender|Awalan|Pembentukan|Kata Benda|Perubahan Ejaan|Adjektif|Participle|Majemuk|Feminin/.test(sub))return'morfologi';
+ return'aturan'}
+function gnPola(g){const v=String(g[6]||'').replace(/\[[^\]]*\]/g,' ').replace(/\([^)]*\)/g,' ');if(!v.trim())return[];gnBoot();const verb=GN.vb.test(String(g[3]||'')),sing=[],pairs=[];
+ v.split(/\s*[,;\/|→]\s*|\s+vs\s+/).forEach(alt=>{const parts=alt.split(/\s*\+\s*/).map(x=>x.trim()).filter(x=>x&&x!='...'),ok=parts.map(x=>{const w=gnW(x).map(gnNorm);return w.length==1&&!GN.ph.has(w[0])&&gnDW.has(w[0])?w[0]:null}).filter(Boolean);
+  if(ok.length==1)sing.push([gnForms(ok[0],verb)]);else if(ok.length==2&&parts.length<=4)pairs.push([[gnForms(ok[0])],[gnForms(ok[1])]])});
+ const o=[];if(sing.length)o.push({t:'w',a:sing});if(pairs.length)o.push({t:'p',a:pairs});return o}
+function gnSpecOf(g){let r=gnSpecC[g[0]];if(r)return r;const kind=gnKind(g),kv=g[10]||[],sub=String(g[3]||''),title=String(g[4]||''),sps=[];
+ if(kind!='ejaan'){
+  for(const[re,s]of GNSUBR)if(re.test(sub+' '+title)){sps.push(s);break}
+  const al=gnTitle(g);
+  if(al.length){const vp=gnVP(g)&&al.every(a=>a.ps[0].length>=2||a.ps.length>1);
+   if(vp)sps.push({t:'vp',a:al.map(a=>{const p0=a.ps[0],v=p0.slice(0,-1),pr=[p0[p0.length-1]].concat(a.ps.slice(1).map(p=>p[p.length-1]));return{v:v.map(w=>gnForms(w,true)).filter(f=>[...f].some(x=>gnDW.has(x))),p:pr.map(w=>gnForms(w))}})});
+   else{const pairs=al.filter(a=>a.ps.length==2),singles=al.filter(a=>a.ps.length==1);
+    if(singles.length)sps.push({t:'w',a:singles.map(a=>a.ps[0].map(w=>{if(a.infl)return gnInfl(w);const f=gnForms(w,a.verb);if(a.e)f.add(w+'e');return f}))});
+    if(singles.some(a=>a.infl))sps.push({t:'w',a:singles.map(a=>a.ps[0].map(w=>gnForms(w)))});
+    if(pairs.length)sps.push({t:'p',a:pairs.map(a=>[a.ps[0].map(w=>gnForms(w)),a.ps[1].map(w=>gnForms(w))])})}}
+  const p=kv.find(x=>/^Posisi Kata Kerja/.test(x[0]));if(p){if(/Posisi 2/.test(p[1])||/posisi 2/.test(p[1]))sps.push({t:'pos',n:2});else if(/Posisi 1/.test(p[1]))sps.push({t:'pos',n:1});else if(/akhir/i.test(p[1]))sps.push({t:'last'})}
+  sps.push(...gnPola(g))}
+ if(/waar \+ prep|er \+ prep|erop, eraan|Preposisi \+ relatif|waar \+ preposisi/.test(title+' '+g[6]))sps.unshift({t:'rx',re:/^(waar|er)(op|aan|mee|over|voor|in|van|uit|bij|naar|door|om|tegen|na|onder|achter|tussen|toe)$/});
+ return gnSpecC[g[0]]={sps,kind}}
+function gnOcc(t,U,ph){const o=[];for(let i=0;i+ph.length<=U.length;i++){let ok=true;for(let j=0;j<ph.length&&ok;j++){ok=[...U[i+j].c].some(x=>ph[j].has(x));if(ok&&j)ok=!/[^\s]/.test(t.slice(U[i+j-1].e,U[i+j].s))}if(ok)o.push([i,i+ph.length-1])}return o}
+const gnPart=u=>/^(ge\p{L}{3,}(?:d|t|en)|(?:be|ver|ont|her|er)\p{L}{3,}(?:d|t|en))$/u.test(u.l)&&!/^(geen|gelijk|genoeg|gezellig)/.test(u.l)||(gnInv.has(u.l)&&/^ge/.test(u.l));
+const gnImpfRe=/^(\p{L}{2,}(?:te|de|ten|den)|was|waren|had|hadden|ging|gingen|kon|konden|wilde|zou|zouden|mocht|moest|deed|deden|kwam|kwamen|zag|zagen|werd|werden)$/u;
+function gnSel(sp,t){if(!sp)return null;const U=gnU(t);if(!U.length)return null;const R=(oc,ph)=>({bx:oc.map(([a,b])=>[U[a].s,U[b].e]).sort((x,y)=>x[0]-y[0]),ph:ph.map(p=>p.map(s=>[...s])),cov:oc.reduce((n,[a,b])=>n+b-a+1,0)/U.length});
+ if(sp.t=='w'){let best=null;for(const ph of sp.a){const oc=gnOcc(t,U,ph);if(!oc.length)continue;const com=ph.every(s=>[...s].some(w=>gnCommon(w))),pick=com?[gnPickOne(oc,U)]:oc,sc=(com?0:50)+ph.length*5-pick[0][0]*.01-(com?(oc.length-1)*8:0);if(pick.length>4)continue;if(!best||sc>best.sc)best={sc,oc:pick,ph}}return best?R(best.oc,[best.ph]):null}
+ if(sp.t=='p'){let best=null;for(const[A,B]of sp.a){const a=gnOcc(t,U,A),b=gnOcc(t,U,B);if(!a.length||!b.length)continue;const x=a[0],y=b.find(z=>z[0]>x[1]);if(!y)continue;if(!best)best={oc:[x,y],ph:[A,B]}}return best?R(best.oc,best.ph):null}
+ if(sp.t=='vp'){for(const a of sp.a){let ok=true;const occ=[];let from=0;for(const P of a.p){let f=-1;for(let i=from;i<U.length;i++){if([...U[i].c].some(x=>P.has(x))){const j=U.slice(Math.max(0,i-7),i).findIndex(u=>a.v.every(V=>[...u.c].some(x=>V.has(x))||U.slice(Math.max(0,i-7),i).some(w=>[...w.c].some(x=>V.has(x)))));if(!a.v.length||j>=0){f=i;break}}}if(f<0){ok=false;break}occ.push([f,f]);from=f+1}
+   if(ok&&occ.length)return R(occ,a.p.map(x=>[x]))}return null}
+ if(sp.t=='rx'){const i=U.findIndex((u,k)=>(!sp.skip||k>0)&&sp.re.test(u.l));return i<0?null:R([[i,i]],[[new Set([U[i].l])]])}
+ if(sp.t=='part'){let i=-1;U.forEach((u,k)=>{if(gnPart(u))i=k});return i<0?null:R([[i,i]],[[new Set([U[i].l])]])}
+ if(sp.t=='impf'){const i=U.findIndex((u,k)=>k>0&&gnImpfRe.test(u.l)&&!/^(de|te|veelste|mijnheer)$/.test(u.l));return i<0?null:R([[i,i]],[[new Set([U[i].l])]])}
+ if(sp.t=='pos'){const i=sp.n-1;return U[i]?R([[i,i]],[[new Set([U[i].l])]]):null}
+ if(sp.t=='last'){const i=U.length-1;return U[i]&&U.length>=4?R([[i,i]],[[new Set([U[i].l])]]):null}
+ return null}
+function gnPickOne(oc,U){let b=oc[0];for(const k of oc){const n=U[k[1]+1];if(n&&GN.det.has(n.l)){b=k;break}}return b}
+function gnScore(x,sel){const bw=sel.bx.length;return(x.tr?25:0)-Math.abs(gnWc(x.s)-8)*.8+(bw>1?6:0)+(x.src=='c'?3:x.src=='k'?1:0)-(bw>2?(bw-2)*4:0)}
+const gnCtx=g=>String(g[3]||'').split('›').pop().trim().replace(/^[\d.\s-]+/,'').trim();
+const gnForm=v=>{v=String(v||'').replace(/\s*\([^)]*\)\s*$/,'').trim();return /^[\p{L}'’-]+(?:(?: \.\.\. | \/ | )[\p{L}'’-]+)*$/u.test(v)&&v.split(/ /).length<=7};
+const gnStrip=v=>String(v||'').replace(/\s*\([^)]*\)\s*$/,'').trim();
+/* label baris tabel: buang kurung yang memuat jawaban (Posesif (Bezit) tetap; “Imperfectum (ik / hij)” aman karena jawaban bukan ik/hij) */
+const gnLab=(l,ans)=>{const w=new Set(gnW(ans).map(gnNorm).filter(x=>x.length>=2));return String(l).replace(/\s*\(([^)]*)\)\s*$/,(m,x)=>gnW(x).some(y=>w.has(gnNorm(y)))?'':m)};
+function gnTab(g,kind){const kv=g[10]||[],h=gnH(g[0]),ti=String(g[4]||'').replace(/#\d+$/,'').trim(),ar=kv.find(x=>/^Arti(?!\s*\/)/.test(x[0]));
+ if(kind=='konjugasi'){const rows=kv.map((r,i)=>[r,i]).filter(([r])=>GN.pr[r[0]]&&gnForm(r[1]));if(rows.length<3)return null;const tw=gnNorm(ti),ok=rows.filter(([r])=>gnNorm(gnStrip(r[1]))!=tw);const pool=ok.length?ok:rows,[r,i]=pool[h%pool.length];
+  return{t:'konj',row:i,ans:gnStrip(r[1]),head:ti,hint:ar?ar[1]:'',pr:r[0]}}
+ if(kind=='kuat'){const rows=kv.map((r,i)=>[r,i]).filter(([r])=>/^(Imperfectum|Voltooid)/.test(r[0])&&gnForm(r[1]));if(!rows.length)return null;const w=rows.length>=3?[rows[0],rows[2],rows[1]]:rows,[r,i]=w[h%w.length];
+  return{t:'sel',row:i,ans:gnStrip(r[1]),head:ti,hint:ar?ar[1]:'',lab:gnLab(r[0],r[1])}}
+ if(kind=='pronomen'){const rows=kv.map((r,i)=>[r,i]).filter(([r])=>/^(Subjek|Objek|Posesif)/.test(r[0])&&/^[\p{L}' \/-]+$/u.test(String(r[1])));if(rows.length<2)return null;const [r,i]=rows[h%rows.length];
+  return{t:'sel',row:i,ans:String(r[1]).trim(),head:gnCtx(g)||ti,hint:ar?ar[1]:'',lab:gnLab(r[0],r[1])}}
+ if(kind=='komparatif'){const rows=kv.map((r,i)=>[r,i]).filter(([r])=>/^(Komparatif|Superlatif)/.test(r[0])&&gnForm(r[1]));if(!rows.length)return null;const[r,i]=rows[h%rows.length];
+  return{t:'sel',row:i,ans:gnStrip(r[1]),head:ti,hint:ar?ar[1]:'',lab:gnLab(r[0],r[1])}}
+ const a=kv.findIndex(r=>/^Kosakata Belanda/.test(r[0])),b=kv.findIndex(r=>/^Arti \/ Angka/.test(r[0]));
+ if(a>=0&&b>=0){const x=String(kv[a][1]).split(/\s*,\s*/),y=String(kv[b][1]).split(/\s*,\s*/);if(x.length>=3&&x.length==y.length){const j=h%x.length;return{t:'list',row:a,ans:x[j],q:y[j],head:ti}}}
+ for(let pr=0;pr<kv.length;pr++){if(/^(Penjelasan|Arti)/.test(kv[pr][0])||!/→/.test(kv[pr][1]))continue;const ps=String(kv[pr][1]).split(/\s*;\s*/).map(x=>x.replace(/\s*\([^)]*\)\s*[,.]?$/,'').trim().split(/\s*→\s*/)).filter(x=>x.length==2&&/^[\p{L}'-]+$/u.test(x[0])&&/^[\p{L}'-]+$/u.test(x[1])&&x[0]!=x[1]);if(ps.length>=2){const[q,an]=ps[h%ps.length];return{t:'pair',row:pr,ans:an,q,head:ti}}}
+ return null}
+const gnIc=new Map();
+function gnInfo(g){let r=gnIc.get(g[0]);if(r)return r;const{sps,kind}=gnSpecOf(g),ss=gnSents(g);let bi=null,bsel=null,bs=-1e9,spi=null;
+ for(let k=0;k<sps.length&&bi==null;k++)ss.forEach((x,i)=>{if(x.wrong||x.dirty)return;const sel=gnSel(sps[k],x.s);if(!sel||(sel.cov>.6&&gnWc(x.s)>3))return;const sc=gnScore(x,sel);if(sc>bs){bs=sc;bi=i;bsel=sel;spi=k}});
+ let sh=null,hs=-1e9;ss.forEach((x,i)=>{if(x.wrong||x.dirty)return;const sc=(x.tr?25:0)-Math.abs(gnWc(x.s)-8)*.8;if(sc>hs){hs=sc;sh=i}});
+ const tabFirst=kind=='konjugasi'||kind=='kuat',tab=(tabFirst||bi==null)?gnTab(g,kind):null,useTab=tab&&(tabFirst||bi==null);
+ if(useTab&&tabFirst){bi=null;bsel=null}
+ r={g,kind,sps,sp:spi!=null?sps[spi]:sps[0]||null,ss,i:bi,sel:bsel,show:sh,tab:useTab?tab:null,why:useTab?'tabel':bi!=null?'rumpang':kind=='ejaan'?'ejaan':!ss.length?'tanpa-kalimat':!sps.length?'tanpa-kunci':ss.every(x=>x.dirty||x.wrong)?'kalimat-rusak':'kunci-tak-cocok'};
+ return gnIc.set(g[0],r),r}
+function gnAns(p){const s=new Set();if(p.sel)p.sel.ph.forEach(ph=>ph.forEach(a=>a.forEach(w=>s.add(w))));if(p.tab){gnW(p.tab.ans).forEach(w=>{if(w.length>=2)s.add(gnNorm(w))});const k=p.kind,rx=k=='konjugasi'?/^(Ik|Jij \/ U|Hij \/ Zij \/ Het|Wij|Jullie|Zij)$/:k=='kuat'?/^(Imperfectum|Voltooid)/:k=='pronomen'?/^(Subjek|Objek|Posesif)/:k=='komparatif'?/^(Komparatif|Superlatif)/:null;
+  if(rx)(p.g[10]||[]).forEach(r=>{if(rx.test(r[0]))gnW(String(r[1]).replace(/\([^)]*\)/g,' ')).forEach(w=>{if(w.length>=2)s.add(gnNorm(w))})})}
+ return s}
+const gnAbbr=/^(mis|dll|dst|dsb|spt|cth|no|vs|dr|yg|dgn|tsb|ex)$/;
+function gnFn(g,p){let t=String(g[5]||'').replace(/\s+/g,' ').trim();const ci=t.search(/\b(Contoh|Mis\.?)\b[^:]{0,30}:/);if(ci>8)t=t.slice(0,ci).trim();let re=/[.!?](?=\s+["'(A-ZÄÖÜ0-9])/g,m,cut=t.length;
+ while((m=re.exec(t))){const w=(t.slice(0,m.index).match(/(\S+)$/)||[''])[1].toLowerCase();if(gnAbbr.test(w))continue;cut=m.index;break}
+ t=t.slice(0,cut).replace(/[.\s:]+$/,'');if(t.length>90){const c=t.slice(0,91).replace(/\s+\S*$/,'');t=(c||t.slice(0,90))+'…'}
+ const A=gnAns(p);if(!A.size)return esc(t);const U=gnU(t),bx=[];U.forEach(u=>{if([...u.c].some(w=>A.has(w))||A.has(u.l))bx.push([u.s,u.e])});
+ let o='',l=0;for(const[a,b]of bx){if(a<l)continue;o+=esc(t.slice(l,a))+`<span class="gzb gze gzs" style="--n:${b-a}">&nbsp;</span>`;l=b}return o+esc(t.slice(l))}
+const gnSeg=(t,bx,f)=>{let o='',l=0;for(const[a,b]of bx){o+=esc(t.slice(l,a))+f(t.slice(a,b),b-a);l=b}return o+esc(t.slice(l))};
+const gnBox=n=>`<span class="gzb gze" style="--n:${n}">&nbsp;</span>`;
+function gznFront(g){const m=S.o.gz||'cloze',p=gnInfo(g),fh=gnFn(g,p),ctx=gnCtx(g),fn=String(g[5]||'').trim()&&fh?`<div class="gzq${String(g[5]||'').length>60?' gzl':''}"><span class=gl>${esc(g[11]||'Fungsi')}</span>${fh}</div>`:`<div class="gzq gzl"><span class=gl>Topik</span>${esc(ctx)}</div>`;
+ if(m=='cloze'&&p.i!=null){const x=p.ss[p.i];return fn+`<div class="gzc gzen gzde">${gnSeg(x.s,p.sel.bx,(w,n)=>gnBox(n))}</div>`+(x.tr?`<div class=gzm>${esc(x.tr)}</div>`:'')+`<div class=fchint><small>Isi bagian yang hilang &amp; ingat rumus polanya</small></div>`}
+ if(m=='cloze'&&p.tab){const q=p.tab,n=[...q.ans.replace(/\s/g,'')].length;let body;
+  if(q.t=='konj')body=`<div class="gzc gzen gzde">${esc(q.pr)} ${gnBox(n)}</div>`+(q.hint?`<div class=gzm>${esc(q.hint)}</div>`:'');
+  else if(q.t=='list')body=`<div class="gzc gzen gzde">${esc(q.q)} → ${gnBox(n)}</div>`;
+  else if(q.t=='pair')body=`<div class="gzc gzen gzde">${esc(q.q)} → ${gnBox(n)}</div>`;
+  else body=`<div class="gzc gzen gzde">${esc(q.lab)} → ${gnBox(n)}</div>`+(q.hint?`<div class=gzm>${esc(q.hint)}</div>`:'');
+  return fn+`<div class="gzm gzhd">${esc(q.head)}</div>`+body+`<div class=fchint><small>Isi sel tabel yang hilang &amp; ingat rumusnya</small></div>`}
+ let ex='';if(m!='fn'&&p.show!=null){const x=p.ss[p.show];ex=`<div class="gzc gzen gzde">${esc(x.s)}</div>`+(x.tr?`<div class=gzm>${esc(x.tr)}</div>`:'')}
+ return fn+ex+`<div class=fchint><small>Ingat: ${m=='fn'?'nama pola &amp; rumusnya':'pola &amp; rumusnya'}</small></div>`}
+function gnMark(t,A){t=String(t||'');if(!A.size)return esc(t);const bx=[];gnU(t).forEach(u=>{if([...u.c].some(w=>A.has(w)))bx.push([u.s,u.e])});return gnSeg(t,bx,w=>`<mark class=gzh>${esc(w)}</mark>`)}
+function gznBack(g,k){const p=gnInfo(g);let h=`<div class=gzt1>${esc(g[4])}</div><hr>`;const kv=g[10]||[],skip=new Set(),A=gnAns(p);
+ p.ss.forEach(x=>{if(x.src=='k')skip.add(x.row)});if(p.ss.some(x=>x.src=='k')&&p.ss[0]&&p.ss[0].used)p.ss[0].used.forEach(i=>skip.add(i));
+ if(g[6])h+=`<div class=gzp>${gnMark(g[6],A)}</div>`;
+ const rows=kv.map((r,i)=>[r,i]).filter(([r,i])=>!skip.has(i)&&String(r[1]||'').trim());
+ if(rows.length){const R=rows.map(([r,i])=>`<div class=gzr><span class=gl>${esc(r[0])}</span><span>${p.tab&&p.tab.row==i?`<mark class=gzh>${esc(String(r[1]))}</mark>`:esc(String(r[1]))}</span></div>`);
+  h+=rows.length>8?`<div class=gzk>${R.slice(0,4).join('')}</div><details class=gzd><summary>Tabel lengkap (${rows.length})</summary><div class=gzk>${R.join('')}</div></details>`:`<div class=gzk>${R.join('')}</div>`}
+ h+=`<div class=gzf>${esc(g[5])}</div>`;
+ const ord=p.ss.map((x,i)=>i),f=p.i!=null?p.i:p.show;if(f!=null){ord.splice(ord.indexOf(f),1);ord.unshift(f)}
+ h+=ord.map(i=>{const x=p.ss[i],sl=x.wrong||x.dirty?null:i==p.i?p.sel:(p.sps.map(s=>gnSel(s,x.s)).find(Boolean)||null),bx=sl?sl.bx:[];
+  return`<div class="gex gzx${x.wrong||x.dirty?' gzw':''}"><div class=g1>${gnSeg(x.s,bx,w=>`<mark class=gzh>${esc(w)}</mark>`)}${x.wrong||x.dirty?'':spk(x.s,'nl')}</div>${x.tr?`<div class=g2>${esc(x.tr)}</div>`:''}${(x.notes||[]).map(n=>`<div class="g2 gzn">${esc(n)}</div>`).join('')}</div>`}).join('');
+ return`<div style="text-align:left">`+h+gmExBlock(k)+`</div>`}
 function gcard(k){const g=GK[k];if(!g)return'<div class=card>Tidak ada grammar untuk filter/mode ini.</div>';const s=st(k);
 return`<div class=card><div class=hd><span>${LN[g[1]]||'Jerman'} ${g[2]}${g[3]?' · '+esc(g[3]):''}</span><span><i class="dot dot${s}"></i>${STN[s]}${fcTag(k)}${aiBtn(k)}${S.lib.some(t=>t.L==g[1])?`<button class="mini" data-a=libfind data-k="${esc(k)}" title="Cari teks di Pustaka">📚</button>`:''}${edBtn('g',k)}</span></div><div class=mean>${esc(g[4])}</div>${gbody(g)}${gTax(k)}${gmExBlock(k)}<div class="seg">${STN.map((x,i)=>`<button class="sb sb${i}${i==s?' on':''}" data-a=set data-k="${esc(k)}" data-v=${i}>${x}</button>`).join('')}</div></div>`}
 let gLg='',gLv=0,gFoc=0,gFresh=1;const gAll0=l=>gLvs(l).map(v=>l+':'+v);
@@ -580,7 +755,7 @@ function fcSett(){const o=S.o,sz=Object.values(S.srs).filter(c=>c.z).length;
  fcN('nl','Kartu baru per hari',0,9999)+fcN('rl','Maks. ulasan per hari',0,9999)+fcN('xn','Tambahan kartu baru saat target selesai (per ketukan)',1,200)+fcN('xr','Tambahan ulasan saat target selesai (per ketukan)',1,500)+
  fcS('ord','Urutan kartu baru',[['seq','Berurutan'],['rand','Acak']])+
  fcS('no','Kartu baru vs ulasan',[['after','Baru setelah ulasan'],['before','Baru sebelum ulasan'],['mix','Campur']])+
- fcS('gz','Sisi depan kartu grammar (Mandarin, Inggris, Jepang &amp; Jerman)',[['cloze','Soal rumpang + fungsi (disarankan)'],['fn','Fungsi saja'],['old','Judul (tampilan lama)']])+
+ fcS('gz','Sisi depan kartu grammar (Mandarin, Inggris, Jepang, Jerman &amp; Belanda)',[['cloze','Soal rumpang + fungsi (disarankan)'],['fn','Fungsi saja'],['old','Judul (tampilan lama)']])+
  `<label class=fcl><span><input type=checkbox data-i=fc_lk${o.lk?' checked':''}> Integrasikan progres Kartu ↔ Kosakata</span></label><div class=btns><button data-a=fcsyncall>Sinkronkan sekarang</button></div>`+
  dtag('fl')+'<summary>Lanjutan (parameter algoritma)</summary>'+
  `<label class=fcl><span>Langkah belajar (menit)</span><input data-i=fc_ls value="${esc(o.ls)}"></label>`+
