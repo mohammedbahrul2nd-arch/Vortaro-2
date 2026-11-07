@@ -9,7 +9,7 @@
       trennbar, zu-Infinitiv, Nebensatz, …) memakai bentuk kata kerja dari kartu verbmu
    6. 5 contoh dari Pustaka saat kartu dibuka
    ============================================================================================= */
-const GM_VER='7.16.0',GM_AT='2026-11-06T13:00:00+07:00';
+const GM_VER='7.18.0',GM_AT='2026-11-07T14:00:00+07:00';
 const gmB={n:0};
 const gmNorm=s=>String(s||'').toLowerCase().normalize('NFC').replace(/[〜～~\s()（）「」『』\[\]【】\/／・…*+,，、.。:：;；!！?？"'’`\-–—]/g,'');
 const gmHan=ch=>/[\u3400-\u9fff]/.test(ch);
@@ -381,6 +381,70 @@ function gmExBlock(key){if(!key||(!S.lib.length&&!S.sl.length))return'';const v0
    return`<div class=gmr><div class=eo>${x.sp?`<b class=spk>${esc(x.sp)}</b> `:''}${hl}${spk(x.f,L)}</div>${x.r?`<div class="r rom">${esc(x.r)}</div>`:''}${x.i?`<div class=idn>${esc(x.i)}</div>`:''}<small class=gmsrc>${GMSRC[x.t]||''}${x.lv==3?' · ✓ ditandai AI':x.lv==1?' · perkiraan':''}</small></div>`}).join('')+
   `<div class=btns style="margin-top:6px"><button class=mini data-a=libfind data-k="${esc(key)}">Lihat semua di Pustaka${v.n>v.rows.length?' ('+v.n+')':''}</button></div></div>`}
 
+/* ---------- 6b. v7.17: soal rumpang kartu grammar dari Pustaka ----------
+   Sumber: kalimat Pustaka (Kalimat, Reading, Listening, Dialog) yang terhubung ke kartu grammar lewat TAG AI (potongan kunci = jawaban)
+   atau — khusus kartu leksikal (kata/pola/partikel) — lewat pencocok otomatis (penanda libHL). Kartu struktural (kala, pasif, bentuk kata kerja)
+   hanya memakai kalimat bertag. Dipilih acak, tiap kali kartu muncul; sisi jawaban menampilkan kalimat yang sama dengan jawaban ditandai. */
+const GZP={sig:'',c:new Map(),last:{},cur:{k:'',row:null}};
+const gzpUn=s=>s.replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&amp;/g,'&');
+function gzpParse(h){let t='',sp=[],m;const re=/<mark>([\s\S]*?)<\/mark>|<[^>]*>|[^<]+/g;
+ while((m=re.exec(h))){if(m[1]!==undefined){const x=gzpUn(m[1]);sp.push([t.length,t.length+x.length]);t+=x}else if(m[0][0]!='<')t+=gzpUn(m[0])}
+ const mg=[];for(const r of sp){if(r[1]<=r[0])continue;const l=mg[mg.length-1];if(l&&/^\s*$/.test(t.slice(l[1],r[0])))l[1]=r[1];else mg.push(r.slice())}
+ return{t,sp:mg}}
+const gzpN=(s,cj)=>cj?s.replace(/\s+/g,'').length:(s.match(/\p{L}+/gu)||[]).length;
+function gzpOk(p,L,tagged){const cj=L=='ja'||L=='zh',t=p.t,len=gzpN(t,cj);
+ if(!p.sp.length||p.sp.length>(tagged?3:2)||(cj?(len<5||len>70):(len<4||len>32)))return false;
+ let bl=0;for(const[a,b]of p.sp){const n=gzpN(t.slice(a,b),cj);if(n==0||n>(cj?(tagged?16:10):(tagged?6:4)))return false;bl+=n}
+ return bl<=len*.5}
+/* jawaban pada kalimat bertag: potongan TAG dicari dengan batas kata (“in” bukan bagian dari “tuin”); pola terpisah “a … b” dicari berurutan */
+function gzpFind(f,sf,L){const cj=L=='ja'||L=='zh',t=cj?String(f).replace(/\s+/g,''):String(f),R=[];
+ for(const s0 of sf){const parts=String(s0).split(/\s*(?:…|\.{3}|⋯)\s*/).map(x=>cj?x.replace(/\s+/g,''):x.trim()).filter(Boolean);if(!parts.length)continue;
+  const find=(x,from,all)=>{const o=[];
+   if(cj){let i=t.indexOf(x,from);while(i>=0){o.push([i,i+x.length]);if(!all)break;i=t.indexOf(x,i+x.length)}}
+   else{const re=new RegExp('(?<![\\p{L}\\p{N}])'+libEsc(x).replace(/\s+/g,'\\s+')+'(?![\\p{L}\\p{N}])','giu');re.lastIndex=from;let m;while((m=re.exec(t))){o.push([m.index,m.index+m[0].length]);if(!all)break}}
+   return o};
+  if(parts.length==1){const a=find(parts[0],0,true);(a.length<=2?a:a.slice(0,1)).forEach(r=>R.push(r))}
+  else{let p=0;const tmp=[];for(const x of parts){const a=find(x,p,false);if(!a.length){tmp.length=0;break}tmp.push(a[0]);p=a[0][1]}tmp.forEach(r=>R.push(r))}}
+ if(!R.length)return null;R.sort((a,b)=>a[0]-b[0]);
+ const mg=[];R.forEach(r=>{const l=mg[mg.length-1];if(l&&r[0]<l[1])l[1]=Math.max(l[1],r[1]);else mg.push(r.slice())});
+ return{t,sp:mg}}
+function gzpCands(g){const key=g[0],L=g[1],q=S.o.gzq=='tag'?'tag':'auto',sig=gmSig()+'|'+q;
+ if(GZP.sig!=sig){GZP.sig=sig;GZP.c.clear()}
+ let v=GZP.c.get(key);if(v)return v;v=[];
+ try{const sp=gmSpec(key),lex=!!sp&&(sp.k=='raw'||sp.k=='zh'||sp.k=='ja'),seen=new Set();
+  for(const x of gmCollect(key)){if(x.lv<2)continue;
+   const sf=gmTagSf(x.tg,key);let p=sf.length?gzpFind(x.f,sf,L):null;const tagged=!!p;
+   if(!p){if(!lex||q=='tag')continue;p=gzpParse(libHL(x.f,key,L))}
+   if(!gzpOk(p,L,tagged))continue;
+   const nk=p.t.replace(/\s+/g,'').toLowerCase();if(seen.has(nk))continue;seen.add(nk);
+   v.push({k:key,L,t:p.t,sp:p.sp,i:x.i||'',r:x.r||'',f:x.f,src:x.t,lv:tagged?3:2,w:(tagged?3:1)*(x.i?2:1)})}}
+ catch(e){v=[]}
+ GZP.c.set(key,v);return v}
+/* dipanggil sekali tiap kartu grammar muncul (lihat fcView) */
+function gzpRoll(k){const g=GK[k];GZP.cur={k,row:null};
+ if(!g||typeof gzOn!='function'||!gzOn(g)||(S.o.gz||'cloze')!='cloze')return;
+ const m=S.o.gzp||'pl';if(m=='off')return;
+ let c;try{c=gzpCands(g)}catch(e){return}if(!c.length)return;
+ if(m=='mix'&&Math.random()<.5)return;
+ const last=GZP.last[k],pool=c.length>1?c.filter(x=>x.f!==last):c;let tw=0;pool.forEach(x=>tw+=x.w);
+ let r=Math.random()*tw,pick=pool[0];for(const x of pool){r-=x.w;if(r<=0){pick=x;break}}
+ GZP.last[k]=pick.f;GZP.cur.row=pick}
+const gzpRow=k=>GZP.cur&&GZP.cur.k==k?GZP.cur.row:null;
+const gzpCls=L=>L=='ja'?'gzja':L=='zh'?'':'gzen gzde';
+const gzpBox=(L,n)=>`<span class="gzb${L=='ja'||L=='zh'?'':' gze'}" style="--n:${n}">&nbsp;</span>`;
+const gzpSeg=(row,f)=>{let o='',l=0;row.sp.forEach(([a,b],i)=>{o+=esc(row.t.slice(l,a))+f(row.t.slice(a,b),i);l=b});return o+esc(row.t.slice(l))};
+/* samarkan jawaban pada teks fungsi (hanya node teks, bukan tag) */
+function gzpMask(h,parts){const ps=[...new Set(parts.map(x=>String(x).trim()).filter(x=>x))].filter(x=>/[㐀-鿿぀-ヿ]/.test(x)||x.length>=3).sort((a,b)=>b.length-a.length);if(!h||!ps.length)return h;
+ const cj=ps.filter(x=>/[㐀-鿿぀-ヿ]/.test(x)),la=ps.filter(x=>!/[㐀-鿿぀-ヿ]/.test(x)),alt=[];
+ if(la.length)alt.push('(?<![\\p{L}\\p{N}])(?:'+la.map(libEsc).join('|')+')(?![\\p{L}\\p{N}])');if(cj.length)alt.push('(?:'+cj.map(libEsc).join('|')+')');
+ const re=new RegExp(alt.join('|'),'giu');
+ return h.split(/(<[^>]*>)/).map(p=>p[0]=='<'?p:p.replace(re,m=>`<span class="gzb gze gzs" style="--n:${m.length}">&nbsp;</span>`)).join('')}
+function gzpFront(g,row){const L=g[1],base=String(gzFront(g)),m=base.match(/^<div class="gzq[^"]*">[\s\S]*?<\/div>/),
+  fn=m?gzpMask(m[0],row.sp.map(([a,b])=>row.t.slice(a,b))):'';
+ return fn+`<div class="gzc ${gzpCls(L)}">${gzpSeg(row,(w)=>gzpBox(L,[...w.replace(/\s/g,'')].length))}</div>`+(row.i?`<div class=gzm>${esc(row.i)}</div>`:'')+`<div class=fchint><small>Isi bagian yang hilang &amp; ingat rumus polanya · 📚 soal dari Pustakamu</small></div>`}
+function gzpBack(g,row){const L=g[1];
+ return`<div class=gzps><small class=gzpl>📚 Soal dari Pustakamu · ${GMSRC[row.src]||''}${row.lv==3?' · ✓ ditandai AI':' · terdeteksi otomatis'}</small><div class="gzc ${gzpCls(L)}">${gzpSeg(row,w=>`<mark class=gzh>${esc(w)}</mark>`)}${spk(row.f,L)}</div>${row.i?`<div class=gzm>${esc(row.i)}</div>`:''}${row.r?`<div class="r rom">${esc(row.r)}</div>`:''}</div><hr>`}
+
 /* ---------- 7. Ekspor / impor: JSON progres dan JSON pustaka ---------- */
 const gmP2=n=>String(n).padStart(2,'0');
 const gmStamp=()=>{const d=new Date();return d.getFullYear()+'-'+gmP2(d.getMonth()+1)+'-'+gmP2(d.getDate())+'_'+gmP2(d.getHours())+gmP2(d.getMinutes())};
@@ -410,7 +474,7 @@ function gmImpFiles(files){const fs=[...files];if(!fs.length)return;let done=[],
   save();render();toast(done.length?'Dipulihkan: '+done.join(' · ')+(bad?' · '+bad+' file tidak valid':''):'File tidak valid.')})}
 
 /* ---------- 8. Info versi ---------- */
-const GM_NEWS=["Kartu grammar Belanda (A1–C2, 380 kartu) kini memakai soal rumpang seperti Mandarin, Inggris, Jepang dan Jerman. Preposisi, kata kerja + preposisi (hanya preposisinya yang dikosongkan), konjungsi, partikel, kala, pasif dan posisi kata kerja: fungsi + kalimat contoh dengan kata kunci dikosongkan + arti. Kata kerja kuat, konjugasi, pronomen, komparatif, jamak dan daftar kata: soal sel tabel (mis. Imperfectum ik / hij ___).","Terjemahan Indonesia ditambahkan untuk 105 kalimat contoh Belanda yang dipakai sebagai soal.","Kartu grammar Jerman (A1–C1, 386 kartu) kini memakai soal rumpang seperti Mandarin, Inggris dan Jepang. Preposisi: fungsi + kalimat contoh dengan preposisinya dikosongkan + arti. Tabel konjugasi/deklinasi: soal sel tabel (mis. du ___).","Sisi jawaban: judul kecil → rumus/tabel (jawaban ditandai) → fungsi lengkap → kalimat contoh dengan kata kunci ditandai + tombol 🔊 + arti. Kontraksi (im = in dem) dikenali.","Atur → Pengaturan flashcard → Sisi depan kartu grammar: berlaku untuk Mandarin, Inggris, Jepang, Jerman dan Belanda."];
+const GM_NEWS=["Kosakata kini punya penjelasan konteks singkat (dari kolom baru di database): tampil di kartu saat jawaban dibuka dan di Daftar kosakata. Di sisi depan kartu, petunjuknya muncul (kata bahasa target disamarkan) bila beberapa kartu berarti sama atau satu kartu punya beberapa kata. Atur di Pengaturan flashcard → Petunjuk konteks.","Soal rumpang kartu grammar kini bisa diambil dari Pustaka: tiap kali kartu muncul, kalimat dipilih acak dari kalimat Pustakamu yang bertag grammar kartu itu (bagian kuncinya dikosongkan, arti Indonesia jadi petunjuk). Kalimat lama tanpa tag ikut dipakai bila pencocok otomatis yakin. Atur → Pengaturan flashcard → Sumber soal rumpang grammar.","Prompt Kelas AI isi Pustaka kini meminta kalimat yang pas untuk soal rumpang: potongan kunci per grammar, jawaban tunggal, minimal 3 kalimat per grammar prioritas.","Perbaikan: tombol Salin di Kelas AI berfungsi lagi; tab Reading/Listening/Dialog/Kalimat di Kelas AI dari flashcard kini memakai prompt yang sama dengan Kelas AI di Pustaka.","Kartu grammar Belanda (A1–C2, 380 kartu) kini memakai soal rumpang seperti Mandarin, Inggris, Jepang dan Jerman. Preposisi, kata kerja + preposisi (hanya preposisinya yang dikosongkan), konjungsi, partikel, kala, pasif dan posisi kata kerja: fungsi + kalimat contoh dengan kata kunci dikosongkan + arti. Kata kerja kuat, konjugasi, pronomen, komparatif, jamak dan daftar kata: soal sel tabel (mis. Imperfectum ik / hij ___).","Terjemahan Indonesia ditambahkan untuk 105 kalimat contoh Belanda yang dipakai sebagai soal.","Kartu grammar Jerman (A1–C1, 386 kartu) kini memakai soal rumpang seperti Mandarin, Inggris dan Jepang. Preposisi: fungsi + kalimat contoh dengan preposisinya dikosongkan + arti. Tabel konjugasi/deklinasi: soal sel tabel (mis. du ___).","Sisi jawaban: judul kecil → rumus/tabel (jawaban ditandai) → fungsi lengkap → kalimat contoh dengan kata kunci ditandai + tombol 🔊 + arti. Kontraksi (im = in dem) dikenali.","Atur → Pengaturan flashcard → Sisi depan kartu grammar: berlaku untuk Mandarin, Inggris, Jepang, Jerman dan Belanda."];
 function gmWhen(){const m=GM_AT.match(/^(\d{4})-(\d\d)-(\d\d)T(\d\d):(\d\d)/);if(!m)return GM_AT;const hr=['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],bl=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'],dt=new Date(Date.UTC(+m[1],+m[2]-1,+m[3]));
  return hr[dt.getUTCDay()]+', '+(+m[3])+' '+bl[+m[2]-1]+' '+m[1]+' · pukul '+m[4]+'.'+m[5]+' WIB'}
 function verCard(){return`<div class=card><div class=hd><span><b>Vortaro v${GM_VER}</b></span><span class=bdg>terbaru</span></div><small>Diperbarui ${gmWhen()}</small><ul style="margin:8px 0 0;padding-left:18px;font-size:.85rem;line-height:1.5">${GM_NEWS.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`}

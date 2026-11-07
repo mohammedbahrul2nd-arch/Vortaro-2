@@ -1,5 +1,30 @@
 # Riwayat Perubahan
 
+## 7.18.0 — Sabtu, 7 Nov 2026
+
+- **Penjelasan konteks singkat** dari database v66 kini tampil di aplikasi (11.654 entri kosakata).
+  - Sisi belakang kartu: baris 💡 di bawah contoh kalimat.
+  - Daftar kosakata: ringkasan konteks (maks. 2 baris) dan ikut dicari lewat kolom pencarian.
+  - Sisi depan kartu (Indonesia → bahasa target): bila ada arti kembar atau beberapa kata, muncul blok "Konteks tiap kata" dengan kata target disamarkan, supaya kartu kembar bisa dibedakan tanpa membocorkan jawaban.
+- Pengaturan baru di Flashcard: **Petunjuk konteks di sisi depan** (Otomatis / Selalu / Jangan tampilkan).
+- Kata tanpa konteks tidak berubah. Game dan prompt Kelas AI belum memakai konteks.
+
+## 7.17.0 — Jumat, 6 Nov 2026
+- **Soal rumpang kartu grammar bisa diambil dari Pustaka (acak).** Tiap kali kartu grammar (Mandarin, Jepang, Inggris, Jerman, Belanda) muncul, aplikasi memilih satu kalimat acak dari Pustakamu (Kalimat, Reading, Listening, Dialog) yang terhubung ke kartu itu. Bagian kuncinya dikosongkan, arti Indonesia menjadi petunjuk, dan fungsi singkat di atasnya ikut disamarkan. Sisi jawaban menampilkan kalimat yang sama dengan jawaban ditandai (🔊 dan romaji/pinyin bila ada), lalu tampilan kartu seperti biasa. Kalimat tidak diulang berturut-turut bila ada pilihan lain.
+- **Sumber kalimat:** (1) kalimat yang **bertag grammar** dari AI — potongan di blok TAG = jawaban; (2) khusus kartu leksikal (kata/partikel/pola, bukan kala atau bentuk kata kerja), kalimat lama **tanpa tag** yang dikenali pencocok otomatis. Kartu struktural (Perfekt, Passiv, Voltooid deelwoord, Present perfect, bentuk kata kerja Jepang, dst.) hanya memakai kalimat bertag. Kalimat yang kuncinya muncul terlalu banyak, terlalu panjang, atau tak bisa dikosongkan dengan bersih dilewati. Tanpa kalimat yang cocok, kartu memakai soal bawaannya seperti sebelumnya.
+- **Atur → Pengaturan flashcard:** “Sumber soal rumpang grammar” (Pustaka acak, bawaan · Campur 50:50 dengan contoh kartu · Contoh kartu saja) dan “Kalimat Pustaka yang dipakai” (bertag AI + terdeteksi otomatis, bawaan · hanya yang bertag AI). Tidak ada data, ID progres, jadwal SRS, atau format ekspor/impor yang berubah.
+- **Prompt Kelas AI isi Pustaka** (Reading, Listening, Dialog, Kalimat) kini meminta kalimat yang cocok untuk soal rumpang: potongan TAG = **bagian kunci** grammar saja (bukan seluruh klausa) dan harus unik di kalimat; tag grammar wajib untuk tiap grammar yang dipakai; jawaban bagian kosong harus tunggal; arti akurat; tiap grammar prioritas/baru dipakai di minimal 3 kalimat berbeda bila jumlah kalimat cukup; panjang kalimat sedang. Panel Pustaka menyebutkan bahwa kalimat bertag otomatis jadi soal rumpang. Kalimat yang sudah ada di Pustaka tidak perlu diubah: yang sudah bertag atau terdeteksi otomatis langsung dipakai.
+- **Perbaikan: tombol Salin di Kelas AI berfungsi lagi.** Fungsi penyalin (`ltCopy`) dipanggil tetapi tidak pernah didefinisikan, sehingga tombol Salin prompt dan tautan ChatGPT/Claude/Gemini tidak menyalin apa pun. Kini memakai Clipboard API dengan cadangan `execCommand` (WebView, berkas lokal, HTTP); bila tetap gagal, teks prompt dipilih otomatis agar bisa disalin manual.
+- **Perbaikan: Kelas AI dari flashcard dan dari Pustaka kini memakai prompt yang sama** untuk tab Reading, Listening, Dialog, dan Kalimat. Dari flashcard, tab-tab itu membuka panel Pustaka (kartu prioritas berdasarkan cakupan Pustaka, level aktif, kartu baru, opsi kuota) untuk bahasa kartu tersebut; tab Penjelasan dan Bicara tetap khusus kartu yang sedang dibuka dan bisa dipilih kembali dari baris tab yang sama.
+- Service worker 7.17.0.
+
+## 7.16.1 — Jumat, 6 Nov 2026
+- **Grammar Belanda: 380 dari 380 kartu bersoal** (260 rumpang + 120 soal sel tabel; sebelumnya 268). Hanya mesin Belanda (`gzn*`/`gn*`/`GN`/`GNK`) yang berubah; mesin bahasa lain dan Esperanto tidak tersentuh.
+- **Kunci eksplisit `GNK`** untuk kartu yang kuncinya tak bisa diturunkan, kunci idiom otomatis (satu kata benda dari idiom, kotak tunggal), kunci dari kata sambung di awal `pola`, dan kata tunjuk dari `kv` untuk kartu De-/Het-woord.
+- **Soal baru:** huruf/bunyi yang hilang (ejaan), singkatan → bentuk penuh, infleksi adjektiva (-e). **Sel tabel berputar** tiap kemunculan kartu (dihitung dari jadwal SRS yang hanya dibaca; tidak ada yang disimpan). Jawaban konjugasi tanpa kata ganti; bentuk `/` ditoleransi.
+- **Fungsi pendek** dipotong sebelum kalimat yang sama dengan soal; **skor ambiguitas preposisi** dan petunjuk pada kartu ambigu; kalimat tanpa arti diturunkan skornya; kelas kartu diperbaiki (frasa, gender, bilangan, idiom, register, partikel, infleksi).
+- **Data:** 108 kartu mendapat kalimat Belanda + arti (tambahan di akhir `contoh`) atau arti pada kalimat yang sudah ada, di `data.js`, HTML dan xlsx. Judul, ID, jumlah/urutan kartu, `kv`, `sub`, `S.srs`, `S.p` tidak berubah.
+
 ## 7.16.0 — Jumat, 6 Nov 2026
 - **Flashcard grammar Belanda (A1–C2, 380 kartu) dirombak** dengan pola yang sama seperti Mandarin, Inggris, Jepang dan Jerman. Sisi depan kini berisi **fungsi pendek** (kalimat pertama, ≤ ±90 karakter, kata jawaban dan variannya disamarkan) + **kalimat contoh dengan kata kunci dikosongkan** + arti Indonesia, atau **soal sel tabel** bila kartu berupa tabel.
 - **Kata kunci per jenis kartu:** preposisi dan konjungsi → judul; kata kerja + preposisi (`wachten op`, `praten met … over`, `bestaan uit`) → hanya preposisinya yang dikosongkan; pasangan (`zowel … als`, `om … te`, `hoe … hoe`, `niet alleen … maar ook`) → dua kotak berurutan; partikel (`toch`, `eens / even`, `nou`), `er` dan `waar-`/`er-` + preposisi → judul/pola; Perfectum (participle), Imperfectum, Plusquamperfectum, Futurum II dan Pasif (`worden`, `werd`, `door`) → aturan per sub-bab; urutan kata → posisi kata kerja; adjektiva `-e` → bentuk berakhiran -e. Bentuk tak beraturan (`ben/is/was`, `ging`, `kon`) diambil dari tabel konjugasi kartu itu sendiri, klitik (`je/jij`, `we/wij`, `'t/het`) dianggap sama, dan pencocokan memakai pembatas kata Unicode (`ë ï é`, apostrof, tanda hubung).
