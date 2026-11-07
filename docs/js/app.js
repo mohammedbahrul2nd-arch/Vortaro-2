@@ -4,12 +4,13 @@ try{Object.assign(S,VRS.initial)}catch(e){ok=false}VRS.onError=()=>{ok=false;try
 const FCD={gz:'cloze',nl:20,rl:200,fd:'id',ff:[],fm:'or',fmin:1,deck:'v',ord:'seq',no:'after',ls:'1 10',rs:'10',gi:1,ei:4,se:250,eb:130,hi:120,ni:0,im:100,mx:36500,lk:1,mig:0,sp:[],lch:4,xn:10,xr:50};const LTD={lm:1,pl:'zh',plv:[],pn:1,pa:1,pv:1,po:1,ps:'full',pw:'all',pg:'all',pe:1,lx:1};S.o={hide:0,rom:0,minL:1,mode:'mix',...FCD,...LTD,...S.o};if(!S.o.cv)S.o.cv=S.o.hide?'fo':'none';S.o={cgL:'blur',cgK:'show',cgF:'show',cpl:'blur',cvb:'blur',ckp:'blur',rdt:'blur',...S.o};
 /* v7.5: semua sensor SELALU aktif dan tidak bisa dikonfigurasi (pengaturannya dihapus). cv:'both' = bahasa asing & Indonesia sama-sama disensor per bagian. */
 const SENS={cv:'both',rom:1,cgL:'blur',cgK:'blur',cgF:'blur',cpl:'blur',cvb:'blur',ckp:'blur',rdt:'blur',lm:1,ps:'id'};S.o=Object.assign(S.o,SENS);S.o={th:'auto',ac:'indigo',fz:'m',tts:1,ttsa:0,hap:1,gr:25,ttsr:.9,libMin:4,...S.o};if(!Array.isArray(S.lib))S.lib=[];if(!Array.isArray(S.o.gff))S.o.gff=(S.gf||[]).slice();
-const save=()=>{VRS.save(S);window.vrSnapSoon&&vrSnapSoon()};
+let fcQV=0;if(!S.v)S.v=1;
+const save=()=>{fcQV++;VRS.save(S);window.vrSnapSoon&&vrSnapSoon()};
 const K={};D.C.forEach(c=>K[c[0]]=c);
 const LN={};D.L.forEach(l=>LN[l[0]]=l[1]);{const ok=x=>LN[String(x).split(':')[0]];S.f=S.f.filter(ok);S.o.ff=S.o.ff.filter(ok)}D.GL.forEach(l=>{if(!LN[l[0]])LN[l[0]]=l[1]});const GK={};D.G.forEach(g=>GK[g[0]]=g);
 const esc=s=>String(s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
 const st=k=>S.p[k]|0;
-const SEP='@',base=k=>{const i=String(k).indexOf(SEP);return i<0?k:k.slice(0,i)},lang=k=>{const i=String(k).indexOf(SEP);return i<0?'':k.slice(i+1)},ik=(k,l)=>k+SEP+l;
+const SEP='@',base=k=>{const i=String(k).indexOf(SEP);return i<0?k:k.slice(0,i)},lang=k=>{const i=String(k).indexOf(SEP);return i<0?'':k.slice(i+1).replace(/~\d+$/,'')},ent=k=>{const m=/~(\d+)$/.exec(String(k));return m?+m[1]:0},ik=(k,l)=>k+SEP+l;
 /* progres kosakata disimpan per (kartu, bahasa): item = "kartu@bahasa". Grammar tetap per id. */
 const items=(c,v)=>Object.keys(v).map(l=>ik(c[0],l));
 const cs=(c,v)=>{if(GK[c[0]])return st(c[0]);v=v||vis(c);if(!v)return 0;let m=2;for(const l in v)m=Math.min(m,st(ik(c[0],l)));return m};
@@ -73,7 +74,7 @@ function gbody(g){const L=t=>`<div class=gsec>${t}</div>`,kv=g[10]||[],CJ=g[1]==
  if(g[9].length)h+=num(g[9],'Kasus khusus','gnt gkk');
  return h}
 /* ===== v7.11: kartu grammar flashcard berbasis rumpang (cloze). Mandarin, Inggris (v7.12), Jepang (v7.13) dan Jerman (v7.15); bahasa lain cukup ditambahkan ke GZ ===== */
-const GZ={zh:/[㐀-鿿]+/g,en:1,ja:1,de:1,nl:1};
+const GZ={zh:/[㐀-鿿]+/g,en:1,ja:1,de:1,nl:1,eo:1};
 const gzLn=e=>{const a=String(e).split('\n');a[0]=a[0].replace(/^\s*\d+\s*[.、．)]\s*/,'');return a};
 const gzSp=s=>String(s||'').replace(/\s+/g,'');
 const gzOn=g=>!!GZ[g[1]]&&(S.o.gz||'cloze')!='old';
@@ -87,12 +88,12 @@ const gzTr=a=>{let t=a.length>=3?a.slice(2).join('\n'):a.length==2?a[1]:'';t=t.t
 function gzPick(g){const keys=gzKeys(g);let best=null,bs=-1,mk=[];
  if(keys.length)(g[7]||[]).forEach((e,i)=>{const a=e.split('\n'),hit=new Set(gzSplit(a[0],keys).filter(x=>x[1]).map(x=>gzSp(x[0])));if(!hit.size)return;const n=hit.size,len=gzSp(a[0]).length,sc=(n>=2?100:50)-(n>2?(n-2)*10:0)+(a.length>=3?20:0)-Math.abs(len-12)*.5;if(sc>bs){bs=sc;best=i;mk=keys.filter(k=>hit.has(k)).slice(0,2)}});
  return{keys,mk,i:best}}
-function gzFront(g){if(g[1]=='en')return gzeFront(g);if(g[1]=='ja')return gzjFront(g);if(g[1]=='de')return gzdFront(g);if(g[1]=='nl')return gznFront(g);const m=S.o.gz||'cloze',p=gzPick(g),fn=`<div class="gzq${String(g[5]||'').length>60?' gzl':''}"><span class=gl>${esc(g[11]||'Fungsi')}</span>${esc(g[5])}</div>`;
+function gzFront(g){if(g[1]=='en')return gzeFront(g);if(g[1]=='ja')return gzjFront(g);if(g[1]=='de')return gzdFront(g);if(g[1]=='nl')return gznFront(g);if(g[1]=='eo')return gzoFront(g);const m=S.o.gz||'cloze',p=gzPick(g),fn=`<div class="gzq${String(g[5]||'').length>60?' gzl':''}"><span class=gl>${esc(g[11]||'Fungsi')}</span>${esc(g[5])}</div>`;
  if(m=='cloze'&&p.i!=null){const a=gzLn(g[7][p.i]),tr=gzTr(a);
   return fn+`<div class=gzc>${gzSplit(a[0],p.mk).map(([t,h])=>h?`<span class=gzb style="--n:${[...gzSp(t)].length}">&nbsp;</span>`:esc(t)).join('')}</div>`+(tr?`<div class=gzm>${esc(tr)}</div>`:'')+`<div class=fchint><small>Isi bagian yang hilang &amp; ingat rumus polanya</small></div>`}
  let ex='';if(m!='fn'){const k=(g[7]||[]).findIndex(e=>/[\u3400-\u9fff]/.test(e.split('\n')[0])&&e.split('\n').length>=2),a=(g[7]||[])[k>=0?k:0];if(a){const b=gzLn(a),t=gzTr(b);ex=`<div class=gzc style="font-size:1.5rem">${esc(b[0])}</div>`+(t?`<div class=gzm>${esc(t)}</div>`:'')}}
  return fn+ex+`<div class=fchint><small>Ingat: nama pola &amp; rumusnya</small></div>`}
-function gzBack(g,k){if(g[1]=='en')return gzeBack(g,k);if(g[1]=='ja')return gzjBack(g,k);if(g[1]=='de')return gzdBack(g,k);if(g[1]=='nl')return gznBack(g,k);const p=gzPick(g),ks=p.keys,hl=t=>gzSplit(t,ks).map(([x,h])=>h?`<mark class=gzh>${esc(x)}</mark>`:esc(x)).join('');
+function gzBack(g,k){if(g[1]=='en')return gzeBack(g,k);if(g[1]=='ja')return gzjBack(g,k);if(g[1]=='de')return gzdBack(g,k);if(g[1]=='nl')return gznBack(g,k);if(g[1]=='eo')return gzoBack(g,k);const p=gzPick(g),ks=p.keys,hl=t=>gzSplit(t,ks).map(([x,h])=>h?`<mark class=gzh>${esc(x)}</mark>`:esc(x)).join('');
  let h=`<div class=gzt1>${esc(g[4])}</div><hr>`;
  if(g[6])h+=`<div class=gzp>${gzSplit(g[6],ks).map(([x,y])=>y?`<mark class=gzh>${esc(x)}</mark>`:esc(x)).join('')}</div>`;
  h+=`<div class=gzf>${esc(g[5])}</div>`;
@@ -628,6 +629,154 @@ function gznBack(g,k){const p=gnCur(g);let h=`<div class=gzt1>${esc(g[4])}</div>
  h+=ord.map(i=>{const x=p.ss[i],sl=x.wrong||x.dirty?null:i==p.i?p.sel:(p.sps.map(s=>gnSel(s,x.s)).find(Boolean)||null),bx=sl?sl.bx:[];
   return`<div class="gex gzx${x.wrong||x.dirty?' gzw':''}"><div class=g1>${gnSeg(x.s,bx,w=>`<mark class=gzh>${esc(w)}</mark>`)}${x.wrong||x.dirty?'':spk(x.s,'nl')}</div>${x.tr?`<div class=g2>${esc(x.tr)}</div>`:''}${(x.notes||[]).map(n=>`<div class="g2 gzn">${esc(n)}</div>`).join('')}</div>`}).join('');
  return`<div style="text-align:left">`+h+gmExBlock(k)+`</div>`}
+/* ===== v7.19.1: grammar Esperanto (A1–C2) pada kartu rumpang. Kunci per kartu dibaca dari judul (kata fungsi, korelatif, preposisi, kala/partisip → ujung kata, afiks → morfem yang diverifikasi ke kosakata EO, bilangan). Kartu tanpa kalimat cocok / kartu bunyi → kartu "ingat pola". Rumpang hanya tampil; tidak ada input ketik, jadi sistem-x/h tidak relevan. zh/ja/de/nl/en tidak disentuh ===== */
+const GOW=s=>[...String(s||'').matchAll(/[\p{L}]+(?:-[\p{L}]+)*/gu)].map(m=>({l:m[0].toLowerCase(),s:m.index,e:m.index+m[0].length}));
+const GOF=new Set('la mi vi li ŝi ĝi ni ili ci si ĉi min vin lin ŝin ĝin nin ilin sin mia via lia ŝia ĝia nia ilia sia pli plej tro pro tre ĉe de da je al el en ne se ke ju des ĝis jen jam ja do nu ho unu du tri kvin kvar ses sep ok naŭ dek cent mil nul kaj aŭ sed tamen nek ĉar ol por per kun sen sur sub tra apud ekster post antaŭ ĉirkaŭ inter laŭ po pri kiel tiel ankaŭ nun tuj nur eĉ ĉu oni mem ajn plu for ambaŭ kvazaŭ kvankam dum anstataŭ krom malgraŭ trans super preter kontraŭ multe malmulte almenaŭ apenaŭ baldaŭ hieraŭ hodiaŭ morgaŭ ankoraŭ ĝuste tiam kiam ĉiam jam'.split(' '));
+const GOC=/^(neni|ti|ki|ĉi|i)(u|a|e|o|am|al|el|om|es)([jn]{0,2})$/u;
+const GOP='al anstataŭ antaŭ apud ĉe ĉirkaŭ da de dum ekster el en ĝis inter je kontraŭ krom kun laŭ malgraŭ malantaŭ per po por post preter pri pro sen sub super sur tra trans'.split(' ');
+const GOTW=new Set([...GOP,...'ĉar ke se ĉu nek kaj aŭ sed tamen do jen jam ja mem ajn ambaŭ oni kvazaŭ for pli plej malpli malplej multe ju des ol'.split(' ')]);
+const GOSUF='ul in ej ar eg et ec ind ebl ist uj obl em id ad aĉ er um ig iĝ aĵ ing estr op an il on ĉj nj'.split(' '),GOPRE='mal re ek dis ge bo eks pra fi duon for'.split(' ');
+const GONW='(?:(?:unu|du|tri|kvar|kvin|ses|sep|ok|naŭ)?(?:dek|cent|mil)|unu|du|tri|kvar|kvin|ses|sep|ok|naŭ|nul)';
+let goLx=null;
+function goBoot(){if(goLx)return;goLx=new Set();for(const r of D.C){const e=r[3]&&r[3].eo;if(e)e.forEach(x=>GOW(x[0]).forEach(t=>{goLx.add(t.l);goLx.add(t.l.replace(/(as|is|os|us|[oaeiu])[jn]*$/,''))}))}}
+function goRoot(s,d){if(s.length<2)return false;if(goLx.has(s))return true;if(d>1)return false;for(const p of GOPRE)if(s.startsWith(p)&&s.length>p.length+1&&goRoot(s.slice(p.length),d+1))return true;for(const f of GOSUF)if(s.endsWith(f)&&s.length>f.length+1&&goRoot(s.slice(0,-f.length),d+1))return true;return false}
+const GOEN='(?:[aeiou][jn]{0,2}|[aiou]s)';
+/* judul kartu → kunci: w=kata utuh (~=akar kata kerja), c=korelatif, e=ujung kata, m=sisipan/akhiran (diverifikasi), p=awalan, r=bilangan, -=tanpa rumpang */
+const GOR=[/* v7.19.3: kartu EO hasil pecahan */
+[/^Konjungsi aŭ \(atau\)$/,'w:aŭ'],
+[/^Konjungsi kaj \(dan\)$/,'w:kaj'],
+[/^Konjungsi nek \(maupun\)$/,'w:nek'],
+[/^Konjungsi sed \(tetapi\)$/,'w:sed'],
+[/^Konjungsi tamen \(namun\)$/,'w:tamen'],
+[/^ĉi tiu \(ini\)$/,'w:ĉi'],
+[/^tiu \(itu\)$/,'w:tiu'],
+[/^Bentuk Kepemilikan ties \(milik itu\)$/,'w:ties'],
+[/^Bentuk Kepemilikan ĉi ties \(milik ini\)$/,'w:ĉi'],
+[/^Adverbia Tempat tie \(di sana\)$/,'w:tie'],
+[/^Adverbia Tempat ĉi tie \(di sini\)$/,'w:ĉi'],
+[/^Arah dengan tien \(ke sana\)$/,'w:tien'],
+[/^Arah dengan ĉi tien \(ke sini\)$/,'w:ĉi'],
+[/^Tingkat Lebih dengan pli$/,'w:pli'],
+[/^Tingkat Paling dengan plej$/,'w:plej'],
+[/^malpli \(kurang\)$/,'w:malpli'],
+[/^malplej \(paling kurang\)$/,'w:malplej'],
+[/^Kata Kerja diri \(mengatakan\)$/,'w:~dir'],
+[/^Kata Kerja paroli \(berbicara\)$/,'w:~parol'],
+[/^Kata Kerja rakonti \(menceritakan\)$/,'w:~rakont'],
+[/^Anak Kalimat Sebab dengan ĉar$/,'w:ĉar'],
+[/^Anak Kalimat Sebab dengan tial ke$/,'w:tial'],
+[/^Infinitif dengan anstataŭ$/,'w:anstataŭ'],
+[/^Infinitif dengan por$/,'w:por'],
+[/^Infinitif dengan antaŭ ol$/,'w:antaŭ'],
+[/^Takaran dengan da$/,'w:da'],
+[/^Keseluruhan Tertentu dengan de$/,'w:de'],
+[/^Adverbia Jumlah multe da \(massa\)$/,'w:multe,malmulte'],
+[/^Kata Sifat Jumlah multaj \(individu\)$/,'w:multa'],
+[/^Akusatif Waktu: dimanĉon \(sekali\)$/,'e:n'],
+[/^Adverbia Frekuensi: dimanĉe \(kebiasaan\)$/,'e:e'],
+[/^Preposisi \+ Adverbia \(de nun, el tie\)$/,'w:de,el'],
+[/^Preposisi \+ Preposisi \(el sub, de sur\)$/,'w:sub,sur,post'],
+[/^Pronomo Tanya kiu \(siapa\/yang mana\)$/,'w:kiu'],
+[/^Pronomo Tanya kies \(milik siapa\)$/,'w:kies'],
+[/^koni \(kenal\)$/,'w:~kon'],
+[/^scii \(tahu\)$/,'w:~sci'],
+[/^tempo \(waktu\)$/,'w:tempo'],
+[/^fojo \(kali\)$/,'w:fojo'],
+[/^loĝi \(tinggal\)$/,'w:~loĝ'],
+[/^vivi \(hidup\)$/,'w:~viv'],
+[/^antikva \(kuno\)$/,'w:antikva'],
+[/^maljuna \(berusia lanjut\)$/,'w:maljuna'],
+[/^malnova \(lama \/ tidak baru\)$/,'w:malnova'],
+[/^Gelar \(sinjoro, sinjorino, fraŭlino\)$/,'w:sinjoro,sinjorino,fraŭlino'],
+[/^Sapaan Sopan dengan Gelar$/,'w:sinjoro,sinjorino,fraŭlino'],
+[/^Salam dengan Akusatif \(Bonan matenon!\)$/,'e:n'],
+[/^Seruan dengan Akusatif \(Dankon!\)$/,'e:n'],
+[/^Bilangan Puluhan dengan -dek$/,'r:num'],
+[/^Bilangan Ratusan dengan -cent$/,'r:num'],
+[/^Bilangan Ribuan dengan -mil$/,'r:num'],
+[/^Akhiran -uj- \(Wadah\)$/,'m:uj'],
+[/^Akhiran -uj- \(Pohon\)$/,'m:uj'],
+[/^Akhiran -uj- \(Negeri\)$/,'m:uj'],
+[/^Adverbia Negatif nenial \(tanpa alasan\)$/,'w:nenial'],
+[/^Adverbia Negatif neniel \(sama sekali tidak\)$/,'w:neniel'],
+[/^Adverbia Negatif neniom \(sedikit pun tidak\)$/,'w:neniom'],
+[/^Kata Kerja Dasar -i \(sidi, kuŝi\)$/,'w:~sid,~kuŝ,~silent'],
+[/^Bentuk -ig-: Membuat \(sidigi\)$/,'m:ig'],
+[/^Bentuk -iĝ-: Menjadi \(sidiĝi\)$/,'m:iĝ'],
+[/^Tekad dengan mi \+ -u$/,'e:u'],
+[/^Ajakan dengan ni \+ -u$/,'e:u'],
+[/^Perintah dengan -u$/,'e:u'],
+[/^Larangan dengan ne \+ -u$/,'e:u'],
+[/^Imperatif untuk Permohonan$/,'e:u'],
+[/^Imperatif untuk Harapan$/,'e:u'],
+[/^Imperatif untuk Saran dan Pertimbangan$/,'e:u'],
+[/^Izin dengan permesi$/,'w:~permes'],
+[/^Izin dengan lasi$/,'w:~las'],
+[/^Izin dengan Imperatif$/,'e:u'],
+[/^Kemungkinan dengan eble$/,'w:eble,neebla'],
+[/^Probabilitas dengan kredeble, verŝajne$/,'w:kredeble,verŝajne'],
+[/^Awalan bo- \(Kekerabatan Pernikahan\)$/,'p:bo'],
+[/^Awalan duon- \(Tiri\/Setengah\)$/,'p:duon'],
+[/^Akhiran -ĉj- \(Nama Kesayangan Laki-laki\)$/,'m!:ĉj'],
+[/^Akhiran -nj- \(Nama Kesayangan Perempuan\)$/,'m!:nj'],
+[/^Satuan Berat \(gramo, kilogramo\)$/,'-'],
+[/^Satuan Ukuran \(metro, litro\)$/,'-'],
+[/Kata Kerja Pilihan/,'w:al'],[/^(Alfabet|Pengucapan|Diftong|Gugus|Aksen|Penulisan Nama|Elisi|Korespondensi|Sistem Mata Uang|Singkatan|Apozisi|Kata Majemuk|Pembentukan Kata dari Akar|Penurunan|Preposisi sebagai Awalan|Satuan Berat)/,'-'],
+[/^Interjeksi/,'w:ho,nu,fi,hura,ve,adiaŭ'],[/^Kata Benda berakhiran -o/,'e:o'],[/^Artikel/,'w:la'],[/^Kata Sifat berakhiran -a/,'e:a'],
+[/Kala Kini -as|^Kata Kerja Impersonal|Konjugasi Kala Kini/,'e:as'],[/Bentuk Jamak/,'e:j'],[/^Kata (Sifat|Benda) Predikat|^Kata Kerja Mendahului Subjek/,'w:estas,ŝajnas'],
+[/Dijadikan Transitif|Kausatif -ig-/,'m:ig'],[/Dijadikan Intransitif/,'m:iĝ'],[/^Tiga Bentuk/,'m:ig,iĝ'],[/-ĉj-/,'m!:ĉj,nj'],[/Perempuan dengan -in-/,'m:in'],[/Antonim dengan mal-/,'p:mal'],[/^Awalan bo-/,'p:bo,duon'],
+[/Refleksif si \(/,'w:si,sin'],[/Refleksif \(mi/,'w:min,nin,vin'],[/Posesif Refleksif sia/,'w:sia,siaj,sian,siajn'],[/^Kata Sifat Posesif|^Penggunaan Posesif/,'w:mia,via,lia,ŝia,ĝia,nia,ilia'],
+[/^Akusatif Kata Ganti|^Kata Kerja Refleksif|^Posisi Pronomo/,'w:min,vin,lin,ŝin,ĝin,nin,ilin,sin'],[/^Kata Ganti Orang|^Kesesuaian dengan Kata Ganti/,'w:mi,vi,li,ŝi,ĝi,ni,ili'],[/^Batas Pronomo/,'w:li,ŝi,ĝi,ili,lin,ŝin,ĝin,ilin,si,sin'],
+[/^Kata Kerja Transitif$|Akusatif|Salam dan Seruan|Adverbia Arah dengan -n|Predikat Objek/,'e:n'],[/Konjungsi kaj/,'w:kaj'],[/Konjungsi nek/,'w:nek'],[/^Konjungsi Koordinatif/,'w:aŭ,kaj,nek,sed,tamen,do'],[/^Kata Negasi ne/,'w:ne'],
+[/^Infinitif dengan/,'w:anstataŭ,por,antaŭ'],[/Infinitif/,'e:i'],[/Kala Lampau -is/,'e:is'],[/Kala Depan -os/,'e:os'],
+[/Partisip Adverbial/,'e:ante,inte,onte,ate,ite,ote'],[/^Kala Majemuk Verba Impersonal/,'e:ante,inte'],[/Partisipial/,'e:anto,into,onto,ato,ito,oto'],[/^Kala Majemuk Kondisional/,'e:anta,inta,onta,ata,ita,ota'],[/^Kala Majemuk$/,'e:anta,inta,onta'],
+[/Futurum Periphrastik Pasif|Partisip Pasif Depan/,'e:ota'],[/Pasif Perfek|Pasif Pluperfek|Pasif Futurum Perfek|Partisip Pasif Lampau/,'e:ita'],[/Pasif Kini|Pasif Lampau|Pasif Depan|Partisip Pasif Kini/,'e:ata'],
+[/Partisip Aktif Kini|Kini Progresif|Imperfek|Depan Progresif/,'e:anta'],[/Aktif Lampau|Kala Perfek|Kala Pluperfek|Futurum Perfek/,'e:inta'],[/Aktif Depan|Futurum Periphrastik/,'e:onta'],
+[/Modus Kondisional|Kurang Nyata|Kondisional Mandiri/,'e:us'],[/Berlawanan dengan Fakta/,'w:estus'],[/Bersyarat Faktual|Ringkasan Tiga Jenis/,'w:se'],
+[/Imperatif|Tekad dan Ajakan|Perintah dan Larangan|Tujuan \(por ke\)|^Izin/,'e:u'],
+[/devi \(harus/,'w:~dev'],[/Makna povi/,'w:~pov'],[/koni vs scii/,'w:~kon,~sci'],[/loĝi vs vivi/,'w:~loĝ,~viv'],[/diri, paroli/,'w:~dir,~parol,~rakont'],[/tempo vs fojo/,'w:tempo,fojo'],[/antikva vs/,'w:antikva,maljuna,malnova'],
+[/^Adverbia for /,'p:for'],[/^Akhiran -op-/,'m:op'],[/Bilangan Tingkat|Waktu dalam Sehari/,'r:ord'],[/Kata Benda Bilangan/,'r:numo'],[/Adverbia dari Bilangan/,'r:nume'],[/Pecahan/,'r:frac'],[/Bilangan/,'r:num'],
+[/Sebab \(ĉar/,'w:ĉar,tial,ke'],[/Kutipan Tidak Langsung/,'w:ke,ĉu'],[/Resiprokal/,'w:unu,alia,alian,reciproke'],[/Kehormatan moŝto/,'w:moŝto'],[/Gelar dan Sapaan/,'w:sinjoro,sinjorino,fraŭlino,sinjoroj'],
+[/Kemungkinan dan Probabilitas/,'w:eble,kredeble,verŝajne'],[/Tingkat Tertinggi/,'w:eble,plej'],[/Dimulai di Masa Lalu/,'w:de'],[/^Adverbia \(Kata Keterangan\)/,'w:baldaŭ,hieraŭ,hodiaŭ,morgaŭ,ankoraŭ,tre,tro,nun,tuj,nur,jam,ankaŭ'],
+[/Pembentukan Adverbia dengan -e|Adverbia dari Preposisi|Keterangan pada Verba Impersonal/,'e:e'],[/^Preposisi (\(Kata Depan\)|\+ Adverbia)/,'w:'+GOP.join(',')]];
+const goC=new Map();
+function goSpec(g){const t=String(g[4]||'').replace(/#\d+$/,'').trim();let s=null;for(const[r,v]of GOR)if(r.test(t)){s=v;break}
+ if(s==null){const tk=GOW(t.replace(/\([^)]*\)/g,x=>x)).map(x=>x.l),ru=GOW(String(g[6]||'').replace(/\(.*?\)/g,'')).map(x=>x.l),cr=tk.filter(x=>GOC.test(x)),tw=tk.filter(x=>GOTW.has(x)&&x!='de'||x=='de'&&/\bde\b/.test(t));
+  if(/Korelatif/.test(t))s='c:*';else if(cr.length)s='c:'+[...new Set(cr)].join(',');else if(tw.length)s='w:'+[...new Set(tw)].join(',');
+  else if(/^Akhiran -(\p{L}+)-/u.test(t))s='m:'+t.match(/^Akhiran -(\p{L}+)-/u)[1];else if(/^Awalan (\p{L}+)-/u.test(t))s='p:'+t.match(/^Awalan (\p{L}+)-/u)[1];
+  else if(/^Preposisi/.test(t))s='w:'+GOP.join(',');else if(/berakhiran -o \(Hal/.test(t)){const c=ru.filter(x=>GOC.test(x));s=c.length?'c:'+[...new Set(c)].join(','):'-'}else s='-'}
+ return s}
+/* spesifikasi → fungsi uji token: f(l)=>[a,b] (rentang yang dirumpangkan di dalam token) atau null */
+function goFn(sp){const k=sp[0],nx=sp.indexOf('!')==1,L=sp.slice(sp.indexOf(':')+1).split(',');
+ if(sp=='-')return null;
+ if(k=='w'){const vs=L.filter(x=>x[0]=='~').map(x=>new RegExp('^'+x.slice(1)+'(?:i|as|is|os|us|u)$','u')),ws=L.filter(x=>x[0]!='~');return l=>{if(ws.some(w=>l==w||w.length>=3&&/[aou]$/.test(w)&&new RegExp('^'+w+'[jn]{1,2}$','u').test(l))||vs.some(r=>r.test(l)))return[0,l.length];return null}}
+ if(k=='c'){const all=L[0]=='*';return l=>{if(all?GOC.test(l):L.some(w=>l==w||new RegExp('^'+w+'[jn]{1,2}$','u').test(l)))return[0,l.length];return null}}
+ if(k=='r'){const N=GONW,re=L[0]=='ord'?new RegExp('^'+N+'a[jn]{0,2}$','u'):L[0]=='numo'?new RegExp('^'+N+'o[jn]{0,2}$','u'):L[0]=='nume'?new RegExp('^'+N+'e$','u'):L[0]=='frac'?new RegExp('^'+N+'on[oae][jn]{0,2}$','u'):new RegExp('^'+N+'$','u');return l=>re.test(l)?[0,l.length]:null}
+ if(k=='e'){const ms=[...L].sort((a,b)=>b.length-a.length);let re;
+  if(L[0]=='n')re=/^(.{2,}[aeiouj])(n)()$/u;else if(L[0]=='j')re=/^(.{2,}[ao])(j)(n?)$/u;else re=new RegExp('^(.{2,}?)('+ms.join('|')+')('+(ms.every(m=>/[ao]$/.test(m))?'[jn]{0,2}':'')+')$','u');
+  return l=>{if(l.length<3||GOF.has(l)||L[0]!='n'&&GOC.test(l))return null;const m=l.match(re);return m?[m[1].length,m[1].length+m[2].length]:null}}
+ if(k=='m'||k=='p'){goBoot();const ms=[...L].sort((a,b)=>b.length-a.length).join('|'),re=k=='m'?new RegExp('^(.{'+(nx?1:2)+',}?)('+ms+')'+GOEN+'$','u'):new RegExp('^('+ms+')(.{3,})$','u');
+  return l=>{if(GOF.has(l)||GOC.test(l))return null;const m=l.match(re);if(!m)return null;if(k=='m'){if(!nx&&!goRoot(m[1],0))return null;return[m[1].length,m[1].length+m[2].length]}
+   const r=m[2].replace(/(as|is|os|us|[oaeiu])[jn]*$/,'');if(!goRoot(r,0)&&!goRoot(m[2],0))return null;return[0,m[1].length]}}
+ return null}
+function goCur(g){let c=goC.get(g[0]);if(c)return c;const sp=goSpec(g),f=goFn(sp),ss=(g[7]||[]).map(e=>{const a=gzLn(e),s=a[0],tr=gzTr(a),m=[];if(f)GOW(s).forEach(t=>{const r=f(t.l);if(r)m.push([t.s+r[0],t.s+r[1]])});return{s,tr,m}});
+ let bi=null,bs=-1;ss.forEach((x,i)=>{const n=x.m.length;if(!n)return;const wc=GOW(x.s).length,sc=(n<=2?60-(n-1)*5:40-(n-3)*5)+(x.tr?20:0)-Math.abs(wc-7)*1.5-(wc>16?20:0);if(sc>bs){bs=sc;bi=i}});
+ c={sp,f,ss,i:bi,bx:bi!=null?ss[bi].m.slice(0,2):[],show:ss.length?0:null};goC.set(g[0],c);return c}
+const goBox=n=>`<span class="gzb gze" style="--n:${n}">&nbsp;</span>`;
+const goSeg=(t,bx,f)=>{let o='',l=0;for(const[a,b]of bx){if(a<l)continue;o+=esc(t.slice(l,a))+f(t.slice(a,b),b-a);l=b}return o+esc(t.slice(l))};
+function gzoFront(g){const m=S.o.gz||'cloze',p=goCur(g),fn=String(g[5]||'').trim()?`<div class="gzq${String(g[5]||'').length>60?' gzl':''}"><span class=gl>${esc(g[11]||'Fungsi')}</span>${esc(g[5])}</div>`:`<div class="gzq gzl"><span class=gl>Topik</span>${esc(String(g[3]||''))}</div>`;
+ if(m=='cloze'&&p.i!=null){const x=p.ss[p.i];return fn+`<div class="gzc gzen gzde">${goSeg(x.s,p.bx,(w,n)=>goBox(n))}</div>`+(x.tr?`<div class=gzm>${esc(x.tr)}</div>`:'')+`<div class=fchint><small>Isi bagian yang hilang &amp; ingat rumus polanya</small></div>`}
+ let ex='';if(m!='fn'&&p.show!=null){const x=p.ss[p.show];ex=`<div class="gzc gzen gzde">${esc(x.s)}</div>`+(x.tr?`<div class=gzm>${esc(x.tr)}</div>`:'')}
+ return fn+ex+`<div class=fchint><small>Ingat: ${m=='fn'?'nama pola &amp; rumusnya':'pola &amp; rumusnya'}</small></div>`}
+function goMk(t,p){t=String(t||'');if(!p.f)return esc(t);const sp=p.sp,k=sp[0];if(k=='w'||k=='c'||k=='r')return goSeg(t,GOW(t).map(x=>{const r=p.f(x.l);return r&&[x.s,x.e]}).filter(Boolean),w=>`<mark class=gzh>${esc(w)}</mark>`);
+ const ms=sp.slice(sp.indexOf(':')+1).split(',').sort((a,b)=>b.length-a.length).join('|'),re=new RegExp('-(?:'+ms+')(?![\\p{L}])|(?<![\\p{L}])(?:'+ms+')-','gu'),bx=[...t.matchAll(re)].map(m=>[m.index,m.index+m[0].length]);return goSeg(t,bx,w=>`<mark class=gzh>${esc(w)}</mark>`)}
+function gzoBack(g,k){const p=goCur(g);let h=`<div class=gzt1>${esc(g[4])}</div><hr>`;
+ if(g[6])h+=`<div class=gzp>${goMk(g[6],p)}</div>`;h+=`<div class=gzf>${esc(g[5])}</div>`;
+ const ord=p.ss.map((x,i)=>i),f=p.i!=null?p.i:p.show;if(f!=null){ord.splice(ord.indexOf(f),1);ord.unshift(f)}
+ h+=ord.map(i=>{const x=p.ss[i];return`<div class="gex gzx"><div class=g1>${goSeg(x.s,x.m,w=>`<mark class=gzh>${esc(w)}</mark>`)}${spk(x.s,'eo')}</div>${x.tr?`<div class=g2>${esc(x.tr)}</div>`:''}</div>`}).join('');
+ const n1=(g[8]||[]).length,n2=(g[9]||[]).length,num=(a,n,c)=>a.map((x,i)=>`<div class="${c}"><span class=gl>${n}${a.length>1?' '+(i+1):''}</span>${esc(x)}</div>`).join('');
+ if(n1+n2)h+=`<details class=gzd><summary>${n1?esc(g[12]||'Keterangan'):''}${n1&&n2?' &amp; ':''}${n2?'kasus khusus':''} (${n1+n2})</summary>${num(g[8]||[],g[12]||'Keterangan','gnt')}${num(g[9]||[],'Kasus khusus','gnt gkk')}</details>`;
+ return`<div style="text-align:left">`+h+gmExBlock(k)+`</div>`}
 function gcard(k){const g=GK[k];if(!g)return'<div class=card>Tidak ada grammar untuk filter/mode ini.</div>';const s=st(k);
 return`<div class=card><div class=hd><span>${LN[g[1]]||'Jerman'} ${g[2]}${g[3]?' · '+esc(g[3]):''}</span><span><i class="dot dot${s}"></i>${STN[s]}${fcTag(k)}${aiBtn(k)}${S.lib.some(t=>t.L==g[1])?`<button class="mini" data-a=libfind data-k="${esc(k)}" title="Cari teks di Pustaka">📚</button>`:''}${edBtn('g',k)}</span></div><div class=mean>${esc(g[4])}</div>${gbody(g)}${gTax(k)}${gmExBlock(k)}<div class="seg">${STN.map((x,i)=>`<button class="sb sb${i}${i==s?' on':''}" data-a=set data-k="${esc(k)}" data-v=${i}>${x}</button>`).join('')}</div></div>`}
 let gLg='',gLv=0,gFoc=0,gFresh=1;const gAll0=l=>gLvs(l).map(v=>l+':'+v);
@@ -660,7 +809,7 @@ function set(){return fcSett()+verCard()+vrCard()+vrAppCard()+uiCard()+pcard()+e
 /* ===== Flashcard + SRS (algoritma ala Anki / SM-2) ===== */
 const FCNUM={gr:[0,100],fmin:[1,4],nl:[0,9999],rl:[0,9999],gi:[1,365],ei:[1,365],se:[130,500],eb:[100,300],hi:[100,200],ni:[0,100],im:[50,200],mx:[1,36500],lch:[2,50],xn:[1,200],xr:[1,500]};
 let fcCur=null,fcRevd=false,fcFr='id',fcFrK=null,fcUn=[],fcWait=0;
-const fcDay=t=>Math.floor((t-new Date(t).getTimezoneOffset()*60000-144e5)/864e5);
+const fcDay=t=>Math.floor((t-new Date(t).getTimezoneOffset()*60000-144e5)/864e5);VRS.dayFn=fcDay;
 const fcSt=(s,d)=>{const a=String(s||'').split(/[\s,;]+/).map(parseFloat).filter(x=>x>0);return a.length?a:d};
 const fcRoll=()=>{const d=fcDay(Date.now());if(S.sd.d!==d)S.sd={d,n:0,r:0,x:0,y:0}};
 const fresh=()=>({t:0,s:0,e:S.o.se,i:0,d:0,l:0,r:0});
@@ -691,6 +840,8 @@ function fcCalc(c,r,now,fz){
  }
  return n}
 function fcAL(){const ff=S.o.ff,al={};D.L.forEach(l=>{const lv=ff.length?l[4].filter(x=>ff.includes(l[0]+':'+x)):null;if(!ff.length||lv.length)al[l[0]]=lv});return al}
+/* v7.19: satu entri per kartu. Kunci kartu = id@bahasa (entri pertama, tidak berubah) atau id@bahasa~n (entri ke-n+1). */
+function fcVisE(c,k,al){const v=fcVis(c,al);if(!v)return v;const L=lang(k),i=ent(k),all=c[3][L]||[],e=all[i];if(!v[L]||!e||!v[L].includes(e))return null;const o={};for(const l in v)o[l]=v[l];o[L]=[e];return o}
 function fcVis(c,al){al=al||fcAL();const v={},ids=Object.keys(al),o=S.o;let n=0;
  for(const id of ids){const lv=al[id],e=(c[3][id]||[]).filter(x=>!lv||lv.includes(x[3]));if(e.length){v[id]=e;n++}}
  return n&&(o.fm=='and'?n==ids.length:n>=Math.min(o.fmin,ids.length))?v:null}
@@ -711,26 +862,30 @@ function fcxFront(c,L,es){const m=S.o.fcx||'auto';if(m=='off'||!es)return'';cons
  if(m=='auto'&&es.length<2&&!fcxDup(c,L))return'';
  return`<div class=fcx><small>💡 Konteks${xs.length>1?' tiap kata':''}</small>${xs.map(e=>`<div>${xs.length>1?'• ':''}${fcxMask(e[4],L,es)}</div>`).join('')}</div>`}
 const cxRow=v=>{const xs=Object.entries(v).flatMap(([id,es])=>es.filter(e=>e[4]).map(e=>e));return xs.length?`<div class=cxl>${xs.slice(0,2).map(e=>`<span>${esc(e[0])}: ${esc(e[4])}</span>`).join('')}${xs.length>2?'<span>…</span>':''}</div>`:''};
-function fcFront(k){const o=S.o;if(GK[k]||o.fd=='id')return'id';const L=lang(k),v=K[base(k)]&&fcVis(K[base(k)]);if(!v||!v[L])return'id';return o.fd=='fo'||Math.random()<.5?L:'id'}
+function fcFront(k){const o=S.o;if(GK[k]||o.fd=='id')return'id';const L=lang(k),v=K[base(k)]&&fcVisE(K[base(k)],k);if(!v||!v[L])return'id';return o.fd=='fo'||Math.random()<.5?L:'id'}
 function fcOk(k){const c=S.srs[k];if(c&&c.z)return 0;const o=S.o;
  if(GK[k])return o.deck!='v'&&fcGOk(GK[k]);
- const b=K[base(k)],L=lang(k),v=b&&fcVis(b);return!!v&&!!v[L]&&o.deck!='g'&&(!o.sp.length||o.sp.includes(b[1]))}
+ const b=K[base(k)],L=lang(k),v=b&&fcVisE(b,k);return!!v&&!!v[L]&&o.deck!='g'&&(!o.sp.length||o.sp.includes(b[1]))}
 function fcPool(){const o=S.o;let a=[];
  if(o.deck!='g')a=fcPoolV();
  if(o.deck!='v')a=a.concat(fcGP().map(g=>g[0]));
  return a.filter(k=>!(S.srs[k]&&S.srs[k].z))}
-function fcQ(){fcRoll();const now=Date.now(),td=fcDay(now),o=S.o,sd=S.sd,L=[],R=[],Nw=[],ah=[];let next=0,tm=0;
- for(const k of fcPool()){const c=S.srs[k];if(!c||!c.t){Nw.push(k);continue}
-  if(c.t==2){if(c.d<=td)R.push(k);else if(c.d==td+1)tm++}
-  else if(c.d<=now)L.push(k);else if(c.d<=now+12e5)ah.push(k);else if(!next||c.d<next)next=c.d}
- return{L,R,Nw:fcMixNew(Nw),ah,next,tm,nL:Math.max(0,o.nl+(sd.x|0)-sd.n),rL:Math.max(0,o.rl+(sd.y|0)-sd.r)}}
+let fcQC=null;
+function fcQ(){fcRoll();const now=Date.now(),td=fcDay(now),o=S.o,sd=S.sd;
+ if(!fcQC||fcQC.v!==fcQV||fcQC.td!==td){const R=[],Nw=[],lrn=[];let tm=0;
+  for(const k of fcPool()){const c=S.srs[k];if(!c||!c.t){Nw.push(k);continue}
+   if(c.t==2){if(c.d<=td)R.push(k);else if(c.d==td+1)tm++}else lrn.push(k)}
+  fcQC={v:fcQV,td,R,Nw:fcMixNew(Nw),tm,lrn}}
+ const L=[],ah=[];let next=0;
+ for(const k of fcQC.lrn){const d=S.srs[k].d;if(d<=now)L.push(k);else if(d<=now+12e5)ah.push(k);else if(!next||d<next)next=d}
+ return{L,R:fcQC.R.slice(),Nw:fcQC.Nw.slice(),ah,next,tm:fcQC.tm,nL:Math.max(0,o.nl+(sd.x|0)-sd.n),rL:Math.max(0,o.rl+(sd.y|0)-sd.r)}}
 const fcMin=a=>a.reduce((x,y)=>S.srs[x].d<=S.srs[y].d?x:y);
 function fcPick(q){const o=S.o;if(q.L.length)return fcMin(q.L);
  const nn=Math.min(q.Nw.length,q.nL),rr=Math.min(q.R.length,q.rL);
  const pn=()=>{if(o.ord!='rand')return q.Nw[0];if(o.deck=='all'){const G=q.Nw.filter(k=>GK[k]),V=q.Nw.filter(k=>!GK[k]);if(G.length&&V.length){const A=Math.random()<(o.gr==null?25:o.gr)/100?G:V;return A[Math.random()*A.length|0]}}return q.Nw[Math.random()*q.Nw.length|0]},pr=()=>q.R[Math.random()*q.R.length|0];
  if(nn&&rr){const useN=o.no=='before'||(o.no=='mix'&&Math.random()<nn/(nn+rr));return useN?pn():pr()}
  if(nn)return pn();if(rr)return pr();if(q.ah.length)return fcMin(q.ah);return null}
-function fcSync(k,n){if(!S.o.lk)return;S.p[k]=n.t==2&&n.i>=21?2:1;S.s[k]=1}
+function fcSync(k,n){fcQV++;if(!S.o.lk)return;S.p[k]=n.t==2&&n.i>=21?2:1;S.s[k]=1}
 function fcFS(k,bulk,force){if(!force&&!S.o.lk)return;const s=st(k),c=S.srs[k],has=c&&c.t,td=fcDay(Date.now()),sp=n=>Math.floor(Math.random()*n),e=S.o.se;
  if(s==0){if(has){if(c.z)S.srs[k]={z:1};else delete S.srs[k]}return}
  if(s==1){
@@ -746,16 +901,16 @@ function fcSyncAll(){let a=0,b=0;
  for(const k in S.srs){const c=S.srs[k];if(c.t){const v=c.t==2&&c.i>=21?2:1;if(S.p[k]!==v){S.p[k]=v;b++}}}
  return[a,b]}
 function fcTag(k){const c=S.srs[k];if(!c||!c.t)return'';if(c.t!=2)return' · belajar';const d=c.d-fcDay(Date.now());return' · ulas '+(d<=0?'hari ini':d==1?'besok':d+' hr')}
-function fcAns(r){const k=fcCur;if(!k||!fcRevd)return;fcRoll();const now=Date.now(),td=fcDay(now),c=S.srs[k],had=c&&c.t;
+function fcAns(r){const k=fcCur;if(!k||!fcRevd)return;fcQV++;fcRoll();const now=Date.now(),td=fcDay(now),c=S.srs[k],had=c&&c.t;
  fcUn.push({k,c:c?{...c}:undefined,sd:{...S.sd},p:S.p[k],td,lg:S.lg[td]?[...S.lg[td]]:undefined});if(fcUn.length>30)fcUn.shift();
  const n=fcCalc(c,r,now,true);if(GK[k])gCap(k,n);S.srs[k]=n;buzz(r==1?[16,40,16]:10);if(r==1&&(n.l|0)==lchN())setTimeout(()=>toast('🪨 Kartu bandel: sudah lupa '+n.l+'×. Tekan “🧠 Mnemonik” untuk prompt khusus kartu ini.'),60);
  if(!had){S.sd.n++;const lg=GK[k]?GK[k][1]:lang(k),w=S.nw[td]||(S.nw[td]={});w[lg]=(w[lg]|0)+1;for(const d in S.nw)if(+d<td-200)delete S.nw[d]}else if(c.t==2)S.sd.r++;
  const L=S.lg[td]||(S.lg[td]=[0,0]);L[0]++;if(r==1)L[1]++;
  for(const d in S.lg)if(+d<td-400)delete S.lg[d];
  fcSync(k,n);fcCur=null;fcRevd=false}
-function fcUndo(){const u=fcUn.pop();if(!u)return;if(u.c)S.srs[u.k]=u.c;else{delete S.srs[u.k];const lg=GK[u.k]?GK[u.k][1]:lang(u.k),w=S.nw[u.td];if(w&&w[lg]>0)w[lg]--}S.sd=u.sd;
+function fcUndo(){const u=fcUn.pop();if(!u)return;fcQV++;if(u.c)S.srs[u.k]=u.c;else{delete S.srs[u.k];const lg=GK[u.k]?GK[u.k][1]:lang(u.k),w=S.nw[u.td];if(w&&w[lg]>0)w[lg]--}S.sd=u.sd;
  if(u.p===undefined)delete S.p[u.k];else S.p[u.k]=u.p;if(u.lg)S.lg[u.td]=u.lg;else delete S.lg[u.td];fcCur=u.k;fcRevd=false;fcFrK=null}
-function fcAct(a,x,k){
+function fcAct(a,x,k){fcQV++;
  if(a=='fcshow'){fcRevd=true;fcAuto()}
  else if(a=='fcans')fcAns(+x);
  else if(a=='fcundo')fcUndo();
@@ -774,7 +929,7 @@ function fcAct(a,x,k){
  else if(a=='fclg'){const xs=D.L.find(l=>l[0]==x)[4].map(v=>x+':'+v);let f=S.o.ff.slice();f=xs.every(y=>f.includes(y))?f.filter(y=>!xs.includes(y)):f.concat(xs.filter(y=>!f.includes(y)));S.o.ff=f;fcCur=null}
  else if(a=='fcmore')S.sd.x=(S.sd.x|0)+(S.o.xn|0||10);
  else if(a=='fcmoreR')S.sd.y=(S.sd.y|0)+(S.o.xr|0||50);
- else if(a=='fcrst'){if(confirm('Hapus semua jadwal flashcard? (Status Belum/Sedang/Selesai tidak berubah)')){S.srs={};S.lg={};S.sd={d:-1,n:0,r:0,x:0,y:0};fcUn=[];fcCur=null}}}
+ else if(a=='fcrst'){if(confirm('Hapus semua jadwal flashcard? (Status Belum/Sedang/Selesai tidak berubah)')){VRS.backup(S,'pre');VRS.force();S.srs={};S.lg={};S.sd={d:-1,n:0,r:0,x:0,y:0};fcUn=[];fcCur=null}}}
 function fcSet(i,el){const f=i.slice(3),o=S.o;
  if(FCNUM[f]){const x=parseFloat(el.value);if(isFinite(x))o[f]=Math.min(FCNUM[f][1],Math.max(FCNUM[f][0],x))}
  else if(f=='ls')o.ls=fcSt(el.value,[1,10]).join(' ');
@@ -786,7 +941,7 @@ function fcInfo(c){const b=fcInfo0(c);return b+(c&&!c.z&&(c.l|0)>=lchN()?' · �
 function fcInfo0(c){if(!c||!c.t)return'Baru';if(c.t==1)return'Belajar';if(c.t==3)return'Belajar ulang';return`Ulas · ${c.i} hr · ease ${c.e}%`+(c.l?` · ${c.l}× lupa`:'')}
 function fcBody(k,rev){const g=GK[k];
  if(g){if(gzOn(g)){const pl=typeof gzpRow=='function'?gzpRow(k):null;if(pl)return rev?gzpBack(g,pl)+gzBack(g,k):gzpFront(g,pl);return rev?gzBack(g,k):gzFront(g)}const t=(g[3]?`<div class=gsub>${esc(g[3])}</div>`:'')+`<div class=mean>${esc(g[4])}</div>`;return rev?t+'<hr><div style="text-align:left">'+gbody(g)+gmExBlock(k)+'</div>':t}
- const b=base(k),L=lang(k),c=K[b],v0=fcVis(c)||{},v=v0[L]?{[L]:v0[L]}:v0,f=fcFr,mean=`<div class=mean>${esc(c[2])}</div>`;
+ const b=base(k),L=lang(k),c=K[b],v0=fcVisE(c,k)||{},v=v0[L]?{[L]:v0[L]}:v0,f=fcFr,mean=`<div class=mean>${esc(c[2])}</div>`;
  const lc=id=>D.L.find(l=>l[0]==id),ch=(n,col)=>`<span class=fch style="--lc:${col}">${esc(n)}</span>`;
  const blk=(ids,full)=>'<div class=grid>'+D.L.filter(l=>ids.includes(l[0])).map(([id,n,col])=>`<div class=lg style="--lc:${col}"><small>${n}</small>`+v[id].map(e=>`<div class=w>${wd(e[0],c[1],'F',id)}${spk(e[0],id)}</div>${e[1]?`<div class="r rom">${esc(e[1])}</div>`:''}${full?fmx(e,c[1],id):''}${full&&e[2]?`<div class=ex>${esc(e[2])}</div>`:''}${full&&e[4]?`<div class=cx>💡 ${esc(e[4])}</div>`:''}`).join('')+'</div>').join('')+'</div>';
  if(rev)return mean+'<hr>'+blk(Object.keys(v),1)+ggInfo(k)+gmExBlock(k);
@@ -821,7 +976,7 @@ function fcDone(q,nn,rr){const now=Date.now();
  if(q.R.length>rr)h+=`<button data-a=fcmoreR>+${S.o.xr|0||50} ulasan</button>`;
  return h+'</div></div>'}
 function fcView(){const q=fcQ(),o=S.o,now=Date.now();
- if(!fcCur||!fcOk(fcCur)){fcCur=fcPick(q);fcRevd=false;fcFrK=null}
+ if(!fcCur||!fcOk(fcCur)){fcCur=fcPick(q);fcRevd=false;fcFrK=null;if(fcCur&&String(fcCur).indexOf(SEP)>=0&&!GK[fcCur]&&S.p[fcCur]===undefined){S.p[fcCur]=1;if(ent(fcCur)>0){const k0=base(fcCur)+SEP+lang(fcCur);if(S.p[k0]===undefined)S.p[k0]=1}}}
  if(fcCur&&fcFrK!==fcCur){fcFr=fcFront(fcCur);fcFrK=fcCur;if(typeof gzpRoll=='function')gzpRoll(fcCur)}
  fcWait=fcCur?0:q.next;
  const nn=Math.min(q.Nw.length,q.nL),rr=Math.min(q.R.length,q.rL),ln=q.L.length+(nn+rr?0:q.ah.length);
@@ -862,7 +1017,7 @@ const gVar=g=>g[4].replace(/[（(][^)）]*[)）]/g,'').split(/\s*[\/／]\s*/).ma
 function gRec(k){const a=LT('a')[k];if(!a||!a.length)return null;let b=0,w=1,t=0;a.slice(-6).reverse().forEach(x=>{b+=w*(x[2]==2?0:x[2]==1?.5:1);t+=w;w*=.8});return b/t}
 function gAtt(k,ty,r,er){const a=LT('a')[k]||(LT('a')[k]=[]);a.push([Date.now(),ty,r,er||'']);if(a.length>12)a.shift()}
 function gCap(k,n){if(S.o.cp===0||n.t!=2||n.i<=GCAP||(LT('pt')[k]|0)>=2)return;n.i=GCAP;n.d=fcDay(Date.now())+GCAP}
-function gSrs(k,m){const c=S.srs[k];if(!c||!c.t||c.z)return;const n=fcCalc(c,m,Date.now(),true);gCap(k,n);S.srs[k]=n;fcSync(k,n)}
+function gSrs(k,m){fcQV++;const c=S.srs[k];if(!c||!c.t||c.z)return;const n=fcCalc(c,m,Date.now(),true);gCap(k,n);S.srs[k]=n;fcSync(k,n)}
 
 /* === v4.3–v4.5 taksonomi grammar (v4.5: + Jerman A1–C1): lihat kartu "Taksonomi grammar" di tab Atur untuk catatan update dan aturan konsistensi === */
 const TXG={};for(const k in TX.G)TXG[TX.G[k][0]]=k;
@@ -965,7 +1120,7 @@ v.innerHTML=vrBanner()+(ok?'':'<div class=warn>Penyimpanan lokal diblokir, progr
 n.innerHTML='<div class=navi>'+Object.entries(T).map(([k,x])=>`<button class="${k==tab?'on':''}" data-a=tab data-v=${k}${k==tab?' aria-current=page':''}><svg viewBox="0 0 24 24" aria-hidden="true">${IC[k]}</svg><span>${x[2]||x[0]}</span></button>`).join('')+'</div>';
 if(!ch&&sy>0){const de=document.documentElement,pm=de.style.scrollBehavior;de.style.scrollBehavior='auto';window.scrollTo(0,sy);de.style.scrollBehavior=pm}
 }
-document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,k=b.dataset.k,x=b.dataset.v,y=scrollY;
+document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;fcQV++;const a=b.dataset.a,k=b.dataset.k,x=b.dataset.v,y=scrollY;
 if(a.slice(0,2)=='fc'){fcAct(a,x,k)}else if(a.slice(0,2)=='gg'){ggAct(a,x,k)}else if(a.slice(0,3)=='kpi'){kpiAct(a,x)}else if(a.slice(0,3)=='lib'||a=='slh'||a=='sldel'||a=='slmore'||a=='slplay'){if(libAct(a,x,k,b))return}else if(a.slice(0,3)=='lch'){lchAct(a,x)}else if(a.slice(0,3)=='eta'){etaAct(a,x)}else if(a=='tab'){if(x=='gr'&&tab!='gr'){gLg='';gLv=0;gFoc=0;gFresh=1}tab=x;lim=50;goTop=1}else if(a=='set'){e.stopPropagation();S.p[k]=+x;if(!+x)delete S.p[k];fcFS(k)}else if(a=='flip'){shown.has(k)?shown.delete(k):shown.add(k)}
 else if(a=='cyc'){const s=(st(k)+1)%3;s?S.p[k]=s:delete S.p[k];fcFS(k)}
 else if(a=='fl'){const i=S.f.indexOf(x);i<0?S.f.push(x):S.f.splice(i,1)}else if(a=='fall')S.f=[];else if(a=='gfl'){const i=S.gf.indexOf(x);i<0?S.gf.push(x):S.gf.splice(i,1)}else if(a=='gall'){S.gf=[];S.o.gpri='';S.o.gfn=''}else if(a=='glg'){gFresh=0;gLg=x;gLv=0;S.gf=D.GL.find(l=>l[0]==x)[3].map(v=>x+':'+v);S.o.gpri='';S.o.gfn='';S.gs=0;lim=50;goTop=1}else if(a=='gback'){gLg='';gLv=0;S.gf=[];S.o.gpri='';S.o.gfn='';S.gs=0;goTop=1}else if(a=='glv'){const all=gAll0(gLg);if(x=='all')S.gf=all;else if(S.gf.length>=all.length||!gLv)S.gf=[gLg+':'+x];else{const i=S.gf.indexOf(gLg+':'+x);i<0?S.gf.push(gLg+':'+x):S.gf.splice(i,1);if(!S.gf.length)S.gf=all}if(!gLv){goTop=1}gLv=1;lim=50;S.gs=0}else if(a=='gmap'){const[lp,d]=k.split('|'),[lg,l]=lp.split(':');S.gf=l?[lg+':'+l]:(TXLV[lg]||[]).map(v=>lg+':'+v);S.o.gfn=d;S.o.gpri='';S.gs=0;gFresh=0;tab='gr';goTop=1}else if(a=='groll'){S.gs=choose(gp().filter(g=>g[0]!=S.gs));gFoc=1;goTop=1}else if(a=='glist'){gFoc=0;goTop=1}else if(a=='gtolv'){gFoc=0;gLv=0;goTop=1}
@@ -975,7 +1130,7 @@ else if(a=='stf'){stFeat=stFeat==x?'':x}else if(a=='lreset'){q='';fs='';fk='';li
 else if(a=='say'){say(k,x);return}else if(a=='edit'){edOpen(x,k);return}else if(a=='edall'){if(!confirm('Kembalikan semua grammar & kosakata yang diedit ke versi asli?'))return;for(const t of['g','v'])for(const id in S.ed[t])edRestore(t,id);S.ed={g:{},v:{}};toast('Semua edit dikembalikan.')}else if(a=='ui'){S.o[k]=x;applyTheme()}else if(a=='sday'){fcSel=+x}else if(a=='srng'){fcRg=+x;fcSel=0}else if(a=='slg'){fcLgF=x;fcSel=0}else if(a=='hday'){heatSel=+x}
 else if(a=='more')lim+=50;else if(a=='miglg'){const L=[...new Set(S.f.map(x=>String(x).split(':')[0]))],n=migLegacy(L);toast(n+' item bahasa diperbarui dari progres lama.')}
 else if(a=='exp'){gmExpProgress();setTimeout(gmExpLibrary,600);return}else if(a=='expp'){gmExpProgress();return}else if(a=='expl'){gmExpLibrary();return}
-else if(a=='rst'){if(!confirm('Hapus semua progres?'))return;S.p={};S.s={};S.srs={};S.lg={};S.nw={};S.rd={};S.gg={};S.ggd={d:-1,n:0,r:0,x:0};ggCur=null;ggRes=null;S.lib.forEach(t=>{t.h=0;t.r=0});S.sl.forEach(t=>{t.d=0});S.lt={h:[],g:{},d:{},a:{},x:{},q:{},pt:{}};xo=new Set;foc='';S.sd={d:-1,n:0,r:0,x:0,y:0};fcUn=[];fcCur=null}
+else if(a=='rst'){if(!confirm('Hapus semua progres?'))return;VRS.backup(S,'pre');VRS.force();S.p={};S.s={};S.srs={};S.lg={};S.nw={};S.rd={};S.gg={};S.ggd={d:-1,n:0,r:0,x:0};ggCur=null;ggRes=null;S.lib.forEach(t=>{t.h=0;t.r=0});S.sl.forEach(t=>{t.d=0});S.lt={h:[],g:{},d:{},a:{},x:{},q:{},pt:{}};xo=new Set;foc='';S.sd={d:-1,n:0,r:0,x:0,y:0};fcUn=[];fcCur=null}
 save();render();
 if(goSec){const el=document.getElementById(goSec),sm=goSm,id=goSec;goSec='';goSm=0;if(el){el.scrollIntoView({block:'start',behavior:sm?'smooth':'auto'})}else scrollTo(0,goTop?0:y)}else scrollTo(0,goTop?0:y);goTop=0});
 document.addEventListener('change',e=>{const i=e.target.dataset.i;if(!i)return;
@@ -1012,7 +1167,7 @@ function say(t,l){if(!canSay())return toast('Perangkat ini belum mendukung suara
  if(!r.v&&VZ.length){return toast('Suara '+(LN[l]||l)+' belum terpasang di perangkat ini.')}
  try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance((typeof ttsClean=='function'?ttsClean(t,l):String(t)).replace(/[~〜]/g,'').trim());u.lang=r.v?r.v.lang:r.lc;if(r.v)u.voice=r.v;u.rate=ttsRate();speechSynthesis.speak(u)}catch(e){}}
 const spk=(t,l)=>S.o.tts&&canSay()&&TL[l]?`<button class=spk data-a=say data-k="${esc(t)}" data-v=${l} title="Dengarkan" aria-label="Dengarkan">🔊</button>`:'';
-function fcAuto(){if(!S.o.ttsa||!fcCur||GK[fcCur])return;const L=lang(fcCur),c=K[base(fcCur)],v=c&&fcVis(c);if(v&&v[L]&&v[L][0])say(v[L][0][0],L)}
+function fcAuto(){if(!S.o.ttsa||!fcCur||GK[fcCur])return;const L=lang(fcCur),c=K[base(fcCur)],v=c&&fcVisE(c,fcCur);if(v&&v[L]&&v[L][0])say(v[L][0][0],L)}
 
 /* ---------- rentetan & ringkasan ---------- */
 function fcStreak(){const td=fcDay(Date.now()),set=new Set();
@@ -1159,7 +1314,7 @@ function uiCard(){const o=S.o,seg=(k,op)=>`<div class=seg2>${op.map(([v,t])=>`<b
 
 /* ===== Filter deck flashcard (kosakata / grammar / keduanya) ===== */
 const DK=[['v','Kosakata'],['g','Grammar'],['all','Keduanya']];
-function fcPoolV(al){al=al||fcAL();const o=S.o,a=[];for(const c of D.C){if(o.sp.length&&!o.sp.includes(c[1]))continue;const v=fcVis(c,al);if(v)for(const l in v)a.push(ik(c[0],l))}return a}
+function fcPoolV(al){al=al||fcAL();const o=S.o,a=[];for(const c of D.C){if(o.sp.length&&!o.sp.includes(c[1]))continue;const v=fcVis(c,al);if(v)for(const l in v){const all=c[3][l]||[];v[l].forEach(e=>{const i=all.indexOf(e);a.push(ik(c[0],l)+(i>0?'~'+i:''))})}}return a}
 function fcGOk(g){const f=S.o.gff;return!f.length||f.includes(g[1]+':'+g[2])}
 function fcGP(){return D.G.filter(fcGOk)}
 function fcMixNew(N){const o=S.o;if(o.deck!='all')return N;
@@ -1260,8 +1415,25 @@ function stoCard(){const idb=VRS.mode=='idb',lg=VRS.legacyBytes|0;
  return`<div class=card><div class=hd><span><b>Penyimpanan</b></span><span class=bdg>${idb?'IndexedDB':'localStorage'}</span></div>`+
  `<small>${idb?'Progres & Pustaka disimpan di IndexedDB (tanpa batas 5 MB).':'IndexedDB tidak tersedia di browser ini, jadi memakai localStorage (batas ±5 MB).'} Data: ${stoMB(VRS.bytes|0)}<span id=stoq></span>.</small>`+
  (VRS.err?`<div class=warn style="margin-top:6px">${esc(VRS.err)}</div>`:'')+
+ (idb?`<div class=btns style="margin-top:8px"><button class=mini data-sto=bak>Pulihkan dari cadangan…</button></div><small>Cadangan otomatis: kemarin, dua hari lalu, sebelum Hapus/Impor terakhir.</small>`:'')+
  (idb&&lg?`<div class=btns style="margin-top:8px"><button class=mini data-sto=drop>Hapus salinan lama (localStorage, ${stoMB(lg)})</button></div><small>Salinan lama dibiarkan sebagai cadangan setelah migrasi. Hapus kalau data di sini sudah terlihat lengkap.</small>`:'')+`</div>`}
 document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-sto]');if(!b)return;
+ if(b.dataset.sto=='bak'){VRS.flush().then(()=>VRS.backups()).then(L=>{if(!L.length){toast('Belum ada cadangan.');return}
+  const f=t=>t?new Date(t).toLocaleString('id-ID'):'?',n=prompt('Pilih cadangan (angka):\n'+L.map((x,i)=>(i+1)+') '+x.label+' — '+f(x.t)+' · '+x.cards.toLocaleString('id-ID')+' kartu').join('\n'),'1'),x=L[(n|0)-1];if(!x)return;
+  if(!confirm('Pulihkan "'+x.label+'" ('+f(x.t)+', '+x.cards.toLocaleString('id-ID')+' kartu)? Keadaan sekarang disimpan dulu sebagai cadangan "Sebelum pemulihan terakhir".'))return;
+  VRS.restore(S,x.key).then(()=>location.reload()).catch(e=>toast('Gagal memulihkan: '+(e&&e.message||e)))});return}
  if(b.dataset.sto=='drop'){if(!confirm('Hapus salinan lama di localStorage? Data aktif di IndexedDB tidak terpengaruh. Pastikan progres & Pustaka sudah lengkap (atau sudah Ekspor).'))return;
   VRS.flush().then(()=>{VRS.dropLegacy();toast('Salinan lama dihapus ✓');render()})}});
+/* v7.19.4: gabung dua tab (dipanggil VRS saat rev tersimpan lebih baru dari yang diketahui tab ini) */
+VRS.merge=function(o,m){const A=o.srs||{};
+ for(const k in A){const a=A[k],b=m.srs[k];if(!a)continue;if(!b||(a.r|0)>(b.r|0)||((a.r|0)==(b.r|0)&&(a.d||0)>(b.d||0))){m.srs[k]=a;if(a.t)fcSync(k,a)}}
+ for(const k in(o.p||{})){const v=o.p[k];m.p[k]=k in m.p?Math.max(m.p[k]|0,v|0):v}
+ for(const k in(o.s||{}))if(o.s[k])m.s[k]=1;
+ for(const d in(o.lg||{})){const a=o.lg[d],b=m.lg[d];if(!b||(a&&a[0]>b[0]))m.lg[d]=a}
+ for(const d in(o.nw||{})){const w=m.nw[d]||(m.nw[d]={});for(const l in o.nw[d])w[l]=Math.max(w[l]|0,o.nw[d][l]|0)}
+ if(o.sd&&o.sd.d===m.sd.d)for(const x of['n','r','x','y'])m.sd[x]=Math.max(m.sd[x]|0,o.sd[x]|0);
+ for(const key of['lib','sl']){const ids=new Set((m[key]||[]).map(t=>t.id));for(const t of(o[key]||[]))if(t&&t.id&&!ids.has(t.id))m[key].push(t)}
+ fcQV++};
+VRS.onMerged=()=>{fcQV++;try{render()}catch(e){}};
+VRS.onRemote=function(o){for(const k in o)S[k]=o[k];if(!Array.isArray(S.lib))S.lib=[];fcCur=null;fcRevd=false;fcUn=[];fcQV++;try{render()}catch(e){}};
 render();vrInit();onbCheck();

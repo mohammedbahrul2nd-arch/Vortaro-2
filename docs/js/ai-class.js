@@ -57,7 +57,7 @@ function aiWrongRecent(k,g){if(g){const a=(LT('a')[k]||[]).filter(x=>Date.now()-
  const h=(SI.w[k]||[]).filter(x=>Date.now()-x.t<18144e5);return h.length&&h[h.length-1].r<2?h.filter(x=>x.r==0).length||1:0}
 /* kandidat kosakata lemah untuk satu bahasa */
 function aiPoolV(L,exK){const keys=new Set();Object.keys(S.srs).forEach(k=>keys.add(k));Object.keys(S.p).forEach(k=>{if(S.p[k]==1)keys.add(k)});
- const out=[];keys.forEach(k=>{if(!aiIsV(k)||lang(k)!=L||k==exK)return;const c=K[base(k)];if(!c||!(c[3][L]||[]).length)return;
+ const out=[];keys.forEach(k=>{if(!aiIsV(k)||lang(k)!=L||k==exK||ent(k)>0)return;const c=K[base(k)];if(!c||!(c[3][L]||[]).length)return;
   const st0=aiState(k,0);if(!st0)return;const wr=(SI.w[base(k)]||[]).filter(h=>(h.l||'')==L).length?aiWrongRecent(base(k),0):0;
   let s=st0.s,tags=st0.t.slice(),t1=st0.t1;if(wr){s+=6;t1=1;tags.push('salah di latihan kalimat baru-baru ini')}
   if(s<=0)return;out.push({k,c,s,tags,tier:t1?1:2,pos:c[1]})});return out}
@@ -69,10 +69,10 @@ function aiPoolG(L,exK){const keys=new Set();Object.keys(S.srs).forEach(k=>{if(G
   if(s<=0)return;out.push({k,g,s,tags,tier:t1?1:2})});return out}
 /* kartu yang sudah MAHIR (matang di SRS atau ditandai Selesai): bahan pembentuk kalimat yang aman. Bisa kosakata maupun grammar. */
 function aiPoolM(L,exK){const keys=new Set(),W=[],G=[];Object.keys(S.srs).forEach(k=>keys.add(k));Object.keys(S.p).forEach(k=>{if(S.p[k]==2)keys.add(k)});
- keys.forEach(k=>{if(k==exK)return;const c=S.srs[k];if(c&&c.z)return;const g=!!GK[k];if(!(S.p[k]==2||aiRem(c,g?1:0)))return;
+ keys.forEach(k=>{if(k==exK||ent(k)>0)return;const c=S.srs[k];if(c&&c.z)return;const g=!!GK[k];if(!(S.p[k]==2||aiRem(c,g?1:0)))return;
   const tg=['sudah mahir'+(c&&c.t==2?' (interval '+c.i+' hr)':'')],sc=Math.min((c&&c.i)||30,120)/120;
   if(g){const gg=GK[k];if(gg&&gg[1]==L)G.push({k,g:gg,s:sc,tags:tg,tier:3})}
-  else if(aiIsV(k)&&lang(k)==L){const cc=K[base(k)];if(cc&&(cc[3][L]||[]).length)W.push({k,c:cc,s:sc,tags:tg,tier:3,pos:cc[1]})}});
+  else if(aiIsV(k)&&lang(k)==L&&!ent(k)){const cc=K[base(k)];if(cc&&(cc[3][L]||[]).length)W.push({k,c:cc,s:sc,tags:tg,tier:3,pos:cc[1]})}});
  return{W,G}}
 function aiSort(a,jit){return a.map(x=>({...x,j:x.s+Math.random()*(jit||0)})).sort((x,y)=>y.j-x.j)}
 function aiTake(a,N){const q={V:Math.ceil(N*.4),N:Math.ceil(N*.35),A:Math.ceil(N*.25),O:Math.ceil(N*.15)},u={},out=[],rest=[];
@@ -437,7 +437,7 @@ function aiLvAct(L){const o=aiO(),ex=(o.aiLvs[L]||[]).filter(x=>aiLvAll(L).inclu
 function aiCovCands(L){const o=aiO(),act=aiLvAct(L),sc=act.set,inSc=lv=>!sc.size||sc.has(lv),seen=new Set(),w=[],g=[],pro=new Set(),fw=[],fg=[];
  Object.keys(S.srs).concat(Object.keys(S.p)).forEach(k=>{if(seen.has(k))return;seen.add(k);const c=S.srs[k];if(c&&c.z)return;
   if(GK[k]){if(GK[k][1]==L&&(!act.exp||inSc(GK[k][2]))){g.push(k);pro.add(k)}}
-  else if(aiIsV(k)&&lang(k)==L){const cc=K[base(k)],es=cc&&cc[3][L];if(es&&es.length&&(!act.exp||inSc(es[0][3]))){w.push(k);pro.add(k)}}});
+  else if(aiIsV(k)&&lang(k)==L&&!ent(k)){const cc=K[base(k)],es=cc&&cc[3][L];if(es&&es.length&&(!act.exp||inSc(es[0][3]))){w.push(k);pro.add(k)}}});
  if(aiNewOn(o)){
   for(const c of D.C){const es=c[3][L];if(!es||!es.length)continue;const k=ik(c[0],L);if(seen.has(k)||!inSc(es[0][3]))continue;fw.push({k,r:aiRank(L,es[0][3])})}
   for(const x of D.G){if(x[1]!=L||seen.has(x[0])||!inSc(x[2]))continue;fg.push({k:x[0],r:aiRank(L,x[2])})}}

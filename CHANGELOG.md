@@ -1,5 +1,43 @@
 # Riwayat Perubahan
 
+## 7.19.4 — Minggu, 8 Nov 2026
+
+- **Dua tab tidak lagi saling menimpa.** Penyimpanan kini punya nomor revisi (kunci `rev`) dan `BroadcastChannel('vortaro-state')`. Sebelum menulis, revisi tersimpan dibaca dalam satu transaksi readwrite; bila lebih baru dari yang diketahui tab ini, data digabung: `srs` ambil entri dengan `r` lebih besar (seri → `d` lebih baru), `lg`/`nw` ambil nilai per hari terbesar, `p` maksimum + `fcSync`, `s` gabungan, `sd` hari sama ambil terbesar, `lib`/`sl` gabungan per id; kunci lain milik tab penulis terakhir. Tab penerima yang tidak kotor memuat ulang state dari IndexedDB dan merender ulang. Mode localStorage memakai event `storage`. Hapus semua progres / Hapus jadwal / Pemulihan menimpa mentah (tanpa gabung).
+- **Cadangan berputar.** Sekali per hari belajar (`fcDay`) state lama disalin ke `state_prev` (kemarin) dan `state_prev2`. Cadangan `state_pre` dibuat tepat sebelum Hapus semua progres, Hapus jadwal flashcard, dan impor. Tombol **Pulihkan dari cadangan…** di Atur → Penyimpanan menampilkan tanggal + jumlah kartu dan meminta konfirmasi; keadaan sekarang disimpan lebih dulu sebagai `state_undo`.
+- **Ekspor/impor lengkap.** Ekspor progres kini menyertakan `o`, `f`, `gf`, `sd`, `ses`, `gs`, dan nomor skema `sch` (`S.v`=1). Impor toleran berkas lama; bila berkas memuat `o`, ditanya apakah pengaturan diterapkan. Format kunci lama tidak berubah.
+- **Cache antrean flashcard (`fcQ`).** Klasifikasi kartu (baru/ulang/belajar) disimpan per (hari belajar, versi data) dan dibatalkan lewat penghitung `fcQV` saat save, jawaban, undo, aksi kartu, gim, dan sinkron antar-tab. Kartu yang sedang dipelajari tetap dievaluasi terhadap jam sekarang, jadi hasilnya identik dengan tanpa cache. Pemanggilan hangat ±2 ms (dingin ±67 ms pada 13.760 kartu).
+- Uji: dua tab menilai kartu berbeda → kedua perubahan ada; rotasi cadangan; rst → `state_pre` == state sebelumnya dan pemulihan mengembalikan string IDB persis; ekspor→impor ke profil kosong; berkas lama tanpa `o` tak merusak pengaturan; cache == tanpa cache setelah jawab/undo/tangguhkan/ganti pengaturan/ganti hari; tulis IDB 13.760 kartu ±30 ms; `txCheck` lolos; 0 pageerror.
+
+## 7.19.3 — Sabtu, 7 Nov 2026
+
+- **Grammar Esperanto A1–C2: satu materi = satu kartu.** 33 kartu gabungan dipecah menjadi 78 kartu (266 → 311 kartu EO: A1 48, A2 71, B1 69, B2 48, C1 33, C2 42; total D.G 3451 → 3496). Pecahan pertama memakai ID lama; pecahan lain `g|eo|LEVEL|judul`. Contoh baru ditulis dalam Esperanto + terjemahan Indonesia.
+- Dipecah: konjungsi (aŭ/kaj/nek/sed/tamen), tiu · ĉi tiu, ties · ĉi ties, tie · ĉi tie, tien · ĉi tien, pli · plej, malpli · malplej, diri/paroli/rakonti, ĉar · tial ke, anstataŭ/por/antaŭ ol, da · de, multe da · multaj, akusatif waktu · adverbia frekuensi, preposisi + adverbia · preposisi + preposisi, kiu · kies, koni · scii, tempo · fojo, loĝi · vivi, antikva/maljuna/malnova, gelar · sapaan, salam · seruan, -dek/-cent/-mil, -uj- (wadah/pohon/negeri), nenial/neniel/neniom, -i/-ig-/-iĝ-, tekad · ajakan, perintah · larangan, imperatif (permohonan/harapan/saran), izin (permesi/lasi/imperatif), eble · kredeble/verŝajne, bo- · duon-, -ĉj- · -nj-, satuan berat · ukuran.
+- Tidak dipecah (satu konsep, hasil PERIKSA): `tiu vs ĉi tiu: yang pertama dan yang terakhir`, `Partikel ajn`.
+- Setiap kartu baru punya aturan rumpang sendiri di tabel `GOR` (judul tepat → kunci) dan entri `TX` (legacy_id, tag disalin dari kartu asal, tetangga `TX.N`).
+- Uji: `fcBody` depan/belakang 3496 kartu 0 galat; semua kartu EO berkunci punya kotak rumpang; `txCheck` 20 cek lolos; 0 pageerror; ID lama utuh; ID unik.
+- `sw.js` VERSION dan `GM_VER` 7.19.3. Belum dikerjakan: penyaringan dan pemecahan zh, ja, de, nl, en.
+
+## 7.19.2 — Sabtu, 7 Nov 2026
+
+- **Perbaikan: flashcard grammar Esperanto kini berumpang di layar Kartu.** Penyebab: tabel `GZ` di `app.js` (daftar bahasa yang memakai mesin rumpang pada `gzOn()`) belum memuat `eo`, sehingga `fcBody` jatuh ke cabang lama (hanya judul + tombol jawaban). Uji 7.19.1 hanya memanggil `gzFront/gzBack` langsung. Perbaikan: `GZ={...,nl:1,eo:1}`.
+- Hasil di layar (`fcBody`): 266/266 kartu EO menampilkan isi (246 berumpang + Fungsi, 20 “ingat pola”); NL/DE/EN tidak berubah; 0 pageerror; `txCheck` 20 cek lolos; 3451 kartu 0 galat; ID unik.
+- Audit kartu gabungan (satu kartu = satu materi) dicatat di `AUDIT_B.md`; pemecahan dikerjakan bertahap di rilis berikutnya.
+- `sw.js` VERSION dan `GM_VER` 7.19.2.
+
+## 7.19.1 — Sabtu, 7 Nov 2026
+
+- **Grammar Esperanto A1–C2: soal kalimat rumpang.** Kartu `eo` (266 kartu: A1 44, A2 55, B1 60, B2 46, C1 29, C2 32) kini punya mesin rumpang sendiri `gzoFront/gzoBack` (percabangan `g[1]=='eo'` di `gzFront/gzBack`). Kunci rumpang dibaca dari judul kartu: kata utuh (preposisi, konjungsi, `ĉu`, `ke`, `se`, pronomo, `la`, dst.), kata korelatif (`ti-/ki-/ĉi-/i-/neni-` + `-u/-a/-e/-o/-am/-al/-el/-om/-es`), ujung kata (`-o -a -j -n -i -as -is -os -us -u`, partisip `-anta/-inta/-onta/-ata/-ita/-ota`, `-ante…`), afiks (`-in- -il- -ej- -eg- -ar- -ul- … mal- re- ek- dis- ge- bo- eks- pra- for-`, diverifikasi ke kosakata EO agar `re-` pada *respondi* tidak ikut), dan bilangan. Hanya bagian kunci yang dikosongkan (maks. 2 kotak); ortografi ĉ ĝ ĥ ĵ ŝ ŭ utuh. Rumpang hanya ditampilkan (tidak ada input ketik), jadi normalisasi sistem-x/h tidak diperlukan.
+- Hasil: **246 kartu EO berumpang**, **20 kartu tetap “ingat pola & rumus”** (alfabet, pelafalan, diftong, aksen, apozisi, kata majemuk, penurunan kata, nama diri, elisi, surat, satuan, mata uang, singkatan). Semua kartu EO sudah punya 3 contoh, jadi data.js/xlsx tidak diubah (xlsx tetap v67).
+- Mesin zh/ja/de/nl/en tidak disentuh; 3451 kartu grammar diuji 0 galat, Atur › Taksonomi 20 cek lolos tanpa ✗.
+- `sw.js` VERSION 7.19.1 dan `GM_VER` 7.19.1 agar cache klien diperbarui.
+
+## 7.19.0 — Sabtu, 7 Nov 2026
+
+- **Grammar Belanda A1–C2: satu materi = satu kartu.** 119 kartu gabungan (mis. `bij / voor / om`, `in, op, aan`, `willen / moeten / mogen`, `zowel … als / noch … noch`) dipecah menjadi 365 kartu terpisah (380 → 626 kartu NL). Isi tiap kartu (fungsi, contoh, sel tabel) dibagi menurut materinya. Kartu pertama dari tiap pecahan **mempertahankan ID lama** (jadwal SRS & status tetap), pecahan lain mendapat ID baru `g|nl|LEVEL|judul`. Taksonomi (`TX`) ikut diperbarui. Pola yang memang satu konsep (mis. urutan kata `V finit + V infinitif / …`, `Modal / laten / … + infinitif`) sengaja tidak dipecah.
+- **Flashcard: satu entri per kartu.** Kata Indonesia dengan beberapa padanan di satu bahasa (mis. *menarik* → `pull`, `appeal`) kini menjadi kartu terpisah di flashcard. Entri pertama memakai kunci lama (`id@bahasa`), entri berikutnya `id@bahasa~n`, jadi progres lama tidak hilang. Sisi depan, belakang, dan suara hanya memakai satu entri.
+- **Kelas AI: kartu kosakata baru langsung berstatus “Sedang”.** Begitu sebuah kartu kosakata baru muncul di flashcard (belum perlu dijawab), statusnya menjadi Sedang sehingga masuk kandidat Kelas AI Pustaka dan bisa dibuatkan contoh kalimat. Jadwal SRS tidak berubah. Kartu entri ke-2 dst. menandai kartu induknya.
+- Xlsx v67: kolom grammar NL A1–C2 memakai pecahan yang sama (sheet lain identik dengan v66).
+
 ## 7.18.0 — Sabtu, 7 Nov 2026
 
 - **Penjelasan konteks singkat** dari database v66 kini tampil di aplikasi (11.654 entri kosakata).
