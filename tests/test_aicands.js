@@ -14,22 +14,22 @@ const X=ctx.X;
 const {K}=X,GKm=X.GK||{};
 /* cari kartu kosakata dgn >=2 entri berbeda tingkat dalam satu bahasa */
 let pick=null;
-for(const id in K){const c=K[id];for(const L in c[3]){const es=c[3][L];if(es.length>1&&es[0][3]!=es[1][3]&&['de','nl','ja','zh','en'].includes(L)){pick={id,L,l0:es[0][3],l1:es[1][3]};break}}if(pick)break}
+for(const id in K){const c=K[id];for(const L in c[3]){const es=c[3][L];if(es.length>1&&es[0][3]!=es[1][3]&&es[0][0]!=es[1][0]&&['de','nl','ja','zh','en'].includes(L)){pick={id,L,l0:es[0][3],l1:es[1][3]};break}}if(pick)break}
 if(!pick){console.log('lewati: tak ada kartu 2-entri beda tingkat');process.exit(0)}
 const L=pick.L,kb=X.ik(pick.id,L);console.log('kartu:',kb,pick.l0,'/',pick.l1);
-const has=cd=>cd.w.includes(kb)||cd.fw.some(x=>x.k==kb);
+const has=cd=>cd.w.includes(kb)||cd.fw.some(x=>x.k==kb),k2=kb+'~1',has2=cd=>cd.w.includes(k2)||cd.fw.some(x=>x.k==k2);
 S.sl=[];S.lib=[];
-/* 1. filter hanya tingkat entri ke-2: kartu induk harus tetap kandidat baru (aiNew aktif) */
+/* 1. v7.60: kandidat PER ENTRI. Filter hanya tingkat entri ke-2: entri ke-2 (kb~1) jadi kandidat baru, entri ke-1 tidak */
 S.o={aiNew:1,ff:[L+':'+pick.l1],gff:[],aiLvs:{}};S.srs={};S.p={};X.setCur(null);
-ok(has(X.aiCovCands(L)),'tingkat dicek lewat semua entri (hanya entri ke-2 dalam filter)');
+ok(has2(X.aiCovCands(L))&&!has(X.aiCovCands(L)),'tingkat dicek per entri (hanya entri ke-2 dalam filter)');
 /* 2. entri ke-2 sudah dijawab (kunci ~1): kartu induk jadi kandidat "sudah disentuh", bukan hilang */
-const k2=kb+'~1';S.srs={[k2]:{t:2,d:1,i:3}};
-let cd=X.aiCovCands(L);ok(cd.w.includes(kb)&&cd.pro.has(kb),'entri ke-2 yang dipelajari memetakan ke kartu induk');
+S.srs={[k2]:{t:2,d:1,i:3}};
+let cd=X.aiCovCands(L);ok(cd.w.includes(k2)&&cd.pro.has(k2),'entri ke-2 yang dipelajari jadi kandidat entri itu sendiri (bukan kartu induk)');
 /* 3. kartu yang sedang tampil selalu jadi kandidat meski di luar filter dan tanpa aiNew */
 S.srs={};S.o={ff:[L+':'+(pick.l0=='A1'?'ZZ':'ZZ')],gff:[],aiLvs:{aiLvs:1}};S.o.aiLvs={};
-ok(!has(X.aiCovCands(L)),'tanpa kartu tampil dan di luar filter -> bukan kandidat');
-X.setCur(k2);cd=X.aiCovCands(L);ok(has(cd),'kartu tampil (entri ke-2, belum diungkap) tetap kandidat');
-ok(cd.w.filter(k=>k==kb).length+cd.fw.filter(x=>x.k==kb).length==1,'tidak ganda');
+ok(!has2(X.aiCovCands(L)),'tanpa kartu tampil dan di luar filter -> bukan kandidat');
+X.setCur(k2);cd=X.aiCovCands(L);ok(has2(cd),'kartu tampil (entri ke-2, belum diungkap) tetap kandidat');
+ok(cd.w.filter(k=>k==k2).length+cd.fw.filter(x=>x.k==k2).length==1,'tidak ganda');
 /* 4. kartu tampil yang ditangguhkan (z) tidak dipaksa */
 S.srs={[kb]:{z:1}};X.setCur(kb);ok(!has(X.aiCovCands(L)),'kartu ditangguhkan tidak jadi kandidat');
 /* 5. cache cakupan ikut kartu yang tampil */

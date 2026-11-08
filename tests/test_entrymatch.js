@@ -37,4 +37,25 @@ if(X.GK[gA]&&X.GK[gD]){S.sl=['Wir gehen in die Schule.','Meine Großeltern wohne
  T(!d.includes('Wir gehen in die Schule.'),'Dat tidak memuat kalimat Akk: '+d);
  S.sl.push({id:'gt',L:'de',f:'Opa lebt in einem kleinen Haus.',r:'',i:'x',c:9,tg:[{t:'g',k:gD,n:'x',s:'in einem kleinen Haus'}]});T(fs_(X.gmCollect(gD)).includes('Opa lebt in einem kleinen Haus.'),'kalimat bertag grammar tetap lv3');
  T(!a.includes('Er fährt in Berlin.')&&!d.includes('Er fährt in Berlin.'),'tanpa penentu kasus -> bukan lv2')}else T(false,'kartu grammar in tidak ditemukan');
+/* v7.62: kata benda otomatis terverifikasi (asing + jamak, arti Indonesia persis + jamak) */
+{const kh='N:hobi@de';S.lib=[];S.o={gz:'cloze',gzv:'on',gzd:'f'};
+ S.sl=[['n1','Meine Hobbys sind Wandern und Schwimmen.','Hobi-hobi saya adalah hiking dan renang.'],['n2','Mein Hobby ist Lesen.','Hobiku adalah membaca.'],['n3','Mein Hobby ist Lesen.','Kegemaranku adalah membaca.'],['n4','Ich hobbye gern.','Hobi saya bermain.']].map(([id,f,i])=>({id,L:'de',f,r:'',i,c:1,tg:null}));
+ const r={};X.gmCollect(kh,true).forEach(x=>r[x.i]=x);
+ T(r['Hobi-hobi saya adalah hiking dan renang.']&&r['Hobi-hobi saya adalah hiking dan renang.'].ver,'jamak asing + jamak Indonesia -> terverifikasi');
+ T(r['Hobiku adalah membaca.']&&r['Hobiku adalah membaca.'].ver,'akhiran -ku -> terverifikasi');
+ T(r['Kegemaranku adalah membaca.']&&!r['Kegemaranku adalah membaca.'].ver&&r['Kegemaranku adalah membaca.'].lv==2,'arti tak cocok -> hanya terdeteksi otomatis');
+ T(!r['Hobi saya bermain.']||!r['Hobi saya bermain.'].ver,'kata kecil/bukan nomina Jerman tidak diverifikasi')}
+/* v7.63: semua bahasa + salah jumlah ditolak */
+{S.lib=[];S.o={gz:'cloze',gzv:'on',gzd:'f'};
+ S.sl=[['m1','Mein Hobby ist Lesen.','Hobi-hobiku adalah membaca.','de'],['z1','老师很好。','Guru itu baik.','zh'],['z2','老师们都很忙。','Guru-guru sangat sibuk.','zh'],['z3','他是我的老师。','Dia adalah dosenku.','zh']].map(([id,f,i,L])=>({id,L,f,r:'',i,c:1,tg:null}));
+ const g=(k)=>{const r={};X.gmCollect(k,true).forEach(x=>r[x.i]=x);return r},rd=g('N:hobi@de'),rz=g('N:guru@zh');
+ T(rd['Hobi-hobiku adalah membaca.']&&rd['Hobi-hobiku adalah membaca.'].ver,'asing tunggal + terjemahan jamak berulang -> lolos (pola friend~teman-teman)');
+ T(rz['Guru itu baik.']&&rz['Guru itu baik.'].ver,'zh tanpa jamak: kata benda persis -> terverifikasi');
+ T(rz['Guru-guru sangat sibuk.']&&rz['Guru-guru sangat sibuk.'].ver,'zh + jamak Indonesia -> terverifikasi');
+ T(!rz['Dia adalah dosenku.']||!rz['Dia adalah dosenku.'].ver,'zh arti tak cocok -> tidak terverifikasi')}
+/* v7.65: empat kombinasi jumlah Inggris-Indonesia semuanya lolos */
+{S.lib=[];S.o={gz:'cloze',gzv:'on',gzd:'f'};
+ const P=[['A friend helps me.','Seorang teman membantu saya.'],['My friends help me.','Teman-teman saya membantu saya.'],['My friends help me.','Teman saya membantu saya.'],['A friend helps me.','Teman-teman membantu saya.']];
+ S.sl=P.map(([f,i],n)=>({id:'e'+n,L:'en',f,r:'',i,c:1,tg:null}));
+ const c=X.gmCollect('N:teman@en',true);P.forEach(([f,i])=>{const x=c.find(y=>y.f==f&&y.i==i);T(x&&x.ver,'en jumlah bebas lolos: '+f+' ~ '+i)})}
 if(fails){console.log('test_entrymatch GAGAL',fails);process.exit(1)}console.log('test_entrymatch: lolos');

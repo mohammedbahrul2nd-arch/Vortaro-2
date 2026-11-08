@@ -9,11 +9,11 @@ vm.runInContext(J('data.js')+'\n'+PRE+'\n'+J('pustaka.js')+'\n'+J('gram.js')+'\n
 const X=ctx.X;let n=0;const ok=(c,m)=>{if(!c){console.error('GAGAL:',m);process.exit(1)}n++};
 const L='de',lvs=X.aiLvAll(L);ok(lvs.length>1,'level de ada');
 S.o={aiLvs:{},ff:[],gff:[]};
-let all=X.aiLvCount(L);const manual=X.D.C.filter(c=>c[3][L]&&c[3][L].length).length;
-ok(all.tot==manual&&all.all,'tanpa filter: semua kartu '+all.tot);
+let all=X.aiLvCount(L);let manual=0;X.D.C.forEach(c=>{const es=c[3][L]||[];es.forEach((e,i)=>{if(es.findIndex(x=>x[0]==e[0])==i)manual++})});
+ok(all.tot==manual&&all.all,'tanpa filter: semua entri unik '+all.tot);
 S.o.aiLvs={de:[lvs[0]]};const a1=X.aiLvCount(L);
 ok(a1.tot>0&&a1.tot<all.tot,'filter level mengecilkan jumlah ('+a1.tot+' < '+all.tot+')');
-ok(a1.tot==X.D.C.filter(c=>{const es=c[3][L];return es&&es.length&&es.some(e=>e[3]==lvs[0])}).length,'jumlah = kartu yang punya entri di level itu');
+let m1=0;X.D.C.forEach(c=>{const es=c[3][L]||[];es.forEach((e,i)=>{if(es.findIndex(x=>x[0]==e[0])==i&&e[3]==lvs[0])m1++})});ok(a1.tot==m1,'jumlah = entri unik di level itu');
 ok(a1.ver==0,'tanpa Pustaka belum ada yang terverifikasi');
 ok(/kosakata/.test(X.aiLvCountHtml({lvC:a1})),'html tampil');
 const cv=X.aiCoverage(L);ok(cv.lvC&&cv.lvC.tot==a1.tot,'aiCoverage membawa lvC');

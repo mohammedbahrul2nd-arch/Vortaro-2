@@ -815,8 +815,8 @@ const fcSt=(s,d)=>{const a=String(s||'').split(/[\s,;]+/).map(parseFloat).filter
 const fcRoll=()=>{const d=fcDay(Date.now());if(S.sd.d!==d)S.sd={d,n:0,r:0,x:0,y:0}};
 const fresh=()=>({t:0,s:0,e:S.o.se,i:0,d:0,l:0,r:0});
 const fcFz=v=>{if(v<3)return v;const d=v<7?1:v<30?Math.max(2,Math.round(v*.15)):Math.max(4,Math.round(v*.05));return Math.max(2,v-d+Math.floor(Math.random()*(2*d+1)))};
-function fcFmtD(d){if(d<30)return Math.round(d)+' hr';if(d<365)return(Math.round(d/30*10)/10)+' bln';return(Math.round(d/365*10)/10)+' thn'}
-function fcFmt(ms){const m=ms/6e4;if(m<1)return'<1 mnt';if(m<60)return Math.round(m)+' mnt';const h=m/60;if(h<24)return(Math.round(h*10)/10)+' jam';return fcFmtD(h/24)}
+function fcFmtD(d){const f=x=>String(x).replace('.',',');if(d<30)return Math.round(d)+' hari';if(d<365)return f(Math.round(d/30*10)/10)+' bulan';return f(Math.round(d/365*10)/10)+' tahun'}
+function fcFmt(ms){const m=ms/6e4;if(m<1)return'<1 menit';if(m<60)return Math.round(m)+' menit';const h=m/60;if(h<24)return String(Math.round(h*10)/10).replace('.',',')+' jam';return fcFmtD(h/24)}
 /* t: 0 baru, 1 belajar, 2 ulas, 3 belajar ulang | s: langkah | e: ease % | i: interval hari | d: jatuh tempo (ms utk t=1,3; nomor hari utk t=2) | l: lupa | r: jumlah ulasan */
 function fcCalc(c,r,now,fz){
  const o=S.o,td=fcDay(now),LS=fcSt(o.ls,[1,10]),RS=fcSt(o.rs,[10]),mx=o.mx,n=c&&c.t?{...c}:fresh();
@@ -1005,7 +1005,7 @@ function fcView(){const q=fcQ(),o=S.o,now=Date.now();
  if(fcCur){const k=fcCur,c=S.srs[k],g=GK[k],rev=fcRevd;
   const hd=g?`${LN[g[1]]||'Jerman'} ${g[2]} · Grammar`:PN[K[base(k)][1]]+' · '+(LN[lang(k)]||'');
   h+=`<div class="card fcard"${rev?'':' data-a=fcshow'}><div class=hd><span>${esc(hd)}</span><span class=${c&&c.t?(c.t==2?'k3':'k2'):'k1'}>${fcInfo(c)}</span></div><div class=fcf>${fcBody(k,rev)}</div>${rev&&typeof aiMarkHtml=='function'?aiMarkHtml(k):''}</div>`;
-  h+=rev?`<div class=dock><div class=fcb>${[1,2,3,4].map(r=>{const n=fcCalc(c,r,now,false);return`<button class="fb fb${r}" data-a=fcans data-v=${r}><small>${n.t==2?fcFmtD(n.i):fcFmt(n.d-now)}</small>${['Lagi','Sulit','Baik','Mudah'][r-1]}</button>`}).join('')}</div></div>`:'<div class=dock><button class=pri data-a=fcshow>Tampilkan jawaban</button></div>';
+  h+=rev?`<div class=dock><div class=fcb>${[1,2,3,4].map(r=>{const n=fcCalc(c,r,now,false);return`<button class="fb fb${r}" data-a=fcans data-v=${r}>${['Lagi','Sulit','Baik','Mudah'][r-1]}<small>${n.t==2?fcFmtD(n.i):fcFmt(n.d-now)}</small></button>`}).join('')}</div></div>`:'<div class=dock><button class=pri data-a=fcshow>Tampilkan jawaban</button></div>';
   h+=`<div class=fct><button data-a=fcundo${fcUn.length?'':' disabled'}>Urungkan</button><button data-a=fcsusp data-k="${esc(k)}">Tangguhkan</button>${aiBtn(k,'Kelas AI')}${isLch(k)?`<button class=on data-ai=leech data-k="${esc(k)}">🧠 Mnemonik</button>`:''}${S.lib.some(t=>t.L==(g?g[1]:lang(k)))?`<button data-a=libfind data-k="${esc(k)}">📚 Teks</button>`:''}<button class="${S.ed[g?'g':'v'][g?k:base(k)]?'on':''}" data-a=edit data-k="${esc(g?k:base(k))}" data-v=${g?'g':'v'}>✎ ${S.ed[g?'g':'v'][g?k:base(k)]?'Diedit':'Edit'}</button>${c&&c.t?`<button data-a=fcforget data-k="${esc(k)}">Reset kartu</button>`:''}</div>`}
  else{h+=fcDone(q,nn,rr);fcCelebrate(q,nn,rr)}
  return lkBar()+fcDeckBar()+fcFilt()+h}

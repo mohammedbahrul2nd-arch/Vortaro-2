@@ -86,7 +86,8 @@ function aiForm(e,pos,L){let t='';
  else if(L=='nl'&&typeof DXN!='undefined'&&DXN){if(pos=='N'&&DXN.n[e[0]])t='jamak: '+DXN.n[e[0]];else if(pos=='V'&&DXN.v[e[0]])t='hij/zij/het · verleden · voltooid: '+DXN.v[e[0]];else if(pos=='A'&&DXN.a[e[0]])t='komparatif: '+DXN.a[e[0]]}
  else if(L=='en'&&typeof DXE!='undefined'&&DXE){const w=String(e[0]).trim();if(pos=='N'&&DXE.n[w])t='jamak: '+DXE.n[w];else if(pos=='V'&&DXE.v[w])t='3sg · past · participle · -ing: '+DXE.v[w];else if(pos=='A'&&DXE.a[w])t='komparatif · superlatif: '+DXE.a[w]}
  return t}
-function aiWordLine(c,L,x){const seen=new Set(),es=(c[3][L]||[]).filter(e=>!seen.has(e[0])&&seen.add(e[0])).slice(0,2);
+function aiWordLine(c,L,x){const seen=new Set();let es=(c[3][L]||[]).filter(e=>!seen.has(e[0])&&seen.add(e[0])).slice(0,2);
+ if(x&&x.E&&x.k&&(c[3][L]||[]).length>1){const e=(c[3][L]||[])[ent(x.k)];if(e)es=[e]}/* v7.60: baris kata kartu per-entri = kata entri itu saja */
  const w=es.map(e=>e[0]+(e[1]?' ('+e[1]+')':'')).join(' / '),f=es.map(e=>aiForm(e,c[1],L)).filter(Boolean)[0];
  return `${w} = ${c[2]} [${aiPC(c)}]`+(f?` · ${f}`:'')}
 const aiLvOf=(c,L)=>{const e=(c[3][L]||[])[0];return e&&e[3]?e[3]:''};
@@ -436,21 +437,24 @@ function aiLvAct(L){const o=aiO(),ex=(o.aiLvs[L]||[]).filter(x=>aiLvAll(L).inclu
 /* kandidat: kartu yang sudah kusentuh (belajar / mahir) + (v7.6) kartu yang belum pernah muncul di level terpilih; tanpa opsi baru: pengisi terbatas seperti dulu */
 /* v7.32: kartu yang sedang / baru saja tampil di flashcard = prioritas Kelas AI Pustaka */
 function aiPinsRaw(){const r=[typeof fcCur!='undefined'?fcCur:null,S.o.fcn,S.o.fcl].filter(Boolean);return[...new Set(r)]}
-function aiPins(){const o=[];for(const x of aiPinsRaw()){const k=GK[x]?x:(aiIsV(x)?ik(base(x),lang(x)):null);if(k&&!o.includes(k))o.push(k)}return o}
+function aiPins(){const o=[];for(const x of aiPinsRaw()){const k=GK[x]?x:(aiIsV(x)?x:null);if(k&&!o.includes(k))o.push(k)}return o}
 function aiFcMark(k){try{const g=GK[k],L=g?g[1]:lang(k);if(typeof AIP=='undefined'||!AIP[L])return{ok:0,why:'bahasa ini belum didukung Kelas AI'};if(S.srs[k]&&S.srs[k].z)return{ok:0,why:'kartu sedang ditangguhkan'};
- const kb=g?k:ik(base(k),L),cd=aiCovCands(L),inc=g?(cd.g.includes(kb)||cd.fg.some(x=>x.k==kb)):(cd.w.includes(kb)||cd.fw.some(x=>x.k==kb));
- if(!inc)return{ok:0,why:'di luar level / filter Kelas AI'};return{ok:1,n:g?0:gmVerN(kb),L,g:!!g}}catch(e){return null}}
+ const kb=k,cd=aiCovCands(L),inc=g?(cd.g.includes(kb)||cd.fg.some(x=>x.k==kb)):(cd.w.includes(kb)||cd.fw.some(x=>x.k==kb));
+ if(!inc)return{ok:0,why:'di luar level / filter Kelas AI'};return{ok:1,n:g?0:gmVerNE(kb),L,g:!!g}}catch(e){return null}}
 function aiMarkHtml(k){const m=aiFcMark(k);if(!m)return'';const lg=(typeof aiO=='function'&&aiO().aiLL&&aiO().aiLL!=m.L)?` · pilih bahasa ${esc(LN[m.L]||m.L)} di Kelas AI Pustaka`:'';
  return m.ok?`<div class="aimk ok">✅ Masuk Kelas AI Pustaka (prioritas)${m.g?'':m.n?' · '+m.n+' contoh terverifikasi':' · belum ada contoh terverifikasi'}${lg}</div>`:`<div class="aimk no">⛔ Tidak masuk Kelas AI Pustaka: ${esc(m.why)}</div>`}
 function aiCovCands(L){const o=aiO(),act=aiLvAct(L),sc=act.set,inSc=lv=>!sc.size||sc.has(lv),seen=new Set(),w=[],g=[],pro=new Set(),fw=[],fg=[];
- Object.keys(S.srs).concat(Object.keys(S.p)).forEach(k0=>{const k=aiIsV(k0)&&ent(k0)?ik(base(k0),lang(k0)):k0;if(seen.has(k))return;seen.add(k);const c=S.srs[k];if(c&&c.z)return;
+ /* v7.60: kandidat kosakata PER ENTRI (kunci kartu~N), bukan per arti: tiap kata punya hitungan contoh & barisnya sendiri di prompt */
+ const entOk=(k,es)=>{const e=es[ent(k)];return!!e&&es.findIndex(x=>x[0]==e[0])==ent(k)},eKey=(c,i)=>ik(c[0],L)+(i>0?'~'+i:'');
+ Object.keys(S.srs).concat(Object.keys(S.p)).forEach(k=>{if(seen.has(k))return;seen.add(k);const c=S.srs[k];if(c&&c.z)return;
   if(GK[k]){if(GK[k][1]==L&&(!act.exp||inSc(GK[k][2]))){g.push(k);pro.add(k)}}
-  else if(aiIsV(k)&&lang(k)==L){const cc=K[base(k)],es=cc&&cc[3][L];if(es&&es.length&&(!act.exp||es.some(e=>inSc(e[3])))){w.push(k);pro.add(k)}}});
+  else if(aiIsV(k)&&lang(k)==L){const cc=K[base(k)],es=cc&&cc[3][L];if(es&&es.length&&entOk(k,es)&&(!act.exp||inSc(es[ent(k)][3]))){w.push(k);pro.add(k)}}});
+ const freshW=(fn)=>{for(const c of D.C){const es=c[3][L];if(!es||!es.length)continue;es.forEach((e,i)=>{if(es.findIndex(x=>x[0]==e[0])!=i||!inSc(e[3]))return;const k=eKey(c,i);if(seen.has(k))return;fn({k,r:aiRank(L,e[3])})})}};
  if(aiNewOn(o)){
-  for(const c of D.C){const es=c[3][L];if(!es||!es.length)continue;const k=ik(c[0],L);if(seen.has(k)||!es.some(e=>inSc(e[3])))continue;fw.push({k,r:aiRank(L,es[0][3])})}
+  freshW(x=>fw.push(x))
   for(const x of D.G){if(x[1]!=L||seen.has(x[0])||!inSc(x[2]))continue;fg.push({k:x[0],r:aiRank(L,x[2])})}}
  else{
-  if(w.length<60){const f=[];for(const c of D.C){const es=c[3][L];if(!es||!es.length)continue;const k=ik(c[0],L);if(seen.has(k)||!es.some(e=>inSc(e[3])))continue;f.push({k,r:aiRank(L,es[0][3])})}
+  if(w.length<60){const f=[];freshW(x=>f.push(x));
    f.sort((a,b)=>a.r-b.r);f.slice(0,160-w.length).forEach(x=>w.push(x.k))}
   if(g.length<24){const f=[];for(const x of D.G){if(x[1]!=L||seen.has(x[0])||!inSc(x[2]))continue;f.push({k:x[0],r:aiRank(L,x[2])})}
    f.sort((a,b)=>a.r-b.r);f.slice(0,44-g.length).forEach(x=>g.push(x.k))}}
@@ -458,23 +462,23 @@ function aiCovCands(L){const o=aiO(),act=aiLvAct(L),sc=act.set,inSc=lv=>!sc.size
  for(const cur of aiPinsRaw().reverse()){
  if(cur&&!(S.srs[cur]&&S.srs[cur].z)){
   if(GK[cur]){if(GK[cur][1]==L&&!g.includes(cur)&&!fg.some(x=>x.k==cur)){if(seen.has(cur)){g.unshift(cur);pro.add(cur)}else if(aiNewOn(o))fg.unshift({k:cur,r:-1});else g.unshift(cur)}}
-  else if(aiIsV(cur)&&lang(cur)==L){const kb=ik(base(cur),L),cc=K[base(cur)],es=cc&&cc[3][L];
-   if(es&&es.length&&!(S.srs[kb]&&S.srs[kb].z)&&!w.includes(kb)&&!fw.some(x=>x.k==kb)){if(seen.has(kb)){w.unshift(kb);pro.add(kb)}else if(aiNewOn(o))fw.unshift({k:kb,r:-1});else w.unshift(kb)}}}}
- return{w:w.slice(0,aiNewOn(o)?1200:320),g:g.slice(0,aiNewOn(o)?400:60),fw,fg,pro,act}}
+  else if(aiIsV(cur)&&lang(cur)==L){const kb=cur,cc=K[base(cur)],es=cc&&cc[3][L];
+   if(es&&es.length&&entOk(kb,es)&&!(S.srs[kb]&&S.srs[kb].z)&&!w.includes(kb)&&!fw.some(x=>x.k==kb)){if(seen.has(kb)){w.unshift(kb);pro.add(kb)}else if(aiNewOn(o))fw.unshift({k:kb,r:-1});else w.unshift(kb)}}}}
+ return{w:w.slice(0,aiNewOn(o)?1800:480),g:g.slice(0,aiNewOn(o)?400:60),fw,fg,pro,act}}
 /* v7.33: jumlah kosakata/grammar menurut level terpilih + berapa yang sudah punya contoh terverifikasi (gmVerN) */
 function aiLvCount(L){const act=aiLvAct(L),sc=act.set,inSc=lv=>!sc.size||sc.has(lv),by={},lvs=aiLvAll(L);let tot=0,ver=0,gt=0;
  const slot=lv=>by[lv]||(by[lv]={w:0,v:0,g:0});
- for(const c of D.C){const es=c[3][L];if(!es||!es.length)continue;const lv=es[0][3]||'';if(!es.some(e=>inSc(e[3])))continue;const v=gmVerN(ik(c[0],L))>0?1:0;tot++;ver+=v;const z=slot(lv);z.w++;z.v+=v}
+ for(const c of D.C){const es=c[3][L];if(!es||!es.length)continue;es.forEach((e,i)=>{if(es.findIndex(x=>x[0]==e[0])!=i||!inSc(e[3]))return;const lv=e[3]||'';const v=gmVerNE(ik(c[0],L)+(i>0?'~'+i:''))>0?1:0;tot++;ver+=v;const z=slot(lv);z.w++;z.v+=v})}
  for(const x of D.G){if(x[1]!=L||!inSc(x[2]))continue;gt++;slot(x[2]).g++}
  return{tot,ver,gt,by,lvs:lvs.filter(v=>by[v]),all:!sc.size}}
 function aiCoverage(L){const o=aiO(),sig=(typeof fcCur!='undefined'&&fcCur||'')+'|'+(S.o.fcn||'')+'|'+(S.o.fcl||'')+'|'+S.lib.length+'/'+S.sl.length+'/'+(typeof gmB!='undefined'?gmB.n:0)+'/'+(S.lib[0]?S.lib[0].c:0)+'/'+(S.sl[0]?S.sl[0].c:0)+'/'+(S.o.gmMin||2)+'/'+aiNewOn(o)+'/'+(o.aiLvs[L]||[]).join(',')+'/'+Object.keys(S.srs).length+'/'+Object.keys(S.p).length+'/'+(S.o.ff||[]).join(',')+'/'+(S.o.gff||[]).join(',');
  if(aiCovC[L]&&aiCovC[L].sig==sig)return aiCovC[L];
- const d=aiLibCorpus(L),cd=aiCovCands(L),W=[],G=[],F=[],FG=[],cnt=k=>{if(!d.sents.length)return 0;try{return libCountKey(d,k)}catch(e){return 0}};
+ const d=aiLibCorpus(L),cd=aiCovCands(L),W=[],G=[],F=[],FG=[],cnt=k=>{if(!d.sents.length)return 0;try{return libCountKey(d,k,true)}catch(e){return 0}};
  /* 7.30.0: yang dihitung sebagai 'contoh' HANYA kalimat terverifikasi (bertag V:/K: asli dari AI); hasil deteksi otomatis tidak ikut (a = info saja) */
- const cv2=k=>{const v=gmVerN(k);return{n:v,v,a:Math.max(0,cnt(k)-v)}};
- cd.w.forEach(k=>{const c=K[base(k)];if(!c)return;const q=cv2(k),n=q.n,s0=aiState(k,0);W.push({k,c,n,v:q.v,a:q.a,st:s0?s0.s:-1,pr:cd.pro.has(k)?1:0,pos:c[1]})});
+ const cv2=k=>{let v=gmVerNE(k);const c0=cnt(k);if(c0>v&&gmNounK(k)){try{v=Math.max(v,gmCollect(k,true).filter(x=>x.ver).length)}catch(e){}}return{n:v,v,a:Math.max(0,c0-v)}};
+ cd.w.forEach(k=>{const c=K[base(k)];if(!c)return;const q=cv2(k),n=q.n,s0=aiState(k,0);W.push({E:1,k,c,n,v:q.v,a:q.a,st:s0?s0.s:-1,pr:cd.pro.has(k)?1:0,pos:c[1]})});
  cd.g.forEach(k=>{const g=GK[k];if(!g)return;let n=0;try{n=d.sents.length?gmCount(d,k):0}catch(e){}const s0=aiState(k,1);G.push({k,g,n,st:s0?s0.s:-1,pr:cd.pro.has(k)?1:0})});
- cd.fw.forEach(x=>{const c=K[base(x.k)];if(!c)return;const q=cv2(x.k);F.push({k:x.k,c,n:q.n,v:q.v,a:q.a,st:-1,pr:0,fr:1,r:x.r,pos:c[1]})});
+ cd.fw.forEach(x=>{const c=K[base(x.k)];if(!c)return;const q=cv2(x.k);F.push({E:1,k:x.k,c,n:q.n,v:q.v,a:q.a,st:-1,pr:0,fr:1,r:x.r,pos:c[1]})});
  cd.fg.forEach(x=>{const g=GK[x.k];if(!g)return;let n=0;try{n=d.sents.length?gmCount(d,x.k):0}catch(e){}FG.push({k:x.k,g,n,st:-1,pr:0,fr:1,r:x.r})});
  return aiCovC[L]={sig,lvC:aiLvCount(L),W,G,F,FG,nS:d.sents.length,act:cd.act,vW:W.concat(F).filter(x=>x.v>0).length,aW:W.concat(F).filter(x=>!x.v&&x.a>0).length}}
 function aiGatherLib(L,jit){const o=aiO(),cv=aiCoverage(L),j=jit||1;

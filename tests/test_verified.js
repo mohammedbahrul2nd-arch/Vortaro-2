@@ -15,9 +15,10 @@ const {K}=X;let id,art,noun;
 for(const i in K){const c=K[i];if(c[1]=='N'&&c[3].de&&c[3].de.length){const w=c[3].de[0][0];if(/^(der|die|das)\s+\p{L}{4,}$/iu.test(w)){id=i;art=w.split(/\s+/)[0].toLowerCase();noun=w.replace(/^\S+\s+/,'');break}}}
 const key=id+'@de',gl0=String(K[id][2]).split(/[\/~]/)[0].trim().toLowerCase(),sw=art=='der'?'den '+noun:art+' '+noun;
 const sV=`Gestern habe ich ${sw} im Park gesehen und mich gefreut.`,sA=`Heute sehe ich ${sw} wieder im Garten und lache.`,sB=`Morgen kaufe ich ${sw} auf dem Markt in der Stadt.`;
+/* v7.62: terjemahan sA/sB memuat arti kartu hanya secara longgar ('<arti>an'), bukan persis (kalau persis, kata benda otomatis terverifikasi, lihat test_entrymatch) */
 /* tag: sV bertag V: untuk kartu ini; sA tanpa tag; sB bertag kartu LAIN (tidak boleh dihitung) */
 S.sl=[{id:'v1',L:'de',f:sV,r:'',i:'Satu '+gl0+'.',c:1,tg:[{t:'v',k:key,n:noun,s:sw,f:''}]}];
-S.lib=[{id:'L1',L:'de',k:'r',c:2,ps:[{f:[sA,sB],i:['Dua '+gl0+'.','Tiga '+gl0+'.'],r:null,tg:[null,[{t:'v',k:'zzz@de',n:'x',s:'x',f:''}]],sp:['','']}]}];
+S.lib=[{id:'L1',L:'de',k:'r',c:2,ps:[{f:[sA,sB],i:['Dua '+gl0+'an itu.','Tiga '+gl0+'an itu.'],r:null,tg:[null,[{t:'v',k:'zzz@de',n:'x',s:'x',f:''}]],sp:['','']}]}];
 const col=X.gmCollect(key);
 ok(col.length==3,'3 kalimat terkumpul: '+col.length);
 const bf=f=>col.find(x=>x.f==f);
@@ -28,7 +29,7 @@ ok(X.gmVerN(key)==1&&X.gmVerN(key+'~1')==1&&X.gmVerN('zzz@de')==0,'gmVerN per ka
 ok(X.gmVerN(id)==0,'kunci tanpa @ -> 0');
 ok(X.gmVerFirst(['a@de',key,'b@de']).join()==[key,'a@de','b@de'].join(),'kartu terverifikasi ditaruh paling atas, urutan lain stabil');
 X.gmRoll.key='';const h=X.gmExBlock(key);
-ok(h.includes('1 terverifikasi (bertag AI) · 2 terdeteksi otomatis'),'header dua angka');
+ok(h.includes('1 terverifikasi (bertag AI / kata benda cocok persis) · 2 terdeteksi otomatis'),'header dua angka');
 ok((h.match(/✓ terverifikasi/g)||[]).length==1,'tanda ✓ hanya pada 1 kalimat');
 const gc=X.gzvCands(key);const rv=gc.find(r=>r.f==sV),ra=gc.find(r=>r.f==sA);
 if(rv&&ra){ok(rv.ver&&rv.tg&&rv.lv==3&&!ra.ver&&!ra.tg&&ra.lv==2,'kandidat rumpang: ver/tg/lv');ok(rv.w==3*ra.w||rv.w==ra.w*3,'bobot terverifikasi 3x: '+rv.w+' vs '+ra.w)}else ok(false,'kandidat rumpang tidak lengkap '+gc.length);

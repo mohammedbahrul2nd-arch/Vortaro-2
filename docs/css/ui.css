@@ -71,7 +71,7 @@ nav button.on svg{transform:translateY(-1px) scale(1.12)}
 .fcard{touch-action:pan-y}
 .fcb{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
 .fb{flex-direction:column;display:flex;align-items:center;justify-content:center;gap:2px;font-weight:750;min-height:60px;border-radius:20px;color:#fff;border:0}
-.fb small{font-size:.66rem;opacity:.85;font-weight:600}
+.fb small{font-size:.74rem;opacity:.92;font-weight:600;line-height:1.1;white-space:nowrap}.fb{line-height:1.15}
 .fb1{background:linear-gradient(135deg,#ef4444,#dc2626)}.fb2{background:linear-gradient(135deg,#f59e0b,#d97706)}.fb3{background:linear-gradient(135deg,#22c55e,#16a34a)}.fb4{background:linear-gradient(135deg,#3b82f6,#2563eb)}
 .fb:hover:not(:disabled){filter:brightness(1.08);background:revert-layer}
 .fct{display:flex;flex-wrap:wrap;gap:8px}.fct button{min-height:40px;font-size:.82rem;border-radius:99px;padding:6px 14px}
@@ -109,13 +109,7 @@ select{font-size:.88rem;text-overflow:ellipsis;font-weight:600;cursor:pointer}
 .sk.c{height:120px}.sk.c.h1{height:150px}.sk.c.h2{height:200px}
 @keyframes shim{from{background-position:120% 0}to{background-position:-120% 0}}
 @media(prefers-reduced-motion:reduce){.sk{animation:none}}
-/* ===== Tahap 11: 4 arah usap, tombol jawaban disembunyikan (tetap ada untuk aksesibilitas/keyboard) ===== */
-.fcard{touch-action:none;padding-bottom:46px}
-.dock:has(.fcb),.dock:has(.pri[data-a=fcshow]){position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.fcard:not([data-a])::after{content:"\2191 Mudah   \2192 Baik   \2190 Sulit   \2193 Lagi";position:absolute;left:0;right:0;bottom:14px;text-align:center;font-size:.76rem;font-weight:700;color:var(--m);letter-spacing:.02em}
-.fcard[data-swl]::after{content:attr(data-swl)!important;color:var(--t);font-size:.95rem}
-.fcard[data-a=fcshow]::after{content:"Ketuk atau usap ke atas untuk melihat jawaban"}
-.fcard[data-swl]::after{content:none!important}
+/* v7.61: usap dihapus; tombol jawaban selalu tampil (interval di bawah label, kata penuh) */
 .vrsw{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom));transform:translate(-50%,10px) scale(.9);opacity:0;pointer-events:none;z-index:60;color:#fff;font-weight:800;font-size:1rem;padding:10px 20px;border-radius:99px;box-shadow:var(--sh2);transition:opacity .12s,transform .12s;white-space:nowrap}
 .vrsw.on{opacity:1;transform:translate(-50%,0) scale(1)}
 /* Tahap B: Alat belajar (lipat) + Lock-in rapi */
@@ -142,7 +136,6 @@ select{font-size:.88rem;text-overflow:ellipsis;font-weight:600;cursor:pointer}
 .vrtg .mini{min-width:44px;min-height:44px;margin:0;padding:0;font-size:1.1rem}
 .vrmore{margin:6px 0}.vrmore>summary{min-height:44px;font-size:.86rem;color:var(--m)}
 html[data-vr-md=s] .fcc{display:none}
-html[data-vr-ab=on] .dock:has(.fcb),html[data-vr-ab=on] .dock:has(.pri[data-a=fcshow]){position:sticky;width:auto;height:auto;margin:0 0 8px;padding:10px 0 4px;overflow:visible;clip:auto;white-space:normal}
 html[data-vr-an=off] *,html[data-vr-an=off] *::before,html[data-vr-an=off] *::after{animation-duration:.001ms!important;animation-delay:0s!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
 html[data-vr-dn=p] .card{padding:12px 14px;margin-bottom:8px}
 html[data-vr-dn=p] .hero{padding:12px 14px;border-radius:22px}

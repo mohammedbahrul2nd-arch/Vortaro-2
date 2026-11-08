@@ -430,6 +430,12 @@ function gmVerMap(){const sig=gmSig();if(GMVER.sig==sig)return GMVER.m;const m=n
  for(const x of S.sl)add(x.tg,x.i);for(const it of S.lib)for(const p of it.ps)if(p.tg)p.tg.forEach((tg,si)=>add(tg,p.a!==0&&p.i?p.i[si]||'':''));
  GMVER.sig=sig;GMVER.m=m;return m}
 const gmVerN=k=>GK[k]||!aiVk(k)?0:(gmVerMap().get(ik(base(k),lang(k)))|0);
+/* v7.60: contoh terverifikasi PER ENTRI (kunci kartu~N). Tag {k:kartu,n:kata}: dihitung untuk entri yang kata-nya = n. Kartu satu-entri = hitungan level kartu. */
+function gmVerMapE(){const sig=gmSig();if(GMVER.sigE==sig)return GMVER.mE;const m=new Map();
+ const add=(tg,i)=>{if(!tg)return;const s=new Set();for(const t of tg)for(const k of gmTagKeys(t))if(gmIdOk(i,k)){const n=gmEnN(t.n);if(n)s.add(k+'|'+n)}for(const x of s)m.set(x,(m.get(x)|0)+1)};
+ for(const x of S.sl)add(x.tg,x.i);for(const it of S.lib)for(const p of it.ps)if(p.tg)p.tg.forEach((tg,si)=>add(tg,p.a!==0&&p.i?p.i[si]||'':''));
+ GMVER.sigE=sig;GMVER.mE=m;return m}
+function gmVerNE(k){if(GK[k]||!aiVk(k))return 0;const c=K[base(k)],es=c&&c[3][lang(k)];if(!es||es.length<2)return gmVerN(k);const e=es[ent(k)];if(!e)return 0;return gmVerMapE().get(ik(base(k),lang(k))+'|'+gmEnN(e[0]))|0}
 const aiVk=k=>String(k).indexOf('@')>=0;
 function gmVerFirst(a){if(!S.lib.length&&!S.sl.length)return a;if(!gmVerMap().size)return a;const v=[],o=[];a.forEach(k=>(gmVerN(k)>0?v:o).push(k));return v.concat(o)}
 /* v7.40: kecocokan tag AI dengan ENTRI kartu. Tag {k:kartu,n:kata}. 1 = n sama dgn entri ini; -1 = n sama dgn entri LAIN di kartu yang sama; 0 = tak ada tag kartu / n tak dikenal. */
@@ -441,10 +447,23 @@ function gmSupSib(key){const L=lang(key);if(L!='ja'&&L!='zh')return null;const c
  if(!mw)return null;es.forEach((e,j)=>{const w=String(e[0]||'').replace(/\(.*?\)/g,'').trim();if(j!=me&&w.length>mw.length&&w.includes(mw.replace(/[るうくぐすつぬぶむ]$/,'')))o.push(ik(base(key),L)+(j>0?'~'+j:''))});return o.length?o:null}
 function gmStripSib(d,sib){const res=[];for(const k of sib){const F=libForms(k,true);if(F)for(const a of F.alts){if(a.re)res.push(a.re);(a.ord||[]).forEach(r=>res.push(r))}}
  if(!res.length)return d;const st=t=>{let x=String(t);for(const r of res){r.lastIndex=0;x=x.replace(r,'\u0000')}return x};return Object.assign({},d,{flat:st(d.flat),sents:d.sents.map(st),rs:[],rb:null})}
-function gmCollect(key,E){const L=libOfKey(key),isG=!!GK[key],m=gmMin(),out=[];E=!!E&&!isG;const sup=E?gmSupSib(key):null;
- const vk=isG?'':ik(base(key),lang(key)),ver=(d,i)=>!isG&&gmTagHit(d.tgs&&d.tgs[0],vk,i)&&(!E||gmTagEnt(d.tgs[0],key)>=0),test=(d,i)=>{if(isG)return gmLv(d,0,key);if(E&&gmTagEnt(d.tgs&&d.tgs[0],key)<0)return 0;return ver(d,i)?3:libCountKey(sup?gmStripSib(d,sup):d,key,E)>0?2:0};
- for(const x of S.sl){if(x.L!=L)continue;const it=slPs(x),d=libSentDoc(it,0,0),lv=test(d,x.i||'');if(lv>=m)out.push({lv,f:x.f,r:x.r||'',i:x.i||'',t:'s',tg:x.tg||null,L,ver:ver(d,x.i||''),o:{t:'sl',id:x.id}})}
- for(const it of S.lib){if(it.L!=L)continue;it.ps.forEach((p,pi)=>p.f.forEach((f,si)=>{const d=libSentDoc(it,pi,si),ii=p.a!==0&&p.i?p.i[si]||'':'',lv=test(d,ii);if(lv>=m)out.push({lv,f,r:p.a!==0&&p.r?p.r[si]||'':'',i:p.a!==0&&p.i?p.i[si]||'':'',t:libKind(it),tg:p.tg&&p.tg[si]||null,L,sp:p.sp&&p.sp[si]||'',ver:ver(d,ii),o:{t:'lib',id:it.id,pi,si}})}))}
+/* v7.62/63: KATA BENDA (semua bahasa) otomatis TERVERIFIKASI tanpa tag AI bila (1) kata asing terdeteksi (jamak/infleksi ikut; Jerman wajib huruf kapital; zh/ja tidak boleh bagian dari kata lebih panjang yang ada di leksikon kartu, kana pendek ditolak) dan (2) terjemahan Indonesia memuat arti kartu PERSIS (jamak berulang rumah-rumah, akhiran -nya/-ku/-mu/-lah/-kah). Jumlah tidak dipersoalkan: friend~teman, friend~teman-teman, friends~teman, friends~teman-teman semuanya lolos. Akar longgar (menulis~penulis) TIDAK cukup. */
+const gmNounK=key=>{const c=K[base(key)];return!!c&&!GK[key]&&c[1]=='N'&&/^(de|nl|en|eo|zh|ja)$/.test(lang(key))},IDNSFX=new Set(['nya','ku','mu','lah','kah']);
+function gmNounIdOk(i,key){const c=K[base(key)];if(!i||!c)return false;const T=idTok(i).map(x=>x.w);let red=false;
+ const eq=(t,w)=>t==w||(t.startsWith(w)&&IDNSFX.has(t.slice(w.length)))?1:(t==w+'-'+w||(t.startsWith(w+'-'+w)&&IDNSFX.has(t.slice(2*w.length+1))))?2:0;
+ for(const g of idAlts(c[2])){if(g.length==1&&(IDSTOP.has(g[0])||g[0].length<3))continue;for(let a=0;a+g.length<=T.length;a++){let ok=true,r=0;for(let j=0;j<g.length;j++){const q=eq(T[a+j],g[j]);if(!q){ok=false;break}if(q==2)r=1}if(ok){if(!r)return'e';red=true}}}return red?'r':false}
+const GMLEX={};function gmLex(L){if(GMLEX[L])return GMLEX[L];const z=new Set();for(const id in K){const es=K[id][3][L];if(es)es.forEach(e=>{const w=String(e[0]||'').replace(/[（(].*?[)）]/g,'').replace(/[〜~]/g,'').trim();if(w)z.add(w)})}return GMLEX[L]=z}
+function gmNounForOk(key,E,f,idm){const L=lang(key),p=gzpParse(libHL(f,key,L,E));if(!p||!p.sp||!p.sp.length)return false;
+ const t=p.t,spB=(a,b)=>(a==0||/[\s\p{P}]/u.test(t[a-1]))&&(b>=t.length||/[\s\p{P}]/u.test(t[b]));
+ if(L=='zh'||L=='ja'){const lx=gmLex(L);return p.sp.some(([a,b])=>{const s=t.slice(a,b),han=/\p{Script=Han}/u.test(s);if(s.length<2&&!han)return false;if(s.length<3&&!han)return false;
+  if(/\S\s+\S/.test(t.slice(Math.max(0,a-1),b+1))||(a>0&&/\s/.test(t[a-1]))||(b<t.length&&/\s/.test(t[b])))if(spB(a,b))return true;
+  for(let l=0;l<=2;l++)for(let r=0;r<=2;r++){if(!l&&!r)continue;if(a-l<0)continue;const w=t.slice(a-l,b+r);if(w!=s&&lx.has(w))return false}return true})}
+ return p.sp.some(([a,b])=>{const s=t.slice(a,b);if(!spB(a,b))return false;if(L=='de'&&!/^\p{Lu}/u.test(s))return false;
+  return true})}
+function gmCollect(key,E){const L=libOfKey(key),isG=!!GK[key],m=gmMin(),out=[];E=!!E&&!isG;const sup=E?gmSupSib(key):null,nn=gmNounK(key);
+ const vk=isG?'':ik(base(key),lang(key)),ver=(d,i)=>!isG&&gmTagHit(d.tgs&&d.tgs[0],vk,i)&&(!E||gmTagEnt(d.tgs[0],key)>=0),test=(d,i)=>{if(isG)return gmLv(d,0,key);if(E&&gmTagEnt(d.tgs&&d.tgs[0],key)<0)return 0;if(ver(d,i))return 3;if(!(libCountKey(sup?gmStripSib(d,sup):d,key,E)>0))return 0;if(nn){const im=gmNounIdOk(i,key);if(im&&gmNounForOk(key,E,d.sents[0],im))return 3}return 2};
+ for(const x of S.sl){if(x.L!=L)continue;const it=slPs(x),d=libSentDoc(it,0,0),lv=test(d,x.i||'');if(lv>=m)out.push({lv,f:x.f,r:x.r||'',i:x.i||'',t:'s',tg:x.tg||null,L,ver:!isG&&lv==3,o:{t:'sl',id:x.id}})}
+ for(const it of S.lib){if(it.L!=L)continue;it.ps.forEach((p,pi)=>p.f.forEach((f,si)=>{const d=libSentDoc(it,pi,si),ii=p.a!==0&&p.i?p.i[si]||'':'',lv=test(d,ii);if(lv>=m)out.push({lv,f,r:p.a!==0&&p.r?p.r[si]||'':'',i:p.a!==0&&p.i?p.i[si]||'':'',t:libKind(it),tg:p.tg&&p.tg[si]||null,L,sp:p.sp&&p.sp[si]||'',ver:!isG&&lv==3,o:{t:'lib',id:it.id,pi,si}})}))}
  return out}
 function gmPick(c,N){const seen=new Set(),sc=x=>x.lv*100+(x.i?12:0)+(x.r||x.L=='de'||x.L=='nl'||x.L=='en'||x.L=='eo'?4:0)-Math.abs(String(x.f).replace(/\s+/g,'').length-(x.L=='ja'||x.L=='zh'?14:60))*.4;
  return c.map(x=>({...x,s:sc(x)})).sort((a,b)=>b.s-a.s).filter(x=>{const k=String(x.f).replace(/\s+/g,'').toLowerCase();if(seen.has(k))return false;seen.add(k);return true}).slice(0,N)}
@@ -458,7 +477,7 @@ function gmRollRows(key,v){const sig=gmSig();if(gmRoll.key==key&&gmRoll.sig==sig
  const a=v.rows.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}
  gmRoll.key=key;gmRoll.sig=sig;gmRoll.rows=a.slice(0,5);return gmRoll.rows}
 function gmExBlock(key){if(!key||(!S.lib.length&&!S.sl.length))return'';const v0=gmExamples(key,10);if(!v0.rows.length)return'';const v={n:v0.n,nv:v0.nv|0,rows:gmRollRows(key,v0)};const L=libOfKey(key);
- return`<div class=gmx><div class=gsec style="margin-top:12px">📚 Contoh dari Pustakamu <small>(${v.rows.length}${v.n>v.rows.length?' dari '+v.n:''})</small>${GK[key]?'':`<br><small class=gmcnt>${v.nv} terverifikasi (bertag AI) · ${v.n-v.nv} terdeteksi otomatis</small>`}</div>`+
+ return`<div class=gmx><div class=gsec style="margin-top:12px">📚 Contoh dari Pustakamu <small>(${v.rows.length}${v.n>v.rows.length?' dari '+v.n:''})</small>${GK[key]?'':`<br><small class=gmcnt>${v.nv} terverifikasi (bertag AI / kata benda cocok persis) · ${v.n-v.nv} terdeteksi otomatis</small>`}</div>`+
   v.rows.map((x,xi)=>{const sf=GK[key]?gmTagSf(x.tg,key):[];const hl=(sf.length&&gmHLS(x.f,sf,L))||libHL(x.f,key,L,true);
    return`<div class=gmr><button class=gmdel data-a=fcxdel data-k=\"${esc(key)}\" data-v=${xi} title=\"Hapus kalimat ini dari Pustaka\" aria-label=\"Hapus kalimat\">🗑</button><div class=eo>${x.sp?`<b class=spk>${esc(x.sp)}</b> `:''}${hl}${spk(x.f,L)}</div>${x.r?`<div class="r rom">${esc(x.r)}</div>`:''}${x.i?`<div class=idn>${esc(x.i)}</div>`:''}<small class=gmsrc>${GMSRC[x.t]||''}${GK[key]?(x.lv==3?' · ✓ ditandai AI':x.lv==1?' · perkiraan':''):(x.ver?' · ✓ terverifikasi':'')}</small></div>`}).join('')+
   `<div class=btns style="margin-top:6px"><button class=mini data-a=libfind data-k="${esc(key)}">Lihat semua di Pustaka${v.n>v.rows.length?' ('+v.n+')':''}</button></div></div>`}

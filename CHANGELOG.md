@@ -1,3 +1,30 @@
+## 7.65.0 — Verifikasi kata benda: jumlah tidak dipersoalkan
+- Cek "tunggal asing vs jamak berulang" (7.62–7.64) dihapus: friend~teman, friend~teman-teman, friends~teman, friends~teman-teman semuanya lolos terverifikasi. Syarat lain tetap (kata asing token utuh, arti Indonesia persis, Jerman berhuruf kapital, zh/ja tak bagian kata lebih panjang). Uji ditambah untuk keempat kombinasi.
+
+## 7.64.0 — Verifikasi kata benda: jamak dari database + batas spasi
+- Pengecekan jumlah memakai bentuk jamak dari database (DX.n Jerman 3.849/5.178 kata benda, DXN.n Belanda 3.953/4.940, DXE.n Inggris 5.459/5.553): bila terjemahan Indonesia hanya jamak berulang ("anjing-anjing"), kata asing harus benar-benar bentuk jamak menurut database; tanpa data jamak dipakai bentuk dasar (kata tunggal ditolak).
+- Batas spasi: kata asing (de/nl/en/eo) yang cocok harus satu token utuh (batas spasi/tanda baca). Mandarin/Jepang: bila kalimat memuat spasi di sekitar kata, spasi/tanda baca dianggap batas kata (melewati cek leksikon).
+
+## 7.63.0 — Kata benda otomatis terverifikasi: semua bahasa
+- Aturan 7.62 diperluas ke zh, ja, eo (selain de/nl/en). Mandarin/Jepang: kata tak boleh bagian dari kata lebih panjang yang ada di leksikon kartu (书 di 书店), kana pendek ditolak. Salah jumlah ditolak: kata asing tunggal + terjemahan hanya berulang ("anjing-anjing") tetap "terdeteksi otomatis". Terjemahan jamak berulang untuk kata asing jamak/tak berjumlah diterima.
+- Uji tambahan di `test_entrymatch` (tunggal vs jamak berulang, zh tanpa jamak, arti tak cocok).
+
+## 7.62.0 — Kata benda otomatis terverifikasi
+- Kartu kosakata kelas kata benda (de/nl/en): kalimat Pustaka otomatis **terverifikasi** (✓, bobot soal 3×, dihitung sebagai contoh di Kelas AI) tanpa tag AI bila (1) bentuk asing terdeteksi, termasuk jamak/infleksi (Jerman wajib huruf kapital = nomina), dan (2) terjemahan Indonesia memuat arti kartu **persis**, termasuk jamak berulang (rumah-rumah) dan akhiran -nya/-ku/-mu/-lah/-kah. Kecocokan akar longgar (menulis~penulis) tidak cukup, jadi tetap "terdeteksi otomatis".
+- Label contoh: "N terverifikasi (bertag AI / kata benda cocok persis)". Hitungan Kelas AI per entri ikut menghitung kalimat ini (hanya untuk kartu yang sudah punya kalimat terdeteksi, agar cepat).
+- Uji: `test_entrymatch` (jamak, -ku, arti tak cocok), `test_verified` disesuaikan.
+
+## 7.61.0 — Flashcard: tanpa usap, 4 tombol dengan jadwal tampil lagi
+- Gestur usap 4 arah dihapus (ui.js, CSS petunjuk panah, `touch-action:none`); kartu dibalik dengan ketukan.
+- Tombol Lagi/Sulit/Baik/Mudah selalu tampil (opsi "Tampilkan tombol jawaban" dihapus); di bawah label tertulis kapan kartu muncul lagi.
+- `fcFmt/fcFmtD` memakai kata penuh (menit, jam, hari, bulan, tahun; desimal koma). Berlaku juga di teks lain yang memakai fungsi ini (estimasi, game).
+- Teks onboarding disesuaikan.
+
+## 7.60.0 — Kelas AI Pustaka per ENTRI
+- **Bug**: pengumpul kartu Kelas AI bekerja di level arti (kunci tanpa `~N`): entri ke-2 dst. (mis. 吊るす, 听见) tak pernah jadi kandidat sendiri, dianggap "sudah punya contoh" bila saudaranya (掛ける, 听) punya, dan baris kata di prompt hanya memuat 2 entri pertama sehingga AI tak pernah diminta memakai entri lain.
+- **Perbaikan**: `aiCovCands` kini per entri (kandidat studi, kartu baru, dan kartu tampil memakai kunci entri; entri berkata sama dibuang duplikatnya), `aiCoverage` menghitung contoh per entri (`gmVerNE` = tag AI yang `n`-nya = kata entri, `libCountKey(…,true)`), `aiLvCount` menghitung entri, `aiPins/aiFcMark` memakai kunci entri, dan `aiWordLine` menampilkan kata entri itu saja (flag `E`). Kolam kata lemah/pembentuk tetap level kartu.
+- Tes `test_aicands`/`test_lvcount` disesuaikan ke semantik per-entri.
+
 ## 7.59.0 — UI v8 tahap D4 (Pustaka)
 Header Pustaka dirapikan: tombol "Tambah teks/kalimat" tidak lagi terpecah 3 baris menjadi bentuk lonjong (kini satu baris sejajar Kelas AI, teks lengkap di aria-label/title); paragraf penjelasan panjang dilipat di bawah ringkasan satu baris ("4 teks · 1 dibaca"). Tiga baris chip (bahasa, status, urutan) dipadatkan: label status dipendekkan (Semua/Belum/Sudah, nama lengkap di aria-label/title; "Cocok untuk kartu lemahku" -> "Kartu lemah"), jumlah pada chip aktif terbaca lagi. Perbaikan kontras: label tombol utama di kartu teks (Baca, Putar, Tutup bacaan) tadinya hampir tak terbaca di atas ungu (`.fct button` menimpa warna `.pri`). Rincian teks: tombol Judul/Pindah/Hapus sebaris (tadinya tiga baris penuh), teks bacaan sedikit lebih kecil agar teks panjang lebih ringkas, badge status tidak membungkus. Hanya ui.js + ui.css; app.js dan pustaka.js tidak diubah.
 

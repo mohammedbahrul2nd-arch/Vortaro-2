@@ -4,25 +4,11 @@ var r=b.getBoundingClientRect(),d=Math.max(r.width,r.height)*2,s=document.create
 s.style.cssText='width:'+d+'px;height:'+d+'px;left:'+(e.clientX-r.left-d/2)+'px;top:'+(e.clientY-r.top-d/2)+'px';
 b.appendChild(s);setTimeout(function(){s.remove()},600);
 if(b.closest('nav')&&navigator.vibrate)try{navigator.vibrate(8)}catch(_){}},{passive:true})})();
-/* Tahap 3: gestur geser kartu + onboarding sekali tampil */
-(function(){var sx,sy,card=null,dx=0,dy=0;
-var L=null;function lbl(t,c){if(!t){if(L)L.classList.remove('on');return}if(!L){L=document.createElement('div');L.className='vrsw';document.body.appendChild(L)}L.textContent=t;L.style.background=c;L.classList.add('on')}
-function btn(sel){return document.querySelector(sel)}
-function dir(x,y){return Math.abs(y)>Math.abs(x)?(y<0?'up':'down'):(x>0?'right':'left')}
-var MAP={up:4,down:1,right:3,left:2},COL={up:'#2563eb',down:'#dc2626',right:'#16a34a',left:'#d97706'},ARW={up:'\u2191',down:'\u2193',right:'\u2192',left:'\u2190'};
-document.addEventListener('pointerdown',function(e){var c=e.target.closest&&e.target.closest('.fcard');if(!c||e.target.closest('button,a,input'))return;card=c;sx=e.clientX;sy=e.clientY;dx=dy=0},{passive:true});
-document.addEventListener('pointermove',function(e){if(!card)return;dx=e.clientX-sx;dy=e.clientY-sy;if(Math.abs(dx)<8&&Math.abs(dy)<8)return;
-var rev=!card.hasAttribute('data-a'),far=Math.max(Math.abs(dx),Math.abs(dy))>40;card.style.transition='none';card.style.transform='translate('+dx*.6+'px,'+dy*.6+'px) rotate('+dx/30+'deg)';
-if(rev&&far){var d=dir(dx,dy),b=btn('.fb'+MAP[d]),sm=b&&b.querySelector('small');card.style.boxShadow='0 0 0 3px '+COL[d];lbl(ARW[d]+' '+(b&&b.lastChild?b.lastChild.textContent.trim():'')+(sm?' \u00b7 '+sm.textContent:''),COL[d])}
-else{card.style.boxShadow=(!rev&&dy<-40)?'0 0 0 3px '+COL.up:'';lbl()}},{passive:true});
-function end(){if(!card)return;var c=card,rev=!c.hasAttribute('data-a');card=null;c.style.transition='transform .25s,box-shadow .25s';c.style.transform='';c.style.boxShadow='';lbl();
-var ax=Math.abs(dx),ay=Math.abs(dy);if(ax<70&&ay<70)return;
-if(!rev){if(dy<-70&&ay>ax){var s=btn('[data-a=fcshow]');s&&s.click()}return}
-var bb=btn('.fb'+MAP[dir(dx,dy)]);if(bb){if(navigator.vibrate)try{navigator.vibrate(12)}catch(_){}bb.click()}}
-document.addEventListener('pointerup',end,{passive:true});document.addEventListener('pointercancel',end,{passive:true});
+/* Tahap 3 (v7.61): gestur usap DIHAPUS; kartu dinilai lewat 4 tombol. Tersisa: onboarding sekali tampil */
+(function(){
 /* onboarding */
 try{if(localStorage.getItem('vr_onb')||!document.body)return}catch(_){return}
-var P=[['📚','Belajar tiap hari','Kartu muncul tepat saat hampir lupa, jadi hafalan awet.'],['👆','Geser untuk menjawab','Ketuk kartu atau geser ke atas untuk membalik. Kiri = Lagi, kanan = Baik, atas = Mudah.'],['🔔','Pasang seperti aplikasi','Tambahkan ke layar utama agar terbuka layar penuh, bahkan tanpa internet.']],i=0,o=document.createElement('div');o.className='vrob';
+var P=[['📚','Belajar tiap hari','Kartu muncul tepat saat hampir lupa, jadi hafalan awet.'],['👆','Jawab dengan 4 tombol','Ketuk kartu untuk membalik, lalu pilih Lagi, Sulit, Baik, atau Mudah. Di bawah tiap tombol tertulis kapan kartu itu muncul lagi.'],['🔔','Pasang seperti aplikasi','Tambahkan ke layar utama agar terbuka layar penuh, bahkan tanpa internet.']],i=0,o=document.createElement('div');o.className='vrob';
 function draw(){var p=P[i];o.innerHTML='<div class=vrobc><div class=vrobi>'+p[0]+'</div><h2>'+p[1]+'</h2><p>'+p[2]+'</p><div class=vrobd>'+P.map(function(_,j){return'<i'+(j==i?' class=on':'')+'></i>'}).join('')+'</div><button class=pri>'+(i<P.length-1?'Lanjut':'Mulai belajar')+'</button><a>Lewati</a></div>'}
 function close(){try{localStorage.setItem('vr_onb','1')}catch(_){}o.classList.add('out');setTimeout(function(){o.remove()},300)}
 o.addEventListener('click',function(e){if(e.target.closest('a'))return close();if(e.target.closest('button')){i<P.length-1?(i++,draw()):close()}});
@@ -83,7 +69,7 @@ c.innerHTML='<b>\u2728 Tampilan &amp; Personalisasi</b><small class=gsub>Semua p
 '<small class=lbl>Kepadatan</small>'+seg('u_dn',o.u_dn==='p'?'p':'n',[['n','Nyaman'],['p','Padat']])+
 '<small class=lbl>Target kartu baru per hari</small><div class=vrtg><button type=button class=mini data-vp=nl data-v=-5 aria-label="Kurangi target">\u2212</button><b>'+(o.nl|0)+'</b><button type=button class=mini data-vp=nl data-v=5 aria-label="Tambah target">+</button></div>'+
 '<small class=lbl>Jam belajar favorit</small><input type=time data-vpi=u_hr value="'+esc(o.u_hr||'')+'" aria-label="Jam belajar favorit">'+
-ck('u_ab',!!o.u_ab,'Tampilkan tombol jawaban (selain usap)')+
+
 '<small class=lbl>Umpan balik</small>'+ck('hap',!!o.hap,'Getar saat menilai kartu')+ck('tts',!!o.tts,'Tombol suara \uD83D\uDD0A di samping kata')+ck('ttsa',!!o.ttsa,'Ucapkan otomatis saat jawaban dibuka')+ck('u_an',o.u_an!==0,'Animasi')+
 '<small class=gsub>Warna aksen, tema, dan ukuran huruf ada di kartu "Tampilan &amp; kenyamanan" di bawah.</small><div class=btns><button type=button data-vp=reset>Kembalikan personalisasi</button></div>';
 h.insertAdjacentElement('afterend',c)}
