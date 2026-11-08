@@ -1,5 +1,15 @@
 # Riwayat Perubahan
 
+## 7.31.0 — Minggu, 8 Nov 2026 (tag terverifikasi untuk SEMUA kosakata, dicek dengan arti Indonesia)
+
+- **Prompt Kelas AI**: blok TAG kini meminta tag `V: [bentuk kamus] > [bentuk di kalimat]` untuk SETIAP kata kartu yang dipakai (kata benda, sifat, keterangan, dll. dan kata kerja, berubah bentuk maupun tidak; "([nama bentuk])" hanya untuk yang berubah). Sebelumnya hanya kata kerja yang bentuknya berubah (dan hanya di bahasa dengan daftar bentuk) yang diminta ber-tag, sehingga kosakata lain tidak pernah terverifikasi.
+- **Terverifikasi = tag V: asli + padanan arti Indonesia**. Kalimat dihitung terverifikasi untuk kartu hanya jika (1) tag menunjuk kartu itu dan (2) terjemahan Indonesia kalimat memuat padanan arti kartu (`gmIdOk`/`gmGloss`: arti kartu + kepala catatan entri, toleran imbuhan ber-/me-/di-/-kan/-i/-an/-nya, frasa, kata ulang, dan kata inti frasa). Mencegah salah-tag seperti 差す yang dikira cocok pada さすが: arti "Memang hebat" tak memuat padanan "menyorot/menancapkan", jadi tidak terverifikasi. Berlaku juga retroaktif untuk tag yang sudah tersimpan (dihitung saat dipakai, tanpa impor ulang).
+- **Homonim**: tag V: kini menyimpan semua kartu kandidat untuk satu lemma (`ks`, ≤8) dan cadangan lewat bentuk di kalimat bila lemma tak ketemu; pemeriksaan arti Indonesia memilih kartu yang tepat.
+- **Soal rumpang kosakata** kini hanya dibuat dari kalimat yang terjemahan Indonesianya cocok dengan arti kartu (kalimat hasil deteksi otomatis yang terjemahannya tak cocok tidak lagi jadi soal). Penyorotan Indonesia memakai mode longgar.
+- Pengorbanan yang disengaja: kalimat tanpa terjemahan Indonesia, atau yang terjemahannya memakai sinonim tak terdaftar, tidak terverifikasi (tetap tampil sebagai contoh "terdeteksi otomatis").
+- Uji: `tests/test_tagverify.js` baru (差す/さすが, kata benda bertag, homonim ks); fixture uji lama disesuaikan (butuh arti Indonesia cocok). Seluruh uji node lolos.
+- Versi 7.31.0 (sw.js, GM_VER).
+
 ## 7.30.0 — Minggu, 8 Nov 2026 (rumpang kosakata dua arah + Kelas AI hanya hitung yang terverifikasi)
 
 - **Perbaikan kebocoran jawaban**: pada kartu kosakata berbentuk soal rumpang, sisi depan sebelumnya menampilkan kata kartu (mis. 跑 + pǎo) DI ATAS kalimat yang kata itu dikosongkan. Kini sisi depan tidak memuat kepala kartu sama sekali; jawaban baru muncul setelah kartu dibuka.

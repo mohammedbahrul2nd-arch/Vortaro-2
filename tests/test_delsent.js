@@ -13,10 +13,10 @@ const X=ctx.X;
 
 const {K}=X;let key,noun,art,id;
 for(const i in K){const c=K[i];if(c[1]=='N'&&c[3].de&&c[3].de.length){const w=c[3].de[0][0];if(/^(der|die|das)\s+\p{L}{4,}$/iu.test(w)){id=i;art=w.split(/\s+/)[0].toLowerCase();noun=w.replace(/^\S+\s+/,'');break}}}
-key=id+'@de';const sw=art=='der'?'den '+noun:art+' '+noun;
+key=id+'@de';const gl0=String(K[id][2]).split(/[\/~]/)[0].trim().toLowerCase();const sw=art=='der'?'den '+noun:art+' '+noun;
 const s1=`Gestern habe ich ${sw} im Park gesehen und mich gefreut.`,s2=`Heute sehe ich ${sw} wieder im Garten und lache.`,s3=`Morgen kaufe ich ${sw} auf dem Markt in der Stadt.`;
-S.sl=[{id:'a1',L:'de',f:s1,r:'',i:'Satu.',c:1}];
-S.lib=[{id:'L1',L:'de',k:'r',ps:[{f:[s2,s3],i:['Dua.','Tiga.'],r:null,tg:[null,null],sp:['','']}],c:2}];
+S.sl=[{id:'a1',L:'de',f:s1,r:'',i:'Satu '+gl0+'.',c:1}];
+S.lib=[{id:'L1',L:'de',k:'r',ps:[{f:[s2,s3],i:['Dua '+gl0+'.','Tiga '+gl0+'.'],r:null,tg:[null,null],sp:['','']}],c:2}];
 const rows=()=>{X.GMEXC&&0;X.gmRoll.key='';const v=X.gmExamples(key,10);return v};
 let v=rows();ok(v.rows.length==3,'3 kalimat terkumpul: '+v.rows.length);
 let h=X.gmExBlock(key);ok((h.match(/data-a=fcxdel/g)||[]).length==3,'3 tombol hapus');
@@ -27,7 +27,7 @@ CONF=true;
 /* hapus kalimat S.lib (paragraf dua kalimat) */
 let idx=X.gmRoll.rows.findIndex(r=>r.f==s3);ok(idx>=0,'s3 ada di baris tampil');
 ok(X.gmDelSent(key,idx)===true,'hapus s3');
-ok(S.lib[0].ps[0].f.length==1&&S.lib[0].ps[0].f[0]==s2&&S.lib[0].ps[0].i.length==1&&S.lib[0].ps[0].i[0]=='Dua.'&&S.lib[0].ps[0].tg.length==1&&S.lib[0].ps[0].sp.length==1,'larik paralel konsisten');
+ok(S.lib[0].ps[0].f.length==1&&S.lib[0].ps[0].f[0]==s2&&S.lib[0].ps[0].i.length==1&&S.lib[0].ps[0].i[0]=='Dua '+gl0+'.'&&S.lib[0].ps[0].tg.length==1&&S.lib[0].ps[0].sp.length==1,'larik paralel konsisten');
 ok(!S.lib[0].ps[0].r,'r null tetap null');
 v=rows();ok(v.rows.length==2&&!v.rows.some(r=>r.f==s3),'cache bersih, s3 tak muncul lagi');
 /* hapus S.sl */
@@ -38,7 +38,7 @@ X.gmExBlock(key);idx=X.gmRoll.rows.findIndex(r=>r.f==s2);
 ok(X.gmDelSent(key,idx)&&S.lib.length==0,'paragraf & item kosong dibuang');
 ok(X.gmExBlock(key)==='','tanpa kalimat -> blok kosong');
 /* kartu rumpang yang sedang tampil */
-S.sl=[{id:'a1',L:'de',f:s1,r:'',i:'Satu.',c:1},{id:'a2',L:'de',f:s2,r:'',i:'Dua.',c:2}];S.lib=[];
+S.sl=[{id:'a1',L:'de',f:s1,r:'',i:'Satu '+gl0+'.',c:1},{id:'a2',L:'de',f:s2,r:'',i:'Dua '+gl0+'.',c:2}];S.lib=[];
 X.GZP.sig='';X.GZP.cur={k:key,row:null,v:null};X.gzpRoll(key);
 const cur=X.GZP.cur.v;ok(!!cur,'rumpang aktif');
 X.gmExBlock(key);idx=X.gmRoll.rows.findIndex(r=>r.f==cur.f);

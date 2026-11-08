@@ -10,7 +10,7 @@ function rxLB(s,f){try{return new RegExp(s,f)}catch(e){return new RegExp(String(
       trennbar, zu-Infinitiv, Nebensatz, …) memakai bentuk kata kerja dari kartu verbmu
    6. 5 contoh dari Pustaka saat kartu dibuka
    ============================================================================================= */
-const GM_VER='7.30.0',GM_AT='2026-11-08T18:00:00+07:00';
+const GM_VER='7.31.0',GM_AT='2026-11-08T18:00:00+07:00';
 const gmB={n:0};
 const gmNorm=s=>String(s||'').toLowerCase().normalize('NFC').replace(/[〜～~\s()（）「」『』\[\]【】\/／・…*+,，、.。:：;；!！?？"'’`\-–—]/g,'');
 const gmHan=ch=>/[\u3400-\u9fff]/.test(ch);
@@ -46,7 +46,8 @@ const GMWM={};
 function gmWordMap(L){if(GMWM[L])return GMWM[L];const m=new Map();
  for(const c of D.C){const es=c[3][L];if(!es)continue;for(const e of es){let w=libLow(libC1(e[0])).replace(/^(?:der|die|das|de|het|sich|zich)\s+/,'');if(L=='ja'||L=='zh')w=w.replace(/\s+/g,'');if(!w)continue;const k=ik(c[0],L);if(!m.has(w))m.set(w,[]);if(!m.get(w).includes(k))m.get(w).push(k)}}
  return GMWM[L]=m}
-const gmWordKey=(w,L)=>{w=libLow(libC1(w)).replace(/^(?:der|die|das|de|het|sich|zich)\s+/,'');if(L=='ja'||L=='zh')w=w.replace(/\s+/g,'');return(gmWordMap(L).get(w)||[])[0]||''};
+const gmWordKeys=(w,L)=>{w=libLow(libC1(w)).replace(/^(?:der|die|das|de|het|sich|zich)\s+/,'');if(L=='ja'||L=='zh')w=w.replace(/\s+/g,'');return gmWordMap(L).get(w)||[]};
+const gmWordKey=(w,L)=>gmWordKeys(w,L)[0]||'';
 /* potongan teks harus muncul di kalimat */
 function gmSurfOk(f,s,L){s=String(s||'').trim();if(!s)return true;
  const parts=s.split(/\s*(?:…|\.{3}|⋯)\s*/).filter(Boolean);
@@ -70,8 +71,8 @@ function gmResolveTags(tag,L,sentOf){const P=gmTagLines(tag),map={};let drop=0,u
     const fmm=s.match(/\s*[（(]([^()（）]+)[)）]\s*$/);if(fmm){fm=fmm[1].trim();s=s.slice(0,fmm.index).trim()}
     if(!fm&&sp[2])fm=sp[2].trim();
     if(!gmSurfOk(f,s,L)){drop++;F(ln.key,it.c,lem,s,'potongan teks tidak ada di kalimat');continue}
-    const wk=gmWordKey(lem,L);if(!wk)F(ln.key,it.c,lem,s,'kartu kosakata tidak ditemukan (tag disimpan sebagai catatan tanpa tautan)');
-    (map[ln.key]=map[ln.key]||[]).push({t:'v',k:wk,n:lem,s,f:fm});n++;continue}
+    let wks=gmWordKeys(lem,L);if(!wks.length)wks=gmWordKeys(s,L);const wk=wks[0]||'';if(!wk)F(ln.key,it.c,lem,s,'kartu kosakata tidak ditemukan (tag disimpan sebagai catatan tanpa tautan)');
+    (map[ln.key]=map[ln.key]||[]).push({t:'v',k:wk,ks:wks.slice(0,8),n:lem,s,f:fm});n++;continue}
    let title='',s='',keys=[];
    if(/^G\d+$/.test(it.c)){title=P.leg[it.c]||'';s=it.v;keys=title?gmTitleKeys(title,L):[]}
    else{const mm=it.v.match(/^(.*?)\s*(?:＝|=)\s*(.+)$/);if(mm){title=mm[1].trim();s=mm[2].trim()}else{title=it.v;s=''}keys=gmTitleKeys(title,L)}
@@ -373,17 +374,23 @@ const GMEXC=new Map();
 const gmSig=()=>S.lib.length+'/'+S.sl.length+'/'+gmB.n+'/'+(S.lib[0]?S.lib[0].c:0)+'/'+(S.sl[0]?S.sl[0].c:0)+'/'+gmMin();
 /* v7.28.0 (B4): kosakata "terverifikasi" = kalimat punya tag V:/K: asli dari AI untuk kartu itu (t.k = base@lang). Selain itu = "terdeteksi otomatis" (pencocok libHL/libCountKey). */
 const GMVER={sig:'',m:new Map()};
+/* v7.30.0: terverifikasi = (1) kalimat punya tag V:/K: asli dari AI yang menunjuk kartu itu (t.k atau t.ks untuk homonim) DAN (2) terjemahan Indonesia kalimat itu memuat padanan arti kartu (gzvIdSpan). Dua-duanya harus cocok: mencegah salah-tag seperti 差す (payung) pada さすが. */
+/* arti yang dicocokkan = arti kartu + kepala catatan entri bahasa itu (mis. "Meneteskan cairan: ..." -> "Meneteskan cairan") */
+const gmGloss=key=>{const c=K[base(key)];if(!c)return'';const L=lang(key),ex=(c[3][L]||[]).map(e=>String(e[4]||'').split(/[:：。]/)[0].trim()).filter(x=>x&&x.split(/\s+/).length<=7);return[c[2]].concat(ex).join(' / ')};
+const gmIdOk=(i,key)=>!!(i&&K[base(key)]&&gzvIdSpan(i,gmGloss(key),true));
+const gmTagKeys=t=>{const r=[];if(t&&t.t=='v'){if(t.k)r.push(t.k);if(t.ks)for(const k of t.ks)if(k&&!r.includes(k))r.push(k)}return r};
+const gmTagHit=(tg,key,i)=>!!(tg&&tg.some(t=>gmTagKeys(t).includes(key)))&&gmIdOk(i,key);
 function gmVerMap(){const sig=gmSig();if(GMVER.sig==sig)return GMVER.m;const m=new Map();
- const add=tg=>{if(!tg)return;const s=new Set();for(const t of tg)if(t&&t.t=='v'&&t.k)s.add(t.k);for(const k of s)m.set(k,(m.get(k)|0)+1)};
- for(const x of S.sl)add(x.tg);for(const it of S.lib)for(const p of it.ps)if(p.tg)p.tg.forEach(add);
+ const add=(tg,i)=>{if(!tg)return;const s=new Set();for(const t of tg)for(const k of gmTagKeys(t))if(!s.has(k)&&gmIdOk(i,k))s.add(k);for(const k of s)m.set(k,(m.get(k)|0)+1)};
+ for(const x of S.sl)add(x.tg,x.i);for(const it of S.lib)for(const p of it.ps)if(p.tg)p.tg.forEach((tg,si)=>add(tg,p.a!==0&&p.i?p.i[si]||'':''));
  GMVER.sig=sig;GMVER.m=m;return m}
 const gmVerN=k=>GK[k]||!aiVk(k)?0:(gmVerMap().get(ik(base(k),lang(k)))|0);
 const aiVk=k=>String(k).indexOf('@')>=0;
 function gmVerFirst(a){if(!S.lib.length&&!S.sl.length)return a;if(!gmVerMap().size)return a;const v=[],o=[];a.forEach(k=>(gmVerN(k)>0?v:o).push(k));return v.concat(o)}
 function gmCollect(key){const L=libOfKey(key),isG=!!GK[key],m=gmMin(),out=[];
- const vk=isG?'':ik(base(key),lang(key)),ver=d=>!isG&&!!(d.tgs&&d.tgs[0]&&d.tgs[0].some(t=>t&&t.t=='v'&&t.k==vk)),test=(d)=>{if(isG)return gmLv(d,0,key);return ver(d)?3:libCountKey(d,key)>0?2:0};
- for(const x of S.sl){if(x.L!=L)continue;const it=slPs(x),d=libSentDoc(it,0,0),lv=test(d);if(lv>=m)out.push({lv,f:x.f,r:x.r||'',i:x.i||'',t:'s',tg:x.tg||null,L,ver:ver(d),o:{t:'sl',id:x.id}})}
- for(const it of S.lib){if(it.L!=L)continue;it.ps.forEach((p,pi)=>p.f.forEach((f,si)=>{const d=libSentDoc(it,pi,si),lv=test(d);if(lv>=m)out.push({lv,f,r:p.a!==0&&p.r?p.r[si]||'':'',i:p.a!==0&&p.i?p.i[si]||'':'',t:libKind(it),tg:p.tg&&p.tg[si]||null,L,sp:p.sp&&p.sp[si]||'',ver:ver(d),o:{t:'lib',id:it.id,pi,si}})}))}
+ const vk=isG?'':ik(base(key),lang(key)),ver=(d,i)=>!isG&&gmTagHit(d.tgs&&d.tgs[0],vk,i),test=(d,i)=>{if(isG)return gmLv(d,0,key);return ver(d,i)?3:libCountKey(d,key)>0?2:0};
+ for(const x of S.sl){if(x.L!=L)continue;const it=slPs(x),d=libSentDoc(it,0,0),lv=test(d,x.i||'');if(lv>=m)out.push({lv,f:x.f,r:x.r||'',i:x.i||'',t:'s',tg:x.tg||null,L,ver:ver(d,x.i||''),o:{t:'sl',id:x.id}})}
+ for(const it of S.lib){if(it.L!=L)continue;it.ps.forEach((p,pi)=>p.f.forEach((f,si)=>{const d=libSentDoc(it,pi,si),ii=p.a!==0&&p.i?p.i[si]||'':'',lv=test(d,ii);if(lv>=m)out.push({lv,f,r:p.a!==0&&p.r?p.r[si]||'':'',i:p.a!==0&&p.i?p.i[si]||'':'',t:libKind(it),tg:p.tg&&p.tg[si]||null,L,sp:p.sp&&p.sp[si]||'',ver:ver(d,ii),o:{t:'lib',id:it.id,pi,si}})}))}
  return out}
 function gmPick(c,N){const seen=new Set(),sc=x=>x.lv*100+(x.i?12:0)+(x.r||x.L=='de'||x.L=='nl'||x.L=='en'||x.L=='eo'?4:0)-Math.abs(String(x.f).replace(/\s+/g,'').length-(x.L=='ja'||x.L=='zh'?14:60))*.4;
  return c.map(x=>({...x,s:sc(x)})).sort((a,b)=>b.s-a.s).filter(x=>{const k=String(x.f).replace(/\s+/g,'').toLowerCase();if(seen.has(k))return false;seen.add(k);return true}).slice(0,N)}
@@ -495,20 +502,22 @@ function idSame(x,y,strict){if(x==y)return true;if(strict)return false;
  for(const c of cx)if(c.length>=4&&cy.has(c))return true;return false}
 function idAlts(gl){return String(gl||'').replace(/\([^)]*\)|\[[^\]]*\]/g,' ').split(/[\/~,;]|\batau\b/i).map(x=>x.trim().toLowerCase()).filter(x=>/\p{L}{2,}/u.test(x)).map(x=>(x.match(/\p{L}+(?:-\p{L}+)*/gu)||[])).filter(a=>a.length).sort((a,b)=>b.length-a.length)}
 /* -> [[a,b]] posisi kata Indonesia yang cocok dengan arti kartu, atau null */
-function gzvIdSpan(txt,gloss){if(!txt||!gloss)return null;const T=idTok(txt);if(!T.length)return null;const alts=idAlts(gloss);
+const IDGEN=new Set('menggunakan memakai melakukan membuat menjadi pergi datang mengambil memberi punya memiliki berada orang barang sesuatu hal'.split(' '));
+function gzvIdSpan(txt,gloss,relax){if(!txt||!gloss)return null;const T=idTok(txt);if(!T.length)return null;const alts=idAlts(gloss);
  for(const strict of [true,false])for(const g of alts){const one=g.length==1,stop=one&&(IDSTOP.has(g[0])||g[0].length<4);if(strict==false&&stop)continue;
   for(let i=0;i+g.length<=T.length;i++){let ok=true;for(let j=0;j<g.length;j++){if(!idSame(T[i+j].w,g[j],strict)){ok=false;break}}
    if(ok)return[[T[i].a,T[i+g.length-1].b]]}}
+ if(relax)for(const g of alts)if(g.length>1)for(const w of g){if(w.length<4||IDSTOP.has(w)||IDGEN.has(w))continue;for(let i=0;i<T.length;i++)if(idSame(T[i].w,w,false))return[[T[i].a,T[i].b]]}
  return null}
 function gzvIdSeg(row,f){const t=row.i,sp=row.ix||[];let o='',l=0;sp.forEach(([a,b],i)=>{o+=esc(t.slice(l,a))+f(t.slice(a,b),i);l=b});return o+esc(t.slice(l))}
 function gzvCands(k){const sig=gmSig();if(GZV.sig!=sig){GZV.sig=sig;GZV.c.clear()}
  let v=GZV.c.get(k);if(v)return v;v=[];
- try{const L=libOfKey(k),c=K[base(k)],pos=c&&c[1],gl=c&&c[2],seen=new Set();
+ try{const L=libOfKey(k),c=K[base(k)],pos=c&&c[1],gl=gmGloss(k),seen=new Set();
   for(const x of gmCollect(k)){if(x.lv<2)continue;
    let p=gzvExt(gzpParse(libHL(x.f,k,L)),L,pos);
    if(!gzpOk(p,L,false))continue;
    const nk=p.t.replace(/\s+/g,'').toLowerCase();if(seen.has(nk))continue;seen.add(nk);
-   const tg=!!x.ver,ix=x.i?gzvIdSpan(x.i,gl):null;
+   const tg=!!x.ver,ix=x.i?gzvIdSpan(x.i,gl,true):null;if(!ix)continue;/* 7.30: soal rumpang hanya dari kalimat yang terjemahan Indonesianya cocok dengan arti kartu (anti false-positive) */
    v.push({k,L,t:p.t,sp:p.sp,i:x.i||'',ix,r:x.r||'',f:x.f,src:x.t,o:x.o,lv:tg?3:2,ver:tg,tg,art:p.sp.some(([a,b])=>/\s/.test(p.t.slice(a,b))&&pos=='N'),w:(x.i?2:1)*(ix?2:1)*(tg?3:1)})}}
  catch(e){v=[]}
  GZV.c.set(k,v);return v}

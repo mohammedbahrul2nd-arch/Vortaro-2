@@ -28,9 +28,9 @@ let sentn=0;
 for(const [L,pos,tpl] of [['de','N',w=>`Gestern habe ich ${w} im Park gesehen und mich gefreut.`],['nl','N',w=>`Gisteren heb ik ${w} in het park gezien en ik was blij.`]]){
   const c=find(L,pos);if(!c){console.log('lewati',L,'(tak ada kartu)');continue}
   const noun=c.w.replace(/^\S+\s+/,''),art=c.w.split(/\s+/)[0].toLowerCase();
-  const key=c.id+'@'+L;
+  const key=c.id+'@'+L,gl0=String(K[c.id][2]).split(/[\/~]/)[0].trim().toLowerCase();
   const sw=L=='de'?(art=='der'?'den '+noun:art+' '+noun):art+' '+noun;
-  S.sl=[{id:'t1',L,f:tpl(sw),r:'',i:'Kemarin saya melihatnya di taman.',c:++sentn}];S.lib=[];
+  S.sl=[{id:'t1',L,f:tpl(sw),r:'',i:'Kemarin saya melihat '+gl0+' itu di taman.',c:++sentn}];S.lib=[];
   X.GZP.sig='';
   const cand=X.gzvCands(key);
   ok(cand.length==1,L+': 1 kandidat, dapat '+cand.length+' ('+key+')');

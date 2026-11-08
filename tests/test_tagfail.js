@@ -22,7 +22,7 @@ const r=X.gmResolveTags(tag,'de',k=>sents[k]==null?null:sents[k]);
 const by=re=>r.fail.filter(x=>re.test(x.reason));
 ok(Array.isArray(r.fail),'r.fail ada');
 ok(r.drop==1&&by(/potongan teks tidak ada/).length==1&&by(/potongan teks tidak ada/)[0].name=='Xyzzyq'&&by(/potongan teks tidak ada/)[0].key=='1','potongan tidak ada di kalimat');
-const kk=by(/kartu kosakata tidak ditemukan/);ok(kk.length==1&&kk[0].kind=='V'&&kk[0].surface=='Park','kartu tidak ditemukan (tag tetap disimpan)');
+const kk=by(/kartu kosakata tidak ditemukan/);ok(kk.length==0,'7.30: lemma tak ketemu -> cadangan lewat bentuk di kalimat (Park) menautkan kartu, tidak gagal');
 ok(by(/legenda G1/).length==1,'legenda G tidak ada: '+JSON.stringify(by(/legenda/)));
 ok(by(/judul grammar tidak cocok/).length==1,'judul grammar tidak cocok');
 ok(by(/format tag tidak dikenali/).some(x=>x.name=='kaputt'&&x.key=='1')&&by(/format tag tidak dikenali/).some(x=>x.name=='blabla'&&x.key=='2'),'format baris salah');

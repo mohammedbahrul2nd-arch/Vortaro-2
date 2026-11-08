@@ -13,18 +13,18 @@ const X=ctx.X;
 
 const {K}=X;let id,art,noun;
 for(const i in K){const c=K[i];if(c[1]=='N'&&c[3].de&&c[3].de.length){const w=c[3].de[0][0];if(/^(der|die|das)\s+\p{L}{4,}$/iu.test(w)){id=i;art=w.split(/\s+/)[0].toLowerCase();noun=w.replace(/^\S+\s+/,'');break}}}
-const key=id+'@de',sw=art=='der'?'den '+noun:art+' '+noun;
+const key=id+'@de',gl0=String(K[id][2]).split(/[\/~]/)[0].trim().toLowerCase(),sw=art=='der'?'den '+noun:art+' '+noun;
 const sV=`Gestern habe ich ${sw} im Park gesehen und mich gefreut.`,sA=`Heute sehe ich ${sw} wieder im Garten und lache.`,sB=`Morgen kaufe ich ${sw} auf dem Markt in der Stadt.`;
 /* tag: sV bertag V: untuk kartu ini; sA tanpa tag; sB bertag kartu LAIN (tidak boleh dihitung) */
-S.sl=[{id:'v1',L:'de',f:sV,r:'',i:'Satu.',c:1,tg:[{t:'v',k:key,n:noun,s:sw,f:''}]}];
-S.lib=[{id:'L1',L:'de',k:'r',c:2,ps:[{f:[sA,sB],i:['Dua.','Tiga.'],r:null,tg:[null,[{t:'v',k:'zzz@de',n:'x',s:'x',f:''}]],sp:['','']}]}];
+S.sl=[{id:'v1',L:'de',f:sV,r:'',i:'Satu '+gl0+'.',c:1,tg:[{t:'v',k:key,n:noun,s:sw,f:''}]}];
+S.lib=[{id:'L1',L:'de',k:'r',c:2,ps:[{f:[sA,sB],i:['Dua '+gl0+'.','Tiga '+gl0+'.'],r:null,tg:[null,[{t:'v',k:'zzz@de',n:'x',s:'x',f:''}]],sp:['','']}]}];
 const col=X.gmCollect(key);
 ok(col.length==3,'3 kalimat terkumpul: '+col.length);
 const bf=f=>col.find(x=>x.f==f);
 ok(bf(sV).ver===true&&bf(sV).lv==3,'bertag -> ver, lv 3');
 ok(bf(sA).ver===false&&bf(sA).lv==2,'otomatis -> bukan ver, lv 2');
 ok(bf(sB).ver===false,'tag kartu lain tidak dihitung');
-ok(X.gmVerN(key)==1&&X.gmVerN(key+'~1')==1&&X.gmVerN('zzz@de')==1,'gmVerN per kartu (entri ke-2 ikut induk)');
+ok(X.gmVerN(key)==1&&X.gmVerN(key+'~1')==1&&X.gmVerN('zzz@de')==0,'gmVerN per kartu (entri ke-2 ikut induk; kunci tanpa kartu tak dihitung)');
 ok(X.gmVerN(id)==0,'kunci tanpa @ -> 0');
 ok(X.gmVerFirst(['a@de',key,'b@de']).join()==[key,'a@de','b@de'].join(),'kartu terverifikasi ditaruh paling atas, urutan lain stabil');
 X.gmRoll.key='';const h=X.gmExBlock(key);
