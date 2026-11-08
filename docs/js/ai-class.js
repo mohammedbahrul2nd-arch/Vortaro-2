@@ -28,7 +28,7 @@ const AIP={
   mn:'pecah menjadi akar + afiks, kemiripan dengan bahasa Latin/Roman/Inggris, satu akar membuka satu keluarga kata',
   jb:'jangan lupa -n pada objek dan jangan membuat kata baru tanpa dasar akar yang jelas'}};
 const AIX=['','Sering lupa'];
-let aiCtx=null;
+let aiCtx=null,aiLastPrompt='';
 const aiO=()=>{const o=S.o;if(!o.aiM)o.aiM='all';if(!o.aiN)o.aiN=10;if(!o.aiW)o.aiW=8;if(o.aiG==null)o.aiG=1;if(!o.aiT)o.aiT='long';if(!o.aiP)o.aiP=4;if(o.aiT=='mid')o.aiT=o.aiDest=='listen'||o.aiF=='aud'?'listen':'read';if(o.aiT=='short')o.aiT='sent';if(!o.aiDn)o.aiDn=10;if(!o.aiSn)o.aiSn=20;if(!o.aiK)o.aiK='own';if(!o.aiTm)o.aiTm='talk';if(!o.aiSit)o.aiSit='free';if(!o.aiTn)o.aiTn=8;if(!o.aiR)o.aiR=5;if(o.aiMs==null)o.aiMs=1;if(!o.aiMW)o.aiMW=12;if(!o.aiMG)o.aiMG=4;if(o.aiLW==null)o.aiLW=8;if(o.aiLG==null)o.aiLG=3;if(o.aiPMW==null)o.aiPMW=o.aiMW||12;if(o.aiPMG==null)o.aiPMG=o.aiMG||4;if(!o.aiLL)o.aiLL='';if(!o.aiLT)o.aiLT='';if(o.aiNew==null)o.aiNew=1;if(!o.aiNW)o.aiNW=6;if(o.aiNG==null)o.aiNG=3;if(!o.aiLvs||typeof o.aiLvs!='object')o.aiLvs={};return o};
 /* v7.7: kuota 0 (kata prioritas, grammar prioritas, kosakata mahir, grammar mahir) di Kelas AI Pustaka → kuota bawaan yang hilang diisi kartu BARU (belum pernah muncul di flashcard) */
 const AIDEF={LW:8,LG:3,MW:12,MG:4};
@@ -383,7 +383,7 @@ function ltCopy(t){t=String(t==null?'':t);
   a.remove();return ok};
  try{if(navigator.clipboard&&navigator.clipboard.writeText&&window.isSecureContext!==false)return navigator.clipboard.writeText(t).then(()=>true,()=>fb())}catch(e){}
  return Promise.resolve(fb())}
-function aiCopy(){const t=aiText();if(!t)return false;
+function aiCopy(){const t=aiText();if(!t)return false;aiLastPrompt=t;
  ltCopy(t).then(ok=>{if(ok)toast('Prompt disalin ✓ Tempel di AI favoritmu');else{const x=document.getElementById('aiTxt');if(x){x.focus();x.select()}toast('Salin otomatis gagal. Teks prompt sudah terpilih — tekan Ctrl/Cmd+C atau tahan lalu pilih Salin.')}});return true}
 document.addEventListener('click',e=>{const m=document.getElementById('aim');
  if(m&&e.target===m){e.stopPropagation();aiClose();return}
@@ -434,6 +434,14 @@ const aiLvAll=L=>{const l=D.L.find(x=>x[0]==L);return l?l[4]:[]};
 function aiLvAct(L){const o=aiO(),ex=(o.aiLvs[L]||[]).filter(x=>aiLvAll(L).includes(x));if(ex.length)return{set:new Set(ex),exp:1,list:aiLvAll(L).filter(x=>ex.includes(x))};
  const sc=new Set();(S.o.ff||[]).concat(S.o.gff||[]).forEach(x=>{const p=String(x).split(':');if(p[0]==L&&p[1])sc.add(p.slice(1).join(':'))});return{set:sc,exp:0,list:aiLvAll(L).filter(x=>sc.has(x))}}
 /* kandidat: kartu yang sudah kusentuh (belajar / mahir) + (v7.6) kartu yang belum pernah muncul di level terpilih; tanpa opsi baru: pengisi terbatas seperti dulu */
+/* v7.32: kartu yang sedang / baru saja tampil di flashcard = prioritas Kelas AI Pustaka */
+function aiPinsRaw(){const r=[typeof fcCur!='undefined'?fcCur:null,S.o.fcn,S.o.fcl].filter(Boolean);return[...new Set(r)]}
+function aiPins(){const o=[];for(const x of aiPinsRaw()){const k=GK[x]?x:(aiIsV(x)?ik(base(x),lang(x)):null);if(k&&!o.includes(k))o.push(k)}return o}
+function aiFcMark(k){try{const g=GK[k],L=g?g[1]:lang(k);if(typeof AIP=='undefined'||!AIP[L])return{ok:0,why:'bahasa ini belum didukung Kelas AI'};if(S.srs[k]&&S.srs[k].z)return{ok:0,why:'kartu sedang ditangguhkan'};
+ const kb=g?k:ik(base(k),L),cd=aiCovCands(L),inc=g?(cd.g.includes(kb)||cd.fg.some(x=>x.k==kb)):(cd.w.includes(kb)||cd.fw.some(x=>x.k==kb));
+ if(!inc)return{ok:0,why:'di luar level / filter Kelas AI'};return{ok:1,n:g?0:gmVerN(kb),L,g:!!g}}catch(e){return null}}
+function aiMarkHtml(k){const m=aiFcMark(k);if(!m)return'';const lg=(typeof aiO=='function'&&aiO().aiLL&&aiO().aiLL!=m.L)?` · pilih bahasa ${esc(LN[m.L]||m.L)} di Kelas AI Pustaka`:'';
+ return m.ok?`<div class="aimk ok">✅ Masuk Kelas AI Pustaka (prioritas)${m.g?'':m.n?' · '+m.n+' contoh terverifikasi':' · belum ada contoh terverifikasi'}${lg}</div>`:`<div class="aimk no">⛔ Tidak masuk Kelas AI Pustaka: ${esc(m.why)}</div>`}
 function aiCovCands(L){const o=aiO(),act=aiLvAct(L),sc=act.set,inSc=lv=>!sc.size||sc.has(lv),seen=new Set(),w=[],g=[],pro=new Set(),fw=[],fg=[];
  Object.keys(S.srs).concat(Object.keys(S.p)).forEach(k0=>{const k=aiIsV(k0)&&ent(k0)?ik(base(k0),lang(k0)):k0;if(seen.has(k))return;seen.add(k);const c=S.srs[k];if(c&&c.z)return;
   if(GK[k]){if(GK[k][1]==L&&(!act.exp||inSc(GK[k][2]))){g.push(k);pro.add(k)}}
@@ -447,13 +455,19 @@ function aiCovCands(L){const o=aiO(),act=aiLvAct(L),sc=act.set,inSc=lv=>!sc.size
   if(g.length<24){const f=[];for(const x of D.G){if(x[1]!=L||seen.has(x[0])||!inSc(x[2]))continue;f.push({k:x[0],r:aiRank(L,x[2])})}
    f.sort((a,b)=>a.r-b.r);f.slice(0,44-g.length).forEach(x=>g.push(x.k))}}
  /* v7.27.0 (B3): kartu yang sedang tampil di flashcard (juga yang belum diungkap) selalu jadi kandidat, apa pun filter tingkat/batas pengisi */
- const cur=typeof fcCur!='undefined'?fcCur:null;
+ for(const cur of aiPinsRaw().reverse()){
  if(cur&&!(S.srs[cur]&&S.srs[cur].z)){
   if(GK[cur]){if(GK[cur][1]==L&&!g.includes(cur)&&!fg.some(x=>x.k==cur)){if(seen.has(cur)){g.unshift(cur);pro.add(cur)}else if(aiNewOn(o))fg.unshift({k:cur,r:-1});else g.unshift(cur)}}
   else if(aiIsV(cur)&&lang(cur)==L){const kb=ik(base(cur),L),cc=K[base(cur)],es=cc&&cc[3][L];
-   if(es&&es.length&&!(S.srs[kb]&&S.srs[kb].z)&&!w.includes(kb)&&!fw.some(x=>x.k==kb)){if(seen.has(kb)){w.unshift(kb);pro.add(kb)}else if(aiNewOn(o))fw.unshift({k:kb,r:-1});else w.unshift(kb)}}}
+   if(es&&es.length&&!(S.srs[kb]&&S.srs[kb].z)&&!w.includes(kb)&&!fw.some(x=>x.k==kb)){if(seen.has(kb)){w.unshift(kb);pro.add(kb)}else if(aiNewOn(o))fw.unshift({k:kb,r:-1});else w.unshift(kb)}}}}
  return{w:w.slice(0,aiNewOn(o)?1200:320),g:g.slice(0,aiNewOn(o)?400:60),fw,fg,pro,act}}
-function aiCoverage(L){const o=aiO(),sig=(typeof fcCur!='undefined'&&fcCur||'')+'|'+S.lib.length+'/'+S.sl.length+'/'+(typeof gmB!='undefined'?gmB.n:0)+'/'+(S.lib[0]?S.lib[0].c:0)+'/'+(S.sl[0]?S.sl[0].c:0)+'/'+(S.o.gmMin||2)+'/'+aiNewOn(o)+'/'+(o.aiLvs[L]||[]).join(',')+'/'+Object.keys(S.srs).length+'/'+Object.keys(S.p).length+'/'+(S.o.ff||[]).join(',')+'/'+(S.o.gff||[]).join(',');
+/* v7.33: jumlah kosakata/grammar menurut level terpilih + berapa yang sudah punya contoh terverifikasi (gmVerN) */
+function aiLvCount(L){const act=aiLvAct(L),sc=act.set,inSc=lv=>!sc.size||sc.has(lv),by={},lvs=aiLvAll(L);let tot=0,ver=0,gt=0;
+ const slot=lv=>by[lv]||(by[lv]={w:0,v:0,g:0});
+ for(const c of D.C){const es=c[3][L];if(!es||!es.length)continue;const lv=es[0][3]||'';if(!es.some(e=>inSc(e[3])))continue;const v=gmVerN(ik(c[0],L))>0?1:0;tot++;ver+=v;const z=slot(lv);z.w++;z.v+=v}
+ for(const x of D.G){if(x[1]!=L||!inSc(x[2]))continue;gt++;slot(x[2]).g++}
+ return{tot,ver,gt,by,lvs:lvs.filter(v=>by[v]),all:!sc.size}}
+function aiCoverage(L){const o=aiO(),sig=(typeof fcCur!='undefined'&&fcCur||'')+'|'+(S.o.fcn||'')+'|'+(S.o.fcl||'')+'|'+S.lib.length+'/'+S.sl.length+'/'+(typeof gmB!='undefined'?gmB.n:0)+'/'+(S.lib[0]?S.lib[0].c:0)+'/'+(S.sl[0]?S.sl[0].c:0)+'/'+(S.o.gmMin||2)+'/'+aiNewOn(o)+'/'+(o.aiLvs[L]||[]).join(',')+'/'+Object.keys(S.srs).length+'/'+Object.keys(S.p).length+'/'+(S.o.ff||[]).join(',')+'/'+(S.o.gff||[]).join(',');
  if(aiCovC[L]&&aiCovC[L].sig==sig)return aiCovC[L];
  const d=aiLibCorpus(L),cd=aiCovCands(L),W=[],G=[],F=[],FG=[],cnt=k=>{if(!d.sents.length)return 0;try{return libCountKey(d,k)}catch(e){return 0}};
  /* 7.30.0: yang dihitung sebagai 'contoh' HANYA kalimat terverifikasi (bertag V:/K: asli dari AI); hasil deteksi otomatis tidak ikut (a = info saja) */
@@ -462,19 +476,19 @@ function aiCoverage(L){const o=aiO(),sig=(typeof fcCur!='undefined'&&fcCur||'')+
  cd.g.forEach(k=>{const g=GK[k];if(!g)return;let n=0;try{n=d.sents.length?gmCount(d,k):0}catch(e){}const s0=aiState(k,1);G.push({k,g,n,st:s0?s0.s:-1,pr:cd.pro.has(k)?1:0})});
  cd.fw.forEach(x=>{const c=K[base(x.k)];if(!c)return;const q=cv2(x.k);F.push({k:x.k,c,n:q.n,v:q.v,a:q.a,st:-1,pr:0,fr:1,r:x.r,pos:c[1]})});
  cd.fg.forEach(x=>{const g=GK[x.k];if(!g)return;let n=0;try{n=d.sents.length?gmCount(d,x.k):0}catch(e){}FG.push({k:x.k,g,n,st:-1,pr:0,fr:1,r:x.r})});
- return aiCovC[L]={sig,W,G,F,FG,nS:d.sents.length,act:cd.act,vW:W.concat(F).filter(x=>x.v>0).length,aW:W.concat(F).filter(x=>!x.v&&x.a>0).length}}
+ return aiCovC[L]={sig,lvC:aiLvCount(L),W,G,F,FG,nS:d.sents.length,act:cd.act,vW:W.concat(F).filter(x=>x.v>0).length,aW:W.concat(F).filter(x=>!x.v&&x.a>0).length}}
 function aiGatherLib(L,jit){const o=aiO(),cv=aiCoverage(L),j=jit||1;
- const srt=(a,b)=>a.n-b.n||b.pr-a.pr||b.st-a.st||a.j-b.j,tg=x=>[x.v!=null?x.v+' contoh terverifikasi di Pustaka':x.n==0?'0 contoh di Pustaka':x.n+' contoh di Pustaka'];
- const W=cv.W.map(x=>({...x,j:Math.random()*j})).sort(srt),G=cv.G.map(x=>({...x,j:Math.random()*j})).sort(srt);
- const pw=W.slice(0,o.aiLW).map(x=>({...x,tags:tg(x),tier:x.n==0?1:2})),pg=G.slice(0,o.aiLG).map(x=>({...x,tags:tg(x),tier:x.n==0?1:2}));
+ const pins=aiPins(),pn=x=>pins.includes(x.k)?1:0,srt=(a,b)=>pn(b)-pn(a)||a.n-b.n||b.pr-a.pr||b.st-a.st||a.j-b.j,tg=x=>[x.v!=null?x.v+' contoh terverifikasi di Pustaka':x.n==0?'0 contoh di Pustaka':x.n+' contoh di Pustaka'];
+ const W=cv.W.concat(cv.F.filter(x=>pins.includes(x.k))).map(x=>({...x,j:Math.random()*j})).sort(srt),G=cv.G.concat(cv.FG.filter(x=>pins.includes(x.k))).map(x=>({...x,j:Math.random()*j})).sort(srt);
+ const pw=W.slice(0,Math.max(o.aiLW,W.filter(pn).length)).map(x=>({...x,tags:tg(x),tier:x.n==0?1:2})),pg=G.slice(0,Math.max(o.aiLG,G.filter(pn).length)).map(x=>({...x,tags:tg(x),tier:x.n==0?1:2}));
  /* kartu yang belum pernah muncul: yang belum punya contoh dulu, level terendah dulu (supaya seluruh level terpilih terisi bertahap) */
  const fsr=(a,b)=>a.n-b.n||a.r-b.r||a.j-b.j,tn=x=>['belum pernah muncul · '+(x.v!=null?x.v+' contoh terverifikasi':x.n==0?'0 contoh':x.n+' contoh')];
- const fw=cv.F.map(x=>({...x,j:Math.random()*j*3})).sort(fsr),fg=cv.FG.map(x=>({...x,j:Math.random()*j*3})).sort(fsr);
+ const fw=cv.F.filter(x=>!pins.includes(x.k)).map(x=>({...x,j:Math.random()*j*3})).sort(fsr),fg=cv.FG.filter(x=>!pins.includes(x.k)).map(x=>({...x,j:Math.random()*j*3})).sort(fsr);
  const nq=aiNQ(o),nw=nq.w?fw.slice(0,nq.w).map(x=>({...x,tags:tn(x),tier:0})):[],ng=nq.g?fg.slice(0,nq.g).map(x=>({...x,tags:tn(x),tier:0})):[];
  const ex=new Set(pw.map(x=>x.k).concat(pg.map(x=>x.k),nw.map(x=>x.k),ng.map(x=>x.k)));
  const wv=aiSort(aiPoolV(L,''),j+1).filter(x=>!ex.has(x.k)),wg=aiSort(aiPoolG(L,''),j+1).filter(x=>!ex.has(x.k)),pm=aiPoolM(L,''),mv=aiSort(pm.W.filter(x=>!ex.has(x.k)),6),mgp=aiSort(pm.G.filter(x=>!ex.has(x.k)),6);
  const aw=cv.W.concat(cv.F),ag=cv.G.concat(cv.FG),lvTxt=cv.act.list.length?cv.act.list.join(', '):'semua level';
- return{k:'',v:false,L,cov:1,fk:(aiCtx&&aiCtx.cov&&aiCtx.fk)||'',nS:cv.nS,vW:cv.vW,aW:cv.aW,pw,pg,nw,ng,poolV:wv,poolG:wg,words:aiTake(wv,o.aiW),gr:wg.slice(0,3),off:new Set(),poolMW:mv,poolMG:mgp,mw:aiTake(mv,o.aiPMW),mg:mgp.slice(0,o.aiPMG),zeroW:aw.filter(x=>x.n==0).length,zeroG:ag.filter(x=>x.n==0).length,totW:aw.length,totG:ag.length,freshW:cv.F.length,freshG:cv.FG.length,freshWz:cv.F.filter(x=>x.n==0).length,freshGz:cv.FG.filter(x=>x.n==0).length,lvTxt,lvExp:cv.act.exp}}
+ return{k:'',v:false,L,cov:1,fk:(aiCtx&&aiCtx.cov&&aiCtx.fk)||'',nS:cv.nS,vW:cv.vW,aW:cv.aW,pw,pg,nw,ng,poolV:wv,poolG:wg,words:aiTake(wv,o.aiW),gr:wg.slice(0,3),off:new Set(),poolMW:mv,poolMG:mgp,mw:aiTake(mv,o.aiPMW),mg:mgp.slice(0,o.aiPMG),lvC:cv.lvC,zeroW:aw.filter(x=>x.n==0).length,zeroG:ag.filter(x=>x.n==0).length,totW:aw.length,totG:ag.length,freshW:cv.F.length,freshG:cv.FG.length,freshWz:cv.F.filter(x=>x.n==0).length,freshGz:cv.FG.filter(x=>x.n==0).length,lvTxt,lvExp:cv.act.exp}}
 const aiLibBuild=(c,lt)=>lt=='sent'?aiBuildSent(c):lt=='dialog'?aiBuildDialog(c):aiBuildText(c,lt=='listen'?'listen':'read');
 function aiLibOpen(){aiClose();const o=aiO(),avail=Object.keys(AIP).filter(l=>D.L.some(x=>x[0]==l));if(!avail.length)return;
  let L=o.aiLL;if(!avail.includes(L))L=avail.includes(S.o.lang)?S.o.lang:avail[0];o.aiLL=L;
@@ -484,7 +498,9 @@ function aiLibOpen(){aiClose();const o=aiO(),avail=Object.keys(AIP).filter(l=>D.
  m.innerHTML=`<div class=eds role=dialog aria-modal=true aria-label="Kelas AI Pustaka"><div class=edh><div><b>🎓 Kelas AI · isi Pustaka</b><small>Prompt untuk kartu yang belum punya contoh kalimat</small></div><button class=mini data-ai=close aria-label=Tutup>✕</button></div><div class=edb></div><div class="edf aif"><button class=pri data-ai=copy>Salin prompt</button><div class=aisites><a data-ai=site href="https://chatgpt.com/" target=_blank rel=noopener>ChatGPT</a><a data-ai=site href="https://claude.ai/new" target=_blank rel=noopener>Claude</a><a data-ai=site href="https://gemini.google.com/app" target=_blank rel=noopener>Gemini</a>${navigator.share?'<button data-ai=share>Bagikan</button>':''}</div></div></div>`;
  document.body.appendChild(m);document.body.style.overflow='hidden';aiPanel()}
 function aiLvRow(c){const lvs=aiLvAll(c.L),act=aiLvAct(c.L);
- return `<div class=aio><small>Level aktif${act.exp?'':' — sekarang mengikuti filter flashcard ('+(act.list.length?act.list.join(', '):'semua level')+')'}</small><div class=chips>${lvs.map(v=>`<button class="chip${act.exp&&act.set.has(v)?' on':''}" data-ai=lv data-v="${esc(v)}">${esc(v)}</button>`).join('')}<button class=chip data-ai=lvall>Semua</button>${act.exp?'<button class=chip data-ai=lvclr>Ikuti filter</button>':''}</div></div>`}
+ return `<div class=aio><small>Level aktif${act.exp?'':' — sekarang mengikuti filter flashcard ('+(act.list.length?act.list.join(', '):'semua level')+')'}</small><div class=chips>${lvs.map(v=>`<button class="chip${act.exp&&act.set.has(v)?' on':''}" data-ai=lv data-v="${esc(v)}">${esc(v)}</button>`).join('')}<button class=chip data-ai=lvall>Semua</button>${act.exp?'<button class=chip data-ai=lvclr>Ikuti filter</button>':''}</div>${aiLvCountHtml(c)}</div>`}
+function aiLvCountHtml(c){const z=c.lvC;if(!z)return'';const f=n=>n.toLocaleString('id-ID'),pc=z.tot?Math.round(z.ver*100/z.tot):0;
+ return `<div class=ailvn><b>${f(z.tot)} kosakata</b> ${z.all?'(semua level)':'di level terpilih'} · ${f(z.ver)} sudah punya contoh terverifikasi (${pc}%) · ${f(z.tot-z.ver)} belum · ${f(z.gt)} grammar${z.lvs.length>1?`<small>${z.lvs.map(v=>`${esc(v||'—')}: ${f(z.by[v].w)} kata (${f(z.by[v].v)} ✓)`).join(' · ')}</small>`:''}</div>`}
 function aiNewRow(c,o,opt){const q=aiNQ(o),zq=q.lw||q.lg;
  return opt('aiNew','Kartu belum pernah muncul ikut jadi pembentuk',[[1,'Ikut'],[0,'Tidak']])+(o.aiNew?opt('aiNW','Kosakata baru per prompt',[[3,'3'],[6,'6'],[10,'10'],[15,'15']])+opt('aiNG','Grammar baru per prompt',[[0,'0'],[2,'2'],[3,'3'],[5,'5'],[8,'8']]):'')+
  (zq?`<small class=aiz>Kuota 0 digantikan kartu baru: +${q.lw} kosakata · +${q.lg} grammar (total ${q.w} kosakata · ${q.g} grammar baru)</small>`:'')}

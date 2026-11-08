@@ -1,0 +1,20 @@
+/* v7.33: aiLvCount — jumlah kosakata menurut level terpilih + yang sudah terverifikasi */
+const fs=require('fs'),vm=require('vm'),path=require('path');
+const J=f=>fs.readFileSync(path.join(__dirname,'..','docs','js',f),'utf8');
+const S={o:{},lib:[],sl:[],g:{},srs:{},p:{},s:{}};const noop=()=>{};
+const ctx={confirm:()=>true,toast:noop,libOpenId:'',console,Math,Date,JSON,Set,Map,Object,Array,String,Number,RegExp,parseInt,isFinite,S,esc:s=>String(s),spk:()=>'',document:{addEventListener:noop,getElementById:()=>null,querySelector:()=>null,body:{}},window:{addEventListener:noop},navigator:{},localStorage:{getItem:()=>null,setItem:noop},setTimeout:noop,clearTimeout:noop};
+vm.createContext(ctx);
+const PRE="const K={};D.C.forEach(c=>K[c[0]]=c);const GK={};D.G.forEach(g=>GK[g[0]]=g);const LN={};D.L.forEach(l=>LN[l[0]]=l[1]);const SEP='@',base=k=>{const i=String(k).indexOf(SEP);return i<0?k:k.slice(0,i)},lang=k=>{const i=String(k).indexOf(SEP);return i<0?'':k.slice(i+1).replace(/~\\d+$/,'')},ent=k=>{const m=/~(\\d+)$/.exec(String(k));return m?+m[1]:0};";
+vm.runInContext(J('data.js')+'\n'+PRE+'\n'+J('pustaka.js')+'\n'+J('gram.js')+'\n'+J('ai-class.js')+'\nconst ik=(k,l)=>k+SEP+l;let fcCur=null;\n;this.X={aiLvCount,aiLvCountHtml,aiCoverage,aiGatherLib,aiLvAll,D,K};',ctx,{filename:'b.js'});
+const X=ctx.X;let n=0;const ok=(c,m)=>{if(!c){console.error('GAGAL:',m);process.exit(1)}n++};
+const L='de',lvs=X.aiLvAll(L);ok(lvs.length>1,'level de ada');
+S.o={aiLvs:{},ff:[],gff:[]};
+let all=X.aiLvCount(L);const manual=X.D.C.filter(c=>c[3][L]&&c[3][L].length).length;
+ok(all.tot==manual&&all.all,'tanpa filter: semua kartu '+all.tot);
+S.o.aiLvs={de:[lvs[0]]};const a1=X.aiLvCount(L);
+ok(a1.tot>0&&a1.tot<all.tot,'filter level mengecilkan jumlah ('+a1.tot+' < '+all.tot+')');
+ok(a1.tot==X.D.C.filter(c=>{const es=c[3][L];return es&&es.length&&es.some(e=>e[3]==lvs[0])}).length,'jumlah = kartu yang punya entri di level itu');
+ok(a1.ver==0,'tanpa Pustaka belum ada yang terverifikasi');
+ok(/kosakata/.test(X.aiLvCountHtml({lvC:a1})),'html tampil');
+const cv=X.aiCoverage(L);ok(cv.lvC&&cv.lvC.tot==a1.tot,'aiCoverage membawa lvC');
+console.log('test_lvcount OK',n,'(de',lvs[0],a1.tot,'dari',all.tot,')');

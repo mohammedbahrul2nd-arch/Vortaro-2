@@ -686,6 +686,7 @@ function libAddOpen(pre,kind){libAddClose();libAddK=kind||(typeof S!='undefined'
  `<div class=aio style="margin-top:8px"><small>Simpan ke</small><div class=chips id=lbK></div></div>`+
  `<label class=edl>Teks<small id=lbH></small><textarea id=lbX rows=11 spellcheck=false>${esc(pre||'')}</textarea></label>`+
  `<button data-lb=paste style="margin:8px 0">📋 Tempel dari clipboard</button><div class=gsub id=lbP style="margin:4px 0 10px"></div>`+
+ `<div id=lbPw style="display:none"><label class=edl>Prompt yang dipakai (opsional)<small>Untuk mengecek kartu/grammar mana yang belum masuk di hasil.</small><textarea id=lbPr rows=4 spellcheck=false placeholder="Tempel prompt Kelas AI di sini"></textarea></label><button data-lb=lastpr style="margin:4px 0 8px">Pakai prompt terakhir yang kusalin</button></div>`+
  `<label class=edl id=lbTw>Judul (boleh kosong)<input id=lbT autocomplete=off placeholder="Otomatis dari judul / kalimat pertama"></label>`+
  `<div class=aiopts><label class=edl style="flex:1">Bahasa<select id=lbL><option value="">Otomatis (deteksi)</option>${LIBL.map(l=>`<option value=${l}>${libNm(l)}</option>`).join('')}</select></label>`+
  `<label class=edl style="flex:1" id=lbFw>Format<select id=lbF><option value=auto>Otomatis (disarankan)</option><option value=stk>Kelompok per kalimat [1.1]</option><option value=aud>Blok === (Listening)</option><option value=sen>Per kalimat “Paragraf N” (lama)</option><option value=txt>Teks polos (tanpa terjemahan)</option></select></label></div>`+
@@ -704,18 +705,29 @@ function libFailHtml(fl){if(!fl||!fl.length)return'';const M=40,KD={V:'V',K:'K',
  return`<details${fl.length<=5?' open':''} style="margin-top:6px;font-size:.84rem"><summary style="color:var(--s1)">⚠ ${fl.length} tag gagal masuk (ketuk untuk daftar)</summary>`+
   fl.slice(0,M).map(x=>`<div style="margin:4px 0;padding-left:8px;border-left:2px solid var(--b)">kalimat <b>${esc(x.key)}</b> · ${esc(KD[x.kind]||x.kind)}: <b>${esc(x.name)}</b>${x.surface&&x.surface!=x.name?' → “'+esc(x.surface)+'”':''}<br><small>${esc(x.reason)}</small></div>`).join('')+
   (fl.length>M?`<small>… dan ${fl.length-M} lainnya</small>`:'')+`</details>`}
-function libAddPrev(){const p=document.getElementById('lbP');if(!p)return;const v=libAddRead();if(!v.x.trim()){p.textContent='Belum ada teks.';return}
+/* v7.33: laporan kartu/grammar dari prompt yang belum masuk */
+function libRepHtml(z){if(!z)return'';const M=40,li=(a,c)=>a.slice(0,M).map(x=>`<div style="margin:4px 0;padding-left:8px;border-left:2px solid ${c}">${x.kind=='G'?'Grammar':'Kata'} <b>${esc(x.name)}</b>${x.gloss?' = '+esc(x.gloss):''}${x.lv?' ['+esc(x.lv)+']':''}<br><small>${esc(x.why)}</small></div>`).join('')+(a.length>M?`<small>… dan ${a.length-M} lainnya</small>`:'');
+ const bad=z.miss.length+z.unv.length;
+ return `<div style="margin-top:8px;padding:8px 10px;border:1px solid var(--b);border-radius:12px;font-size:.84rem"><b>📋 Laporan prompt</b> · ${z.nS} kalimat · ${z.n} kartu di prompt · <b>${z.ok} masuk</b>${z.unv.length?' · '+z.unv.length+' bertag tapi belum terverifikasi':''} · <b style="color:${z.miss.length?'var(--bad)':'inherit'}">${z.miss.length} belum masuk</b>`+
+  (bad?`<details${bad<=5?' open':''} style="margin-top:4px"><summary>Daftar kartu belum masuk / belum terverifikasi</summary>${li(z.miss,'var(--bad)')}${li(z.unv,'var(--s1)')}</details>`:'<br><small>Semua kartu di prompt punya tag di hasil yang ditempel ✓</small>')+`</div>`}
+const LIB_REP_MIN=6;
+function libAddPrev(){const p=document.getElementById('lbP');if(!p)return;const v=libAddRead();if(!v.x.trim()){p.textContent='Belum ada teks.';libPrBox(0);return}
  const r=libAddParse();if(r.err){p.innerHTML=`<span style="color:var(--bad)">${esc(r.err)}</span>`;return}
  const wr=(r.warn||[]).length?`<div style="color:var(--s1);margin-top:4px;font-size:.84rem">${r.warn.map(w=>'⚠ '+esc(w)).join('<br>')}</div>`:'';
  const wf=wr+libFailHtml(r.fail);
  if(libAddK=='s'){const rom=r.L=='ja'||r.L=='zh',n=r.sents.length,nr=r.sents.filter(x=>x.r).length,nt=r.sents.filter(x=>x.i).length,dup=r.sents.filter(x=>S.sl.some(y=>y.L==r.L&&y.f==x.f)).length;
-  p.innerHTML=`Terdeteksi: <b>${libNm(r.L)}</b> · ${n} kalimat · terjemahan ${nt}/${n}`+(rom?` · romanisasi ${nr}/${n}`:'')+(r.tagN?` · <b>${r.tagN}</b> tag grammar/kata kerja ✓`:'')+(dup?` · <b>${dup}</b> sudah ada (dilewati)`:'')+wf;return}
+  p.innerHTML=`Terdeteksi: <b>${libNm(r.L)}</b> · ${n} kalimat · terjemahan ${nt}/${n}`+(rom?` · romanisasi ${nr}/${n}`:'')+(r.tagN?` · <b>${r.tagN}</b> tag grammar/kata kerja ✓`:'')+(dup?` · <b>${dup}</b> sudah ada (dilewati)`:'')+wf+libRepFor(r,v);return}
  const ns=r.ps.reduce((a,q)=>a+q.f.length,0),tr=r.ps.some(q=>q.i.length),rom=r.L=='ja'||r.L=='zh',rm=r.ps.some(q=>q.r&&q.r.length),al=r.ps.every(q=>q.a);
  const nr=r.ps.reduce((a,q)=>a+(q.r?q.r.filter(Boolean).length:0),0),nt=r.ps.reduce((a,q)=>a+(q.a?q.i.filter(Boolean).length:q.i.length?q.f.length:0),0);
  const FM={aud:'blok ===',stk:'kelompok [1.1]',sen:'per kalimat',grp:'terkelompok',blk:'paragraf + terjemahan',txt:'teks polos'},dl=libAddK=='d'?(r.ps.some(q=>q.sp)?' · penutur ✓':' · <b>penutur (A:/B:) tidak terbaca</b>'):'';
  p.innerHTML=`Terdeteksi: <b>${libNm(r.L)}</b> · format ${FM[r.fmt]||r.fmt} · ${r.ps.length} paragraf · ${ns} kalimat · terjemahan ${tr?(nt==ns||!al?'✓':'✓ '+nt+'/'+ns):'—'}`+
   (rom?` · romanisasi ${rm?(nr==ns?'✓ selaras '+nr+'/'+ns:'⚠ '+nr+'/'+ns):'— (dibuat otomatis, perkiraan)'}`:'')+dl+(tr&&!al?' <small>(sebagian terjemahan per paragraf)</small>':'')+
-  (r.tagN?` · <b>${r.tagN}</b> tag grammar/kata kerja ✓`:'')+(r.title?`<br><small>Judul: ${esc(r.title)}</small>`:'')+wf}
+  (r.tagN?` · <b>${r.tagN}</b> tag grammar/kata kerja ✓`:'')+(r.title?`<br><small>Judul: ${esc(r.title)}</small>`:'')+wf+libRepFor(r,v)}
+/* kotak prompt: tampil bila yang ditempel banyak kalimat; laporan dihitung dari prompt itu */
+function libPrBox(show){const w=document.getElementById('lbPw');if(w)w.style.display=show?'':'none'}
+function libRepFor(r,v){const n=r.sents?r.sents.length:(r.ps||[]).reduce((a,q)=>a+q.f.length,0);libPrBox(n>=LIB_REP_MIN);if(n<LIB_REP_MIN)return'';
+ const pr=(document.getElementById('lbPr')||{}).value||'';if(!pr.trim())return'<br><small>Tempel prompt yang kamu pakai di kotak “Prompt yang dipakai” untuk melihat kartu/grammar yang belum masuk.</small>';
+ try{const z=gmTagReport(r,pr,v.x,r.L);return z?libRepHtml(z):'<br><small>Tidak ada daftar kartu yang dikenali di prompt itu (perlu prompt “Kelas AI · isi Pustaka”).</small>'}catch(e){return''}}
 /* v7.9: batas Pustaka dinaikkan (IndexedDB tidak dibatasi 5 MB) */
 const LIB_MAX=20000,LIB_SL_MAX=200000;
 function libAddSave(play){const r=libAddParse();if(r.err)return toast(r.err);
@@ -729,8 +741,9 @@ document.addEventListener('click',e=>{const m=document.getElementById('lbm');if(
  const b=e.target.closest('[data-lb]');if(!b)return;const a=b.dataset.lb;
  if(a=='close')libAddClose();else if(a=='save')libAddSave(0);else if(a=='saveplay')libAddSave(1);
  else if(a=='tk'){libAddK=['r','l','d','s'].includes(b.dataset.v)?b.dataset.v:'r';libAddKR();libAddPrev()}
+ else if(a=='lastpr'){const x=document.getElementById('lbPr'),t=typeof aiLastPrompt=='string'?aiLastPrompt:'';if(!t)toast('Belum ada prompt yang disalin di sesi ini. Tempel manual.');else if(x){x.value=t;libAddPrev()}}
  else if(a=='paste'){try{navigator.clipboard.readText().then(t=>{const x=document.getElementById('lbX');if(x){x.value=t;libAddPrev()}}).catch(()=>toast('Izin clipboard ditolak. Tempel manual di kotak teks.'))}catch(_){toast('Tempel manual di kotak teks.')}}});
-document.addEventListener('input',e=>{if(e.target.id=='lbX'||e.target.id=='lbT')libAddPrev()});
+document.addEventListener('input',e=>{if(e.target.id=='lbX'||e.target.id=='lbT'||e.target.id=='lbPr')libAddPrev()});
 document.addEventListener('change',e=>{if(e.target.id=='lbL'||e.target.id=='lbF')libAddPrev()});
 document.addEventListener('keydown',e=>{if(!document.getElementById('lbm'))return;if(e.key=='Escape')libAddClose();else if((e.ctrlKey||e.metaKey)&&e.key=='Enter'){e.preventDefault();libAddSave(0)}});
 

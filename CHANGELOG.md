@@ -1,5 +1,71 @@
 # Riwayat Perubahan
 
+## 7.39.0 — Minggu, 8 Nov 2026 (tahap 5D: +30 verba untrennbar, soal prefiks campur)
+
+- **Untrennbare Verben (DTU): 49 → 79 verba**, tiap verba 4 kalimat (total kalimat 1066). Baru: begrüßen, begleiten, bemerken, beobachten, berichten, beweisen, beenden, entlassen, entkommen, enttäuschen, erhalten, erwähnen, erledigen, ersetzen, erhöhen, erlernen, genießen, gestehen, geschehen, misslingen, misstrauen, verbessern, verbieten, vergleichen, verlassen, verpassen, verschieben, verschwinden, versuchen, zerschneiden.
+- **Soal "Pilih prefiks" kini campur trennbar + untrennbar** (kunci SRS `dv|pf|…` tidak berubah; sel untrennbar baru ikut jadi sel baru). Trennbar: rumpang di akhir klausa; untrennbar: rumpang di awal kata verba (`[___]komme`), opsi berhuruf kapital bila di awal kalimat. Label kartu netral (“Verba Jerman · pilih prefiks”) agar jenisnya tak terbaca dari label.
+- **Penanda prefiks `{…}` juga di semua kalimat DTU** (otomatis untuk 49 verba lama, tanpa ambigu) → tak ada tebakan posisi (mis. “Berlin” bukan prefiks be-).
+- **Anti-konflik (pengecoh tak boleh jadi jawaban benar kedua):**
+  1. Pengecoh tidak membentuk verba di data (T maupun U) dengan stem yang sama.
+  2. `DTA`: prefiks yang bisa trennbar sekaligus untrennbar (um-, durch-, über-, unter-, hinter-, wider-, wieder-, voll-) tak pernah jadi pengecoh (mis. *umfährt* valid).
+  3. `DTR`: tabel prefiks untrennbar yang membentuk kata nyata per stem (stellen: be/ent/er/ver; stehen: be/ent/er/ge/ver, dst.). Pengecoh untrennbar hanya dari luar tabel; stem tak terdaftar → tanpa pengecoh untrennbar.
+  4. Pengecoh trennbar pada soal untrennbar aman karena prefiks trennbar tak pernah menempel di klausa utama; diuji dengan syarat semua kalimat DTU bukan anak kalimat (tanpa dass/weil/wenn/ob/…).
+  5. `DTX`: stem sangat produktif (kommen, gehen, fahren, nehmen, geben, machen, stellen, sehen, setzen, ziehen) → prefiks yang membentuk verba nyata dilarang sebagai pengecoh; `DTG`: keluarga arah her/hin/heraus/hinaus/herein/herunter/hinzu/hoch tak saling jadi pengecoh. (Menutup konflik lama: *herkommen* vs *hin*/*heraus*.)
+- Uji: `test_dtv.js` (U ≥ 79, total ≥ 1060; cek penanda, anak kalimat, DTR/DTX konsisten dengan data, 6 opsi unik untuk semua verba, campuran T/U di soal prefiks). `load.js` mengekspor DTR/DTA/DTUP/DTX/DTG. Semua `tests/test_*.js` lolos.
+
+## 7.38.0 — Minggu, 8 Nov 2026 (tahap 5C: 30 verba trennbar baru)
+
+- **Trennbare Verben (DTV): 120 → 150 verba trennbar**, tiap verba baru dengan 5 kalimat Präsens + terjemahan Indonesia (total 946 kalimat). Verba baru: abbiegen, abschließen, anklicken, anprobieren, aufbauen, aufessen, auffallen, aufwecken, ausdrucken, ausprobieren, auswandern, einfallen, eintreffen, mitfahren, nachgeben, nachmachen, vorbestellen, vorwerfen, vorbeifahren, weglaufen, wegnehmen, weglassen, weiterarbeiten, weiterempfehlen, zurückbringen, zusammenfassen, zusammenkommen, hinzufügen, losfahren, kennenlernen. Hindari prefiks über-/unter-/um-/durch-/wieder-/wider-.
+- Aux `ist` untuk verba gerak/perubahan keadaan (abbiegen, auffallen, auswandern, einfallen, eintreffen, mitfahren, vorbeifahren, weglaufen, zusammenkommen, losfahren); partisip tanpa -ge- untuk batang tak-bertekanan (vorbestellt, weiterempfohlen, anprobiert, ausprobiert); prefiks panjang (hinzu-, vorbei-, zusammen-, kennen-, zurück-) tetap bekerja di soal rumpang.
+- Uji: `test_dtv.js` menaikkan ambang (T ≥ 150, U ≥ 49, total ≥ 940) dan menerima partisip tanpa -ge- untuk batang berakhiran -ieren. Semua `tests/test_*.js` lolos, `node --check` semua JS lolos.
+
+## 7.37.0 — Minggu, 8 Nov 2026 (tahap 5B: kalimat Trennbare/Untrennbare Verben)
+
+- **Trennbare Verben (DTV): 5 kalimat per verba** (sebelumnya 3) dan **Untrennbare (DTU): 4 kalimat per verba** (sebelumnya 2). Pasangan kalimat + terjemahan ditambahkan di akhir tiap baris (gamedata3.js); `dtAll` membacanya otomatis. Total 796 kalimat. Hanya Präsens, prefiks trennbar di akhir klausa, tanpa modalverb/zu-Infinitiv/Perfekt; ada pertanyaan, perintah, subjek berbeda.
+- Uji: `test_dtv.js` menaikkan ambang (T ≥ 5, U ≥ 4, total ≥ 790) dan menambah cek semua kalimat unik. Semua `tests/test_*.js` lolos.
+
+## 7.36.0 — Minggu, 8 Nov 2026 (tahap 5A: 5 kalimat per Phrasal Verb)
+
+- **Phrasal Verbs Inggris: 5 kalimat per verba** (sebelumnya 3). Tiap baris `PHX` (gamedata2.js) menerima 1 pasangan kalimat + terjemahan tambahan di akhir baris (total 178 verba × 5 = 890 kalimat). Kalimat baru bervariasi: lampau, pertanyaan, perintah, negatif, subjek berbeda; satu `{partikel}` per kalimat; tidak ada kalimat ganda lintas verba.
+- Uji: `test_phv.js` menaikkan ambang (≥5 kalimat/verba, total ≥850). Semua `tests/test_*.js` lolos, `node --check` semua JS lolos.
+- Berikutnya: tahap B (Trennbare/Untrennbare Verben: 5 / 4 kalimat), lalu C (verba trennbar baru).
+
+## 7.35.0 — Senin, 9 Nov 2026 (tahap 4: kalimat lebih banyak + game Trennbare Verben Jerman)
+
+- **Phrasal Verbs Inggris: 3 kalimat per verba.** `PHX` (gamedata2.js) menambah 2 kalimat + terjemahan untuk tiap `PHV`; `phAll` menggabungkannya ke `x.ss`; `phMake` memilih satu kalimat acak per soal (jadwal SRS tetap per verba+mode). `phFull/phBlank` kini menerima objek kalimat `{s,tr}`.
+- **Game baru `dtv` — Trennbare Verben Jerman** (`lg:'de'`). Data di berkas baru `docs/js/gamedata3.js`: `DTV` (120 verba trennbar: prefiks, arti, Perfekt, zu-Infinitiv, 3 kalimat Präsens terpisah dengan terjemahan) dan `DTU` (49 verba untrennbar be-/emp-/ent-/er-/ge-/miss-/ver-/zer-, 2 kalimat). Empat jenis soal (`DTM`): **pilih prefiks** (kalimat rumpang; pengecoh bukan verba valid di data dengan batang yang sama), **bentuk Perfekt** (pengecoh: ge- salah tempat, infinitif, ge+infinitif, akhiran -en/-t tertukar, ist→hat; tidak ada pengecoh hat→ist karena bisa terbaca Zustandspassiv), **zu-Infinitiv** (an-zu-rufen vs zu anrufen, dst), **trennbar vs untrennbar** (dengan penjelasan aturan tekanan). Kunci SRS `dv|<mode>|<infinitif>`; TTS `de`.
+- Didaftarkan di `GXL`, `GXO` (default n:6, r:200, semua jenis soal), `gxItems`, `gxNext`, reset jadwal `ggxrst` (prefix `dv|`), `gxSettings` (chip jenis soal), `index.html` + `sw.js` SHELL (`js/gamedata3.js`, sebelum `games2.js`), `tests/load.js`, `test_genhub.js`, `export_zcl.js`.
+- Uji: `test_phv.js` diperluas (≥3 kalimat/verba, total ≥500 kalimat); uji baru `test_dtv.js` (data, bentuk Perfekt/zu-Infinitiv, 800 soal acak, pendaftaran). Seluruh uji node lolos.
+- Versi 7.35.0 (sw.js, GM_VER, GM_NEWS).
+
+## 7.34.0 — Minggu, 8 Nov 2026 (tahap 3: game Phrasal Verbs Inggris)
+
+- **Game baru `phv` — Phrasal Verbs Inggris** (`lg:'en'`, tampil di grup Inggris hub). Data 178 phrasal verb di berkas baru `docs/js/gamedata2.js` (`PHV`: verba|partikel|arti|kalimat dengan {partikel}|terjemahan), pembuat soal `phAll/phCells/phMake`, pengecoh `phPtOpts/phArOpts`. Dua jenis soal (`PHM`): **pilih partikel** (kalimat rumpang + terjemahan Indonesia; pengecoh bukan kombinasi verba+partikel yang ada di data, partikel dua kata seperti *up with* / *out of* diberi pengecoh dua kata) dan **pilih arti** (opsi arti dari verba/partikel serupa + acak, tanpa kata awal yang sama dengan kunci). Kunci SRS `ph|<mode>|<verba>`; TTS bahasa `en`.
+- Didaftarkan di `GXL`, `GXO` (default n:6, r:200, modes pt+ar), `gxItems`, `gxNext`, reset jadwal `ggxrst` (prefix `ph|`), `gxSettings` (chip jenis soal), `index.html` + `sw.js` SHELL (`js/gamedata2.js`, dimuat sebelum `games2.js`), `build_single.py` (otomatis lewat urutan index.html), `tests/load.js`/`test_genhub.js`/`export_zcl.js` (memuat gamedata2.js).
+- Uji baru: `tests/test_phv.js` (4702 asersi: kelengkapan data, verba & arti unik, satu blank per kalimat, 400 soal acak, penilaian, pendaftaran). Seluruh uji node lolos.
+- Versi 7.34.0 (sw.js, GM_VER, GM_NEWS).
+- **Belum**: game Trennbare Verben Jerman (`dtv`) → tahap berikutnya (data di `gamedata2.js` juga).
+
+## 7.33.0 — Minggu, 8 Nov 2026 (tahap 2: pecah Tebak Gender, urutan hub, laporan Kelas AI)
+
+- **Tebak Gender dipecah**: `gen` = Tebak Gender Jerman (der/die/das), `gnl` = Tebak Gender Belanda (de/het). Tab bahasa dihapus; `ggxopen` mengatur `ggO().ggl` sesuai game, `ggView`/`gxAct` memakai `gxIsGen`. Hitungan harian per bahasa: `S.ggd` (n,r,x) = Jerman, `S.ggd.nl` = Belanda (`ggSd(L)`); impor progres ikut menggabungkan `ggd.nl`. Reset jadwal kini hanya menghapus kunci SRS bahasa itu (`@de` / `@nl`), tidak lagi menghapus seluruh `S.gg` (yang sebelumnya ikut menghapus jadwal game lain). Kunci SRS lama tidak berubah, jadi progres tetap.
+- **Hub Games**: urutan default dikelompokkan per bahasa (Mandarin, Inggris, Jerman, Belanda; tiap kelompok berjudul). Tombol **↕ Atur urutan** menampilkan ▲▼ per game; urutan tersimpan di `S.o.gxOrd` (game baru yang belum ada di daftar tersimpan ditambahkan di akhir); tombol “Kembalikan urutan per bahasa”. Statistik hub kini per bahasa untuk kedua game gender.
+- **Kelas AI Pustaka**: panel level menampilkan jumlah kosakata di level terpilih, berapa yang sudah punya contoh terverifikasi (persen), berapa belum, jumlah grammar, plus rincian per level (`aiLvCount`, `aiLvCountHtml`).
+- **Tempel banyak kalimat** (≥ 6 kalimat): muncul kotak “Prompt yang dipakai” (+ tombol “Pakai prompt terakhir yang kusalin”, `aiLastPrompt`). Aplikasi membaca daftar kartu di bagian KARTU PRIORITAS/KARTU BARU prompt (`gmPromptCards`) dan membuat laporan (`gmTagReport`, `libRepHtml`): jumlah masuk, bertag tetapi belum terverifikasi, dan daftar kartu belum masuk dengan alasan (tag gagal + alasannya, “Dilewati:” dari AI, kata tampak tapi tak bertag, atau tidak ada sama sekali).
+- Uji baru: `test_genhub.js`, `test_lvcount.js`, `test_tagreport.js`. Seluruh uji node lolos.
+- Versi 7.33.0 (sw.js, GM_VER).
+- **Belum**: game Phrasal Verbs Inggris (`phv`) dan Trennbare Verben Jerman (`dtv`) → tahap berikutnya.
+
+## 7.32.0 — Minggu, 8 Nov 2026 (tahap 1: timer lock-in, jenis flashcard, tanda Kelas AI)
+
+- **Timer Lock-in** (tab Kartu): atur durasi dalam jam & menit (langkah 5 menit), Mulai/Berhenti. Tersimpan di `S.o.lkEnd`, jadi tetap jalan setelah reload; saat habis ada getar + toast.
+- **Jenis flashcard** (Pengaturan flashcard): Flashcard kalimat rumpang / Flashcard biasa / Campur (acak per kartu). Berlaku untuk kosakata & grammar (`S.o.fct`, diputuskan di `gzpRoll`).
+- **Tanda Kelas AI** setelah kartu dibuka: ✅ masuk Kelas AI Pustaka (prioritas) atau ⛔ tidak masuk + alasan (`aiMarkHtml`).
+- **Prioritas kartu terakhir**: kartu yang sedang tampil + dua kartu terakhir (`S.o.fcn`, `S.o.fcl`) selalu di urutan teratas daftar Kelas AI Pustaka, melewati batas jumlah kata.
+- **Impor progres**: kunci lama yang sudah tak ada di data (mis. 5 judul grammar Mandarin yang dipecah) dipindah ke `S.legacy2` dan dilaporkan, bukan dibiarkan merusak sinkronisasi; `ggd` (hitungan game harian) kini ikut diimpor. Dites dengan berkas progres v7.11 (763 kunci tetap, 15 dilewati).
+- **Impor progres tidak lagi menimpa yang lebih baru**: jadwal kartu (srs) dari berkas hanya dipakai bila kartu itu belum punya jadwal di perangkat atau jumlah ulasannya lebih banyak; kartu ditangguhkan tetap ditangguhkan.
+- Versi 7.32.0 (sw.js, GM_VER).
+
 ## 7.31.0 — Minggu, 8 Nov 2026 (tag terverifikasi untuk SEMUA kosakata, dicek dengan arti Indonesia)
 
 - **Prompt Kelas AI**: blok TAG kini meminta tag `V: [bentuk kamus] > [bentuk di kalimat]` untuk SETIAP kata kartu yang dipakai (kata benda, sifat, keterangan, dll. dan kata kerja, berubah bentuk maupun tidak; "([nama bentuk])" hanya untuk yang berubah). Sebelumnya hanya kata kerja yang bentuknya berubah (dan hanya di bahasa dengan daftar bentuk) yang diminta ber-tag, sehingga kosakata lain tidak pernah terverifikasi.
