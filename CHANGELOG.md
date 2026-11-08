@@ -1,5 +1,17 @@
 # Riwayat Perubahan
 
+## 7.30.0 — Minggu, 8 Nov 2026 (rumpang kosakata dua arah + Kelas AI hanya hitung yang terverifikasi)
+
+- **Perbaikan kebocoran jawaban**: pada kartu kosakata berbentuk soal rumpang, sisi depan sebelumnya menampilkan kata kartu (mis. 跑 + pǎo) DI ATAS kalimat yang kata itu dikosongkan. Kini sisi depan tidak memuat kepala kartu sama sekali; jawaban baru muncul setelah kartu dibuka.
+- **Dua arah soal** (semua bahasa & level; kalimat Pustaka yang memuat kata kartu):
+  - **Arah A (kosongkan kata asing)**: kalimat asing dengan kotak kosong + terjemahan Indonesia lengkap dengan padanan kata kartu yang disorot (mis. "Siswa itu **berlari** lebih cepat daripada saya"). Dibuka -> jawaban asing (跑 + pǎo), kalimat lengkap, penyorotan di terjemahan.
+  - **Arah B (kosongkan kata Indonesia)**: kalimat Indonesia dengan kotak kosong ("Siswa itu ___ lebih cepat daripada saya") + kalimat asing lengkap dengan kata kartu disorot (+ bacaan/pinyin). Dibuka -> jawaban Indonesia ("berlari").
+  - Arah dipilih acak tiap kartu muncul. Opsi baru **Pengaturan flashcard > Arah soal rumpang kosakata** (Acak / hanya A / hanya B; `S.o.gzd`).
+- **Penanda kata Indonesia** (`gzvIdSpan`, gram.js): arti kartu (mis. "Berlari / Berlari-lari") dicari di terjemahan dengan toleransi imbuhan (ber-, me-, di-, pe-, ke-, se-, -kan, -i, -an, -nya, -ku, -mu, partikel -lah/-kah/-pun), frasa, dan kata ulang. Tidak ketemu -> arah B tidak dipakai untuk kalimat itu (kalimat lain yang cocok didahulukan); arah A tetap jalan dengan petunjuk "Kata yang dicari: <arti>".
+- **Kelas AI Pustaka**: jumlah contoh per kartu kata kini HANYA menghitung kalimat **terverifikasi** (bertag V:/K: asli dari AI). Hasil deteksi otomatis tidak dihitung lagi (hanya ditampilkan sebagai info di ringkasan). Akibatnya kartu yang contohnya hanya terdeteksi otomatis kembali jadi kandidat prompt. Label chip: "N terverifikasi". Grammar tidak diubah.
+- Uji: `tests/test_cloze_dir.js` baru (penanda Indonesia, kedua arah untuk zh/ja/de/nl/en/eo, depan tak membocorkan jawaban); `tests/test_verified.js` disesuaikan; seluruh uji node lolos. Tampilan dicek di Chromium 390 px.
+- Versi 7.30.0 (sw.js, GM_VER).
+
 ## 7.29.2 — Minggu, 8 Nov 2026 (penyebab sebenarnya layar kosong di HTML tunggal)
 
 - **Akar masalah** (dari galat pengguna Android WebView: `Cannot read properties of null (reading 'textContent')`): di HTML tunggal, `<script type=text/plain id=vr-app>` (app.js) berada SETELAH skrip boot. Pada pembukaan pertama (IndexedDB kosong, boot cepat) `VRS.boot().then` jalan sebelum parser sampai ke #vr-app (file ±8 MB) -> `getElementById('vr-app')` null. Balapan waktu, tergantung kecepatan perangkat.

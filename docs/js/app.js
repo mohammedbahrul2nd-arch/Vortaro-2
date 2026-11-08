@@ -951,7 +951,7 @@ function fcBody(k,rev){const g=GK[k];
  let p,t;
  if(f=='id'||!v[f]){p=mean;t=[ch(LN[L],lc(L)[2])]}
  else{p=`<div class=fcp>${ch(LN[f],lc(f)[2])}`+v[f].map(e=>`<div class=w style="font-size:1.8rem">${wd(e[0],c[1],'F',f)}${spk(e[0],f)}</div>${e[1]?`<div class="r rom">${esc(e[1])}</div>`:''}`).join('')+'</div>';t=[ch('Indonesia','var(--a)')]}
- if(vr)return p+gzvFront(vr);
+ if(vr)return gzvFront(vr);/* 7.30: kepala kartu (kata asing / arti) TIDAK ditampilkan di depan; jawabannya baru muncul setelah kartu dibuka */
  return p+`<div class=fchint><small>Ingat dalam:</small>${t.join('')}</div>`+((f=='id'||!v[f])?fcxFront(c,L,v[L]):'')}
 const fcN=(f,l,mn,mx)=>`<label class=fcl><span>${l}</span><input type=number inputmode=numeric data-i="fc_${f}" value="${S.o[f]}" min=${mn} max=${mx}></label>`;
 const fcS=(f,l,op)=>`<label class=fcl><span>${l}</span><select data-i="fc_${f}" style="width:auto;margin:0">${op.map(([v,t])=>`<option value="${v}"${S.o[f]==v?' selected':''}>${t}</option>`).join('')}</select></label>`;
@@ -965,6 +965,7 @@ function fcSett(){const o=S.o,sz=Object.values(S.srs).filter(c=>c.z).length;
  fcS('gzp','Sumber soal rumpang grammar',[['pl','Pustaka (acak) · cadangan contoh kartu'],['mix','Campur Pustaka &amp; contoh kartu'],['off','Contoh kartu saja']])+
  fcS('gzq','Kalimat Pustaka yang dipakai',[['auto','Bertag AI + terdeteksi otomatis'],['tag','Hanya yang bertag AI']])+
  fcS('gzv','Soal rumpang kartu kosakata dari Pustaka (Jerman/Belanda: artikel + kata benda)',[['on','Aktif (bila ada kalimat Pustaka)'],['off','Mati']])+
+ fcS('gzd','Arah soal rumpang kosakata',[['mix','Acak: kosongkan kata asing / kata Indonesia'],['f','Kosongkan kata asing (arti Indonesia ditandai)'],['i','Kosongkan kata Indonesia (kata asing ditandai)']])+
  fcS('fcx','Petunjuk konteks di sisi depan kosakata',[['auto','Otomatis (arti kembar / ada beberapa kata)'],['on','Selalu, bila ada'],['off','Jangan tampilkan']])+
  `<label class=fcl><span><input type=checkbox data-i=fc_lk${o.lk?' checked':''}> Integrasikan progres Kartu ↔ Kosakata</span></label><div class=btns><button data-a=fcsyncall>Sinkronkan sekarang</button></div>`+
  dtag('fl')+'<summary>Lanjutan (parameter algoritma)</summary>'+

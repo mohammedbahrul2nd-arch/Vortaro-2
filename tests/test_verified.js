@@ -35,7 +35,7 @@ if(rv&&ra){ok(rv.ver&&rv.tg&&rv.lv==3&&!ra.ver&&!ra.tg&&ra.lv==2,'kandidat rumpa
 /* hitungan panel Kelas AI */
 S.o={aiNew:1,ff:[],gff:[],aiLvs:{}};
 const cv=X.aiCoverage('de');const e=cv.W.concat(cv.F).find(x=>x.k==key);
-ok(e&&e.v==1&&e.a>=1&&e.n==e.v+e.a,'panel: v=1, a>=1, n=v+a: '+JSON.stringify(e&&{n:e.n,v:e.v,a:e.a}));
+ok(e&&e.v==1&&e.a>=1&&e.n==e.v,'panel 7.30: n (dihitung) = hanya terverifikasi; a = info saja: '+JSON.stringify(e&&{n:e.n,v:e.v,a:e.a}));
 ok(cv.vW>=1,'ringkasan: ada kartu terverifikasi');
 /* hapus kalimat bertag dari paragraf (sig tidak berubah) -> hitungan turun */
 S.sl=[];S.lib[0].ps[0].tg=[[{t:'v',k:key,n:noun,s:sw,f:''}],null];

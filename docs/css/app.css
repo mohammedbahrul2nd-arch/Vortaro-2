@@ -502,3 +502,8 @@ mark.gzh{background:color-mix(in srgb,var(--a) 24%,transparent);color:inherit;bo
 .gxg .gxo{min-width:0;overflow-wrap:anywhere}.gxg.l,.gxg.w.l{grid-template-columns:repeat(2,1fr)}
 .zct{display:inline-block;padding:0 6px;border-radius:8px;font-size:.72rem;font-style:normal;background:var(--bd,#e5e5ea);color:var(--t)}.zct.l{background:#fff3cd;color:#664d03}.zct.d{background:#f8d7da;color:#58151c}.zct.u{background:#d1e7dd;color:#0a3622}
 .zcfl{display:block;margin-top:4px;padding:3px 8px;font-size:.78rem;border:1px solid var(--bd,#ccc);border-radius:8px;background:none;color:var(--t);max-width:100%}.zcfb{margin-top:10px;display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+
+/* 7.30: soal rumpang kosakata dua arah */
+.gzm.gzid{font-size:1.1rem;line-height:1.5;margin:6px 0 2px}
+.gzc.gzfo{font-size:1.3rem;font-weight:550;margin:6px 0 2px}.gzc.gzfo.gzja{font-size:1.3rem}.gzc.gzfo.gzen{font-size:1.15rem}
+.gzps .gzc.gzans{font-size:1.7rem;font-weight:700;margin:2px 0 6px}
