@@ -1,5 +1,105 @@
 # Riwayat Perubahan
 
+## 7.29.2 — Minggu, 8 Nov 2026 (penyebab sebenarnya layar kosong di HTML tunggal)
+
+- **Akar masalah** (dari galat pengguna Android WebView: `Cannot read properties of null (reading 'textContent')`): di HTML tunggal, `<script type=text/plain id=vr-app>` (app.js) berada SETELAH skrip boot. Pada pembukaan pertama (IndexedDB kosong, boot cepat) `VRS.boot().then` jalan sebelum parser sampai ke #vr-app (file ±8 MB) -> `getElementById('vr-app')` null. Balapan waktu, tergantung kecepatan perangkat.
+- `build_single.py`: #vr-app kini ditaruh SEBELUM skrip boot, boot menunggu `DOMContentLoaded`, dan ada galat jelas bila elemen tak ada. `docs/index.html` (memuat js lewat src) tidak terpengaruh.
+- Versi 7.29.2 (sw.js, GM_VER).
+
+## 7.29.1 — Minggu, 8 Nov 2026 (perbaikan: aplikasi tidak bisa dibuka saat pertama masuk)
+
+- **Penyebab paling mungkin**: dua regex literal di `app.js` (`gnW`, `gnU`) memakai *lookbehind* `(?<![\p{L}])`. Browser/WebView lama (mis. Safari/iOS < 16.4, Android WebView lama) menganggapnya SyntaxError saat parse sehingga SELURUH `app.js` gagal jalan dan layar kosong. Lookbehind itu dibuang (hasil pencocokan identik untuk pemindaian kiri-ke-kanan global). Belum bisa dipastikan perangkat pengguna; ini kandidat terkuat yang ditemukan di kode.
+- Tiga `new RegExp` berlookbehind (app.js `libHL`-area, gram.js x2) kini lewat `rxLB()`: bila mesin menolak lookbehind, dipakai versi tanpa lookbehind (boleh sedikit lebih longgar di tengah kata) alih-alih error.
+- **Bug nyata ditemukan lewat uji**: item Pustaka/kalimat dengan bentuk tak valid (mis. tanpa `ps`) membuat `gram.js` melempar `it.ps is not iterable` dan layar kosong. Kini `S.lib`/`S.sl` dinormalisasi saat muat (item tetap disimpan; `ps` kosong bila hilang).
+- **Layar pemulihan** (`vrFatal` di vr-store.js): bila boot/`app.js`/render awal gagal atau layar tetap kosong, tampil pesan + tombol Muat ulang / Bersihkan cache aplikasi / Unduh cadangan data (JSON) + teks galat. Tidak ada lagi layar kosong tanpa petunjuk.
+- `index.html` dan `build_single.py`: `VRS.boot(...).catch(vrFatal)`, `app.js` onerror.
+- `sw.js`: versi 7.29.1; precache memakai `cache:'reload'` agar tidak tercampur file lama/baru dari cache HTTP (sumber lain layar rusak tepat setelah pembaruan).
+- Uji: 11 tes node lolos; Playwright 390 px pada HTML tunggal: data kosong, data valid, data rusak, dan mesin tanpa lookbehind (disimulasikan) semuanya terbuka, 7 tab diklik tanpa pageerror; layar pemulihan dan SW terdaftar diverifikasi pada docs/ via http.
+
+## 7.29.0 — Minggu, 8 Nov 2026 (tugas B5: daftar tag yang gagal)
+
+- `gmResolveTags` kini mengumpulkan `fail=[{key,kind,name,surface,reason}]` (kind V/K/G, atau `?` untuk baris/potongan yang formatnya tidak dikenali) dan `gmApplyTags` menyimpannya di `r.fail`. Peringatan angka lama (dibuang / tidak cocok kartu) tetap ada.
+- Alasan yang dicatat: nomor kalimat tidak ada di teks yang ditempel; potongan teks tidak ada di kalimat; kartu kosakata tidak ditemukan (tag tetap disimpan tanpa tautan); legenda G# tidak ditemukan; judul grammar tidak cocok dengan kartu mana pun; format tag tidak dikenali (pecahan non-V/K/G, baris tanpa tag). `gmItems` mengembalikan juga `.bad`, `gmTagLines` menyimpan `raw`.
+- Pratinjau tempel (`libAddPrev` -> `libFailHtml`, pustaka.js): `<details>` berisi "kalimat N · jenis: nama → “potongan” + alasan", terbuka otomatis bila ≤5 item, dibatasi 40 baris + "dan N lainnya", ter-escape.
+- Uji baru: `tests/test_tagfail.js` (lolos). Tampilan pratinjau di browser: lihat catatan STATUS.
+
+## 7.28.0 — Minggu, 8 Nov 2026 (tugas B4: terverifikasi vs terdeteksi otomatis)
+
+- Definisi: **terverifikasi** = kalimat Pustaka punya tag V:/K: asli dari AI untuk kartu itu (`t:'v'`, `t.k` = `base@lang`); **terdeteksi otomatis** = hasil pencocok `libHL`/`libCountKey` tanpa tag. Keduanya tetap dihitung dan dipakai; hanya yang terverifikasi diprioritaskan dan diberi tanda ✓.
+- gram.js: `gmVerMap/gmVerN/gmVerFirst` (cache GMVER, ikut `gmSig`; dibersihkan di `gmDelCaches`). `gmCollect` memberi `ver` pada tiap item; kalimat bertag kartu ikut terkumpul walau pencocok tidak menemukan kata (lv 3). Kartu kosakata ditandai "✓ terverifikasi" di daftar contoh (`gmExBlock`) dan di sisi belakang soal rumpang (`gzvBack`). Header contoh kini "N terverifikasi (bertag AI) · M terdeteksi otomatis".
+- **Perbaikan bug B1**: `gzvCands` membandingkan `t.k==base(k)`, padahal `t.k` berbentuk `base@lang`, sehingga `tg` selalu false. Kini memakai `ver`; kalimat terverifikasi berbobot 3x saat memilih kalimat rumpang (`lv` 3).
+- app.js: kartu baru (`fcMixNew`) menaruh kartu terverifikasi paling atas (urutan lain stabil); pada urutan acak (`fcPick`) undian dipersempit ke kartu terverifikasi selama masih ada.
+- ai-class.js: `aiCoverage` menghitung `v` dan `a` per kartu (`n = v + a`); label kandidat dan ringkasan panel Cakupan Pustaka memakai dua angka. Kandidat Kelas AI sendiri TIDAK diurut berdasarkan terverifikasi (urutan "contoh paling sedikit" dipertahankan).
+- Uji baru: `tests/test_verified.js` (lolos). Tampilan di browser BELUM dilihat.
+
+## 7.27.0 — Minggu, 8 Nov 2026 (tugas B3: kartu baru tidak jadi kandidat Kelas AI)
+
+- Akar masalah di `aiCovCands` (ai-class.js): (1) kunci entri ke-2 (`~n`) dibuang dari kandidat dan daftar "belum pernah muncul" hanya membangun kunci entri pertama, padahal flashcard (`fcPoolV`) menampilkan tiap entri sebagai kartu sendiri; (2) filter tingkat hanya memeriksa entri pertama (`es[0][3]`), sedangkan flashcard menerima kartu bila entri mana pun masuk filter; (3) kartu yang sedang tampil tetapi belum dijawab tidak tercatat di S.srs, jadi bisa terpotong batas pengisi (160 kata / 44 grammar saat opsi kartu baru mati).
+- Perbaikan: kunci `~n` dipetakan ke kartu induk `base@lang`; tingkat dicek lewat `es.some(...)`; kartu `fcCur` (kosakata maupun grammar, bila tidak ditangguhkan) selalu disisipkan sebagai kandidat; cache `aiCoverage` kini memuat `fcCur`.
+- Uji baru: `tests/test_aicands.js` (lolos; gagal pada kode 7.25.0). Belum diuji di browser. Penyebab pasti pada data pengguna belum bisa dipastikan; ketiganya adalah celah nyata di kode.
+
+## 7.26.0 — Minggu, 8 Nov 2026 (tugas B2: hapus kalimat dari contoh Pustaka)
+
+- Tiap kalimat di blok "📚 Contoh dari Pustakamu" (`gmExBlock`) punya tombol 🗑 (aksi `fcxdel`) dengan konfirmasi. `gmDelSent(key,idx)` di gram.js menghapus dari `S.sl`, atau dari `p.f/r/i/tg/sp` di `S.lib` (paragraf kosong dan item kosong ikut dibuang), lalu `save()` + render ulang lewat dispatcher.
+- `gmCollect` kini membawa penunjuk asal `o` ({t:'sl',id} atau {t:'lib',id,pi,si}); diteruskan ke kandidat rumpang (gzpCands/gzvCands). Bila indeks sudah bergeser, kalimat dicari ulang lewat teksnya.
+- Cache dibersihkan: GMEXC, gmRoll, GZP.c, GZV.c, libSD, libDocs, libAna, libAnaG. Bila kalimat yang dihapus adalah soal rumpang yang sedang tampil, `gzpRoll` dipanggil ulang agar kalimat itu tidak tampil lagi.
+- Uji baru: `tests/test_delsent.js` (lolos). Tampilan tombol di browser BELUM dilihat.
+
+## 7.25.0 — Minggu, 8 Nov 2026 (tugas B1: rumpang kartu kosakata)
+
+- **Kartu kosakata** (bukan grammar) kini bisa tampil sebagai soal kalimat rumpang dari kalimat Pustaka yang memuat kata kartu itu (`gmCollect`, pencocok `libHL`). Kode di `gram.js` bagian 6c: `gzvExt`, `gzvCands`, `gzvPick`, `gzvRow`, `gzvFront`, `gzvBack`; dipanggil dari `gzpRoll` (sekali tiap kartu muncul) dan `fcBody` di `app.js`.
+- **Jerman/Belanda, kata benda**: bagian kosong diperluas ke artikel yang langsung mendahului kata benda (der/die/das/den/dem/des/ein-/eine-..., de/het/een), jadi jawaban = artikel + kata benda. Bila tidak ada artikel tepat di depannya (mis. "mijn huis" atau ada kata sifat di antara), hanya kata bendanya yang dikosongkan. Bahasa lain: hanya kata kartunya.
+- Tanpa kalimat cocok (atau kalimat tidak lolos `gzpOk`: panjang/jumlah blanko) -> tampilan kartu biasa. Opsi baru **Pengaturan flashcard > Soal rumpang kartu kosakata** (`S.o.gzv`, default aktif; juga mati bila opsi grammar = "Judul (tampilan lama)").
+- Sisi belakang menampilkan kalimat yang sama dengan jawaban ditandai, lalu isi kartu seperti semula.
+- Belum ada prioritas kalimat bertag AI (itu tugas B4); sekarang semua kalimat cocok berbobot sama (kalimat dengan terjemahan sedikit lebih sering).
+- Uji baru `tests/test_vocabcloze.js` (perluasan artikel, kandidat, depan tidak membocorkan jawaban, belakang menandai, null tanpa kalimat/opsi mati). Belum diuji tampilan visual di browser.
+- `sw.js` VERSION dan `GM_VER` 7.25.0.
+
+## 7.24.0 — Minggu, 8 Nov 2026 (tugas A5: lebih banyak kalimat soal)
+
+- **Jerman (DEFR/DEPLF)**: bingkai kini 33-39 per kasus (Nom 34, Akk 40, Dat 37, Gen 33; jamak Nom 34, Akk/Dat/Gen dipakai bersama karena kata kerja/preposisinya tidak bergantung jumlah). Data ada di `gamedata.js` (`FR_DE`), format `teks|tag`. Nom dipisah tunggal/jamak agar kata kerja sesuai (ist/sind, steht/stehen, dst.). Dativ memuat preposisi dua arah dalam sikap lokasi (wo?), Genitiv memuat wegen/trotz/während/statt/innerhalb/außerhalb dan kata benda + Genitiv.
+- **Belanda (NLFR)**: 53 bingkai: 32 objek langsung (`FR_NL.o`) + 21 frasa preposisi (`.p`), ditambah 10 subjek tunggal (`.s`) dan 10 subjek jamak (`.z`). **Perbaikan bug**: bingkai subjek lama ("Hier is {P}", "Dit is {P}") ikut dipakai untuk meervoud, menghasilkan "Hier is de huizen". Kini dipisah. Bingkai preposisi tidak dipakai bila penentu `geen` atau mode `art`/`pla` (hindari "over geen huis").
+- **Pemilihan bingkai** `frPick(kunci,daftar)`: kantong acak tanpa ulang sampai semua bingkai terpakai, dan tidak pernah sama dua kali berturut-turut (termasuk antar-kantong). Hasil soal membawa `q.fr` (templat bingkai).
+- **Penjelasan hasil (Jerman)** menambahkan alasan kasus: "Kasus karena: mit + Dativ", "wegen + Genitiv", atau "Subjek (kata kerja steht)". Belanda tidak diberi tag.
+- Uji baru `tests/test_frames.js` (136.688 asersi): jumlah bingkai, tanpa duplikat, tepat satu {P} dan tidak di awal kalimat, kesepakatan kata kerja, tanpa undefined/NaN dalam 500 soal per sel, tanpa pengulangan berturut-turut, kantong lengkap, semua bingkai terpakai dalam 3.000 soal. `tests/test_plural.js`: daftar kata kerja jamak Nom diperluas. `load.js` mengekspor FR_DE, FR_NL, DEFR, DEPLF, NLFR*, frPick.
+- `sw.js` VERSION dan `GM_VER` 7.24.0.
+
+## 7.23.1 — Minggu, 8 Nov 2026 (tugas A4: uji headless)
+
+- **Tidak ada perubahan fitur.** Hanya uji dan berkas uji baru `tests/test_modes.js`: semua sel soal Jerman (102 sel: mode x kasus) dan Belanda (33 sel) dibuat 60 kali = 8100 soal, tanpa error, tanpa `undefined`/`NaN`/`null`, tanpa soal kosong.
+- Uji Playwright (360 px) pada HTML tunggal: hub (4 kartu), Tebak Gender (20 jawaban, 5 putaran tambahan), Penggolong (20 soal), Artikel & Akhiran DE dan NL (20 soal). Semua 0 pageerror. Semua chip pengaturan tiap game diklik: 9 (zcl), 19 (dad), 12 (dnl), lalu 5 soal dijawab setelahnya. Chip Penerimaan jawaban (b/l/a), tombol 🚩 Tolak (3 kali), dan Hapus semua laporan (konfirmasi diterima) bekerja.
+- Catatan: pada satu putaran Tebak Gender pernah terekam `scrollWidth>innerWidth` satu kali; tidak bisa direproduksi dalam 5 putaran ulang (100 soal), kemungkinan kata Jerman/Belanda yang sangat panjang. Belum ada perbaikan.
+- Belum dilihat secara visual (hanya diuji lewat DOM): tampilan label/tombol.
+
+## 7.23.0 — Minggu, 8 Nov 2026 (tugas A3: kunci jawaban penggolong)
+
+- **Tingkat keyakinan per jawaban** (`gamedata.js`: `ZCT`, kunci `kata:penggolong`, verbal `#indeks:penggolong`). Tanpa tanda = baku; `l` = lisan lazim (17 pasangan, mis. 手机 个, 人 口); `d` = diperdebatkan (铅笔/钢笔 枝). Tingkat ini kurasi awalku, mohon ditinjau di `KUNCI_PENGGOLONG.md`.
+- **Opsi "Penerimaan jawaban"** (`S.o.gx.zcl.acc`: b/l/a, default l). `zcAns(x)` menghitung `ok` (wajib), `soft` (diterima, tidak dihitung salah, diberi label "tidak dihitung") dari tingkat dan penimpaan pribadi. `gxScore` mengabaikan `soft`. Opsi soal selalu memuat semua jawaban, jadi jawaban lisan bisa dipilih tanpa hukuman.
+- **Tombol 🚩** di hasil soal: "Tolak X" (jawaban dihapus dari kunci), "X juga benar, terima" (untuk pilihanmu yang dinilai salah), dan "Batalkan laporan". Disimpan di `S.o.gx.zcl.ov[kunciSoal]={rej,add}`; berlaku mulai soal berikutnya. Penolakan tidak pernah mengosongkan seluruh kunci. Tambahan pribadi berlabel hijau "tambahan pribadi". Tombol "Hapus semua" di pengaturan.
+- **Ekspor**: `node tests/export_zcl.js > KUNCI_PENGGOLONG.md` (tabel kata, pinyin, arti, penggolong + tingkat, kategori, catatan; verbal juga). Ringkasan: baku 208, lisan 17, diperdebatkan 2.
+- Uji baru `node tests/test_zcl.js` (16.287 asersi: kunci ZCT valid, tiga mode, skor, penimpaan, 3.000 soal tanpa undefined). `load.js` mengekspor zcAns, zcMake, zcAll, zcRes, dll.
+- `sw.js` VERSION dan `GM_VER` 7.23.0.
+
+## 7.22.0 — Minggu, 8 Nov 2026 (tugas A2: Genitiv Jerman)
+
+- **Heuristik `deGen` diganti daftar terkurasi** (`gamedata.js`: `DEGSRC`; `games2.js`: `deGenMaps`, `deGen`). Urutan keputusan: (1) n-Deklination/khusus dengan bentuk eksplisit (Junge→Jungen, Name→Namens, Herz→Herzens, Student, Kollege, Herr→Herrn, Mensch, Bauer, Nachbar, dst.); (2) kata tak berubah (-mus, Virus, Mythos, Chaos, dst.); (3) daftar `es` (suku tunggal lazim -es: Haus→Hauses, Tag→Tages) dan `s` (lazim -s: Auto, Zimmer, Leben); (4) akhiran aman: -chen/-lein/-ling/-er/-el/-en → +s, -haus/-raum/-platz → +es, -nis → +nisses, -sch/-z/-ß/-ss/-eis/-ais → +es. **Kata di luar itu dikembalikan null dan dilewati untuk soal Genitiv, tidak ditebak** (mis. Bahnhof, Verkehr, Unfall, Angebot, yang punya dua bentuk lazim).
+- Kata yang genitifnya ganda (-s atau -es) sengaja dikeluarkan dari daftar supaya kunci jawaban hanya satu.
+- Cakupan pada data: 1.004 kata maskulin/netral punya bentuk pasti, 1.223 dilewati. Feminin tetap tak berubah.
+- Uji baru `node tests/test_genitiv.js`: 116 kata contoh dengan bentuk benar, kata tak pasti harus null, konsistensi daftar, seluruh pool data, dan 1.440 soal Genitiv (bentuk deGen selalu muncul di kalimat, tanpa undefined/NaN). Semua lolos. `tests/load.js` kini mengekspor `deGen`, `DEGSRC`, `dePool`.
+
+## 7.21.0 — Minggu, 8 Nov 2026 (tugas A1: bentuk jamak)
+
+- **Data jamak terkurasi** (`gamedata.js`: `PLDE_SRC`, `PLNL_SRC`). Jerman 460 kata, Belanda 444 kata (A1–C1 yang ada di data), ditulis per pola (Jerman: -n, -en, -e, umlaut+e, -er, umlaut+er, umlaut saja, tetap, -s, -se, khusus; Belanda: -en, ejaan berubah, -s, -'s, khusus). Bentuk jamak Jerman diturunkan dari pola dan diperiksa skrip; kata yang tidak ada di data atau punya dua gender berbeda otomatis tidak dipakai.
+- **Jenis soal baru Jerman** (Pengaturan game → Jenis soal): Jamak: artikel (die/die/den/der) · Jamak: akhiran adjektiva (setelah artikel tentu dan kein-/mein- selalu -en; tanpa artikel -e/-e/-en/-er) · Jamak: bentuk kata benda (pilih bentuk jamak yang benar) · Jamak: Dativ +n (kecuali jamak berakhiran -n/-s). Artikel jamak Dativ otomatis memakai kata benda + -n.
+- **Jenis soal baru Belanda:** Jamak: artikel & penentu (selalu *de*, het/een/dit/dat salah) · Jamak: adjektiva (+e) · Jamak: bentuk kata benda (-en / -s / -'s / khusus).
+- Jadwal ulas per sel aturan: `dr|de|pa|kasus|p`, `dr|de|pj|kasus|d/o/k`, `dr|de|pf||pola`, `dr|de|pd||tipe`, `dr|nl|pla||t`, `dr|nl|pld|penentu|t`, `dr|nl|plf||pola`. Pengguna lama: jenis soal baru tidak otomatis aktif (hidupkan lewat chip); pengguna baru: aktif semua.
+- Uji: `node tests/test_plural.js` (data, pola, aturan tiap jenis soal ~3.000 soal, filter level). Semua lolos. `tests/load.js` = pemuat vm dengan stub.
+- **Perbaikan kritis (bug sejak 7.20.0):** `games2.js` mendeklarasikan `const GMS` dan `const GN` yang bentrok dengan `gram.js` (GMS) dan `app.js` (GN). Akibatnya `games2.js` gagal dimuat ("ggView is not defined") dan HTML tunggal 7.20.0 tidak menampilkan aplikasi sama sekali. Diganti nama: `GMS`→`GXL`, `GN`→`DGN` (khusus games2.js). Uji baru `tests/test_globals.js` menjalankan semua berkas di satu konteks vm dan melaporkan deklarasi ganda.
+- Tata letak: opsi jawaban panjang (bentuk jamak) memakai 2 kolom (`.gxg.l`) dan `overflow-wrap:anywhere`, sehingga tidak meluber di lebar 360 px.
+- Uji asap Chromium headless (lebar 360 px): 7 jenis soal jamak × 20 soal dijawab benar lewat klik, 0 pageerror, 0 overflow. Hub dan game lain belum diuji sistematis (itu tugas A4).
+- `build_single.py` (baru): `python3 build_single.py 7.21.0 out.html` membangun HTML tunggal.
+- `sw.js` VERSION dan `GM_VER` 7.21.0.
+
 ## 7.20.0 — Minggu, 8 Nov 2026 (tahap 1: Games)
 
 - **Games dirombak jadi hub.** Tab Games kini menampilkan kartu tiap game (ikon, deskripsi, jumlah ulas/baru, skor hari ini), bilah atas dengan tombol ‹ Games, skor sesi + rentetan 🔥, pengaturan per game yang bisa dilipat, dan tombol Periksa untuk soal multi-pilihan. Gim lama Tebak Gender tetap utuh (dibungkus `ggGenView/ggGenAct/ggGenSet`).

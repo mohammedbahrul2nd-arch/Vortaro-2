@@ -7,7 +7,7 @@ function ggAll(L){if(ggC[L])return ggC[L];const g=GGL[L],out=[];
  return ggC[L]=out}
 const ggLv=L=>{const l=D.L.find(x=>x[0]==L);return l?l[4]:[]};
 function ggPool(L){const o=ggO(),v=o.ggvs[L]||[];return ggAll(L).filter(x=>(!v.length||v.includes(x.lv))&&!(S.gg[x.k]&&S.gg[x.k].z))}
-function ggRoll(){const d=fcDay(Date.now());if(S.ggd.d!==d)S.ggd={d,n:0,r:0,x:0}}
+function ggRoll(){ggO();const d=fcDay(Date.now());if(S.ggd.d!==d)S.ggd={d,n:0,r:0,x:0}}
 function ggQ(){ggRoll();const o=ggO(),now=Date.now(),td=fcDay(now),sd=S.ggd,L=[],R=[],N=[],ah=[];
  for(const x of ggPool(o.ggl)){const c=S.gg[x.k];if(!c||!c.t){N.push(x);continue}
   if(c.t==2){if(c.d<=td)R.push(x)}else if(c.d<=now)L.push(x);else if(c.d<=now+12e5)ah.push(x)}

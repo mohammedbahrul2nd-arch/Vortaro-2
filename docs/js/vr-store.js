@@ -127,3 +127,21 @@ async function restore(S,key){if(V.mode!='idb')throw new Error('Hanya untuk Inde
 Object.assign(V,{boot,save,flush,dropLegacy,estimate,force,backup:(S,t)=>backup(S,t),backups,restore,pull});
 g.VRS=V;
 })(window);
+
+/* v7.29.1: layar pemulihan bila aplikasi gagal dimuat (alih-alih layar kosong) */
+(function(g){
+let shown=false;
+g.vrFatal=function(e){
+ if(shown)return;shown=true;
+ const m=String(e&&(e.stack||e.message)||e||'galat tak dikenal').slice(0,600).replace(/[<>&]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;'}[c]));
+ const v=document.getElementById('v')||document.body;
+ v.innerHTML='<div style="padding:20px;font:15px/1.5 system-ui,sans-serif;max-width:560px;margin:auto"><h2 style="margin:0 0 8px">Vortaro gagal dimuat</h2><p>Datamu <b>tidak dihapus</b>. Coba langkah ini berurutan:</p><p><button id=fx1 style="padding:10px 14px;margin:4px 0">1. Muat ulang</button><br><button id=fx2 style="padding:10px 14px;margin:4px 0">2. Bersihkan cache aplikasi &amp; muat ulang</button><br><button id=fx3 style="padding:10px 14px;margin:4px 0">3. Unduh cadangan data (JSON)</button></p><pre style="white-space:pre-wrap;font-size:12px;opacity:.7;background:#8881;padding:8px;border-radius:6px">'+m+'</pre></div>';
+ const $=i=>document.getElementById(i);
+ $('fx1').onclick=()=>location.reload();
+ $('fx2').onclick=async()=>{try{const rs=await navigator.serviceWorker.getRegistrations();for(const r of rs)await r.unregister()}catch(x){}try{for(const k of await caches.keys())await caches.delete(k)}catch(x){}location.reload()};
+ $('fx3').onclick=()=>{try{const d=g.VRS&&VRS.initial&&Object.keys(VRS.initial).length?VRS.initial:JSON.parse(localStorage.getItem('vortaro_v1')||'{}');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(d)],{type:'application/json'}));a.download='vortaro-cadangan.json';a.click()}catch(x){alert('Gagal: '+x.message)}}
+};
+/* tangkap galat yang membuat layar tetap kosong */
+g.addEventListener('error',ev=>{setTimeout(()=>{const v=document.getElementById('v');if(v&&!v.innerHTML.trim())g.vrFatal(ev.error||ev.message)},1500)});
+g.addEventListener('unhandledrejection',ev=>{setTimeout(()=>{const v=document.getElementById('v');if(v&&!v.innerHTML.trim())g.vrFatal(ev.reason)},1500)});
+})(window);

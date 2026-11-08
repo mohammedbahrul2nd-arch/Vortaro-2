@@ -19,6 +19,6 @@
 <script src="js/games2.js"></script>
 <script src="js/vr-store.js"></script>
 <script>/* muat data dari IndexedDB dulu (migrasi otomatis dari localStorage), baru jalankan aplikasi */
-VRS.boot(typeof SK!='undefined'?SK:undefined).then(()=>{const s=document.createElement('script');s.src='js/app.js';document.body.appendChild(s)})</script>
+VRS.boot(typeof SK!='undefined'?SK:undefined).then(()=>{const s=document.createElement('script');s.src='js/app.js';s.onerror=()=>vrFatal(new Error('app.js gagal dimuat (jaringan/cache)'));document.body.appendChild(s)}).catch(vrFatal)</script>
 <script>if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))</script>
 </body></html>

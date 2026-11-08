@@ -368,7 +368,10 @@ mark{background:color-mix(in srgb,var(--a) 28%,transparent);color:inherit;border
 /* v7.4 — contoh dari Pustaka, tag AI, bentuk kata kerja */
 .gmx{margin-top:6px}
 .gmr{padding:9px 12px;background:var(--c2);border:1px solid var(--b);border-radius:12px;margin:0 0 7px;text-align:left}
-.gmr .eo{font-size:1.02rem;line-height:1.55}
+.gmr{position:relative}
+.gmdel{position:absolute;top:6px;right:6px;width:32px;height:32px;padding:0;border:0;background:transparent;color:var(--bad);font-size:.95rem;opacity:.7;border-radius:8px;cursor:pointer}
+.gmdel:active{opacity:1;background:var(--c1,rgba(127,127,127,.15))}
+.gmr .eo{padding-right:30px;font-size:1.02rem;line-height:1.55}
 .gmr .idn{font-size:.9rem;color:var(--m);margin-top:2px}
 .gmr .rom{font-size:.82rem;color:var(--m)}
 .gmsrc{display:block;margin-top:3px;font-size:.72rem;color:var(--m)}
@@ -496,3 +499,6 @@ mark.gzh{background:color-mix(in srgb,var(--a) 24%,transparent);color:inherit;bo
 .gxex{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:8px}.gxex li{padding:8px 10px;border-radius:12px;background:color-mix(in srgb,var(--a) 6%,transparent)}
 .gxzh{font-size:1.25rem;font-weight:700}.gxex small{display:block;color:var(--m)}.gxex em{display:block;font-style:normal;font-size:.82rem;color:var(--a);font-weight:600}
 .gxnote{margin-top:8px;font-size:.9rem;color:var(--t)}.gxex1{font-size:1.1rem;margin-top:6px}
+.gxg .gxo{min-width:0;overflow-wrap:anywhere}.gxg.l,.gxg.w.l{grid-template-columns:repeat(2,1fr)}
+.zct{display:inline-block;padding:0 6px;border-radius:8px;font-size:.72rem;font-style:normal;background:var(--bd,#e5e5ea);color:var(--t)}.zct.l{background:#fff3cd;color:#664d03}.zct.d{background:#f8d7da;color:#58151c}.zct.u{background:#d1e7dd;color:#0a3622}
+.zcfl{display:block;margin-top:4px;padding:3px 8px;font-size:.78rem;border:1px solid var(--bd,#ccc);border-radius:8px;background:none;color:var(--t);max-width:100%}.zcfb{margin-top:10px;display:flex;flex-direction:column;align-items:flex-start;gap:2px}

@@ -699,17 +699,23 @@ function libAddKR(){const k=document.getElementById('lbK');if(!k)return;
 function libAddClose(){const m=document.getElementById('lbm');if(m)m.remove();if(!document.getElementById('lpm')&&!document.getElementById('aim')&&!document.getElementById('edm'))document.body.style.overflow=''}
 function libAddRead(){const g=id=>{const e=document.getElementById(id);return e?e.value:''};return{x:g('lbX'),t:g('lbT'),L:g('lbL'),f:g('lbF')}}
 function libAddParse(){const v=libAddRead();if(libAddK=='s')return libParseSents(v.x,{L:v.L});return libParse(v.x,{L:v.L,title:v.t,fmt:v.f,dlg:libAddK=='d'})}
+/* v7.29.0 (B5): daftar tag Kelas AI yang gagal masuk, dengan alasan */
+function libFailHtml(fl){if(!fl||!fl.length)return'';const M=40,KD={V:'V',K:'K',G:'G','?':'baris'};
+ return`<details${fl.length<=5?' open':''} style="margin-top:6px;font-size:.84rem"><summary style="color:var(--s1)">⚠ ${fl.length} tag gagal masuk (ketuk untuk daftar)</summary>`+
+  fl.slice(0,M).map(x=>`<div style="margin:4px 0;padding-left:8px;border-left:2px solid var(--b)">kalimat <b>${esc(x.key)}</b> · ${esc(KD[x.kind]||x.kind)}: <b>${esc(x.name)}</b>${x.surface&&x.surface!=x.name?' → “'+esc(x.surface)+'”':''}<br><small>${esc(x.reason)}</small></div>`).join('')+
+  (fl.length>M?`<small>… dan ${fl.length-M} lainnya</small>`:'')+`</details>`}
 function libAddPrev(){const p=document.getElementById('lbP');if(!p)return;const v=libAddRead();if(!v.x.trim()){p.textContent='Belum ada teks.';return}
  const r=libAddParse();if(r.err){p.innerHTML=`<span style="color:var(--bad)">${esc(r.err)}</span>`;return}
  const wr=(r.warn||[]).length?`<div style="color:var(--s1);margin-top:4px;font-size:.84rem">${r.warn.map(w=>'⚠ '+esc(w)).join('<br>')}</div>`:'';
+ const wf=wr+libFailHtml(r.fail);
  if(libAddK=='s'){const rom=r.L=='ja'||r.L=='zh',n=r.sents.length,nr=r.sents.filter(x=>x.r).length,nt=r.sents.filter(x=>x.i).length,dup=r.sents.filter(x=>S.sl.some(y=>y.L==r.L&&y.f==x.f)).length;
-  p.innerHTML=`Terdeteksi: <b>${libNm(r.L)}</b> · ${n} kalimat · terjemahan ${nt}/${n}`+(rom?` · romanisasi ${nr}/${n}`:'')+(r.tagN?` · <b>${r.tagN}</b> tag grammar/kata kerja ✓`:'')+(dup?` · <b>${dup}</b> sudah ada (dilewati)`:'')+wr;return}
+  p.innerHTML=`Terdeteksi: <b>${libNm(r.L)}</b> · ${n} kalimat · terjemahan ${nt}/${n}`+(rom?` · romanisasi ${nr}/${n}`:'')+(r.tagN?` · <b>${r.tagN}</b> tag grammar/kata kerja ✓`:'')+(dup?` · <b>${dup}</b> sudah ada (dilewati)`:'')+wf;return}
  const ns=r.ps.reduce((a,q)=>a+q.f.length,0),tr=r.ps.some(q=>q.i.length),rom=r.L=='ja'||r.L=='zh',rm=r.ps.some(q=>q.r&&q.r.length),al=r.ps.every(q=>q.a);
  const nr=r.ps.reduce((a,q)=>a+(q.r?q.r.filter(Boolean).length:0),0),nt=r.ps.reduce((a,q)=>a+(q.a?q.i.filter(Boolean).length:q.i.length?q.f.length:0),0);
  const FM={aud:'blok ===',stk:'kelompok [1.1]',sen:'per kalimat',grp:'terkelompok',blk:'paragraf + terjemahan',txt:'teks polos'},dl=libAddK=='d'?(r.ps.some(q=>q.sp)?' · penutur ✓':' · <b>penutur (A:/B:) tidak terbaca</b>'):'';
  p.innerHTML=`Terdeteksi: <b>${libNm(r.L)}</b> · format ${FM[r.fmt]||r.fmt} · ${r.ps.length} paragraf · ${ns} kalimat · terjemahan ${tr?(nt==ns||!al?'✓':'✓ '+nt+'/'+ns):'—'}`+
   (rom?` · romanisasi ${rm?(nr==ns?'✓ selaras '+nr+'/'+ns:'⚠ '+nr+'/'+ns):'— (dibuat otomatis, perkiraan)'}`:'')+dl+(tr&&!al?' <small>(sebagian terjemahan per paragraf)</small>':'')+
-  (r.tagN?` · <b>${r.tagN}</b> tag grammar/kata kerja ✓`:'')+(r.title?`<br><small>Judul: ${esc(r.title)}</small>`:'')+wr}
+  (r.tagN?` · <b>${r.tagN}</b> tag grammar/kata kerja ✓`:'')+(r.title?`<br><small>Judul: ${esc(r.title)}</small>`:'')+wf}
 /* v7.9: batas Pustaka dinaikkan (IndexedDB tidak dibatasi 5 MB) */
 const LIB_MAX=20000,LIB_SL_MAX=200000;
 function libAddSave(play){const r=libAddParse();if(r.err)return toast(r.err);
