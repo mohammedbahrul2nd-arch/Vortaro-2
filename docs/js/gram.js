@@ -421,7 +421,7 @@ const gmSig=()=>S.lib.length+'/'+S.sl.length+'/'+gmB.n+'/'+(S.lib[0]?S.lib[0].c:
 const GMVER={sig:'',m:new Map()};
 /* v7.30.0: terverifikasi = (1) kalimat punya tag V:/K: asli dari AI yang menunjuk kartu itu (t.k atau t.ks untuk homonim) DAN (2) terjemahan Indonesia kalimat itu memuat padanan arti kartu (gzvIdSpan). Dua-duanya harus cocok: mencegah salah-tag seperti 差す (payung) pada さすが. */
 /* arti yang dicocokkan = arti kartu + kepala catatan entri bahasa itu (mis. "Meneteskan cairan: ..." -> "Meneteskan cairan") */
-const gmGloss=key=>{const c=K[base(key)];if(!c)return'';const L=lang(key),ex=(c[3][L]||[]).map(e=>String(e[4]||'').split(/[:：。]/)[0].trim()).filter(x=>x&&x.split(/\s+/).length<=7);return[c[2]].concat(ex).join(' / ')};
+const gmGloss=key=>{const c=K[base(key)];if(!c)return'';const L=lang(key),ex=((c[3][L]||[]).length>1&&(c[3][L]||[])[ent(key)]?[(c[3][L]||[])[ent(key)]]:(c[3][L]||[])).map(e=>String(e[4]||'').split(/[:：。]/)[0].trim()).filter(x=>x&&x.split(/\s+/).length<=7);return[c[2]].concat(ex).join(' / ')};
 const gmIdOk=(i,key)=>!!(i&&K[base(key)]&&gzvIdSpan(i,gmGloss(key),true));
 const gmTagKeys=t=>{const r=[];if(t&&t.t=='v'){if(t.k)r.push(t.k);if(t.ks)for(const k of t.ks)if(k&&!r.includes(k))r.push(k)}return r};
 const gmTagHit=(tg,key,i)=>!!(tg&&tg.some(t=>gmTagKeys(t).includes(key)))&&gmIdOk(i,key);

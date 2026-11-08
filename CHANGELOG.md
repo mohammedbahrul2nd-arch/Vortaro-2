@@ -1,3 +1,8 @@
+## 7.66.0 — Kelas AI: label entri benar
+- **Bug**: kandidat Kelas AI sudah per entri sejak 7.60, tetapi chip "Kartu prioritas/Kartu baru", judul prompt, dan baris Kelas AI di beranda selalu menampilkan kata PERTAMA kartu. Entri ke-2 `sich vergnügen` (kartu spielen) tampil sebagai "spielen = Bermain… · 0 terverifikasi" dan tampak seperti spielen sendiri, sementara spielen asli juga muncul ("· 3 terverifikasi").
+- **Perbaikan**: helper `aiEntE/aiEntW` mengambil kata dari indeks `~N` kunci; dipakai di chip prioritas/baru, `aiTitle`, `aiHub`, dan baris "Kata:" prompt kartu tunggal (`aiBuildV`, kini hanya kata entri itu). Uji baru `test_aientlabel`.
+- **Audit semua kasus serupa** (kunci `~N` tapi data entri ke-1): `aiPoolV`/`aiPoolM` (kosakata lemah & mahir) sebelumnya MEMBUANG entri ke-2 dst. sama sekali; kini per entri (`E:1`, kata & baris prompt entri itu). Juga diperbaiki: chip kata lemah/mahir, level entri (`aiLvOf`), daftar contoh & kata utama prompt kartu tunggal (hanya entri itu), judul KPI (`kpiItems`), `libLbl` & `lchItems` (daftar kartu sulit), serta glos `gmGloss` (hanya contoh entri itu).
+
 ## 7.65.0 — Verifikasi kata benda: jumlah tidak dipersoalkan
 - Cek "tunggal asing vs jamak berulang" (7.62–7.64) dihapus: friend~teman, friend~teman-teman, friends~teman, friends~teman-teman semuanya lolos terverifikasi. Syarat lain tetap (kata asing token utuh, arti Indonesia persis, Jerman berhuruf kapital, zh/ja tak bagian kata lebih panjang). Uji ditambah untuk keempat kombinasi.
 

@@ -650,7 +650,7 @@ function libForget(id){libDocs.delete(id);libAna.delete(id);libAnaG.delete(id);i
 function libSt(k){const g=GK[k]?1:0,s=typeof aiState=='function'?aiState(k,g):null;if(s&&s.t.length)return'w';const c=S.srs[k];if(aiRem(c,g)||S.p[k]==2)return'm';return c&&c.t?'w':S.p[k]==1?'w':'n'}
 const LIBSTN={w:'dipelajari / lemah',m:'matang / selesai',n:'belum dipelajari'};
 const libOfKey=k=>GK[k]?GK[k][1]:lang(k);
-function libLbl(k){if(GK[k]){const g=GK[k];return{w:g[4],r:'',m:'Grammar '+g[2],L:g[1],g:1}}const b=base(k),L=lang(k),c=K[b],e=(c&&c[3][L]||[])[0]||['',''];return{w:e[0],r:e[1]||'',m:c?c[2]:'',L}}
+function libLbl(k){if(GK[k]){const g=GK[k];return{w:g[4],r:'',m:'Grammar '+g[2],L:g[1],g:1}}const b=base(k),L=lang(k),c=K[b],e=((c&&c[3][L]||[])[ent(k)])||(c&&c[3][L]||[])[0]||['',''];return{w:e[0],r:e[1]||'',m:c?c[2]:'',L}}
 
 /* ---------------------------------------------------------------------------------------------
    3. TEKS-TO-SPEECH bersama (say() & pemutar): kecepatan 0.5–1.2×, suara pilihan
@@ -1028,7 +1028,7 @@ const lchN=()=>Math.max(2,+S.o.lch||4);
 const isLch=k=>{const c=S.srs[k];return!!c&&!c.z&&(c.l|0)>=lchN()};
 function lchItems(){const out=[];for(const k in S.srs){if(!isLch(k))continue;const c=S.srs[k];
   if(GK[k]){const g=GK[k];out.push({k,c,l:c.l,t:g[4],r:'',m:'Grammar',sub:(LN[g[1]]||'')+' '+g[2],L:g[1],g:1})}
-  else if(String(k).indexOf('@')>=0&&K[base(k)]){const L=lang(k),cd=K[base(k)],es=cd[3][L];if(!es||!es.length)continue;out.push({k,c,l:c.l,t:es[0][0],r:es[0][1]||'',m:cd[2],sub:(LN[L]||L)+(es[0][3]?' '+es[0][3]:''),L})}}
+  else if(String(k).indexOf('@')>=0&&K[base(k)]){const L=lang(k),cd=K[base(k)],es=cd[3][L];if(!es||!es.length)continue;const e0=es[ent(k)]||es[0];out.push({k,c,l:c.l,t:e0[0],r:e0[1]||'',m:cd[2],sub:(LN[L]||L)+(e0[3]?' '+e0[3]:''),L})}}
  return out.sort((a,b)=>b.l-a.l||(a.c.i|0)-(b.c.i|0))}
 let lchLg='',lchLim=8;
 function lchAct(a,x){if(a=='lchlg'){lchLg=x;lchLim=8}else if(a=='lchmore')lchLim+=20}

@@ -1251,7 +1251,7 @@ function kpiItems(t){const td=fcDay(Date.now()),out=[];
  const keys=t=='mat'?fcPool().filter(k=>{const c=S.srs[k];return c&&c.t==2&&c.i>=21}):Object.keys(S.p).filter(k=>S.p[k]==2);
  for(const k of keys){let ti,sb,lg,tg,id;const c=S.srs[k];
   if(GK[k]){const g=GK[k];lg=g[1];ti=g[4];sb=`${g[2]} · Grammar`;id=k}
-  else{const b=base(k),L=lang(k),cd=K[b];if(!cd)continue;lg=L||cd[1];const e=L&&(cd[3][L]||[])[0];ti=e?e[0]+(e[1]?' ('+e[1]+')':''):cd[2];sb=cd[2];id=b}
+  else{const b=base(k),L=lang(k),cd=K[b];if(!cd)continue;lg=L||cd[1];const e=L&&((cd[3][L]||[])[ent(k)]||(cd[3][L]||[])[0]);ti=e?e[0]+(e[1]?' ('+e[1]+')':''):cd[2];sb=cd[2];id=b}
   const iv=c&&c.t==2?c.i:0,due=c&&c.t==2?c.d-td:null;
   tg=c&&c.t==2?`${iv} hr · ${due<0?'terlambat '+(-due)+' hr':due==0?'ulas hari ini':due==1?'ulas besok':'ulas '+due+' hr lagi'}`:(c&&c.t?'sedang belajar':'ditandai selesai');
   out.push({k,id,g:!!GK[k],lg,ti,sb,iv,tg})}

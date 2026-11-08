@@ -57,10 +57,10 @@ function aiWrongRecent(k,g){if(g){const a=(LT('a')[k]||[]).filter(x=>Date.now()-
  const h=(SI.w[k]||[]).filter(x=>Date.now()-x.t<18144e5);return h.length&&h[h.length-1].r<2?h.filter(x=>x.r==0).length||1:0}
 /* kandidat kosakata lemah untuk satu bahasa */
 function aiPoolV(L,exK){const keys=new Set();Object.keys(S.srs).forEach(k=>keys.add(k));Object.keys(S.p).forEach(k=>{if(S.p[k]==1)keys.add(k)});
- const out=[];keys.forEach(k=>{if(!aiIsV(k)||lang(k)!=L||k==exK||ent(k)>0)return;const c=K[base(k)];if(!c||!(c[3][L]||[]).length)return;
+ const out=[];keys.forEach(k=>{if(!aiIsV(k)||lang(k)!=L||k==exK)return;const c=K[base(k)];if(!c||!aiEntOk(k,c[3][L]))return;
   const st0=aiState(k,0);if(!st0)return;const wr=(SI.w[base(k)]||[]).filter(h=>(h.l||'')==L).length?aiWrongRecent(base(k),0):0;
   let s=st0.s,tags=st0.t.slice(),t1=st0.t1;if(wr){s+=6;t1=1;tags.push('salah di latihan kalimat baru-baru ini')}
-  if(s<=0)return;out.push({k,c,s,tags,tier:t1?1:2,pos:c[1]})});return out}
+  if(s<=0)return;out.push({E:1,k,c,s,tags,tier:t1?1:2,pos:c[1]})});return out}
 /* kandidat grammar lemah */
 function aiPoolG(L,exK){const keys=new Set();Object.keys(S.srs).forEach(k=>{if(GK[k])keys.add(k)});Object.keys(S.p).forEach(k=>{if(GK[k]&&S.p[k]==1)keys.add(k)});Object.keys(LT('a')).forEach(k=>{if(GK[k])keys.add(k)});
  const out=[];keys.forEach(k=>{const g=GK[k];if(!g||g[1]!=L||k==exK)return;const c=S.srs[k];if(aiRem(c,1))return;
@@ -69,10 +69,10 @@ function aiPoolG(L,exK){const keys=new Set();Object.keys(S.srs).forEach(k=>{if(G
   if(s<=0)return;out.push({k,g,s,tags,tier:t1?1:2})});return out}
 /* kartu yang sudah MAHIR (matang di SRS atau ditandai Selesai): bahan pembentuk kalimat yang aman. Bisa kosakata maupun grammar. */
 function aiPoolM(L,exK){const keys=new Set(),W=[],G=[];Object.keys(S.srs).forEach(k=>keys.add(k));Object.keys(S.p).forEach(k=>{if(S.p[k]==2)keys.add(k)});
- keys.forEach(k=>{if(k==exK||ent(k)>0)return;const c=S.srs[k];if(c&&c.z)return;const g=!!GK[k];if(!(S.p[k]==2||aiRem(c,g?1:0)))return;
+ keys.forEach(k=>{if(k==exK)return;const c=S.srs[k];if(c&&c.z)return;const g=!!GK[k];if(!(S.p[k]==2||aiRem(c,g?1:0)))return;
   const tg=['sudah mahir'+(c&&c.t==2?' (interval '+c.i+' hr)':'')],sc=Math.min((c&&c.i)||30,120)/120;
   if(g){const gg=GK[k];if(gg&&gg[1]==L)G.push({k,g:gg,s:sc,tags:tg,tier:3})}
-  else if(aiIsV(k)&&lang(k)==L&&!ent(k)){const cc=K[base(k)];if(cc&&(cc[3][L]||[]).length)W.push({k,c:cc,s:sc,tags:tg,tier:3,pos:cc[1]})}});
+  else if(aiIsV(k)&&lang(k)==L){const cc=K[base(k)];if(cc&&aiEntOk(k,cc[3][L]))W.push({E:1,k,c:cc,s:sc,tags:tg,tier:3,pos:cc[1]})}});
  return{W,G}}
 function aiSort(a,jit){return a.map(x=>({...x,j:x.s+Math.random()*(jit||0)})).sort((x,y)=>y.j-x.j)}
 function aiTake(a,N){const q={V:Math.ceil(N*.4),N:Math.ceil(N*.35),A:Math.ceil(N*.25),O:Math.ceil(N*.15)},u={},out=[],rest=[];
@@ -86,11 +86,16 @@ function aiForm(e,pos,L){let t='';
  else if(L=='nl'&&typeof DXN!='undefined'&&DXN){if(pos=='N'&&DXN.n[e[0]])t='jamak: '+DXN.n[e[0]];else if(pos=='V'&&DXN.v[e[0]])t='hij/zij/het · verleden · voltooid: '+DXN.v[e[0]];else if(pos=='A'&&DXN.a[e[0]])t='komparatif: '+DXN.a[e[0]]}
  else if(L=='en'&&typeof DXE!='undefined'&&DXE){const w=String(e[0]).trim();if(pos=='N'&&DXE.n[w])t='jamak: '+DXE.n[w];else if(pos=='V'&&DXE.v[w])t='3sg · past · participle · -ing: '+DXE.v[w];else if(pos=='A'&&DXE.a[w])t='komparatif · superlatif: '+DXE.a[w]}
  return t}
+/* v7.66: entri (kata) yang dimaksud kunci k~N; dipakai untuk label chip/judul agar entri ke-2 (sich vergnügen) tidak tampil sebagai kata pertama (spielen) */
+const aiEntE=(c,L,k)=>{const es=c[3][L]||[];return es[ent(k)]||es[0]||['']};
+const aiEntW=(c,L,k)=>aiEntE(c,L,k)[0];
+/* entri k~N valid & bukan duplikat kata entri sebelumnya */
+const aiEntOk=(k,es)=>{const e=es&&es[ent(k)];return!!e&&es.findIndex(x=>x[0]==e[0])==ent(k)};
 function aiWordLine(c,L,x){const seen=new Set();let es=(c[3][L]||[]).filter(e=>!seen.has(e[0])&&seen.add(e[0])).slice(0,2);
  if(x&&x.E&&x.k&&(c[3][L]||[]).length>1){const e=(c[3][L]||[])[ent(x.k)];if(e)es=[e]}/* v7.60: baris kata kartu per-entri = kata entri itu saja */
  const w=es.map(e=>e[0]+(e[1]?' ('+e[1]+')':'')).join(' / '),f=es.map(e=>aiForm(e,c[1],L)).filter(Boolean)[0];
  return `${w} = ${c[2]} [${aiPC(c)}]`+(f?` · ${f}`:'')}
-const aiLvOf=(c,L)=>{const e=(c[3][L]||[])[0];return e&&e[3]?e[3]:''};
+const aiLvOf=(c,L,k)=>{const e=aiEntE(c,L,k||'');return e&&e[3]?e[3]:''};
 function aiExLines(g,n){return(g[7]||[]).slice(0,n).map(e=>'- '+e.split('\n').join(' | '))}
 function aiSentHist(h){return h.s.replace(/\s+/g,' ').trim()}
 
@@ -170,11 +175,11 @@ function aiBuildG(ctx){const o=aiO(),g=GK[ctx.k],L=ctx.L,P=AIP[L],eff=aiEff(L,g[
  return T.join('\n\n')}
 
 function aiBuildV(ctx){const o=aiO(),L=ctx.L,P=AIP[L],c=K[base(ctx.k)],N=o.aiN,step=o.aiM=='step',ws=ctx.words.filter((x,i)=>!ctx.off.has(i)),hasW=ws.length>0;
- const es=c[3][L]||[],lv0=aiLvOf(c,L),lv=aiEff(L,lv0),lvN=aiLvNote(L,lv0),wr=(SI.w[base(ctx.k)]||[]).filter(h=>h.r==0&&(h.l||'')==L).length,tg=(()=>{const x=aiState(ctx.k,0),cc=S.srs[ctx.k];return x?x.t:(cc&&cc.t==2?['sudah cukup matang (interval '+cc.i+' hr)']:[])})(),hist=(SI.w[base(ctx.k)]||[]).filter(h=>h.r<2&&(h.l||'')==L).slice(-2);
+ const es=c[3][L]||[],lv0=aiLvOf(c,L,ctx.k),lv=aiEff(L,lv0),lvN=aiLvNote(L,lv0),wr=(SI.w[base(ctx.k)]||[]).filter(h=>h.r==0&&(h.l||'')==L).length,tg=(()=>{const x=aiState(ctx.k,0),cc=S.srs[ctx.k];return x?x.t:(cc&&cc.t==2?['sudah cukup matang (interval '+cc.i+' hr)']:[])})(),hist=(SI.w[base(ctx.k)]||[]).filter(h=>h.r<2&&(h.l||'')==L).slice(-2);
  const T=[];
  T.push(`## 🎯 PERAN\nKamu guru ${P.n} berpengalaman sekaligus pelatih memori. Muridku penutur bahasa Indonesia yang belajar ${P.n}${lv?` (level ${lv})`:''}.${lvN} Jelaskan dalam bahasa Indonesia; semua contoh dalam bahasa ${P.n}. Gaya: jelas, hangat, konkret, tanpa basa-basi. Jika ragu soal fakta bahasa, katakan ragu, jangan mengarang. Pakai bentuk natural, bukan terjemahan harfiah.`);
- const tp=[`Kata: ${aiWordLine(c,L)}${lv0?' · level '+lv0:''}`];
- {const sn=new Set(),us=es.filter(e=>!sn.has(e[0])&&sn.add(e[0]));us.forEach(e=>{if(e[2])tp.push(`Contoh dari materiku${us.length>1?' ('+e[0]+')':''}: ${e[2]}`)})}
+ const tp=[`Kata: ${aiWordLine(c,L,{E:1,k:ctx.k})}${lv0?' · level '+lv0:''}`];
+ {const sn=new Set(),us=(es.length>1&&es[ent(ctx.k)]?[es[ent(ctx.k)]]:es).filter(e=>!sn.has(e[0])&&sn.add(e[0]));us.forEach(e=>{if(e[2])tp.push(`Contoh dari materiku${us.length>1?' ('+e[0]+')':''}: ${e[2]}`)})}
  if(tg&&tg.length)tp.push(`Status belajarku untuk kata ini: ${tg.join('; ')}`);
  T.push(`## 📘 KATA YANG DIPELAJARI\n`+tp.join('\n'));
  let pr=`## 🧠 PROFIL BELAJARKU (dari aplikasi Vortaro)\nPasangkan kata utama dengan kosakata ${P.n} lain di bawah ini (yang sering kulupa atau masih kupelajari) supaya aku sekalian mengulang.\n\n`+aiWeakBlock(ctx);
@@ -298,8 +303,8 @@ function aiBuildSent(ctx){const o=aiO(),L=ctx.L,P=AIP[L],R=AIROM[L],rom=!!R,N=o.
 /* ---------- bahan utama bersama (topik utama + level) ---------- */
 function aiMainInfo(ctx){const L=ctx.L;let main,lv,mainShort;
  if(ctx.cov){lv=aiMaxLv(L)||'';return{main:'(Tidak ada satu topik tunggal. Fokus kalimat = KARTU PRIORITAS dan KARTU BARU di bawah.)',mainShort:'minimal 1 kartu dari daftar KARTU PRIORITAS atau KARTU BARU',lv,lvN:lv?` Level kalimat: sampai ${lv} (level tertinggi yang kupilih di aplikasi); kalimat boleh sederhana.`:''}}
- if(ctx.v){const c=K[base(ctx.k)],es=c[3][L]||[],sn=new Set(),us=es.filter(e=>!sn.has(e[0])&&sn.add(e[0]));lv=aiLvOf(c,L);mainShort=`kata “${us.map(e=>e[0]).join(' / ')}” (boleh berubah bentuk)`;
-  main=`Kata: ${aiWordLine(c,L)}${lv?' [level '+lv+']':''}`;const ex=us.map(e=>e[2]).filter(Boolean)[0];if(ex)main+=`\nContoh dari materiku: ${ex}`}
+ if(ctx.v){const c=K[base(ctx.k)],es=c[3][L]||[],sn=new Set(),us=(es.length>1&&es[ent(ctx.k)]?[es[ent(ctx.k)]]:es).filter(e=>!sn.has(e[0])&&sn.add(e[0]));lv=aiLvOf(c,L,ctx.k);mainShort=`kata “${us.map(e=>e[0]).join(' / ')}” (boleh berubah bentuk)`;
+  main=`Kata: ${aiWordLine(c,L,{E:1,k:ctx.k})}${lv?' [level '+lv+']':''}`;const ex=us.map(e=>e[2]).filter(Boolean)[0];if(ex)main+=`\nContoh dari materiku: ${ex}`}
  else{const g=GK[ctx.k];lv=g[2];mainShort=`grammar “${g[4]}”${g[6]?' (pola: '+aiClean(g[6])+')':''}`;
   main=`Grammar: ${g[4]} [${g[2]}]`+(g[5]?`\n${g[11]||'Fungsi'}: ${g[5]}`:'')+(g[6]?`\nPola: ${aiClean(g[6])}`:'')+(g[8].length?`\n${g[12]||'Keterangan'}: ${g[8].slice(0,3).join(' ')}`:'')+(g[7].length?`\nContoh dari materiku:\n`+aiExLines(g,2).join('\n'):'')}
  const lvN=aiLvNote(L,lv);return{main,mainShort,lv:aiEff(L,lv),lvN}}
@@ -341,16 +346,16 @@ const aiBuild=ctx=>{const t=aiO().aiT;if(ctx.mn)return aiBuildMn(ctx);return t==
 
 /* ---------- UI ---------- */
 const aiBtn=(k,txt)=>`<button class="mini aibtn" data-ai=open data-k="${esc(k)}" title="Salin prompt belajar komprehensif untuk AI (ChatGPT / Claude / Gemini)" aria-label="Kelas AI">🎓${txt?' '+txt:''}</button>`;
-function aiTitle(ctx){return ctx.v?`${AIP[ctx.L].n} · ${K[base(ctx.k)][3][ctx.L][0][0]}`:`${AIP[ctx.L].n} ${GK[ctx.k][2]} · ${GK[ctx.k][4]}`}
+function aiTitle(ctx){return ctx.v?`${AIP[ctx.L].n} · ${aiEntW(K[base(ctx.k)],ctx.L,ctx.k)}`:`${AIP[ctx.L].n} ${GK[ctx.k][2]} · ${GK[ctx.k][4]}`}
 function aiPanel(){const c=aiCtx,o=aiO(),m=document.getElementById('aim');if(!m)return;if(c&&c.cov)return aiLibPanel(c,o,m);
  if(c&&!c.mn&&AILT[o.aiT]){const fk=c.k;aiCtx=aiGatherLib(c.L);aiCtx.fk=fk;o.aiLL=c.L;o.aiLT=o.aiT;const hs=m.querySelector('.edh small');if(hs)hs.textContent='Prompt isi Pustaka · '+AIP[c.L].n;return aiLibPanel(aiCtx,o,m)}
  if(c.mn){const cc=S.srs[c.k]||{},text=aiBuild(c);c.text=text;
   m.querySelector('.edb').innerHTML=`<div class=lbsel style="margin:6px 0 10px"><div><small>🪨 Kartu bandel</small><br><b>${esc(aiTitle(c))}</b><br><small>Sudah lupa ${cc.l|0}× · ${cc.t==2?'interval '+cc.i+' hari':cc.t==3?'belajar ulang':cc.t==1?'masih belajar':'baru'}</small></div><button class=mini data-ai=unmn>← Prompt biasa</button></div><p class=gsub style="margin:4px 0 8px">Prompt ini meminta AI membuat <b>3 jembatan ingatan</b> dengan teknik berbeda + <b>1 kalimat jangkar</b> khusus untuk kartu ini, lalu tes ingat mini. Salin ke ChatGPT, Claude, atau Gemini.</p><div class=aio style="margin-top:8px"><div class=aih><small>Pratinjau prompt <i class=aicnt>${text.length.toLocaleString('id-ID')} karakter</i> — boleh diedit sebelum disalin</small></div><textarea id=aiTxt spellcheck=false>${esc(text)}</textarea></div>`;return}
  const opt=(n,l,ops)=>`<div class=aio><small>${l}</small><div class=chips>${ops.map(([v,t])=>`<button class="chip${o[n]==v?' on':''}" data-ai=opt data-o=${n} data-v="${v}">${t}</button>`).join('')}</div></div>`;
  const tg=x=>`<span class="aitg ${x.tier==1?'t1':'t2'}">${esc(x.tags[0])}</span>`;
- const chips=c.words.map((x,i)=>{const e=(x.c[3][c.L]||[])[0]||['',''];return`<button class="aiw${c.off.has(i)?' off':''}" data-ai=chip data-v=${i} title="Ketuk untuk ${c.off.has(i)?'menyertakan':'mengeluarkan'} kata ini"><b>${esc(e[0])}</b>${e[1]?` <small>${esc(e[1])}</small>`:''}<span>${esc(x.c[2])}</span>${tg(x)}</button>`}).join('');
+ const chips=c.words.map((x,i)=>{const e=aiEntE(x.c,c.L,x.k);return`<button class="aiw${c.off.has(i)?' off':''}" data-ai=chip data-v=${i} title="Ketuk untuk ${c.off.has(i)?'menyertakan':'mengeluarkan'} kata ini"><b>${esc(e[0])}</b>${e[1]?` <small>${esc(e[1])}</small>`:''}<span>${esc(x.c[2])}</span>${tg(x)}</button>`}).join('');
  const gch=o.aiG&&c.gr.length?`<div class=aio><small>Grammar lemah ikut disebut</small><div class=aigr>${c.gr.map(x=>`<span class="aitg ${x.tier==1?'t1':'t2'}">${esc(x.g[4])} · ${esc(x.tags[0])}</span>`).join('')}</div></div>`:'';
-const mch=AIDEST[o.aiT]&&o.aiMs&&((c.mw||[]).length||(c.mg||[]).length)?`<div class=aio style="margin-top:10px"><small>Kartu yang sudah mahir ikut jadi pembentuk kalimat (ikut diacak ulang)</small><div class=aigr>${(c.mw||[]).map(x=>{const e=(x.c[3][c.L]||[])[0]||['',''];return`<span class="aitg t3">${esc(e[0])} · ${esc(x.c[2])}</span>`}).join('')}${(c.mg||[]).map(x=>`<span class="aitg t3">${esc(x.g[4])}</span>`).join('')}</div></div>`:'';
+const mch=AIDEST[o.aiT]&&o.aiMs&&((c.mw||[]).length||(c.mg||[]).length)?`<div class=aio style="margin-top:10px"><small>Kartu yang sudah mahir ikut jadi pembentuk kalimat (ikut diacak ulang)</small><div class=aigr>${(c.mw||[]).map(x=>{const e=aiEntE(x.c,c.L,x.k);return`<span class="aitg t3">${esc(e[0])} · ${esc(x.c[2])}</span>`}).join('')}${(c.mg||[]).map(x=>`<span class="aitg t3">${esc(x.g[4])}</span>`).join('')}</div></div>`:'';
  const text=aiBuild(c);c.text=text;
  const nW=c.words.filter((x,i)=>!c.off.has(i)).length;
  const rom=c.L=='ja'?' + romaji':c.L=='zh'?' + pinyin':'',nm=AIP[c.L].n;
@@ -413,7 +418,7 @@ function aiHub(){const rows=[];
  for(const L of Object.keys(AIP)){if(!D.L.some(l=>l[0]==L))continue;
   const g=aiSort(aiPoolG(L),0)[0],w=aiSort(aiPoolV(L),0)[0],lbl=AIP[L].n;
   if(g)rows.push(`<div class=row><div data-ai=open data-k="${esc(g.k)}" style="cursor:pointer"><b>${esc(g.g[4])}</b><br><small>${lbl} ${g.g[2]} · grammar · ${esc(g.tags[0])}</small></div>${aiBtn(g.k,'Prompt')}</div>`);
-  if(w){const e=w.c[3][L][0];rows.push(`<div class=row><div data-ai=open data-k="${esc(w.k)}" style="cursor:pointer"><b>${esc(e[0])}</b> <small>${esc(e[1]||'')}</small><br><small>${lbl} · kata · ${esc(w.c[2])} · ${esc(w.tags[0])}</small></div>${aiBtn(w.k,'Prompt')}</div>`)}}
+  if(w){const e=aiEntE(w.c,L,w.k);rows.push(`<div class=row><div data-ai=open data-k="${esc(w.k)}" style="cursor:pointer"><b>${esc(e[0])}</b> <small>${esc(e[1]||'')}</small><br><small>${lbl} · kata · ${esc(w.c[2])} · ${esc(w.tags[0])}</small></div>${aiBtn(w.k,'Prompt')}</div>`)}}
  return`<div class=card><b>🎓 Kelas AI</b><p class=gsub style="margin:2px 0 8px">Salin prompt belajar komprehensif (penjelasan → contoh → mnemonik → tes ingat → kartu hafalan) untuk ChatGPT, Claude, atau Gemini. Contoh kalimatnya otomatis memakai kosakata bahasa yang sama yang sering kamu lupa atau masih dipelajari. Tekan 🎓 di kartu grammar, kartu kata, atau Flashcard mana pun.</p>`+
  (rows.length?`<div class=gsec style="margin-top:6px">Yang paling perlu diulang sekarang</div>`+rows.join(''):'<small>Belum ada data lemah. Pakai Flashcard dulu; item yang kamu tandai “Lagi” atau “Sedang” akan muncul di sini. Kamu tetap bisa menekan 🎓 di grammar atau kata apa pun.</small>')+`</div>`}
 
@@ -513,7 +518,7 @@ function aiLibPanel(c,o,m){const lt=o.aiLT||'read',langs=Object.keys(AIP).filter
  const opt=(n,l,ops)=>`<div class=aio><small>${l}</small><div class=chips>${ops.map(([v,t])=>`<button class="chip${o[n]==v?' on':''}" data-ai=opt data-o=${n} data-v="${v}">${t}</button>`).join('')}</div></div>`;
  const text=aiLibBuild(c,lt);c.text=text;
  const tg=(x,l)=>`<span class="aitg ${x.n==0?'t1':'t2'}">${esc(l)} · ${x.v!=null?x.v+' terverifikasi':x.n==0?'0 contoh':x.n+' contoh'}</span>`;
- const wch=c.pw.map(x=>tg(x,(x.c[3][c.L][0]||[''])[0]+' = '+x.c[2])).join(''),gch=c.pg.map(x=>tg(x,x.g[4]+' ['+x.g[2]+']')).join(''),nch=(c.nw||[]).map(x=>tg(x,(x.c[3][c.L][0]||[''])[0]+' = '+x.c[2])).join('')+(c.ng||[]).map(x=>tg(x,x.g[4]+' ['+x.g[2]+']')).join('');
+ const wch=c.pw.map(x=>tg(x,aiEntW(x.c,c.L,x.k)+' = '+x.c[2])).join(''),gch=c.pg.map(x=>tg(x,x.g[4]+' ['+x.g[2]+']')).join(''),nch=(c.nw||[]).map(x=>tg(x,aiEntW(x.c,c.L,x.k)+' = '+x.c[2])).join('')+(c.ng||[]).map(x=>tg(x,x.g[4]+' ['+x.g[2]+']')).join('');
  const TD={read:'Teks bacaan berparagraf',listen:'Teks untuk latihan mendengar',dialog:'Dialog dua penutur (A/B)',sent:'Banyak kalimat tunggal sekaligus'}[lt];
  m.querySelector('.edb').innerHTML=(c.fk?aiTabsHtml(o):'')+
   `<div class=aio><small>Bahasa</small><div class=chips>${langs.map(l=>`<button class="chip${c.L==l?' on':''}" data-ai=opt data-o=aiLL data-v="${l}">${esc(AIP[l].n)}</button>`).join('')}</div></div>`+
