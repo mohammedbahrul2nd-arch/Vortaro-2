@@ -9,7 +9,7 @@
       trennbar, zu-Infinitiv, Nebensatz, …) memakai bentuk kata kerja dari kartu verbmu
    6. 5 contoh dari Pustaka saat kartu dibuka
    ============================================================================================= */
-const GM_VER='7.19.4',GM_AT='2026-11-08T01:00:00+07:00';
+const GM_VER='7.20.0',GM_AT='2026-11-08T12:00:00+07:00';
 const gmB={n:0};
 const gmNorm=s=>String(s||'').toLowerCase().normalize('NFC').replace(/[〜～~\s()（）「」『』\[\]【】\/／・…*+,，、.。:：;；!！?？"'’`\-–—]/g,'');
 const gmHan=ch=>/[\u3400-\u9fff]/.test(ch);

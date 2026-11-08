@@ -1,5 +1,15 @@
 # Riwayat Perubahan
 
+## 7.20.0 — Minggu, 8 Nov 2026 (tahap 1: Games)
+
+- **Games dirombak jadi hub.** Tab Games kini menampilkan kartu tiap game (ikon, deskripsi, jumlah ulas/baru, skor hari ini), bilah atas dengan tombol ‹ Games, skor sesi + rentetan 🔥, pengaturan per game yang bisa dilipat, dan tombol Periksa untuk soal multi-pilihan. Gim lama Tebak Gender tetap utuh (dibungkus `ggGenView/ggGenAct/ggGenSet`).
+- **Game baru: Penggolong Mandarin (量词).** ±190 kata benda × bingkai kalimat sederhana (一___人, 两___书, 我有三___…) + 16 soal penggolong verbal (次/遍/趟/顿/场/下/会儿). Soal multi-jawaban: pilih semua yang benar (mis. 个 / 位 / 口 untuk 人). Skor: semua benar = Good, sebagian benar = Hard, ada yang salah = Again. Sisi jawaban menampilkan kalimat lengkap + pinyin + 🔊 dan catatan pemakaian tiap penggolong. Filter kategori & opsi pinyin.
+- **Game baru: Artikel & Akhiran Jerman.** Enam jenis soal: artikel tentu, artikel tak tentu, akhiran adjektiva setelah artikel tentu/tak tentu, artikel + akhiran sekaligus (dua kotak), dan *semua artikel yang cocok* (der/ein/kein/mein/dein, multi-jawaban) — untuk Nominativ, Akkusativ, Dativ, Genitiv × maskulin/feminin/netral. Kata benda diambil dari kosakata (bobot level: A1–A2 lebih sering); Genitiv memakai aturan -(e)s dan melewati kata benda n-Deklination.
+- **Game baru: Artikel & Akhiran Belanda.** Jenis soal: *penentu yang cocok* (de/het/een/geen/dit/dat/deze/die/mijn, multi-jawaban), dit/dat/deze/die, dan akhiran adjektiva -e atau ∅ (een + het-woord tanpa -e, dst.).
+- Jadwal ulasan: Penggolong per kata (`zc|…`, `zv|…`), Jerman/Belanda per *sel aturan* (`dr|de|mode|kasus|gender`) agar latihan menyebar rata. Bila tidak ada yang jatuh tempo, game lanjut sebagai latihan bebas tanpa mengubah jadwal.
+- Berkas baru: `js/gamedata.js` (data penggolong), `js/games2.js` (hub + mesin soal). `sw.js` & `GM_VER` 7.20.0.
+- **Belum dikerjakan (tahap 2):** kalimat rumpang kosakata Jerman/Belanda (mulai dari artikel) dari Pustaka, tombol hapus contoh Pustaka di flashcard, kartu “unrevealed” yang tak masuk Kelas AI, prioritas kosakata bertag asli, laporan tag gagal saat paste.
+
 ## 7.19.4 — Minggu, 8 Nov 2026
 
 - **Dua tab tidak lagi saling menimpa.** Penyimpanan kini punya nomor revisi (kunci `rev`) dan `BroadcastChannel('vortaro-state')`. Sebelum menulis, revisi tersimpan dibaca dalam satu transaksi readwrite; bila lebih baru dari yang diketahui tab ini, data digabung: `srs` ambil entri dengan `r` lebih besar (seri → `d` lebih baru), `lg`/`nw` ambil nilai per hari terbesar, `p` maksimum + `fcSync`, `s` gabungan, `sd` hari sama ambil terbesar, `lib`/`sl` gabungan per id; kunci lain milik tab penulis terakhir. Tab penerima yang tidak kotor memuat ulang state dari IndexedDB dan merender ulang. Mode localStorage memakai event `storage`. Hapus semua progres / Hapus jadwal / Pemulihan menimpa mentah (tanpa gabung).

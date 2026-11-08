@@ -20,7 +20,7 @@ function ggAns(art){if(!ggCur||ggRes)return;const o=ggO(),x=ggCur,ok=art==x.art,
  const n=fcCalc(c,ok?3:1,Date.now(),true);n.gn=((c&&c.gn)|0)+1;n.go=((c&&c.go)|0)+(ok?1:0);n.gl=ok?1:0;S.gg[x.k]=n;
  if(!had)S.ggd.n++;else if(c.t==2)S.ggd.r++;
  ggRes={ok,pick:art,next:n.t==2?fcFmtD(n.i):fcFmt(n.d-Date.now())};buzz(ok?10:[16,40,16])}
-function ggAct(a,x,k){const o=ggO();
+function ggGenAct(a,x,k){const o=ggO();
  if(a=='ggans')ggAns(x);
  else if(a=='ggnext'){ggCur=null;ggRes=null}
  else if(a=='gglang'){if(GGL[x]){o.ggl=x;ggCur=null;ggRes=null}}
@@ -29,9 +29,9 @@ function ggAct(a,x,k){const o=ggO();
  else if(a=='ggmore')S.ggd.x=(S.ggd.x|0)+10
  else if(a=='ggsay'){say(x,o.ggl)}
  else if(a=='ggrst'){if(confirm('Hapus semua jadwal game Tebak gender?')){S.gg={};S.ggd={d:-1,n:0,r:0,x:0};ggCur=null;ggRes=null}}}
-function ggSet(i,el){const o=ggO(),f=i.slice(3),v=parseInt(el.value);if(isFinite(v)&&(f=='n'||f=='r'))o['gg'+f]=Math.max(0,Math.min(9999,v));ggCur=null;ggRes=null}
+function ggGenSet(i,el){const o=ggO(),f=i.slice(3),v=parseInt(el.value);if(isFinite(v)&&(f=='n'||f=='r'))o['gg'+f]=Math.max(0,Math.min(9999,v));ggCur=null;ggRes=null}
 const ggCls=a=>({der:'m',die:'f',das:'n',de:'m',het:'n'}[a]||'');
-function ggView(){const o=ggO(),L=o.ggl,q=ggQ();
+function ggGenView(){const o=ggO(),L=o.ggl,q=ggQ();
  if(ggCur&&(!ggPool(L).includes(ggCur)&&!ggRes||ggCur.k.split('@')[1]!=L)){ggCur=null;ggRes=null}
  if(!ggCur){ggCur=ggPick(q);ggRes=null}
  const lvs=ggLv(L),sel=o.ggvs[L]||[],nn=Math.min(q.N.length,q.nL),rr=Math.min(q.R.length,q.rL),ln=q.L.length;
