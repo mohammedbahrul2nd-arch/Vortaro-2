@@ -1201,7 +1201,7 @@ function fcStreak(){const td=fcDay(Date.now()),set=new Set();
 function fcHero(q,nn,rr){const td=fcDay(Date.now()),done=(S.lg[td]||[0])[0]|0,left=q.L.length+nn+rr,tot=done+left,pct=tot?Math.min(1,done/tot):0,sk=fcStreak(),R=28,C=2*Math.PI*R;
  const msg=left==0?(done?'Target hari ini tercapai 🎉':'Tidak ada kartu yang menunggu'):`${left} kartu lagi · ±${Math.max(1,Math.ceil(left*25/60))} menit`;
  return`<div class=hero><div class=ring><svg viewBox="0 0 64 64" aria-hidden="true"><circle class=tr cx=32 cy=32 r=${R}></circle><circle class=pg cx=32 cy=32 r=${R} style="stroke-dasharray:${C.toFixed(1)};stroke-dashoffset:${(C*(1-pct)).toFixed(1)}"></circle></svg><b>${Math.round(pct*100)}%</b></div><div class=ht><b>${done} dari ${tot} kartu hari ini</b><small>${msg}</small></div><div class=streak title="Hari beruntun belajar">🔥 ${sk.run}<small>hari</small></div></div>`}
-function confetti(){if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+function confetti(){if(matchMedia('(prefers-reduced-motion:reduce)').matches||document.documentElement.getAttribute('data-vr-an')=='off')return;
  const c=document.createElement('canvas');c.className='confetti';c.width=innerWidth;c.height=innerHeight;document.body.appendChild(c);
  const x=c.getContext('2d'),cl=['#f59e0b','#10b981','#3b82f6','#ef4444','#a855f7','#eab308'];
  const P=Array.from({length:110},()=>({x:innerWidth/2+(Math.random()-.5)*90,y:innerHeight*.6,vx:(Math.random()-.5)*10,vy:-Math.random()*14-4,s:5+Math.random()*5,r:Math.random()*6,vr:(Math.random()-.5)*.4,c:cl[Math.random()*cl.length|0]}));

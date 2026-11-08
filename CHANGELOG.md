@@ -1,4 +1,74 @@
+## 7.59.0 — UI v8 tahap D4 (Pustaka)
+Header Pustaka dirapikan: tombol "Tambah teks/kalimat" tidak lagi terpecah 3 baris menjadi bentuk lonjong (kini satu baris sejajar Kelas AI, teks lengkap di aria-label/title); paragraf penjelasan panjang dilipat di bawah ringkasan satu baris ("4 teks · 1 dibaca"). Tiga baris chip (bahasa, status, urutan) dipadatkan: label status dipendekkan (Semua/Belum/Sudah, nama lengkap di aria-label/title; "Cocok untuk kartu lemahku" -> "Kartu lemah"), jumlah pada chip aktif terbaca lagi. Perbaikan kontras: label tombol utama di kartu teks (Baca, Putar, Tutup bacaan) tadinya hampir tak terbaca di atas ungu (`.fct button` menimpa warna `.pri`). Rincian teks: tombol Judul/Pindah/Hapus sebaris (tadinya tiga baris penuh), teks bacaan sedikit lebih kecil agar teks panjang lebih ringkas, badge status tidak membungkus. Hanya ui.js + ui.css; app.js dan pustaka.js tidak diubah.
+
+## 7.58.0 — UI v8 tahap D3 (Daftar)
+Header Daftar jadi satu baris: kolom cari + pilihan status ringkas ("Semua" bukan "Semua status"; placeholder dipendekkan), tetap menempel di atas saat menggulir (sticky bawaan). Chip status per kartu dipadatkan dari "ZH · Belum" (5-6 chip, 2-3 baris) menjadi kode bahasa + penanda ○ belum / ◐ sedang / ● selesai: enam chip muat satu baris di 360-430px, tinggi ketuk 40px, aria-label/title tetap memuat nama bahasa + status lengkap, warna status tetap. Legenda penanda di bawah hitungan kartu. Keadaan kosong: bila pencarian/filter tak menemukan kartu, tampil kartu "Tidak ada kartu yang cocok" + tombol Reset pencarian. Kartu jadi lebih pendek (±120-165px, tadinya ±130-190px). Hanya ui.js + ui.css; app.js tidak diubah.
+
+## 7.57.2 — UI v8 tahap D1b (sisa Pengaturan)
+Kartu "Versi & pembaruan": menampilkan "Isi & fitur vX · Tampilan vY" (Y dibaca dari sw.js) agar angka v7.40.0 (GM_VER di gram.js, ikut metadata ekspor) tidak tampak basi; catatan rilis diringkas ke 3 butir terbaru + tombol "Lihat semua" (lipatan tadinya ±3300px). Kolom "Impor cadangan" tidak lagi melebar keluar kartu di 360px (tadinya halaman bisa digeser menyamping). Semua grup Pengaturan sudah dibuka satu per satu di 360/390/430px terang+gelap: tanpa overflow, tanpa error JS. Ekspor/impor u_* diuji sungguhan lintas konteks: semua u_* pulih dan atribut data-vr-* langsung terpasang (impor menanyakan konfirmasi "Terapkan pengaturan dari berkas?"). Hanya ui.js + ui.css.
+
+## 7.57.1 — UI v8 tahap D2b (sisa Statistik)
+Bagian bawah Statistik (Kosakata per bahasa, Kosakata per jenis kata, Ringkasan grammar) jadi kelompok lipat berikon, tertutup secara default, status diingat di S.o.u_sg (kunci st_lang, st_pos, st_gram). Dua tombol KPI yang bisa diketuk (kartu matang, kartu selesai) diberi bingkai beraksen agar beda dari kotak biasa. Area ketuk kotak heatmap diperluas 2px ke tiap sisi lewat ::after (tampilan sama). Hanya ui.js + ui.css.
+
+## 7.57.0 — UI v8 tahap D2 (Statistik)
+Heatmap "Konsistensi belajar" kini berlabel: nama bulan di atas dan Sen/Rab/Jum di kiri; saat belum ada aktivitas muncul keterangan (bukan hanya kotak kosong), selain itu ada petunjuk "ketuk kotak". Border kotak kosong dilembutkan. Empat tombol 2x2 (Kartu bandel, Perkiraan selesai, Proyeksi beban, Peta grammar) diberi judul bagian "Alat analisis" dan satu baris penjelasan per tombol. Hanya ui.js + ui.css (dekorasi DOM lewat MutationObserver, idempoten); app.js tidak diubah.
+
+## 7.56.0 — UI v8 tahap D1 (Pengaturan)
+Tab Atur: setiap kartu jadi kelompok lipat berikon (status diingat di S.o.u_sg; hanya Tampilan & Personalisasi terbuka secara default), kolom "Cari pengaturan" (membuka kelompok yang cocok, memulihkan status saat dikosongkan), select di Pengaturan flashcard selebar kartu (label tidak lagi berdesakan). Perbaikan: kartu Personalisasi tidak lagi ganda saat dibungkus. Semua kontrol tetap ada di dalam kelompoknya.
+
+## 7.55.0 — UI v8 tahap C2 (perapian sisa tahap C)
+Baris tombol di bawah kartu tidak lagi terpotong (.fct). Status lipatan "Alat belajar" pindah dari localStorage ke S.o.u_fold (ikut cadangan; localStorage lama dibaca sebagai cadangan awal). Pencatatan pemakaian lokal S.o.u_use (kunjungan tab, bahasa kartu yang dinilai) dan jalan pintas "paling sering dipakai" (maks 2 tab, muncul setelah dipakai >=2 kali) di layar Kartu. Impor cadangan membawa u_* lewat Object.assign(S.o,d.o) (dibaca dari kode gram.js, belum dicoba).
+
+## 7.54.0 — UI v8 tahap C
+Kartu "Tampilan & Personalisasi" di tab Atur (ui.js): nama panggilan (sapaan di Kartu), mode Sederhana/Lengkap (Sederhana: tombol tambahan jadi "Lainnya", Filter masuk "Alat belajar", hitungan Baru/Belajar/Ulas disembunyikan), kepadatan Nyaman/Padat, target kartu baru per hari (mengubah S.o.nl yang sama dengan Pengaturan flashcard), jam belajar favorit, tampilkan tombol jawaban, getar/suara/animasi satu per satu. Kunci baru S.o.u_nm/u_hr/u_md/u_dn/u_ab/u_an (tambahan, tanpa ubah struktur lama; ikut cadangan karena S disimpan utuh). Atribut data-vr-dn/md/ab/an pada <html>. Patch app.js 1 baris: confetti() berhenti bila animasi dimatikan.
+
+## 7.53.0 — UI v8 tahap B
+Layar Kartu: Lock-in dan Pengingat hafalan dipindah ke lipatan "Alat belajar" di bawah kartu (status buka/tutup diingat di localStorage kunci vr_ui_fold_tools); Lock-in berjalan tetap tampil di atas. Lock-in dirapikan (stepper jam/menit, target sentuh 44px, tombol "Mulai Lock-in"). Semua aksi data-a tetap di DOM. Hanya ui.js + ui.css; app.js tidak diubah.
+
+## 7.52.0 — UI v8 tahap A
+Inventaris fitur (data-a -> tab) dan audit gangguan visual 390px terang+gelap, ditulis di AUDIT_A.md. Tanpa perubahan kode selain versi.
+
+## 7.51.0 — UI v8 tahap 11
+Usap 4 arah: atas=Mudah, kanan=Baik, kiri=Sulit, bawah=Lagi. Tombol jawaban/Tampilkan jawaban disembunyikan visual (tetap di DOM untuk keyboard/aksesibilitas). Pil label arah+interval saat menggeser. touch-action:none pada kartu.
+
+## 7.50.0 — UI v8 tahap 10
+Audit bentrok kelas ui.css vs app.css (bersih), uji layar Kelas AI. Tanpa perubahan kode selain versi.
+
+## 7.49.0 — UI v8 tahap 9
+Perbaikan bentrok nama kelas onboarding (.onb milik app.css) -> .vrob; build_single.py kini menyertakan ui.css, ui.js, skeleton; HTML tunggal untuk review.
+
+## 7.48.0 — UI v8 tahap 8
+Skeleton loading (shimmer) di index.html saat muat pertama; otomatis hilang saat app.js merender. Uji headless lolos.
+
+## 7.47.0 — UI v8 tahap 7
+Uji headless: layar dalam game (terang/gelap), lebar 360/390/430, gestur geser kartu terbukti (atas = balik, kanan = Baik). Tanpa perubahan kode.
+
+## 7.46.0 — UI v8 tahap 6
+Kontras tombol/hero mode gelap, KPI rata tinggi, uji headless gelap + sisi jawaban kartu + layar Games.
+
+## 7.45.0 — UI v8 tahap 5
+Hero Games kontras (gradien aksen + teks putih), teks tebal inline di layar kosong, uji visual Games/Grammar/Daftar/Pustaka.
+
+## 7.44.0 — UI v8 tahap 4
+Uji visual 390px terang/gelap, nav 6-7 tab muat, onboarding menempel ke bawah, select lebih rapi.
+
+## 7.43.0 — UI v8 tahap 3
+Gestur geser kartu (kiri Lagi, kanan Baik, atas Mudah/balik), tombol jawaban berwarna, onboarding sekali tampil, kartu Games/Pustaka membulat.
+
+## 7.42.0 — UI v8 tahap 2
+Flip-in kartu, garis aksen, petunjuk ketuk, dock tombol jawaban, hero/KPI lebih tegas.
+
+## 7.41.0 — UI v8 (css/ui.css + js/ui.js)
+Tampilan ala Play Store: nav melayang, kartu/tombol membulat, hero gradien, ripple, animasi masuk. Logika tidak diubah.
+
 # Riwayat Perubahan
+
+## 7.40.0 — Minggu, 8 Nov 2026 (perbaikan: soal/contoh Pustaka sesuai ENTRI kartu)
+
+- **Bug**: kartu kosakata di SRS = satu entri (kunci `…~N`), tetapi pencocokan kalimat Pustaka menggabungkan semua entri satu arti dan tag AI hanya dicek ke kunci arti. Akibatnya kartu 吊るす memanggil kalimat 掛けました, 听见 memanggil 我重新听音乐, afhalen memanggil nemen, 畳む memanggil 折って, sich vergnügen memanggil spielen (artinya sama, kata beda).
+- **Perbaikan (mode per-entri, `E`)**: `libForms/libCountKey/libHL(…,E)` hanya memakai entri kartu itu; `gmCollect(key,E)` (dipakai `gzvCands` dan `gmExamples`) menolak tag AI yang `n`-nya = entri saudara (`gmTagEnt`), dan untuk zh/ja membuang kemunculan di dalam entri saudara yang lebih panjang (听 ⊂ 听见, 吊る ⊂ 吊るす; `gmSupSib/gmStripSib`). Tanpa kalimat yang cocok → kartu tampil biasa (tanpa soal rumpang) dan daftar contoh kosong. Kelas AI / hitungan level-kartu tidak berubah.
+- **Grammar preposisi Jerman**: Wechselpräposition (an/auf/hinter/in/neben/über/unter/vor/zwischen) kini memeriksa kasus dari artikel setelahnya (`gmPrepLv`): kartu “In (Akkusativ)” tak lagi memanggil “wohnen in einem Dorf” (Dativ); tanpa penentu kasus → perkiraan (lv 1).
+- Uji baru `test_entrymatch.js` (data sintetis + opsional pustaka nyata).
 
 ## 7.39.0 — Minggu, 8 Nov 2026 (tahap 5D: +30 verba untrennbar, soal prefiks campur)
 

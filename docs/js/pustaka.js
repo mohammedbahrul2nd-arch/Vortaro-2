@@ -602,16 +602,18 @@ function libExDF(L){if(LIBEXDF[L])return LIBEXDF[L];const df=new Map();let n=0;f
 
 /* ---- pembangun utama: kunci kartu "id@bahasa" -> bentuk-bentuk pencarian ---- */
 const libFM=new Map();
-function libForms(key){if(libFM.has(key))return libFM.get(key);let F=null;
- if(GK[key]){try{F=libGramF(key)}catch(e){F=null}libFM.set(key,F);return F}
- try{const b=base(key),L=lang(key),c=K[b],es=c&&c[3][L];if(es&&es.length){const pos=c[1];
+/* v7.40: mode PER-ENTRI (E=true). Kartu kosakata di SRS = satu entri (kunci ...~N). Sebelumnya bentuk pencarian digabung dari SEMUA entri satu arti, sehingga kartu 吊るす bisa memanggil kalimat 掛ける. */
+function libEntOnly(key){if(GK[key])return null;const c=K[base(key)],es=c&&c[3][lang(key)];if(!es||es.length<2)return null;const e=es[ent(key)];return e?[e]:null}
+function libForms(key,E){const ck=E?'E|'+key:key;if(libFM.has(ck))return libFM.get(ck);let F=null;
+ if(GK[key]){try{F=libGramF(key)}catch(e){F=null}libFM.set(ck,F);return F}
+ try{const b=base(key),L=lang(key),c=K[b],es=(E&&libEntOnly(key))||(c&&c[3][L]);if(es&&es.length){const pos=c[1];
   if(L=='zh')F={alts:[libZhF(es)],rom:libRomR(es,L)};
   else if(L=='ja')F={alts:[libJaF(es,pos)],rom:libRomR(es,L)};
   else{const single=new Set(),alts=[];
    const mk={de:libDeSets,nl:libNlSets,en:libEnSets,eo:libEo}[L];
    for(const e of es){const sets=mk(e[0],pos);if(sets.length==1)sets[0].forEach(x=>single.add(x));else alts.push({k:'tok',sets})}
    if(single.size)alts.unshift({k:'tok',sets:[single]});F={alts}}}}catch(e){F=null}
- libFM.set(key,F);return F}
+ libFM.set(ck,F);return F}
 /* ---- v7.6: pencocokan lewat baris romaji / pinyin. Batas kata = spasi di baris romanisasi; bacaan kartu (≥4 huruf, nada pinyin dipertahankan) harus cocok persis pada batas kata. Dipakai sebagai tambahan di samping pencocokan aksara asli (hasil = nilai terbesar, tanpa hitung ganda) ---- */
 const libRomN=(s,L)=>{let t=String(s).toLowerCase().normalize('NFC');if(L=='ja')t=t.replace(/ā/g,'a').replace(/ī/g,'i').replace(/ū/g,'u').replace(/ē/g,'e').replace(/ō/g,'o').replace(/ou/g,'o').replace(/oo/g,'o').replace(/uu/g,'u').replace(/aa/g,'a').replace(/ii/g,'i');return t};
 const libRomT=(s,L)=>libRomN(s,L).match(/\p{L}+/gu)||[];
@@ -632,7 +634,7 @@ function libCount1(d,F){if(F.k=='aff'){let n=0;for(const [w,c] of d.cnt)if(F.pre
   return n}
  if(F.sets.length==1){let n=0;const S0=F.sets[0];if(S0.size<=d.cnt.size){for(const w of S0)n+=d.cnt.get(w)|0}else{for(const [w,c] of d.cnt)if(S0.has(w))n+=c}return n}
  let n=0;for(const st of d.sT){if(F.sets.every(S0=>{for(const w of S0)if(st.has(w))return true;return false}))n++}return n}
-function libCountKey(d,key){if(GK[key]&&typeof gmCount=='function')return gmCount(d,key);const F=libForms(key);if(!F)return 0;let n=0;for(const a of F.alts)n+=libCount1(d,a);if(F.rom&&F.rom.length)n=Math.max(n,libRomCount(d,F.rom));return n}
+function libCountKey(d,key,E){if(GK[key]&&typeof gmCount=='function')return gmCount(d,key);const F=libForms(key,E);if(!F)return 0;let n=0;for(const a of F.alts)n+=libCount1(d,a);if(F.rom&&F.rom.length)n=Math.max(n,libRomCount(d,F.rom));return n}
 const libKeysByL={};
 function libKeys(L){if(libKeysByL[L])return libKeysByL[L];const a=[];for(const c of D.C)if(c[3][L]&&c[3][L].length)a.push(ik(c[0],L));return libKeysByL[L]=a}
 const libAna=new Map();
@@ -789,7 +791,7 @@ function libSentDoc(it,pi,si){const key=it.id+'|'+pi+'|'+si;let d=libSD.get(key)
  d={L,sents:[f],rs:[a&&P.r?P.r[si]||'':''],is:[a&&P.i?P.i[si]||'':''],tgs:[P.tg&&P.tg[si]||null],flat:f.replace(/\s+/g,'')};if(L!='ja'&&L!='zh'){const tk=libTok(f,L),cnt=new Map();tk.forEach(w=>cnt.set(w,(cnt.get(w)|0)+1));d.cnt=cnt;d.sT=[new Set(tk)]}
  libSD.set(key,d);return d}
 function libHits(it,key){const out=[];let g=0;it.ps.forEach((p,pi)=>p.f.forEach((f,si)=>{const n=libCountKey(libSentDoc(it,pi,si),key);if(n>0)out.push({pi,si,g:g,n,f,i:p.a!==0&&p.i&&p.i[si]?p.i[si]:'',sf:GK[key]&&typeof gmTagSf=='function'?gmTagSf(p.tg&&p.tg[si],key):[]});g++}));return out}
-function libHL(f,key,L){const F=libForms(key);if(!F)return esc(f);
+function libHL(f,key,L,E){const F=libForms(key,E);if(!F)return esc(f);
  if(L=='ja'||L=='zh'){const t=f.replace(/\s+/g,'');let res=[];const add=re=>{if(!re)return;re.lastIndex=0;let m;while((m=re.exec(t))){if(!m[0].length){re.lastIndex++;continue}res.push([m.index,m.index+m[0].length])}};
   F.alts.forEach(a=>{add(a.re);(a.ord||[]).forEach(add);(a.co||[]).forEach(parts=>parts.forEach(pt=>{let i=t.indexOf(pt);while(i>=0){res.push([i,i+pt.length]);i=t.indexOf(pt,i+pt.length)}}))});
   res.sort((a,b)=>a[0]-b[0]);const mg=[];res.forEach(r=>{const l=mg[mg.length-1];if(l&&r[0]<=l[1])l[1]=Math.max(l[1],r[1]);else mg.push(r.slice())});

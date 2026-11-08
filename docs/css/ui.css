@@ -1,0 +1,225 @@
+/* Vortaro UI v8 — tampilan ala Material You / Play Store. Hanya override visual, logika tidak disentuh. */
+:root{--bg:#f6f5fb;--c:#fff;--c2:#f1f0f9;--b:#e7e5f2;--a:#5b4bf0;--a2:#e8e5ff;--r:24px;
+--sh:0 1px 2px rgba(40,30,110,.05),0 8px 24px rgba(40,30,110,.07);--sh2:0 2px 4px rgba(40,30,110,.06),0 14px 34px rgba(40,30,110,.12)}
+@media(prefers-color-scheme:dark){:root{--bg:#0e0d16;--c:#18172a;--c2:#1f1e34;--b:#2a2942;--a:#a79cff;--a2:#2c2860;--sh:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.28);--sh2:0 14px 34px rgba(0,0,0,.45)}}
+body{background:radial-gradient(120% 60% at 50% -10%,color-mix(in srgb,var(--a) 16%,transparent),transparent 60%) no-repeat,var(--bg);background-attachment:fixed;padding-bottom:calc(112px + env(safe-area-inset-bottom));-webkit-font-smoothing:antialiased}
+::selection{background:var(--a2)}
+h1{font-size:1.7rem;font-weight:800;letter-spacing:-.03em;margin:14px 4px 18px}
+h2{font-weight:750;letter-spacing:-.01em}
+main.fade>*{animation:fin .34s cubic-bezier(.2,.8,.2,1) both}
+main.fade>*:nth-child(2){animation-delay:.04s}main.fade>*:nth-child(3){animation-delay:.08s}main.fade>*:nth-child(4){animation-delay:.12s}main.fade>*:nth-child(n+5){animation-delay:.16s}
+.card{border:0;border-radius:var(--r);padding:18px;box-shadow:var(--sh);transition:box-shadow .2s,transform .2s}
+.card[data-a=flip]:active{transform:scale(.985)}
+.fcard{min-height:280px;background:linear-gradient(160deg,var(--c),color-mix(in srgb,var(--a) 7%,var(--c)))}
+.mean{font-size:1.55rem;font-weight:800}
+.lg{border-radius:0 16px 16px 0}
+button{border-radius:16px;border-color:transparent;background:var(--c2);position:relative;overflow:hidden;-webkit-user-select:none;user-select:none}
+button:hover:not(:disabled){border-color:transparent;background:color-mix(in srgb,var(--a) 10%,var(--c2))}
+.pri{background:linear-gradient(135deg,var(--a),color-mix(in srgb,var(--a) 65%,#e855c8));color:#fff;min-height:54px;border-radius:99px;font-size:1rem;letter-spacing:.01em;box-shadow:0 8px 22px color-mix(in srgb,var(--a) 40%,transparent)}
+.pri:hover:not(:disabled){background:linear-gradient(135deg,var(--a),color-mix(in srgb,var(--a) 65%,#e855c8));filter:brightness(1.07)}
+.ghost{background:transparent;border:1px solid var(--b)}
+.chip{background:var(--c2);border-color:transparent;padding:7px 14px}
+.chip.on{background:var(--a2);color:var(--a);border-color:transparent;font-weight:700}
+.chipline span{border:0;background:var(--c2)}
+.seg{border:0;border-radius:99px;padding:4px;gap:4px;background:var(--c2)}
+.seg button{border-radius:99px;min-height:40px}.seg button+button{border-left:0}
+.seg button.on{background:var(--c);color:var(--a);box-shadow:var(--sh)}
+.langs button{border-radius:99px;background:var(--c)}
+input[type=search],select,input:not([type=checkbox]):not([type=file]):not([type=number]),textarea{border-radius:18px;border:1.5px solid transparent;background:var(--c);box-shadow:var(--sh);transition:border-color .15s,box-shadow .15s}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--a);box-shadow:0 0 0 4px color-mix(in srgb,var(--a) 18%,transparent)}
+.hero{border:0;border-radius:28px;padding:18px;background:linear-gradient(135deg,color-mix(in srgb,var(--a) 30%,var(--c)),color-mix(in srgb,#e855c8 14%,var(--c)) 85%);box-shadow:var(--sh2)}
+.ring{width:78px;height:78px}.ring circle{stroke-width:7}
+.ring .pg{stroke:var(--a);filter:drop-shadow(0 2px 6px color-mix(in srgb,var(--a) 50%,transparent))}
+.kpis>div{border:0;border-radius:20px}.kpis b{font-weight:800}
+.bar{height:10px}
+/* bilah bawah melayang seperti Play Store */
+nav{left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom));padding-bottom:0;border:0;border-radius:30px;background:color-mix(in srgb,var(--c) 86%,transparent);-webkit-backdrop-filter:blur(22px) saturate(1.4);backdrop-filter:blur(22px) saturate(1.4);box-shadow:var(--sh2);max-width:680px;margin:0 auto}
+.navi{padding:6px}
+nav button{border-radius:24px;min-height:56px;background:none;transition:color .2s,background .25s}
+nav button svg{transition:transform .25s cubic-bezier(.2,.9,.3,1.4)}
+nav button.on{background:var(--a2);color:var(--a);font-weight:750}
+nav button.on svg{transform:translateY(-1px) scale(1.12)}
+.dock{bottom:calc(92px + env(safe-area-inset-bottom))}
+.empty{padding:36px 18px}
+/* ripple */
+.rp{position:absolute;border-radius:50%;background:currentColor;opacity:.16;transform:scale(0);pointer-events:none;animation:rp .55s ease-out forwards}
+@keyframes rp{to{transform:scale(1);opacity:0}}
+::-webkit-scrollbar{width:0;height:0}
+@media(min-width:700px){nav{bottom:16px}}
+@media(prefers-reduced-motion:reduce){.rp{display:none}}
+/* ===== Tahap 2: flashcard & beranda ===== */
+.fcard{perspective:900px;position:relative;overflow:hidden}
+.fcard::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:linear-gradient(90deg,var(--a),#e855c8)}
+.fcard .fcf{animation:flip .45s cubic-bezier(.2,.8,.2,1) both;transform-origin:50% 60%}
+@keyframes flip{from{opacity:0;transform:rotateX(-14deg) translateY(10px) scale(.97)}to{opacity:1;transform:none}}
+.fcard .hd{text-transform:uppercase;letter-spacing:.06em;font-size:.72rem}
+.fcard .w{font-size:2rem;font-weight:800;letter-spacing:-.02em}
+.fcard[data-a=fcshow]::after{content:"Ketuk untuk melihat jawaban";position:absolute;left:0;right:0;bottom:12px;text-align:center;font-size:.78rem;font-weight:600;color:var(--m);animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35}}
+.dock{padding:12px 4px 6px}
+.dock .btns{gap:10px}.dock .btns button{min-height:56px;border-radius:20px;box-shadow:var(--sh);font-size:.95rem}
+.hero .ht b{font-size:1.1rem;font-weight:800;letter-spacing:-.01em}
+.hero .streak{background:var(--c);border-radius:18px;padding:8px 12px;font-weight:800;box-shadow:var(--sh)}
+.kpis>div{transition:transform .2s}.kpis>div:active{transform:scale(.95)}
+.kpis b{background:linear-gradient(135deg,var(--t),var(--a));-webkit-background-clip:text;background-clip:text;color:transparent}
+.gxcard,.gxhero{border-radius:24px}
+.empty b{font-size:1.2rem;font-weight:800}
+.empty::before{content:"✨";display:block;font-size:2.4rem;margin-bottom:8px}
+.card:active:not([data-a]){transform:none}
+@media(hover:hover){.card:hover{box-shadow:var(--sh2)}}
+/* ===== Tahap 3: tombol jawaban berwarna, onboarding, layar lain ===== */
+.fcard{touch-action:pan-y}
+.fcb{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.fb{flex-direction:column;display:flex;align-items:center;justify-content:center;gap:2px;font-weight:750;min-height:60px;border-radius:20px;color:#fff;border:0}
+.fb small{font-size:.66rem;opacity:.85;font-weight:600}
+.fb1{background:linear-gradient(135deg,#ef4444,#dc2626)}.fb2{background:linear-gradient(135deg,#f59e0b,#d97706)}.fb3{background:linear-gradient(135deg,#22c55e,#16a34a)}.fb4{background:linear-gradient(135deg,#3b82f6,#2563eb)}
+.fb:hover:not(:disabled){filter:brightness(1.08);background:revert-layer}
+.fct{display:flex;flex-wrap:wrap;gap:8px}.fct button{min-height:40px;font-size:.82rem;border-radius:99px;padding:6px 14px}
+.gxhero,.gxcard,.gxc,.lbc,.lpc{border:0!important;border-radius:24px!important;box-shadow:var(--sh)}
+.gxhero{background:linear-gradient(135deg,color-mix(in srgb,var(--a) 28%,var(--c)),var(--c))}
+.vrob{position:fixed;inset:0;z-index:100;display:flex;align-items:flex-end;justify-content:center;background:rgba(10,8,30,.55);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);animation:ofade .3s both}
+.vrob.out{opacity:0;transition:opacity .3s}
+@keyframes ofade{from{opacity:0}}
+.vrobc{width:100%;max-width:480px;background:var(--c);border-radius:32px 32px 0 0;padding:28px 24px calc(24px + env(safe-area-inset-bottom));text-align:center;animation:up .4s cubic-bezier(.2,.8,.2,1) both}
+@keyframes up{from{transform:translateY(60px);opacity:0}}
+.vrobi{font-size:3.6rem;margin-bottom:8px}.vrobc h2{font-size:1.4rem;font-weight:800;margin-bottom:6px}.vrobc p{color:var(--m);margin:0 0 18px}
+.vrobd{display:flex;justify-content:center;gap:6px;margin-bottom:18px}.vrobd i{width:8px;height:8px;border-radius:99px;background:var(--b);transition:width .25s,background .25s}.vrobd i.on{width:24px;background:var(--a)}
+.vrobc a{display:block;margin-top:14px;color:var(--m);font-weight:600;cursor:pointer}
+/* ===== Tahap 4: perapian hasil uji visual ===== */
+.navi{padding:6px 4px;gap:0}
+nav button{font-size:.62rem;letter-spacing:-.01em;padding:4px 0;min-width:0;border-radius:20px}
+nav button svg{width:22px;height:22px}
+select{font-size:.88rem;text-overflow:ellipsis;font-weight:600;cursor:pointer}
+/* ===== Tahap 5: kontras hero Games, teks tebal di layar kosong ===== */
+.gxhero{background:linear-gradient(135deg,var(--a),color-mix(in srgb,var(--a) 55%,#e855c8))!important;color:#fff;box-shadow:var(--sh2)}
+.gxhero *{color:inherit}.gxhero small,.gxhero p,.gxhero .gsub{color:rgba(255,255,255,.86)!important}
+.empty b:not(:first-child){display:inline;font-size:inherit;margin:0;color:inherit}
+.empty b:first-child{display:block}
+/* ===== Tahap 6: kontras tombol/hero di mode gelap ===== */
+@media(prefers-color-scheme:dark){
+.pri,.pri:hover:not(:disabled){background:linear-gradient(135deg,#6a58f2,#a945d0);color:#fff}
+.gxhero{background:linear-gradient(135deg,#5a48e0,#8b3fb8)!important}
+.vrobc .pri{color:#fff}
+}
+.kpis{align-items:stretch}.kpis>div{display:flex;flex-direction:column;justify-content:center;align-items:center}
+/* ===== Tahap 8: skeleton loading muat pertama ===== */
+.skl{display:grid;gap:14px;padding-top:12px}
+.sk{display:block;border-radius:24px;background:linear-gradient(100deg,var(--c2) 30%,color-mix(in srgb,var(--a) 10%,var(--c)) 50%,var(--c2) 70%);background-size:220% 100%;animation:shim 1.3s linear infinite}
+.sk.t{height:34px;width:42%;border-radius:12px;margin:6px 4px 6px}
+.sk.c{height:120px}.sk.c.h1{height:150px}.sk.c.h2{height:200px}
+@keyframes shim{from{background-position:120% 0}to{background-position:-120% 0}}
+@media(prefers-reduced-motion:reduce){.sk{animation:none}}
+/* ===== Tahap 11: 4 arah usap, tombol jawaban disembunyikan (tetap ada untuk aksesibilitas/keyboard) ===== */
+.fcard{touch-action:none;padding-bottom:46px}
+.dock:has(.fcb),.dock:has(.pri[data-a=fcshow]){position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.fcard:not([data-a])::after{content:"\2191 Mudah   \2192 Baik   \2190 Sulit   \2193 Lagi";position:absolute;left:0;right:0;bottom:14px;text-align:center;font-size:.76rem;font-weight:700;color:var(--m);letter-spacing:.02em}
+.fcard[data-swl]::after{content:attr(data-swl)!important;color:var(--t);font-size:.95rem}
+.fcard[data-a=fcshow]::after{content:"Ketuk atau usap ke atas untuk melihat jawaban"}
+.fcard[data-swl]::after{content:none!important}
+.vrsw{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom));transform:translate(-50%,10px) scale(.9);opacity:0;pointer-events:none;z-index:60;color:#fff;font-weight:800;font-size:1rem;padding:10px 20px;border-radius:99px;box-shadow:var(--sh2);transition:opacity .12s,transform .12s;white-space:nowrap}
+.vrsw.on{opacity:1;transform:translate(-50%,0) scale(1)}
+/* Tahap B: Alat belajar (lipat) + Lock-in rapi */
+.vrfold{margin:14px 0 8px;border-radius:20px;background:var(--c);box-shadow:var(--sh);padding:0 16px}
+.vrfold>summary{min-height:48px;padding:10px 0;font-size:.92rem}
+.vrfold>summary em{margin-left:auto;font-style:normal;font-weight:600;font-size:.78rem;color:var(--m);max-width:55%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vrfold>summary .vrdot{width:9px;height:9px;border-radius:50%;background:var(--a);flex:none}
+.vrfold>summary::after{margin-left:6px}
+.vrfb{display:grid;gap:12px;padding:0 0 14px}
+.vrfb>.card{box-shadow:none;border:1px solid color-mix(in srgb,var(--m) 22%,transparent);margin:0}
+.vrlk{display:grid;gap:12px}
+.vrlkt{display:flex;flex-direction:column;gap:2px}.vrlkt small{color:var(--m);font-size:.78rem}
+.vrlkr{display:flex;flex-wrap:wrap;gap:10px}
+.vrstep{display:flex;align-items:center;justify-content:space-between;gap:6px;flex:1 1 140px;border-radius:99px;background:var(--a2);padding:3px}
+.vrstep .mini{min-width:44px;min-height:44px;margin:0;padding:0;font-size:1.1rem}
+.vrstep span{font-size:.86rem;white-space:nowrap}
+.vrlk>.pri{min-height:48px;border-radius:16px}
+.vrlkd{color:var(--m)}
+/* Tahap C: personalisasi */
+.vrgr{margin:-6px 0 12px;display:flex;flex-direction:column;gap:2px}.vrgr b{font-size:1.02rem}.vrgr small{color:var(--m);font-size:.8rem}
+.vrp{display:grid;gap:2px}.vrp input[type=text],.vrp input[type=time]{min-height:44px;width:100%;box-sizing:border-box;margin:4px 0 8px}
+.vrp .fcl{min-height:44px}.vrp .fcl input{width:22px;height:22px}
+.vrtg{display:flex;align-items:center;justify-content:space-between;gap:10px;max-width:220px;margin:4px 0 8px;background:var(--a2);border-radius:99px;padding:3px}
+.vrtg .mini{min-width:44px;min-height:44px;margin:0;padding:0;font-size:1.1rem}
+.vrmore{margin:6px 0}.vrmore>summary{min-height:44px;font-size:.86rem;color:var(--m)}
+html[data-vr-md=s] .fcc{display:none}
+html[data-vr-ab=on] .dock:has(.fcb),html[data-vr-ab=on] .dock:has(.pri[data-a=fcshow]){position:sticky;width:auto;height:auto;margin:0 0 8px;padding:10px 0 4px;overflow:visible;clip:auto;white-space:normal}
+html[data-vr-an=off] *,html[data-vr-an=off] *::before,html[data-vr-an=off] *::after{animation-duration:.001ms!important;animation-delay:0s!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+html[data-vr-dn=p] .card{padding:12px 14px;margin-bottom:8px}
+html[data-vr-dn=p] .hero{padding:12px 14px;border-radius:22px}
+html[data-vr-dn=p] .fcc{gap:6px}
+html[data-vr-dn=p] h1{margin:6px 0 10px}
+html[data-vr-dn=p] .vrfold{margin:8px 0 4px}
+html[data-vr-dn=p] .seg2 button{min-height:44px}
+/* Tahap C2 */
+.fct button{flex:0 1 auto;overflow:visible;white-space:nowrap}
+.vrsc{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
+.vrscb{min-height:44px;border-radius:99px;padding:6px 16px;font-size:.84rem;background:var(--a2);color:var(--a);font-weight:700;border:0}
+/* Tahap D1: Pengaturan berkelompok */
+.vrsq{margin:0 0 12px}.vrsq input{width:100%;box-sizing:border-box;min-height:48px;border-radius:16px;padding:0 16px}
+.vrsn{display:block;margin-top:8px;color:var(--m)}
+.vrg{margin:0 0 10px;border-radius:20px;background:var(--c);box-shadow:var(--sh);padding:0 14px}
+.vrg>summary{min-height:56px;padding:8px 0;gap:12px}
+.vrg>summary .vrgi{width:36px;height:36px;border-radius:12px;background:var(--a2);display:inline-flex;align-items:center;justify-content:center;flex:none;font-size:1.05rem}
+.vrg>summary .vrgl{flex:1;font-weight:700}
+.vrgb{padding:0 0 14px}
+.vrgb>.card{box-shadow:none;border:0;padding:0;margin:0;background:transparent}
+.vrgb>.card.vrdup>b:first-child{display:none}
+.vrgb>.card.vrdup>small.gsub:first-of-type{margin-top:0}
+.fcl:has(>select){flex-direction:column;align-items:stretch;gap:6px}
+.fcl:has(>select)>select{width:100%;min-height:44px}
+.vrg .fcl:has(>input[type=number])>input[type=number],.vrg input[type=number]{min-height:44px}
+.vrg>.card{box-shadow:none;border:0;padding:0 0 14px;margin:0;background:transparent}
+.vrsn[hidden]{display:none}
+.vrg .fcl:has(>select)>select,.vrg .fcl>select{width:100%!important;max-width:none!important;box-sizing:border-box}
+/* Tahap D2: Statistik */
+.vrhw{display:grid;grid-template-columns:28px 1fr;grid-template-rows:auto auto;column-gap:4px;row-gap:3px;margin-top:8px}
+.vrhm{grid-column:2;display:grid;grid-template-columns:repeat(14,1fr);gap:3px;font-size:.66rem;font-weight:700;color:var(--m);line-height:1}
+.vrhm span{white-space:nowrap;overflow:visible;min-width:0}
+.vrhd{grid-column:1;grid-row:2;display:grid;grid-template-rows:repeat(7,1fr);gap:3px;font-size:.62rem;font-weight:700;color:var(--m)}
+.vrhd span{display:flex;align-items:center;line-height:1}
+.vrhw>.heat{grid-column:2;grid-row:2}
+.heat .hz0{border-color:color-mix(in srgb,var(--m) 14%,transparent)}
+.vrhh{margin:8px 0 0;font-size:.78rem;color:var(--m)}
+.vrhh.vrhe{background:var(--a2);color:var(--t);border-radius:12px;padding:8px 12px;font-weight:600}
+.vrcap{margin:12px 2px -2px;font-size:.74rem;font-weight:700;color:var(--m);letter-spacing:.02em;text-transform:uppercase}
+.stf .stfb{min-height:56px;align-items:center}
+.stfb .vrsti{font-size:1.15rem;flex:none}
+.stfb .vrstt{display:flex;flex-direction:column;gap:1px;min-width:0}
+.stfb .vrstt b{line-height:1.2}
+.stfb .vrstt small{font-size:.68rem;font-weight:500;color:var(--m);line-height:1.25}
+.stfb.on .vrstt small{color:var(--t)}
+/* D2b: sisa Statistik — lipatan, tombol KPI, area ketuk heatmap */
+.kpis>.kpb{border-color:color-mix(in srgb,var(--a) 38%,transparent)}
+.heat button{position:relative}
+.heat button::after{content:"";position:absolute;inset:-2px}
+.vrgb>.card+.card{border-radius:0!important;border-top:1px solid var(--b)!important;padding-top:12px;margin-top:12px}
+.vrver{display:block;color:var(--m);font-size:.78rem;font-weight:600;margin:2px 0 4px}
+/* D1b: Pengaturan — kolom file tidak melebar, catatan rilis ringkas */
+.vrg input[type=file]{max-width:100%;width:100%;box-sizing:border-box;font-size:.82rem}
+.vrmore{margin:8px 0 0;min-height:44px;border-radius:14px;width:100%}
+.vrgb li[hidden]{display:none}
+/* Tahap D3: Daftar */
+.sbar.vrdh{grid-template-columns:1fr auto;align-items:center;gap:8px;padding:8px 0}
+.sbar.vrdh input{grid-column:auto;min-height:48px;margin:0;border-radius:16px;min-width:0}
+.sbar.vrdh select{min-height:48px;margin:0;max-width:112px;border-radius:16px;font-size:.84rem}
+.vrls{display:block;color:var(--m);font-size:.72rem;margin:2px 0 8px}
+.row .pls{gap:6px}
+.row .stpl.vrcp{min-width:44px;min-height:40px;padding:2px 4px;display:inline-flex;align-items:center;justify-content:center;gap:4px;flex:1 1 0;font-size:.76rem}
+.stpl.vrcp b{font-weight:800;letter-spacing:.02em}
+.stpl.vrcp .vrch{font-style:normal;font-size:.8rem;line-height:1}
+.stpl.vrcp.stp0{opacity:.78}
+.vrne{text-align:center;padding:24px 16px}.vrne .pri{margin-top:8px;min-height:48px}
+/* Tahap D4: Pustaka */
+.fct .pri{color:#fff}
+.vrlh .btns{display:flex;gap:8px;flex-wrap:nowrap}
+.vrlh .btns .pri{flex:1.6 1 0;width:auto;min-height:48px;border-radius:16px;white-space:nowrap;padding:6px 10px}
+.vrlh .btns button:not(.pri){flex:1 1 0;min-height:48px;border-radius:16px;white-space:nowrap;padding:6px 8px}
+.vrdd{margin:2px 0 10px}.vrdd>summary{cursor:pointer;color:var(--m);font-size:.84rem;font-weight:600;list-style:none;padding:4px 0;min-height:28px}
+.vrdd>summary::after{content:" \25BE";color:var(--a)}.vrdd[open]>summary::after{content:" \25B4"}
+.vrdd>summary::-webkit-details-marker{display:none}
+.vrdd .vrld{margin:4px 0 0!important;font-size:.84rem}
+.chips.vrlc{margin:4px 0 6px;gap:6px}.chips.vrlc .chip{padding:5px 12px;min-height:34px;font-size:.82rem;white-space:nowrap}
+.lbi>.hd{align-items:flex-start;gap:8px}.lbi>.hd>span:first-child{min-width:0}.lbi>.hd .bdg{white-space:nowrap}
+.lbd .rdh{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.lbd .rdh button{min-height:44px;padding:4px 6px;white-space:nowrap;font-size:.84rem}
+.lbp .rds .eo{font-size:1.04rem;line-height:1.6}
+.chips.vrlc .chip.on small{color:inherit;opacity:.85}

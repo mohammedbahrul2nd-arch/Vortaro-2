@@ -7,7 +7,7 @@
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Vortaro"><meta name="apple-mobile-web-app-status-bar-style" content="default">
-<link rel="stylesheet" href="css/app.css"></head><body><main id="v"></main><nav id="n"></nav>
+<link rel="stylesheet" href="css/app.css"><link rel="stylesheet" href="css/ui.css"></head><body><main id="v"><div class="skl" aria-hidden="true"><i class="sk t"></i><i class="sk c h1"></i><i class="sk c"></i><i class="sk c h2"></i></div></main><nav id="n"></nav>
 <script src="js/data.js"></script>
 <script src="js/ai-class.js"></script>
 <script src="js/pustaka.js"></script>
@@ -22,5 +22,6 @@
 <script src="js/vr-store.js"></script>
 <script>/* muat data dari IndexedDB dulu (migrasi otomatis dari localStorage), baru jalankan aplikasi */
 VRS.boot(typeof SK!='undefined'?SK:undefined).then(()=>{const s=document.createElement('script');s.src='js/app.js';s.onerror=()=>vrFatal(new Error('app.js gagal dimuat (jaringan/cache)'));document.body.appendChild(s)}).catch(vrFatal)</script>
+<script src="js/ui.js" defer></script>
 <script>if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))</script>
 </body></html>
