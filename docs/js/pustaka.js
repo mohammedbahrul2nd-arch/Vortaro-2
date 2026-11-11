@@ -704,14 +704,14 @@ function libAddRead(){const g=id=>{const e=document.getElementById(id);return e?
 function libAddParse(){const v=libAddRead();if(libAddK=='s')return libParseSents(v.x,{L:v.L});return libParse(v.x,{L:v.L,title:v.t,fmt:v.f,dlg:libAddK=='d'})}
 /* v7.29.0 (B5): daftar tag Kelas AI yang gagal masuk, dengan alasan */
 function libFailHtml(fl){if(!fl||!fl.length)return'';const M=40,KD={V:'V',K:'K',G:'G','?':'baris'};
- return`<details${fl.length<=5?' open':''} style="margin-top:6px;font-size:.84rem"><summary style="color:var(--s1)">⚠ ${fl.length} tag gagal masuk (ketuk untuk daftar)</summary>`+
+ return`<details style="margin-top:6px;font-size:.84rem"><summary style="color:var(--s1)">⚠ ${fl.length} tag gagal masuk (ketuk untuk daftar)</summary>`+
   fl.slice(0,M).map(x=>`<div style="margin:4px 0;padding-left:8px;border-left:2px solid var(--b)">kalimat <b>${esc(x.key)}</b> · ${esc(KD[x.kind]||x.kind)}: <b>${esc(x.name)}</b>${x.surface&&x.surface!=x.name?' → “'+esc(x.surface)+'”':''}<br><small>${esc(x.reason)}</small></div>`).join('')+
   (fl.length>M?`<small>… dan ${fl.length-M} lainnya</small>`:'')+`</details>`}
 /* v7.33: laporan kartu/grammar dari prompt yang belum masuk */
 function libRepHtml(z){if(!z)return'';const M=40,li=(a,c)=>a.slice(0,M).map(x=>`<div style="margin:4px 0;padding-left:8px;border-left:2px solid ${c}">${x.kind=='G'?'Grammar':'Kata'} <b>${esc(x.name)}</b>${x.gloss?' = '+esc(x.gloss):''}${x.lv?' ['+esc(x.lv)+']':''}<br><small>${esc(x.why)}</small></div>`).join('')+(a.length>M?`<small>… dan ${a.length-M} lainnya</small>`:'');
  const bad=z.miss.length+z.unv.length;
  return `<div style="margin-top:8px;padding:8px 10px;border:1px solid var(--b);border-radius:12px;font-size:.84rem"><b>📋 Laporan prompt</b> · ${z.nS} kalimat · ${z.n} kartu di prompt · <b>${z.ok} masuk</b>${z.unv.length?' · '+z.unv.length+' bertag tapi belum terverifikasi':''} · <b style="color:${z.miss.length?'var(--bad)':'inherit'}">${z.miss.length} belum masuk</b>`+
-  (bad?`<details${bad<=5?' open':''} style="margin-top:4px"><summary>Daftar kartu belum masuk / belum terverifikasi</summary>${li(z.miss,'var(--bad)')}${li(z.unv,'var(--s1)')}</details>`:'<br><small>Semua kartu di prompt punya tag di hasil yang ditempel ✓</small>')+`</div>`}
+  (bad?`<details style="margin-top:4px"><summary>Daftar kartu belum masuk / belum terverifikasi</summary>${li(z.miss,'var(--bad)')}${li(z.unv,'var(--s1)')}</details>`:'<br><small>Semua kartu di prompt punya tag di hasil yang ditempel ✓</small>')+`</div>`}
 const LIB_REP_MIN=6;
 function libAddPrev(){const p=document.getElementById('lbP');if(!p)return;const v=libAddRead();if(!v.x.trim()){p.textContent='Belum ada teks.';libPrBox(0);return}
  const r=libAddParse();if(r.err){p.innerHTML=`<span style="color:var(--bad)">${esc(r.err)}</span>`;return}

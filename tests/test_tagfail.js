@@ -36,7 +36,7 @@ const rs={sents:[{n:1,f:sent},{n:2,f:'Zweiter Satz.'}],warn:[]};X.gmApplyTags(rs
 ok(rs.fail.length==r.fail.length,'gmApplyTags mengisi r.fail');ok(rs.warn.some(w=>/dibuang/.test(w))&&rs.warn.some(w=>/tidak cocok dengan kartu/.test(w)),'peringatan angka dipertahankan');
 /* tampilan */
 const h=X.libFailHtml(rs.fail);ok(h.includes('kalimat <b>1</b>')&&h.includes('<details'),'HTML daftar');ok(!h.includes(' open'),'>5 item -> tertutup');
-const h2=X.libFailHtml([{key:'3.1',kind:'V',name:'<img onerror=1>',surface:'x',reason:'a&b'}]);ok(h2.includes(' open')&&!h2.includes('<img')&&h2.includes('&lt;img'),'ter-escape & terbuka bila sedikit');
+const h2=X.libFailHtml([{key:'3.1',kind:'V',name:'<img onerror=1>',surface:'x',reason:'a&b'}]);ok(!h2.includes(' open')&&!h2.includes('<img')&&h2.includes('&lt;img'),'ter-escape & tetap tertutup (v7.73: semua dropdown tertutup di awal)');
 const big=Array.from({length:55},(_,i)=>({key:String(i),kind:'V',name:'n'+i,surface:'',reason:'r'}));ok(X.libFailHtml(big).includes('dan 15 lainnya'),'dibatasi 40 + sisa');
 ok(X.libFailHtml([])===''&&X.libFailHtml(null)==='','kosong -> string kosong');
 /* tanpa tag gagal: tidak ada daftar */

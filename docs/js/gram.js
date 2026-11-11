@@ -421,7 +421,9 @@ const gmSig=()=>S.lib.length+'/'+S.sl.length+'/'+gmB.n+'/'+(S.lib[0]?S.lib[0].c:
 const GMVER={sig:'',m:new Map()};
 /* v7.30.0: terverifikasi = (1) kalimat punya tag V:/K: asli dari AI yang menunjuk kartu itu (t.k atau t.ks untuk homonim) DAN (2) terjemahan Indonesia kalimat itu memuat padanan arti kartu (gzvIdSpan). Dua-duanya harus cocok: mencegah salah-tag seperti 差す (payung) pada さすが. */
 /* arti yang dicocokkan = arti kartu + kepala catatan entri bahasa itu (mis. "Meneteskan cairan: ..." -> "Meneteskan cairan") */
-const gmGloss=key=>{const c=K[base(key)];if(!c)return'';const L=lang(key),ex=((c[3][L]||[]).length>1&&(c[3][L]||[])[ent(key)]?[(c[3][L]||[])[ent(key)]]:(c[3][L]||[])).map(e=>String(e[4]||'').split(/[:：。]/)[0].trim()).filter(x=>x&&x.split(/\s+/).length<=7);return[c[2]].concat(ex).join(' / ')};
+/* 7.67: format "arti kartu ‖ petunjuk entri". Petunjuk (mis. "Mengerti, umum") hanya boleh cocok PERSIS dan kata penanda gaya ("umum", "sopan"...) dibuang;
+   dulu semuanya digabung setara sehingga "umum" menyorot "Pengumuman" pada kalimat Die Ansage war so leise... */
+const gmGloss=key=>{const c=K[base(key)];if(!c)return'';const L=lang(key),ex=((c[3][L]||[]).length>1&&(c[3][L]||[])[ent(key)]?[(c[3][L]||[])[ent(key)]]:(c[3][L]||[])).map(e=>typeof fcHintGloss=='function'?fcHintGloss(e[4]):String(e[4]||'').split(/[:：。]/)[0].trim()).filter(x=>x&&x.split(/\s+/).length<=7);return String(c[2])+(ex.length?'‖'+ex.join(' / '):'')};
 const gmIdOk=(i,key)=>!!(i&&K[base(key)]&&gzvIdSpan(i,gmGloss(key),true));
 const gmTagKeys=t=>{const r=[];if(t&&t.t=='v'){if(t.k)r.push(t.k);if(t.ks)for(const k of t.ks)if(k&&!r.includes(k))r.push(k)}return r};
 const gmTagHit=(tg,key,i)=>!!(tg&&tg.some(t=>gmTagKeys(t).includes(key)))&&gmIdOk(i,key);
@@ -576,10 +578,14 @@ function idSame(x,y,strict){if(x==y)return true;if(strict)return false;
 function idAlts(gl){return String(gl||'').replace(/\([^)]*\)|\[[^\]]*\]/g,' ').split(/[\/~,;]|\batau\b/i).map(x=>x.trim().toLowerCase()).filter(x=>/\p{L}{2,}/u.test(x)).map(x=>(x.match(/\p{L}+(?:-\p{L}+)*/gu)||[])).filter(a=>a.length).sort((a,b)=>b.length-a.length)}
 /* -> [[a,b]] posisi kata Indonesia yang cocok dengan arti kartu, atau null */
 const IDGEN=new Set('menggunakan memakai melakukan membuat menjadi pergi datang mengambil memberi punya memiliki berada orang barang sesuatu hal'.split(' '));
-function gzvIdSpan(txt,gloss,relax){if(!txt||!gloss)return null;const T=idTok(txt);if(!T.length)return null;const alts=idAlts(gloss);
- for(const strict of [true,false])for(const g of alts){const one=g.length==1,stop=one&&(IDSTOP.has(g[0])||g[0].length<4);if(strict==false&&stop)continue;
-  for(let i=0;i+g.length<=T.length;i++){let ok=true;for(let j=0;j<g.length;j++){if(!idSame(T[i+j].w,g[j],strict)){ok=false;break}}
-   if(ok)return[[T[i].a,T[i+g.length-1].b]]}}
+const IDQUAL=new Set('umum sopan santai formal resmi lisan informal kasar halus tegas langsung biasa lembut keras tulisan percakapan netral populer klasik kuno baru lama'.split(' '));
+function gzvIdSpan(txt,gloss,relax){if(!txt||!gloss)return null;const T=idTok(txt);if(!T.length)return null;
+ const pg=String(gloss).split('\u2016'),alts=idAlts(pg[0]),alts2=pg[1]?idAlts(pg[1]).filter(a=>!(a.length==1&&IDQUAL.has(a[0]))):[];
+ const run=(A,strictOnly)=>{for(const strict of strictOnly?[true]:[true,false])for(const g of A){const one=g.length==1,stop=one&&(IDSTOP.has(g[0])||g[0].length<4);if(strict==false&&stop)continue;
+   for(let i=0;i+g.length<=T.length;i++){let ok=true;for(let j=0;j<g.length;j++){if(!idSame(T[i+j].w,g[j],strict)){ok=false;break}}
+    if(ok)return[[T[i].a,T[i+g.length-1].b]]}}return null};
+ /* arti kartu (boleh berimbuhan) -> petunjuk entri (hanya persis) -> kata tunggal dari frasa */
+ let r=run(alts,false)||run(alts2,true);if(r)return r;
  if(relax)for(const g of alts)if(g.length>1)for(const w of g){if(w.length<4||IDSTOP.has(w)||IDGEN.has(w))continue;for(let i=0;i<T.length;i++)if(idSame(T[i].w,w,false))return[[T[i].a,T[i].b]]}
  return null}
 function gzvIdSeg(row,f){const t=row.i,sp=row.ix||[];let o='',l=0;sp.forEach(([a,b],i)=>{o+=esc(t.slice(l,a))+f(t.slice(a,b),i);l=b});return o+esc(t.slice(l))}
@@ -608,7 +614,7 @@ function gzvPick(k){if((S.o.gz||'cloze')=='old'||(S.o.gzv||'on')=='off')return n
 const gzvRow=k=>GZP.cur&&GZP.cur.k==k?GZP.cur.v||null:null;
 const gzvChip=(n,col)=>`<div class=fcp><span class=fch style="--lc:${col}">${esc(n)}</span></div>`;
 const gzvLang=L=>{const l=(typeof D!='undefined'&&D.L||[]).find(x=>x[0]==L);return l?gzvChip(l[1],l[2]):''};
-const gzvMean=row=>{const c=K[base(row.k)];return c?String(c[2]):''};
+const gzvMean=row=>{if(typeof fcMean=='function')return fcMean(row.k);const c=K[base(row.k)];return c?String(c[2]):''};
 /* sisi depan: TIDAK memuat kata kartu itu sendiri (tidak ada kepala kartu di atas kalimat) */
 function gzvFront(row){const L=row.L,m=gzvMean(row);
  if(row.d=='i'){
@@ -634,11 +640,12 @@ function gzpMask(h,parts){const ps=[...new Set(parts.map(x=>String(x).trim()).fi
  if(la.length)alt.push('(?<![\\p{L}\\p{N}])(?:'+la.map(libEsc).join('|')+')(?![\\p{L}\\p{N}])');if(cj.length)alt.push('(?:'+cj.map(libEsc).join('|')+')');
  const re=rxLB(alt.join('|'),'giu');
  return h.split(/(<[^>]*>)/).map(p=>p[0]=='<'?p:p.replace(re,m=>`<span class="gzb gze gzs" style="--n:${m.length}">&nbsp;</span>`)).join('')}
+function gzTrG(g,t){if(typeof gzTrH!='function')return esc(t);const o=GZG;GZG=g;try{return gzTrH(t)}finally{GZG=o}}
 function gzpFront(g,row){const L=g[1],base=String(gzFront(g)),m=base.match(/^<div class="gzq[^"]*">[\s\S]*?<\/div>/),
   fn=m?gzpMask(m[0],row.sp.map(([a,b])=>row.t.slice(a,b))):'';
- return fn+`<div class="gzc ${gzpCls(L)}">${gzpSeg(row,(w)=>gzpBox(L,[...w.replace(/\s/g,'')].length))}</div>`+(row.i?`<div class=gzm>${esc(row.i)}</div>`:'')+`<div class=fchint><small>Isi bagian yang hilang &amp; ingat rumus polanya · 📚 soal dari Pustakamu</small></div>`}
+ return fn+`<div class="gzc ${gzpCls(L)}">${gzpSeg(row,(w)=>gzpBox(L,[...w.replace(/\s/g,'')].length))}</div>`+(row.i?`<div class=gzm>${gzTrG(g,row.i)}</div>`:'')+`<div class=fchint><small>Isi bagian yang hilang &amp; ingat rumus polanya · 📚 soal dari Pustakamu</small></div>`}
 function gzpBack(g,row){const L=g[1];
- return`<div class=gzps><small class=gzpl>📚 Soal dari Pustakamu · ${GMSRC[row.src]||''}${row.lv==3?' · ✓ ditandai AI':' · terdeteksi otomatis'}</small><div class="gzc ${gzpCls(L)}">${gzpSeg(row,w=>`<mark class=gzh>${esc(w)}</mark>`)}${spk(row.f,L)}</div>${row.i?`<div class=gzm>${esc(row.i)}</div>`:''}${row.r?`<div class="r rom">${esc(row.r)}</div>`:''}</div><hr>`}
+ return`<div class=gzps><small class=gzpl>📚 Soal dari Pustakamu · ${GMSRC[row.src]||''}${row.lv==3?' · ✓ ditandai AI':' · terdeteksi otomatis'}</small><div class="gzc ${gzpCls(L)}">${gzpSeg(row,w=>`<mark class=gzh>${esc(w)}</mark>`)}${spk(row.f,L)}</div>${row.i?`<div class=gzm>${gzTrG(g,row.i)}</div>`:''}${row.r?`<div class="r rom">${esc(row.r)}</div>`:''}</div><hr>`}
 
 /* ---------- 7. Ekspor / impor: JSON progres dan JSON pustaka ---------- */
 const gmP2=n=>String(n).padStart(2,'0');

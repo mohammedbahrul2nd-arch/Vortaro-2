@@ -1,3 +1,86 @@
+## 7.78.0 — Kesiapan PWA untuk dibungkus jadi APK
+- Manifest: tambah `id` dan `display_override`. `sw.js` SHELL: tambah ikon maskable & apple-touch. Game tidak diubah.
+- Paket APK dipisah ke `vortaro-apk-kit` (repositori terpisah).
+
+## 7.77.0  Audit akhir (item 7, bagian yang bisa dikerjakan di sandbox)
+- **Uji baru `tests/test_backup_lama.js` (380 cek):** cadangan lama tanpa kunci `src/lv/spd/rep/hide/thr/self/weak`, entri `gx` kosong/sebagian, dan `gx` rusak (bukan objek) semuanya digabung dengan default oleh `GXO`; nilai lama dipertahankan; 32 game, id tidak ganda, keenam bahasa punya game, `GXLG` = 6 bahasa.
+- Semua `tests/test_*.js` hijau (termasuk `test_globals`, 23 berkas). Tidak ada perubahan kode aplikasi selain `VERSION` di `sw.js`.
+- Cek statis CSS: tidak ada lebar tetap di atas 360 px pada `.shd/.shbar/.vg*`; `viewport-fit=cover` terpasang.
+- **Masih butuh perangkat Android nyata** (dipindah ke `PROMPT_10_apk.md`): tombol back, Lock-in, Campur, mikrofon tiap game (Shadowing, Esperanto via `it-IT`), tampilan 360-430 px terang/gelap.
+
+## 7.76.0 — Game 4: Shadowing (shd_zh, shd_ja, shd_de, shd_nl, shd_en, shd_eo)
+- **Game baru `shd_<lang>`** (`gamedata8.js`, dimuat setelah `games3.js`; mesin VG dipakai ulang): TTS memutar kalimat → pengguna menirukan (🎤 atau ⌨) → skor kemiripan 0–100, bilah skor, dan selisih berwarna (hijau cocok, merah terlewat/salah, kata tambahan yang terdengar). Latihan ulang bebas (🔁) tidak mengubah jadwal SRS.
+- **Sumber kalimat**: contoh kartu (`D.C`), contoh tata bahasa (`D.G`), dan kalimat Pustaka pengguna (`S.sl`). Kalimat dengan angka/daftar kata/pecahan dibuang; terjemahan dalam kurung (zh/ja) dipisah. Kelas panjang: pendek / sedang / panjang. Filter level, sumber, "hanya kata kartu lemah".
+- **Opsi**: kecepatan suara 1× / 0,7× (+ tombol 🐢 putar lambat), putar 1–3×, sembunyikan/tampilkan teks, ketat penilaian (70/80/90), penilaian otomatis atau **swa-nilai** (✓ Sudah sama / ↻ Perlu ulang). Esperanto otomatis memakai swa-nilai bila pengenal suara tidak tersedia/dimatikan; bila tersedia dinilai fonetik longgar (`srPhon`).
+- **`speech.js`**: `srShNorm`, `srSim(target,terdengar,l)` (zh/ja: tingkat karakter, kana disamakan hiragana/katakana; lainnya: kata+karakter, ß=ss, apostrof diabaikan), `srDiff`, `srJudgeSim`.
+- **`games3.js`** (kaitan kecil, game lain tidak berubah): `q.play/slow/htmlA/resHtml/self/showTxt`, `VG[g].extra/empty/noDir/modeLbl`, aksi `ggxvslow/ggxvself/ggxvagain`, TTS dihentikan sebelum mikrofon menyala.
+- CSS `.shs/.shbar/.shd`. Uji `tests/test_shd.js` (~2.000 cek). `VERSION` 7.76.0.
+
+## 7.75.0 — Tugas tambahan UI: area di bawah menu bawah tidak lagi menampilkan konten
+- `ui.css`: `body::after` (fixed, z-index 49, di bawah menu) menutup celah antara menu melayang dan tepi layar + area aman sistem dengan latar `--bg` solid yang memudar halus ke atas; menu dibuat 94% opak. Nonaktif di layar ≥960px (menu di atas). `VERSION` 7.75.0.
+
+## 7.74.0 — Game 3: Harga & satuan (px_zh, px_ja, px_de, px_nl, px_en, px_eo) + satuan ukur di Penggolong Mandarin
+- **Game baru `px_<lang>`** (`gamedata7.js`, dimuat setelah `games3.js`; mesin suara VG dipakai ulang). Mode: harga bulat, harga dengan sen (zh: 块·毛·分, ja: ribuan & 万円), satuan ukur (kg, Pfund, Liter, Meter, km, mile, feet, inch, 斤, 公斤, 升, 米, 公里, キロ, グラム…), kasir (dengar total + uang bayar → kembalian), diskon & pajak (Rabatt, korting, 打折, 割引, 税込), jumlah belanja. Dua arah (dengar → jawab, lihat → ucapkan), suara atau ketik, SRS `S.gg['px|<lang>|<mode>|<arah>']`.
+- **`speech.js`**: `srPrice(teks,l)` (hasil dalam seperseratus satuan utama), `srJudgePrice`, `srFmtPrice`. Menerima digit & simbol (€ $ £ ¥), kata (zwei Euro fünfzig, two fifty, twee vijftig, du eŭroj kvindek), 一块五 = 1,50, 三块二毛五 = 3,25, 円. Esperanto lewat `srPhonPick` bila pengenal jatuh ke it-IT.
+- **Penggolong Mandarin (`zcl`) disempurnakan, bukan diduplikasi**: +11 soal satuan ukur & uang (斤, 公斤, 克, 升, 毫升, 米, 公里, 毛/角, 块/元) ditambahkan di AKHIR `ZCV` sehingga kunci SRS lama tetap; pengaturan zcl diberi tombol pintas ke `px_zh` (harga & suara). Semua opsi/SRS lama utuh.
+- Jepang: `pxJaEq` membandingkan bacaan kana persis (にひゃくきゅうえん = 209円, bukan 290 menurut aturan lisan Mandarin).
+- CSS `.pxl` (kartu kasir/diskon). Uji `tests/test_px.js` (~140.000 cek). `VERSION` 7.74.0.
+
+## 7.73.0 — Tugas tambahan UI: dropdown tertutup, Lock-in, Daftar bertahap + Campur, tombol back
+- **Semua dropdown tertutup di awal.** `app.js`: `DO` (status `<details data-d>`) kini kosong di awal (dulu `fs` terbuka) dan dikosongkan saat pindah tab. `ui.js`: `vrSess()` menyimpan buka/tutup hanya di memori selama layar yang sama (Alat belajar, grup Pengaturan/Statistik; tidak lagi di `S.o.u_fold`/`S.o.u_sg`), dikosongkan saat judul layar berubah; grup "Tampilan & Personalisasi" juga tertutup. `pustaka.js`: daftar tag gagal tidak lagi terbuka otomatis. Pengecualian sengaja: tabel grammar yang memuat baris sorotan.
+- **Lock-in**: `back.js` — `beforeunload` bila Lock-in berjalan, peringatan saat tombol back ditekan di Kartu (Lanjut belajar / Hentikan Lock-in), dan toast saat kembali dari aplikasi lain (≥20 dtk) selagi Lock-in berjalan.
+- **Daftar bertahap** (`daftar.js`, dipanggil dari `list()` dengan fallback ke daftar lama): pilih bahasa → pilih level (+ hitung kata/dikuasai) → daftar kosakata dengan pencarian, filter status, ketuk untuk membuka kartu detail/Pustaka. Pencarian global tetap ada di layar pilih bahasa. `ui.js` keadaan kosong hanya muncul di tahap daftar.
+- **Campur** (`campur.js`, mandiri, hanya membaca `D.C`): satu baris per entri Indonesia (`c[2]`), semua bahasa yang punya entri itu dikumpulkan; level A1–C2 dengan kesetaraan HSK 1–5/6→A1–C1, HSK 7-9→C2, JLPT N5–N2→A1–B2 (konstanta `MAP`); chip untuk menyalakan/mematikan bahasa; baris terbuka memuat 🔊 dan "Buka kartu". State sendiri (`data-mx`), tidak disimpan.
+- **Tombol back Android** (`back.js`): sentinel riwayat setelah sentuhan pertama; back menutup dialog → mundur satu langkah (Daftar, Grammar, Games, Statistik) → Kartu → di Kartu hanya toast. Tidak pernah menutup aplikasi.
+- Berkas baru terdaftar di `index.html` dan `SHELL` `sw.js`. Uji: `tests/test_campur.js` (32 cek), `tests/ui_daftar_back.py` (Playwright), `test_tagfail.js` disesuaikan. `VERSION` 7.73.0.
+
+## 7.72.0 — Penghitung Jepang (jcn), tahap 2: +48 penggolong (total 96), 6 kelompok baru
+- `gamedata6.js`: kelompok baru **bg** (輪 株 束), **tl** (通 件 行 句 首 話), **ol** (試合 勝 敗 分け 点 打 発), **al** (挺 張 脚 面 基 錠 包 箱 袋 缶 瓶), **uk** (円 円玉 メートル キロ グラム リットル センチ ミリ トン 歩 畳 坪 割 パーセント), **lm** (位 級 段 号 ページ/頁 画 字). Chip filter kelompok dibuat otomatis.
+- Bacaan khusus: 発/敗/歩/包 3 = ぱ (さんぱつ, さんぱい, さんぽ, さんぽう); 円 よえん・ななえん・きゅうえん; 畳 よじょう; 字 よじ; 箱/袋/瓶/束 ひと〜・ふた〜; キロ いっきろ・ろっきろ; パーセント baku tanpa sokuon (bentuk sokuon diperdebatkan).
+- `tests/test_jcn.js`: nilai emas tahap 2, uji kanji/katakana (メートル, ページ/頁), jumlah kelompok (24.000+ cek). `VERSION` 7.72.0.
+- Penggolong 度 (suhu) sudah tercakup oleh 度 dari tahap 1. Mode angka 11–99 ditunda.
+
+## 7.71.0 — Game "Penghitung Jepang 助数詞" (jcn), tahap 1: 48 penggolong, 9 kelompok
+- **Baru `docs/js/gamedata6.js`** (awalan global `jc`/`JC`): `JCC` (48 penggolong: 個 つ 人 回 度 番 倍 · 枚 本 · 冊 巻 部 · 台 機 両 隻 艘 · 匹 頭 羽 尾 · 軒 戸 棟 階 室 部屋 · 年 ヶ月 週間 日 時間 分 秒 歳 世紀 · 杯 膳 切れ 皿 粒 玉 房 丁 · 着 足 組 対), pembangkit bacaan `jcRd(c,n)` berbasis aturan perubahan bunyi (tipe R biasa, K/Q sokuon, H はひふへほ→ばぱ, F ふん/ぷん) + pengecualian `ov` (utama) / `al` (lazim) / `db` (diperdebatkan), `jcKan`, `jcIrr`, penilai `jcJudge`, tabel bacaan `jcTab`, `jcCells/jcMake`.
+- 4 jenis soal: bacaan angka + penggolong (dengar → ketik 3本, lihat → ucapkan さんぼん), benda + jumlah (emoji × n), benda → penggolong, 何〜. Filter: hanya yang sering (N5–N3), hanya bacaan tak beraturan, per kelompok. SRS per penggolong × jenis × arah (`jc|id|mode|arah`).
+- Penilaian: kana (katakana otomatis jadi hiragana), kanji/angka (`3本`, `三本`, `３本`, ヶ月/か月/カ月, 歳/才), alternatif lazim diterima, bacaan diperdebatkan ditandai. Mode ketik menolak jawaban kanji untuk soal bacaan (harus kana); hasil suara menerima kanji karena pengenal Jepang sering mengembalikan kanji. Benda yang sah dengan beberapa penggolong (りんご 個/つ) diterima semua.
+- `games3.js`: `vgSubmit` kini meneruskan `how` ('voice'|'type') ke `q.judge(alts,how)`; entri hub `jcn` (kelompok Jepang). CSS `.jctab/.jcc/.jcem/.jcob/.jcex`. Uji baru `tests/test_jcn.js` (12.302 cek). `VERSION` 7.71.0.
+- Sisa penggolong (bunga, tulisan, olahraga, alat, satuan ukur, lain-lain) menyusul di tahap 2.
+
+## 7.70.0 — Game "Jam & tanggal" untuk 6 bahasa (dt_zh, dt_ja, dt_de, dt_nl, dt_en, dt_eo)
+- **Baru `docs/js/gamedata5.js`** (awalan global `jt`/`JT`): pembuat bacaan jam `jtSay(h,m,l,'c'|'f')` (lisan 12 jam / resmi 24 jam: zh 两点/一刻/半/差一刻 + 凌晨…晚上, ja kana dengan ふん/ぷん & よじ/しちじ/くじ, de halb/Viertel, nl half/kwart, en past/to & "fourteen hundred", eo kaj duono/antaŭ), tanggal `jtDateSay` (ja ついたち…, de ordinal, nl bilangan pokok, en gaya AS/Inggris, eo la kvina de marto), jam analog SVG `jtClock`, kalender mini `jtCal`, penilai `jtJudgeT/D/Both`.
+- 9 tingkat: jam penuh, jam + menit, kuartal & setengah, format 24 jam, tanggal, hari + tanggal, bulan, tanggal + tahun, jam & tanggal sekaligus; arah dengar → jawab dan lihat → ucapkan. Jawaban ketik: `14:30`, `5/3` (hari/bulan; en/zh/ja bulan/hari), `Do 5/3`.
+- **games3.js**: hook baru `q.html` (tampil di arah B), `q.ansHtml` (tampil di hasil), `q.noBig`, `q.hn` (kata benda petunjuk), `q.ph` / `q.inm` (placeholder & inputmode). CSS `.vgclk*`, `.vgcal*`.
+- **speech.js**: `srTime` en menerima "fourteen hundred (hours)".
+- **Perbaikan uji**: `test_num.js` kadang gagal (acak) karena nomor telepon dinilai dengan teks bertanda "·"; kini memakai `q.say`.
+- Uji baru `tests/test_dt.js` (±109.000 cek: 1440 menit × 6 bahasa × 2 gaya, tanggal 3 tahun × 12 bulan, tanpa false-positive, semua tingkat × arah, SRS, hub).
+
+## 7.69.0 — Game "Menyebutkan nomor" untuk 6 bahasa (num_zh, num_ja, num_de, num_nl, num_en, num_eo)
+- **Baru `docs/js/gamedata4.js`**: pembuat kata bilangan `vgW(n,l)` (zh 两/零, ja kanji + kana `jaK` dengan ubah bunyi, de einundzwanzig/eine Million, nl tweeëntwintig, en "and", eo), tahun `vgYear`, ordinal `vgOrd`, digit nomor telepon (zh 幺), desimal, pecahan, definisi `VG` dan pembuat soal `nuMake`. Sepuluh tingkat: 0–20, 21–100, ratusan, ribuan, puluh ribu–juta, telepon, tahun, desimal, pecahan, ordinal; tiap tingkat punya tips khusus bahasa.
+- **Baru `docs/js/games3.js`**: mesin tampilan bersama untuk game suara (`vgView`, `vgAct`, `vgSubmit`): dua arah (dengar → angka, lihat angka → ucapkan), 🎤 Ucapkan / ⌨ Ketik jawaban, otomatis mode ketik bila `!srSupported()`, konfirmasi sebelum kirim bila "Kirim otomatis" mati, tombol "Tidak tahu", teks sebagai cadangan bila suara bahasa itu tidak terpasang (mis. Esperanto), SRS per tingkat × arah di `S.gg['nu|<bahasa>|<tingkat>|<arah>']`.
+- **speech.js**: `srNum` kini membaca desimal berkata (drei Komma eins vier, three point one four, tri komo unu kvar).
+- **Jepang**: penilai tambahan `jaStrict` agar 百一 = 101 (bukan 110) saat jawaban berupa kanji.
+- **Hub**: kelompok Jepang & Esperanto ditambahkan ke `GXLG`.
+- Uji baru `tests/test_num.js` (18.283 cek: putar-balik 6 bahasa × 80 angka, kasus kunci, semua tingkat × arah × bahasa, SRS, hub). `load.js` memuat speech.js, gamedata4.js, games3.js.
+- Berkas: gamedata4.js, games3.js, games2.js, speech.js, index.html, sw.js, app.css.
+
+## 7.68.0 — Modul suara bersama (`speech.js`) untuk game suara & hitung
+- **Baru `docs/js/speech.js`**: `srStart` membungkus SpeechRecognition (5 alternatif, tanpa interim), pesan galat Indonesia (izin ditolak, tidak ada suara, jaringan, mikrofon), cadangan Esperanto `eo` → `it-IT` (atau `es-ES`) lewat `S.o.srEo` (auto|it|es|off).
+- **Normalisasi murni** (tanpa DOM): `srNum` (digit atau kata, zh/ja/de/nl/en/eo, termasuk 两, 一万二, kana Jepang, einundzwanzig, eenentwintig, twenty twenty six, du mil dudek ses), `srDigits` (nomor telepon), `srTime` (halb/half, Viertel/kwart, nach/vor, 24j/12j, 一刻, 分前, kaj duono), `srDate` (bacaan khusus tanggal Jepang, ordinal de/nl/en/eo, hari & bulan, tahun), `srOrd`.
+- **Fonetik longgar** `srPhon/srPhonEq/srPhonPick` (Levenshtein ≤1 untuk kata ≤4 huruf, ≤2 lainnya) dan penilai `srJudgeNum/Time/Date` yang mencoba semua alternatif.
+- **Pengaturan suara** di hub Games (🎤 Suara): uji mikrofon per bahasa, pilihan Esperanto, kirim otomatis.
+- Uji baru `tests/test_speech_norm.js` (626 kasus). Berkas: speech.js, games2.js, index.html, sw.js.
+
+## 7.67.0 — Penyebut harian stabil, judul depan per entri, sorotan terjemahan benar, highlight kartu grammar
+Temuan dari tujuh tangkapan layar (Kartu, Keduanya) dan akar masalahnya:
+- **"X dari Y kartu hari ini" terus membesar** (237 -> 256 -> 264 saat belajar). Y dihitung `ulasan + sisa`, padahal ulasan = jumlah TEKAN tombol; tiap "Lagi" atau langkah belajar menambah ulasan tanpa mengurangi sisa. Kini target = kartu UNIK: `tuntas` (kartu yang hari ini sudah berstatus ulas, disimpan di `S.o.hd`, reset tiap hari, ikut Urungkan) + `sisa` (semua kartu belajar + baru + ulas yang menunggu). Selama kartu hanya berpindah (baru -> belajar -> tuntas; ulas -> lupa -> belajar -> tuntas) jumlahnya konstan. Uji: `test_v767`.
+- **Judul depan salah untuk entri tertentu**: judul bersama kartu (`c[2]`) mengikuti satu bahasa, mis. "Bekerja (paruh waktu)" (dari 打工) tampil juga untuk wirken & 勤める; "Ingin / Berpikir / Merindukan" (dari 想) untuk would like. Kini `fcMean(k)` memilih judul per entri secara konservatif: (A) petunjuk "BUKAN x: ..." dipakai; (B) bahasa dengan >=2 entri memakai petunjuk entri bila berkepala kata judul ("Ingin (sopan)"); (C) kurung akhir dibuang bila hanya didukung entri lain. Dipakai di sisi depan, sisi belakang, dan soal rumpang Pustaka.
+- **Sorotan terjemahan meleset** (Die Ansage ... verstanden -> "Pengumuman" tersorot): `gmGloss` menggabungkan arti kartu dengan petunjuk entri ("Mengerti, umum") setara, sehingga kata gaya "umum" cocok dengan "Pengumuman" lewat pemotongan imbuhan. Kini format `arti ‖ petunjuk`: petunjuk hanya cocok PERSIS dan kata gaya (umum, sopan, santai, formal...) dibuang. Kalimat yang tidak cocok jatuh ke kartu biasa (tanpa sorotan salah).
+- **Kartu grammar kini punya highlight terjemahan** (depan & belakang, Pustaka dan contoh bawaan, semua bahasa): arti pola singkat (`g[5]`, mis. "Berpusat pada") dicari di terjemahan dengan pencocok yang sama dengan kosakata. Arti panjang (penjelasan Jerman/Inggris/Belanda) tidak disorot agar tidak salah.
+- **"Ketuk untuk melihat jawaban" menimpa teks** di bawah soal (absolute di dasar kartu): kini ada ruang bawah 46px.
+- Bukan bug: baris bentuk kata kerja yang kabur adalah pengaturan "Sensor (blur)" (ketuk untuk membuka).
+Berkas: app.js, gram.js, ui.css, sw.js. Uji baru: tests/test_v767.js.
+
 ## 7.66.0 — Kelas AI: label entri benar
 - **Bug**: kandidat Kelas AI sudah per entri sejak 7.60, tetapi chip "Kartu prioritas/Kartu baru", judul prompt, dan baris Kelas AI di beranda selalu menampilkan kata PERTAMA kartu. Entri ke-2 `sich vergnügen` (kartu spielen) tampil sebagai "spielen = Bermain… · 0 terverifikasi" dan tampak seperti spielen sendiri, sementara spielen asli juga muncul ("· 3 terverifikasi").
 - **Perbaikan**: helper `aiEntE/aiEntW` mengambil kata dari indeks `~N` kunci; dipakai di chip prioritas/baru, `aiTitle`, `aiHub`, dan baris "Kata:" prompt kartu tunggal (`aiBuildV`, kini hanya kata entri itu). Uji baru `test_aientlabel`.

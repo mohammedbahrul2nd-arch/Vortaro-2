@@ -14,14 +14,23 @@
 <script src="js/gram.js"></script>
 <script src="js/vr-core.js"></script>
 <script src="js/reminder.js"></script>
+<script src="js/speech.js"></script>
 <script src="js/games.js"></script>
 <script src="js/gamedata.js"></script>
 <script src="js/gamedata2.js"></script>
 <script src="js/gamedata3.js"></script>
+<script src="js/gamedata4.js"></script>
+<script src="js/gamedata5.js"></script>
+<script src="js/gamedata6.js"></script>
 <script src="js/games2.js"></script>
+<script src="js/games3.js"></script>
+<script src="js/gamedata7.js"></script><script src="js/gamedata8.js"></script>
+<script src="js/campur.js"></script>
+<script src="js/daftar.js"></script>
 <script src="js/vr-store.js"></script>
 <script>/* muat data dari IndexedDB dulu (migrasi otomatis dari localStorage), baru jalankan aplikasi */
 VRS.boot(typeof SK!='undefined'?SK:undefined).then(()=>{const s=document.createElement('script');s.src='js/app.js';s.onerror=()=>vrFatal(new Error('app.js gagal dimuat (jaringan/cache)'));document.body.appendChild(s)}).catch(vrFatal)</script>
 <script src="js/ui.js" defer></script>
+<script src="js/back.js" defer></script>
 <script>if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))</script>
 </body></html>

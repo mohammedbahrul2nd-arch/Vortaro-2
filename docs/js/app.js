@@ -28,7 +28,7 @@ function migLegacy(langs){const lg=S.legacy;if(!lg)return 0;let n=0;
  for(const bag of['p','s','srs'])for(const k in lg[bag]){if(!K[k])continue;
   for(const l of Object.keys(K[k][3]).filter(x=>!langs.length||langs.includes(x))){const i=ik(k,l);if(S[bag][i]===undefined){S[bag][i]=bag=='srs'?JSON.parse(JSON.stringify(lg[bag][k])):lg[bag][k];n++}}}
  return n}
-const DO=new Set(['fs']),dtag=id=>`<details data-d="${id}"${DO.has(id)?' open':''}>`;
+const DO=new Set(),dtag=id=>`<details data-d="${id}"${DO.has(id)?' open':''}>`;
 const ART=/^((?:der|die|das)(?:\/(?:der|die|das))*)(\s+)(.+)$/i,ARTN=/^((?:de|het)(?:\/(?:de|het))*)(\s+)(.+)$/i;
 function wd(t,pos,ctx,lang,force){const m=pos=='N'&&(lang=='de'?String(t).match(ART):lang=='nl'?String(t).match(ARTN):null);if(!m||force||S.o['cg'+ctx]!='blur')return esc(t);return`<span class=cz>${esc(m[1])}</span>${esc(m[2]+m[3])}`}
 function fmx(e,pos,lang,force){if((lang!='de'&&lang!='nl'&&lang!='en')||!DX)return'';let t,l,md;
@@ -89,18 +89,18 @@ const gzTr=a=>{let t=a.length>=3?a.slice(2).join('\n'):a.length==2?a[1]:'';t=t.t
 function gzPick(g){const keys=gzKeys(g);let best=null,bs=-1,mk=[];
  if(keys.length)(g[7]||[]).forEach((e,i)=>{const a=e.split('\n'),hit=new Set(gzSplit(a[0],keys).filter(x=>x[1]).map(x=>gzSp(x[0])));if(!hit.size)return;const n=hit.size,len=gzSp(a[0]).length,sc=(n>=2?100:50)-(n>2?(n-2)*10:0)+(a.length>=3?20:0)-Math.abs(len-12)*.5;if(sc>bs){bs=sc;best=i;mk=keys.filter(k=>hit.has(k)).slice(0,2)}});
  return{keys,mk,i:best}}
-function gzFront(g){if(g[1]=='en')return gzeFront(g);if(g[1]=='ja')return gzjFront(g);if(g[1]=='de')return gzdFront(g);if(g[1]=='nl')return gznFront(g);if(g[1]=='eo')return gzoFront(g);const m=S.o.gz||'cloze',p=gzPick(g),fn=`<div class="gzq${String(g[5]||'').length>60?' gzl':''}"><span class=gl>${esc(g[11]||'Fungsi')}</span>${esc(g[5])}</div>`;
+function gzFront(g){GZG=g;if(g[1]=='en')return gzeFront(g);if(g[1]=='ja')return gzjFront(g);if(g[1]=='de')return gzdFront(g);if(g[1]=='nl')return gznFront(g);if(g[1]=='eo')return gzoFront(g);const m=S.o.gz||'cloze',p=gzPick(g),fn=`<div class="gzq${String(g[5]||'').length>60?' gzl':''}"><span class=gl>${esc(g[11]||'Fungsi')}</span>${esc(g[5])}</div>`;
  if(m=='cloze'&&p.i!=null){const a=gzLn(g[7][p.i]),tr=gzTr(a);
-  return fn+`<div class=gzc>${gzSplit(a[0],p.mk).map(([t,h])=>h?`<span class=gzb style="--n:${[...gzSp(t)].length}">&nbsp;</span>`:esc(t)).join('')}</div>`+(tr?`<div class=gzm>${esc(tr)}</div>`:'')+`<div class=fchint><small>Isi bagian yang hilang &amp; ingat rumus polanya</small></div>`}
+  return fn+`<div class=gzc>${gzSplit(a[0],p.mk).map(([t,h])=>h?`<span class=gzb style="--n:${[...gzSp(t)].length}">&nbsp;</span>`:esc(t)).join('')}</div>`+(tr?`<div class=gzm>${gzTrH(tr)}</div>`:'')+`<div class=fchint><small>Isi bagian yang hilang &amp; ingat rumus polanya</small></div>`}
  let ex='';if(m!='fn'){const k=(g[7]||[]).findIndex(e=>/[\u3400-\u9fff]/.test(e.split('\n')[0])&&e.split('\n').length>=2),a=(g[7]||[])[k>=0?k:0];if(a){const b=gzLn(a),t=gzTr(b);ex=`<div class=gzc style="font-size:1.5rem">${esc(b[0])}</div>`+(t?`<div class=gzm>${esc(t)}</div>`:'')}}
  return fn+ex+`<div class=fchint><small>Ingat: nama pola &amp; rumusnya</small></div>`}
-function gzBack(g,k){if(g[1]=='en')return gzeBack(g,k);if(g[1]=='ja')return gzjBack(g,k);if(g[1]=='de')return gzdBack(g,k);if(g[1]=='nl')return gznBack(g,k);if(g[1]=='eo')return gzoBack(g,k);const p=gzPick(g),ks=p.keys,hl=t=>gzSplit(t,ks).map(([x,h])=>h?`<mark class=gzh>${esc(x)}</mark>`:esc(x)).join('');
+function gzBack(g,k){GZG=g;if(g[1]=='en')return gzeBack(g,k);if(g[1]=='ja')return gzjBack(g,k);if(g[1]=='de')return gzdBack(g,k);if(g[1]=='nl')return gznBack(g,k);if(g[1]=='eo')return gzoBack(g,k);const p=gzPick(g),ks=p.keys,hl=t=>gzSplit(t,ks).map(([x,h])=>h?`<mark class=gzh>${esc(x)}</mark>`:esc(x)).join('');
  let h=`<div class=gzt1>${esc(g[4])}</div><hr>`;
  if(g[6])h+=`<div class=gzp>${gzSplit(g[6],ks).map(([x,y])=>y?`<mark class=gzh>${esc(x)}</mark>`:esc(x)).join('')}</div>`;
  h+=`<div class=gzf>${esc(g[5])}</div>`;
  const ord=(g[7]||[]).map((e,i)=>i);if(p.i!=null){ord.splice(p.i,1);ord.unshift(p.i)}
  h+=ord.map(i=>{const a=gzLn(g[7][i]),han=/[㐀-鿿]/.test(a[0]),pin=a.length>=3?a[1]:'',tr=gzTr(a);
-  return`<div class="gex gzx"><div class=g1>${hl(a[0])}${han?spk(gzSp(a[0]),g[1]):''}</div>${pin?`<div class="g2 rom">${esc(pin)}</div>`:''}${tr?`<div class=g2>${esc(tr)}</div>`:''}</div>`}).join('');
+  return`<div class="gex gzx"><div class=g1>${hl(a[0])}${han?spk(gzSp(a[0]),g[1]):''}</div>${pin?`<div class="g2 rom">${esc(pin)}</div>`:''}${tr?`<div class=g2>${gzTrH(tr)}</div>`:''}</div>`}).join('');
  const n1=(g[8]||[]).length,n2=(g[9]||[]).length,num=(a,n,c)=>a.map((x,i)=>`<div class="${c}"><span class=gl>${n}${a.length>1?' '+(i+1):''}</span>${esc(x)}</div>`).join('');
  if(n1+n2)h+=`<details class=gzd><summary>${n1?esc(g[12]||'Keterangan'):''}${n1&&n2?' &amp; ':''}${n2?'kasus khusus':''} (${n1+n2})</summary>${num(g[8]||[],g[12]||'Keterangan','gnt')}${num(g[9]||[],'Kasus khusus','gnt gkk')}</details>`;
  return`<div style="text-align:left">`+h+gmExBlock(k)+`</div>`}
@@ -216,8 +216,8 @@ function gzeFn(g,p){let t=String(g[5]||'').replace(/\s+/g,' ').trim(),re=/[.!?](
 const gzeSeg=(t,bx,f)=>{let o='',l=0;for(const[a,b]of bx){o+=esc(t.slice(l,a))+f(t.slice(a,b),b-a);l=b}return o+esc(t.slice(l))};
 function gzeFront(g){const m=S.o.gz||'cloze',p=gzeInfo(g),fh=gzeFn(g,p),fn=`<div class="gzq${String(g[5]||'').length>60?' gzl':''}"><span class=gl>Fungsi</span>${fh}</div>`;
  if(m=='cloze'&&p.i!=null){const x=geEx(g[7][p.i]);
-  return fn+`<div class="gzc gzen">${gzeSeg(x.s,p.sel.bx,(w,n)=>`<span class="gzb gze" style="--n:${n}">&nbsp;</span>`)}</div>`+(x.tr?`<div class=gzm>${esc(x.tr)}</div>`:'')+`<div class=fchint><small>Isi bagian yang hilang &amp; ingat rumus polanya</small></div>`}
- let ex='';if(m!='fn'&&p.show!=null){const x=geEx(g[7][p.show]);ex=`<div class="gzc gzen">${esc(x.s)}</div>`+(x.tr?`<div class=gzm>${esc(x.tr)}</div>`:'')}
+  return fn+`<div class="gzc gzen">${gzeSeg(x.s,p.sel.bx,(w,n)=>`<span class="gzb gze" style="--n:${n}">&nbsp;</span>`)}</div>`+(x.tr?`<div class=gzm>${gzTrH(x.tr)}</div>`:'')+`<div class=fchint><small>Isi bagian yang hilang &amp; ingat rumus polanya</small></div>`}
+ let ex='';if(m!='fn'&&p.show!=null){const x=geEx(g[7][p.show]);ex=`<div class="gzc gzen">${esc(x.s)}</div>`+(x.tr?`<div class=gzm>${gzTrH(x.tr)}</div>`:'')}
  return fn+ex+`<div class=fchint><small>Ingat: ${m=='fn'?'nama pola &amp; rumusnya':'pola &amp; rumusnya'}</small></div>`}
 function gzePatHtml(p){p=String(p||'');let o='',l=0,d=0,m;const re=/\[|\]|\(|\)|([A-Za-z][A-Za-z0-9]*(?:[-'’][A-Za-z0-9]+)*|['’][A-Za-z]+)/g;
  while((m=re.exec(p))){if(m[0]=='['||m[0]=='('){d++;continue}if(m[0]==']'||m[0]==')'){d=Math.max(0,d-1);continue}
@@ -228,7 +228,7 @@ function gzeBack(g,k){const p=gzeInfo(g);let h=`<div class=gzt1>${esc(g[4])}</di
  h+=`<div class=gzf>${esc(g[5])}</div>`;
  const ord=(g[7]||[]).map((e,i)=>i),f=p.i!=null?p.i:p.show;if(f!=null){ord.splice(f,1);ord.unshift(f)}
  h+=ord.map(i=>{const x=geEx(g[7][i]),sel=x.wrong?null:i==p.i?p.sel:gzeSel(g,x.s),bx=sel?sel.bx:[];
-  return`<div class="gex gzx${x.wrong?' gzw':''}"><div class=g1>${gzeSeg(x.s,bx,w=>`<mark class=gzh>${esc(w)}</mark>`)}${x.wrong?'':spk(x.s,'en')}</div>${x.tr?`<div class=g2>${esc(x.tr)}</div>`:''}${x.notes.map(n=>`<div class="g2 gzn">${esc(n)}</div>`).join('')}</div>`}).join('');
+  return`<div class="gex gzx${x.wrong?' gzw':''}"><div class=g1>${gzeSeg(x.s,bx,w=>`<mark class=gzh>${esc(w)}</mark>`)}${x.wrong?'':spk(x.s,'en')}</div>${x.tr?`<div class=g2>${gzTrH(x.tr)}</div>`:''}${x.notes.map(n=>`<div class="g2 gzn">${esc(n)}</div>`).join('')}</div>`}).join('');
  const n1=(g[8]||[]).length,n2=(g[9]||[]).length,num=(a,n,c)=>a.map((x,i)=>`<div class="${c}"><span class=gl>${n}${a.length>1?' '+(i+1):''}</span>${esc(x)}</div>`).join('');
  if(n1+n2)h+=`<details class=gzd><summary>${n1?esc(g[12]||'Keterangan'):''}${n1&&n2?' &amp; ':''}${n2?'kasus khusus':''} (${n1+n2})</summary>${num(g[8]||[],g[12]||'Keterangan','gnt')}${num(g[9]||[],'Kasus khusus','gnt gkk')}</details>`;
  return`<div style="text-align:left">`+h+gmExBlock(k)+`</div>`}
@@ -285,9 +285,9 @@ function gjPatBlank(g){const C=gjCard(g),p=String(g[6]||'');if(!C.any)return'';c
  return used?o+esc(p.slice(l)):''}
 function gzjFront(g){const m=S.o.gz||'cloze',p=gjInfo(g),fn=`<div class=gzq><span class=gl>${esc(g[11]||'Fungsi')}</span>${esc(g[5])}</div>`;
  if(m=='cloze'&&p.i!=null){const a=gzLn(g[7][p.i]),s=String(a[0]).trim(),tr=gzTr(a);
-  return fn+`<div class="gzc gzja">${gzeSeg(s,p.sel.bx,(w,n)=>`<span class=gzb style="--n:${n}">&nbsp;</span>`)}</div>`+(tr?`<div class=gzm>${esc(tr)}</div>`:'')+`<div class=fchint><small>Isi bagian yang hilang &amp; ingat rumus polanya</small></div>`}
+  return fn+`<div class="gzc gzja">${gzeSeg(s,p.sel.bx,(w,n)=>`<span class=gzb style="--n:${n}">&nbsp;</span>`)}</div>`+(tr?`<div class=gzm>${gzTrH(tr)}</div>`:'')+`<div class=fchint><small>Isi bagian yang hilang &amp; ingat rumus polanya</small></div>`}
  let ex='';if(m!='fn'){const pb=p.i==null?gjPatBlank(g):'';if(pb)ex=`<div class="gzc gzja gzpb">${pb}</div>`;
-  if(p.show!=null){const a=gzLn(g[7][p.show]),tr=gzTr(a);if(!pb||gjLen(String(a[0]))>=8)ex+=`<div class="gzc gzja${pb?' gzsm':''}">${esc(String(a[0]).trim())}</div>`+(tr?`<div class=gzm>${esc(tr)}</div>`:'')}}
+  if(p.show!=null){const a=gzLn(g[7][p.show]),tr=gzTr(a);if(!pb||gjLen(String(a[0]))>=8)ex+=`<div class="gzc gzja${pb?' gzsm':''}">${esc(String(a[0]).trim())}</div>`+(tr?`<div class=gzm>${gzTrH(tr)}</div>`:'')}}
  return fn+ex+`<div class=fchint><small>Ingat: ${m=='fn'?'nama pola &amp; rumusnya':'pola &amp; rumusnya'}</small></div>`}
 /* rumus pola: setiap bagian Jepang ditandai, placeholder (K.Benda, V-kamus, [A] …) tidak */
 function gjPatHtml(p){p=String(p||'');let o='',l=0,m;const re=new RegExp(GJ.jp.source,'g');while((m=re.exec(p))){o+=esc(p.slice(l,m.index))+`<mark class=gzh>${esc(m[0])}</mark>`;l=m.index+m[0].length}return o+esc(p.slice(l))}
@@ -296,7 +296,7 @@ function gzjBack(g,k){const p=gjInfo(g);let h=`<div class=gzt1>${esc(g[4])}</div
  h+=`<div class=gzf>${esc(g[5])}</div>`;
  const ord=(g[7]||[]).map((e,i)=>i),f=p.i!=null?p.i:p.show;if(f!=null){ord.splice(f,1);ord.unshift(f)}
  h+=ord.map(i=>{const a=gzLn(g[7][i]),s=String(a[0]).trim(),sel=i==p.i?p.sel:gjSel(g,s),tr=gzTr(a);
-  return`<div class="gex gzx"><div class=g1>${gzeSeg(s,sel?sel.bx:[],w=>`<mark class=gzh>${esc(w)}</mark>`)}${spk(s,'ja')}</div>${tr?`<div class=g2>${esc(tr)}</div>`:''}</div>`}).join('');
+  return`<div class="gex gzx"><div class=g1>${gzeSeg(s,sel?sel.bx:[],w=>`<mark class=gzh>${esc(w)}</mark>`)}${spk(s,'ja')}</div>${tr?`<div class=g2>${gzTrH(tr)}</div>`:''}</div>`}).join('');
  const n1=(g[8]||[]).length,n2=(g[9]||[]).length,num=(a,n,c)=>a.map((x,i)=>`<div class="${c}"><span class=gl>${n}${a.length>1?' '+(i+1):''}</span>${esc(x)}</div>`).join('');
  if(n1+n2)h+=`<details class=gzd><summary>${n1?esc(g[12]||'Keterangan'):''}${n1&&n2?' &amp; ':''}${n2?'kasus khusus':''} (${n1+n2})</summary>${num(g[8]||[],g[12]||'Keterangan','gnt')}${num(g[9]||[],'Kasus khusus','gnt gkk')}</details>`;
  return`<div style="text-align:left">`+h+gmExBlock(k)+`</div>`}
@@ -402,14 +402,14 @@ const gdSeg=(t,bx,f)=>{let o='',l=0;for(const[a,b]of bx){o+=esc(t.slice(l,a))+f(
 const gdBox=n=>`<span class="gzb gze" style="--n:${n}">&nbsp;</span>`;
 const gdFnLab=g=>String(g[5]||'').trim()?`<div class="gzq${String(g[5]||'').length>60?' gzl':''}"><span class=gl>${esc(g[11]||'Fungsi')}</span>`:'';
 function gzdFront(g){const m=S.o.gz||'cloze',p=gdInfo(g),fh=gdFn(g,p),ctx=String(g[3]||'').split('›').pop().trim().replace(/^[\d.\s-]+/,''),fn=String(g[5]||'').trim()?`<div class="gzq${String(g[5]||'').length>60?' gzl':''}"><span class=gl>${esc(g[11]||'Fungsi')}</span>${fh}</div>`:(g[3]!='Preposisi'?`<div class="gzq gzl"><span class=gl>Topik</span>${esc(ctx)}</div>`:'');
- if(m=='cloze'&&p.i!=null){const x=p.ss[p.i];return fn+`<div class="gzc gzen gzde">${gdSeg(x.s,p.sel.bx,(w,n)=>gdBox(n))}</div>`+(x.tr?`<div class=gzm>${esc(x.tr)}</div>`:'')+`<div class=fchint><small>Isi bagian yang hilang &amp; ingat rumus polanya</small></div>`}
+ if(m=='cloze'&&p.i!=null){const x=p.ss[p.i];return fn+`<div class="gzc gzen gzde">${gdSeg(x.s,p.sel.bx,(w,n)=>gdBox(n))}</div>`+(x.tr?`<div class=gzm>${gzTrH(x.tr)}</div>`:'')+`<div class=fchint><small>Isi bagian yang hilang &amp; ingat rumus polanya</small></div>`}
  if(m=='cloze'&&p.tab){const q=p.tab,n=[...q.ans.replace(/\s/g,'')].length;let body;
   if(q.t=='konj')body=`<div class="gzc gzen gzde">${q.pr} ${gdBox(n)}</div>`+(q.hint?`<div class=gzm>${esc(q.hint)}</div>`:'');
   else if(q.t=='list')body=`<div class="gzc gzen gzde">${esc(q.q)} → ${gdBox(n)}</div>`;
   else if(q.t=='bentuk')body=`<div class="gzc gzen gzde">${esc(q.line)} <small>(${esc(q.from)})</small> → ${gdBox(n)}</div>`;
   else body=`<div class="gzc gzen gzde">${esc(q.lab)} → ${gdBox(n)}</div>`;
   return fn+`<div class="gzm gzhd">${esc(q.head)}</div>`+body+`<div class=fchint><small>Isi sel tabel yang hilang &amp; ingat rumusnya</small></div>`}
- let ex='';if(m!='fn'&&p.show!=null){const x=p.ss[p.show];ex=`<div class="gzc gzen gzde">${esc(x.s)}</div>`+(x.tr?`<div class=gzm>${esc(x.tr)}</div>`:'')}
+ let ex='';if(m!='fn'&&p.show!=null){const x=p.ss[p.show];ex=`<div class="gzc gzen gzde">${esc(x.s)}</div>`+(x.tr?`<div class=gzm>${gzTrH(x.tr)}</div>`:'')}
  return fn+ex+`<div class=fchint><small>Ingat: ${m=='fn'?'nama pola &amp; rumusnya':'pola &amp; rumusnya'}</small></div>`}
 function gzdBack(g,k){const p=gdInfo(g);let h=`<div class=gzt1>${esc(g[4])}</div><hr>`;const kv=g[10]||[],skip=new Set();
  p.ss.forEach(x=>{if(x.src=='k')skip.add(x.row)});if(p.ss.some(x=>x.src=='k'))p.ss[0]&&p.ss[0].used&&p.ss[0].used.forEach(i=>skip.add(i));
@@ -423,7 +423,7 @@ function gzdBack(g,k){const p=gdInfo(g);let h=`<div class=gzt1>${esc(g[4])}</div
  const ord=p.ss.map((x,i)=>i),f=p.i!=null?p.i:p.show;if(f!=null){ord.splice(ord.indexOf(f),1);ord.unshift(f)}
  h+=ord.map(i=>{const x=p.ss[i],sl=x.wrong||x.dirty?null:i==p.i?p.sel:gdSel(p.sp,x.s,p.sp&&p.sp.cons||p.kind=='prep'),bx=sl?sl.bx:[];
   const cn=[];if(bx.length)bx.forEach(([a,b])=>{const w=x.s.slice(a,b).toLowerCase();if(GD.con[w])cn.push(`${w} = ${GD.con[w]}`)});
-  return`<div class="gex gzx${x.wrong||x.dirty?' gzw':''}"><div class=g1>${gdSeg(x.s,bx,w=>`<mark class=gzh>${esc(w)}</mark>`)}${x.wrong||x.dirty?'':spk(x.s,'de')}</div>${x.tr?`<div class=g2>${esc(x.tr)}</div>`:''}${cn.map(n=>`<div class="g2 gzn">${esc(n)}</div>`).join('')}${(x.notes||[]).map(n=>`<div class="g2 gzn">${esc(n)}</div>`).join('')}</div>`}).join('');
+  return`<div class="gex gzx${x.wrong||x.dirty?' gzw':''}"><div class=g1>${gdSeg(x.s,bx,w=>`<mark class=gzh>${esc(w)}</mark>`)}${x.wrong||x.dirty?'':spk(x.s,'de')}</div>${x.tr?`<div class=g2>${gzTrH(x.tr)}</div>`:''}${cn.map(n=>`<div class="g2 gzn">${esc(n)}</div>`).join('')}${(x.notes||[]).map(n=>`<div class="g2 gzn">${esc(n)}</div>`).join('')}</div>`}).join('');
  return`<div style="text-align:left">`+h+gmExBlock(k)+`</div>`}
 /* ===== v7.16: grammar Belanda (A1–C2) pada kartu rumpang. Kata kunci per jenis kartu: judul (preposisi, konjungsi, partikel, er, …), kata kerja + preposisi (hanya preposisinya), kala (Perfectum, Imperfectum, Pasif, …) → aturan per sub-bab, posisi kata kerja; kata kerja kuat/konjugasi, pronomen, komparatif, daftar kata → soal sel tabel. Kartu ejaan/pelafalan → cadangan. zh/en/ja/de tidak disentuh ===== */
 const GN={
@@ -606,7 +606,7 @@ function gnFn(g,p){let t=String(g[5]||'').replace(/\s+/g,' ').trim();const ci=t.
 const gnSeg=(t,bx,f)=>{let o='',l=0;for(const[a,b]of bx){o+=esc(t.slice(l,a))+f(t.slice(a,b),b-a);l=b}return o+esc(t.slice(l))};
 const gnBox=n=>`<span class="gzb gze" style="--n:${n}">&nbsp;</span>`;
 function gznFront(g){const m=S.o.gz||'cloze',p=gnCur(g),fh=gnFn(g,p),ctx=gnCtx(g),fn=String(g[5]||'').trim()&&fh?`<div class="gzq${String(g[5]||'').length>60?' gzl':''}"><span class=gl>${esc(g[11]||'Fungsi')}</span>${fh}</div>`:`<div class="gzq gzl"><span class=gl>Topik</span>${esc(ctx)}</div>`;
- if(m=='cloze'&&p.i!=null){const x=p.ss[p.i];return fn+`<div class="gzc gzen gzde">${gnSeg(x.s,p.sel.bx,(w,n)=>gnBox(n))}</div>`+(x.tr?`<div class=gzm>${esc(x.tr)}</div>`:'')+`<div class=fchint><small>Isi bagian yang hilang &amp; ingat rumus polanya${p.amb?' (beberapa preposisi mungkin cocok; pilih yang sesuai arti &amp; pola)':''}</small></div>`}
+ if(m=='cloze'&&p.i!=null){const x=p.ss[p.i];return fn+`<div class="gzc gzen gzde">${gnSeg(x.s,p.sel.bx,(w,n)=>gnBox(n))}</div>`+(x.tr?`<div class=gzm>${gzTrH(x.tr)}</div>`:'')+`<div class=fchint><small>Isi bagian yang hilang &amp; ingat rumus polanya${p.amb?' (beberapa preposisi mungkin cocok; pilih yang sesuai arti &amp; pola)':''}</small></div>`}
  if(m=='cloze'&&p.tab){const q=p.tab,n=gnLen(q.ans);let body;
   if(q.t=='konj')body=`<div class="gzc gzen gzde">${esc(q.pr)} ${gnBox(n)}</div>`+(q.hint?`<div class=gzm>${esc(q.hint)}</div>`:'');
   else if(q.t=='list')body=`<div class="gzc gzen gzde">${esc(q.q)} → ${gnBox(n)}</div>`;
@@ -616,7 +616,7 @@ function gznFront(g){const m=S.o.gz||'cloze',p=gnCur(g),fh=gnFn(g,p),ctx=gnCtx(g
   else if(q.t=='phr')body=`<div class="gzc gzen gzde">${esc(q.pre)}${gnBox(n)}${esc(q.post)}</div><div class=gzm>${esc(q.lab)}</div>`;
   else body=`<div class="gzc gzen gzde">${esc(q.lab)} → ${gnBox(n)}</div>`+(q.hint?`<div class=gzm>${esc(q.hint)}</div>`:'');
   return fn+`<div class="gzm gzhd">${esc(q.head)}</div>`+body+`<div class=fchint><small>${q.t=='gap'?'Isi huruf / bunyi yang hilang':'Isi sel tabel yang hilang &amp; ingat rumusnya'}</small></div>`}
- let ex='';if(m!='fn'&&p.show!=null){const x=p.ss[p.show];ex=`<div class="gzc gzen gzde">${esc(x.s)}</div>`+(x.tr?`<div class=gzm>${esc(x.tr)}</div>`:'')}
+ let ex='';if(m!='fn'&&p.show!=null){const x=p.ss[p.show];ex=`<div class="gzc gzen gzde">${esc(x.s)}</div>`+(x.tr?`<div class=gzm>${gzTrH(x.tr)}</div>`:'')}
  return fn+ex+`<div class=fchint><small>Ingat: ${m=='fn'?'nama pola &amp; rumusnya':'pola &amp; rumusnya'}</small></div>`}
 function gnMark(t,A){t=String(t||'');if(!A.size)return esc(t);const bx=[];gnU(t).forEach(u=>{if([...u.c].some(w=>A.has(w)))bx.push([u.s,u.e])});return gnSeg(t,bx,w=>`<mark class=gzh>${esc(w)}</mark>`)}
 function gznBack(g,k){const p=gnCur(g);let h=`<div class=gzt1>${esc(g[4])}</div><hr>`;const kv=g[10]||[],skip=new Set(),A=gnAns(p);
@@ -628,7 +628,7 @@ function gznBack(g,k){const p=gnCur(g);let h=`<div class=gzt1>${esc(g[4])}</div>
  h+=`<div class=gzf>${esc(g[5])}</div>`;
  const ord=p.ss.map((x,i)=>i),f=p.i!=null?p.i:p.show;if(f!=null){ord.splice(ord.indexOf(f),1);ord.unshift(f)}
  h+=ord.map(i=>{const x=p.ss[i],sl=x.wrong||x.dirty?null:i==p.i?p.sel:(p.sps.map(s=>gnSel(s,x.s)).find(Boolean)||null),bx=sl?sl.bx:[];
-  return`<div class="gex gzx${x.wrong||x.dirty?' gzw':''}"><div class=g1>${gnSeg(x.s,bx,w=>`<mark class=gzh>${esc(w)}</mark>`)}${x.wrong||x.dirty?'':spk(x.s,'nl')}</div>${x.tr?`<div class=g2>${esc(x.tr)}</div>`:''}${(x.notes||[]).map(n=>`<div class="g2 gzn">${esc(n)}</div>`).join('')}</div>`}).join('');
+  return`<div class="gex gzx${x.wrong||x.dirty?' gzw':''}"><div class=g1>${gnSeg(x.s,bx,w=>`<mark class=gzh>${esc(w)}</mark>`)}${x.wrong||x.dirty?'':spk(x.s,'nl')}</div>${x.tr?`<div class=g2>${gzTrH(x.tr)}</div>`:''}${(x.notes||[]).map(n=>`<div class="g2 gzn">${esc(n)}</div>`).join('')}</div>`}).join('');
  return`<div style="text-align:left">`+h+gmExBlock(k)+`</div>`}
 /* ===== v7.19.1: grammar Esperanto (A1–C2) pada kartu rumpang. Kunci per kartu dibaca dari judul (kata fungsi, korelatif, preposisi, kala/partisip → ujung kata, afiks → morfem yang diverifikasi ke kosakata EO, bilangan). Kartu tanpa kalimat cocok / kartu bunyi → kartu "ingat pola". Rumpang hanya tampil; tidak ada input ketik, jadi sistem-x/h tidak relevan. zh/ja/de/nl/en tidak disentuh ===== */
 const GOW=s=>[...String(s||'').matchAll(/[\p{L}]+(?:-[\p{L}]+)*/gu)].map(m=>({l:m[0].toLowerCase(),s:m.index,e:m.index+m[0].length}));
@@ -766,15 +766,15 @@ function goCur(g){let c=goC.get(g[0]);if(c)return c;const sp=goSpec(g),f=goFn(sp
 const goBox=n=>`<span class="gzb gze" style="--n:${n}">&nbsp;</span>`;
 const goSeg=(t,bx,f)=>{let o='',l=0;for(const[a,b]of bx){if(a<l)continue;o+=esc(t.slice(l,a))+f(t.slice(a,b),b-a);l=b}return o+esc(t.slice(l))};
 function gzoFront(g){const m=S.o.gz||'cloze',p=goCur(g),fn=String(g[5]||'').trim()?`<div class="gzq${String(g[5]||'').length>60?' gzl':''}"><span class=gl>${esc(g[11]||'Fungsi')}</span>${esc(g[5])}</div>`:`<div class="gzq gzl"><span class=gl>Topik</span>${esc(String(g[3]||''))}</div>`;
- if(m=='cloze'&&p.i!=null){const x=p.ss[p.i];return fn+`<div class="gzc gzen gzde">${goSeg(x.s,p.bx,(w,n)=>goBox(n))}</div>`+(x.tr?`<div class=gzm>${esc(x.tr)}</div>`:'')+`<div class=fchint><small>Isi bagian yang hilang &amp; ingat rumus polanya</small></div>`}
- let ex='';if(m!='fn'&&p.show!=null){const x=p.ss[p.show];ex=`<div class="gzc gzen gzde">${esc(x.s)}</div>`+(x.tr?`<div class=gzm>${esc(x.tr)}</div>`:'')}
+ if(m=='cloze'&&p.i!=null){const x=p.ss[p.i];return fn+`<div class="gzc gzen gzde">${goSeg(x.s,p.bx,(w,n)=>goBox(n))}</div>`+(x.tr?`<div class=gzm>${gzTrH(x.tr)}</div>`:'')+`<div class=fchint><small>Isi bagian yang hilang &amp; ingat rumus polanya</small></div>`}
+ let ex='';if(m!='fn'&&p.show!=null){const x=p.ss[p.show];ex=`<div class="gzc gzen gzde">${esc(x.s)}</div>`+(x.tr?`<div class=gzm>${gzTrH(x.tr)}</div>`:'')}
  return fn+ex+`<div class=fchint><small>Ingat: ${m=='fn'?'nama pola &amp; rumusnya':'pola &amp; rumusnya'}</small></div>`}
 function goMk(t,p){t=String(t||'');if(!p.f)return esc(t);const sp=p.sp,k=sp[0];if(k=='w'||k=='c'||k=='r')return goSeg(t,GOW(t).map(x=>{const r=p.f(x.l);return r&&[x.s,x.e]}).filter(Boolean),w=>`<mark class=gzh>${esc(w)}</mark>`);
  const ms=sp.slice(sp.indexOf(':')+1).split(',').sort((a,b)=>b.length-a.length).join('|'),re=rxLB('-(?:'+ms+')(?![\\p{L}])|(?<![\\p{L}])(?:'+ms+')-','gu'),bx=[...t.matchAll(re)].map(m=>[m.index,m.index+m[0].length]);return goSeg(t,bx,w=>`<mark class=gzh>${esc(w)}</mark>`)}
 function gzoBack(g,k){const p=goCur(g);let h=`<div class=gzt1>${esc(g[4])}</div><hr>`;
  if(g[6])h+=`<div class=gzp>${goMk(g[6],p)}</div>`;h+=`<div class=gzf>${esc(g[5])}</div>`;
  const ord=p.ss.map((x,i)=>i),f=p.i!=null?p.i:p.show;if(f!=null){ord.splice(ord.indexOf(f),1);ord.unshift(f)}
- h+=ord.map(i=>{const x=p.ss[i];return`<div class="gex gzx"><div class=g1>${goSeg(x.s,x.m,w=>`<mark class=gzh>${esc(w)}</mark>`)}${spk(x.s,'eo')}</div>${x.tr?`<div class=g2>${esc(x.tr)}</div>`:''}</div>`}).join('');
+ h+=ord.map(i=>{const x=p.ss[i];return`<div class="gex gzx"><div class=g1>${goSeg(x.s,x.m,w=>`<mark class=gzh>${esc(w)}</mark>`)}${spk(x.s,'eo')}</div>${x.tr?`<div class=g2>${gzTrH(x.tr)}</div>`:''}</div>`}).join('');
  const n1=(g[8]||[]).length,n2=(g[9]||[]).length,num=(a,n,c)=>a.map((x,i)=>`<div class="${c}"><span class=gl>${n}${a.length>1?' '+(i+1):''}</span>${esc(x)}</div>`).join('');
  if(n1+n2)h+=`<details class=gzd><summary>${n1?esc(g[12]||'Keterangan'):''}${n1&&n2?' &amp; ':''}${n2?'kasus khusus':''} (${n1+n2})</summary>${num(g[8]||[],g[12]||'Keterangan','gnt')}${num(g[9]||[],'Kasus khusus','gnt gkk')}</details>`;
  return`<div style="text-align:left">`+h+gmExBlock(k)+`</div>`}
@@ -798,7 +798,7 @@ const STF=[['leech','🪨','Kartu bandel',()=>leechCard()],['eta','⏳','Perkira
 function stFeatBar(){let n=0;try{n=lchItems().length}catch(e){}
  return`<div class=stf role=group aria-label="Fitur lain">`+STF.map(([k,i,t])=>`<button class="stfb${stFeat==k?' on':''}" data-a=stf data-v=${k} aria-expanded=${stFeat==k}><span>${i}</span><b>${t}</b>${k=='leech'&&n?`<em>${n}</em>`:''}</button>`).join('')+`</div>`+(stFeat?(STF.find(x=>x[0]==stFeat)||[0,0,0,()=>''])[3]():'')}
 function stats(){return kpiCard()+stFeatBar()+fcStatsCard()+heatCard()+actCard()+stats1()}function stats1(){const P=gp(),n=[0,0,0];P.forEach(g=>n[st(g[0])]++);const t=P.length||1;return stats0()+`<div class=card><b>Grammar</b> — ${P.length} topik<div class=bar><i style="width:${n[2]/t*100}%;background:var(--s2)"></i><i style="width:${n[1]/t*100}%;background:var(--s1)"></i></div>Belum ${n[0]} · Sedang ${n[1]} · Selesai ${n[2]}</div>`}
-function list(){const t=q.toLowerCase();let r=D.C.filter(c=>{const v=vis(c);if(!v)return 0;const k=c[0],ss=[];if(fs!==''&&!Object.keys(v).some(l=>st(ik(k,l))==fs))return 0;
+function list(){if(window.vrDaftar){try{const h=vrDaftar.view();if(h!=null)return h}catch(e){console.error(e)}}const t=q.toLowerCase();let r=D.C.filter(c=>{const v=vis(c);if(!v)return 0;const k=c[0],ss=[];if(fs!==''&&!Object.keys(v).some(l=>st(ik(k,l))==fs))return 0;
 return!t||c[2].toLowerCase().includes(t)||Object.values(v).flat().some(e=>(e[0]+e[1]+(e[4]||'')).toLowerCase().includes(t))});const n=r.length;
 return(foc&&K[foc]?`<div class=gsub style="margin:0 0 6px">Dibuka dari bagian lain · <button class="lnk" data-a=wclose>tutup</button></div>`+card(foc,1):'')+
 `<div class=sbar><input type=search placeholder="Cari arti, kata, bacaan, atau kalimat buatanmu" value="${esc(q)}" data-i=q><select data-i=fs>${['Semua status',...STN].map((x,i)=>`<option value="${i?i-1:''}"${String(fs)===String(i?i-1:'')?' selected':''}>${x}</option>`).join('')}</select></div><small>${n} kartu${(q||fs!=='')?' · <button class=lnk data-a=lreset>reset filter</button>':''}</small>`+
@@ -874,9 +874,9 @@ function fcPool(){const o=S.o;let a=[];
 let fcQC=null;
 function fcQ(){fcRoll();const now=Date.now(),td=fcDay(now),o=S.o,sd=S.sd;
  if(!fcQC||fcQC.v!==fcQV||fcQC.td!==td){const R=[],Nw=[],lrn=[];let tm=0;
-  for(const k of fcPool()){const c=S.srs[k];if(!c||!c.t){Nw.push(k);continue}
+  const P0=fcPool();for(const k of P0){const c=S.srs[k];if(!c||!c.t){Nw.push(k);continue}
    if(c.t==2){if(c.d<=td)R.push(k);else if(c.d==td+1)tm++}else lrn.push(k)}
-  fcQC={v:fcQV,td,R,Nw:fcMixNew(Nw),tm,lrn}}
+  fcQC={v:fcQV,td,R,Nw:fcMixNew(Nw),tm,lrn,ps:new Set(P0)}}
  const L=[],ah=[];let next=0;
  for(const k of fcQC.lrn){const d=S.srs[k].d;if(d<=now)L.push(k);else if(d<=now+12e5)ah.push(k);else if(!next||d<next)next=d}
  return{L,R:fcQC.R.slice(),Nw:fcQC.Nw.slice(),ah,next,tm:fcQC.tm,nL:Math.max(0,o.nl+(sd.x|0)-sd.n),rL:Math.max(0,o.rl+(sd.y|0)-sd.r)}}
@@ -908,8 +908,8 @@ function fcAns(r){const k=fcCur;if(!k||!fcRevd)return;fcQV++;fcRoll();const now=
  if(!had){S.sd.n++;const lg=GK[k]?GK[k][1]:lang(k),w=S.nw[td]||(S.nw[td]={});w[lg]=(w[lg]|0)+1;for(const d in S.nw)if(+d<td-200)delete S.nw[d]}else if(c.t==2)S.sd.r++;
  const L=S.lg[td]||(S.lg[td]=[0,0]);L[0]++;if(r==1)L[1]++;
  for(const d in S.lg)if(+d<td-400)delete S.lg[d];
- fcSync(k,n);fcCur=null;fcRevd=false}
-function fcUndo(){const u=fcUn.pop();if(!u)return;fcQV++;if(u.c)S.srs[u.k]=u.c;else{delete S.srs[u.k];const lg=GK[u.k]?GK[u.k][1]:lang(u.k),w=S.nw[u.td];if(w&&w[lg]>0)w[lg]--}S.sd=u.sd;
+ fcHdMark(k,n);fcSync(k,n);fcCur=null;fcRevd=false}
+function fcUndo(){const u=fcUn.pop();if(!u)return;fcQV++;fcHdMark(u.k,null);if(u.c)S.srs[u.k]=u.c;else{delete S.srs[u.k];const lg=GK[u.k]?GK[u.k][1]:lang(u.k),w=S.nw[u.td];if(w&&w[lg]>0)w[lg]--}S.sd=u.sd;
  if(u.p===undefined)delete S.p[u.k];else S.p[u.k]=u.p;if(u.lg)S.lg[u.td]=u.lg;else delete S.lg[u.td];fcCur=u.k;fcRevd=false;fcFrK=null}
 function fcAct(a,x,k){fcQV++;
  if(a=='fcshow'){fcRevd=true;fcAuto()}
@@ -945,9 +945,39 @@ function fcSet(i,el){const f=i.slice(3),o=S.o;
  fcCur=null;fcRevd=false}
 function fcInfo(c){const b=fcInfo0(c);return b+(c&&!c.z&&(c.l|0)>=lchN()?' · 🪨 bandel':'')}
 function fcInfo0(c){if(!c||!c.t)return'Baru';if(c.t==1)return'Belajar';if(c.t==3)return'Belajar ulang';return`Ulas · ${c.i} hr · ease ${c.e}%`+(c.l?` · ${c.l}× lupa`:'')}
+/* 7.67: highlight terjemahan Indonesia pada kartu grammar (sama seperti kartu kosakata).
+   Arti pola (g[5], mis. "Berpusat pada") dicari di terjemahan dengan pencocok kata Indonesia yang sama (gzvIdSpan, toleran imbuhan). Hanya arti singkat yang dipakai
+   (penjelasan panjang Jerman/Inggris/Belanda tidak ditandai agar tidak salah sorot). Tanpa kecocokan -> teks biasa. */
+let GZG=null;
+function gzGloss(g){const s=String(g&&g[5]||'').trim();return s&&s.split(/\s+/).length<=6&&!/[.。]\s*\S/.test(s)?s.replace(/[.。]+$/,''):''}
+function gzTrH(t){t=String(t==null?'':t);const gl=gzGloss(GZG);if(!gl||!t||typeof gzvIdSpan!='function')return esc(t);
+ try{const sp=gzvIdSpan(t,gl,true);if(!sp)return esc(t);let o='',l=0;sp.forEach(([a,b])=>{o+=esc(t.slice(l,a))+`<mark class=gzh>${esc(t.slice(a,b))}</mark>`;l=b});return o+esc(t.slice(l))}catch(e){return esc(t)}}
+/* 7.67: judul depan kartu kosakata PER ENTRI (konservatif). Judul bersama (c[2]) sering mengikuti satu bahasa saja ("Bekerja (paruh waktu)" dari 打工), lalu ikut tampil
+   untuk wirken / 勤める / work. Diganti HANYA bila ada bukti bentrok, supaya 47.545 entri lain tetap seperti semula:
+   A. petunjuk entri berawalan "BUKAN x: ..." (entri ini bukan arti judul) -> pakai arti setelah titik dua;
+   B. bahasa itu punya >=2 entri pada kartu dan petunjuk entri berupa arti singkat berkepala kata judul ("Ingin (sopan)" vs "Ingin (langsung)") -> pakai petunjuknya;
+   C. kurung akhir judul ("(paruh waktu)") hanya dipertahankan untuk entri yang petunjuknya memuat kata kurung itu; bila ADA entri lain di kartu yang
+      mendukungnya tetapi entri ini tidak, kurung dibuang (asal judul tanpa kurung tidak kembar dengan kartu lain). Tanpa entri pendukung sama sekali, kurung dianggap catatan umum dan tetap. */
+function fcHintGloss(h){h=String(h||'').trim();if(!h)return'';
+ const m=/^BUKAN\s[^:：]*[:：]\s*(.+)$/.exec(h);if(m)h=m[1];
+ h=h.split(/[:：。]/)[0].replace(/[.\s]+$/,'').trim();
+ if(!h||h.split(/\s+/).length>8||/[\u3000-\u9fff\uff00-\uffef]/.test(h)||/^(beda|lebih|bentuk|kata|pola|partikel|biasanya|dipakai|dengan|untuk|lawan|sinonim|hanya)\b/i.test(h)||/\.\s+\S/.test(h))return'';
+ return h.charAt(0).toUpperCase()+h.slice(1)}
+let FCMT=null;const fcCore=g=>String(g).replace(/\s*\([^)]*\)\s*$/,'').trim(),fcWords=t=>(String(t).toLowerCase().match(/\p{L}{4,}/gu)||[]);
+function fcMean(k){try{const c=K[base(k)];if(!c)return'';const g=String(c[2]),L=lang(k),es=c[3][L]||[],e=es[ent(k)]||es[0];
+ if(e){const raw=String(e[4]||''),h=fcHintGloss(raw);
+  if(h){if(/^BUKAN\s/.test(raw))return h;
+   const hw=(h.toLowerCase().match(/\p{L}+/u)||[''])[0],tw=new Set(String(g).toLowerCase().match(/\p{L}+/gu)||[]);
+   if(es.length>=2&&hw&&tw.has(hw))return h}}
+ const pm=/\(([^)]*)\)\s*$/.exec(g);
+ if(pm){const W=fcWords(pm[1]);if(W.length){const sup=x=>{const t=String(x&&x[4]||'').toLowerCase();return W.some(w=>t.includes(w))};
+   let any=false;for(const l in c[3])if(c[3][l].some(sup)){any=true;break}
+   if(any&&!sup(e)){if(!FCMT){FCMT=new Map();for(const x of D.C){const t=x[1]+'|'+fcCore(x[2]).toLowerCase();FCMT.set(t,(FCMT.get(t)||0)+1)}}
+    const core=fcCore(g);if(core&&(FCMT.get(c[1]+'|'+core.toLowerCase())||0)<=1)return core}}}
+ return g}catch(e){const c=K[base(k)];return c?String(c[2]):''}}
 function fcBody(k,rev){const g=GK[k];
  if(g){if(gzOn(g)){const pl=typeof gzpRow=='function'?gzpRow(k):null;if(pl)return rev?gzpBack(g,pl)+gzBack(g,k):gzpFront(g,pl);return rev?gzBack(g,k):gzFront(g)}const t=(g[3]?`<div class=gsub>${esc(g[3])}</div>`:'')+`<div class=mean>${esc(g[4])}</div>`;return rev?t+'<hr><div style="text-align:left">'+gbody(g)+gmExBlock(k)+'</div>':t}
- const b=base(k),L=lang(k),c=K[b],v0=fcVisE(c,k)||{},v=v0[L]?{[L]:v0[L]}:v0,f=fcFr,mean=`<div class=mean>${esc(c[2])}</div>`;
+ const b=base(k),L=lang(k),c=K[b],v0=fcVisE(c,k)||{},v=v0[L]?{[L]:v0[L]}:v0,f=fcFr,mean=`<div class=mean>${esc(fcMean(k))}</div>`;
  const lc=id=>D.L.find(l=>l[0]==id),ch=(n,col)=>`<span class=fch style="--lc:${col}">${esc(n)}</span>`;
  const blk=(ids,full)=>'<div class=grid>'+D.L.filter(l=>ids.includes(l[0])).map(([id,n,col])=>`<div class=lg style="--lc:${col}"><small>${n}</small>`+v[id].map(e=>`<div class=w>${wd(e[0],c[1],'F',id)}${spk(e[0],id)}</div>${e[1]?`<div class="r rom">${esc(e[1])}</div>`:''}${full?fmx(e,c[1],id):''}${full&&e[2]?`<div class=ex>${esc(e[2])}</div>`:''}${full&&e[4]?`<div class=cx>💡 ${esc(e[4])}</div>`:''}`).join('')+'</div>').join('')+'</div>';
  const vr=typeof gzvRow=='function'?gzvRow(k):null;
@@ -1136,13 +1166,13 @@ sMig();
 document.addEventListener('click',e=>{let m=e.target.closest&&e.target.closest('.rvl:not(.rv),.mnh:not(.rv),.cz:not(.rv)');if(m){m.classList.add('rv');if(m.dataset.rv)shown.add(m.dataset.rv);e.stopPropagation();e.preventDefault();return}const r=e.target.closest&&e.target.closest('.rom');if(r&&document.body.classList.contains('romh')&&!r.classList.contains('rv')){r.classList.add('rv');e.stopPropagation();e.preventDefault()}},true);
 const IC={gm:'<rect x="2.5" y="7" width="19" height="11" rx="5"/><path d="M7 10v4M5 12h4M16 11h.01M18.5 13h.01"/>',fc:'<rect x="3" y="7" width="15" height="12" rx="2"/><path d="M6 4h15v12"/>',gr:'<path d="M4 6h16M4 12h10M4 18h14"/>',list:'<path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/>',stats:'<path d="M5 20V11M12 20V4M19 20v-6"/>',lib:'<path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/>',set:'<path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/>'};
 function render(){document.querySelectorAll('details[data-d]').forEach(d=>d.open?DO.add(d.dataset.d):DO.delete(d.dataset.d));sBuild();document.body.classList.toggle('romh',!!S.o.rom);const T={gm:['Games',ggView,'Games'],fc:['Kartu',()=>vrPromo()+fcView(),'Kartu'+vrBadge()],gr:['Grammar',gram,'Grammar'],list:['Daftar',list,'Daftar'],lib:['Pustaka',libView,'Pustaka'],stats:['Statistik',stats,'Statistik'],set:['Pengaturan',set,'Atur']};
-if(!T[tab])tab='fc';const ch=tab!==lastTab,sy=window.scrollY;lastTab=tab;v.className=ch?'fade':'';
+if(!T[tab])tab='fc';const ch=tab!==lastTab,sy=window.scrollY;lastTab=tab;if(ch)DO.clear();v.className=ch?'fade':'';
 v.innerHTML=vrBanner()+(ok?'':'<div class=warn>Penyimpanan lokal diblokir, progres tidak akan tersimpan. Matikan mode privat atau izinkan penyimpanan situs.</div>')+`<h1>${T[tab][0]}</h1>`+T[tab][1]();
 n.innerHTML='<div class=navi>'+Object.entries(T).map(([k,x])=>`<button class="${k==tab?'on':''}" data-a=tab data-v=${k}${k==tab?' aria-current=page':''}><svg viewBox="0 0 24 24" aria-hidden="true">${IC[k]}</svg><span>${x[2]||x[0]}</span></button>`).join('')+'</div>';
 if(!ch&&sy>0){const de=document.documentElement,pm=de.style.scrollBehavior;de.style.scrollBehavior='auto';window.scrollTo(0,sy);de.style.scrollBehavior=pm}
 }
 document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;fcQV++;const a=b.dataset.a,k=b.dataset.k,x=b.dataset.v,y=scrollY;
-if(a.slice(0,2)=='fc'){fcAct(a,x,k)}else if(a.slice(0,2)=='gg'){ggAct(a,x,k)}else if(a.slice(0,3)=='kpi'){kpiAct(a,x)}else if(a.slice(0,3)=='lib'||a=='slh'||a=='sldel'||a=='slmore'||a=='slplay'){if(libAct(a,x,k,b))return}else if(a.slice(0,3)=='lch'){lchAct(a,x)}else if(a.slice(0,3)=='eta'){etaAct(a,x)}else if(a=='tab'){if(x=='gr'&&tab!='gr'){gLg='';gLv=0;gFoc=0;gFresh=1}tab=x;lim=50;goTop=1}else if(a=='set'){e.stopPropagation();S.p[k]=+x;if(!+x)delete S.p[k];fcFS(k)}else if(a=='flip'){shown.has(k)?shown.delete(k):shown.add(k)}
+if(a.slice(0,2)=='fc'){fcAct(a,x,k)}else if(a.slice(0,2)=='gg'){ggAct(a,x,k)}else if(a.slice(0,3)=='kpi'){kpiAct(a,x)}else if(a.slice(0,3)=='lib'||a=='slh'||a=='sldel'||a=='slmore'||a=='slplay'){if(libAct(a,x,k,b))return}else if(a.slice(0,3)=='lch'){lchAct(a,x)}else if(a.slice(0,3)=='eta'){etaAct(a,x)}else if(a=='tab'){if(x=='gr'&&tab!='gr'){gLg='';gLv=0;gFoc=0;gFresh=1}if(x=='list'&&tab!='list'&&window.vrDaftar)try{vrDaftar.reset()}catch(_){}tab=x;lim=50;goTop=1}else if(a=='set'){e.stopPropagation();S.p[k]=+x;if(!+x)delete S.p[k];fcFS(k)}else if(a=='flip'){shown.has(k)?shown.delete(k):shown.add(k)}
 else if(a=='cyc'){const s=(st(k)+1)%3;s?S.p[k]=s:delete S.p[k];fcFS(k)}
 else if(a=='fl'){const i=S.f.indexOf(x);i<0?S.f.push(x):S.f.splice(i,1)}else if(a=='fall')S.f=[];else if(a=='gfl'){const i=S.gf.indexOf(x);i<0?S.gf.push(x):S.gf.splice(i,1)}else if(a=='gall'){S.gf=[];S.o.gpri='';S.o.gfn=''}else if(a=='glg'){gFresh=0;gLg=x;gLv=0;S.gf=D.GL.find(l=>l[0]==x)[3].map(v=>x+':'+v);S.o.gpri='';S.o.gfn='';S.gs=0;lim=50;goTop=1}else if(a=='gback'){gLg='';gLv=0;S.gf=[];S.o.gpri='';S.o.gfn='';S.gs=0;goTop=1}else if(a=='glv'){const all=gAll0(gLg);if(x=='all')S.gf=all;else if(S.gf.length>=all.length||!gLv)S.gf=[gLg+':'+x];else{const i=S.gf.indexOf(gLg+':'+x);i<0?S.gf.push(gLg+':'+x):S.gf.splice(i,1);if(!S.gf.length)S.gf=all}if(!gLv){goTop=1}gLv=1;lim=50;S.gs=0}else if(a=='gmap'){const[lp,d]=k.split('|'),[lg,l]=lp.split(':');S.gf=l?[lg+':'+l]:(TXLV[lg]||[]).map(v=>lg+':'+v);S.o.gfn=d;S.o.gpri='';S.gs=0;gFresh=0;tab='gr';goTop=1}else if(a=='groll'){S.gs=choose(gp().filter(g=>g[0]!=S.gs));gFoc=1;goTop=1}else if(a=='glist'){gFoc=0;goTop=1}else if(a=='gtolv'){gFoc=0;gLv=0;goTop=1}
 else if(a=='gnext'||a=='gprev'){const P=gp(),n=P.length;if(n){const i=P.findIndex(g=>g[0]==S.gs),d=a=='gnext'?1:-1,j=i<0?(d>0?0:n-1):((i+d)%n+n)%n;S.gs=P[j][0];S.s[S.gs]=1;gFoc=1;goTop=1}}
@@ -1198,8 +1228,14 @@ function fcStreak(){const td=fcDay(Date.now()),set=new Set();
  const a=[...set].sort((x,y)=>x-y);let best=0,c=0,p=null;
  for(const d of a){c=p!==null&&d==p+1?c+1:1;p=d;if(c>best)best=c}
  return{run,best,days:set.size,today:set.has(td)}}
-function fcHero(q,nn,rr){const td=fcDay(Date.now()),done=(S.lg[td]||[0])[0]|0,left=q.L.length+nn+rr,tot=done+left,pct=tot?Math.min(1,done/tot):0,sk=fcStreak(),R=28,C=2*Math.PI*R;
- const msg=left==0?(done?'Target hari ini tercapai 🎉':'Tidak ada kartu yang menunggu'):`${left} kartu lagi · ±${Math.max(1,Math.ceil(left*25/60))} menit`;
+/* 7.67: target harian = kartu UNIK, bukan jumlah tekan tombol. Dulu "X dari Y" memakai Y = ulasan + sisa, sehingga tiap "Lagi"/langkah belajar menaikkan Y
+   (237 -> 256 -> 264 saat belajar). Kini: tuntas = kartu yang hari ini keluar dari antrean belajar (status ulas); sisa = semua kartu belajar + baru + ulas yang menunggu.
+   Tuntas + sisa tetap konstan selama kartu hanya berpindah (baru -> belajar -> tuntas, ulas -> lupa -> belajar -> tuntas). */
+function fcHdGet(){const td=fcDay(Date.now());let h=S.o.hd;if(!h||h.d!==td||!h.c)h=S.o.hd={d:td,c:{}};return h}
+function fcHdMark(k,n){try{const h=fcHdGet();if(n&&n.t==2)h.c[k]=1;else delete h.c[k]}catch(e){}}
+function fcHero(q,nn,rr){const td=fcDay(Date.now()),h=fcHdGet(),ps=fcQC&&fcQC.ps;let cl=0;for(const k in h.c)if(!ps||ps.has(k))cl++;
+ const pend=(fcQC&&fcQC.lrn?fcQC.lrn.length:q.L.length+q.ah.length)+nn+rr,done=cl,left=q.L.length+nn+rr,tot=cl+pend,pct=tot?Math.min(1,done/tot):0,sk=fcStreak(),R=28,C=2*Math.PI*R;
+ const msg=left==0&&pend==0?(done?'Target hari ini tercapai 🎉':'Tidak ada kartu yang menunggu'):`${Math.max(left,pend)} kartu lagi · ±${Math.max(1,Math.ceil(left*25/60))} menit`;
  return`<div class=hero><div class=ring><svg viewBox="0 0 64 64" aria-hidden="true"><circle class=tr cx=32 cy=32 r=${R}></circle><circle class=pg cx=32 cy=32 r=${R} style="stroke-dasharray:${C.toFixed(1)};stroke-dashoffset:${(C*(1-pct)).toFixed(1)}"></circle></svg><b>${Math.round(pct*100)}%</b></div><div class=ht><b>${done} dari ${tot} kartu hari ini</b><small>${msg}</small></div><div class=streak title="Hari beruntun belajar">🔥 ${sk.run}<small>hari</small></div></div>`}
 function confetti(){if(matchMedia('(prefers-reduced-motion:reduce)').matches||document.documentElement.getAttribute('data-vr-an')=='off')return;
  const c=document.createElement('canvas');c.className='confetti';c.width=innerWidth;c.height=innerHeight;document.body.appendChild(c);

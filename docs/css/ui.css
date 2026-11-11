@@ -216,3 +216,16 @@ html[data-vr-dn=p] .seg2 button{min-height:44px}
 .lbd .rdh{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.lbd .rdh button{min-height:44px;padding:4px 6px;white-space:nowrap;font-size:.84rem}
 .lbp .rds .eo{font-size:1.04rem;line-height:1.6}
 .chips.vrlc .chip.on small{color:inherit;opacity:.85}
+
+/* 7.67: "Ketuk untuk melihat jawaban" tidak lagi menimpa petunjuk di bawah soal (dulu absolute di dasar kartu -> tumpang tindih dengan "· soal dari Pustakamu") */
+.fcard[data-a=fcshow]{padding-bottom:46px}
+.fcard[data-a=fcshow]::after{bottom:14px;pointer-events:none}
+
+/* 7.75: area di bawah menu (Games–Atur) tidak lagi menampilkan konten yang tergulir di belakangnya.
+   Menu melayang 10px dari tepi bawah; celah itu + area aman sistem kini ditutup latar solid dengan pudar halus di atasnya. */
+body::after{content:"";position:fixed;left:0;right:0;bottom:0;z-index:49;pointer-events:none;
+ height:calc(env(safe-area-inset-bottom) + 76px);
+ background:linear-gradient(to top,var(--bg) 0,var(--bg) calc(env(safe-area-inset-bottom) + 38px),color-mix(in srgb,var(--bg) 70%,transparent) calc(env(safe-area-inset-bottom) + 56px),transparent 100%)}
+nav{background:color-mix(in srgb,var(--c) 94%,transparent)}
+.navi{background:color-mix(in srgb,var(--c) 94%,transparent)}
+@media(min-width:960px){body::after{display:none}}

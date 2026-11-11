@@ -14,9 +14,11 @@ function close(){try{localStorage.setItem('vr_onb','1')}catch(_){}o.classList.ad
 o.addEventListener('click',function(e){if(e.target.closest('a'))return close();if(e.target.closest('button')){i<P.length-1?(i++,draw()):close()}});
 draw();addEventListener('load',function(){setTimeout(function(){document.body.appendChild(o)},400)})})();
 /* Tahap B: layar Kartu — yang utama (belajar) tampil dulu; Lock-in + Pengingat dilipat ("Alat belajar"), status diingat */
+/* v7.73: semua lipatan (dropdown) selalu TERTUTUP saat layar dibuka; status buka/tutup hanya diingat selama layar yang sama (tanpa disimpan) dan dikosongkan saat pindah layar */
+window.vrSess=function(){var s=window.__vrs;if(!s)s=window.__vrs={fold:0,sg:{},h:null};var v=document.getElementById('v'),h=v&&v.querySelector(':scope>h1'),t=h?h.textContent.trim():'';if(t&&t!==s.h){s.h=t;s.fold=0;s.sg={}}return s};
 (function(){var KEY='vr_ui_fold_tools',busy=false;
-function get(){try{if(S.o.u_fold!=null)return !!S.o.u_fold;return localStorage.getItem(KEY)==='1'}catch(_){return false}}
-function put(o){try{var n=o?1:0;if(S.o.u_fold===n)return;S.o.u_fold=n;save()}catch(_){}}
+function get(){return !!vrSess().fold}
+function put(o){vrSess().fold=o?1:0}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function stepper(btns,val,unit,label){var d=document.createElement('div');d.className='vrstep';
 d.innerHTML='<button class=mini data-a='+btns[0]+' data-v='+btns[1]+' aria-label="Kurangi '+label+'">\u2212</button><span><b>'+esc(val)+'</b> '+label+'</span><button class=mini data-a='+btns[0]+' data-v='+(-btns[1])+' aria-label="Tambah '+label+'">+</button>';return d}
@@ -55,9 +57,9 @@ var p=document.createElement('p');p.className='vrgr';p.innerHTML=(nm?'<b>'+sal()
 function simple(v){var o=O();if(!o||o.u_md!=='s')return;
 var fct=v.querySelector(':scope>.fct');if(fct&&!v.querySelector(':scope>.vrmore')){var d=document.createElement('details');d.className='vrmore';d.innerHTML='<summary>Lainnya</summary>';fct.parentNode.insertBefore(d,fct);d.appendChild(fct)}
 var ff=v.querySelector(':scope>details[data-d=ff]');if(!ff)return;var fold=v.querySelector(':scope>.vrfold');
-if(!fold){fold=document.createElement('details');fold.className='vrfold';try{if(S.o.u_fold!=null?S.o.u_fold:localStorage.getItem(KEY)==='1')fold.open=true}catch(_){}
+if(!fold){fold=document.createElement('details');fold.className='vrfold';if(vrSess().fold)fold.open=true;
 fold.innerHTML='<summary><span>\uD83E\uDDF0 Alat belajar</span><em>Filter</em></summary><div class=vrfb></div>';
-fold.addEventListener('toggle',function(){try{var n=fold.open?1:0;if(S.o.u_fold!==n){S.o.u_fold=n;save()}}catch(_){}});v.appendChild(fold)}
+fold.addEventListener('toggle',function(){vrSess().fold=fold.open?1:0});v.appendChild(fold)}
 else{var em=fold.querySelector('summary em');if(em&&!/Filter/.test(em.textContent)&&!/selesai|dihentikan/.test(em.textContent))em.textContent+=' \u00b7 Filter'}
 fold.querySelector('.vrfb').insertBefore(ff,fold.querySelector('.vrfb').firstChild)}
 function seg(k,cur,op){return'<div class=seg2>'+op.map(function(x){return'<button type=button class="'+(cur==x[0]?'on':'')+'" data-vp="'+k+'" data-v="'+x[0]+'">'+x[1]+'</button>'}).join('')+'</div>'}
@@ -108,13 +110,13 @@ function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;
 function icon(t){for(var i=0;i<IC.length;i++)if(t.indexOf(IC[i][0])>=0)return IC[i][1];return'\u25AB\uFE0F'}
 function label(t){t=t.replace(/^[^A-Za-z]+/,'');if(t.indexOf('Vortaro v')===0)return'Versi & pembaruan';if(t.indexOf('Penyimpanan')===0)return'Penyimpanan';return t.replace(/\s+/g,' ').slice(0,40)}
 function key(t){return label(t).toLowerCase().replace(/[^a-z0-9]+/g,'').slice(0,18)}
-function st(){var o=O();if(!o)return{};if(!o.u_sg||typeof o.u_sg!=='object')o.u_sg={};return o.u_sg}
+function st(){return vrSess().sg}
 function wrap(v){var kids=[].slice.call(v.children);
 kids.forEach(function(el){if(el.matches('h1,.vrsq,.vrg,p,.warn,.vrb'))return;var isDet=el.tagName==='DETAILS',t;
 if(el.matches('.vrp'))t='\u2728 Tampilan & Personalisasi';else if(isDet){var sm=el.querySelector(':scope>summary');t=sm?sm.textContent:'Pengaturan'}else{var b=el.querySelector('b');if(!b)return;t=b.textContent}
 var k=el.matches('.vrp')?'personal':(isDet&&el.dataset.d?el.dataset.d:key(t)),lab=el.matches('.vrp')?'Tampilan & Personalisasi':label(t);
 if(isDet){el.classList.add('vrg');el.dataset.vk=k;var sm2=el.querySelector(':scope>summary');if(sm2&&!sm2.querySelector('.vrgi')){sm2.innerHTML='<span class=vrgi>'+icon(t)+'</span><span class=vrgl>'+esc(lab)+'</span>'+(sm2.querySelector('.cnt')?sm2.querySelector('.cnt').outerHTML:'')}var s0=st();el.open=s0[k]!=null?!!s0[k]:false;el.addEventListener('toggle',function(){if(el.dataset.sq)return;var s3=st(),n3=el.open?1:0;if(s3[k]!==n3){s3[k]=n3;try{save()}catch(_){}}});return}
-var d=document.createElement('details');d.className='vrg';d.dataset.vk=k;var s=st(),op=s[k]!=null?!!s[k]:(k==='personal');if(op)d.open=true;
+var d=document.createElement('details');d.className='vrg';d.dataset.vk=k;var s=st(),op=s[k]!=null?!!s[k]:false;if(op)d.open=true;
 d.innerHTML='<summary><span class=vrgi>'+(el.matches('.vrp')?'\u2728':icon(t))+'</span><span class=vrgl>'+esc(lab)+'</span></summary>';
 el.parentNode.insertBefore(d,el);var body=document.createElement('div');body.className='vrgb';body.appendChild(el);d.appendChild(body);
 var fe=el.firstElementChild;if(fe&&fe.tagName==='B')el.classList.add('vrdup');
@@ -145,7 +147,7 @@ function feat(v){var g=v.querySelector('.stf');if(!g||g.dataset.vd)return;g.data
 if(!g.previousElementSibling||!g.previousElementSibling.classList.contains('vrcap')){var c=document.createElement('p');c.className='vrcap';c.textContent='Alat analisis \u00b7 ketuk untuk membuka';g.insertAdjacentElement('beforebegin',c)}
 [].forEach.call(g.querySelectorAll('.stfb'),function(b){var k=b.getAttribute('data-v'),t=b.querySelector('b'),ic=b.querySelector(':scope>span');if(!t||!DESC[k]||b.querySelector('.vrstt'))return;
 var w=document.createElement('span');w.className='vrstt';var s=document.createElement('small');s.textContent=DESC[k];t.parentNode.insertBefore(w,t);w.appendChild(t);w.appendChild(s);if(ic)ic.classList.add('vrsti')})}
-function SG(){try{var o=S.o;if(!o.u_sg||typeof o.u_sg!=='object')o.u_sg={};return o.u_sg}catch(_){return {}}}
+function SG(){return vrSess().sg}
 function fold(v,els,key,lab,ic,dup){if(!els.length)return;var s=SG(),d=document.createElement('details');d.className='vrg';d.dataset.vk=key;if(s[key])d.open=true;
 var sm=document.createElement('summary');sm.innerHTML='<span class=vrgi>'+ic+'</span><span class=vrgl></span>';sm.querySelector('.vrgl').textContent=lab;d.appendChild(sm);
 var b=document.createElement('div');b.className='vrgb';els[0].parentNode.insertBefore(d,els[0]);els.forEach(function(e){b.appendChild(e);if(dup)e.classList.add('vrdup')});d.appendChild(b);
@@ -178,7 +180,7 @@ b.classList.add('vrcp');if(!b.getAttribute('aria-label'))b.setAttribute('aria-la
 function head(v){var s=v.querySelector(':scope>.sbar');if(!s||s.classList.contains('vrdh'))return;s.classList.add('vrdh');var i=s.querySelector('input[type=search]');if(i){i.placeholder='Cari kata, arti, atau bacaan';i.setAttribute('aria-label','Cari kartu')}
 var sel=s.querySelector('select');if(sel){sel.setAttribute('aria-label','Filter status');if(sel.options[0]&&sel.options[0].text==='Semua status')sel.options[0].text='Semua'}
 var c=s.nextElementSibling;if(c&&c.tagName==='SMALL'&&!v.querySelector('.vrls')){var l=document.createElement('small');l.className='vrls';l.innerHTML='\u25CB belum \u00b7 \u25D0 sedang \u00b7 \u25CF selesai \u00b7 ketuk untuk mengubah';c.insertAdjacentElement('afterend',l)}}
-function empty(v){if(v.querySelector('.row')||v.querySelector('.vrne'))return;var l=v.querySelector('.vrls')||v.querySelector(':scope>.sbar');if(!l)return;var d=document.createElement('div');d.className='card vrne';
+function empty(v){if(v.querySelector('.row')||v.querySelector('.vrne'))return;var l=v.querySelector('.vrls');if(!l)return;/* v7.73: hanya di tahap daftar (ada baris hitung); tahap pilih bahasa/level & Campur punya tampilan sendiri */var d=document.createElement('div');d.className='card vrne';
 d.innerHTML='<b>Tidak ada kartu yang cocok</b><p class=gsub>Coba kata kunci lain, atau ubah filter status.</p><button type=button class=pri data-a=lreset>Reset pencarian</button>';l.insertAdjacentElement('afterend',d)}
 function run(){var v=document.getElementById('v');if(!v)return;var h=v.querySelector(':scope>h1');if(!h||h.textContent.trim()!=='Daftar')return;head(v);chips(v);empty(v)}
 function boot(){var v=document.getElementById('v');if(!v)return setTimeout(boot,200);new MutationObserver(run).observe(v,{childList:true});run()}
