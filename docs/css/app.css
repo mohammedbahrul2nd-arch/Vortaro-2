@@ -546,6 +546,12 @@ mark.gzh{background:color-mix(in srgb,var(--a) 24%,transparent);color:inherit;bo
 .scs{display:flex;flex-direction:column;align-items:flex-start;gap:3px;min-width:70px}
 .scb{font-size:1.25rem;letter-spacing:.05em;border-bottom:2px solid currentColor;opacity:.85}
 .scr{opacity:.7;font-size:.72rem}
+.scnum{font-size:.8rem;margin-right:6px;font-weight:700}
+.sck{list-style:none;margin:6px 0;padding:8px 10px;border-radius:10px;background:rgba(127,127,127,.08)}
+.sck li{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:4px 0}
+.sck li b{min-width:1.4em}
+.sckl{opacity:.75;font-size:.8rem}
+.sckh{opacity:.6;font-size:.8rem}
 .scvs{display:flex;flex-wrap:wrap;gap:4px}
 .scv{display:inline-flex;flex-direction:column;padding:2px 8px;border-radius:8px;background:rgba(127,127,127,.18);font-weight:600}
 .scv small{font-weight:400;opacity:.75;font-size:.68rem}

@@ -308,9 +308,10 @@ const scPunc=t=>(t.match(/[、。，．,.?!？！…]+$/)||[''])[0];
 const scChip=(v)=>`<span class=scv>${esc(v.w)}<small>${esc(v.g)}</small></span>`;
 function scFrame(q){const it=q.it,nat=`<div class=scn>${esc(q.it.tr)}</div>`,P=q.plan,H=q.help,ex=H.v|0,vis=new Set(P.inl);for(let i=0;i<ex;i++)if(P.extra[i]!=null){if(!(q.o.vpl=='se'))vis.add(P.extra[i]);}
  const bank=P.sep.slice();if(q.o.vpl=='se'||q.o.vpl=='mx')for(let i=0;i<ex;i++)if(P.extra[i]!=null&&q.o.vpl=='se')bank.push(P.extra[i]);
- const sg=it.segs.map((s,i)=>{const vs=it.voc.map((v,j)=>({v,j})).filter(z=>z.v.s==i&&vis.has(z.j)).map(z=>scChip(z.v)).join(''),lab=P.lab.has(i)||H.s?`<small class=scr>${i+1}. ${esc(s.r)}</small>`:`<small class=scr>${i+1}.</small>`;
-  return `<span class=scs>${vs?`<span class=scvs>${vs}</span>`:''}<span class=scb>＿＿＿${esc(scPunc(s.t))}</span>${lab}</span>`}).join('');
- let h=nat+`<div class=scf>${sg}</div>`;
+ const sg=it.segs.map((s,i)=>`<span class=scs><span class=scb><b class=scnum>${i+1}</b>＿＿＿${esc(scPunc(s.t))}</span></span>`).join('');
+ const key=it.segs.map((s,i)=>{const vs=it.voc.map((v,j)=>({v,j})).filter(z=>z.v.s==i&&vis.has(z.j)).map(z=>scChip(z.v)).join(''),lb=P.lab.has(i)||H.s?esc(s.r):'';
+  return `<li class=\"${vs?'sck-c':'sck-h'}\"><b>${i+1}.</b>${lb?` <span class=sckl>${lb}</span>`:''} ${vs?`<span class=scvs>${vs}</span>`:'<i class=sckh>🔒 tersembunyi</i>'}</li>`}).join('');
+ let h=nat+`<div class=scf>${sg}</div><ol class=sck>${key}</ol>`;
  if(bank.length)h+=`<div class=scbank><small>Bank kosakata (posisi tidak ditunjukkan)</small><div>${bank.map(j=>scChip(it.voc[j])).join('')}</div></div>`;
  if(q.o.gh!='0'||H.g)h+=`<div class=scg><small>Petunjuk grammar</small><ul>${it.gr.map(g=>`<li><b>${esc(g.lab)}</b>${g.ex?' — '+esc(g.ex):''}</li>`).join('')||'<li>—</li>'}</ul></div>`;
  if(H.a)h+=`<div class=scans><small>Contoh jawaban</small><div>${esc(it.full)}</div>${it.alt.map(a=>`<div>${esc(a)}</div>`).join('')}</div>`;

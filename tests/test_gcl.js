@@ -5,7 +5,7 @@ const {D,GCX,GCV,GCLG,GCN,gcGaps,gcValid,gcNorm,gcOpts,gcCells,gcCards,GXX,GXL,G
 let n=0;const T=(c,m)=>{n++;if(!c){console.log('GAGAL',m);process.exitCode=1}};
 const BAD=/undefined|\bnull\b|\bNaN\b|\[object/;
 /* ambang cakupan minimum (% kartu bertanya) per bahasa+level — naikkan setiap tahap */
-const GCMIN={'zh HSK 1':100,'zh HSK 2':100,'zh HSK 3':100,'ja N5':100,'ja N4':100,'de A1':100};
+const GCMIN={'zh HSK 1':100,'zh HSK 2':100,'zh HSK 3':100,'ja N5':100,'ja N4':100,'de A1':100,'de A2':100,'en A1':100,'en A2':100,'nl A1':100};
 const lvOf=g=>String(g[2]);
 /* 1. registrasi */
 for(const L of GCLG){const g='gcl_'+L;T(GXX[g]&&GXX[g].pre=='gc|g|'+L+'|','GXX '+g);T(GXL.some(m=>m.id==g&&m.lg==L),'hub '+g);T(Array.isArray(GXX[g].lvl)&&GXX[g].lvl.length>=1,'lvl '+g);T(!BAD.test(GXX[g].note),'note '+g)}
@@ -26,10 +26,10 @@ for(const id of Object.keys(GCX)){const g=ids.get(id);T(!!g,'kartu tidak ada di 
   const k='gc|'+id+'|'+i;T(!keys.has(k),'kunci ganda '+k);keys.add(k);nk++})}
 for(const L of GCLG){const cs=D.G.filter(g=>g[1]==L);const byLv={};for(const g of cs){(byLv[lvOf(g)]=byLv[lvOf(g)]||[]).push(g)}
  for(const lv in byLv){const c=byLv[lv].filter(g=>GCX[g[0]]&&GCX[g[0]].length).length,pc=100*c/byLv[lv].length,min=GCMIN[L+' '+lv]||0;T(pc>=min,`cakupan ${L} ${lv}: ${pc.toFixed(1)}% < ${min}%`)}}
-T(nk==nq&&nq>=1614,'jumlah soal '+nq);
+T(nk==nq&&nq>=2432,'jumlah soal '+nq);
 /* 3. sel & pembuatan soal (pilihan + ketik) */
 const GXQ={};let made=0;
-for(const L of GCLG){const g='gcl_'+L,o=GXO(g);o.ov={};const cells=GXX[g].cells(o);const lv=new Set(GXX[g].lvl);
+for(const L of GCLG){const g='gcl_'+L,o=GXO(g);o.ov={};const cells=GXX[g].cells(o);const lv=new Set(GXX[g].lvl);T(GXX[g].lvl.length==GCV[L].length,'konfigurasi level penuh '+g);
  for(const c of cells){T(/^gc\|g\|/.test(c.k)&&c.k.startsWith('gc|g|'+L+'|'),'kunci '+c.k);T(lv.has(c.lv),'level sel '+c.lv)}
  const ks=new Set(cells.map(c=>c.k));T(ks.size==cells.length,'sel unik '+g);
  for(const mode of ['c','t']){o.modes=[mode];
@@ -51,7 +51,7 @@ for(const L of GCLG){const g='gcl_'+L,o=GXO(g);o.ov={};const cells=GXX[g].cells(
     q.sel=q.blanks.map(()=>new Set());const r3=q.judge(q.blanks.map((b,i)=>' '+b.ok[0].toUpperCase()+'. '));T(r3.every(Boolean),'ketik toleran '+c.k+' '+r3)}
    T(typeof q.resHtml()=='string'&&!BAD.test(q.resHtml()),'resHtml '+c.k)}}
  o.modes=['c']}
-T(made>=3228,'soal dibuat '+made);
+T(made>=4864,'soal dibuat '+made);
 /* 4. normalisasi */
 T(gcNorm(' Ich. ','de')=='ich'&&gcNorm('für','de')==gcNorm('fuer','de')&&gcNorm('groß','de')==gcNorm('gross','de'),'norm de');
 T(gcNorm('ĉu','eo')==gcNorm('cxu','eo')&&gcNorm('ŝi','eo')==gcNorm('sxi','eo'),'norm eo');
@@ -70,8 +70,8 @@ T(gcNorm('我 是','zh')=='我是'&&gcNorm('吗？','zh')=='吗','norm zh');T(gc
  q2.judge(q2.blanks.map(b=>b.ok[0]));gxFinish();h=gxView(g);T(gxState().r.sc==3&&/Jawabanmu/.test(h),'ketik benar');
  gxAct('ggxnext');gxView(g);const q3=gxState().q;q3.judge(q3.blanks.map(()=>'qqq'));gxFinish();h=gxView(g);T(gxState().r.sc==1&&/qqq/.test(h)&&/juga benar, terima/.test(h),'ketik salah + 🚩 terima');
  gxAct('ggxgcf','add','0:qqq');T(o.ov[q3.k].add.includes('0:qqq'),'laporan ketik');o.ov={};o.modes=['c']}
-/* 6. bahasa tanpa bank (kini nl): pesan kosong, bukan galat — ganti bahasa bila de sudah terisi */
-{const g='gcl_nl';gxSetCur(g);V.gxClear();const h=gxView(g);T(/Tidak ada soal/.test(h)&&/belum diisi/.test(h)&&!BAD.test(h),'kosong nl')}
+/* 6. bahasa tanpa bank (kini eo): pesan kosong, bukan galat — ganti bahasa bila de sudah terisi */
+{const g='gcl_eo';gxSetCur(g);V.gxClear();const h=gxView(g);T(/Tidak ada soal/.test(h)&&/belum diisi/.test(h)&&!BAD.test(h),'kosong eo')}
 /* 7. panjang kalimat (7.91): klasifikasi s/m/l, filter, chip */
 {const g='gcl_zh',o=GXO(g);V.gxSetCur&&0;
  T(V.gcLen(['我 是 ___ 。'],'zh')=='s'&&V.gcLen(['我 明天 ___ 学校 学习。'],'zh')=='m'&&V.gcLen(['我 明天 早上 ___ 学校 学习 汉语 和 英语。'],'zh')=='l','gcLen zh');
