@@ -1,3 +1,113 @@
+## 7.95.0 — Grammar Cloze: de A1 lengkap (Putaran 1, tahap 3)
+- **Isi**: de A1 = 102/102 kartu (100%), 204 soal di `tools/gcl_src/de_A1.txt` → `docs/js/gamedata17.js` (bahasa ke-3 selain zh/ja). Celah = konjugasi (sein/haben/werden/modal), imperatif, artikel Nominativ/Akkusativ, kein/nicht, pronomen Akkusativ, urutan kata & kata tanya, angka, hari/bulan/jam, dan semua preposisi (Dativ/Akkusativ/Wechsel). Kartu Wechselpräposition: soal 2 menguji artikel (den/dem, die/der, das/dem).
+- **Pemasangan bahasa baru**: `gamedata17.js` ditambahkan ke index.html, SHELL sw.js, tests/load.js.
+- **Pengecoh**: `GCK.de` (gamedata14.js) — pengecoh pilihan ganda diutamakan dari kelas kata yang sama (preposisi, artikel, pronomen, kata tanya, ja/nein/doch); `GCLT.de=[4,6]` (50 pendek / 105 sedang / 49 panjang).
+- `tests/test_gcl.js`: `GCMIN['de A1']=100`, `nq>=1614`, `made>=3228`; tes "bahasa tanpa bank" dipindah dari de ke nl. Semua tes lulus; cek browser (mode pilih & ketik) tanpa pageerror.
+
+## 7.94.0 — Grammar Cloze: ja N4 lengkap (Putaran 1, tahap 2)
+- **Isi**: ja N4 = 132/132 kartu (100%), 264 soal di `tools/gcl_src/ja_N4.txt` → `docs/js/gamedata16.js` (ja total 216 kartu, 432 soal). Mencakup adverbia (全然/あまり/なかなか), て-bentuk bantu (てあげる/くれる/もらう/おく/しまう…), syarat (と/たら/なら/ば), dugaan & kabar (そうだ/らしい/ようだ/みたいだ/はず/かもしれない), kausatif/pasif/potensial, serta keigo (ございます, いたします, いらっしゃる, お～になる/ください).
+- `GCS.ja` diperluas (±45 kelompok sinonim) agar jawaban sah tidak menjadi pengecoh; alternatif sah didaftar penuh pada kartu yang saling tumpang tindih.
+- Sebaran panjang ja N4: 36 pendek / 159 sedang / 69 panjang; ambang `GCLT.ja` tetap.
+- `tests/test_gcl.js`: `GCMIN['ja N4']=100`, `nq>=1410`, `made>=2820`. Semua tes lulus; cek browser tanpa pageerror.
+
+## 7.93.0 — Grammar Cloze: ja N5 lengkap (Putaran 1, tahap 1)
+- **Isi**: ja N5 = 84/84 kartu (100%), 168 soal di `tools/gcl_src/ja_N5.txt` → `docs/js/gamedata16.js` (bahasa pertama selain zh). Celah = partikel, bentuk kata kerja/akhiran, kata sambung, pola (たい, てもいい, なくてはいけない, たことがある, すぎる, dst.); setiap soal punya romaji kalimat lengkap dan pengecoh terlarang bila ada partikel pengganti yang juga gramatikal.
+- **Pemasangan bahasa baru**: `gamedata16.js` ditambahkan ke index.html, SHELL sw.js, tests/load.js. `GCS.ja` (gamedata14.js): ±27 kelompok sinonim agar jawaban sah tidak muncul sebagai pengecoh (とても/すごく…, どうして/なぜ, から/ので, ないと/なくては/…).
+- Sebaran panjang ja N5: 35 pendek / 110 sedang / 23 panjang (ambang `GCLT.ja` tidak diubah).
+- `tests/test_gcl.js`: `GCMIN['ja N5']=100`, `nq>=1146`, `made>=2292`; tes "bahasa tanpa bank" dipindah dari ja ke de. Semua tes lulus; cek browser (mode pilih & ketik) tanpa pageerror.
+
+## 7.92.0 — Grammar Cloze: zh HSK 3 lengkap (Tahap B2)
+- **Isi**: zh HSK 3 = 140/140 kartu (100%), 280 soal baru (zh total 489/489 kartu, 978 soal) di `tools/gcl_src/zh_HSK3.txt` → `docs/js/gamedata15.js` (±185 KB). Mencakup awalan/akhiran, adverbia, penggolong, preposisi (把/被/叫/让), komplemen (hasil, potensial, derajat, durasi), kalimat majemuk, perkiraan angka, penegasan, format lisan. Alternatif sah didaftar (mis. `由于~因为`, `大概~大约~差不多`, `得很~极了~死了`) atau pengecoh terlarang di kolom 5.
+- Pinyin: override `___{pinyin}` dipakai untuk celah heteronim/gabungan (行 háng, 得了 déliǎo, 另一方面, 一点儿也); `PIN_EXTRA` ditambah (第一, 里, 个个, 难怪, 灰尘, dst.); nama diri dikapitalisasi lewat `kata{Pinyin}`.
+- Sebaran panjang kalimat zh (filter 7.91): 351 pendek / 255 sedang / 372 panjang.
+- `tests/test_gcl.js`: `GCMIN['zh HSK 3']=100`, `nq>=978`, `made>=1956`. Semua tes lulus; cek browser tanpa pageerror.
+
+## 7.91.0 — Grammar Cloze: pilihan panjang kalimat (Pendek · Sedang · Panjang)
+- **Filter baru** di Pengaturan game `gcl_xx`: chip «Panjang kalimat» (Pendek / Sedang / Panjang; kosong = semua; bisa gabungan). Disimpan di `GXO('gcl_<L>').len` (bawaan `[]`, jadi cadangan lama tetap aman, kunci SRS tidak berubah).
+- **Klasifikasi otomatis semua soal** (bank bawaan + soal tambahan Kelas AI) lewat `gcLen(q,L)` di gamedata14.js: zh/ja dihitung per aksara (tanpa spasi/tanda baca, celah = 1), de/nl/en/eo per kata. Ambang `GCLT`: zh ≤6 / 7–8 / ≥9; ja ≤9 / 10–15 / ≥16; lain ≤5 / 6–8 / ≥9 kata. zh sekarang: 338 pendek, 215 sedang, 145 panjang (698 soal). Ambang bisa disetel di `GCLT` tanpa mengubah data.
+- Pesan «Tidak ada soal» disesuaikan (level/panjang tanpa soal). `tests/load.js` mengekspor `gcLen`, `GCLT`; tes baru di test_gcl.js (bagian 7).
+
+## 7.90.0 — Kelas AI · soal Cloze game (Pustaka)
+- **Modul baru `docs/js/ai-cloze.js`** (dimuat setelah gamedata15.js; ditambahkan ke index.html, SHELL sw.js, tests/load.js). Pintu masuk: Pustaka → Kelas AI → tombol «🧩 Soal Cloze game», atau tombol «Tambah soal via Kelas AI» di catatan game Grammar Cloze (semua bahasa gcl_zh/ja/de/nl/en/eo).
+- **Prompt per bahasa** (`ACZ[L]`): aturan celah, format kalimat, romanisasi (zh pinyin / ja romaji wajib; de/nl/en/eo kosong), contoh baris, dan daftar struktur yang BARU muncul per level.
+- **Batas level ketat**: pilih level maksimum (mis. B1) → level itu dan di bawahnya boleh, struktur level di atasnya dilarang eksplisit di prompt. Tiap soal wajib memuat kolom 7 = level tertinggi unsur di kalimat; pengimpor MENOLAK soal yang levelnya di atas batas / tak dikenal. Kartu yang ditawarkan juga hanya yang levelnya ≤ batas.
+- **Pemilihan kartu**: paling sedikit soal (bank + tambahan) dulu, lalu level terendah. 5/10/15/20 kartu × 2/3/4 soal. Soal yang sudah ada disertakan agar tidak diulang.
+- **Impor**: tempel hasil AI (`#n Judul` + baris 7 kolom `kalimat ___ | jawaban | terjemah | petunjuk | romanisasi | pengecoh terlarang | level`; alternatif `~`, banyak celah `;`). Validasi: 1–3 celah = jumlah jawaban, kolom wajib, level, romanisasi (zh/ja), ？ di tengah kalimat zh, duplikat, null/undefined/NaN, maks 20 soal tambahan/kartu. Laporan baris yang ditolak + alasan.
+- **Penyimpanan**: `GXO('gcl_<L>').uq[idKartu]` (soal + uid di indeks 6; kunci SRS `gc|<id>|u<uid>`, kunci bank lama tak berubah). `gcCells`, `gcPool` (pengecoh juga dari soal tambahan → bahasa yang bank-nya masih kosong tetap bisa memilih), `gcStat` (`uk`,`us`), getter `lvl` diperluas. Tombol hapus semua soal tambahan per bahasa.
+- **Tes baru** `tests/test_aicloze.js` (386 cek): level di prompt (6 bahasa × semua level), parser, impor → sel game, pengecoh, duplikat, zh ban/romanisasi. Semua tes lain tetap lulus; dicek di browser (Playwright) tanpa pageerror.
+
+## 7.89.0 — Grammar Cloze: zh HSK 2 lengkap (Tahap B1)
+- **Isi**: zh HSK 2 = 211/211 kartu (100%), 422 soal baru (zh total 349/349 kartu, 698 soal) di `tools/gcl_src/zh_HSK2.txt` → `docs/js/gamedata15.js`. Campuran soal 1 celah dan 2 celah (因为…所以, 虽然…但是, 又…又, 一…就 dst.), alternatif sah didaftar (mis. `不但~不仅;而且~也`), pengecoh terlarang untuk sinonim yang bisa tertukar (让/请/叫, 可能/也许, 次/遍/回, 往/向 dst.).
+- `tools/gcl_build.py`: `PIN_EXTRA` ditambah (早点儿, 玩儿, 事, 把, 钥匙, 有点儿, 点儿, 一点儿).
+- **Tes**: `GCMIN['zh HSK 2']=100`; `nq>=698`, `made>=1396`. Alur UI test_gcl kini menjawab SEMUA celah (soal 2 celah tidak lagi gagal di "pilih benar → 3").
+- Dicek di browser (Playwright): game gcl_zh mode ketik menampilkan soal HSK 2, tanpa undefined/NaN dan tanpa pageerror.
+
+## 7.88.0 — Grammar Cloze (gcl): infrastruktur + zh HSK 1 lengkap (Tahap A)
+- **Game baru `gcl_zh/ja/de/nl/en/eo`** (Grammar Cloze), mesin GXX di `docs/js/gamedata14.js`. Satu sel = satu kartu grammar × satu soal; kunci SRS `gc|<id kartu>|<n>`, prefiks reset per bahasa `gc|g|<lang>|`. Mode **Pilih jawaban** (6 opsi, pengecoh otomatis dari jawaban kartu lain di bahasa/level yang sama, dekat panjang/level/aksara, tak pernah memuat jawaban sah, kata di kalimat, daftar terlarang soal, atau kelompok sinonim `GCS`) dan **Ketik jawaban** (normalisasi spasi/tanda baca/huruf besar; de: ä=ae ß=ss; eo: cx=ĉ). Mendukung 1 atau lebih celah per soal, alternatif jawaban sah, petunjuk, dan romanisasi (zh) yang tampil setelah menjawab. Filter level lewat `GXX[g].lvl` (item-level, bukan preset GXML; hanya level yang sudah punya soal yang ditampilkan).
+- **Laporan 🚩** per soal: terima jawaban lain, tolak jawaban kunci, sembunyikan soal salah (tersimpan di `GXO(g).ov`, bisa dibatalkan / dihapus semua di pengaturan).
+- **Bank GCX** (bukan Pustaka): `docs/js/gamedata15.js` (zh) dibuat oleh `tools/gcl_build.py` dari teks ringkas `tools/gcl_src/<lang>_<level>.txt`; pinyin zh otomatis dari kamus data (`tools/gcl_dump.js`, koreksi di `PIN_EXTRA`). Berkas bahasa lain: gamedata16 (ja) … gamedata20 (eo), ditambahkan ke index.html/sw.js/load.js saat diisi.
+- **Isi**: zh HSK 1 = 138/138 kartu (100%), 276 soal.
+- **Tes**: `tests/test_gcl.js` (struktur, kunci unik, jumlah ___ = celah, pengecoh ≠ jawaban sah, jawaban benar/salah pilihan & ketik, normalisasi, alur UI + 🚩, ambang cakupan `GCMIN`) dan `tests/gcl_report.js [--list] [lang] [level]` (cakupan per level + daftar kartu belum tercakup). `load.js` memuat gamedata14/15. Dicek di browser (Playwright): hub 6 game, zh pilih/ketik/🚩, ja kosong tanpa galat.
+- `games2.js`: `gxView` mendukung `q.hint`, `q.typ` (input ketik), `q.resHtml`, `GXX[g].empty`; `gxAct` meneruskan `ggxgct/ggxgcf/ggxgcf0` ke `gcAct`.
+
+## 7.87.0 — jcn 118 penggolong & px pajak / harga per 100 g
+- **jcn**: +4 penggolong (114 → 118): 回忌 (N1), 戦, 口座, 号車. `test_jcn.js` menuntut ≥118.
+- **px**: +2 jenis soal per bahasa — `tx` Pajak netto → bruto (de 19 %, nl 21 %, en 8 %, eo 20 %, zh 13 %, ja 10 %) dan `up` Harga per 100 g × gram. `GXML.px` = {pm:0,pc:1,ms:1,ch:2,pf:2,qt:2,kg:2,up:2,ds:3,sm:3,dd:3,sp:3,tx:3}. Tes px/levels diperluas; dicek di browser (px_de/en/zh/ja, jcn) tanpa error.
+
+## 7.86.0 — jcn N2–N1 & px kasir lanjutan
+- **jcn**: +4 penggolong (110 → 114): 丁目 (blok alamat), 番地, 騎 (N1), 駅 (ひとえき・ふたえき). `test_jcn.js` menuntut ≥114.
+- **px**: +2 jenis soal per bahasa — `kg` Harga per kilo × berat, `sp` Bagi rata tagihan (割り勘). `GXML.px` kini {pm:0,pc:1,ms:1,ch:2,pf:2,qt:2,kg:2,ds:3,sm:3,dd:3,sp:3}. Tes px/levels diperluas; dicek di browser (px_de/zh/ja, jcn) tanpa error.
+
+## 7.85.0 — Penggolong Jepang & mode Harga yang lebih halus
+- **jcn**: +14 penggolong (96 → 110): 名 (orang, formal), 通 (surat/email), 曲 (lagu), 周 (putaran), 滴 (tetes), 社 (perusahaan), 校 (sekolah), 課 (pelajaran/bagian), 食 (kali makan), 泊 (malam menginap; 4 よんはく), 席 (kursi), 例 (contoh), 種 (jenis), 周年 (ulang tahun peringatan). `test_jcn.js` kini menuntut ≥110 penggolong + nilai emas 6 penggolong baru; hitungan bg=3, tl=6, ol=7 tidak berubah. `KUNCI_PENGGOLONG.md` hanya memuat Mandarin, jadi tidak diubah.
+- **px (Harga & satuan)**: 3 jenis soal baru per bahasa — `pf` Pecahan sen (halus; zh: 零/毛/分, ja: bacaan tak beraturan 300·600·3000·8000), `qt` Jumlah × harga satuan, `dd` Diskon bertingkat (dua diskon berurutan, dikalikan). `GXML.px` = {pm:0,pc:1,ms:1,ch:2,pf:2,qt:2,ds:3,sm:3,dd:3}. Tips per bahasa di `PXTIP`.
+- Perbaikan: jenis soal “Nama hari” (dt, lv `wk`) tidak punya `ansHtml` sehingga `test_dt.js` gagal sejak 7.83; kini menampilkan strip hari. `tests/load.js` mengekspor `GXML`.
+- Tes: `test_px.js` (+cek bulat dd/qt/pf, pf zh/de), `test_levels.js` (level & preset px). Semua tests/test_*.js lulus. Dicek di browser (Playwright): dtv, jcn, px_de/en/zh/ja tanpa error.
+
+## 7.84.0 — Verba dtv diperbanyak
+- **Trennbar & Untrennbar Jerman (dtv)**: +11 verba trennbar dan +12 verba untrennbar (kalimat utama, tanpa anak kalimat), DTR diperluas untuk stem baru. `test_dtv.js` menuntut ≥161 trennbar, ≥91 untrennbar, ≥252 total.
+- Belum dikerjakan: tambahan penggolong Jepang (jcn) dan mode px yang lebih halus.
+
+## 7.83.0 — Soal diperbanyak: Penggolong, Phrasal Verbs, Angka, Jam & tanggal
+- **Penggolong Mandarin (zcl)**: +73 kata benda (orang, hewan, benda, makanan, minuman, tempat, hal) → 265 sel.
+- **Phrasal Verbs (phv)**: +30 verba (back off, burn out, chip in, fall for, get by, pay off, wrap up, dst.), tiap verba ≥5 kalimat → 208 verba, 416 sel. Arti tetap unik.
+- **Angka (num_*)**: 6 jenis soal lebih halus — 0–10, puluhan bulat, ratusan bulat, ribuan bulat, 10.000–99.999, 100.000–999.999 (dipetakan ke level lewat `GXML`). Total 16 jenis soal × 2 arah per bahasa.
+- **Jam & tanggal (dt_*)**: jenis soal baru “Nama hari” (level A1/N5/HSK 1–2).
+- dad/dnl/gen/gnl dicek: sel adalah templat yang menarik kata acak dari leksikon, jadi jumlah soal efektif besar; tidak diubah.
+
+## 7.82.0 — dtn dan Preposisi diperbanyak
+- `dtn` Trennbar Belanda: 60 scheidbaar + 40 onscheidbaar (+18 verba, level A2–B2); DNX diperluas untuk stem baru. `test_dtn.js` menuntut ≥60 / ≥40.
+- `pve`/`pvd`/`pvn`: Inggris 95, Jerman 97, Belanda 94 butir (A1–B2); pola ganda per kata (result in/from, fight against/for, vol van/met, dll.) dan pool Belanda + `onder`. `test_pv.js` menuntut ≥80.
+
+## 7.81.0 — Kasus Jerman ≥700 sel · Korpus Shadowing 80+
+- Kasus Jerman: +16 kalimat bergaris (KSI), +11 verba (KSV), +13 verba+preposisi (KSB), +12 frame Wechselpräposition (KSW), +20 nomina (KSN) → 733 sel. `test_kasus.js` menuntut ≥700.
+- Shadowing bawaan (SHB): +52 kalimat per bahasa (A1–B2 / HSK 1–5 / N5–N2) → ≥80 kalimat terpakai per bahasa; kalimat sangat pendek tetap disaring oleh kelas panjang. `test_shb.js` menuntut ≥80.
+
+## 7.80.0 — Game baru: Trennbar Belanda & Preposisi Verba/Adjektiva · Speaking Cloze 42 kalimat
+- **Speaking Cloze**: 42 kalimat per bahasa (zh, ja, de, nl, en, eo; +20 tiap bahasa, level A1–B2 / HSK 1–5 / N5–N2), tiap kalimat ≥2 kosakata dan ≥1 cek grammar. `test_scl.js` kini menuntut ≥40.
+- **Game baru `dtn` — Trennbar & Untrennbar Belanda** (`gamedata12.js`, GXX): 46 scheidbare + 36 onscheidbare werkwoorden, A2–B2. Jenis soal: pilih prefiks (blank inline), voltooid deelwoord, te-infinitief, scheidbaar/onscheidbaar, arti → verba (~490 sel). Pengecoh prefiks tidak boleh membentuk verba nyata (prefiks+stem di data + daftar kurasi DNX). Uji: `test_dtn.js`.
+- **Game baru `pve`/`pvd`/`pvn` — Preposisi Verba & Adjektiva** Inggris (59 butir), Jerman (62), Belanda (53), A1–B2, jenis soal v/a (`gamedata13.js`, GXX). 6 pilihan; pengecoh dari pool preposisi bahasa itu dan tidak pernah sama dengan preposisi valid mana pun untuk kata yang sama (termasuk pola lain & alternatif). Uji: `test_pv.js`.
+- Semua game baru terdaftar di hub (GXL), punya filter level dan kunci SRS unik (`dn|`, `pve|`, `pvd|`, `pvn|`). `VERSION` 7.80.0.
+
+## 7.79.3 — Kasus & Speaking Cloze diperluas, perbaikan tampilan
+- Kasus Jerman: jenis soal baru “Preposisi + artikel” dan “Artikel menurut kasus” (dibangkitkan dari tabel nomina) + 22 verba baru → >500 sel.
+- Speaking Cloze: 22 kalimat per bahasa; kalimat Indonesia memakai ukuran sendiri (tidak lagi terpotong di tengah kata).
+- Diuji di browser (Playwright): scl_*, kas, dtv, num_* tampil tanpa error JS.
+
+## 7.79.2 — Shadowing: korpus bawaan
+- `gamedata11.js`: ±35–40 kalimat bawaan bertingkat per bahasa (zh HSK 1–4, ja N5–N2, de/nl/en/eo A1–B1) dengan terjemah Indonesia; sumber baru “Bawaan” di Shadowing, digabung dengan kalimat kartu/tata bahasa/Pustaka. Uji: `test_shb.js`.
+
+## 7.79.1 — Game baru Speaking Cloze (6 bahasa)
+- `gamedata10.js`: `scl_zh/ja/de/nl/en/eo`. Kalimat Indonesia → ucapkan kalimat target dengan kerangka segmen linguistik. Pengaturan independen: clue kosakata berpersen (0/satu saja/25/50/75/100 + persen bebas), penempatan inline/separate/mixed (+ proporsi inline), grammar hint aktif/nonaktif, struktur selalu aktif dengan persentase segmen berlabel (min. 1), ambang lulus, level, preset Mudah–Expert. Bantuan bertahap (+kosakata, grammar, semua label struktur, contoh jawaban) dicatat; contoh jawaban dibuka = belum lulus.
+- Penilaian 4 komponen (kosakata 30 · grammar 25 · struktur 25 · kelengkapan 20), grammar yang tak bisa dicek otomatis dikeluarkan dan bobot dibagi ulang; tanpa skor pelafalan. Statistik terpisah dari SRS utama: `S.scs`, `S.scv`.
+- 16 kalimat per bahasa (perlu diperbanyak). Uji: `test_scl.js`.
+
+## 7.79.0 — Level di semua game · Trennbar & Untrennbar satu game · Game Kasus Jerman
+- **Level seragam** (`games2.js`): chip Level di Pengaturan setiap game. Game berbasis item (Penggolong Mandarin = HSK 1–7-9, Phrasal Verbs & Trennbar/Untrennbar = A1–C2 dari level kartu, Penghitung Jepang = N5–N1, Kasus = A1–C1) memakai filter `o.lvs` (kosong = semua). Game berbasis jenis soal (Angka, Jam & tanggal, Harga) memakai chip level sebagai preset yang menyalakan jenis soal milik level itu (skala per bahasa: Mandarin HSK 1–2/3/4/5+, Jepang N5–N2, lainnya A1–B2). Tebak Gender, Artikel & Akhiran, dan Shadowing tetap memakai filter level bawaan mereka.
+- **`dtv` dinamai ulang** “Trennbar & Untrennbar Jerman” (id & jadwal SRS tidak berubah) + jenis soal baru “Arti → verba”.
+- **Game baru `kas` — Kasus Jerman** (`gamedata9.js`, mesin registri `GXX` di `games2.js`): preposisi → kasus, kasus frasa bergaris, kata tanya (wer/wen/wem/wessen), verba → kasus objek, verba + preposisi, kasus setelah verba + preposisi, Wechselpräposition (wo?/wohin?). ±330 sel, level A1–C1.
+- Uji baru: `test_levels.js`, `test_kasus.js`. `VERSION` 7.79.0.
+
 ## 7.78.0 — Kesiapan PWA untuk dibungkus jadi APK
 - Manifest: tambah `id` dan `display_override`. `sw.js` SHELL: tambah ikon maskable & apple-touch. Game tidak diubah.
 - Paket APK dipisah ke `vortaro-apk-kit` (repositori terpisah).
