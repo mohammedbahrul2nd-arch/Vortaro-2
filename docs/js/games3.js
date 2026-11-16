@@ -7,7 +7,7 @@ let vgS={};
 const vgRr=()=>{try{if(typeof save=='function')save();if(typeof render=='function')render()}catch(e){}};
 function vgNoVoice(l){try{return typeof ttsVoice=='function'&&typeof VZ!='undefined'&&VZ.length>0&&!ttsVoice(l).v}catch(e){return false}}
 function vgInp(g){const l=VG[g].lg,o=GXO(g);return srSupported()&&o.inp!='t'&&!(l=='eo'&&srEoMode()=='off')?'v':'t'}
-function vgNext(g){const items=VG[g].cells(GXO(g));gxFree=0;if(!items.length)return null;const q=gxQueue(g,items);let it=gxPickQ(q,items),r=null,t=0;
+function vgNext(g){const items=gxItems(g);gxFree=0;if(!items.length)return null;const q=gxQueue(g,items);let it=gxPickQ(q,items),r=null,t=0;
  while(it&&!r&&t++<6){r=VG[g].make(it);if(!r)it=gxRnd(items)}
  if(r){r.g=g;r.k=it.k;r.q={n:Math.min(q.N.length,q.nL),r:Math.min(q.R.length,q.rL),l:q.L.length};r.peek=(vgNoVoice(r.L)&&r.dir=='A')||!!r.showTxt}
  vgS={};return r}
@@ -27,6 +27,8 @@ function vgMic(){const q=gxQ;if(!q||gxRes)return;if(vgS.on){srStop();vgS={q};ret
   onEnd:()=>{if(gxQ===q&&vgS.q===q&&vgS.on){vgS.on=0;vgRr()}}});
  if(!h&&vgS.on){vgS.on=0;vgS.typ=1}}
 function vgAct(a,x,k){const g=gxCur,q=gxQ;
+ if(a=='ggxvpre'&&g&&vgIs(g)&&VG[g].preset){VG[g].preset(g,x);gxQ=null;gxRes=null;return true}
+ if(q&&q.act&&q.act(a,x,k))return true;
  if(a=='ggxvsay'&&q){if(q.play)q.play();else say(q.say,q.L);return true}
  if(a=='ggxvslow'&&q&&q.slow){q.slow();return true}
  if(a=='ggxvself'&&q&&!gxRes){vgSubmit([k=='ok'?'ok':'no'],'self');return true}
@@ -48,6 +50,7 @@ function vgSettings(g){const o=GXO(g),d=VG[g],sup=srSupported();
  h+=`<small>Cara menjawab</small><div class=chips><button class="chip${o.inp!='t'?' on':''}" data-a=ggxvset data-v=inp data-k=v${sup?'':' disabled'}>🎤 Ucapkan</button><button class="chip${o.inp=='t'?' on':''}" data-a=ggxvset data-v=inp data-k=t>⌨ Ketik</button></div>`;
  if(!sup)h+=`<small>Browser ini belum mendukung pengenalan suara, jadi mode ⌨ Ketik aktif otomatis.</small>`;
  else if(d.lg=='eo')h+=`<small>Esperanto memakai pengenal cadangan; atur di 🎤 Suara pada daftar game.</small>`;
+ h+=gxLvChips(g,o);
  h+=`<label class=fcl><span>Soal baru per hari</span><input type=number inputmode=numeric data-i=gg_x:${g}:n value="${o.n}" min=0 max=9999></label><label class=fcl><span>Maks. ulasan per hari</span><input type=number inputmode=numeric data-i=gg_x:${g}:r value="${o.r}" min=0 max=9999></label><div class=btns><button data-a=ggxrst>Reset jadwal game</button></div></div></details>`;return h}
 function vgAns(q,r){const k=q.key||{};const sh=q.dir=='B'||!q.show?'':`<div class=vgbig2>${esc(q.show)}</div>`;
  return `${sh}<div class=gxex1>${spk(q.say,q.L)} <b>${esc(k.main||q.words)}</b></div>${k.sub?`<div class=vgsub>${esc(k.sub)}</div>`:''}${k.tip?`<div class=gxnote>💡 ${esc(k.tip)}</div>`:''}${q.ansHtml||''}${q.resHtml?q.resHtml(r):''}`}

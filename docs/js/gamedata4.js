@@ -118,7 +118,7 @@ function vgTel(l){const r=n=>String(Math.floor(Math.random()*Math.pow(10,n))).pa
  return {d:r(8),g:[2,2,2,2]}}
 const vgGroup=(d,g)=>{let i=0;return g.map(n=>{const s=d.slice(i,i+n);i+=n;return s}).filter(Boolean)};
 /* ---------- tingkat ---------- */
-const NUM={n20:'0–20',n100:'21–100',n1h:'Ratusan',n1k:'Ribuan',nbig:'Puluh ribu – juta',tel:'Nomor telepon',yr:'Tahun',dec:'Desimal',frc:'Pecahan',ord:'Ordinal'};
+const NUM={n10:'0–10',ntn:'Puluhan bulat (10–90)',n20:'0–20',n100:'21–100',n1h:'Ratusan',n1k:'Ribuan',nbig:'Puluh ribu – juta',tel:'Nomor telepon',yr:'Tahun',dec:'Desimal',frc:'Pecahan',ord:'Ordinal',nrd:'Ratusan bulat (100–900)',nth:'Ribuan bulat (1.000–9.000)',n10k:'Puluh ribu (10.000–99.999)',n100k:'Ratus ribu (100.000–999.999)'};
 const NUTIP={
  zh:{n20:'十一 = 11, 二十 = 20: tidak ada kata khusus seperti belasan.',n100:'二十一 = 2×10+1: urutan seperti Indonesia (puluhan + satuan).',n1h:'200 boleh 二百 atau 两百 (lisan lebih sering 两); 105 → 一百零五 (零 menandai angka puluhan yang kosong).',n1k:'2000 lisan: 两千; 1010 → 一千零一十; 零 dibaca bila ada angka kosong di tengah.',nbig:'Satuan 万 = 10.000: 35万 = 350.000; 一万二 lisan = 12.000.',tel:'Nomor telepon dibaca digit demi digit; 1 dibaca 幺 (yāo) agar tidak tertukar dengan 7 (qī).',yr:'Tahun dibaca digit demi digit: 2026 → 二零二六, lalu 年.',dec:'Desimal: 点 (diǎn) lalu tiap digit satu per satu.',frc:'Pecahan dibaca penyebut dulu: 3/4 → 四分之三 (“dari empat bagian, tiga”).',ord:'Ordinal = 第 + angka: 第五 = ke-5.'},
  ja:{n20:'4 = し/よん, 7 = しち/なな, 0 = ゼロ/れい; 11 = じゅういち.',n100:'二十一 = に・じゅう・いち: sama seperti Indonesia (puluhan lalu satuan).',n1h:'Ubah bunyi: 300 さんびゃく, 600 ろっぴゃく, 800 はっぴゃく.',n1k:'3000 さんぜん, 8000 はっせん; 1000 = せん (tanpa いち).',nbig:'Satuan 万 (まん) = 10.000, bukan 1000: 35万 = さんじゅうごまん. 1万 harus いちまん.',tel:'Digit demi digit; 0 = ゼロ/れい, 4 = よん, 7 = なな, 2 sering diperpanjang にー.',yr:'Tahun dibaca sebagai bilangan: 2026 = にせんにじゅうろく, lalu 年 (ねん).',dec:'Desimal: 点 (てん) lalu tiap digit.',frc:'Penyebut dulu: 3/4 = 四分の三 (よんぶんのさん).',ord:'Ordinal: ～番目 (ばんめ).'},
@@ -128,6 +128,12 @@ const NUTIP={
  eo:{n20:'1–10: unu du tri kvar kvin ses sep ok naŭ dek; 0 = nul.',n100:'Sangat teratur: dudek tri = 2×10 + 3 (kata terpisah).',n1h:'cent, ducent, tricent …; 123 = cent dudek tri.',n1k:'mil = 1000; du mil = 2000; kata terpisah.',nbig:'mil dan miliono (unu miliono, du milionoj).',tel:'Digit demi digit: unu du tri…',yr:'Sama dengan bilangan: 2026 = du mil dudek ses.',dec:'3,14 = tri komo unu kvar.',frc:'duono, triono, kvarono; 3/4 = tri kvaronoj.',ord:'Cardinal + -a: unua, dua, tria, kvara.'}};
 const NUMS_PRE=l=>'nu|'+l+'|';
 function nuNum(lv,l){
+ if(lv=='n10')return vgRi(0,10);
+ if(lv=='ntn')return vgRi(1,9)*10;
+ if(lv=='nrd')return vgRi(1,9)*100;
+ if(lv=='nth')return vgRi(1,9)*1000;
+ if(lv=='n10k')return vgRi(10000,99999);
+ if(lv=='n100k')return vgRi(100000,999999);
  if(lv=='n20')return vgRi(0,20);
  if(lv=='n100')return vgRi(21,100);
  if(lv=='n1h')return vgRi(101,999);
@@ -135,7 +141,7 @@ function nuNum(lv,l){
  const d=vgRi(5,7),x=Math.floor(Math.pow(10,d-1)+Math.random()*9*Math.pow(10,d-1));const keep=vgRi(2,4);return Math.round(x/Math.pow(10,Math.max(0,d-keep)))*Math.pow(10,Math.max(0,d-keep))}
 function nuJ(a,n,l,w){const r=srJudgeNum(a,n,l,{eoWords:l=='eo'?[w,w.replace(/ /g,'')]:null});if(r.ok||l!='ja')return r;for(const z of a||[])if(jaStrict(z)===n)return {ok:true,got:n,alt:z};return r}
 function nuMake(c){const l=c.l,lv=c.lv,dir=c.dir,q={L:l,dir,cell:NUM[lv]+' · '+(dir=='A'?'dengar':'lihat')+' → '+(dir=='A'?'angka':'ucapkan')};
- const tip=NUTIP[l][lv];
+ const BT={n10:'n20',ntn:'n100',nrd:'n1h',nth:'n1k',n10k:'nbig',n100k:'nbig'},tip=NUTIP[l][lv]||NUTIP[l][BT[lv]];
  const key=(main,sub,x)=>({main,sub:sub||'',tip,x:x||''});
  if(lv=='tel'){const t=vgTel(l),gs=vgGroup(t.d,t.g);q.exp=t.d;q.show=gs.join(l=='ja'?'-':' ');
   const ws=gs.map(g=>vgDigits(g,l,true).join(' '));q.say=ws.join(', ');q.words=ws.join(' · ');

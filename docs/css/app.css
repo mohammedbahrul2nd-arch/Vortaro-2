@@ -540,3 +540,22 @@ mark.gzh{background:color-mix(in srgb,var(--a) 24%,transparent);color:inherit;bo
 .shbar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--k2,#dc2626),#f59e0b,var(--k3,#16a34a))}
 .shd{font-size:1.2rem;line-height:1.7;overflow-wrap:anywhere;margin:4px 0 8px}
 .shd .shk{color:var(--k3,#16a34a);font-weight:650}.shd .shm{color:var(--k2,#dc2626);font-weight:650;text-decoration:underline wavy;text-underline-offset:4px}
+
+/* Speaking Cloze (v7.79) */
+.scf{display:flex;flex-wrap:wrap;gap:10px 14px;margin:10px 0}
+.scs{display:flex;flex-direction:column;align-items:flex-start;gap:3px;min-width:70px}
+.scb{font-size:1.25rem;letter-spacing:.05em;border-bottom:2px solid currentColor;opacity:.85}
+.scr{opacity:.7;font-size:.72rem}
+.scvs{display:flex;flex-wrap:wrap;gap:4px}
+.scv{display:inline-flex;flex-direction:column;padding:2px 8px;border-radius:8px;background:rgba(127,127,127,.18);font-weight:600}
+.scv small{font-weight:400;opacity:.75;font-size:.68rem}
+.scbank,.scg,.scans,.scmis{margin:8px 0;padding:8px 10px;border-radius:10px;background:rgba(127,127,127,.1)}
+.scbank div{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.scg ul,.scmis ul{margin:4px 0 0 18px;padding:0}
+.scrow{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.scbr{display:flex;align-items:center;gap:8px;margin:3px 0}.scbr span{width:120px;font-size:.85rem}
+.scbr i{flex:1;height:8px;border-radius:4px;background:linear-gradient(90deg,#3a9d5d var(--w),rgba(127,127,127,.25) var(--w))}
+.scbr em{opacity:.7;font-size:.8rem}
+.scsum{font-size:1.05rem;margin-bottom:4px}
+.scseg{margin:6px 0}.shk{color:#2e8b57}.shm{color:#c0392b;text-decoration:underline wavy}
+.scn{font-size:1.3rem;font-weight:700;line-height:1.35;margin:6px 0 10px;word-break:normal;overflow-wrap:break-word;text-align:center}

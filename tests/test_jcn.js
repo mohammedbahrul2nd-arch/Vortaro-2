@@ -46,9 +46,23 @@ const G2={
 for(const id in G2){const g=G2[id].split(',');for(let i=1;i<=11;i++)eq(main(id,i%11),g[i-1],id+' '+i)}
 ok(V.jcRd(V.JCI.hai2,3).some(z=>z.r=='さんばい'&&z.t==1),'敗 3 さんばい lazim');
 ok(V.jcRd(V.JCI.pasento,1).some(z=>z.r=='いっぱーせんと'&&z.t==2),'% 1 sokuon diperdebatkan');
-ok(V.JCC.length>=96,'tahap 2: >=96 penggolong');
+ok(V.JCC.length>=118,'tahap 5: >=118 penggolong');
 for(const g of ['bg','tl','ol','al','uk','lm'])ok(V.JCC.filter(c=>c.g==g).length>=3,'kelompok '+g);
 ok(V.JCC.filter(c=>c.g=='bg').length==3&&V.JCC.filter(c=>c.g=='tl').length==6&&V.JCC.filter(c=>c.g=='ol').length==7,'jumlah kelompok bg/tl/ol');
+/* v7.85: 14 penggolong baru — nilai emas */
+const G3={
+ mei:'いちめい,にめい,さんめい,よんめい,ごめい,ろくめい,ななめい,はちめい,きゅうめい,じゅうめい,なんめい',
+ tsuu:'いっつう,につう,さんつう,よんつう,ごつう,ろくつう,ななつう,はっつう,きゅうつう,じゅっつう,なんつう',
+ kyoku:'いっきょく,にきょく,さんきょく,よんきょく,ごきょく,ろっきょく,ななきょく,はっきょく,きゅうきょく,じゅっきょく,なんきょく',
+ haku:'いっぱく,にはく,さんぱく,よんはく,ごはく,ろっぱく,ななはく,はっぱく,きゅうはく,じゅっぱく,なんぱく',
+ shoku:'いっしょく,にしょく,さんしょく,よんしょく,ごしょく,ろくしょく,ななしょく,はっしょく,きゅうしょく,じゅっしょく,なんしょく',
+ kou:'いっこう,にこう,さんこう,よんこう,ごこう,ろっこう,ななこう,はっこう,きゅうこう,じゅっこう,なんこう'};
+for(const id in G3){const g=G3[id].split(',');for(let i=1;i<=11;i++)eq(main(id,i%11),g[i-1],id+' '+i)}
+ok(V.jcRd(V.JCI.haku,4).some(z=>z.r=='よんぱく'&&z.t==1),'泊 4 よんぱく lazim');
+ok(['chome','banchi','ki3','eki'].every(i=>V.JCI[i])&&main('eki',1)=='ひとえき'&&main('eki',3)=='さんえき'&&main('chome',1)=='いっちょうめ'&&main('chome',6)=='ろくちょうめ','v7.86 penggolong baru');
+ok(['kaiki','sen','kouza','gousha'].every(i=>V.JCI[i])&&main('kaiki',3)=='さんかいき'&&main('kaiki',6)=='ろっかいき'&&main('sen',1)=='いっせん'&&main('gousha',4)=='よんごうしゃ','v7.87 penggolong baru');
+ok(['mei','tsuu','kyoku','shuu','teki','sha','kou','ka','shoku','haku','seki2','rei','shu2','shunen'].every(i=>V.JCI[i]),'14 id baru ada');
+ok(V.JCC.filter(c=>c.g=='lm').length>=16&&V.JCC.filter(c=>c.g=='um').length>=8,'kelompok lm/um bertambah');
 /* kanji: satuan katakana & 頁 */
 {const J2=V.jcJudge;ok(J2([V.JCI.metoru],3,'A',['3メートル']).ok&&J2([V.JCI.metoru],3,'A',['三メートル']).ok,'メートル kanji/angka');
  ok(J2([V.JCI.peji],3,'A',['3頁']).ok&&J2([V.JCI.peji],3,'A',['3ページ']).ok,'頁/ページ');

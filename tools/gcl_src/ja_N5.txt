@@ -1,0 +1,253 @@
+// Bank Grammar Cloze ja N5 — format: lihat tools/gcl_build.py. Kolom: kalimat | jawaban(~alt) | terjemah | petunjuk | romaji (kalimat lengkap) | pengecoh terlarang
+#0 だ / です
+私は学生___。|です~だ|Saya seorang pelajar.|kopula "adalah" di akhir kalimat|Watashi wa gakusei desu.
+これは日本の車___。|です~だ|Ini mobil buatan Jepang.|kopula setelah kata benda|Kore wa Nihon no kuruma desu.
+#1 は
+私___学生で、田中さんは先生です。|は|Saya pelajar, Tanaka-san guru.|penanda topik|Watashi wa gakusei de, Tanaka-san wa sensei desu.|が
+今日___天気がいいですね。|は|Hari ini cuacanya bagus ya.|penanda topik "mengenai"|Kyō wa tenki ga ii desu ne.|が~も
+#2 か
+これはあなたの傘です___。|か|Apakah ini payungmu?|partikel tanya di akhir kalimat|Kore wa anata no kasa desu ka.|ね~よ
+田中さんは学生です___。|か|Apakah Tanaka-san seorang pelajar?|partikel tanya|Tanaka-san wa gakusei desu ka.|ね~よ
+#3 の
+これは私___本です。|の|Ini buku saya.|menyatakan kepemilikan (A の B)|Kore wa watashi no hon desu.
+日本語___先生は田中さんです。|の|Guru bahasa Jepang adalah Tanaka-san.|A の B: guru "dari" bahasa Jepang|Nihongo no sensei wa Tanaka-san desu.|が
+#4 も
+田中さんは学生です。私___学生です。|も|Tanaka-san pelajar. Saya juga pelajar.|"juga"|Tanaka-san wa gakusei desu. Watashi mo gakusei desu.|は~が
+私は肉を食べます。魚___食べます。|も|Saya makan daging. Ikan pun saya makan.|"juga"|Watashi wa niku o tabemasu. Sakana mo tabemasu.|は~を~が
+#5 と
+私は友達___映画を見ました。|と|Saya menonton film bersama teman.|"bersama / dan"|Watashi wa tomodachi to eiga o mimashita.
+私の家には猫___犬がいます。|と|Di rumah saya ada kucing dan anjing.|menghubungkan dua benda secara lengkap|Watashi no ie ni wa neko to inu ga imasu.|や
+#6 を
+毎朝、パン___食べます。|を|Setiap pagi saya makan roti.|penanda objek langsung|Maiasa, pan o tabemasu.|は~も~が
+友達に手紙___書きます。|を|Saya menulis surat untuk teman.|penanda objek langsung|Tomodachi ni tegami o kakimasu.|は~も~が
+#7 に/へ
+明日、東京___行きます。|へ~に|Besok saya pergi ke Tokyo.|arah / tujuan|Ashita, Tōkyō e ikimasu.|で~を
+私は毎朝、学校___行きます。|へ~に|Setiap pagi saya pergi ke sekolah.|arah / tujuan|Watashi wa maiasa, gakkō e ikimasu.|で~を
+#8 に
+私は七時___起きます。|に|Saya bangun jam tujuh.|penanda titik waktu|Watashi wa shichiji ni okimasu.|で~を
+友達___本をあげます。|に|Saya memberikan buku kepada teman.|penerima|Tomodachi ni hon o agemasu.|を~で
+#9 で
+図書館___本を読みます。|で|Saya membaca buku di perpustakaan.|tempat berlangsungnya kegiatan|Toshokan de hon o yomimasu.|に~を~の
+バス___学校へ行きます。|で|Saya pergi ke sekolah naik bus.|alat / cara|Basu de gakkō e ikimasu.|に~を
+#10 が
+私は犬___好きです。|が|Saya suka anjing.|objek rasa suka (好き)|Watashi wa inu ga suki desu.|を~も
+朝から雨___降っています。|が|Sejak pagi hujan turun.|subjek peristiwa|Asa kara ame ga futte imasu.|は~も~を
+#11 い-adjectives
+とても広___部屋です。|い|Kamar yang sangat luas.|akhiran い sebelum kata benda|Totemo hiroi heya desu.
+新し___靴を買いました。|い|Saya membeli sepatu baru.|akhiran い sebelum kata benda|Atarashii kutsu o kaimashita.
+#12 な-adjectives
+静か___町に住んでいます。|な|Saya tinggal di kota yang tenang.|な-sifat + な + kata benda|Shizuka na machi ni sunde imasu.
+きれい___花を買いました。|な|Saya membeli bunga yang indah.|な-sifat + な + kata benda|Kirei na hana o kaimashita.
+#13 じゃない
+これは私の傘___。|じゃない~ではない~じゃありません~ではありません|Ini bukan payung saya.|negatif kopula|Kore wa watashi no kasa janai.
+田中さんは先生___、学生です。|じゃなくて~ではなくて~じゃなく~ではなく|Tanaka-san bukan guru, melainkan pelajar.|negatif kopula + penyambung|Tanaka-san wa sensei janakute, gakusei desu.
+#14 とても
+今日は___寒いです。|とても~すごく~非常に~大変|Hari ini sangat dingin.|"sangat"|Kyō wa totemo samui desu.
+この料理は___おいしいです。|とても~すごく~非常に~大変|Masakan ini sangat enak.|"sangat"|Kono ryōri wa totemo oishii desu.
+#15 があります
+机の上に本が___。|あります~ある|Di atas meja ada buku.|"ada" untuk benda mati|Tsukue no ue ni hon ga arimasu.
+冷蔵庫に牛乳が___。|あります~ある|Di kulkas ada susu.|"ada" untuk benda mati|Reizōko ni gyūnyū ga arimasu.
+#16 がいます
+庭に犬が___。|います~いる|Di halaman ada anjing.|"ada" untuk makhluk hidup|Niwa ni inu ga imasu.
+教室に先生が___。|います~いる|Di kelas ada guru.|"ada" untuk makhluk hidup|Kyōshitsu ni sensei ga imasu.
+#17 どんな
+あなたは___音楽が好きですか。|どんな~どういう|Kamu suka musik yang bagaimana?|kata tanya "yang bagaimana"|Anata wa donna ongaku ga suki desu ka.|なに~何~どれ
+田中さんは___人ですか。|どんな~どういう|Tanaka-san orang yang seperti apa?|menanyakan sifat / jenis|Tanaka-san wa donna hito desu ka.|なに~何~どれ
+#18 どうして
+___学校を休みましたか。|どうして~なぜ~なんで|Mengapa kamu tidak masuk sekolah?|kata tanya "mengapa"|Dōshite gakkō o yasumimashita ka.
+あなたは___日本語を勉強していますか。|どうして~なぜ~なんで|Mengapa kamu belajar bahasa Jepang?|kata tanya "mengapa"|Anata wa dōshite Nihongo o benkyō shite imasu ka.
+#19 どうやって
+駅まで___行きますか。|どうやって~どう~どのように|Bagaimana cara pergi ke stasiun?|kata tanya "dengan cara apa"|Eki made dōyatte ikimasu ka.
+この漢字は___読みますか。|どうやって~どう~どのように|Bagaimana cara membaca kanji ini?|kata tanya "bagaimana cara"|Kono kanji wa dōyatte yomimasu ka.
+#20 をください
+すみません、水___ください。|を|Permisi, tolong beri saya air.|meminta suatu benda|Sumimasen, mizu o kudasai.|も~が~は
+このりんごを二つ___。|ください|Tolong beri saya dua apel ini.|meminta dengan sopan|Kono ringo o futatsu kudasai.
+#21 お / ご
+___名前は何ですか。|お|Siapa namamu? (sopan)|awalan hormat untuk kata asli Jepang|Onamae wa nan desu ka.
+___家族は何人ですか。|ご|Keluargamu ada berapa orang? (sopan)|awalan hormat untuk kata serapan Cina (kango)|Gokazoku wa nannin desu ka.
+#22 ませんか
+一緒にお茶を飲み___。|ませんか|Maukah minum teh bersama?|ajakan sopan "maukah ...?"|Issho ni ocha o nomimasen ka.|ましょう~ましょうか
+日曜日に映画を見___。|ませんか|Maukah menonton film hari Minggu?|ajakan sopan "maukah ...?"|Nichiyōbi ni eiga o mimasen ka.|ましょう~ましょうか
+#23 ましょう
+もう十時です。そろそろ帰り___。|ましょう|Sudah jam sepuluh. Mari kita pulang.|ajakan "mari ..."|Mō jūji desu. Sorosoro kaerimashō.|ませんか~ましょうか
+一緒に昼ご飯を食べ___。|ましょう|Mari makan siang bersama.|ajakan "mari ..."|Issho ni hirugohan o tabemashō.|ませんか~ましょうか
+#24 ましょうか
+重い荷物ですね。持ち___。|ましょうか|Barangnya berat ya. Mau saya bawakan?|tawaran bantuan "bolehkah saya ...?"|Omoi nimotsu desu ne. Mochimashō ka.|ませんか~ましょう
+暑いですね。窓を開け___。|ましょうか|Panas ya. Mau saya buka jendelanya?|tawaran bantuan "bolehkah saya ...?"|Atsui desu ne. Mado o akemashō ka.|ませんか~ましょう
+#25 そして
+この店は安いです。___、おいしいです。|そして~それに|Toko ini murah. Dan juga enak.|menambahkan hal lain "dan"|Kono mise wa yasui desu. Soshite, oishii desu.|それから~しかし~でも
+山田さんは背が高いです。___、ハンサムです。|そして~それに|Yamada-san tinggi. Dan juga tampan.|menambahkan hal lain "dan"|Yamada-san wa se ga takai desu. Soshite, hansamu desu.|それから~しかし~でも
+#26 それから
+手を洗いました。___、ご飯を食べました。|それから|Saya cuci tangan. Setelah itu saya makan.|urutan waktu "setelah itu"|Te o araimashita. Sorekara, gohan o tabemashita.|そして~それに
+銀行へ行きました。___、買い物をしました。|それから|Saya ke bank. Setelah itu saya berbelanja.|urutan waktu "setelah itu"|Ginkō e ikimashita. Sorekara, kaimono o shimashita.|そして~それに
+#27 しかし
+この靴は高いです。___、とても丈夫です。|しかし~でも|Sepatu ini mahal. Namun sangat awet.|pertentangan "namun"|Kono kutsu wa takai desu. Shikashi, totemo jōbu desu.|そして~それから~それに
+私は日本語が好きです。___、まだ上手じゃありません。|しかし~でも|Saya suka bahasa Jepang. Namun saya belum mahir.|pertentangan "namun"|Watashi wa Nihongo ga suki desu. Shikashi, mada jōzu ja arimasen.|そして~それから~それに
+#28 でも
+雨が降っている。___、出かける。|でも~しかし|Hujan turun. Tapi saya tetap pergi.|"tapi" (gaya santai)|Ame ga futte iru. Demo, dekakeru.|そして~それから~それに
+疲れた。___、もう少し頑張る。|でも~しかし|Lelah. Tapi saya akan berusaha sedikit lagi.|"tapi" (gaya santai)|Tsukareta. Demo, mō sukoshi ganbaru.|そして~それから~それに
+#29 のが好き
+私は本を読む___が好きです。|の~こと|Saya suka membaca buku.|menjadikan kata kerja sebagai benda|Watashi wa hon o yomu no ga suki desu.
+弟は走る___が好きです。|の~こと|Adik laki-laki saya suka berlari.|menjadikan kata kerja sebagai benda|Otōto wa hashiru no ga suki desu.
+#30 のが上手
+田中さんは絵を描く___が上手です。|の~こと|Tanaka-san pandai menggambar.|kata kerja + のが上手|Tanaka-san wa e o kaku no ga jōzu desu.
+母は料理を作るのが___です。|上手~うまい|Ibu pandai memasak.|pandai (kebalikan 下手)|Haha wa ryōri o tsukuru no ga jōzu desu.|下手
+#31 のが下手
+私は泳ぐ___が下手です。|の~こと|Saya tidak pandai berenang.|kata kerja + のが下手|Watashi wa oyogu no ga heta desu.
+私は歌うのが___です。|下手|Saya tidak pandai menyanyi.|tidak pandai (kebalikan 上手)|Watashi wa utau no ga heta desu.|上手~うまい
+#32 に行く
+週末、友達に会い___行きます。|に|Akhir pekan saya pergi menemui teman.|tujuan pergi: V-masu + に行く|Shūmatsu, tomodachi ni ai ni ikimasu.|を~で
+デパートへ服を買い___行きます。|に|Saya pergi ke pusat perbelanjaan untuk membeli baju.|tujuan pergi: V-masu + に行く|Depāto e fuku o kai ni ikimasu.|を~で
+#33 たい
+私は日本へ行き___です。|たい|Saya ingin pergi ke Jepang.|keinginan: V-masu + たい|Watashi wa Nihon e ikitai desu.
+夏休みに海で泳ぎ___です。|たい|Saat libur musim panas saya ingin berenang di laut.|keinginan: V-masu + たい|Natsuyasumi ni umi de oyogitai desu.
+#34 がほしい
+私は新しい車が___です。|ほしい~欲しい|Saya ingin mobil baru.|"ingin memiliki" benda|Watashi wa atarashii kuruma ga hoshii desu.
+誕生日に何が___ですか。|ほしい~欲しい|Kamu ingin apa untuk ulang tahun?|"ingin memiliki" benda|Tanjōbi ni nani ga hoshii desu ka.
+#35 はどうですか
+少し休みましょう。お茶___どうですか。|は|Mari istirahat sebentar. Bagaimana kalau teh?|menawarkan / menanyakan pendapat|Sukoshi yasumimashō. Ocha wa dō desu ka.|が~も~を
+日曜日は___ですか。|どう~いかが|Bagaimana kalau hari Minggu?|kata tanya "bagaimana"|Nichiyōbi wa dō desu ka.
+#36 てください
+ちょっと待っ___ください。|て|Tolong tunggu sebentar.|permintaan: V-te + ください|Chotto matte kudasai.|で
+ここに名前を書い___ください。|て|Tolong tulis nama di sini.|permintaan: V-te + ください|Koko ni namae o kaite kudasai.|で
+#37 ている
+今、友達と話し___。|ています~ている|Sekarang saya sedang berbicara dengan teman.|sedang berlangsung: V-te + いる|Ima, tomodachi to hanashite imasu.
+弟は今、部屋で寝___。|ています~ている|Adik laki-laki sekarang sedang tidur di kamar.|sedang berlangsung: V-te + いる|Otōto wa ima, heya de nete imasu.
+#38 てもいいです
+ここで写真を撮っ___いいですか。|ても|Bolehkah saya mengambil foto di sini?|izin: V-te + もいい|Koko de shashin o totte mo ii desu ka.
+窓を開け___いいですか。|ても|Bolehkah saya membuka jendela?|izin: V-te + もいい|Mado o akete mo ii desu ka.
+#39 てはいけない
+教室でご飯を食べ___いけません。|ては~ちゃ|Tidak boleh makan di dalam kelas.|larangan: V-te + はいけない|Kyōshitsu de gohan o tabete wa ikemasen.|ても
+ここでたばこを吸っ___いけません。|ては~ちゃ|Tidak boleh merokok di sini.|larangan: V-te + はいけない|Koko de tabako o sutte wa ikemasen.|ても
+#40 ちゃいけない
+ここに入っ___いけないよ。|ちゃ~ては|Kamu tidak boleh masuk ke sini.|larangan santai: V-te → ちゃ|Koko ni haitcha ikenai yo.|ても
+ゲームをし___いけないよ。|ちゃ~ては|Kamu tidak boleh main game.|larangan santai: V-te → ちゃ|Gēmu o shicha ikenai yo.|ても
+#41 てから
+手を洗って___、ご飯を食べます。|から|Setelah mencuci tangan, saya makan.|urutan "setelah": V-te + から|Te o aratte kara, gohan o tabemasu.|まで
+宿題をして___、テレビを見ます。|から|Setelah mengerjakan PR, saya menonton TV.|urutan "setelah": V-te + から|Shukudai o shite kara, terebi o mimasu.|まで
+#42 ないでください
+ここで写真を撮ら___ください。|ないで|Tolong jangan memotret di sini.|permintaan larangan: V-nai + でください|Koko de shashin o toranaide kudasai.|なくて
+先生の話を忘れ___ください。|ないで|Tolong jangan lupakan ucapan guru.|permintaan larangan: V-nai + でください|Sensei no hanashi o wasurenaide kudasai.|なくて
+#43 もう
+宿題は___終わりました。|もう|PR-nya sudah selesai.|"sudah"|Shukudai wa mō owarimashita.|まだ
+朝ご飯は___食べましたか。|もう|Apakah kamu sudah sarapan?|"sudah"|Asagohan wa mō tabemashita ka.|まだ
+#44 まだ
+夜中の二時ですが、弟は___起きています。|まだ|Sudah jam dua malam, tetapi adik masih bangun.|"masih"|Yonaka no niji desu ga, otōto wa mada okite imasu.|もう
+朝から夜まで、雨は___降っています。|まだ|Dari pagi sampai malam, hujan masih turun.|"masih"|Asa kara yoru made, ame wa mada futte imasu.|もう
+#45 まだ～ていません
+その映画は___見ていません。|まだ|Saya belum menonton film itu.|"belum"|Sono eiga wa mada mite imasen.|もう
+昼ご飯をまだ食べ___。|ていません~てません~ていない|Saya belum makan siang.|"belum": V-te + いません|Hirugohan o mada tabete imasen.
+#46 一番
+クラスで田中さんが___背が高いです。|一番~いちばん|Di kelas, Tanaka-san yang paling tinggi.|"paling"|Kurasu de Tanaka-san ga ichiban se ga takai desu.
+この店のラーメンが___おいしいです。|一番~いちばん|Ramen toko ini yang paling enak.|"paling"|Kono mise no rāmen ga ichiban oishii desu.
+#47 は～より...です
+電車はバス___速いです。|より|Kereta lebih cepat daripada bus.|pembanding "daripada"|Densha wa basu yori hayai desu.
+今日は昨日___暑いです。|より|Hari ini lebih panas daripada kemarin.|pembanding "daripada"|Kyō wa kinō yori atsui desu.
+#48 より～ほうが
+私は肉より魚の___が好きです。|ほう~方|Saya lebih suka ikan daripada daging.|A より B のほうが ...|Watashi wa niku yori sakana no hō ga suki desu.
+電車よりバスの___が安いです。|ほう~方|Bus lebih murah daripada kereta.|A より B のほうが ...|Densha yori basu no hō ga yasui desu.
+#49 の中で[A]が一番
+スポーツの___でサッカーが一番好きです。|中~なか|Di antara olahraga, saya paling suka sepak bola.|"di antara ..."|Supōtsu no naka de sakkā ga ichiban suki desu.
+家族の中で父が___背が高いです。|一番~いちばん|Di dalam keluarga, ayah yang paling tinggi.|"paling" dalam sebuah kelompok|Kazoku no naka de chichi ga ichiban se ga takai desu.
+#50 前に
+寝る___、歯を磨きます。|前に~まえに|Sebelum tidur, saya menyikat gigi.|"sebelum"|Neru mae ni, ha o migakimasu.|後で~てから
+食事の___、手を洗います。|前に~まえに|Sebelum makan, saya mencuci tangan.|"sebelum"|Shokuji no mae ni, te o araimasu.|後で~てから
+#51 とき
+私は子供の___、毎日外で遊びました。|とき~時|Waktu kecil, saya bermain di luar setiap hari.|"ketika"|Watashi wa kodomo no toki, mainichi soto de asobimashita.
+暇な___、よく映画を見ます。|とき~時|Kalau senggang, saya sering menonton film.|"ketika"|Hima na toki, yoku eiga o mimasu.
+#52 まで
+毎日、夜十二時___勉強します。|まで|Setiap hari saya belajar sampai jam dua belas malam.|batas akhir "sampai"|Mainichi, yoru jūniji made benkyō shimasu.|から~に
+家から学校___歩いて十分です。|まで|Dari rumah sampai sekolah jalan kaki sepuluh menit.|batas akhir "sampai"|Ie kara gakkō made aruite juppun desu.
+#53 から
+明日は仕事が忙しい___、行けません。|から~ので|Besok pekerjaan sibuk, jadi saya tidak bisa pergi.|alasan "karena / jadi"|Ashita wa shigoto ga isogashii kara, ikemasen.
+九時___五時まで働きます。|から|Saya bekerja dari jam sembilan sampai jam lima.|titik awal "dari"|Kuji kara goji made hatarakimasu.|に
+#54 だけ
+今日は水___飲みます。|だけ|Hari ini saya hanya minum air.|"hanya"|Kyō wa mizu dake nomimasu.|しか~ばかり
+この店は月曜日___休みです。|だけ|Toko ini hanya libur hari Senin.|"hanya"|Kono mise wa getsuyōbi dake yasumi desu.|しか~ばかり
+#55 や
+机の上に本___ペンがあります。|や|Di atas meja ada buku, pena, dan sebagainya.|menyebut contoh (tidak lengkap)|Tsukue no ue ni hon ya pen ga arimasu.|と
+公園で犬___猫を見ました。|や|Di taman saya melihat anjing, kucing, dan sebagainya.|menyebut contoh (tidak lengkap)|Kōen de inu ya neko o mimashita.|と
+#56 一緒に
+友達と___昼ご飯を食べました。|一緒に~いっしょに|Saya makan siang bersama teman.|"bersama-sama"|Tomodachi to issho ni hirugohan o tabemashita.
+よかったら、___行きませんか。|一緒に~いっしょに|Kalau berkenan, maukah pergi bersama?|"bersama-sama"|Yokattara, issho ni ikimasen ka.
+#57 いつも
+私は___七時に起きます。|いつも|Saya selalu bangun jam tujuh.|"selalu"|Watashi wa itsumo shichiji ni okimasu.|毎日~毎朝~毎晩~よく~たいてい~ときどき
+田中さんは___元気ですね。|いつも|Tanaka-san selalu bersemangat ya.|"selalu"|Tanaka-san wa itsumo genki desu ne.|毎日~毎朝~毎晩~よく~たいてい~ときどき
+#58 なる
+来年、私は二十歳に___。|なります~なる|Tahun depan saya akan berumur dua puluh tahun.|"menjadi"|Rainen, watashi wa hatachi ni narimasu.|します~する
+毎日練習すると、上手に___。|なります~なる|Kalau berlatih tiap hari, jadi mahir.|"menjadi"|Mainichi renshū suru to, jōzu ni narimasu.|します~する
+#59 にする
+飲み物はコーヒー___します。|に|Untuk minuman, saya pilih kopi.|memutuskan pilihan|Nomimono wa kōhī ni shimasu.|を~が
+昼ご飯は何___しますか。|に|Untuk makan siang, mau pilih apa?|memutuskan pilihan|Hirugohan wa nani ni shimasu ka.|を~が
+#60 たり～たり
+日曜日は、本を読ん___、映画を見___します。|だり;たり|Hari Minggu saya membaca buku, menonton film, dan sebagainya.|menyebut contoh kegiatan: V-ta + り|Nichiyōbi wa, hon o yondari, eiga o mitari shimasu.
+休みの日は、泳い___、走っ___します。|だり;たり|Hari libur saya berenang, berlari, dan sebagainya.|menyebut contoh kegiatan: V-ta + り|Yasumi no hi wa, oyoidari, hashittari shimasu.
+#61 つもり
+来年、日本へ行く___です。|つもり|Tahun depan saya berencana pergi ke Jepang.|rencana / niat|Rainen, Nihon e iku tsumori desu.|はず~ところ
+今夜はどこへも行かない___です。|つもり|Malam ini saya berencana tidak ke mana-mana.|rencana / niat|Kon'ya wa doko e mo ikanai tsumori desu.|はず~ところ
+#62 だろう
+明日は雨___。|だろう~でしょう|Besok mungkin hujan.|dugaan (gaya biasa)|Ashita wa ame darō.|です~だ
+田中さんはもう家に着いた___。|だろう~でしょう|Tanaka-san mungkin sudah sampai rumah.|dugaan (gaya biasa)|Tanaka-san wa mō ie ni tsuita darō.|です~だ
+#63 でしょう
+明日は晴れる___。|でしょう~だろう|Besok mungkin cerah.|dugaan (gaya sopan)|Ashita wa hareru deshō.|です~だ
+この本は面白い___。|でしょう~だろう|Buku ini mungkin menarik.|dugaan (gaya sopan)|Kono hon wa omoshiroi deshō.|です~だ
+#64 のです
+傘をさしているのは、雨が降っている___。|のです~んです|Saya memakai payung karena hujan turun.|menjelaskan alasan / latar|Kasa o sashite iru no wa, ame ga futte iru no desu.
+休んだのは、頭が痛かった___。|のです~んです|Saya libur karena sakit kepala.|menjelaskan alasan / latar|Yasunda no wa, atama ga itakatta no desu.
+#65 んです
+すみません、ちょっと熱がある___。|んです~のです|Maaf, saya agak demam.|menjelaskan alasan (lisan)|Sumimasen, chotto netsu ga aru n desu.
+窓を開けてもいいですか。ちょっと暑い___。|んです~のです|Bolehkah membuka jendela? Soalnya agak panas.|menjelaskan alasan (lisan)|Mado o akete mo ii desu ka. Chotto atsui n desu.
+#66 ので
+雨___、今日のピクニックは行きません。|なので~だから|Karena hujan, hari ini piknik tidak jadi.|alasan: kata benda + なので|Ame na node, kyō no pikunikku wa ikimasen.
+頭が痛い___、今日は休みます。|ので~から|Karena sakit kepala, hari ini saya istirahat.|alasan: kalimat + ので|Atama ga itai node, kyō wa yasumimasu.
+#67 けど
+海に行きたい___、暇がありません。|けど~けれど~けれども|Ingin ke pantai, tetapi tidak ada waktu.|"tetapi" di tengah kalimat|Umi ni ikitai kedo, hima ga arimasen.|が~しかし~でも
+この店は安い___、おいしくないです。|けど~けれど~けれども|Toko ini murah, tetapi tidak enak.|"tetapi" di tengah kalimat|Kono mise wa yasui kedo, oishikunai desu.|が~しかし~でも
+#68 けれども
+外は雨です___、どうしても行きます。|けれども~けれど~けど|Meski di luar hujan, saya tetap pergi.|"meskipun / tetapi"|Soto wa ame desu keredomo, dōshitemo ikimasu.|が~しかし~でも
+日本語は難しい___、おもしろいです。|けれども~けれど~けど|Bahasa Jepang sulit, tetapi menarik.|"meskipun / tetapi"|Nihongo wa muzukashii keredomo, omoshiroi desu.|が~しかし~でも
+#69 ね
+今日は天気がいいです___。|ね|Cuaca hari ini bagus ya.|mengajak setuju "ya / kan"|Kyō wa tenki ga ii desu ne.|よ
+このラーメン、すごくおいしい___。|ね|Ramen ini enak sekali ya.|mengajak setuju "ya / kan"|Kono rāmen, sugoku oishii ne.|よ~なあ
+#70 よ
+あの店は安い___。|よ|Toko itu murah, lho.|menyampaikan informasi baru "lho"|Ano mise wa yasui yo.|ね~なあ
+もう十時です___。|よ|Sudah jam sepuluh, lho.|menyampaikan informasi baru "lho"|Mō jūji desu yo.|ね~なあ
+#71 なあ
+夕日が本当にきれいだ___。|なあ~なぁ|Matahari terbenamnya benar-benar indah ya.|ungkapan perasaan / gumaman|Yūhi ga hontō ni kirei da nā.|ね~よ
+もっと寝たい___。|なあ~なぁ|Ingin tidur lebih lama ya.|ungkapan perasaan / gumaman|Motto netai nā.|ね~よ
+#72 ないで
+私は砂糖を入れ___コーヒーを飲みます。|ないで|Saya minum kopi tanpa memasukkan gula.|"tanpa melakukan ..."|Watashi wa satō o irenaide kōhī o nomimasu.|なくて
+朝ご飯を食べ___学校へ行きました。|ないで|Saya pergi ke sekolah tanpa sarapan.|"tanpa melakukan ..."|Asagohan o tabenaide gakkō e ikimashita.|なくて
+#73 なくてはいけない
+風邪を治すために薬を飲まなくては___。|いけません~いけない~なりません~ならない|Supaya flu sembuh, saya harus minum obat.|kewajiban "harus"|Kaze o naosu tame ni kusuri o nomanakute wa ikemasen.
+毎日、日本語を勉強しなくては___。|いけません~いけない~なりません~ならない|Saya harus belajar bahasa Jepang setiap hari.|kewajiban "harus"|Mainichi, Nihongo o benkyō shinakute wa ikemasen.
+#74 なくてはならない
+学生は宿題をしなくては___。|ならない~なりません~いけない~いけません|Pelajar harus mengerjakan PR.|kewajiban "harus"|Gakusei wa shukudai o shinakute wa naranai.
+電車の中では静かにしなくては___。|ならない~なりません~いけない~いけません|Di dalam kereta kita harus tenang.|kewajiban "harus"|Densha no naka de wa shizuka ni shinakute wa naranai.
+#75 ないといけない
+明日は早いので、もう帰ら___いけません。|ないと~なくては~なければ|Besok pagi-pagi, jadi sekarang saya harus pulang.|kewajiban: V-nai + ないと|Ashita wa hayai node, mō kaeranai to ikemasen.
+宿題をし___いけません。|ないと~なくては~なければ|Saya harus mengerjakan PR.|kewajiban: V-nai + ないと|Shukudai o shinai to ikemasen.
+#76 なくちゃ
+そろそろ夕食の時間だから、帰ら___。|なくちゃ~なきゃ|Sudah waktunya makan malam, jadi aku harus pulang.|kewajiban lisan santai|Sorosoro yūshoku no jikan dakara, kaeranakucha.|ないと~なくては~なければ
+明日はテストだから、勉強し___。|なくちゃ~なきゃ|Besok ada ujian, jadi aku harus belajar.|kewajiban lisan santai|Ashita wa tesuto dakara, benkyō shinakucha.|ないと~なくては~なければ
+#77 なくてもいい
+疲れているなら、無理に行か___いいよ。|なくても|Kalau lelah, tidak perlu memaksa pergi.|"tidak perlu ..."|Tsukarete iru nara, muri ni ikanakute mo ii yo.|ないで
+今日は料理を作ら___いいです。|なくても|Hari ini tidak perlu memasak.|"tidak perlu ..."|Kyō wa ryōri o tsukuranakute mo ii desu.|ないで
+#78 ほうがいい
+風邪をひいたなら、早く寝た___がいいよ。|ほう~方|Kalau masuk angin, sebaiknya cepat tidur.|saran "sebaiknya"|Kaze o hiita nara, hayaku neta hō ga ii yo.
+雨ですから、傘を持って行った___がいいです。|ほう~方|Karena hujan, sebaiknya bawa payung.|saran "sebaiknya"|Ame desu kara, kasa o motte itta hō ga ii desu.
+#79 たことがある
+私は富士山に登った___があります。|こと|Saya pernah mendaki Gunung Fuji.|pengalaman "pernah"|Watashi wa Fujisan ni nobotta koto ga arimasu.|もの~の
+日本のアニメを見た___がありますか。|こと|Pernahkah kamu menonton anime Jepang?|pengalaman "pernah"|Nihon no anime o mita koto ga arimasu ka.|もの~の
+#80 てある
+部屋の窓が開け___あります。|て|Jendela kamar sudah dibuka (dan masih terbuka).|keadaan hasil tindakan: V-te + ある|Heya no mado ga akete arimasu.|で
+黒板に名前が書いて___。|あります~ある|Di papan tulis tertulis nama.|keadaan hasil tindakan: V-te + ある|Kokuban ni namae ga kaite arimasu.|います~いる
+#81 すぎる
+昨日はご飯を食べ___ました。|すぎ|Kemarin saya makan terlalu banyak.|"terlalu": V-masu + すぎる|Kinō wa gohan o tabesugimashita.
+このかばんは高___て、買えません。|すぎ~過ぎ|Tas ini terlalu mahal, tidak bisa saya beli.|"terlalu": sifat (buang い) + すぎる|Kono kaban wa takasugite, kaemasen.
+#82 方（かた）
+この漢字の読み___を教えてください。|方~かた|Tolong ajari saya cara membaca kanji ini.|"cara ...": V-masu + 方|Kono kanji no yomikata o oshiete kudasai.
+日本語の書き___を習いたいです。|方~かた|Saya ingin belajar cara menulis bahasa Jepang.|"cara ...": V-masu + 方|Nihongo no kakikata o naraitai desu.
+#83 か～か
+コーヒー___紅茶を飲みます。|か|Saya minum kopi atau teh.|pilihan "atau"|Kōhī ka kōcha o nomimasu.|と~や~も
+土曜日___日曜日に行きます。|か|Saya pergi hari Sabtu atau Minggu.|pilihan "atau"|Doyōbi ka nichiyōbi ni ikimasu.|と~や~も

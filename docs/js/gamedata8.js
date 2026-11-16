@@ -3,7 +3,7 @@
    Dimuat SETELAH games3.js. */
 const SHPRE=l=>'sh|'+l+'|';
 const SHMODES={s:'Pendek',m:'Sedang',l:'Panjang'};
-const SHSRC={a:'Semua',c:'Kartu',g:'Tata bahasa',p:'Pustaka'};
+const SHSRC={a:'Semua',b:'Bawaan',c:'Kartu',g:'Tata bahasa',p:'Pustaka'};
 let SHPOOL={};
 const shCJK=l=>l=='zh'||l=='ja';
 const shHash=s=>{let h=5381;for(let i=0;i<s.length;i++)h=((h<<5)+h+s.charCodeAt(i))|0;return(h>>>0).toString(36)};
@@ -29,12 +29,13 @@ function shPool(l){if(SHPOOL[l])return SHPOOL[l];const out=[],seen=new Set(),add
   for(const ex of g[7]){const ln=String(ex).split('\n').map(z=>z.trim()).filter(Boolean);if(!ln.length)continue;
    const p=shSplit(ln[0],l);if(!p)continue;const tr=ln.length>1?ln[ln.length-1]:'',rom=l=='zh'&&ln.length>2?ln[1]:'';
    add(shItem(p.f,p.t||(tr!=ln[0]?tr:''),rom,g[2],'g','',g[4]||'',l))}}}catch(e){}
+ try{if(typeof SHB!='undefined')(SHB[l]||'').split('\n').forEach(ln=>{const a=ln.trim().split('|');if(a.length<3)return;add(shItem(a[1],a[2],'',a[0],'b','','',l))})}catch(e){}
  return SHPOOL[l]=out}
 /* kalimat Pustaka pengguna (dinamis, tidak di-cache) */
 function shLib(l){const a=[];try{for(const x of(typeof S!='undefined'&&S.sl)||[]){if(x.L!=l||!x.f)continue;const p=shSplit(x.f,l);if(!p)continue;const it=shItem(p.f,p.t||x.i||'',x.r||'','','p','','',l);if(it)a.push(it)}}catch(e){}return a}
 const shWeak=it=>{try{const c=it.ck&&S.srs&&S.srs[it.ck];return!!c&&(c.t==1||c.t==3)}catch(e){return false}};
 function shCells(l,o){const md=new Set(o.modes||[]),src=o.src||'a',lv=o.lv||'';let a=[];
- if(src=='a'||src=='c'||src=='g')a=shPool(l).filter(x=>src=='a'||x.s==src);
+ if(src=='a'||src=='b'||src=='c'||src=='g')a=shPool(l).filter(x=>src=='a'||x.s==src);
  if(src=='a'||src=='p')a=a.concat(shLib(l));
  return a.filter(x=>md.has(x.c)&&(!lv||x.lv==lv)&&(o.weak!='1'||shWeak(x)))}
 /* TTS dengan kecepatan sendiri (0,7× / 1×) dan pengulangan */

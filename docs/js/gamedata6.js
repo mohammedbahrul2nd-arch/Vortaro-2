@@ -123,6 +123,28 @@ jcA('go','号','ごう','R','lm',3,'nomor (edisi, kamar, topan)','台風|🌀|to
 jcA('peji','ページ','ぺーじ','H','lm',5,'halaman','教科書|📘|buku pelajaran;雑誌のページ|📖|halaman majalah;ノートのページ|📒|halaman buku tulis','1 いっページ, 3 さんページ, 6 ろっページ, 8 はっページ, 10 じゅっページ.',{cs:['頁']});
 jcA('kaku','画','かく','K','lm',3,'coretan kanji','漢字|🈳|kanji;名前|✍️|nama;画数|🔢|jumlah coretan','1 いっかく, 6 ろっかく, 8 はっかく, 10 じゅっかく.');
 jcA('ji','字','じ','R','lm',4,'karakter / huruf','漢字の字|🈳|karakter kanji;文字|🔤|huruf;四字熟語|📜|idiom empat karakter','4 よじ (四字熟語 よじじゅくご), 7 ななじ.',{ov:{4:'よじ',7:'ななじ'},al:{4:['よんじ'],7:['しちじ']}});
+jcA('mei','名','めい','R','um',3,'orang (formal: tamu, peserta, reservasi)','お客様|🙋|tamu;参加者|👥|peserta;宿泊客|🛎️|tamu menginap','Lebih formal daripada 人. 4名 よんめい tetap beraturan.');
+jcA('tsuu','通','つう','Q','pp',3,'surat / email / dokumen','手紙|✉️|surat;メール|📧|email;書類|📄|dokumen','1 いっつう, 8 はっつう, 10 じゅっつう; 6 ろくつう.');
+jcA('kyoku','曲','きょく','K','lm',3,'lagu / komposisi musik','歌|🎤|lagu;ピアノ曲|🎹|lagu piano;曲|🎵|komposisi','1 いっきょく, 6 ろっきょく, 8 はっきょく, 10 じゅっきょく.',{al:{6:['ろくきょく']}});
+jcA('shuu','周','しゅう','Q','lm',3,'putaran / keliling','トラック|🏃|trek lari;湖|🏞️|danau;地球|🌍|bumi','1 いっしゅう, 8 はっしゅう, 10 じゅっしゅう.',{al:{6:['ろっしゅう']}});
+jcA('teki','滴','てき','Q','lm',2,'tetes (cairan)','水|💧|air;涙|😢|air mata;雨|🌧️|hujan','1 いってき, 8 はってき, 10 じゅってき.',{al:{6:['ろってき']}});
+jcA('sha','社','しゃ','Q','lm',3,'perusahaan / penerbit','会社|🏢|perusahaan;新聞社|📰|surat kabar;出版社|📚|penerbit','1 いっしゃ, 8 はっしゃ, 10 じゅっしゃ.',{al:{6:['ろっしゃ']}});
+jcA('kou','校','こう','K','lm',3,'sekolah','小学校|🏫|SD;中学校|🏫|SMP;高校|🎓|SMA','1 いっこう, 6 ろっこう, 8 はっこう, 10 じゅっこう.',{al:{6:['ろくこう']}});
+jcA('ka','課','か','K','lm',3,'pelajaran / bagian (divisi)','教科書の課|📘|pelajaran buku teks;総務課|🗂️|bagian umum;営業課|💼|bagian penjualan','1 いっか, 6 ろっか, 8 はっか, 10 じゅっか.',{al:{6:['ろくか']}});
+jcA('shoku','食','しょく','Q','mm',4,'kali makan','朝食|🍳|sarapan;昼食|🍱|makan siang;夕食|🍲|makan malam','3食 さんしょく. 1 いっしょく, 8 はっしょく, 10 じゅっしょく.');
+jcA('haku','泊','はく','F','wk',4,'malam menginap','ホテル|🏨|hotel;旅館|♨️|penginapan;旅行|🧳|perjalanan','1 いっぱく, 3 さんぱく, 6 ろっぱく, 8 はっぱく, 10 じゅっぱく; 4 よんはく.',{ov:{4:'よんはく'},al:{4:['よんぱく']}});
+jcA('seki2','席','せき','Q','lm',3,'kursi / tempat duduk','座席|💺|kursi;指定席|🎫|kursi bernomor;寄席|🎭|pertunjukan rakugo','1 いっせき, 8 はっせき, 10 じゅっせき.',{al:{6:['ろっせき']}});
+jcA('rei','例','れい','R','lm',3,'contoh / kasus','事例|📋|kasus;成功例|✅|contoh sukses;ケース|🗂️|kasus','Beraturan: 1 いちれい, 4 よんれい.');
+jcA('shu2','種','しゅ','Q','lm',3,'jenis / macam','野菜|🥬|sayur;動物|🐾|hewan;花|🌸|bunga','1 いっしゅ, 8 はっしゅ, 10 じゅっしゅ (じっしゅ).',{al:{6:['ろっしゅ']}});
+jcA('shunen','周年','しゅうねん','R','wk',3,'ulang tahun (peringatan ke-n)','結婚記念|💍|ulang tahun pernikahan;創立|🏢|pendirian;開店|🏪|pembukaan toko','Beraturan; 1 juga いっしゅうねん.',{al:{1:['いっしゅうねん']}});
+jcA('chome','丁目','ちょうめ','Q','lm',3,'blok alamat (〜丁目)','銀座|🏙️|Ginza;住所|📮|alamat;町|🏘️|kawasan','Alamat: 一丁目 いっちょうめ, 三丁目 さんちょうめ, 六丁目 ろくちょうめ, 八丁目 はっちょうめ.',{al:{6:['ろっちょうめ']}});
+jcA('banchi','番地','ばんち','R','lm',3,'nomor lot / bidang alamat','住所|📮|alamat;土地|🌱|tanah;家|🏠|rumah','Beraturan: 一番地 いちばんち, 四番地 よんばんち.');
+jcA('ki3','騎','き','K','lm',1,'penunggang kuda / prajurit berkuda','武士|🏇|samurai berkuda;騎兵|🐎|kavaleri;一騎打ち|⚔️|duel satu lawan satu','1 いっき, 6 ろっき, 8 はっき, 10 じゅっき (sama dengan 基).',{al:{6:['ろくき']}});
+jcA('eki','駅','えき','R','lm',4,'stasiun (jumlah perhentian)','電車|🚃|kereta;次の駅|🚉|stasiun berikut;乗り換え|🔄|transit','1 ひとえき, 2 ふたえき; 3 さんえき dst. beraturan.',{ov:{1:'ひとえき',2:'ふたえき'},al:{1:['いちえき'],2:['にえき']}});
+jcA('kaiki','回忌','かいき','K','lm',1,'peringatan kematian ke-n (法事)','法事|🕯️|upacara peringatan;三回忌|🪦|peringatan ke-3;七回忌|📿|peringatan ke-7','1 いっかいき, 3 さんかいき, 6 ろっかいき, 8 はっかいき, 10 じゅっかいき.',{al:{6:['ろくかいき']}});
+jcA('sen','戦','せん','Q','lm',2,'pertandingan / pertempuran / ronde','試合|🥊|pertandingan;対戦|⚔️|duel;決勝戦|🏆|final','1 いっせん, 8 はっせん, 10 じゅっせん; 6 ろくせん.',{al:{6:['ろっせん']}});
+jcA('kouza','口座','こうざ','R','lm',3,'rekening (bank)','銀行|🏦|bank;預金|💰|tabungan;ネット銀行|📱|bank digital','Beraturan: 一口座 いちこうざ, 四口座 よんこうざ.');
+jcA('gousha','号車','ごうしゃ','R','lm',4,'nomor gerbong kereta','新幹線|🚄|shinkansen;電車|🚃|kereta;座席|💺|kursi','Beraturan: 3号車 さんごうしゃ, 4号車 よんごうしゃ.');
 JCC.find(c=>c.id=='tsu').kj=(()=>{const k={0:['幾つ'],10:['10','十']};for(let n=1;n<=9;n++)k[n]=[n+'つ',jaN(n)+'つ'];return k})();
 /* indeks benda → penggolong yang sah */
 const JCOBJ={};JCC.forEach(c=>c.ex.forEach(e=>{(JCOBJ[e[0]]=JCOBJ[e[0]]||[]).push(c.id)}));

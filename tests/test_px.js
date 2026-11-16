@@ -25,11 +25,11 @@ for(const l of V.VGLG)for(const m of Object.keys(PXM))for(const dir of['A','B'])
   T(q.key&&q.key.main&&!bad.test(JSON.stringify(q.key)),`${l}/${m} key`);
   T(typeof q.judge=='function'&&q.L==l,'judge');
   /* jawaban benar diterima: say (bacaan penuh) lolos */
-  const ans=m=='ch'||m=='ds'||m=='sm'?V.pxSay(q.exp,'USD',l):q.say;const r=q.judge([ans],'voice');T(r&&r.ok,`${l}/${m}/${dir} jawaban ditolak: "${ans}" exp=${q.exp} got=${r&&r.got}`);
-  if(q.kind=='price'){const w=q.say;T(srPrice(w,l)!==null||m=='ch'||m=='ds'||m=='sm','parse say');
+  const ans=['ch','ds','sm','qt','dd','kg','sp','tx','up'].includes(m)?V.pxSay(q.exp,'USD',l):q.say;const r=q.judge([ans],'voice');T(r&&r.ok,`${l}/${m}/${dir} jawaban ditolak: "${ans}" exp=${q.exp} got=${r&&r.got}`);
+  if(q.kind=='price'){const w=q.say;T(srPrice(w,l)!==null||['ch','ds','sm','qt','dd','kg','sp','tx','up'].includes(m),'parse say');
    const salah=q.exp+(q.exp>1000?100:7);T(!q.judge([srPrice?V.srFmtPrice(salah,l):'1'],'type').ok||l=='ja'&&false,`${l}/${m} salah diterima`);
    T(!q.judge([],'skip').ok,'kosong');
-   if(m=='pm'||m=='pc'){T(q.judge([V.srFmtPrice(q.exp,l)],'type').ok||dir=='B'&&['de','nl','en','eo'].includes(l),`${l}/${m}/${dir} digit ditolak ${V.srFmtPrice(q.exp,l)} exp ${q.exp}`);
+   if(m=='pm'||m=='pc'||m=='pf'){T(q.judge([V.srFmtPrice(q.exp,l)],'type').ok||dir=='B'&&['de','nl','en','eo'].includes(l),`${l}/${m}/${dir} digit ditolak ${V.srFmtPrice(q.exp,l)} exp ${q.exp}`);
     if(dir=='B'&&['de','nl','en','eo'].includes(l))T(!q.judge([V.srFmtPrice(q.exp,l)],'type').ok,'B ketik digit harus ditolak (baca kata)');
     T(q.judge([V.srFmtPrice(q.exp,l)],'voice').ok,`${l} suara digit`)}
    else{T(q.judge([V.srFmtPrice(q.exp,l)],'type').ok,`${l}/${m}/${dir} hitung digit ditolak ${q.exp}`);T(q.judge([V.pxSay(q.exp,l=='en'?'USD':'EUR',l)||''],'type').ok||true,'x')}}
@@ -54,4 +54,16 @@ for(const g of ['px_de','px_zh','px_ja','px_en']){V.gxSetCur(g);V.gxClear();for(
   V.vgSubmit(i%2?['zzz']:[q.kind=='ms'?q.exp+' '+q.unit.sh:V.srFmtPrice(q.exp,q.L)],'type');const st2=V.gxState();T(st2.r&&(i%2?st2.r.sc==1:st2.r.sc==3||q.dir=='B'),'skor '+g+' '+q.cell+' '+q.k);
   T(!/undefined|NaN|\[object/.test(V.gxView(g)),'hasil buruk '+g);if(q.dir=='B'&&q.html)T(V.gxView(g).includes('pxl')||q.kind=='ms'||q.kind=='price','html B');V.gxAct('ggxnext')}}
 T(V.gxHub&&String(V.gxHub()).includes('px_zh'),'hub memuat px_zh');
+/* 8 v7.85: mode pf/qt/dd — jaminan kebenaran hitungan */
+{const mo=['pf','qt','dd','kg','sp','tx','up'];for(const m of mo)T(PXM[m],'PXM '+m);
+ for(const l of V.VGLG){for(const dir of['A','B']){for(let i=0;i<200;i++){
+  const q=V.pxMake({l,m:'dd',dir,k:'x'});T(Number.isInteger(q.exp)&&q.exp>0&&(l!='ja'||q.exp%100==0),`dd bulat ${l} ${q.exp}`);
+  const m2=q.calc.match(/× (\d+) % × (\d+) %/);T(m2,'dd calc '+q.calc);
+  const q2=V.pxMake({l,m:'qt',dir,k:'x'});T(Number.isInteger(q2.exp)&&q2.exp>0&&/\d+ × /.test(q2.calc),`qt ${l} ${q2.calc}`);
+  const q4=V.pxMake({l,m:'kg',dir,k:'x'}),q5=V.pxMake({l,m:'sp',dir,k:'x'});T(Number.isInteger(q4.exp)&&q4.exp>0&&/× /.test(q4.calc),`kg ${l} ${q4.calc}`);T(Number.isInteger(q5.exp)&&q5.exp>0&&/÷ /.test(q5.calc),`sp ${l} ${q5.calc}`);
+  const q6=V.pxMake({l,m:'tx',dir,k:'x'}),q7=V.pxMake({l,m:'up',dir,k:'x'});T(Number.isInteger(q6.exp)&&q6.exp>0&&(l!='ja'||q6.exp%100==0)&&/× /.test(q6.calc),`tx ${l} ${q6.calc}`);T(Number.isInteger(q7.exp)&&q7.exp>0&&(l!='ja'||q7.exp%100==0),`up ${l} ${q7.calc}`);
+  const q3=V.pxMake({l,m:'pf',dir,k:'x'});T(l=='ja'?q3.exp%100==0:q3.exp%100!=0,`pf ${l} ${q3.exp}`);}}}
+ T(V.pxSay(5,'EUR','de')=='fünf Cent'&&V.pxSay(105,'EUR','de')=='ein Euro fünf','de pf');
+ T(V.pxSay(5,'CNY','zh')=='五分'&&V.pxSay(105,'CNY','zh')=='一块零五'&&V.pxSay(25,'CNY','zh')=='两毛五','zh pf');
+ for(const l of V.VGLG)T(V.GXO('px_'+l)&&Object.keys(V.VG['px_'+l].modes).includes('dd'),'modes '+l)}
 console.log('test_px:',n,'cek'+(process.exitCode?' — ADA GAGAL':' lolos'));

@@ -3,7 +3,7 @@ const fs=require('fs'),path=require('path');
 const V=require('./load.js');
 let n=0;const ok=(c,m)=>{if(!c){console.error('GAGAL:',m);process.exit(1)}n++};
 const A=V.dtAll(),T=A.filter(x=>x.t=='T'),U=A.filter(x=>x.t=='U');
-ok(T.length>=150&&U.length>=79&&A.length>=229,`jumlah verba T${T.length} U${U.length}`);
+ok(T.length>=161&&U.length>=91&&A.length>=252,`jumlah verba T${T.length} U${U.length}`);
 ok(new Set(A.map(x=>x.inf)).size==A.length,'infinitif unik');
 const dtW=s=>(s.match(/(?:^|[ ,])\{[^}]+\}[\wäöüÄÖÜß]*/)||[''])[0].replace(/^[ ,]/,'').replace(/[{}]/g,'');
 const aux=/^(hat|ist) \S+$/;
@@ -20,10 +20,10 @@ A.forEach(x=>{ok(x.inf&&x.pre&&x.ar&&x.perf&&x.zu,'field lengkap: '+x.inf);ok(au
    const w=dtW(t.s);ok(w&&w.toLowerCase().startsWith(x.pre+r[0]),'U: kata verba diawali prefiks+stem: '+t.s)})}});
 ok(A.reduce((a,x)=>a+x.ss.length,0)>=1060,"total kalimat >= 1060");
 ok(new Set(A.flatMap(x=>x.ss.map(t=>t.s))).size==A.reduce((a,x)=>a+x.ss.length,0),'semua kalimat unik');
-ok(V.GXO('dtv').modes.join()=='pf,pe,zu,tu','opsi default');
-const cells=V.gxItems('dtv');ok(cells.length==4*A.length,'jumlah sel '+cells.length);
+ok(V.GXO('dtv').modes.join()=='pf,pe,zu,tu,ar','opsi default');
+const cells=V.gxItems('dtv');ok(cells.length==5*A.length,'jumlah sel '+cells.length);
 ok(new Set(cells.map(c=>c.k)).size==cells.length,'kunci SRS unik');ok(cells.every(c=>c.k.startsWith('dv|')),'prefix dv|');
-const seen={pf:0,pe:0,zu:0,tu:0,pfT:0,pfU:0};
+const seen={pf:0,pe:0,zu:0,tu:0,pfT:0,pfU:0,ar:0};
 for(let r=0;r<800;r++){const q=V.gxNext('dtv');ok(q&&q.g=='dtv','soal terbentuk');const b=q.blanks[0],m=q.k.split('|')[1];seen[m]++;
  ok(b.opts.includes(b.ok[0]),'jawaban ada di opsi: '+q.k);ok(new Set(b.opts).size==b.opts.length,'opsi unik: '+q.k);ok(q.L=='de','TTS de');ok(q.sel.length==1,'sel');
  ok(typeof q.fullTxt=='string'&&q.fullTxt.length>0&&q.expl.length>0,'hasil lengkap');
@@ -36,6 +36,7 @@ for(let r=0;r<800;r++){const q=V.gxNext('dtv');ok(q&&q.g=='dtv','soal terbentuk'
  if(m=='pe'){ok(b.ok[0]==q.x.perf,'kunci Perfekt');ok(b.opts.length>=4&&b.opts.length<=5,'opsi Perfekt: '+b.opts.length);
   ok(b.opts.every(o=>o==q.x.perf||!/^(hat|ist) /.test(o)||o!=('ist '+q.x.perf.split(' ')[1])),'tidak ada pengecoh ist+pp yang mungkin Zustandspassiv')}
  if(m=='zu'){ok(b.ok[0]==q.x.zu,'kunci zu-Inf');ok(b.opts.length>=4&&b.opts.length<=5,'opsi zu: '+b.opts.length)}
+ if(m=='ar'){ok(b.ok[0]==q.x.inf&&b.opts.length>=4&&b.opts.length<=5,'opsi arti: '+b.opts.length);ok(b.opts.filter(o=>o==q.x.inf).length==1,'satu jawaban benar')}
  if(m=='tu'){ok(b.opts.join()=='trennbar,untrennbar','dua opsi');ok(b.ok[0]==(q.x.t=='T'?'trennbar':'untrennbar'),'kunci jenis')}}
 ok(seen.pfU>20&&seen.pfT>20,'pf mencampur trennbar & untrennbar '+JSON.stringify(seen));ok(Object.values(seen).every(c=>c>20),'semua jenis soal muncul '+JSON.stringify(seen));
 /* konsistensi tabel DTR dengan data: setiap verba U terdaftar, dan setiap kombinasi prefiks+stem yang ada di data tercatat */

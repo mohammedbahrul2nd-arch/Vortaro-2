@@ -1,0 +1,415 @@
+// Bank Grammar Cloze zh HSK 1 — format: lihat tools/gcl_build.py. Indeks = urutan kartu zh|HSK 1 di D.G.
+#0 是
+我们 都 ___ 学生。|是|Kami semua adalah murid.|kata kerja penghubung "adalah"
+她 ___ 我 的 汉语 老师。|是|Dia adalah guru bahasa Mandarinku.|menyatakan identitas
+#1 什么 名字
+你 叫 ___ 名字？|什么|Siapa namamu?|kata tanya "apa"|谁~哪
+他 ___ 什么 名字？|叫|Siapa namanya?|kata kerja "dipanggil"|有
+#2 呢 pertanyaan balik
+我 很 好，你 ___？|呢|Saya baik, bagaimana denganmu?|menanyakan hal yang sama pada lawan bicara|吗~吧
+我 在 家，你 ___？|呢|Saya di rumah, kamu bagaimana?|pertanyaan balik singkat|吗~吧
+#3 吗
+你 是 老师 ___？|吗|Apakah kamu seorang guru?|pertanyaan ya/tidak|呢~吧
+你们 都 好 ___？|吗|Apakah kalian semua baik-baik saja?|pernyataan + partikel tanya|呢~吧
+#4 很
+今天 天气 ___ 好。|很~非常~真|Cuaca hari ini bagus.|penghubung subjek dan sifat|太~最
+我 的 书 ___ 多。|很~非常~真|Bukuku banyak.|penghubung subjek dan sifat|太~最
+#5 谁
+这 是 ___？|谁|Ini siapa?|kata tanya orang|什么~哪~几
+___ 是 你 的 老师？|谁|Siapa gurumu?|kata tanya orang|什么~哪~几
+#6 多少
+你 的 电话 号码 是 ___？|多少|Berapa nomor teleponmu?|menanyakan jumlah/nomor|几
+这 个 苹果 ___ 钱？|多少|Berapa harga apel ini?|多少 + 钱|几
+#7 什么 setelah kata kerja
+你 吃 ___？|什么|Kamu makan apa?|kata tanya di posisi objek|谁~哪
+他 喝 ___？|什么|Dia minum apa?|kata tanya di posisi objek|谁~哪
+#8 吧 saran
+我们 走 ___。|吧|Mari kita pergi.|ajakan/saran|吗~呢
+你 先 坐 ___。|吧|Silakan duduk dulu.|saran lembut|吗~呢
+#9 的 posesif
+这 是 我 ___ 书。|的|Ini bukuku.|penanda kepemilikan|
+他 ___ 朋友 是 医生。|的|Temannya adalah dokter.|pemilik + 的 + benda|
+#10 这/那
+___ 是 我 的 书，那 是 你 的 书。|这|Ini bukuku, itu bukumu.|"ini" (dekat)|那
+我 不 认识 ___ 个 人。|那|Aku tidak kenal orang itu.|"itu" (jauh)|这
+#11 不 negasi
+这 ___ 是 我 的 杯子。|不|Ini bukan cangkirku.|negasi kata kerja 是|没
+我 ___ 喝 咖啡。|不|Aku tidak minum kopi.|negasi kebiasaan/kemauan|没
+#12 两 vs 二
+我 有 ___ 个 哥哥。|两|Aku punya dua kakak laki-laki.|dua + penggolong|二
+桌子 上 有 ___ 本 书。|两|Di atas meja ada dua buku.|dua + penggolong|二
+#13 哪 国 人
+你 是 ___ 国 人？|哪|Kamu orang negara mana?|kata tanya "yang mana"|什么~谁
+他 是 ___ 个 学校 的 学生？|哪|Dia murid sekolah yang mana?|哪 + penggolong|什么~谁
+#14 哪儿
+你 在 ___ 工作？|哪儿~哪里|Kamu bekerja di mana?|kata tanya tempat|什么~谁
+你 家 在 ___？|哪儿~哪里|Rumahmu di mana?|kata tanya tempat|什么~谁
+#15 在 lokasi
+妈妈 ___ 家。|在|Ibu ada di rumah.|"berada di"|是~有
+我 的 书 ___ 桌子 上。|在|Bukuku ada di atas meja.|benda + 在 + tempat|是~有
+#16 几
+你 家 有 ___ 口 人？|几|Keluargamu ada berapa orang?|kata tanya jumlah kecil|多少
+你 住 在 ___ 楼？|几|Kamu tinggal di lantai berapa?|几 + lantai|多少
+#17 urutan waktu tempat
+我 明天 ___ 学校 学习 汉语。|在|Besok aku belajar bahasa Mandarin di sekolah.|waktu + 在 + tempat + kata kerja|
+他 每 天 ___ 家 吃 早饭。|在|Setiap hari dia sarapan di rumah.|在 + tempat sebelum kata kerja|
+#18 V不V
+你 喝 ___ 喝 茶？|不|Kamu minum teh atau tidak?|kata kerja + 不 + kata kerja|没
+你 去 ___ 去 学校？|不|Kamu pergi ke sekolah atau tidak?|kata kerja + 不 + kata kerja|没
+#19 做 pekerjaan
+你 ___ 什么 工作？|做|Apa pekerjaanmu?|做 + 什么 + 工作|是~有
+他 ___ 老师。|做|Dia bekerja sebagai guru.|做 + profesi|有~在
+#20 有
+我 ___ 一 个 弟弟。|有|Aku punya seorang adik laki-laki.|kepemilikan|是~在
+她 ___ 两 个 朋友。|有|Dia punya dua teman.|kepemilikan|是~在
+#21 没有
+我 ___ 姐姐。|没有|Aku tidak punya kakak perempuan.|negasi 有|不
+他 家 ___ 电脑。|没有|Di rumahnya tidak ada komputer.|negasi 有|不
+#22 penggolong
+我 有 三 ___ 同学 在 北京。|个|Aku punya tiga teman sekelas di Beijing.|penggolong umum untuk orang|本~口~家
+桌子 上 有 一 ___ 书。|本|Di atas meja ada sebuah buku.|penggolong buku|个~口~家
+#23 urutan tanggal
+今天 是 二〇二四{èr líng èr sì} ___ 五 月 一 号。|年|Hari ini 1 Mei 2024.|tahun + 年 + bulan + 月 + tanggal 号|月~日~天
+我 的 生日 是 十 ___ 二十 号。|月|Ulang tahunku tanggal 20 Oktober.|bulan + 月 + tanggal + 号|年~日~天
+#24 tanggal & hari
+今天 几 ___ 几 号？|月|Hari ini tanggal berapa?|几月几号|点~天
+明天 星期 ___？|几|Besok hari apa?|星期几|什么~谁~哪
+#25 怎么样
+这 个 菜 ___？|怎么样|Bagaimana masakan ini?|menanyakan pendapat|什么~怎么
+你 的 身体 ___？|怎么样|Bagaimana kesehatanmu?|menanyakan keadaan|什么~怎么
+#26 太...了
+这 件 衣服 太 贵 ___！|了|Baju ini terlalu mahal!|太 + sifat + 了|吗~吧
+今天 太 热 ___。|了|Hari ini terlalu panas.|太 + sifat + 了|吗~吧
+#27 觉得
+我 ___ 这 个 电影 很 好。|觉得|Menurutku film ini bagus.|kata kerja pikiran|喜欢~想~要
+你 ___ 汉语 难 吗？|觉得|Menurutmu bahasa Mandarin sulit?|kata kerja pikiran|喜欢~想~要
+#28 jam
+现在 八 ___。|点|Sekarang jam delapan.|angka + 点|分~号~月
+现在 是 十 点 ___。|半|Sekarang jam sepuluh setengah.|点 + 半|分~号
+#29 几点
+你 ___ 起床？|几点|Jam berapa kamu bangun?|kata tanya jam|什么~多少
+他 ___ 回 家？|几点|Jam berapa dia pulang?|kata tanya jam|什么~多少
+#30 正在...呢
+我 ___ 听 音乐 呢。|正在|Aku sedang mendengarkan musik.|sedang + kata kerja|已经
+妈妈 ___ 做 饭 呢。|正在|Ibu sedang memasak nasi.|sedang + kata kerja|已经
+#31 了 selesai
+我 昨天 买 ___ 一 本 书。|了|Kemarin aku membeli sebuah buku.|kata kerja + 了 + objek|过~着
+他 喝 ___ 两 杯 茶。|了|Dia sudah minum dua cangkir teh.|kata kerja + 了 + objek|过~着
+#32 常
+我 ___ 去 图书馆。|常~常常|Aku sering pergi ke perpustakaan.|keterangan frekuensi|不~都~也
+他 ___ 看 电视。|常~常常|Dia sering menonton televisi.|keterangan frekuensi|不~都~也
+#33 想
+我 ___ 看 电影。|想|Aku ingin menonton film.|kata kerja keinginan|会~能
+你 ___ 喝 什么？|想|Kamu ingin minum apa?|kata kerja keinginan|会~能
+#34 跟 preposisi
+我 ___ 朋友 一起 去 商店。|跟~和|Aku pergi ke toko bersama teman.|跟 + orang + 一起|在~给
+他 ___ 妈妈 说 话。|跟|Dia berbicara dengan ibunya.|跟 + orang + kata kerja|在~给
+#35 的时候
+我 吃 饭 ___ 时候，不 看 电视。|的|Saat makan, aku tidak menonton TV.|kejadian + 的时候|
+你 在 家 的 ___ 做 什么？|时候|Apa yang kamu lakukan saat di rumah?|的时候|
+#36 别
+___ 说 话！|别|Jangan bicara!|larangan|不~没
+天 很 冷，你 ___ 去 了。|别|Cuaca sangat dingin, jangan pergi.|larangan|不~没
+#37 gejala sakit
+我 头 ___。|疼|Kepalaku sakit.|bagian tubuh + 疼|
+他 ___ 烧 了，要 去 医院。|发|Dia demam, harus ke rumah sakit.|发 + 烧|有~是
+#38 给
+我 ___ 你 打 电话。|给|Aku menelepon kamu.|给 + penerima + kata kerja|跟~在
+他 ___ 我 买 了 一 个 杯子。|给|Dia membelikanku sebuah cangkir.|给 + penerima + kata kerja|跟~在
+#39 您
+老师，___ 好！|您|Guru, halo (sopan)!|kata ganti sopan "Anda"|你~他~她
+请 问，___ 贵 姓？|您|Permisi, siapa nama keluarga Anda?|kata ganti sopan "Anda"|你~他~她
+#40 他/她
+我 的 妈妈 是 医生，___ 在 医院 工作。|她|Ibuku dokter, dia bekerja di rumah sakit.|dia (perempuan)|他~你~我
+我 的 哥哥 是 学生，___ 在 大学 学习。|他|Kakakku mahasiswa, dia belajar di universitas.|dia (laki-laki)|她~你~我
+#41 们
+我___ 都 是 学生。|们|Kami semua murid.|akhiran jamak|
+他___ 是 我 的 朋友。|们|Mereka adalah temanku.|akhiran jamak|
+#42 这/那 + 量词
+___ 个 杯子 是 我 的。|这|Cangkir ini milikku.|"ini" + penggolong|那
+___ 本 书 是 谁 的？|那|Buku itu milik siapa?|"itu" + penggolong|这
+#43 这儿/那儿
+我 在 ___ 等 你。|这儿~这里|Aku menunggumu di sini.|"di sini"|那儿~那里
+他 家 在 ___，不 在 这儿。|那儿~那里|Rumahnya di sana, bukan di sini.|"di sana"|这儿~这里
+#44 这些/那些
+___ 书 都 是 我 的。|这些|Buku-buku ini semuanya milikku.|"ini" jamak|那些
+你 看，___ 人 是 谁？|那些|Lihat, orang-orang itu siapa?|"itu" jamak|这些
+#45 有的…有的
+___ 的 人 喝 茶，有 的 人 喝 咖啡。|有|Sebagian orang minum teh, sebagian minum kopi.|有的……，有的……|别
+有 的 同学 在 看 书，___ 的 同学 在 休息。|有|Sebagian murid membaca, sebagian beristirahat.|有的……，有的……|别
+#46 别的
+我 不 想 吃 这 个，我 想 吃 ___ 的。|别|Aku tidak mau ini, aku mau yang lain.|别的 = yang lain|
+你 还 要 ___ 的 吗？|别|Kamu mau yang lain lagi?|别的 = yang lain|
+#47 几/多少
+你们 班 有 ___ 个 学生？|多少|Di kelasmu ada berapa murid?|jumlah besar → 多少|几
+你 家 有 ___ 口 人？|几|Keluargamu ada berapa orang?|jumlah kecil + penggolong → 几|多少
+#48 什么
+你 买 ___？|什么|Kamu beli apa?|kata tanya benda|谁~哪
+这 是 ___ 书？|什么|Ini buku apa?|什么 + benda|谁~哪
+#49 怎么
+你 ___ 去 医院？|怎么|Bagaimana kamu pergi ke rumah sakit?|cara|什么~怎么样
+这 个 字 ___ 读？|怎么|Bagaimana membaca huruf ini?|cara|什么~怎么样
+#50 哪/哪儿/哪里
+你 要 ___ 个？|哪|Kamu mau yang mana?|哪 + penggolong|什么~谁
+你 去 ___？|哪儿~哪里|Kamu pergi ke mana?|kata tanya tempat|什么~谁
+#51 百 / 零
+二百 ___ 六|零|Dua ratus enam (206).|nol di tengah angka|
+一 ___ 零 五|百|Seratus lima (105).|satuan ratusan|
+#52 半
+现在 八 点 ___。|半|Sekarang setengah sembilan (08.30).|点 + 半|分
+我 睡 了 一 个 ___ 小时。|半|Aku tidur satu setengah jam.|个 + 半|
+#53 两
+我 家 有 ___ 口 人。|两|Keluargaku terdiri dari dua orang.|两 + penggolong|二
+他 买 了 ___ 个 面包。|两|Dia membeli dua roti.|两 + penggolong|二
+#54 二
+今天 是 ___ 十 号。|二|Hari ini tanggal dua puluh.|二 pada angka urut/puluhan|两
+我 住 在 ___ 楼。|二|Aku tinggal di lantai dua.|二 + 楼|两
+#55 个
+我 有 一 ___ 好 朋友。|个|Aku punya seorang teman baik.|penggolong umum|本~口~家
+这 里 有 三 ___ 人。|个|Di sini ada tiga orang.|penggolong umum|本~口~家
+#56 口
+我 家 有 四 ___ 人。|口~个|Keluargaku ada empat orang.|penggolong anggota keluarga|本~间
+你 家 有 几 ___ 人？|口~个|Keluargamu ada berapa orang?|penggolong anggota keluarga|本~间
+#57 间
+这 ___ 房子 很 大。|间~个|Rumah ini besar.|penggolong ruangan|口~家
+我 家 有 三 ___ 房间。|间~个|Rumahku ada tiga kamar.|penggolong ruangan|口~家
+#58 块
+我 想 买 一 ___ 面包。|块|Aku ingin membeli sepotong roti.|penggolong potongan|个~本~家
+这 个 杯子 五 ___ 钱。|块|Cangkir ini lima yuan.|块 = yuan (lisan)|个~本~家
+#59 家
+这 ___ 商店 很 大。|家~个|Toko ini besar.|penggolong tempat usaha|口~间
+那 ___ 饭店 的 菜 很 好吃。|家~个|Masakan restoran itu enak.|penggolong tempat usaha|口~间
+#60 页
+这 本 书 有 两 百 ___。|页|Buku ini ada dua ratus halaman.|angka + 页|个~本~块
+请 看 第 十 ___。|页|Silakan lihat halaman sepuluh.|第 + angka + 页|个~本~块
+#61 frasa bilangan
+我 想 买 一 ___ 杯子。|个|Aku ingin membeli satu cangkir.|angka + penggolong|本~口~家
+他 有 两 ___ 弟弟。|个|Dia punya dua adik laki-laki.|angka + penggolong|本~口~家
+#62 上
+书 在 桌子 ___。|上|Buku ada di atas meja.|benda + 上|下~里
+他 在 床 ___ 看 书。|上|Dia membaca di atas ranjang.|benda + 上|下~里
+#63 下
+树 ___ 有 一 只 猫。|下|Di bawah pohon ada seekor kucing.|benda + 下|上~里
+椅子 ___ 有 一 个 书包。|下|Di bawah kursi ada sebuah tas.|benda + 下|上~里
+#64 里
+手机 在 书包 ___。|里|Ponsel ada di dalam tas.|benda + 里|上~下
+杯子 ___ 有 水。|里|Di dalam cangkir ada air.|benda + 里|上~下
+#65 前边/后边
+学校 ___ 有 一 家 饭店。|前边|Di depan sekolah ada sebuah restoran.|benda + 前边|后边
+我 家 ___ 有 一 个 商店。|后边|Di belakang rumahku ada sebuah toko.|benda + 后边|前边
+#66 arah mata angin
+太阳 从 ___ 边 出来。|东|Matahari terbit dari timur.|arah mata angin + 边|
+北京 在 中国 的 ___ 边。|北|Beijing ada di bagian utara Tiongkok.|arah mata angin + 边|
+#67 kalimat berita
+妈妈 ___ 晚饭。|做|Ibu memasak makan malam.|subjek + predikat + objek|有~是
+我 ___ 一 本 书。|看|Aku membaca sebuah buku.|subjek + predikat + objek|有~是
+#68 是
+他 ___ 我 的 老师。|是|Dia adalah guruku.|pola 是 identitas|有~在
+这 ___ 我 的 朋友。|是|Ini temanku.|pola 是 identitas|有~在
+#69 有 memiliki
+我 ___ 很 多 书。|有|Aku punya banyak buku.|kepemilikan|是~在
+他 ___ 一 个 姐姐。|有|Dia punya seorang kakak perempuan.|kepemilikan|是~在
+#70 有 keberadaan
+房间 里 ___ 两 张 桌子。|有|Di dalam kamar ada dua meja.|tempat + 有 + benda|是~在
+桌子 上 ___ 一 本 书。|有|Di atas meja ada sebuah buku.|tempat + 有 + benda|是~在
+#71 subjek
+这 件 ___ 很 好看。|衣服|Baju ini bagus.|kata benda sebagai subjek|
+这 本 书 ___ 好看。|很|Buku ini bagus.|subjek + 很 + sifat|太~最
+#72 predikat
+我们 ___ 中文。|学|Kami belajar bahasa Mandarin.|kata kerja predikat|有~是
+他 很 ___。|忙|Dia sibuk.|sifat sebagai predikat|
+#73 objek
+妈妈 来 ___ 我 了。|看|Ibu datang menjenguk aku.|kata kerja + objek|
+我 想 吃 ___。|面条|Aku ingin makan mi.|kata benda sebagai objek|
+#74 kata kerja predikat
+我 ___ 一 个 面包。|买|Aku membeli sebuah roti.|kata kerja|是~有
+他 ___ 一 杯 茶。|喝|Dia minum secangkir teh.|kata kerja|是~有
+#75 sifat predikat
+房间 ___ 干净。|很|Kamarnya bersih.|sifat tak langsung setelah subjek|太~最
+这 个 菜 ___ 好吃。|很|Masakan ini enak.|sifat tak langsung setelah subjek|太~最
+#76 别
+你 ___ 进来。|别|Jangan masuk.|larangan|不~没
+___ 看 电视 了，去 睡觉 吧。|别|Jangan nonton TV lagi, tidurlah.|larangan|不~没
+#77 不
+今天 ___ 热。|不|Hari ini tidak panas.|negasi sifat/kebiasaan|没
+他 ___ 是 老师。|不|Dia bukan guru.|negasi 是|没
+#78 没
+他 昨天 ___ 上课。|没|Kemarin dia tidak masuk kelas.|negasi lampau|不
+我 ___ 吃 早饭。|没|Aku belum sarapan.|negasi lampau|不
+#79 吗
+他 是 老师 ___？|吗|Apakah dia guru?|pertanyaan ya/tidak|呢~吧
+你 喜欢 吃 米饭 ___？|吗|Apakah kamu suka makan nasi?|pertanyaan ya/tidak|呢~吧
+#80 ya/tidak
+他 有 手机 ___？|吗|Apakah dia punya ponsel?|kalimat + 吗|呢~吧
+你 家 很 大 ___？|吗|Apakah rumahmu besar?|kalimat + 吗|呢~吧
+#81 kata tanya
+___ 跟 你 一起 去 书店？|谁|Siapa yang pergi ke toko buku bersamamu?|kata tanya subjek|什么~哪~几
+你 ___ 时候 回 家？|什么|Kapan kamu pulang?|什么 时候|谁~哪~几
+#82 kata ganti tanya
+车 上 有 ___ 个 人？|多少|Di mobil ada berapa orang?|jumlah|几
+这 个 杯子 ___ 钱？|多少|Berapa harga cangkir ini?|jumlah uang|几
+#83 吧
+我们 走 ___。|吧|Ayo kita pergi.|ajakan|吗~呢
+你 看 ___，这 个 很 好。|吧|Lihatlah, yang ini bagus.|saran|吗~呢
+#84 了 keadaan baru
+我 累 ___。|了|Aku capek (sekarang).|keadaan baru|吗~吧
+天 黑 ___。|了|Hari sudah gelap.|keadaan baru|吗~吧
+#85 吗
+你 是 学生 ___？|吗|Apakah kamu murid?|tanya ya/tidak|呢~吧
+他 在 家 ___？|吗|Apakah dia di rumah?|tanya ya/tidak|呢~吧
+#86 呢
+他 是 哪 国 人 ___？|呢|Dia orang mana ya?|nada tanya lanjutan|吗~吧
+我 去 学校，你 ___？|呢|Aku ke sekolah, kamu?|tanya balik|吗~吧
+#87 tanggal
+今天 是 二〇二〇{èr líng èr líng} 年 十二 ___ 二十五 日。|月|Hari ini 25 Desember 2020.|年 + 月 + 日|号~天
+我 是 一九九九{yī jiǔ jiǔ jiǔ} ___ 出生 的。|年|Aku lahir tahun 1999.|tahun + 年|月~日
+#88 星期
+今天 ___ 三。|星期|Hari ini hari Rabu.|星期 + angka|礼拜~月
+明天 星期 ___？|几|Besok hari apa?|星期 + 几|
+#89 jam / menit
+现在 三 点 ___ 五 分。|零|Sekarang pukul 03.05.|零 sebelum menit satu digit|
+我们 八 点 十 ___ 上课。|分|Kami masuk kelas pukul 08.10.|点 + menit + 分|点~号
+#90 差
+现在 ___ 五 分 八 点。|差|Sekarang kurang lima menit jam delapan.|差 + menit + jam|
+差 两 ___ 十 点。|分|Kurang dua menit jam sepuluh.|差 + menit + 分|点~块
+#91 uang 块
+这 个 九 ___ 三 毛。|块|Ini 9 yuan 3 jiao.|jumlah + 块 (yuan)|个~元~分
+一 个 苹果 两 ___ 钱。|块|Sebuah apel dua yuan.|jumlah + 块|个~本~家
+#92 毛/分
+十五 块 六 ___ 三。|毛|15 yuan 6 jiao 3 fen.|毛 = 1/10 yuan|块~元~个
+这 个 杯子 三 块 五 ___。|毛|Cangkir ini 3 yuan 5 jiao.|毛 = 1/10 yuan|块~元~个
+#93 零 di tengah
+二十五 块 ___ 八 分。|零|25 yuan 0,08.|零 di tengah|
+一百 ___ 五 块。|零|105 yuan.|零 di tengah|
+#94 元 / 块
+一百 五十 ___。|块~元|Seratus lima puluh yuan.|satuan uang|个~本~家
+这 个 十 ___ 钱。|块~元|Ini sepuluh yuan.|satuan uang|个~本~家
+#95 在 preposisi
+他 ___ 手机 上 看 电影。|在|Dia menonton film di ponsel.|在 + media + kata kerja|从~给
+我 ___ 家 吃 饭。|在|Aku makan di rumah.|在 + tempat + kata kerja|从~给
+#96 从
+我们 ___ 星期一 到 星期五 工作。|从|Kami bekerja dari Senin sampai Jumat.|从 + awal + 到 + akhir|在~跟
+他 ___ 北京 来。|从|Dia datang dari Beijing.|从 + asal|在~跟
+#97 跟 / 和 preposisi
+他 ___ 老师 请假 了。|跟|Dia minta izin kepada guru.|跟 + orang + kata kerja|在~给
+我 想 ___ 你 一起 去。|跟~和|Aku ingin pergi bersamamu.|跟/和 + orang + 一起|在~给
+#98 和 / 跟 penghubung
+爸爸 ___ 妈妈 都 不 在 家。|跟~和|Ayah dan ibu tidak di rumah.|kata benda + 和 + kata benda|还是~也
+我 有 一 个 哥哥 ___ 一 个 姐姐。|和|Aku punya seorang kakak laki-laki dan seorang kakak perempuan.|menghubungkan dua benda|还是~也
+#99 还是
+你 喝 茶 ___ 喝 水？|还是|Kamu minum teh atau air?|pertanyaan pilihan|和~或者
+你 去 ___ 我 去？|还是|Kamu yang pergi atau aku?|pertanyaan pilihan|和~或者
+#100 想
+我 ___ 学 中文。|想|Aku ingin belajar bahasa Mandarin.|keinginan|会~能
+你 ___ 去 哪儿？|想|Kamu ingin pergi ke mana?|keinginan|会~能
+#101 要
+你好，我 ___ 两 个 本子。|要|Halo, aku mau dua buku tulis.|"mau" (memesan)|想~会
+我 ___ 一 杯 水。|要|Aku mau segelas air.|"mau" (memesan)|想~会
+#102 会
+他 ___ 说 汉语。|会|Dia bisa berbicara bahasa Mandarin.|bisa karena belajar|能~想
+我 不 ___ 做 中国 菜。|会|Aku tidak bisa memasak masakan Tionghoa.|bisa karena belajar|能~想
+#103 能
+明天 你 ___ 来 吗？|能|Besok bisakah kamu datang?|bisa karena kondisi|会~想
+这里 不 ___ 说 话。|能|Di sini tidak boleh bicara.|boleh/bisa menurut kondisi|会~想
+#104 perintah
+___ 进！|请|Silakan masuk!|permintaan sopan|别~不
+___ 喝 茶。|请|Silakan minum teh.|permintaan sopan|别~不
+#105 很
+你 的 房间 ___ 大。|很~非常~真|Kamarmu besar.|penghubung tingkat|太~最
+这 个 房间 ___ 小。|很~非常~真|Kamar ini kecil.|penghubung tingkat|太~最
+#106 非常
+我 ___ 喜欢 这 本 书。|非常~很~最|Aku sangat suka buku ini.|"sangat" + kata kerja psikologis|太~真
+今天 ___ 热。|非常~很~真|Hari ini sangat panas.|"sangat" + sifat|太~最
+#107 太
+这里 ___ 冷 了。|太|Di sini terlalu dingin.|太 + sifat + 了|很~真
+这 件 衣服 ___ 大 了。|太|Baju ini terlalu besar.|太 + sifat + 了|很~真
+#108 最
+我 ___ 喜欢 这 本 书。|最|Aku paling suka buku ini.|最 + kata kerja psikologis|很~太~非常
+他 是 我 ___ 好 的 朋友。|最|Dia adalah teman terbaikku.|最 + sifat|很~太~非常
+#109 真
+你 的 房间 ___ 干净！|真|Kamarmu benar-benar bersih!|真 + sifat (seruan)|很~太~最~非常
+这 个 菜 ___ 好吃！|真|Masakan ini benar-benar enak!|真 + sifat (seruan)|很~太~最~非常
+#110 还是 pilihan
+她 妈妈 是 老师 ___ 医生？|还是|Ibunya guru atau dokter?|pertanyaan pilihan|和~或者
+你 看 书 ___ 看 电视？|还是|Kamu membaca atau menonton TV?|pertanyaan pilihan|和~或者
+#111 选择问句
+你 爸爸 是 老师 ___ 是 医生？|还是|Ayahmu guru atau dokter?|pertanyaan pilihan|和~或者
+你们 坐 车 ___ 走 路？|还是|Kalian naik mobil atau jalan kaki?|pertanyaan pilihan|和~或者
+#112 V不V
+你 喝 ___ 喝 牛奶？|不|Kamu minum susu atau tidak?|kata kerja + 不 + kata kerja|没
+这 个 苹果 好 ___ 好吃？|不|Apakah apel ini enak?|sifat + 不 + sifat|没
+#113 V不V sifat
+这 本 书 贵 ___ 贵？|不|Apakah buku ini mahal?|sifat + 不 + sifat|没
+今天 冷 ___ 冷？|不|Apakah hari ini dingin?|sifat + 不 + sifat|没
+#114 V没V
+他 去 ___ 去 图书馆？|没|Apakah dia sudah pergi ke perpustakaan?|lampau: V + 没 + V|不
+你 吃 ___ 吃 早饭？|没|Apakah kamu sudah sarapan?|lampau: V + 没 + V|不
+#115 了没有
+他 回 家 了 ___？|没有|Apakah dia sudah pulang?|…了没有？|吗~吧
+你 吃 饭 了 ___？|没有|Sudah makan belum?|…了没有？|吗~吧
+#116 马上
+你 等 一下，医生 ___ 来。|马上|Tunggu sebentar, dokter segera datang.|segera|先~常~再
+我 ___ 回 家。|马上|Aku segera pulang.|segera|先~常~再
+#117 在/正/正在
+我 ___ 看 电视 呢。|在~正在|Aku sedang menonton TV.|sedang|先~常~再
+他 ___ 做 什么？|在|Dia sedang apa?|sedang|先~常~再
+#118 先
+你 ___ 走 吧。|先|Kamu pergi duluan saja.|"dulu"|再~常~马上
+我们 ___ 吃 饭，再 去 商店。|先|Kita makan dulu, lalu ke toko.|"dulu"|常~马上
+#119 有时
+我 ___ 坐 地铁 上班。|有时|Aku kadang-kadang naik kereta bawah tanah ke kantor.|kadang-kadang|常~常常~都
+他 ___ 不 吃 早饭。|有时|Kadang-kadang dia tidak sarapan.|kadang-kadang|常~常常~都
+#120 常常
+他 ___ 去 饭店 吃 饭。|常~常常|Dia sering makan di restoran.|sering|有时~都~也
+我们 ___ 一起 学习。|常~常常|Kami sering belajar bersama.|sering|有时~都~也
+#121 再
+今天 的 电影 太 好看 了，我们 明天 ___ 去 看 吧。|再|Filmnya bagus sekali, besok kita nonton lagi.|"lagi" (nanti)|先~也~马上
+请 你 ___ 说 一 遍。|再|Tolong katakan sekali lagi.|"lagi" (nanti)|先~也~马上
+#122 都
+同学们 ___ 很 认真。|都|Para murid semuanya rajin.|"semua"|也~还~常
+我们 ___ 是 中国 人。|都|Kami semua orang Tiongkok.|"semua"|也~还~常
+#123 一起
+我们 ___ 去 商店 吧。|一起~一块儿|Mari kita ke toko bersama.|"bersama"|先~再~也
+我们 常 ___ 玩儿。|一块儿~一起|Kami sering bermain bersama.|"bersama"|先~再~也
+#124 atribut
+他 在 看 ___ 书。|中文|Dia membaca buku berbahasa Mandarin.|penjelas + benda|
+这 是 一 ___ 很 好 的 手机。|个~部|Ini sebuah ponsel yang bagus.|bilangan + penggolong + penjelas|本~口~家~间
+#125 的 penjelas
+你 ___ 衣服 很 好看。|的|Bajumu bagus.|penjelas + 的 + benda|
+这 是 我 朋友 ___ 手机。|的|Ini ponsel temanku.|penjelas + 的 + benda|
+#126 地
+他 高兴 ___ 说：“我 明天 回 家。”|地|Dengan gembira dia berkata: "Besok aku pulang."|sifat + 地 + kata kerja|的~得
+她 慢慢 ___ 走。|地|Dia berjalan pelan-pelan.|keterangan + 地 + kata kerja|的~得
+#127 keterangan
+我 ___ 早上 七 点 起床。|每天|Setiap hari aku bangun pukul tujuh pagi.|keterangan waktu sebelum kata kerja|昨天~明天~今天~现在
+我 每 天 ___ 学校 学习。|在|Setiap hari aku belajar di sekolah.|tempat sebelum kata kerja|
+#128 比
+我 朋友 ___ 我 高。|比|Temanku lebih tinggi daripada aku.|A + 比 + B + sifat|跟~和~没有
+哥哥 ___ 弟弟 大。|比|Kakak lebih tua daripada adik.|A + 比 + B + sifat|跟~和~没有
+#129 没有 + sifat
+昨天 ___ 今天 热。|没有|Kemarin tidak sepanas hari ini.|A + 没有 + B + sifat|比~不
+我 ___ 他 高。|没有|Aku tidak setinggi dia.|A + 没有 + B + sifat|比~不
+#130 比
+哥哥 ___ 弟弟 高。|比|Kakak lebih tinggi daripada adik.|perbandingan "daripada"|跟~和~没有
+今天 ___ 昨天 冷。|比|Hari ini lebih dingin daripada kemarin.|perbandingan "daripada"|跟~和~没有
+#131 seruan
+今天 ___ 热 了！|太|Hari ini panas sekali!|太 + sifat + 了|很~真
+你 的 汉语 ___ 好！|真|Bahasa Mandarinmu bagus sekali!|真 + sifat|很~太~最~非常
+#132 sedang berlangsung
+外边 ___ 下 雨。|正在|Di luar sedang hujan.|正在 + kata kerja|已经~都
+他们 在 看 书 ___。|呢|Mereka sedang membaca.|在 + kata kerja + 呢|吗~吧
+#133 了 selesai
+他 买 ___ 一 本 书。|了|Dia sudah membeli sebuah buku.|kata kerja + 了 + objek|过~着
+我 昨天 看 ___ 一 个 电影。|了|Kemarin aku menonton sebuah film.|kata kerja + 了 + objek|过~着
+#134 完成态
+他 买 ___ 两 个 面包。|了|Dia membeli dua roti.|kata kerja + 了 + objek|过~着
+我 喝 ___ 一 杯 茶。|了|Aku sudah minum secangkir teh.|kata kerja + 了 + objek|过~着
+#135 副词 hubung
+他 要 去 上海，___ 要 去 北京。|还|Dia akan ke Shanghai dan juga ke Beijing.|menambah aksi|都~也~再
+我 吃 面包，___ 喝 牛奶。|还|Aku makan roti dan juga minum susu.|menambah aksi|都~也~再
+#136 kalimat setara
+我 喜欢 看 电视，弟弟 ___ 打 球。|喜欢|Aku suka menonton TV, adikku suka main bola.|klausa setara|
+他 ___ 吃 饭，___ 看 电视。|一边;一边|Dia makan sambil menonton TV.|一边……，一边……|
+#137 tanpa subjek
+___ 雨 了。|下|Hujan turun.|kata kerja cuaca tanpa subjek|
+___ 课 了，同学们 回 家 吧。|下|Pelajaran selesai, anak-anak pulanglah.|kalimat tanpa subjek|上

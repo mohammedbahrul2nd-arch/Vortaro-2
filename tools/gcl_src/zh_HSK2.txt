@@ -1,0 +1,634 @@
+// Bank Grammar Cloze zh HSK 2 — format: lihat tools/gcl_build.py. Indeks = urutan kartu zh|HSK 2 di D.G.
+#0 要
+我 ___ 去 商店 买 水果。|要|Saya mau pergi ke toko membeli buah.|kata kerja bantu "mau/akan"|想
+明天 他 ___ 来 我 家。|要|Besok dia akan datang ke rumahku.|rencana/niat di depan kata kerja|想
+#1 最
+我 ___ 喜欢 吃 面条。|最|Saya paling suka makan mi.|tingkat paling|很~太~更
+这 里 夏天 ___ 热。|最|Di sini musim panas paling panas.|tingkat paling|很~太~更
+#2 多
+这 个 班 有 二十 ___ 个 学生。|多|Kelas ini punya dua puluh lebih murid.|angka perkiraan "lebih"
+他 等 了 三 个 ___ 小时。|多|Dia menunggu lebih dari tiga jam.|angka + ___ + kata bantu bilangan
+#3 几
+桌子 上 有 ___ 本 书。|几|Di atas meja ada beberapa buku.|jumlah tak pasti kecil
+我 买 了 ___ 个 苹果。|几|Saya membeli beberapa apel.|jumlah tak pasti kecil
+#4 是不是
+你 ___ 不 舒服？|是不是|Apakah kamu tidak enak badan?|menegaskan dugaan
+他 ___ 回 国 了？|是不是|Apakah dia sudah pulang ke negaranya?|menegaskan dugaan
+#5 每
+___ 天 早上 我 都 喝 牛奶。|每|Setiap pagi saya minum susu.|kata ganti "setiap"
+___ 个 人 都 有 一 本 书。|每|Setiap orang punya sebuah buku.|kata ganti "setiap"
+#6 多 + sifat
+你 家 离 学校 ___ 远？|多|Seberapa jauh rumahmu dari sekolah?|kata tanya derajat sebelum sifat|很~太
+你 儿子 今年 ___ 大 了？|多|Berapa usia putramu tahun ini?|多 + sifat = "seberapa"|很~太
+#7 的 (frasa)
+这 本 书 是 我 ___。|的|Buku ini milikku.|frasa 的 di akhir menggantikan benda
+红色 ___ 好看，还是 蓝色 ___ 好看？|的;的|Yang merah bagus, atau yang biru bagus?|frasa sifat + 的
+#8 一下
+请 等 ___。|一下|Mohon tunggu sebentar.|kata kerja + sebentar
+我 看 ___ 你 的 手机。|一下|Saya lihat sebentar ponselmu.|kata kerja + sebentar
+#9 真
+你 的 汉语 ___ 好 啊！|真|Bahasa Mandarinmu bagus sekali!|seruan "sungguh"|很~太
+今天 ___ 热！|真|Hari ini panas sekali!|seruan "sungguh"|很~太
+#10 是……的
+你 ___ 什么 时候 来 ___？|是;的|Kamu datang kapan?|menegaskan waktu kejadian lampau
+他 ___ 坐 飞机 来 ___。|是;的|Dia datang naik pesawat.|menegaskan cara
+#11 的时候
+我 吃饭 ___ 不 看 电视。|的时候|Saat makan saya tidak menonton televisi.|"ketika"
+下雨 ___，我 在 家 看 书。|的时候|Ketika hujan, saya di rumah membaca buku.|"ketika"
+#12 已经
+饭 ___ 好 了，快 来 吃 吧。|已经|Nasi sudah siap, cepat makan.|"sudah"|都
+他 ___ 走 了。|已经|Dia sudah pergi.|"sudah" + 了|刚
+#13 就 (jiù)
+我 要 这 个，___ 买 这 个 吧。|就|Saya mau yang ini, belilah yang ini saja.|memutuskan langsung
+你 想 吃 什么，我 们 ___ 吃 什么。|就|Kamu mau makan apa, kita makan itu.|hasil langsung dari pilihan
+#14 还 (sifat)
+这 个 菜 ___ 可以，不 太 咸。|还|Masakan ini lumayan, tidak terlalu asin.|"lumayan"|很
+这 家 店 的 菜 ___ 行，不 太 贵。|还|Masakan toko ini lumayan, tidak terlalu mahal.|"lumayan"|很
+#15 有点儿
+今天 ___ 冷，多 穿 点儿 衣服。|有点儿|Hari ini agak dingin, pakai baju lebih banyak.|"agak" (kurang menyenangkan)|一点儿
+这 个 房间 ___ 小。|有点儿|Kamar ini agak kecil.|"agak" (kurang menyenangkan)|一点儿
+#16 怎么
+你 ___ 去 学校？|怎么|Kamu pergi ke sekolah bagaimana?|kata tanya cara
+这 个 字 ___ 读？|怎么|Karakter ini dibaca bagaimana?|kata tanya cara|什么
+#17 reduplikasi KBB
+我 ___ ___ 都 跑步。|天;天|Saya berlari setiap hari.|kata bantu waktu diulang = "setiap"
+___ ___ 都 有 人 来。|人;人|Setiap orang datang.|diulang = "setiap"
+#18 因为...所以
+___ 他 病 了，___ 没 来 上课。|因为;所以|Karena dia sakit, jadi tidak datang kelas.|sebab-akibat
+___ 今天 下雨，___ 我 不 出去 了。|因为;所以|Karena hari ini hujan, jadi saya tidak keluar.|sebab-akibat
+#19 masih 还
+八 点 了，孩子 ___ 在 睡觉。|还|Sudah jam delapan, anak masih tidur.|"masih"|又~再
+他 ___ 没 吃 早饭。|还|Dia masih belum sarapan.|"masih"|又~再
+#20 就 cepat
+他 六 点 ___ 起床 了。|就|Dia sudah bangun jam enam.|menyatakan lebih awal dari dugaan|才
+我 一 个 小时 ___ 到 家 了。|就|Saya sampai rumah dalam satu jam saja.|cepat/mudah|才
+#21 离
+我 家 ___ 学校 很 近。|离|Rumahku dekat dari sekolah.|jarak A ke B|从
+这 里 ___ 机场 有 十 公里。|离|Dari sini ke bandara ada sepuluh kilometer.|jarak A ke B|从
+#22 呢 pernyataan
+外面 下 雨 ___。|呢|Di luar sedang hujan, lho.|menegaskan keadaan|吗~吧
+他 还 没 回来 ___。|呢|Dia masih belum pulang, lho.|menegaskan keadaan|吗~吧
+#23 好吗
+我们 一起 去 吃饭，___？|好吗|Kita makan bersama, bagaimana?|meminta persetujuan|
+你 帮 我 一下，___？|好吗|Bantu saya sebentar, ya?|meminta persetujuan|
+#24 再
+今天 太 晚 了，明天 ___ 说 吧。|再|Hari ini terlalu malam, besok kita bicarakan lagi.|perbuatan di masa depan "lagi/nanti"|又
+请 ___ 说 一 遍。|再|Tolong katakan sekali lagi.|pengulangan di masa depan|又
+#25 让
+妈妈 ___ 我 早点儿 睡觉。|让|Ibu menyuruh saya tidur lebih awal.|kalimat poros "menyuruh"|请~叫
+老师 ___ 我们 读 课文。|让|Guru menyuruh kami membaca teks.|kalimat poros "menyuruh"|请~叫
+#26 请
+我 ___ 你 喝 茶。|请|Saya mengundangmu minum teh.|mengajak/meminta dengan sopan|让~叫
+他 ___ 我 去 他 家 玩儿。|请|Dia mengajak saya main ke rumahnya.|mengajak dengan sopan|让~叫
+#27 叫
+老板 ___ 我 去 买 东西。|叫|Bos menyuruh saya membeli barang.|menyuruh|请~让
+妈妈 ___ 弟弟 去 洗手。|叫|Ibu menyuruh adik mencuci tangan.|menyuruh|请~让
+#28 reduplikasi KK
+周末 我 想 在 家 休息 ___。|休息|Akhir pekan saya ingin istirahat sebentar.|ABAB: ulang seluruh kata
+你 尝 ___ 这 个 菜。|尝|Coba cicipi masakan ini.|AA: kata kerja diulang
+#29 pelengkap hasil
+作业 我 做 ___ 了。|完~好|PR saya sudah selesai dikerjakan.|hasil "selesai"
+这 句 话 我 听 ___ 了。|懂|Kalimat ini saya sudah paham mendengarnya.|hasil "paham"|清楚~明白~完~好
+#30 从
+我 ___ 星期一 到 星期五 上班。|从|Saya bekerja dari Senin sampai Jumat.|titik awal
+他 ___ 北京 来。|从|Dia datang dari Beijing.|titik awal|离
+#31 第
+这 是 我 ___ 一 次 来 中国。|第|Ini pertama kalinya saya datang ke Tiongkok.|penanda urutan
+他 住 在 ___ 三 层。|第|Dia tinggal di lantai ketiga.|penanda urutan
+#32 larangan
+这里 不 能 抽烟，你 ___ 抽 了。|别~不要|Di sini tidak boleh merokok, jangan merokok lagi.|larangan "jangan"|不~没
+太 晚 了，___ 玩儿 游戏 了。|别~不要|Sudah larut, jangan main game lagi.|larangan "jangan"|不~没
+#33 对
+学习 汉语 ___ 我 很 有 帮助。|对|Belajar bahasa Mandarin sangat membantu saya.|"terhadap/bagi"|给
+他 ___ 我 很 好。|对|Dia baik kepada saya.|"terhadap"|给
+#34 KK + 的
+这 是 妈妈 做 ___ 菜。|的|Ini masakan yang dibuat ibu.|penghubung keterangan kerja dan benda
+他 买 ___ 手机 很 贵。|的|Ponsel yang dia beli sangat mahal.|penghubung keterangan kerja dan benda
+#35 比
+他 ___ 我 高。|比|Dia lebih tinggi dariku.|pembanding|跟~和
+今天 ___ 昨天 冷。|比|Hari ini lebih dingin daripada kemarin.|pembanding|跟~和
+#36 可能
+他 ___ 不 知道 这 件 事。|可能|Dia mungkin tidak tahu hal ini.|"mungkin"|也许
+明天 ___ 会 下雨。|可能|Besok mungkin akan hujan.|"mungkin"|也许
+#37 得
+他 说 ___ 很 好。|得|Dia berbicara dengan sangat baik.|penghubung kata kerja dan derajat|的~地
+你 跑 ___ 真 快。|得|Kamu berlari cepat sekali.|penghubung kata kerja dan derajat|的~地
+#38 bandingan + derajat
+哥哥 比 我 跑 ___ 快。|得|Kakak berlari lebih cepat dariku.|A + 比 + B + KK + ___ + sifat|的~地
+她 比 我 唱 ___ 好。|得|Dia bernyanyi lebih baik dariku.|A + 比 + B + KK + ___ + sifat|的~地
+#39 着
+门 开 ___ 呢。|着|Pintunya terbuka, lho.|keadaan berlangsung|了~过
+他 手 里 拿 ___ 一 本 书。|着|Di tangannya memegang sebuah buku.|keadaan berlangsung|了~过
+#40 不是……吗
+你 ___ 去 北京 了 ___？|不是;吗|Bukankah kamu pergi ke Beijing?|pertanyaan retoris
+这 ___ 你 的 书 ___？|不是;吗|Bukankah ini bukumu?|pertanyaan retoris
+#41 往
+请 ___ 前 走，不 要 回头。|往|Silakan jalan ke depan, jangan menoleh.|arah gerak|从~向
+你 ___ 右 拐，就 到 了。|往|Belok ke kanan, lalu sampai.|arah gerak|从~向
+#42 过
+我 吃 ___ 北京 烤鸭。|过|Saya pernah makan bebek Peking.|pengalaman "pernah"|了~着
+你 去 ___ 日本 吗？|过|Apakah kamu pernah pergi ke Jepang?|pengalaman "pernah"|了~着
+#43 虽然...但是
+___ 天气 很 冷，___ 他 还是 去 跑步 了。|虽然;但是~可是~不过|Meskipun cuaca dingin, dia tetap pergi lari.|konsesi-kontras
+这 件 衣服 ___ 很 贵，___ 很 好看。|虽然;但是~可是~不过|Baju ini meskipun mahal, tetapi bagus.|konsesi-kontras
+#44 次
+我 去 过 两 ___ 北京。|次|Saya pernah ke Beijing dua kali.|satuan frekuensi|个
+这 个 电影 我 看 了 三 ___。|次|Film ini saya sudah tonton tiga kali.|satuan frekuensi|个
+#45 要……了
+火车 ___ 开 ___。|要~快要~就要;了|Kereta hampir berangkat.|akan segera terjadi
+春节 ___ 到 ___，我 要 回 家。|快要~就要;了|Tahun Baru Imlek hampir tiba, saya mau pulang.|akan segera terjadi
+#46 都……了
+___ 十 点 ___，你 怎么 还 不 睡觉？|都;了|Sudah jam sepuluh, kenapa belum tidur?|penekanan "sudah"
+你 ___ 二十 岁 ___，应该 自己 做 饭。|都;了|Kamu sudah dua puluh tahun, harus masak sendiri.|penekanan "sudah"
+#47 可能 modal
+他 ___ 在 办公室。|可能|Dia mungkin ada di kantor.|"mungkin"|也许
+今天 晚上 ___ 会 下雪。|可能|Malam ini mungkin akan turun salju.|"mungkin"|也许
+#48 可以
+这里 ___ 拍照 吗？|可以~能|Bolehkah memotret di sini?|"boleh"|会
+你 ___ 用 我 的 电脑。|可以~能|Kamu boleh memakai komputerku.|"boleh"|会
+#49 该 / 应该
+你 太 累 了，___ 休息 了。|该~应该|Kamu terlalu lelah, sudah waktunya istirahat.|keharusan|会
+学生 ___ 认真 学习。|应该~该|Murid seharusnya belajar dengan sungguh-sungguh.|kewajaran "seharusnya"|会
+#50 愿意
+我 ___ 帮 你 搬家。|愿意|Saya bersedia membantumu pindahan.|kesediaan|应该
+他 不 ___ 一个 人 去。|愿意|Dia tidak mau pergi sendirian.|kesediaan|应该
+#51 AA
+你 来 ___ 我 的 新 房子 吧。|看看|Datanglah lihat-lihat rumah baruku.|kata kerja diulang
+我 想 ___ 这 本 书。|看看|Saya ingin melihat-lihat buku ini.|kata kerja diulang
+#52 A一A
+让 我 尝 ___ 尝 这 个 菜。|一|Biar saya mencicipi masakan ini.|KK + 一 + KK
+你 试 ___ 试 这 件 衣服。|一|Cobalah baju ini.|KK + 一 + KK
+#53 A了A
+他 笑 ___ 笑，没 说话。|了|Dia tersenyum sejenak, tidak bicara.|KK + 了 + KK (lampau)
+我 想 ___ 想，然后 点头 了。|了|Saya berpikir sebentar, lalu mengangguk.|KK + 了 + KK (lampau)
+#54 ABAB
+下 课 以后 我们 去 公园 ___ ___ 吧。|散步;散步|Setelah kelas, mari kita jalan-jalan di taman.|ulang dua suku kata
+你 先 ___ ___ 再 走。|休息;休息|Istirahatlah sebentar dulu baru pergi.|ulang dua suku kata
+#55 多久
+你 学 了 ___ 汉语？|多久|Sudah berapa lama kamu belajar bahasa Mandarin?|menanyakan lamanya waktu|多少
+从 你 家 到 学校 要 ___？|多久|Dari rumahmu ke sekolah butuh berapa lama?|menanyakan lamanya waktu|多少
+#56 为什么
+你 ___ 不 吃 饭？|为什么|Mengapa kamu tidak makan?|kata tanya alasan|怎么
+他 ___ 今天 没 来？|为什么|Mengapa dia tidak datang hari ini?|kata tanya alasan|什么
+#57 怎么样
+你 的 工作 ___？|怎么样|Bagaimana pekerjaanmu?|menanyakan keadaan|怎么
+这 家 饭馆 ___？|怎么样|Bagaimana restoran ini?|menanyakan keadaan|怎么
+#58 大家
+___ 好，我 是 新 老师。|大家|Halo semuanya, saya guru baru.|"semuanya"|人家
+___ 都 在 等 你。|大家|Semua orang sedang menunggumu.|"semuanya"|别人
+#59 别人
+不 要 用 ___ 的 东西。|别人|Jangan memakai barang orang lain.|"orang lain"|大家
+你 别 管 ___ 怎么 说。|别人|Jangan peduli bagaimana orang lain bicara.|"orang lain"|大家
+#60 它/它们
+这 只 猫 很 可爱，我 很 喜欢 ___。|它|Kucing ini lucu, saya suka dia.|ganti hewan/benda|他~她
+我 有 两 只 狗，___ 很 听话。|它们|Saya punya dua anjing, mereka penurut.|ganti hewan jamak|他们~她们
+#61 咱们
+你 和 我 是 朋友，___ 一起 去 吧。|咱们|Kamu dan saya teman, mari kita pergi bersama.|"kita" inklusif|他们~你们
+___ 明天 去 爬山，好 吗？|咱们|Besok kita naik gunung, bagaimana?|"kita" inklusif|他们~你们
+#62 自己
+你 要 ___ 洗 衣服。|自己|Kamu harus mencuci bajumu sendiri.|"sendiri"
+他 喜欢 ___ 一 个 人 旅行。|自己|Dia suka bepergian sendirian.|"sendiri"
+#63 这么/那么
+今天 ___ 热，我 不 想 出去。|这么|Hari ini panas begini, saya tidak mau keluar.|"sedemikian" (dekat)|那么
+他 跑 得 ___ 快，我 追 不 上。|那么|Dia berlari secepat itu, saya tak bisa mengejar.|"sedemikian" (jauh)|这么
+#64 这样/那样
+你 应该 ___ 做。|这样|Kamu seharusnya melakukannya begini.|"begini"|那样
+别 ___ 说，他 会 不 高兴 的。|那样|Jangan bicara begitu, dia akan tidak senang.|"begitu"|这样
+#65 reduplikasi sifat
+她 有 一 双 大 ___ 的 眼睛。|大|Dia punya sepasang mata besar.|AA 的|
+房间 里 ___ ___ 净 净 的。|干;干|Kamar ini bersih sekali.|AABB 的|
+#66 千
+这 本 书 三 ___ 块。|千|Buku ini tiga ribu yuan.|angka ribuan
+一 ___ 个 人 来 了。|千|Seribu orang datang.|angka ribuan|万~百
+#67 万
+这 辆 车 五 ___ 块 钱。|万|Mobil ini lima puluh ribu yuan.|puluhan ribu|千~亿
+这 个 城市 有 两 ___ 人。|万|Kota ini punya dua puluh ribu orang.|puluhan ribu|千~亿
+#68 亿
+中国 有 十四 ___ 人。|亿|Tiongkok punya 1,4 miliar orang.|ratusan juta|万~千
+他 赚 了 一 ___ 块 钱。|亿|Dia mendapat seratus juta yuan.|ratusan juta|万~千
+#69 层
+这 座 楼 有 十 ___。|层|Gedung ini punya sepuluh lantai.|satuan lantai|个~条
+我 住 在 三 ___。|层|Saya tinggal di lantai tiga.|satuan lantai|个~条
+#70 封
+我 给 妈妈 写 了 一 ___ 信。|封|Saya menulis sepucuk surat untuk ibu.|satuan surat|张~本
+他 收到 两 ___ 信。|封|Dia menerima dua surat.|satuan surat|张~本
+#71 件
+这 ___ 衣服 很 漂亮。|件|Baju ini cantik.|satuan pakaian/urusan|条~个
+我 有 一 ___ 事 想 问 你。|件|Saya punya satu hal ingin kutanyakan.|satuan urusan|条~个
+#72 条
+这 ___ 河 很 长。|条|Sungai ini panjang.|satuan benda panjang|件~个
+我 买 了 一 ___ 裤子。|条|Saya membeli sebuah celana.|satuan benda panjang|件~个
+#73 位
+这 ___ 是 王 老师。|位|Bapak/Ibu ini adalah Guru Wang.|satuan orang hormat|个~条
+请问 几 ___？|位|Permisi, berapa orang?|satuan orang hormat|个~条
+#74 遍
+这 个 课文 我 读 了 三 ___。|遍|Teks ini saya baca tiga kali sampai habis.|satuan proses penuh|次~回
+请 你 再 说 一 ___。|遍|Tolong katakan sekali lagi (dari awal).|satuan proses penuh|次~下
+#75 次
+我 去 过 一 ___ 中国。|次|Saya pernah ke Tiongkok satu kali.|satuan kejadian|遍~场
+他 来 了 两 ___。|次|Dia sudah datang dua kali.|satuan kejadian|遍~场
+#76 一下儿
+请 你 帮 我 看 ___。|一下儿~一下|Tolong bantu saya lihat sebentar.|"sebentar"
+你 等 ___，我 马上 来。|一下儿~一下|Tunggu sebentar, saya segera datang.|"sebentar"
+#77 场
+昨天 下 了 一 ___ 大 雨。|场|Kemarin turun hujan lebat.|satuan peristiwa|次~回
+我们 看 了 一 ___ 电影。|场|Kami menonton satu film.|satuan peristiwa|次~回
+#78 回
+这 个 地方 我 来 过 两 ___。|回|Tempat ini sudah dua kali saya datangi.|"kali" lisan|遍~场
+你 再 去 一 ___ 吧。|回|Pergilah sekali lagi.|"kali" lisan|遍~场
+#79 durasi
+我 学 了 两 个 ___ 汉语。|星期~月~小时|Saya belajar bahasa Mandarin dua minggu.|satuan durasi|
+他 睡 了 八 个 ___。|小时~钟头|Dia tidur delapan jam.|satuan durasi|
+#80 更
+他 很 高，他 哥哥 ___ 高。|更|Dia tinggi, kakaknya lebih tinggi lagi.|"lebih"|最~太
+今天 比 昨天 ___ 冷。|更|Hari ini lebih dingin dari kemarin.|"lebih"|最~太
+#81 挺
+这 个 电影 ___ 好看 的。|挺|Film ini lumayan bagus.|挺 ... 的|很
+他 ___ 高 的。|挺|Dia cukup tinggi.|挺 ... 的|很
+#82 有一点儿
+我 ___ 累。|有一点儿~有点儿|Saya agak capek.|"agak"|一点儿
+这 个 菜 ___ 辣。|有一点儿~有点儿|Masakan ini agak pedas.|"agak"|一点儿
+#83 十分
+这 个 地方 ___ 美丽。|十分|Tempat ini sangat indah.|"sangat"|有点儿
+他 ___ 喜欢 音乐。|十分|Dia sangat suka musik.|"sangat"|有点儿
+#84 特别
+今天 ___ 热。|特别|Hari ini panas sekali.|"luar biasa"|有点儿
+她 ___ 喜欢 吃 辣。|特别|Dia sangat suka makan pedas.|"luar biasa"|有点儿
+#85 多么
+___ 美丽 啊！|多么~多|Alangkah indahnya!|seruan "alangkah"|很~太
+这 孩子 ___ 可爱 啊！|多么~多~好|Anak ini alangkah lucunya!|seruan "alangkah"|很~太
+#86 全
+同学们 ___ 来 了。|全|Para murid semuanya sudah datang.|"seluruhnya"|都
+他 的 钱 ___ 花 完 了。|全|Uangnya habis semua dipakai.|"seluruhnya"
+#87 一共
+这 些 东西 ___ 多少 钱？|一共|Semua barang ini totalnya berapa?|"total"|一起
+我们 ___ 有 五 个 人。|一共|Kami semuanya ada lima orang.|"total"|一起
+#88 只
+我 ___ 有 一 个 弟弟。|只|Saya hanya punya satu adik.|"hanya"|就
+他 ___ 会 说 英语。|只|Dia hanya bisa berbahasa Inggris.|"hanya"|就
+#89 刚
+我 ___ 到 家，你 就 打 电话 来 了。|刚~刚刚|Saya baru sampai rumah, kamu langsung menelepon.|"baru saja"|才
+他 ___ 走，你 去 追 吧。|刚~刚刚|Dia baru pergi, kejarlah.|"baru saja"|才
+#90 还 (masih)
+他 ___ 在 看 书 呢。|还|Dia masih sedang membaca.|"masih"|又
+现在 ___ 早 呢，别 着急。|还|Sekarang masih pagi, jangan terburu-buru.|"masih"|又
+#91 忽然
+天 ___ 黑 了。|忽然|Langit tiba-tiba gelap.|"tiba-tiba"|突然
+他 ___ 笑 了。|忽然|Dia tiba-tiba tertawa.|"tiba-tiba"
+#92 一直
+我 ___ 在 学 汉语。|一直|Saya terus belajar bahasa Mandarin.|"terus-menerus"|常常
+雨 ___ 下，没有 停。|一直|Hujan terus turun, tidak berhenti.|"terus-menerus"|常常
+#93 已经 (sudah)
+电影 ___ 开始 了。|已经|Film sudah dimulai.|"sudah" + 了|刚
+他 ___ 三十 岁 了。|已经|Dia sudah berusia tiga puluh.|"sudah" + 了|刚
+#94 重新
+这 篇 作文 写 错 了，我 要 ___ 写。|重新|Esai ini salah, saya akan menulis ulang.|"dari awal"|再
+电脑 坏 了，我们 ___ 买 一 台 吧。|重新|Komputer rusak, mari beli yang baru.|"dari awal"
+#95 经常
+他 ___ 去 图书馆。|经常|Dia sering pergi ke perpustakaan.|"sering"|一直
+我 ___ 给 妈妈 打 电话。|经常|Saya sering menelepon ibu.|"sering"|一直
+#96 老是
+你 ___ 迟到，老板 不 高兴。|老是~老|Kamu selalu terlambat, bos tidak senang.|keluhan "selalu"
+他 ___ 忘 带 钥匙。|老是~老|Dia selalu lupa membawa kunci.|keluhan "selalu"
+#97 又
+他 ___ 来 了。|又|Dia datang lagi.|pengulangan yang sudah terjadi|再
+昨天 下雨，今天 ___ 下 了。|又|Kemarin hujan, hari ini hujan lagi.|pengulangan yang sudah terjadi|再
+#98 就 (maka)
+如果 你 累 了，___ 休息 吧。|就|Kalau kamu lelah, istirahat saja.|penghubung "maka"
+他 一 到 家，___ 开始 做饭。|就|Begitu sampai rumah, dia langsung memasak.|penghubung "langsung"
+#99 故意
+他 ___ 不 回答 我 的 问题。|故意|Dia sengaja tidak menjawab pertanyaanku.|"sengaja"
+我 不 是 ___ 的，对不起。|故意|Saya tidak sengaja, maaf.|"sengaja"
+#100 必须
+你 ___ 在 十 点 以前 到。|必须|Kamu harus tiba sebelum jam sepuluh.|"harus"|可以
+学生 ___ 做 作业。|必须|Murid harus mengerjakan PR.|"harus"|可以
+#101 差不多
+这 两 个 包 ___ 大。|差不多|Kedua tas ini kira-kira sama besar.|"kira-kira"
+他 ___ 三十 岁。|差不多|Dia kira-kira tiga puluh tahun.|"kira-kira"
+#102 好像
+他 ___ 不 高兴。|好像|Dia sepertinya tidak senang.|"sepertinya"|也许
+外面 ___ 下雨 了。|好像|Di luar sepertinya hujan.|"sepertinya"|也许
+#103 一定
+明天 我 ___ 去。|一定|Besok saya pasti pergi.|"pasti"|可能
+你 ___ 要 小心。|一定|Kamu harus hati-hati.|"pasti/harus"|可能
+#104 也许
+他 ___ 不 在 家。|也许|Dia mungkin tidak di rumah.|"mungkin"|一定
+___ 明天 会 下雨。|也许|Mungkin besok hujan.|"mungkin"|一定
+#105 才
+他 十 点 ___ 起床。|才|Dia baru bangun jam sepuluh.|lebih lambat dari dugaan|就
+我 等 了 两 个 小时 他 ___ 来。|才|Saya menunggu dua jam dia baru datang.|lebih lambat dari dugaan|就
+#106 都……了 (lho)
+___ 十二 点 ___，快 睡觉 吧。|都;了|Sudah jam dua belas, cepat tidur.|penekanan "sudah ... lho"
+他 ___ 八 岁 ___，还 不 会 骑 车。|都;了|Dia sudah delapan tahun, belum bisa naik sepeda.|penekanan "sudah ... lho"
+#107 就 (sudah)
+我 六 点 ___ 起床 了。|就|Saya sudah bangun jam enam.|lebih awal dari dugaan|才
+他 十 分钟 ___ 做 完 了。|就|Dia hanya sepuluh menit sudah selesai.|cepat|才
+#108 正好
+你 来 得 ___，我 刚 做 好 饭。|正好|Kamu datang pas sekali, saya baru selesai masak.|"kebetulan"
+这 双 鞋 我 穿 ___。|正好|Sepatu ini pas sekali untuk saya.|"pas"
+#109 当
+___ 我 到 家 的 时候，天 已经 黑 了。|当|Ketika saya sampai rumah, hari sudah gelap.|当 ... 的时候|在
+___ 他 看 书 的 时候，我 在 做 饭。|当|Saat dia membaca, saya memasak.|当 ... 的时候|在
+#110 往
+你 ___ 前 走，就 能 看到 银行。|往|Jalan ke depan, lalu terlihat bank.|arah|向~从
+车 ___ 东 开。|往|Mobil melaju ke timur.|arah|向~从
+#111 向
+他 ___ 我 走 过来。|向|Dia berjalan menghampiriku.|menghadap ke|往~从
+请 ___ 老师 问好。|向|Sampaikan salam kepada guru.|menghadap ke|对~往
+#112 从 (rute)
+你 ___ 这儿 走，很 近。|从|Kamu lewat sini, dekat.|"lewat"|往~离
+他 ___ 窗户 看 外面。|从|Dia melihat keluar lewat jendela.|"lewat"|往~离
+#113 对 (objek)
+她 ___ 我 很 好。|对|Dia baik terhadapku.|"terhadap"|给
+他 ___ 音乐 很 有 兴趣。|对|Dia sangat tertarik pada musik.|"terhadap"|给
+#114 给
+我 ___ 妈妈 打 电话。|给|Saya menelepon ibu.|"untuk/kepada"|对
+他 ___ 我 买 了 一 本 书。|给|Dia membelikan saya sebuah buku.|"untuk/kepada"|对
+#115 离 (jarak)
+学校 ___ 我 家 不 远。|离|Sekolah tidak jauh dari rumahku.|jarak|从
+公司 ___ 地铁站 很 近。|离|Kantor dekat dari stasiun kereta.|jarak|从
+#116 为
+他 ___ 大家 做 了 很 多 事。|为|Dia mengerjakan banyak hal demi semua orang.|"demi/untuk"|对
+我们 ___ 你 高兴。|为|Kami senang untukmu.|"demi/untuk"|对
+#117 或者
+你 想 喝 茶 ___ 咖啡？|或者~或|Kamu mau minum teh atau kopi?|pilihan dalam pernyataan|还是
+星期六 ___ 星期天，你 来 都 行。|或者~或|Datang Sabtu atau Minggu boleh.|pilihan dalam pernyataan|还是
+#118 但是
+我 想 去，___ 没有 钱。|但是~但~可是|Saya ingin pergi, tetapi tidak punya uang.|"tetapi"|所以
+他 很 忙，___ 还是 来 了。|但是~但~可是|Dia sibuk, tetapi tetap datang.|"tetapi"|所以
+#119 不过
+这 件 衣服 很 好看，___ 有点儿 贵。|不过|Baju ini bagus, hanya saja agak mahal.|"hanya saja"|而且
+我 很 想 去，___ 今天 太 忙 了。|不过|Saya sangat ingin pergi, hanya saja hari ini terlalu sibuk.|"hanya saja"|而且
+#120 而且
+这 个 菜 好吃，___ 很 便宜。|而且|Masakan ini enak, dan lagi murah.|"dan lagi"|但是~不过
+他 会 说 英语，___ 会 说 汉语。|而且|Dia bisa bahasa Inggris, dan lagi bisa bahasa Mandarin.|"dan lagi"|但是~不过
+#121 那
+你 不 想 去，___ 我 一 个 人 去。|那|Kamu tidak mau pergi, kalau begitu saya pergi sendiri.|"kalau begitu"|但是
+今天 太 晚 了，___ 明天 再 来 吧。|那|Hari ini terlalu malam, kalau begitu datang lagi besok.|"kalau begitu"|但是
+#122 如果
+___ 你 有 时间，请 来 我 家。|如果|Kalau kamu ada waktu, datanglah ke rumahku.|"jika"|虽然
+___ 明天 下雨，我们 就 不 去 了。|如果|Jika besok hujan, kita tidak jadi pergi.|"jika"|虽然
+#123 虽然
+___ 他 很 年轻，但是 经验 很 多。|虽然|Meskipun dia muda, pengalamannya banyak.|"meskipun"|如果
+___ 天气 不 好，我们 还是 去 了。|虽然|Meskipun cuaca buruk, kami tetap pergi.|"meskipun"|如果
+#124 只要
+___ 你 努力，就 会 成功。|只要|Asal kamu berusaha, pasti berhasil.|"asal"|如果~虽然
+___ 有 时间，我 就 去 看 你。|只要|Asal ada waktu, saya akan menjengukmu.|"asal"|如果~虽然
+#125 得 (komplemen)
+她 唱 ___ 非常 好听。|得|Nyanyiannya sangat merdu.|penghubung komplemen|的~地
+他 吃 ___ 很 多。|得|Dia makan banyak.|penghubung komplemen|的~地
+#126 过 (pernah)
+你 看 ___ 这 个 电影 吗？|过|Pernahkah kamu menonton film ini?|pengalaman|了~着
+我 没 去 ___ 上海。|过|Saya belum pernah ke Shanghai.|pengalaman|了~着
+#127 着
+墙 上 挂 ___ 一 张 画儿。|着|Di dinding tergantung sebuah lukisan.|keadaan berlangsung|了~过
+他 坐 ___ 看 书。|着|Dia membaca sambil duduk.|keadaan berlangsung|了~过
+#128 啊
+你 真 聪明 ___！|啊|Kamu pintar sekali ya!|partikel seruan|吗~吧
+这儿 的 风景 多 美 ___！|啊|Pemandangan di sini indah sekali!|partikel seruan|吗~吧
+#129 吧 (dugaan)
+你 是 学生 ___？|吧|Kamu murid, kan?|dugaan halus|吗~呢
+他 今天 不 来 ___？|吧|Dia tidak datang hari ini, kan?|dugaan halus|吗~呢
+#130 的 (penegasan)
+我 是 坐 车 来 ___。|的|Saya datang naik mobil.|penegasan fakta lampau|了~过
+他 是 昨天 走 ___。|的|Dia pergi kemarin.|penegasan fakta lampau|了~过
+#131 的话
+你 想 去 ___，就 告诉 我。|的话|Kalau kamu mau pergi, beri tahu saya.|"kalau"|时候
+明天 下雨 ___，我们 就 不 去 了。|的话|Kalau besok hujan, kita tidak jadi pergi.|"kalau"|时候
+#132 等
+桌子 上 有 苹果、香蕉、西瓜 ___。|等|Di atas meja ada apel, pisang, semangka, dll.|"dan lain-lain"
+他 会 说 汉语、英语、日语 ___。|等|Dia bisa bahasa Mandarin, Inggris, Jepang, dll.|"dan lain-lain"
+#133 喂
+___，你 好，请问 王 经理 在 吗？|喂|Halo, permisi, apakah Manajer Wang ada?|seru di telepon|啊
+___，是 我，你 在 哪儿？|喂|Halo, ini aku, kamu di mana?|seru di telepon|啊
+#134 frasa dasar
+这 个 房间 ___ 大 ___ 干净。|又;又|Kamar ini besar dan bersih.|又……又……
+我 喜欢 吃 苹果 ___ 香蕉。|和~跟|Saya suka makan apel dan pisang.|frasa setara|或
+#135 frasa 的
+我 喜欢 红 ___。|的|Saya suka yang merah.|frasa 的 menggantikan benda
+这 是 老师 ___。|的|Ini milik guru.|frasa 的 menggantikan benda
+#136 frasa nominal
+我 买 了 一 ___ 书。|本|Saya membeli sebuah buku.|bilangan + satuan + benda|个~张
+他 有 两 ___ 狗。|只|Dia punya dua ekor anjing.|bilangan + satuan + benda|个~条
+#137 frasa verbal
+我 想 ___ 水果。|买|Saya ingin membeli buah.|kata kerja + objek
+他 ___ 看 电视。|在|Dia sedang menonton televisi.|"sedang"|有
+#138 frasa adjektival
+这 个 房间 ___ 舒服。|很~非常~特别~挺|Kamar ini sangat nyaman.|adverbia + sifat|不~没
+他 ___ 高兴。|非常~很~特别~十分|Dia sangat senang.|adverbia + sifat|不~没
+#139 不一会儿
+他 ___ 就 把 饭 做 好 了。|不一会儿|Sebentar saja dia sudah selesai masak.|"tidak lama kemudian"
+作业 不 多，我 ___ 就 写 完 了。|不一会儿|PR tidak banyak, sebentar saja sudah selesai kutulis.|"tidak lama kemudian"
+#140 什么的
+他 喜欢 看 书、听 音乐 ___。|什么的|Dia suka membaca, mendengar musik, dan sebagainya.|"dan sebagainya"|等
+桌子 上 有 笔、本子 ___。|什么的|Di meja ada pena, buku, dan sebagainya.|"dan sebagainya"|等
+#141 越来越
+天气 ___ 冷 了。|越来越|Cuaca semakin dingin.|"semakin"
+他 的 汉语 ___ 好。|越来越|Bahasa Mandarinnya makin lama makin baik.|"semakin"
+#142 还是……吧
+太 晚 了，你 ___ 回家 ___。|还是;吧|Sudah larut, sebaiknya kamu pulang saja.|"lebih baik"
+外面 很 冷，我们 ___ 在 家 看 电视 ___。|还是;吧|Di luar dingin, sebaiknya kita nonton TV di rumah.|"lebih baik"
+#143 又……又……
+这 件 衣服 ___ 好看 ___ 便宜。|又;又|Baju ini bagus dan murah.|又 A 又 B
+他 ___ 高 ___ 帅。|又;又|Dia tinggi dan tampan.|又 A 又 B
+#144 以前
+来 中国 ___，我 不 会 说 汉语。|以前|Sebelum datang ke Tiongkok, saya tidak bisa bahasa Mandarin.|"sebelum"|以后
+睡觉 ___，我 要 刷牙。|以前|Sebelum tidur, saya harus menyikat gigi.|"sebelum"|以后
+#145 以后
+下 课 ___，我们 去 吃饭。|以后|Setelah kelas, kita pergi makan.|"setelah"|以前
+毕业 ___，他 想 去 北京 工作。|以后|Setelah lulus, dia ingin bekerja di Beijing.|"setelah"|以前
+#146 ……前
+睡觉 ___ 我 常 看 书。|前|Sebelum tidur saya sering membaca.|"sebelum" singkat|后
+出门 ___ 别 忘 了 带 钥匙。|前|Sebelum keluar, jangan lupa bawa kunci.|"sebelum" singkat|后
+#147 ……后
+吃饭 ___ 我 去 散步。|后|Setelah makan saya jalan-jalan.|"setelah" singkat|前
+下班 ___ 我 想 去 超市。|后|Setelah pulang kerja saya mau ke supermarket.|"setelah" singkat|前
+#148 predikat nominal
+今天 星期 ___，明天 星期六。|五|Hari ini Jumat, besok Sabtu.|predikat nominal tanpa 是|
+这 个 苹果 三 ___ 钱。|块|Apel ini tiga yuan.|harga sebagai predikat|
+#149 错
+你 写 ___ 了 一 个 字。|错|Kamu salah menulis satu karakter.|hasil "salah"
+我 找 ___ 房间 了。|错|Saya salah cari kamar.|hasil "salah"
+#150 懂
+老师 说 的 话 你 听 ___ 了 吗？|懂|Perkataan guru sudah kamu pahami?|hasil "paham"|错~清楚
+这 本 书 我 看 不 ___。|懂|Buku ini saya tidak paham membacanya.|hasil "paham"|错~清楚
+#151 干净
+房间 我 打扫 ___ 了。|干净|Kamar sudah saya bersihkan.|hasil "bersih"|好~完
+他 把 手 洗 ___ 了。|干净|Dia sudah mencuci tangan sampai bersih.|hasil "bersih"|好~完
+#152 好
+饭 做 ___ 了，快 来 吃 吧。|好|Makanan sudah siap, cepat makan.|hasil "siap"|完~懂
+我 准备 ___ 了。|好|Saya sudah siap.|hasil "siap"|完~懂
+#153 会
+这 个 字 你 学 ___ 了 吗？|会|Karakter ini sudah kamu kuasai?|hasil "menguasai"|懂~好
+他 学 ___ 了 游泳。|会|Dia sudah belajar bisa berenang.|hasil "menguasai"|懂~好
+#154 清楚
+我 没 听 ___ 你 说 的 话。|清楚|Saya tidak mendengar jelas perkataanmu.|hasil "jelas"|懂~明白
+黑板 上 的 字 你 看 ___ 了 吗？|清楚|Tulisan di papan sudah terlihat jelas?|hasil "jelas"|懂~明白
+#155 完
+我 吃 ___ 饭 了。|完|Saya sudah selesai makan.|hasil "selesai"|好
+你 看 ___ 这 本 书 了 吗？|完|Sudah selesai membaca buku ini?|hasil "selesai"|好
+#156 来/去
+我 在 楼 下，他 从 楼 上 走 下 ___ 了。|来|Saya di bawah, dia turun dari atas (menghampiri).|arah menuju pembicara|去
+我 要 回 家 ___ 了，明天 见。|去|Saya mau pulang, sampai besok.|arah menjauhi pembicara|来
+#157 上
+他 走 ___ 楼 去 了。|上|Dia naik ke atas.|arah naik|下~进
+请 把 门 关 ___。|上|Tolong tutup pintunya.|arah menutup/naik|下~进
+#158 下
+他 从 楼 上 走 ___ 来。|下|Dia turun dari atas.|arah turun|上~出
+请 把 书 放 ___。|下|Taruh bukunya.|arah turun|上~出
+#159 进
+他 走 ___ 教室 去 了。|进|Dia masuk ke ruang kelas.|arah masuk|出~上
+车 开 ___ 了 学校。|进|Mobil masuk ke sekolah.|arah masuk|出~上
+#160 出
+他 从 包 里 拿 ___ 一 本 书。|出|Dia mengeluarkan sebuah buku dari tas.|arah keluar|进~下
+我 走 ___ 门 去。|出|Saya keluar pintu.|arah keluar|进~下
+#161 起
+他 拿 ___ 笔 写 字。|起|Dia mengambil pena lalu menulis.|arah terangkat|上~下
+请 站 ___ 来。|起|Silakan berdiri.|arah terangkat|上~下
+#162 过
+他 走 ___ 那 座 桥。|过|Dia melewati jembatan itu.|arah melewati|回~上
+车 开 ___ 去 了。|过|Mobil melaju lewat.|arah melewati|回~上
+#163 回
+他 走 ___ 家 去 了。|回|Dia berjalan pulang.|arah kembali|过~进
+请 把 书 放 ___ 书架。|回|Tolong kembalikan buku ke rak.|arah kembali|过~进
+#164 开
+他 打 ___ 门 走 了。|开|Dia membuka pintu lalu pergi.|arah membuka|上~起
+请 把 窗户 打 ___。|开|Tolong buka jendelanya.|arah membuka|上~起
+#165 状态补语
+他 说 ___ 很 流利。|得|Dia berbicara sangat lancar.|KK + ___ + sifat|的~地
+她 写 ___ 很 好。|得|Tulisannya sangat bagus.|KK + ___ + sifat|的~地
+#166 komplemen frekuensi
+我 看 过 一 ___ 这 个 电影。|次~遍|Saya pernah menonton film ini sekali.|KK + 过 + angka + satuan|个
+他 去 了 两 ___。|次~回|Dia pergi dua kali.|KK + angka + satuan|个
+#167 sifat + selisih
+我 比 他 大 两 ___。|岁|Saya dua tahun lebih tua darinya.|selisih setelah sifat|年
+这 个 比 那 个 贵 五 ___。|块~元|Ini lebih mahal lima yuan dari itu.|selisih setelah sifat
+#168 predikat nominal
+今天 十 月 ___ 号。|五|Hari ini tanggal lima Oktober.|predikat nominal tanpa 是
+他 今年 二十 ___。|岁|Dia tahun ini dua puluh tahun.|predikat nominal
+#169 有 (mencapai)
+他 ___ 一 米 八 高。|有|Dia setinggi satu meter delapan.|"mencapai"
+这 个 箱子 ___ 十 公斤 重。|有|Kotak ini seberat sepuluh kilo.|"mencapai"
+#170 keberadaan 着
+桌子 上 放 ___ 一 本 书。|着|Di atas meja terletak sebuah buku.|tempat + KK + 着 + benda|了~过
+墙 上 贴 ___ 一 张 地图。|着|Di dinding tertempel sebuah peta.|tempat + KK + 着 + benda|了~过
+#171 比 + selisih
+姐姐 ___ 我 大 两 岁。|比|Kakak perempuan dua tahun lebih tua dariku.|pembanding|跟~和
+他 ___ 我 高 五 厘米。|比|Dia lima sentimeter lebih tinggi dariku.|pembanding|跟~和
+#172 比 + 更/还
+他 的 手机 比 我 的 ___ 贵。|更~还|Ponselnya lebih mahal dari ponselku.|"lebih lagi"|很~太~非常
+今天 比 昨天 ___ 冷。|更~还|Hari ini lebih dingin dari kemarin.|"lebih lagi"|很~太~非常
+#173 不如
+我 的 汉语 ___ 他 好。|不如|Bahasa Mandarinku tidak sebaik dia.|"tidak sebagus"|没有
+坐 车 ___ 走路 快。|不如|Naik mobil tidak secepat jalan kaki.|"tidak sebagus"
+#174 有……那么
+他 ___ 我 ___ 高。|有;那么~这么|Dia setinggi aku.|A + 有 + B + 那么 + sifat|
+这 个 房间 ___ 那 个 ___ 大。|有;那么~这么|Kamar ini sebesar itu.|A + 有 + B + 那么 + sifat
+#175 跟……一样
+我 ___ 他 一样 高。|跟~和|Saya sama tinggi dengannya.|"sama dengan"|比
+这 本 书 ___ 那 本 一样 贵。|跟~和|Buku ini sama mahal dengan yang itu.|"sama dengan"|比
+#176 是……的
+我 ___ 在 北京 学 汉语 ___。|是;的|Saya belajar bahasa Mandarin di Beijing.|penekanan tempat
+他 ___ 昨天 来 ___。|是;的|Dia datangnya kemarin.|penekanan waktu
+#177 objek ganda
+老师 教 我们 ___。|汉语|Guru mengajari kami bahasa Mandarin.|O1 orang + O2 benda
+我 给 他 一 ___ 书。|本|Saya memberinya sebuah buku.|O1 orang + O2 benda
+#178 tanpa kata hubung
+下 了 课，我们 ___ 去 吃饭。|就|Setelah kelas selesai, kami pergi makan.|urutan peristiwa
+他 洗 了 手，___ 吃饭 了。|就|Dia mencuci tangan, lalu makan.|urutan peristiwa
+#179 先……再
+你 ___ 吃饭，___ 看 电视。|先;再~然后|Kamu makan dulu, baru nonton TV.|urutan
+我 ___ 去 银行，___ 去 超市。|先;再~然后|Saya ke bank dulu, lalu ke supermarket.|urutan
+#180 更 / 还 (tambahan)
+昨天 很 冷，今天 ___ 冷。|更~还|Kemarin sangat dingin, hari ini lebih dingin lagi.|tambahan|很~太
+他 很 高，他 哥哥 ___ 高。|更~还|Dia tinggi, kakaknya lebih tinggi lagi.|tambahan|很~太
+#181 不但……而且
+他 ___ 聪明，___ 努力。|不但~不仅;而且~也|Dia tidak hanya pintar, tetapi juga rajin.|tidak hanya... tetapi juga
+这 个 菜 ___ 好吃，___ 便宜。|不但~不仅;而且~也|Masakan ini tidak hanya enak, tetapi juga murah.|tidak hanya... tetapi juga
+#182 pilihan tanpa kata hubung
+你 想 喝 茶，___ 咖啡？|还是|Kamu mau minum teh atau kopi?|"atau" dalam pertanyaan|或者~或
+我们 坐 火车，___ 坐 飞机？|还是|Kita naik kereta atau pesawat?|"atau" dalam pertanyaan|或者~或
+#183 是……还是
+你 ___ 坐 火车 来 的，___ 坐 飞机 来 的？|是;还是|Kamu datang naik kereta atau pesawat?|pilihan A atau B|或者~或
+他 ___ 老师，___ 学生？|是;还是|Dia guru atau murid?|pilihan A atau B|或者~或
+#184 有点儿 (tapi agak)
+这 件 衣服 很 好看，___ 贵。|有点儿|Baju ini bagus, tapi agak mahal.|"agak"|一点儿
+房间 很 干净，___ 小。|有点儿|Kamar bersih, tapi agak kecil.|"agak"|一点儿
+#185 虽然……但是
+___ 这 个 公园 不 大，___ 很 漂亮。|虽然;但是~可是~不过|Meskipun taman ini kecil, tapi indah.|konsesi
+___ 他 很 累，___ 还 在 工作。|虽然;但是~可是~不过|Meskipun dia lelah, dia tetap bekerja.|konsesi
+#186 kondisi tanpa kata hubung
+明天 下雨，我们 ___ 不 去 了。|就|Kalau besok hujan, kita tidak jadi pergi.|hasil dari kondisi
+你 不 去，我 ___ 不 去。|也~就|Kalau kamu tidak pergi, saya juga tidak.|hasil dari kondisi
+#187 如果……就
+___ 你 有 时间，我们 ___ 一起 去 吧。|如果;就|Jika kamu ada waktu, kita pergi bersama.|jika-maka
+___ 明天 天气 好，我 ___ 去 爬山。|如果;就|Jika besok cuaca baik, saya naik gunung.|jika-maka
+#188 ……的话，就
+你 累 了 ___，就 休息 吧。|的话|Kalau kamu lelah, istirahatlah.|"kalau"
+明天 有 时间 ___，我 就 来。|的话|Kalau besok ada waktu, saya datang.|"kalau"
+#189 只要……就
+___ 你 认真 学习，___ 能 学 好。|只要;就|Asal kamu belajar tekun, pasti bisa.|syarat jaminan|如果;也
+___ 有 钱，他 ___ 去 旅游。|只要;就|Asal ada uang, dia pergi berwisata.|syarat jaminan|如果;也
+#190 sebab-akibat tanpa kata hubung
+我 太 累 了，晚饭 ___ 不 想 吃 了。|都~也|Saya terlalu capek, makan malam pun tak mau.|penekanan akibat|
+我 今天 太 忙 了，午饭 ___ 没 吃。|都~也|Saya hari ini terlalu sibuk, makan siang pun tidak sempat.|penekanan akibat
+#191 因为……所以
+___ 路 上 堵车，___ 我 迟到 了。|因为;所以|Karena jalan macet, saya terlambat.|sebab-akibat
+___ 他 很 努力，___ 成绩 很 好。|因为;所以|Karena dia rajin, nilainya bagus.|sebab-akibat
+#192 一……就
+他 ___ 回家 ___ 睡觉。|一;就|Begitu pulang dia langsung tidur.|segera setelah
+我 ___ 看 ___ 懂 了。|一;就|Begitu melihat saya langsung paham.|segera setelah
+#193 持续
+灯 亮 ___ 呢。|着|Lampunya menyala.|keadaan berlangsung|了~过
+他 站 ___ 说话。|着|Dia berbicara sambil berdiri.|keadaan berlangsung|了~过
+#194 pengalaman
+我 学 ___ 汉语。|过|Saya pernah belajar bahasa Mandarin.|pengalaman|了~着
+他 没 去 ___ 北京。|过|Dia belum pernah ke Beijing.|pengalaman|了~着
+#195 第
+我 是 ___ 一 次 来 这里。|第|Ini pertama kali saya ke sini.|penanda urutan
+他 得 了 ___ 二 名。|第|Dia meraih peringkat kedua.|penanda urutan
+#196 号楼
+我 住 在 十三 ___。|号楼|Saya tinggal di gedung nomor 13.|nomor gedung
+请问，五 ___ 在 哪儿？|号楼|Permisi, gedung nomor 5 di mana?|nomor gedung|路~层
+#197 路
+你 坐 三百零二 ___ 车。|路|Kamu naik bus rute 302.|nomor rute bus|号~层
+我 坐 五 ___ 公共 汽车 去 学校。|路|Saya naik bus rute 5 ke sekolah.|nomor rute bus|号~层
+#198 楼/层
+我 家 在 二 ___。|楼~层|Rumahku di lantai dua.|lantai
+办公室 在 五 ___。|楼~层|Kantor di lantai lima.|lantai|号
+#199 房间
+我 的 ___ 是 二百零五 号。|房间|Kamarku nomor 205.|nomor kamar|学校
+他 住 在 三百零一 ___。|房间|Dia tinggal di kamar 301.|nomor kamar
+#200 perkiraan 多
+他 买 了 三十 ___ 本 书。|多|Dia membeli tiga puluh lebih buku.|angka bulat + ___ + satuan|几
+这 个 班 有 二十 ___ 个 学生。|多|Kelas ini ada dua puluh lebih murid.|angka bulat + ___ + satuan|几
+#201 就 (penekanan)
+教学楼 ___ 在 前边。|就|Gedung kuliah tepat di depan.|"tepat"|才
+我 家 ___ 在 学校 旁边。|就|Rumahku tepat di sebelah sekolah.|"tepat"|才
+#202 好吗 / 行吗
+明天 去 看 电影，___？|好吗~行吗~可以吗~怎么样|Besok nonton film, bagaimana?|meminta persetujuan
+我 先 走 了，___？|好吗~行吗~可以吗~怎么样|Saya pergi dulu, boleh?|meminta persetujuan
+#203 kata tanya
+你们 ___ 时候 见面？|什么|Kalian bertemu kapan?|kata tanya waktu|谁~哪
+你 想 ___ 去？|怎么|Kamu mau pergi bagaimana?|kata tanya cara|谁~哪
+#204 呢 (balik)
+我 去 医院，你 ___？|呢|Saya ke rumah sakit, kamu?|pertanyaan balik|吗~吧
+我 是 学生，他 ___？|呢|Saya murid, dia?|pertanyaan balik|吗~吧
+#205 ……，是不是？
+你 要 去 打 球，___？|是不是|Kamu mau main bola, kan?|tag question|对不对
+他 是 老师，___？|是不是|Dia guru, kan?|tag question|对不对
+#206 是不是 di awal
+___ 你 拿 了 我 的 笔？|是不是|Apakah kamu yang mengambil penaku?|menegaskan dugaan
+___ 他 生病 了？|是不是|Apakah dia sakit?|menegaskan dugaan
+#207 S + 是不是
+你 ___ 想 家 了？|是不是|Apakah kamu rindu rumah?|menegaskan dugaan
+他 ___ 不 高兴？|是不是|Apakah dia tidak senang?|menegaskan dugaan
+#208 吧 (tanya)
+您 是 经理 ___？|吧|Anda manajer, kan?|dugaan halus|吗~呢
+你 昨天 没 睡好 ___？|吧|Kamu kemarin tidak tidur nyenyak, kan?|dugaan halus|吗~呢
+#209 该……了
+十二 点 了，___ 睡觉 了。|该|Sudah jam dua belas, saatnya tidur.|"sudah saatnya"|要
+你 ___ 吃药 了。|该|Kamu sudah waktunya minum obat.|"sudah saatnya"|要
+#210 要/快要/就要……了
+___ 下雨 ___。|要;了|Sudah mau hujan.|"hampir"
+电影 ___ 开始 ___。|快要~就要~要;了|Film hampir mulai.|"hampir"

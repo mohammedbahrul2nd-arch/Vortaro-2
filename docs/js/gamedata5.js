@@ -3,7 +3,7 @@ const JTID={mo:['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustu
 const JTMON={zh:[],ja:[],de:['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'],nl:['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'],en:['January','February','March','April','May','June','July','August','September','October','November','December'],eo:['januaro','februaro','marto','aprilo','majo','junio','julio','aŭgusto','septembro','oktobro','novembro','decembro']};
 const JTWD={zh:['星期一','星期二','星期三','星期四','星期五','星期六','星期日'],ja:['月曜日','火曜日','水曜日','木曜日','金曜日','土曜日','日曜日'],de:['Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag','Sonntag'],nl:['maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag','zondag'],en:['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],eo:['lundo','mardo','merkredo','ĵaŭdo','vendredo','sabato','dimanĉo']};
 for(let i=1;i<=12;i++){JTMON.zh.push(zhW(i)+'月');JTMON.ja.push(jaN(i)+'月')}
-const JTM={h:'Jam penuh',hm:'Jam + menit',qh:'Kuartal & setengah',h24:'Format 24 jam',dt:'Tanggal',wdd:'Hari + tanggal',mo:'Bulan',yr:'Tanggal + tahun',both:'Jam & tanggal sekaligus'};
+const JTM={h:'Jam penuh',hm:'Jam + menit',qh:'Kuartal & setengah',h24:'Format 24 jam',dt:'Tanggal',wdd:'Hari + tanggal',mo:'Bulan',yr:'Tanggal + tahun',both:'Jam & tanggal sekaligus',wk:'Nama hari'};
 const JTDIR={A:'Dengar → ketik/ucapkan',B:'Lihat → ucapkan'};
 const JTTT={
  zh:'点 = jam, 两点 (bukan 二点) untuk 2. Menit: 15 = 一刻, 30 = 半, 45 = 三刻 (atau 差一刻…点); 3:05 = 三点零五分 (零 menandai puluhan kosong). Keterangan waktu: 凌晨 / 上午 / 中午 / 下午 / 晚上.',
@@ -75,6 +75,7 @@ function jtClock(h,m){const a=(h%12+m/60)*30,b=m*6;let t='';for(let i=0;i<12;i++
  return `<div class=vgclkw><svg class=vgclk viewBox="0 0 100 100" role=img aria-label="Jam analog"><circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="2.5"/>${t}<line x1="50" y1="50" x2="50" y2="29" stroke="currentColor" stroke-width="4" stroke-linecap="round" transform="rotate(${a.toFixed(1)} 50 50)"/><line x1="50" y1="50" x2="50" y2="14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" transform="rotate(${b} 50 50)"/><circle cx="50" cy="50" r="3" fill="currentColor"/></svg></div>`}
 function jtCal(y,m,d){const f=jtWdIso(y,m,1),n=jtDim(y,m);let h=`<div class=vgcal><div class=vgcalt>${JTID.mo[m-1]} ${y}</div><div class=vgcalg>`+['Sen','Sel','Rab','Kam','Jum','Sab','Min'].map((x,i)=>`<b${i>4?' class=we':''}>${x}</b>`).join('');
  for(let i=1;i<f;i++)h+='<i></i>';for(let i=1;i<=n;i++)h+=`<span${i==d?' class=on':''}>${i}</span>`;return h+'</div></div>'}
+function jtWk(wd){return `<div class=vgcal><div class=vgcalt>${JTID.wd[wd-1]}</div><div class=vgcalg>`+['Sen','Sel','Rab','Kam','Jum','Sab','Min'].map((x,i)=>`<span${i==wd-1?' class=on':''}>${x}</span>`).join('')+'</div></div>'}
 /* ---- penilai ---- */
 function jtOkT(a,e,l,strict){return srJudgeTime(a,e,l,strict).ok}
 function jtDnum(a,l){const m=String(a).match(/(\d{1,2})\s*[\/.\-]\s*(\d{1,2})(?:\s*[\/.\-]\s*(\d{2,4}))?/);if(!m)return null;const g={},ord=(l=='en'||l=='zh'||l=='ja')?[m[1],m[2]]:[m[2],m[1]];g.m=+ord[0];g.d=+ord[1];if(m[3])g.y=+m[3]<100?2000+ +m[3]:+m[3];if(g.m>12||g.d>31)return null;
@@ -122,6 +123,8 @@ function jtMake(c){const l=c.l,lv=c.lv,dir=c.dir,q={L:l,dir,cell:JTM[lv]+' · '+
   q.judge=a=>jtJudgeBoth(a,e,l,[q.say,q.words]);return q}
  if(lv=='mo'){const m=vgRi(1,12),s=jtDateSay({m},l),e={m};q.exp=e;q.say=s.say;q.words=s.words;q.hn='nomor bulannya';q.kind='mo';q.ph='nomor bulan 1–12';q.inm='numeric';
   q.show=JTID.mo[m-1]+' (bulan ke-'+m+')';q.ansHtml=jtCal(2026,m,0);q.key={main:s.words,sub:s.sub,tip:tipD,x:''};q.judge=a=>jtJudgeD(a,e,l,[s.say,s.words]);return q}
+ if(lv=='wk'){const wd=vgRi(1,7),s=jtDateSay({wd},l),e={wd};q.exp=e;q.say=s.say;q.words=s.words;q.hn='nama harinya';q.kind='mo';q.ph='nama hari';q.inm='text';
+  q.show=JTID.wd[wd-1];q.ansHtml=jtWk(wd);q.key={main:s.words,sub:s.sub,tip:tipD,x:''};q.judge=a=>jtJudgeD(a,e,l,[s.say,s.words]);return q}
  /* dt, wdd, yr */
  const dd=jtRandDate(lv=='yr'),uk=Math.random()<.4,o=lv=='dt'?{m:dd.m,d:dd.d,uk}:lv=='wdd'?{m:dd.m,d:dd.d,wd:dd.wd,uk}:{y:dd.y,m:dd.m,d:dd.d,uk},s=jtDateSay(o,l);
  const e=lv=='dt'?{m:dd.m,d:dd.d}:lv=='wdd'?{wd:dd.wd,m:dd.m,d:dd.d}:{y:dd.y,m:dd.m,d:dd.d};
