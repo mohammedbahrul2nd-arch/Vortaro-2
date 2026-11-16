@@ -883,7 +883,7 @@ function fcQ(){fcRoll();const now=Date.now(),td=fcDay(now),o=S.o,sd=S.sd;
 const fcMin=a=>a.reduce((x,y)=>S.srs[x].d<=S.srs[y].d?x:y);
 function fcPick(q){const o=S.o;if(q.L.length)return fcMin(q.L);
  const nn=Math.min(q.Nw.length,q.nL),rr=Math.min(q.R.length,q.rL);
- const rp=A=>{const v=A.filter(k=>gmVerN(k)>0),B=v.length?v:A;return B[Math.random()*B.length|0]},pn=()=>{if(o.ord!='rand')return q.Nw[0];if(o.deck=='all'){const G=q.Nw.filter(k=>GK[k]),V=q.Nw.filter(k=>!GK[k]);if(G.length&&V.length){const A=Math.random()<(o.gr==null?25:o.gr)/100?G:V;return rp(A)}}return rp(q.Nw)},pr=()=>q.R[Math.random()*q.R.length|0];
+ const rp=A=>{const v=A.filter(k=>gmHasEx(k)),B=v.length?v:A;return B[Math.random()*B.length|0]},pn=()=>{if(o.ord!='rand')return q.Nw[0];if(o.deck=='all'){const G=q.Nw.filter(k=>GK[k]),V=q.Nw.filter(k=>!GK[k]);if(G.length&&V.length){const A=Math.random()<(o.gr==null?25:o.gr)/100?G:V;return rp(A)}}return rp(q.Nw)},pr=()=>q.R[Math.random()*q.R.length|0];
  if(nn&&rr){const useN=o.no=='before'||(o.no=='mix'&&Math.random()<nn/(nn+rr));return useN?pn():pr()}
  if(nn)return pn();if(rr)return pr();if(q.ah.length)return fcMin(q.ah);return null}
 function fcSync(k,n){fcQV++;if(!S.o.lk)return;S.p[k]=n.t==2&&n.i>=21?2:1;S.s[k]=1}

@@ -439,7 +439,14 @@ function gmVerMapE(){const sig=gmSig();if(GMVER.sigE==sig)return GMVER.mE;const 
  GMVER.sigE=sig;GMVER.mE=m;return m}
 function gmVerNE(k){if(GK[k]||!aiVk(k))return 0;const c=K[base(k)],es=c&&c[3][lang(k)];if(!es||es.length<2)return gmVerN(k);const e=es[ent(k)];if(!e)return 0;return gmVerMapE().get(ik(base(k),lang(k))+'|'+gmEnN(e[0]))|0}
 const aiVk=k=>String(k).indexOf('@')>=0;
-function gmVerFirst(a){if(!S.lib.length&&!S.sl.length)return a;if(!gmVerMap().size)return a;const v=[],o=[];a.forEach(k=>(gmVerN(k)>0?v:o).push(k));return v.concat(o)}
+/* v7.101.0: kartu BARU yang sudah punya contoh kalimat di Pustaka diutamakan di flashcard.
+   Kosakata = contoh terverifikasi PER ENTRI (gmVerNE); grammar = kalimat Pustaka bertag grammar (blok TAG) untuk kartu itu. */
+function gmGramMap(){const sig=gmSig();if(GMVER.sigG==sig)return GMVER.mG;const m=new Map();
+ const add=(tg)=>{if(!tg)return;const s=new Set();for(const t of tg)if(t&&t.t=='g'&&t.k)s.add(t.k);for(const k of s)m.set(k,(m.get(k)|0)+1)};
+ for(const x of S.sl)add(x.tg);for(const it of S.lib)for(const p of it.ps)if(p.tg)p.tg.forEach(tg=>add(tg));
+ GMVER.sigG=sig;GMVER.mG=m;return m}
+const gmHasEx=k=>GK[k]?(gmGramMap().get(k)|0)>0:gmVerNE(k)>0;
+function gmVerFirst(a){if(!S.lib.length&&!S.sl.length)return a;if(!gmVerMap().size&&!gmGramMap().size)return a;const v=[],o=[];a.forEach(k=>(gmHasEx(k)?v:o).push(k));return v.concat(o)}
 /* v7.40: kecocokan tag AI dengan ENTRI kartu. Tag {k:kartu,n:kata}. 1 = n sama dgn entri ini; -1 = n sama dgn entri LAIN di kartu yang sama; 0 = tak ada tag kartu / n tak dikenal. */
 const gmEnN=s=>String(s||'').toLowerCase().normalize('NFC').replace(/^(?:der|die|das|de|het|een|ein|eine|to|sich|zich)\s+/,'').replace(/[\s~〜・･\-]/g,'');
 function gmTagEnt(tg,key){if(!tg)return 0;const c=K[base(key)],es=c&&c[3][lang(key)];if(!es||es.length<2)return 1;const vk=ik(base(key),lang(key)),mine=gmEnN((es[ent(key)]||[])[0]),oth=new Set();es.forEach((e,j)=>{if(j!=ent(key))oth.add(gmEnN(e[0]))});let r=0;
@@ -485,7 +492,7 @@ function gmExBlock(key){if(!key||(!S.lib.length&&!S.sl.length))return'';const v0
   `<div class=btns style="margin-top:6px"><button class=mini data-a=libfind data-k="${esc(key)}">Lihat semua di Pustaka${v.n>v.rows.length?' ('+v.n+')':''}</button></div></div>`}
 
 /* v7.26.0 (B2): hapus satu kalimat contoh dari Pustaka lewat daftar contoh di flashcard */
-function gmDelCaches(){GMVER.sig='';GMEXC.clear();gmRoll.key='';gmRoll.rows=[];GZP.c.clear();GZP.sig='';GZV.c.clear();GZV.sig='';
+function gmDelCaches(){GMVER.sig='';GMVER.sigG='';GMVER.sigE='';GMEXC.clear();gmRoll.key='';gmRoll.rows=[];GZP.c.clear();GZP.sig='';GZV.c.clear();GZV.sig='';
  libSD.clear();libDocs.clear();libAna.clear();libAnaG.clear()}
 function gmDelSent(key,idx){const r=gmRoll.key==key?gmRoll.rows[idx]:null;if(!r||!r.o)return false;
  if(!confirm('Hapus kalimat ini dari Pustaka?\n\n'+String(r.f).slice(0,120)))return false;

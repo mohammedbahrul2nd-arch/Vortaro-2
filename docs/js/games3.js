@@ -8,7 +8,7 @@ const vgRr=()=>{try{if(typeof save=='function')save();if(typeof render=='functio
 function vgNoVoice(l){try{return typeof ttsVoice=='function'&&typeof VZ!='undefined'&&VZ.length>0&&!ttsVoice(l).v}catch(e){return false}}
 function vgInp(g){const l=VG[g].lg,o=GXO(g);return srSupported()&&o.inp!='t'&&!(l=='eo'&&srEoMode()=='off')?'v':'t'}
 function vgNext(g){const items=gxItems(g);gxFree=0;if(!items.length)return null;const q=gxQueue(g,items);let it=gxPickQ(q,items),r=null,t=0;
- while(it&&!r&&t++<6){r=VG[g].make(it);if(!r)it=gxRnd(items)}
+ while(it&&!r&&t++<6){r=it.aq?aqMake(g)(it):VG[g].make(it);if(!r)it=gxRnd(items)}
  if(r){r.g=g;r.k=it.k;r.q={n:Math.min(q.N.length,q.nL),r:Math.min(q.R.length,q.rL),l:q.L.length};r.peek=(vgNoVoice(r.L)&&r.dir=='A')||!!r.showTxt}
  vgS={};return r}
 function vgFinish(ok){const q=gxQ,g=q.g,st=gxStat(g),sc=ok?3:1,c=S.gg[q.k],had=c&&c.t;let nx='';
@@ -51,10 +51,10 @@ function vgSettings(g){const o=GXO(g),d=VG[g],sup=srSupported();
  if(!sup)h+=`<small>Browser ini belum mendukung pengenalan suara, jadi mode ⌨ Ketik aktif otomatis.</small>`;
  else if(d.lg=='eo')h+=`<small>Esperanto memakai pengenal cadangan; atur di 🎤 Suara pada daftar game.</small>`;
  h+=gxLvChips(g,o);
- h+=`<label class=fcl><span>Soal baru per hari</span><input type=number inputmode=numeric data-i=gg_x:${g}:n value="${o.n}" min=0 max=9999></label><label class=fcl><span>Maks. ulasan per hari</span><input type=number inputmode=numeric data-i=gg_x:${g}:r value="${o.r}" min=0 max=9999></label><div class=btns><button data-a=ggxrst>Reset jadwal game</button></div></div></details>`;return h}
+ h+=`<label class=fcl><span>Soal baru per hari</span><input type=number inputmode=numeric data-i=gg_x:${g}:n value="${o.n}" min=0 max=9999></label><label class=fcl><span>Maks. ulasan per hari</span><input type=number inputmode=numeric data-i=gg_x:${g}:r value="${o.r}" min=0 max=9999></label><div class=btns>${typeof aqBtn=='function'?aqBtn(g):''}<button data-a=ggxrst>Reset jadwal game</button></div></div></details>`;return h}
 function vgAns(q,r){const k=q.key||{};const sh=q.dir=='B'||!q.show?'':`<div class=vgbig2>${esc(q.show)}</div>`;
  return `${sh}<div class=gxex1>${spk(q.say,q.L)} <b>${esc(k.main||q.words)}</b></div>${k.sub?`<div class=vgsub>${esc(k.sub)}</div>`:''}${k.tip?`<div class=gxnote>💡 ${esc(k.tip)}</div>`:''}${q.ansHtml||''}${q.resHtml?q.resHtml(r):''}`}
-function vgView(g){if(!gxQ){gxQ=vgNext(g);gxRes=null}const q=gxQ;let h=gxHead(g)+vgSettings(g);
+function vgView(g){if(!gxQ){gxQ=vgNext(g);gxRes=null}if(gxQ&&gxQ.aq)return gxView(g);const q=gxQ;let h=gxHead(g)+vgSettings(g);
  if(!q)return h+`<div class="card empty"><b>Tidak ada soal</b>${VG[g].empty?esc(VG[g].empty(GXO(g))):'Pilih minimal satu tingkat pada pengaturan game.'}</div>`;
  h+=gxMeta(g,q);const r=gxRes,eff=vgInp(g),o=GXO(g);
  h+=`<div class="card gxc"><div class=hd><span>${esc(q.cell)}</span><span>${gxFree?'Latihan bebas':(S.gg[q.k]&&S.gg[q.k].t?esc(fcInfo0(S.gg[q.k])):'Baru')}</span></div>`;

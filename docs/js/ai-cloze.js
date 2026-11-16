@@ -1,5 +1,5 @@
 /* ===== Kelas AI · Cloze (v7.90): prompt soal Grammar Cloze per bahasa + impor hasil AI ke game gcl_xx =====
-   Alur: Pustaka → Kelas AI → “🧩 Soal Cloze game” (atau tombol di game Grammar Cloze) → pilih bahasa + LEVEL MAKSIMUM
+   Alur (v7.101.0): game Grammar Cloze → Pengaturan game → «➕ Soal AI» (tombol di Pustaka/Kelas AI sudah dihapus; semua game kini punya «➕ Soal AI», lihat ai-gameq.js) → pilih bahasa + LEVEL MAKSIMUM
    → salin prompt → tempel hasil AI → soal masuk ke GXO('gcl_<L>').uq[idKartu] (bentuk soal sama dengan bank GCX,
    ditambah uid di indeks 6; kunci SRS 'gc|<idKartu>|u<uid>'). Soal bank bawaan tidak disentuh.
    BATAS LEVEL: (1) prompt melarang unsur di atas level maksimum; (2) tiap soal wajib menyebut level tertingginya (kolom 7)
@@ -101,7 +101,7 @@ function aczParse(text,L,capIdx,ids){const out=[],bad=[],A=ACZ[L],cards=gcCards(
   out.push({id:cur[0],q:[sent,ng<2?gs[0]:gs.map(z=>z.length>1?z:z[0]),c[2],c[3],c[4],ban]})});
  return{ok:out,bad}}
 /* simpan soal yang lolos; kembalikan jumlah */
-function aczAdd(L,items){const o=GXO('gcl_'+L),uq=aczUq(L);if(!o.uqn)o.uqn=0;let n=0;for(const it of items){(uq[it.id]||(uq[it.id]=[])).push([...it.q,++o.uqn]);n++}
+function aczAdd(L,items){const o=GXO('gcl_'+L),uq=aczUq(L);if(!o.uqn)o.uqn=0;let n=0;if(typeof aqLibN!='undefined')aqLibN=0;for(const it of items){(uq[it.id]||(uq[it.id]=[])).push([...it.q,++o.uqn]);n++;if(typeof aqToLib=='function'&&typeof aqLibN!='undefined')aqLibN+=aqToLib(L,it.q)}
  if(typeof GCP!='undefined')GCP[L]=0;if(typeof save=='function')save();return n}
 function aczClear(L){const o=GXO('gcl_'+L);o.uq={};if(typeof GCP!='undefined')GCP[L]=0;if(typeof save=='function')save()}
 const aczCount=L=>{const u=aczUq(L);let k=0,q=0;for(const id in u){if(u[id].length){k++;q+=u[id].length}}return{k,q}};
@@ -112,7 +112,7 @@ function aczLangs(){return(typeof GCLG!='undefined'?GCLG:[]).filter(l=>ACZ[l]&&(
 function aczOpen(L){if(typeof aiClose=='function'&&document.getElementById('aim'))aiClose();aczClose();const ls=aczLangs();if(!ls.length)return;if(!ls.includes(L))L=ls[0];
  const o=aczO(),v=aczLvs(L);let c=o.aczCap[L];if(c==null||c<0||c>=v.length)c=Math.min(1,v.length-1);
  aczS={L,cap:c,cards:aczPick(L,c,o.aczN),inp:'',rep:''};
- const m=document.createElement('div');m.id='aczm';m.className='edm';m.innerHTML=`<div class=eds role=dialog aria-modal=true aria-label="Kelas AI Cloze"><div class=edh><div><b>🧩 Kelas AI · soal Cloze game</b><small>Prompt → tempel hasil → masuk ke game Grammar Cloze</small></div><button class=mini data-acz=close aria-label=Tutup>✕</button></div><div class=edb></div><div class="edf aif"><button class=pri data-acz=copy>Salin prompt</button><div class=aisites><a data-acz=site href="https://chatgpt.com/" target=_blank rel=noopener>ChatGPT</a><a data-acz=site href="https://claude.ai/new" target=_blank rel=noopener>Claude</a><a data-acz=site href="https://gemini.google.com/app" target=_blank rel=noopener>Gemini</a></div></div></div>`;
+ const m=document.createElement('div');m.id='aczm';m.className='edm';m.innerHTML=`<div class=eds role=dialog aria-modal=true aria-label="Soal AI Grammar Cloze"><div class=edh><div><b>➕ Soal AI · Grammar Cloze</b><small>Prompt → tempel hasil → masuk ke game Grammar Cloze</small></div><button class=mini data-acz=close aria-label=Tutup>✕</button></div><div class=edb></div><div class="edf aif"><button class=pri data-acz=copy>Salin prompt</button><div class=aisites><a data-acz=site href="https://chatgpt.com/" target=_blank rel=noopener>ChatGPT</a><a data-acz=site href="https://claude.ai/new" target=_blank rel=noopener>Claude</a><a data-acz=site href="https://gemini.google.com/app" target=_blank rel=noopener>Gemini</a></div></div></div>`;
  document.body.appendChild(m);document.body.style.overflow='hidden';aczPanel()}
 function aczText(){const s=aczS;return s&&s.cards.length?aczBuild(s.L,s.cap,s.cards,aczO().aczP):''}
 function aczPanel(){const s=aczS,m=document.getElementById('aczm');if(!s||!m)return;const o=aczO(),L=s.L,v=aczLvs(L),ch=(a,val,on,t)=>`<button class="chip${on?' on':''}" data-acz=${a} data-v="${val}">${t}</button>`,u=aczCount(L);
@@ -125,7 +125,7 @@ function aczPanel(){const s=aczS,m=document.getElementById('aczm');if(!s||!m)ret
  `<div class=aio style="margin-top:8px"><div class=aih><small>Kartu di prompt ini (${s.cards.length})</small><button class=mini data-acz=reroll>↻ Acak ulang</button></div><div class=aigr>${s.cards.map(g=>`<span class="aitg ${aczCnt(L,g)?'t2':'t1'}">${esc(g[4])} [${esc(gcLv(g))}] · ${aczCnt(L,g)} soal</span>`).join('')||'<small>Tidak ada kartu.</small>'}</div></div>`+
  `<div class=aio style="margin-top:12px"><div class=aih><small>Pratinjau prompt <i class=aicnt>${txt.length.toLocaleString('id-ID')} karakter</i> — boleh diedit sebelum disalin</small></div><textarea id=aczTxt spellcheck=false>${esc(txt)}</textarea></div>`+
  `<div class=aio style="margin-top:12px"><div class=aih><small>Tempel hasil AI di sini</small></div><textarea id=aczIn rows=6 spellcheck=false placeholder="#1 Judul kartu&#10;kalimat ___ | jawaban | terjemah | petunjuk | romanisasi | pengecoh | level">${esc(s.inp)}</textarea><button class=pri data-acz=import style="margin-top:6px">Tambahkan ke game</button><div id=aczRep>${s.rep}</div></div>`}
-function aczReport(res,n,cap){const f=x=>esc(String(x));let h=`<small><b>✓ ${n} soal ditambahkan ke game Grammar Cloze.</b>${res.bad.length?` ${res.bad.length} baris ditolak:`:''}</small>`;
+function aczReport(res,n,cap){const f=x=>esc(String(x));let h=`<small><b>✓ ${n} soal ditambahkan ke game Grammar Cloze</b>${n&&typeof aqLibN!='undefined'?` · ${aqLibN} kalimat baru masuk Pustaka → Kalimat (satu arah)`:''}.${res.bad.length?` ${res.bad.length} baris ditolak:`:''}</small>`;
  if(res.bad.length)h+='<ul style="margin:4px 0 0 16px;font-size:.8rem">'+res.bad.slice(0,12).map(b=>`<li>baris ${b.ln}: ${f(b.why)}</li>`).join('')+(res.bad.length>12?`<li>… dan ${res.bad.length-12} lainnya</li>`:'')+'</ul>';
  return h}
 if(typeof document!='undefined'&&document&&typeof document.addEventListener=='function'){

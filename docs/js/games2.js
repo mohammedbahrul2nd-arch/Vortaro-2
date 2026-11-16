@@ -240,10 +240,10 @@ function gxLvAct(g,v){const o=GXO(g);
   if(on){const rest=o.modes.filter(z=>!ms.includes(z));if(rest.length)o.modes=rest}else ms.forEach(z=>{if(!o.modes.includes(z))o.modes.push(z)})}
  else{if(!Array.isArray(o.lvs))o.lvs=[];if(v=='*')o.lvs=[];else{const i=o.lvs.indexOf(v);i<0?o.lvs.push(v):o.lvs.splice(i,1)}}
  gxQ=null;gxRes=null}
-function gxItems0(g){if(GXX[g])return GXX[g].cells(GXO(g));if(typeof vgIs=='function'&&vgIs(g))return VG[g].cells(GXO(g));return g=='zcl'?zcPool():g=='dad'?deCells():g=='phv'?phCells():g=='dtv'?dtCells():nlCells()}
-function gxItems(g){return gxLvFilter(g,gxItems0(g))}
+function gxItems0(g){if(gxIsGen(g))return[];if(GXX[g])return GXX[g].cells(GXO(g));if(typeof vgIs=='function'&&vgIs(g))return VG[g].cells(GXO(g));return g=='zcl'?zcPool():g=='dad'?deCells():g=='phv'?phCells():g=='dtv'?dtCells():nlCells()}
+function gxItems(g){const b=gxLvFilter(g,gxItems0(g));return typeof aqCells=='function'?b.concat(aqCells(g)):b}
 function gxNext(g){const items=gxItems(g);gxFree=0;const q=gxQueue(g,items);let it=gxPickQ(q,items),tries=0,r=null;
- while(it&&!r&&tries++<6){r=GXX[g]?GXX[g].make(it):g=='zcl'?zcMake(it):g=='dad'?deMake(it):g=='phv'?phMake(it):g=='dtv'?dtMake(it):nlMake(it);if(!r)it=gxRnd(items)}
+ while(it&&!r&&tries++<6){r=it.aq?aqMake(g)(it):GXX[g]?GXX[g].make(it):g=='zcl'?zcMake(it):g=='dad'?deMake(it):g=='phv'?phMake(it):g=='dtv'?dtMake(it):nlMake(it);if(!r)it=gxRnd(items)}
  if(r){r.sel=r.blanks.map(()=>new Set());r.q={n:Math.min(q.N.length,q.nL),r:Math.min(q.R.length,q.rL),l:q.L.length}}
  return r}
 function gxScore(q){let perfect=true,wrong=false;q.blanks.forEach((b,i)=>{const ok=new Set(b.ok),sf=new Set(b.soft||[]),s=q.sel[i],s2=new Set([...s].filter(v=>!sf.has(v)||ok.has(v)));if(!gxEq(ok,s2))perfect=false;if([...s].some(v=>!ok.has(v)&&!sf.has(v)))wrong=true});return perfect?3:wrong?1:2}
@@ -253,12 +253,12 @@ function gxFinish(){const q=gxQ,g=q.g,sc=gxScore(q),st=gxStat(g);
  st.a++;if(sc==3)st.ok++;gxSes.n++;if(sc==3){gxSes.ok++;gxSes.st++;gxSes.best=Math.max(gxSes.best,gxSes.st)}else gxSes.st=0;
  gxRes={sc,next:nx,free:gxFree};buzz(sc==3?10:[16,40,16])}
 function gxAct(a,x,k){if(a.startsWith('ggxv')&&typeof vgAct=='function'&&vgAct(a,x,k))return;if(typeof srAct=='function'&&(a=='ggxsr'||a=='ggxsro'||a=='ggxsrx')){srAct(a,x,k);return}const g=gxCur,o=g&&!gxIsGen(g)&&GXO?GXO(g):null;
- if(a=='ggxopen'){gxCur=x;if(gxIsGen(x)){ggO().ggl=x=='gnl'?'nl':'de';ggCur=null;ggRes=null}gxQ=null;gxRes=null;gxSes={n:0,ok:0,st:0,best:0};scrollTo(0,0)}
+ if(a=='ggxopen'){gxCur=x;if(typeof aqSolo!='undefined')aqSolo='';if(gxIsGen(x)){ggO().ggl=x=='gnl'?'nl':'de';ggCur=null;ggRes=null}gxQ=null;gxRes=null;gxSes={n:0,ok:0,st:0,best:0};scrollTo(0,0)}
  else if(a=='ggxlv'&&g){gxLvAct(g,x)}
  else if(a=='ggxedit'){gxEdit=gxEdit?0:1}
  else if(a=='ggxmv'){gxMove(x,k)}
  else if(a=='ggxord0'){delete S.o.gxOrd}
- else if(a=='ggxhome'){gxCur=null;gxQ=null;gxRes=null;ggCur=null;ggRes=null}
+ else if(a=='ggxhome'){if(typeof aqSolo!='undefined')aqSolo='';gxCur=null;gxQ=null;gxRes=null;ggCur=null;ggRes=null}
  else if(a=='ggxpick'&&gxQ&&!gxRes){const i=+x,b=gxQ.blanks[i],s=gxQ.sel[i];if(b.multi){s.has(k)?s.delete(k):s.add(k)}else{s.clear();s.add(k);if(gxQ.sel.every(z=>z.size)){gxFinish()}}}
  else if(a=='ggxchk'&&gxQ&&!gxRes&&gxQ.sel.every(z=>z.size))gxFinish();
  else if(a=='ggxgct'||a=='ggxgcf'||a=='ggxgcf0'){gcAct(a,x,k)}
@@ -272,7 +272,7 @@ function gxAct(a,x,k){if(a.startsWith('ggxv')&&typeof vgAct=='function'&&vgAct(a
   if(!e.rej.length&&!e.add.length)delete o.ov[id]}
  else if(a=='ggxov0'&&o){if(confirm('Hapus semua laporan/penolakan pribadi penggolong?'))o.ov={}}
  else if(a=='ggxflag'&&o){o[x]=o[x]?0:1;gxQ=null;gxRes=null}
- else if(a=='ggxrst'){if(confirm('Hapus semua jadwal game ini?')){const p={zcl:['zc|','zv|'],dad:['dr|de|'],dnl:['dr|nl|'],phv:['ph|'],dtv:['dv|']}[g]||(GXX[g]?[GXX[g].pre]:null)||(typeof vgIs=='function'&&vgIs(g)?[VG[g].pre]:[]);for(const key of Object.keys(S.gg))if(p.some(z=>key.startsWith(z)))delete S.gg[key];gxQ=null;gxRes=null}}}
+ else if(a=='ggxrst'){if(confirm('Hapus semua jadwal game ini?')){const p=({zcl:['zc|','zv|'],dad:['dr|de|'],dnl:['dr|nl|'],phv:['ph|'],dtv:['dv|']}[g]||(GXX[g]?[GXX[g].pre]:null)||(typeof vgIs=='function'&&vgIs(g)?[VG[g].pre]:[])).concat(['aq|'+g+'|']);for(const key of Object.keys(S.gg))if(p.some(z=>key.startsWith(z)))delete S.gg[key];gxQ=null;gxRes=null}}}
 function ggAct(a,x,k){if(a.startsWith('ggx'))return gxAct(a,x,k);return ggGenAct(a,x,k)}
 function ggSet(i,el){if(i.startsWith('gg_x:')){const [,g,f]=i.split(':'),o=GXO(g),v=parseInt(el.value);if(isFinite(v))o[f]=Math.max(0,Math.min(9999,v));gxQ=null;gxRes=null;return}return ggGenSet(i,el)}
 /* ============ tampilan ============ */
@@ -286,31 +286,31 @@ function gxOptBtn(q,i,v,res){const b=q.blanks[i],on=q.sel[i].has(v),ok=b.ok.incl
  return `<button class="${c}" data-a=ggxpick data-v=${i} data-k="${esc(v)}"${res?' disabled':''}>${esc(lbl)}${res&&ok&&!on?'<i>benar</i>':''}</button>`}
 function gxHead(g,sub){const m=GXL.find(z=>z.id==g);return `<div class=gxbar><button class=gxback data-a=ggxhome aria-label="Kembali ke daftar game">‹ Games</button><b>${esc(m.t)}</b><span class=gxses title="Sesi ini">${gxSes.n?`${gxSes.ok}/${gxSes.n}`:''}${gxSes.st>=3?` 🔥${gxSes.st}`:''}</span></div>`}
 function gxChips(label,list,cur,field,names){return `<small>${label}</small><div class=chips>${list.map(v=>`<button class="chip${cur.includes(v)?' on':''}" data-a=ggxtg data-v="${field}:${v}">${esc(names?names[v]||v:v)}</button>`).join('')}</div>`}
-function gxSettings(g){const o=GXO(g);let h=`${dtag('gxs_'+g)}<summary><span>Pengaturan game</span></summary><div class=card>`;
+function gxSettings(g){if(gxIsGen(g)&&typeof aqGenSettings=='function')return aqGenSettings(g);const o=GXO(g);let h=`${dtag('gxs_'+g)}<summary><span>Pengaturan game</span></summary><div class=card>`;
  if(g=='zcl')h+=`<small>Latihan suara</small><div class=chips><button class=chip data-a=ggxopen data-v=px_zh>💴 Harga & satuan Mandarin (suara)</button></div><small>Kategori kata</small><div class=chips><button class="chip${o.cats.length?'':' on'}" data-a=ggxtg data-v="cats:*">Semua</button>${Object.keys(ZCCAT).map(c=>`<button class="chip${o.cats.includes(c)?' on':''}" data-a=ggxtg data-v="cats:${c}">${ZCCAT[c]}</button>`).join('')}</div><label class=fcl><span>Termasuk soal penggolong verbal (次, 遍, 场…)</span><input type=checkbox ${o.verb?'checked ':''}data-a=ggxflag data-v=verb></label><small>Penerimaan jawaban</small><div class=chips>${[['b','Baku saja'],['l','Baku + lisan lazim'],['a','Semua']].map(z=>`<button class="chip${o.acc==z[0]?' on':''}" data-a=ggxacc data-v=${z[0]}>${z[1]}</button>`).join('')}</div><small>Jawaban di luar tingkat yang dipilih tidak dihitung salah, hanya diberi label.${Object.keys(o.ov||{}).length?` Laporan pribadi: ${Object.keys(o.ov).length} kata. <button class=chip data-a=ggxov0>Hapus semua</button>`:''}</small><label class=fcl><span>Pinyin di soal</span><input type=checkbox ${o.py?'checked ':''}data-a=ggxflag data-v=py></label>`;
  else if(g=='dtv')h+=gxChips('Jenis soal',Object.keys(DTM),o.modes,'modes',DTM)+`<small>Semua jenis soal mencakup verba trennbar dan untrennbar sekaligus. Pilih prefiks: trennbar → prefiks di akhir klausa; untrennbar → prefiks menempel pada verba. Minimal satu jenis soal aktif.</small>`;
  else if(g=='phv')h+=gxChips('Jenis soal',Object.keys(PHM),o.modes,'modes',PHM)+`<small>Kalimat contoh disertai terjemahan Indonesia; minimal satu jenis soal aktif.</small>`;
  else if(GXX[g])h+=gxChips('Jenis soal',Object.keys(GXX[g].modes),o.modes,'modes',GXX[g].modes)+(GXX[g].note||'');
  else{const lv=ggLv(g=='dad'?'de':'nl');h+=gxChips('Jenis soal',g=='dad'?Object.keys(DEM):Object.keys(NLM),o.modes,'modes',g=='dad'?DEM:NLM);if(g=='dad')h+=gxChips('Kasus',DEC,o.cases,'cases',{Nom:'Nominativ',Akk:'Akkusativ',Dat:'Dativ',Gen:'Genitiv'});h+=gxChips('Level kata benda',lv,o.lv,'lv');h+=`<small>Level kosong = semua level.</small>`}
  h+=gxLvChips(g,o);
- h+=`<label class=fcl><span>Soal baru per hari</span><input type=number inputmode=numeric data-i=gg_x:${g}:n value="${o.n}" min=0 max=9999></label><label class=fcl><span>Maks. ulasan per hari</span><input type=number inputmode=numeric data-i=gg_x:${g}:r value="${o.r}" min=0 max=9999></label><div class=btns><button data-a=ggxrst>Reset jadwal game</button></div></div></details>`;return h}
+ h+=`<label class=fcl><span>Soal baru per hari</span><input type=number inputmode=numeric data-i=gg_x:${g}:n value="${o.n}" min=0 max=9999></label><label class=fcl><span>Maks. ulasan per hari</span><input type=number inputmode=numeric data-i=gg_x:${g}:r value="${o.r}" min=0 max=9999></label><div class=btns>${typeof aqBtn=='function'?aqBtn(g):''}<button data-a=ggxrst>Reset jadwal game</button></div></div></details>`;return h}
 function gxMeta(g,q){const st=gxStat(g);return `<div class=fcc><span class=k1><b>${q?q.q.n:0}</b><small>Baru</small></span><span class=k2><b>${q?q.q.l:0}</b><small>Belajar</small></span><span class=k3><b>${q?q.q.r:0}</b><small>Ulas</small></span></div>`}
 function zcRes(q){const A=q.A,ov=(GXO('zcl').ov||{})[q.k]||{},rj=ov.rej||[],ad=ov.add||[],sel=[...q.sel[0]],okS=new Set(q.blanks[0].ok),sfS=new Set(q.blanks[0].soft||[]);
  const li=A.all.map(({c,t})=>{const f=q.full(c),ign=sfS.has(c);return `<li><span class=gxzh>${esc(f[0])}</span> ${spk(q.say(c),'zh')}<small>${esc(f[1])}</small><em>${esc(c)} ${esc((ZCL[c]||['',''])[0])} — ${esc((ZCL[c]||['',''])[1])} <span class="zct ${t}">${ZCTN[t]}${ign?' · tidak dihitung':''}</span></em>${ad.includes(c)||rj.includes(c)?`<button class=zcfl data-a=ggxov data-v=clr data-k="${esc(c)}">↺ Batalkan laporan ${esc(c)}</button>`:`<button class=zcfl data-a=ggxov data-v=rej data-k="${esc(c)}">🚩 Tolak ${esc(c)}</button>`}</li>`}).join('');
  const wrong=sel.filter(c=>!okS.has(c)&&!sfS.has(c)&&!A.all.some(a=>a.c==c)&&!ad.includes(c)),undo=rj.filter(c=>!A.all.some(a=>a.c==c)).map(c=>`<button class=zcfl data-a=ggxov data-v=clr data-k="${esc(c)}">↺ Batalkan penolakan ${esc(c)}</button>`).join('');
  const fb=wrong.map(c=>`<button class=zcfl data-a=ggxov data-v=add data-k="${esc(c)}">🚩 ${esc(c)} juga benar, terima</button>`).join('')+ad.filter(c=>!A.all.some(a=>a.c==c)).map(c=>`<button class=zcfl data-a=ggxov data-v=clr data-k="${esc(c)}">↺ Batalkan tambahan ${esc(c)}</button>`).join('')+undo;
  return `<ul class=gxex>${li}</ul>${q.note?`<div class=gxnote>💡 ${esc(q.note)}</div>`:''}${fb?`<div class=zcfb><small>Tidak setuju dengan kunci ini? Laporanmu disimpan di perangkat dan dipakai pada soal berikutnya.</small>${fb}</div>`:''}`}
-function gxView(g){if(typeof vgIs=='function'&&vgIs(g))return vgView(g);if(!gxQ){gxQ=gxNext(g);gxRes=null}const q=gxQ;let h=gxHead(g)+gxSettings(g);
+function gxView(g){if(typeof vgIs=='function'&&vgIs(g)&&!(gxQ&&gxQ.aq))return vgView(g);if(!gxQ){gxQ=gxNext(g);gxRes=null}const q=gxQ;let h=gxHead(g)+(typeof vgIs=='function'&&vgIs(g)?vgSettings(g):gxSettings(g));
  if(!q)return h+`<div class="card empty"><b>Tidak ada soal</b>${GXX[g]&&GXX[g].empty?esc(GXX[g].empty):'Ubah filter pada pengaturan game.'}</div>`;
  h+=gxMeta(g,q);const r=gxRes,res=!!r,full=q.sel.every(z=>z.size);
  h+=`<div class="card gxc"><div class=hd><span>${esc(q.cell)}</span><span>${gxFree?'Latihan bebas':(S.gg[q.k]&&S.gg[q.k].t?esc(fcInfo0(S.gg[q.k])):'Baru')}</span></div>`;
- h+=`<div class="gxs${g=='zcl'||g=='gcl_zh'||g=='gcl_ja'?' zh':''}">${gxSent(q,res)}</div>`;
- if(g=='zcl'){h+=`<div class=gxtr>${esc(q.tr)}</div>${GXO('zcl').py||res?`<div class=gxpy>${esc(q.py.replace(/___/g,res?q.blanks[0].ok.map(c=>(ZCL[c]||[c])[0]).join('/'):'___'))}</div>`:''}`}
+ h+=`<div class="gxs${g=='zcl'||g=='gcl_zh'||g=='gcl_ja'||(q.aq&&(q.L=='zh'||q.L=='ja'))?' zh':''}">${gxSent(q,res)}</div>`;
+ if(g=='zcl'&&!q.aq){h+=`<div class=gxtr>${esc(q.tr)}</div>${GXO('zcl').py||res?`<div class=gxpy>${esc(q.py.replace(/___/g,res?q.blanks[0].ok.map(c=>(ZCL[c]||[c])[0]).join('/'):'___'))}</div>`:''}`}
  else h+=`<div class=gxtr>${esc(q.tr)}</div>${q.hint?`<div class=gxl>💡 ${esc(q.hint)}</div>`:''}`;
  q.blanks.forEach((b,i)=>{if(q.typ){if(!res)h+=`<div class=gxl>${esc(b.lab||'Jawabanmu')}</div><div class=vgtype><input id=gcin${i} type=text enterkeyhint=done autocomplete=off autocapitalize=off spellcheck=false lang=${q.L=='eo'?'eo':q.L} placeholder="Ketik bagian yang rumpang"></div>`;return}h+=`<div class=gxl>${esc(b.lab||'')}${b.multi?' <em>(bisa lebih dari satu)</em>':''}</div><div class="gxg${b.opts.length>6?' w':''}${b.opts.some(v=>v.length>9)?' l':''}">${b.opts.map(v=>gxOptBtn(q,i,v,res)).join('')}</div>`});
  if(!res)h+=`<div class=dock>${q.typ?`<button class=pri data-a=ggxgct>Periksa</button><button class=chip data-a=ggxgct data-v=skip>Tidak tahu</button>`:q.blanks.some(b=>b.multi)||q.blanks.length>1?`<button class=pri data-a=ggxchk${full?'':' disabled'}>Periksa</button>`:''}</div>`;
  if(res){const sc=r.sc;let body='';
-  if(g=='zcl'){body=zcRes(q)}
+  if(g=='zcl'&&!q.aq){body=zcRes(q)}
   else body=`<div class=gxex1>${spk(q.fullTxt,q.L)} <b>${esc(q.fullTxt)}</b></div><div class=gxnote>${q.expl}</div>${q.resHtml?q.resHtml(r):''}`;
   h+=`<div class="ggr ${sc==3?'ok':sc==2?'part':'bad'}"><b>${sc==3?'✓ Benar':sc==2?'◐ Sebagian benar — masih ada jawaban lain':'✗ Belum tepat'}</b>${r.free?'<small>Latihan bebas (tidak mengubah jadwal)</small>':r.next?`<small>Muncul lagi: ${esc(r.next)}</small>`:''}${body}</div><div class=dock><button class=pri data-a=ggxnext>Lanjut</button></div>`}
  return h+`</div>`}
@@ -326,4 +326,4 @@ function gxHub(){const T=(m,ix,n)=>{let st='';
  else list=GXLG.map(([lg,nm])=>{const ms=ord.filter(m=>m.lg==lg);return ms.length?`<div class=gxgrp>${nm}</div>`+ms.map(m=>T(m,0,0)).join(''):''}).join('');
  const tot=Object.values((S.gxd&&S.gxd.d==gxDay()?S.gxd.g:{})).reduce((a,x)=>({a:a.a+x.a,ok:a.ok+x.ok}),{a:0,ok:0});
  return `<div class=gxhero><b>${tot.a?`${tot.ok}/${tot.a} benar hari ini`:'Pilih game untuk mulai'}</b><small>Latihan singkat 2–5 menit. Jadwal ulasan terpisah dari kartu utama.</small></div><div class=gxtools><button class=chip data-a=ggxsro>🎤 Suara</button><button class=chip data-a=ggxedit>${gxEdit?'✓ Selesai mengatur':'↕ Atur urutan'}</button>${gxEdit&&custom?'<button class=chip data-a=ggxord0>Kembalikan urutan per bahasa</button>':''}</div><div class=gxlist>${list}</div>`}
-function ggView(){if(typeof srIsOpen=='function'&&srIsOpen())return srSettingsView();if(!gxCur)return gxHub();if(gxIsGen(gxCur)){ggO().ggl=gxCur=='gnl'?'nl':'de';return `<div class=gxbar><button class=gxback data-a=ggxhome aria-label="Kembali ke daftar game">‹ Games</button><b>${esc(GXL.find(z=>z.id==gxCur).t)}</b><span></span></div>`+ggGenView()}return gxView(gxCur)}
+function ggView(){if(typeof srIsOpen=='function'&&srIsOpen())return srSettingsView();if(!gxCur)return gxHub();if(gxIsGen(gxCur)&&typeof aqSolo!='undefined'&&aqSolo==gxCur)return aqSoloView(gxCur);if(gxIsGen(gxCur)){ggO().ggl=gxCur=='gnl'?'nl':'de';return `<div class=gxbar><button class=gxback data-a=ggxhome aria-label="Kembali ke daftar game">‹ Games</button><b>${esc(GXL.find(z=>z.id==gxCur).t)}</b><span></span></div>`+ggGenView()+(typeof aqGenCard=='function'?aqGenCard(gxCur):'')}return gxView(gxCur)}
