@@ -1,3 +1,32 @@
+## 7.100.0 — Grammar Cloze: nl A1 lengkap (Putaran 1, tahap 7)
+- **Isi**: nl A1 = 98/98 kartu (100%), 196 soal di `tools/gcl_src/nl_A1.txt` → `docs/js/gamedata19.js` (bahasa nl baru; didaftarkan di index.html, SHELL sw.js, tests/load.js). Mencakup ejaan/bunyi (kata utuh dengan petunjuk), konjugasi presens + modal, imperatif, de/het/een, jamak, pronomen, demonstratif, urutan kata, geen/niet, er is/zijn, angka, hari/bulan/jam, preposisi, salam.
+- `GCK.nl` (gamedata14.js): kelas pengecoh nl — preposisi, artikel, demonstratif, pronomen, posesif, kata kerja bantu/modal, kata tanya, ja/nee/jawel.
+- Sebaran panjang nl A1: 103 pendek / 86 sedang / 7 panjang (GCLT default [5,8]; mungkin turunkan ambang nl setelah A2).
+- Tes: GCMIN['nl A1']=100, nq>=2432, made>=4864; test_gcl bagian 6 (bahasa tanpa bank) kini memakai eo. Semua 37 tes lulus. Total 1216/3496 kartu (34,8%).
+
+## 7.99.0 — Grammar Cloze: en A2 lengkap (Putaran 1, tahap 6)
+- **Isi**: en A2 = 153/153 kartu (100%), 306 soal di `tools/gcl_src/en_A2.txt` → `docs/js/gamedata18.js` (en total 218 kartu, 436 soal): reflexive, uncountable, modal (would/should/can/could/may/must), present perfect, past continuous, will/going to/shall, adverbia, komparatif/superlatif, gerund/infinitive, preposisi + verba/adjektiva, kondisional 0/1, direct speech, interjeksi.
+- Sebaran panjang en (A1+A2): 109 pendek / 226 sedang / 101 panjang (GCLT default [5,8]).
+- Tes: GCMIN['en A2']=100, nq>=2236, made>=4472. Semua 37 tes lulus. Total 1118/3496 kartu (32,0%).
+
+## 7.98.0 — Grammar Cloze: en A1 lengkap (Putaran 1, tahap 5)
+- **Isi**: en A1 = 65/65 kartu (100%), 130 soal di `tools/gcl_src/en_A1.txt` → `docs/js/gamedata18.js` (bahasa en baru; didaftarkan di index.html, SHELL sw.js, tests/load.js).
+- `GCK.en` (gamedata14.js): kelas pengecoh en — artikel, preposisi, pronomen, possessive, demonstratif, be/do/have/modal, and/but/or, kata tanya, some/any.
+- Sebaran panjang en A1: 51 pendek / 66 sedang / 13 panjang (GCLT default [5,8]).
+- Tes: GCMIN['en A1']=100, nq>=1930, made>=3860. Semua 37 tes lulus. Total 965/3496 kartu (27,6%).
+
+## 7.97.0 — Susun kalimat (Speaking Cloze) berbentuk nomor + legenda · level penuh di Cloze · tombol Cloze AI di Pustaka
+- **Speaking Cloze (scl_xx)**: kerangka kini hanya baris slot bernomor bergaris bawah (`1＿＿＿ 2＿＿＿，` …). Di bawahnya ada legenda per nomor: slot **clue** menampilkan kata petunjuknya (dan label struktur bila dibuka), slot lain bertulis «🔒 tersembunyi». Bank kosakata, petunjuk grammar, tombol bantuan tetap. Kode: `scFrame` (gamedata10.js), gaya `.scnum/.sck*` (app.css).
+- **Grammar Cloze (gcl_xx)**: chip level kini menampilkan SEMUA level bahasa itu (dulu hanya yang sudah punya soal, mis. ja hanya N5/N4). Catatan pengaturan memuat «Soal per level» (`gcLvCount`); pesan kosong mengarahkan ke tombol Kelas AI. Semua game lain sudah punya chip level (diaudit 49 game lewat browser).
+- **Pustaka**: tombol «🧩 Cloze AI» (pembuat prompt soal Cloze) di header Pustaka, sebelah «🎓 Kelas AI» (dulu hanya terkubur di dalam panel Kelas AI · isi Pustaka dan di pengaturan game).
+- `tests/test_gcl.js`: tes `lvl.length==GCV[L].length` per bahasa. Isi bank soal tidak berubah (900/3496 kartu).
+
+## 7.96.0 — Grammar Cloze: de A2 lengkap (Putaran 1, tahap 4)
+- **Isi**: de A2 = 93/93 kartu (100%), 186 soal di `tools/gcl_src/de_A2.txt` → `docs/js/gamedata17.js` (de total 195 kartu, 390 soal): kata kerja terpisah, perubahan vokal, modal, refleksif, artikel & pronomen Dativ, preposisi, Perfekt & Präteritum, konjungsi.
+- `GCK.de` (gamedata14.js) diperluas: konjungsi, pronomen Dativ, refleksif, kata kerja bantu, artikel Dativ, preposisi tambahan.
+- Sebaran panjang de A2: 14 pendek / 100 sedang / 72 panjang (`GCLT.de=[4,6]` tetap).
+- `tests/test_gcl.js`: `GCMIN['de A2']=100`, `nq>=1800`, `made>=3600`. Semua tes lulus; cek browser tanpa pageerror.
+
 ## 7.95.0 — Grammar Cloze: de A1 lengkap (Putaran 1, tahap 3)
 - **Isi**: de A1 = 102/102 kartu (100%), 204 soal di `tools/gcl_src/de_A1.txt` → `docs/js/gamedata17.js` (bahasa ke-3 selain zh/ja). Celah = konjugasi (sein/haben/werden/modal), imperatif, artikel Nominativ/Akkusativ, kein/nicht, pronomen Akkusativ, urutan kata & kata tanya, angka, hari/bulan/jam, dan semua preposisi (Dativ/Akkusativ/Wechsel). Kartu Wechselpräposition: soal 2 menguji artikel (den/dem, die/der, das/dem).
 - **Pemasangan bahasa baru**: `gamedata17.js` ditambahkan ke index.html, SHELL sw.js, tests/load.js.

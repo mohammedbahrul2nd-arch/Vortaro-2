@@ -1,0 +1,460 @@
+// Bank Grammar Cloze en A2 — format: lihat tools/gcl_build.py. Kolom: kalimat | jawaban(~alt) | terjemah | petunjuk | (romanisasi kosong) | pengecoh terlarang
+#0 enough
+He didn't run fast ___ to win.|enough|Dia tidak berlari cukup cepat untuk menang.|adj/adv + enough||
+We have ___ chairs for everyone. (cukup)|enough|Kita punya cukup kursi untuk semua orang.|enough + noun||
+#1 infleksi
+One mouse, two ___.|mice|Satu tikus, dua tikus.|jamak tak beraturan||
+This tree is tall, but that one is ___. (lebih tinggi)|taller|Pohon ini tinggi, tapi yang itu lebih tinggi.|adj + -er||
+#2 possessive pronoun
+Hey, that book is ___! I bought it!|mine|Hei, buku itu milikku! Saya yang membelinya!|milik I, berdiri sendiri||my
+This isn't my pen. Is it ___? (milikmu)|yours|Ini bukan penaku. Apakah ini milikmu?|milik you → yours||your
+#3 reflexive pronoun
+I saw ___ in the mirror.|myself|Saya melihat diri saya di cermin.|subjek = objek, I||me
+The children taught ___ to swim.|themselves|Anak-anak itu belajar berenang sendiri.|they → themselves||them
+#4 indefinite pronoun orang
+Would ___ like a drink?|anyone~anybody|Adakah yang mau minum?|tanya → any + one||someone
+___ was at home, so I left a note. (tidak ada orang)|No one~Nobody|Tidak ada orang di rumah, jadi saya meninggalkan catatan.|no + one||
+#5 indefinite pronoun benda
+Is there ___ you'd like to say?|something~anything|Adakah sesuatu yang ingin kamu katakan?|some/any + thing||
+I looked everywhere, but I found ___. (tidak ada apa pun)|nothing|Saya mencari ke mana-mana, tapi tidak menemukan apa pun.|no + thing||
+#6 demonstrative waktu/orang
+___ is Amy standing by the door. (jauh)|That|Itu Amy yang berdiri di dekat pintu.|menunjuk orang di sana||This
+We went to Paris last year. ___ was a great trip.|That~It|Kami pergi ke Paris tahun lalu. Itu perjalanan yang bagus.|merujuk hal yang lalu||This
+#7 whose sebagai pronoun
+___ is this computer? It's Mia's.|Whose|Milik siapa komputer ini? Punya Mia.|Whose + be + noun||Who
+I don't know ___ bag this is. (milik siapa)|whose|Saya tidak tahu tas siapa ini.|kepemilikan → whose||who
+#8 interrogative adjective
+___ book is your favourite?|What~Which|Buku apa yang jadi favoritmu?|What/Which + noun||
+___ bag is this? Is it yours? (milik siapa)|Whose|Tas siapa ini? Apakah punyamu?|Whose + noun||
+#9 arrive at / in
+I arrived ___ the airport late.|at|Saya tiba di bandara terlambat.|tempat kecil → at||in
+She arrived ___ Paris on Monday.|in|Dia tiba di Paris hari Senin.|kota → in||at
+#10 reflexive verb
+I burned ___ with the hairdryer.|myself|Saya membakar diri sendiri dengan pengering rambut.|I → myself||me
+She looked at ___ in the mirror.|herself|Dia memandangi dirinya di cermin.|she → herself||her
+#11 komplemen subjek
+He ___ tired today. (tampak)|looks~seems|Dia tampak lelah hari ini.|linking verb + adj||
+She wants to ___ a doctor. (menjadi)|be~become|Dia ingin menjadi dokter.|linking verb + noun||
+#12 a vs an
+It's ___ hour-long film.|an|Itu film berdurasi satu jam.|bunyi vokal (h bisu) → an||a
+She is ___ university student.|a|Dia seorang mahasiswa.|bunyi konsonan /ju/ → a||an
+#13 artikel dengan uncountable
+Would you like ___ tea?|some|Mau teh?|uncountable → some (bukan a)||a
+Do we have ___ milk at home?|any|Apakah kita punya susu di rumah?|tanya → any||a
+#14 tanpa artikel / spesifik
+___ coffee I drank this morning was strong. (spesifik)|The|Kopi yang saya minum pagi ini kuat.|spesifik → the||A
+Look at ___ moon! It's so bright.|the|Lihat bulan itu! Terang sekali.|hanya satu → the||a
+#15 jenis proper noun
+I lived in Cincinnati before I ___ to New York.|moved|Saya tinggal di Cincinnati sebelum pindah ke New York.|lampau: move + -d||
+My brother lives ___ Chicago.|in|Kakak saya tinggal di Chicago.|kota → in||at
+#16 nouns of address
+Excuse me, ___, can you help me? (sapaan sopan untuk pria)|sir|Permisi, Pak, bisakah Anda membantu saya?|vokatif sopan: sir||
+Thank you very much, ___. (sapaan sopan untuk wanita)|madam~ma'am|Terima kasih banyak, Bu.|vokatif sopan||
+#17 uncountable tanpa a/an
+I don't have ___ information about the trip.|any|Saya tidak punya informasi tentang perjalanan itu.|negatif → any||a~an
+He gave me ___ useful advice. (beberapa)|some|Dia memberi saya beberapa nasihat berguna.|uncountable → some||a~an
+#18 uncountable dengan the
+Have you heard ___ news? (berita itu)|the|Sudahkah kamu mendengar beritanya?|spesifik → the||a
+___ rice we bought yesterday is delicious.|The|Beras yang kami beli kemarin enak.|spesifik → the||A
+#19 uncountable tidak dijamakkan
+We bought new camping ___. (perlengkapan)|equipment|Kami membeli perlengkapan berkemah baru.|uncountable: tanpa -s||
+I love this music. ___ is beautiful.|It|Saya suka musik ini. Musik itu indah.|uncountable → it||They
+#20 verba dengan uncountable
+The furniture in my living room ___ old.|is|Perabot di ruang tamu saya sudah tua.|uncountable → is||are
+The news ___ good today.|is|Beritanya bagus hari ini.|uncountable → is||are
+#21 a piece of
+Can I give you a ___ of advice?|piece|Boleh saya memberimu satu nasihat?|a piece of + uncountable||
+He ate two ___ of bread. (potong)|slices~pieces|Dia makan dua potong roti.|a slice/piece of||
+#22 compound noun
+I need a large water ___. (botol)|bottle|Saya perlu botol air besar.|noun + noun||
+She works in a ___ shop. (buku)|book|Dia bekerja di toko buku.|noun + noun: book + shop||books
+#23 suffix pelaku
+I'm training to be a ___. (teach)|teacher|Saya sedang berlatih menjadi guru.|verb + -er||
+He is a famous ___. (act)|actor|Dia seorang aktor terkenal.|verb + -or||
+#24 jamak tak beraturan
+One woman, two ___.|women|Satu wanita, dua wanita.|woman → women||
+One child, two ___.|children|Satu anak, dua anak.|child → children||
+#25 gender nouns
+The king and the ___ live in the palace. (istri raja)|queen|Raja dan ratu tinggal di istana.|pasangan perempuan: king – queen||
+There is a bride and a ___ at the wedding. (pengantin pria)|groom|Ada pengantin wanita dan pengantin pria di pernikahan itu.|bride – groom||
+#26 future simple
+The Queen ___ be in Rome tomorrow.|will|Ratu akan berada di Roma besok.|will + V||would
+Look at those clouds. It ___ going to rain.|is|Lihat awan itu. Akan hujan.|be going to + V||
+#27 present simple vs continuous
+I ___ in London. I've lived there all my life. (permanen)|live|Saya tinggal di London. Saya tinggal di sana seumur hidup.|permanen → present simple||am living
+I ___ with my aunt this week. (sementara)|am staying|Saya menginap di rumah bibi saya minggu ini.|sementara → present continuous||stay
+#28 stative vs action
+I ___ John very well.|know|Saya kenal John dengan baik.|stative: tanpa -ing||am knowing
+She ___ a cake in the kitchen now. (bake)|is baking|Dia sedang membuat kue di dapur sekarang.|dynamic: be + V-ing||
+#29 present continuous
+I ___ going home now.|am|Saya pulang sekarang.|be + V-ing||
+We ___ meeting my parents this weekend. (rencana)|are|Kami akan bertemu orang tua saya akhir pekan ini.|rencana: be + V-ing||
+#30 future: prediksi, janji, keputusan
+I ___ definitely arrive on time. (janji)|will|Saya pasti tiba tepat waktu.|janji → will||
+It's cold. I ___ close the window. (keputusan spontan)|will|Dingin. Saya akan menutup jendela.|spontan → will||am going to
+#31 future negatif dan tanya
+She ___ do her homework. (menolak)|won't|Dia tidak mau mengerjakan PR.|will + not||
+___ they come to the party tomorrow?|Will|Apakah mereka akan datang ke pesta besok?|tanya: Will + S + V||Do
+#32 ejaan -s / -es
+She ___ the guitar every day. (play)|plays|Dia bermain gitar setiap hari.|vokal + y → +s||
+He ___ his shoes every morning. (wash)|washes|Dia mencuci sepatunya setiap pagi.|sh → +es||
+#33 auxiliary be/have/do
+She ___ wondering where we are going.|is|Dia bertanya-tanya ke mana kita pergi.|be + V-ing||
+They ___ not finished their homework yet.|have|Mereka belum menyelesaikan PR mereka.|have + V3||has
+#34 verba indra
+The soup ___ delicious. (terasa)|tastes|Sup itu terasa lezat.|sense verb + adj||
+I ___ terrible today. (merasa)|feel|Saya merasa buruk hari ini.|feel + adj||
+#35 posisi frekuensi
+This class ___ always a bore!|is|Kelas ini selalu membosankan!|be + always||
+She has ___ been late. (tidak pernah)|never|Dia tidak pernah terlambat.|aux + never + V3||
+#36 jenis auxiliary
+I ___ arrive in New York at 10 PM. (akan)|will|Saya akan tiba di New York pukul 10 malam.|modal + V||
+___ I borrow your pen? (izin)|Can~May~Could|Bolehkah saya meminjam penmu?|modal: izin||
+#37 mengenali auxiliary
+John works across town. ___ John work across town?|Does|Apakah John bekerja di seberang kota?|tanya: Does + S + V||Do
+She is a nurse. ___ she a nurse?|Is|Dia perawat. Apakah dia perawat?|inversi: Be + S||Does
+#38 have sebagai verba utama
+I ___ have a dog.|don't|Saya tidak punya anjing.|have utama → don't have||haven't
+___ you have a pen?|Do|Apakah kamu punya pulpen?|have utama → Do + S + have||Have
+#39 question words dan inversi
+Where ___ John working?|is|Di mana John bekerja?|Wh + be + S + V-ing||does
+What time ___ the film start?|does|Film mulai pukul berapa?|Wh + does + S + V||is
+#40 what / which / whose + noun
+___ colour do you like, red or blue? (pilihan terbatas)|Which|Kamu suka warna yang mana, merah atau biru?|pilihan terbatas → which||Whose
+___ umbrella is this? Is it yours? (milik siapa)|Whose|Payung siapa ini? Apakah punyamu?|Whose + noun||Which
+#41 kelas determiner
+I have ___ brothers or sisters. (tidak ada)|no|Saya tidak punya saudara.|no + noun||any
+___ pen is blue, and that one is red. (dekat)|This|Pulpen ini biru, dan yang itu merah.|demonstratif dekat||That
+#42 interrogative determiners
+___ day do you prefer, Saturday or Sunday?|Which|Kamu lebih suka hari yang mana, Sabtu atau Minggu?|pilihan → which||
+___ time is it?|What|Jam berapa sekarang?|What time||Which
+#43 quantifier countable
+There are ___ private schools in this town. (banyak)|many|Ada banyak sekolah swasta di kota ini.|many + jamak||much
+I have ___ friends here, so I feel lonely. (sedikit sekali)|few|Saya punya sedikit teman di sini, jadi saya kesepian.|few + countable jamak||little
+#44 quantifier uncountable
+How ___ money do you have?|much|Berapa banyak uang yang kamu punya?|much + uncountable||many
+I have ___ time left, so please hurry. (sedikit sekali)|little|Waktu saya tinggal sedikit, jadi tolong cepat.|little + uncountable||few
+#45 quantifier keduanya
+Don't worry, we have ___ of time. (banyak sekali)|plenty|Jangan khawatir, kita punya banyak waktu.|plenty of||
+___ of the students passed the test. (sebagian besar)|Most|Sebagian besar siswa lulus ujian.|most of the + jamak||All
+#46 its vs it's
+The dog wagged ___ tail. (milik anjing itu)|its|Anjing itu mengibaskan ekornya.|milik it → its (tanpa apostrof)||it's
+___ raining outside. (it is)|It's~It is|Di luar sedang hujan.|it's = it is||Its
+#47 a lot of / much / many
+She has ___ friends. (banyak)|a lot of~many|Dia punya banyak teman.|countable jamak||much
+We don't have ___ time. (banyak)|much~a lot of|Kita tidak punya banyak waktu.|negatif + uncountable||many
+#48 too
+It is ___ big for me. (terlalu)|too|Itu terlalu besar untukku.|too + adj||very
+There are ___ many people here! (terlalu)|too|Terlalu banyak orang di sini!|too many||so~very
+#49 complement
+The news made her ___. (bahagia)|happy|Berita itu membuatnya bahagia.|S + V + O + adj||happily
+She painted the door ___. (biru)|blue|Dia mengecat pintu itu biru.|object complement: adj||
+#50 good vs well
+Get ___ soon! (sembuh)|well|Cepat sembuh!|well = sehat||good
+You did a ___ job. (bagus)|good|Kamu melakukan pekerjaan yang bagus.|good + noun||well
+#51 proper adjective
+I love ___ food. (dari Italia)|Italian|Saya suka masakan Italia.|proper noun + -ian||Italy
+My teacher is from Japan. He is ___.|Japanese|Guru saya dari Jepang. Dia orang Jepang.|proper adjective: -ese||Japan
+#52 adjektiva tidak dijamakkan
+I have two ___ pens. (biru)|blue|Saya punya dua pulpen biru.|adjektiva tidak dijamakkan||blues
+They are ten-year-___ boys.|old|Mereka anak lelaki berusia sepuluh tahun.|tetap tunggal: -old||olds
+#53 preposisi + noun
+Your backpack is ___ the table. (di bawah)|under|Ranselmu ada di bawah meja.|preposisi + noun||
+He put the book ___ the shelf. (di atas permukaan)|on|Dia menaruh buku itu di rak.|permukaan → on||in~at
+#54 adjective + preposisi
+Megan was afraid ___ thunderstorms.|of|Megan takut badai petir.|afraid of||about
+I'm very good ___ maths. (pandai)|at|Saya sangat pandai matematika.|good at||in~of
+#55 near, beside, behind
+The library is ___ the train station, so I walk there. (dekat)|near~close to|Perpustakaan dekat stasiun kereta, jadi saya jalan kaki ke sana.|near / close to||between
+There is a tree ___ our house. (di depan)|in front of|Ada pohon di depan rumah kami.|in front of||behind
+#56 arah
+My brother went ___ Europe.|to|Kakak saya pergi ke Eropa.|arah → to||from
+The cat jumped ___ the box. (ke dalam)|into|Kucing itu melompat ke dalam kotak.|into = ke dalam||onto
+#57 of, to, with, from
+Lisa wanted to go to the concert ___ Victor.|with|Lisa ingin pergi ke konser bersama Victor.|pendamping → with||
+I got a letter ___ my uncle in Canada.|from|Saya mendapat surat dari paman saya di Kanada.|asal → from||of
+#58 go to / go home
+I went ___ London last year.|to|Saya pergi ke London tahun lalu.|go to + tempat||in
+I'm tired. I want to go ___.|home|Saya capek. Saya mau pulang.|go home (tanpa to)||
+#59 good at / do well in
+My brother is good ___ English.|at|Adik saya pandai bahasa Inggris.|be good at||in
+She does well ___ her exams.|in|Dia berprestasi dalam ujiannya.|do well in||at
+#60 listen to, wait for
+I listened ___ the radio last night.|to|Saya mendengarkan radio tadi malam.|listen to||at~for
+Please wait ___ me here.|for|Tolong tunggu saya di sini.|wait for||to~at
+#61 verb + for
+The student asked ___ a pencil.|for|Murid itu meminta pensil.|ask for||
+They are searching ___ the lost key.|for|Mereka mencari kunci yang hilang.|search for||
+#62 verb + to
+The wallet belongs ___ that woman.|to|Dompet itu milik wanita itu.|belong to||
+She is talking ___ her teacher now.|to~with|Dia sedang berbicara dengan gurunya sekarang.|talk to||
+#63 verb + about
+What are you talking ___?|about|Kamu bicara tentang apa?|talk about||
+Don't worry ___ the exam. (tentang)|about|Jangan khawatir tentang ujiannya.|worry about||
+#64 adjective + of
+Sam is afraid ___ dogs.|of|Sam takut anjing.|afraid of||
+I'm very proud ___ you.|of|Saya sangat bangga padamu.|proud of||
+#65 adjective + about
+I am excited ___ a new job.|about|Saya bersemangat tentang pekerjaan baru.|excited about||
+She was upset ___ the bad news.|about|Dia sedih tentang berita buruk itu.|upset about||
+#66 adjective + for
+Texas is famous ___ rodeos.|for|Texas terkenal karena rodeo.|famous for||
+She is responsible ___ the project.|for|Dia bertanggung jawab atas proyek itu.|responsible for||
+#67 idiom dengan on
+The bus arrived ___ time.|on|Bus tiba tepat waktu.|on time||in~at
+These shoes are ___ sale this week. (diskon)|on|Sepatu ini diskon minggu ini.|on sale||in~at
+#68 modal verb
+He can ___ well. (swim)|swim|Dia bisa berenang dengan baik.|modal + V1 (tanpa to/-s)||swims
+She must ___ home early. (go)|go|Dia harus pulang lebih awal.|modal + V1||goes
+#69 would: permintaan sopan
+___ you please close the window? (paling sopan)|Would|Maukah kamu menutup jendela?|Would you please + V||Will
+___ you please take out the garbage for me?|Would~Could|Maukah kamu membuang sampah untukku?|permintaan sopan||
+#70 would like
+I ___ like to go to the movies later.|would|Saya ingin pergi ke bioskop nanti.|would like to + V||will
+___ you like a cup of tea?|Would|Maukah kamu secangkir teh?|tawaran sopan: Would you like||Do
+#71 should: saran
+Guests ___ leave their rooms by 10 AM. (harap)|should|Tamu harap mengosongkan kamar pukul 10 pagi.|kewajiban sopan: should||
+You look tired. You ___ go to bed early. (saran)|should|Kamu tampak lelah. Sebaiknya tidur lebih awal.|saran → should||must
+#72 should: meminta saran
+What ___ I see in New York?|should|Apa yang sebaiknya saya lihat di New York?|meminta saran: should + S||would
+Why ___ I tell him? He doesn't care.|should|Mengapa saya harus memberitahunya? Dia tidak peduli.|Why should + S||would
+#73 can: izin
+___ I go to the bathroom, Ms. Smith?|Can~May|Bolehkah saya ke toilet, Bu Smith?|izin||
+You ___ use my phone. (kamu boleh)|can|Kamu boleh memakai ponsel saya.|izin: can||must
+#74 could: permintaan sopan
+Dad, ___ I spend the night at my friend's house?|could~can~may|Ayah, bolehkah saya menginap di rumah teman?|izin||
+___ you tell me the way to the station, please? (sopan)|Could~Can~Would|Bisakah Anda memberi tahu saya jalan ke stasiun?|permintaan sopan||
+#75 may: izin formal
+___ I borrow your pen, please? (formal)|May~Can~Could|Bolehkah saya meminjam pulpen Anda?|izin formal: May I||Must
+Good evening. ___ I help you, sir? (tawaran formal)|May~Can|Selamat malam. Boleh saya bantu, Pak?|tawaran formal: May I||Must
+#76 must
+This door ___ be left shut at all times!|must|Pintu ini harus selalu tertutup!|keharusan: must + V1||
+You ___ not park here. It is forbidden. (dilarang)|must|Kamu tidak boleh parkir di sini. Dilarang.|mustn't = dilarang||will
+#77 meminta izin
+___ I open the window, please? (informal)|Can~Could|Bolehkah saya membuka jendela?|izin||
+___ I leave early? (sangat sopan)|Might~May~Could|Mungkinkah saya pulang lebih awal?|paling formal: might||
+#78 before, after, to, past
+The moon rose ___ sunset.|before|Bulan terbit sebelum matahari terbenam.|before + event||after
+It's ten ___ three. (pukul 2.50)|to|Sekarang pukul tiga kurang sepuluh.|menit sebelum jam → to||past
+#79 present perfect
+I ___ lived in Italy for many years.|have|Saya sudah tinggal di Italia bertahun-tahun.|I + have + V3||has
+She ___ worked here since 2020.|has|Dia sudah bekerja di sini sejak 2020.|she + has + V3||have
+#80 past continuous
+I ___ reading a book when they arrived.|was|Saya sedang membaca saat mereka tiba.|I → was + V-ing||were
+They ___ playing football when it started to rain.|were|Mereka sedang bermain sepak bola saat hujan mulai turun.|they → were + V-ing||was
+#81 present perfect: ever, already
+Have you ___ tried Indian food? (pernah)|ever|Pernahkah kamu mencoba masakan India?|ever = pernah (tanya)||never
+I have ___ finished my homework. (sudah)|already|Saya sudah menyelesaikan PR saya.|already = sudah||yet
+#82 present perfect negatif dan tanya
+I'm so hungry. I ___ had lunch.|haven't~have not|Saya sangat lapar. Saya belum makan siang.|have + not + V3||
+Where ___ she gone?|has|Dia pergi ke mana?|Wh + has + S + V3||have
+#83 past continuous: interupsi
+We ___ working on our assignment when our parents came home.|were|Kami sedang mengerjakan tugas saat orang tua kami pulang.|we → were||was
+I was reading ___ my sister was watching TV. (sementara)|while|Saya sedang membaca sementara adik saya menonton TV.|dua aksi berlangsung → while||when
+#84 past continuous negatif dan tanya
+The kids ___ sleeping when we got home.|weren't~were not|Anak-anak tidak sedang tidur saat kami pulang.|jamak: were + not||wasn't
+___ you watching TV at nine last night?|Were|Apakah kamu sedang menonton TV jam sembilan tadi malam?|tanya: Were + S + V-ing||Did
+#85 verba beraturan
+I ___ around the park in the afternoon. (walk)|walked|Saya berjalan di sekitar taman pada sore hari.|V + -ed||
+She ___ the window yesterday. (open)|opened|Dia membuka jendela kemarin.|V + -ed||
+#86 could: kemampuan lampau
+When I was younger, I ___ run for ten miles.|could|Saat muda, saya bisa berlari sepuluh mil.|lampau → could + V||can
+I ___ not swim when I was five. (tidak bisa)|could|Saya tidak bisa berenang saat berumur lima tahun.|lampau → could + not||can
+#87 participle
+She is ___ a letter. (write)|writing|Dia sedang menulis surat.|V-ing: write → writing||
+The cake has been ___ by the kids. (eat)|eaten|Kue itu sudah dimakan anak-anak.|V3: eat → eaten||ate
+#88 will: spontan
+There's no milk left. I ___ get some on my way home.|will|Susu habis. Saya akan membelinya dalam perjalanan pulang.|spontan → will||would
+The phone is ringing. I ___ answer it.|will|Telepon berdering. Saya yang angkat.|spontan → will||would
+#89 will dan shall
+Our team ___ never win the game.|will|Tim kami tidak akan pernah menang.|will + never||
+___ I carry your bag? (tawaran)|Shall~Can~May|Mau saya bawakan tasmu?|tawaran: Shall I||Will
+#90 be going to
+I ___ going to get some milk later. (rencana)|am|Saya berencana membeli susu nanti.|rencana: be going to||
+She ___ going to have a baby in May. (rencana)|is|Dia akan punya bayi bulan Mei.|she → is going to||
+#91 will: masa depan
+I ___ turn forty tomorrow.|will|Saya akan berusia empat puluh tahun besok.|will + V||would
+They ___ be here at six o'clock.|will|Mereka akan ada di sini pukul enam.|will + V||
+#92 will: kemauan
+You wash the dishes; I ___ take out the trash. (saya yang kerjakan)|will|Kamu cuci piring; saya yang buang sampah.|kemauan → will||would
+I ___ not help you. I'm too busy. (menolak)|will|Saya tidak mau membantumu. Saya terlalu sibuk.|won't = menolak||would
+#93 will: permintaan
+___ you walk the dog, Jim?|Will|Maukah kamu mengajak anjing jalan-jalan, Jim?|permintaan: Will you + V||
+Will you ___ the door for me, please? (buka: open)|open|Maukah kamu membukakan pintu untukku?|Will you + V1||opens
+#94 shall I / shall we
+___ we walk along the beach?|Shall|Bagaimana kalau kita jalan di pantai?|saran: Shall we||Will
+___ I make some coffee? (tawaran)|Shall~Can~Should~May|Mau saya buatkan kopi?|tawaran: Shall I||Will
+#95 tawaran
+___ I carry that for you?|Can~May~Shall|Boleh saya bawakan itu?|tawaran: Can I / May I / Shall I||Will
+Shall I ___ you a hand? (membantu: give)|give|Boleh saya membantumu?|give someone a hand||gives
+#96 permintaan: tingkat kesopanan
+___ you get the door for me, please? (paling sopan)|Would|Maukah Anda membukakan pintu untuk saya?|paling sopan: would||Will
+Could ___ please pass the salt? (kepada lawan bicara)|you|Bisakah kamu tolong mengoper garam?|Could + you + V||I
+#97 adverbia
+You write ___. (indah)|beautifully|Kamu menulis dengan indah.|adj + -ly||beautiful
+She is ___ tired. (sangat)|very|Dia sangat lelah.|memodifikasi adjektiva||
+#98 adverbia waktu
+I'm going to the movies ___. (besok)|tomorrow|Saya akan ke bioskop besok.|adverbia waktu di akhir||
+___, I visited my grandmother. (kemarin, di awal)|Yesterday|Kemarin saya mengunjungi nenek saya.|adverbia waktu di awal||
+#99 yet
+He hasn't gone to the doctor ___.|yet|Dia belum pergi ke dokter.|negatif → yet||still
+Have you finished your homework ___? (sudah)|yet|Apakah kamu sudah menyelesaikan PR?|tanya → yet||already
+#100 still
+Are you ___ working on that project?|still|Apakah kamu masih mengerjakan proyek itu?|masih → still||yet
+It's midnight, but she is ___ awake. (masih)|still|Sudah tengah malam, tapi dia masih bangun.|masih → still||yet
+#101 soon vs early
+I will see you ___. (segera)|soon|Saya akan segera bertemu kamu.|soon = segera||early
+She woke up ___ this morning. (lebih awal dari biasa)|early|Dia bangun lebih awal pagi ini.|early = sebelum waktunya||soon
+#102 adverbia tempat
+We were walking ___. (ke utara)|north|Kami berjalan ke utara.|adverbia arah||
+The children are playing ___. (di luar rumah)|outside~outdoors|Anak-anak bermain di luar.|adverbia tempat||inside
+#103 here/there, everywhere
+I looked ___ for my keys, but couldn't find them. (di mana-mana)|everywhere|Saya mencari kunci saya di mana-mana, tapi tidak menemukannya.|every + where||somewhere
+Come ___, please. (kemari)|here|Kemarilah.|here = dekat pembicara||there
+#104 adverbia cara
+She sings ___. (beautiful)|beautifully|Dia bernyanyi dengan indah.|adj + -ly||beautiful
+He answered the question ___. (easy)|easily|Dia menjawab pertanyaan itu dengan mudah.|-y → -ily||easyly
+#105 adverbia cara tak beraturan
+He runs ___. (fast)|fast|Dia berlari cepat.|fast: bentuk tetap||fastly
+She did the exercise ___. (good → adverbia)|well|Dia mengerjakan latihan itu dengan baik.|good → well||good
+#106 adverbia derajat
+She is ___ sorry for her bad behaviour. (sangat)|very|Dia sangat menyesal atas perilakunya yang buruk.|very + adj||
+The soup is ___ hot, but you can eat it. (lumayan)|quite~pretty|Sup itu lumayan panas, tapi bisa dimakan.|derajat sedang||extremely
+#107 intensifier
+The weather was ___ warm. (luar biasa)|exceptionally~extremely~incredibly~really|Cuaca luar biasa hangat.|intensifier + adj||
+This cake is ___ delicious! (sangat)|really~very~extremely~incredibly|Kue ini sangat lezat!|intensifier + adj||
+#108 frekuensi tentu
+I run eight miles ___. (setiap hari)|daily|Saya berlari delapan mil setiap hari.|frekuensi tentu||
+We visit my grandparents ___ a week. (sekali)|once|Kami mengunjungi kakek-nenek sekali seminggu.|once a week||twice
+#109 infinitive of purpose
+I went to the store ___ buy some milk.|to|Saya ke toko untuk membeli susu.|tujuan: to + V||for
+She saved money in order ___ buy a car.|to|Dia menabung agar bisa membeli mobil.|in order to + V||for
+#110 also / too / as well
+Tom is coming and is ___ bringing James.|also|Tom datang dan juga membawa James.|also sebelum verba||too
+I like tea. I like coffee ___. (juga, di akhir)|too~as well|Saya suka teh. Saya juga suka kopi.|di akhir: too / as well||also
+#111 adverbia -ly
+They work ___. (enthusiastic)|enthusiastically|Mereka bekerja dengan antusias.|-ic → -ically||
+She spoke ___. (gentle)|gently|Dia berbicara dengan lembut.|-le → -ly||gentlely
+#112 adverbia tak beraturan
+We arrived ___ for the meeting. (terlambat)|late|Kami tiba terlambat untuk rapat.|late = adj & adv||lately
+She works very ___. (keras)|hard|Dia bekerja sangat keras.|hard = adj & adv||hardly
+#113 good vs well
+I speak English ___.|well|Saya berbahasa Inggris dengan baik.|adverbia → well||good
+She is a ___ cook. (juru masak yang baik)|good|Dia juru masak yang baik.|good + noun||well
+#114 modifier
+It is a ___ day. (indah)|beautiful|Ini hari yang indah.|adjektiva + noun||beautifully
+He drives very ___. (hati-hati)|carefully|Dia mengemudi dengan sangat hati-hati.|adverbia memodifikasi verba||careful
+#115 fungsi infinitive
+To ___ is human. (err)|err|Berbuat salah itu manusiawi.|to + V dasar||erring
+I want ___ learn English.|to|Saya ingin belajar bahasa Inggris.|want + to + V||
+#116 comparative pendek
+big, bigger, ___. (superlatif)|biggest|besar, lebih besar, terbesar|gandakan konsonan + -est||
+My bag is ___ than yours. (heavy)|heavier|Tas saya lebih berat daripada tasmu.|-y → -ier||heavyer
+#117 more / most
+This book is ___ interesting than that one.|more|Buku ini lebih menarik daripada yang itu.|more + adj panjang||
+She is the ___ careful driver in my family. (paling)|most|Dia pengemudi paling hati-hati di keluarga saya.|the most + adj panjang||more
+#118 komparatif tak beraturan
+This cake is good, but that one is ___. (lebih baik)|better|Kue ini enak, tapi yang itu lebih enak.|good → better||gooder
+It was the ___ day of my life. (paling buruk)|worst|Itu hari terburuk dalam hidup saya.|bad → worst||baddest
+#119 N1 + be + comparative + than
+An airplane is bigger ___ a car.|than|Pesawat lebih besar daripada mobil.|comparative + than||then
+Cars are ___ expensive than bikes.|more|Mobil lebih mahal daripada sepeda.|more + adj panjang||
+#120 ejaan comparative
+large, ___. (komparatif)|larger|besar, lebih besar|akhiran -e → +r||largeer
+Today I am ___ than yesterday. (happy)|happier|Hari ini saya lebih bahagia daripada kemarin.|-y → -ier||
+#121 as ... as
+The apple is as big ___ the orange.|as|Apel itu sebesar jeruk.|as + adj + as||than
+My room is not ___ big as yours. (tidak sebesar)|as~so|Kamar saya tidak sebesar kamarmu.|not as + adj + as||
+#122 superlatif
+John is the ___ student in his class. (tall)|tallest|John murid tertinggi di kelasnya.|the + adj-est||
+This is the ___ beautiful place in the city. (paling)|most|Ini tempat paling indah di kota.|the most + adj panjang||more
+#123 adverbia & komparatifnya
+She sang ___. (happy)|happily|Dia bernyanyi dengan riang.|-y → -ily||happyly
+You speak English very ___. (good)|well|Kamu berbahasa Inggris dengan sangat baik.|good → well||good
+#124 komparatif adverbia
+A plane moves ___ than a car. (fast)|faster|Pesawat bergerak lebih cepat daripada mobil.|fast → faster||
+He ran the ___ of all the boys. (fast)|fastest|Dia berlari paling cepat di antara semua anak laki-laki.|fast → fastest||
+#125 infinitive to
+To ___ another person is a wonderful thing. (love)|love|Mencintai orang lain adalah hal yang indah.|to + V dasar||loving
+She decided ___ study abroad.|to|Dia memutuskan untuk belajar di luar negeri.|decide + to + V||
+#126 gerund
+I enjoy ___ by the ocean. (live)|living|Saya suka tinggal di tepi laut.|enjoy + V-ing||to live
+Would you mind ___ the window? (close)|closing|Maukah kamu menutup jendela?|mind + V-ing||close
+#127 gerund / infinitive
+I like ___. (mendaki)|hiking|Saya suka mendaki.|like + V-ing||
+She started ___ the piano at seven. (play)|to play~playing|Dia mulai bermain piano pada usia tujuh tahun.|start + to V / V-ing||
+#128 phrasal verb pick
+Can you ___ the children up after school? (jemput)|pick|Bisakah kamu menjemput anak-anak sepulang sekolah?|pick up||
+Stop picking ___ your little brother! (mengganggu)|on|Berhenti mengganggu adik kecilmu!|pick on = mengganggu||up
+#129 finite verb
+They ___ to the mall today. (go, lampau)|went|Mereka pergi ke mal hari ini.|finite: lampau||go
+She ___ in a bank. (work, orang ketiga)|works|Dia bekerja di bank.|finite: -s (she)||work
+#130 verba transitif
+The people ___ the game from the bleachers. (watch)|watched|Orang-orang menonton pertandingan dari tribun.|transitif + objek||
+My father ___ a new car last week. (buy)|bought|Ayah saya membeli mobil baru minggu lalu.|buy → bought||buyed
+#131 verba intransitif
+I ___ late. (arrive)|arrived|Saya datang terlambat.|intransitif: arrive + -d||
+The sun ___ in the east. (rise)|rises|Matahari terbit di timur.|rise + -s||
+#132 ejaan sebelum -ed
+chop, ___.|chopped|chop > chopped|gandakan konsonan||
+She ___ the recipe from a book. (copy)|copied|Dia menyalin resep itu dari buku.|-y → -ied||
+#133 verba tak beraturan
+I ___ to work yesterday. (drive)|drove|Saya menyetir ke tempat kerja kemarin.|drive → drove||driven
+I had already ___ halfway. (drive)|driven|Saya sudah menyetir setengah perjalanan.|V3: drive → driven||drove
+#134 in order to / so as to
+We must leave now in order ___ catch our train.|to|Kita harus berangkat sekarang agar tidak ketinggalan kereta.|in order to + V||for
+She spoke slowly so as not ___ confuse anyone.|to|Dia berbicara pelan agar tidak membingungkan siapa pun.|so as not to + V||for
+#135 verba emosi
+She ___ old movies. (suka)|likes|Dia suka film lama.|like + -s (she)||like
+I don't ___ waiting in line. (tidak keberatan)|mind|Saya tidak keberatan antre.|don't mind + V-ing||like
+#136 verba kepemilikan
+I ___ a large house. (punya)|have|Saya punya rumah besar.|have (kepemilikan)||
+This wallet ___ to my brother. (milik)|belongs|Dompet ini milik kakak saya.|belong + -s||belong
+#137 verba indra
+You ___ fabulous today. (tampak)|look|Kamu tampak luar biasa hari ini.|look + adj||
+That music ___ great! (terdengar)|sounds|Musik itu terdengar hebat!|sound + adj||
+#138 so dan for
+He was exhausted, ___ he went to bed early.|so|Dia kelelahan, jadi tidur lebih awal.|akibat → so||because
+He went to bed early, ___ he was exhausted. (sebab)|for|Dia tidur lebih awal, sebab dia kelelahan.|sebab: for||so
+#139 because, as, since
+The project was successful ___ you all worked hard.|because~as~since|Proyek berhasil karena kalian semua bekerja keras.|sebab||
+___ it was raining, we stayed home. (karena)|Because~As~Since|Karena hujan, kami tinggal di rumah.|sebab||
+#140 time conjunctions
+I went shopping ___ I came home. (sebelum)|before|Saya berbelanja sebelum pulang ke rumah.|before + klausa||after
+Call me ___ you arrive. (begitu)|as soon as~when|Telepon saya begitu kamu tiba.|as soon as + klausa||before
+#141 voice
+He wrote the book. The book was ___ by him. (write)|written|Dia menulis buku itu. Buku itu ditulis olehnya.|pasif: be + V3||wrote
+The cake ___ made by my mother. (lampau pasif)|was|Kue itu dibuat oleh ibu saya.|pasif: was + V3||were
+#142 zero conditional
+The television turns on ___ you press the power button.|if~when|Televisi menyala jika kamu menekan tombol daya.|kondisi umum||
+If you heat ice, it ___. (melt)|melts|Jika kamu memanaskan es, es itu mencair.|zero: present simple||will melt
+#143 first conditional
+If our team wins, it ___ be amazing.|will|Jika tim kita menang, itu akan luar biasa.|If + present, will + V||would
+If it rains tomorrow, we ___ stay home.|will|Jika besok hujan, kami akan tinggal di rumah.|If + present, will + V||would
+#144 present simple zero conditional
+If you drop an egg, it ___.|breaks|Jika kamu menjatuhkan telur, telur itu pecah.|fakta → present simple||will break
+Water ___ if you heat it to 100 degrees. (boil)|boils|Air mendidih jika kamu memanaskannya sampai 100 derajat.|fakta → present simple||will boil
+#145 indicative
+She ___ her own lunch to work every day. (bring)|brings|Dia membawa bekal sendiri ke tempat kerja tiap hari.|she → V + -s||bring
+___ she bring her own lunch to work?|Does|Apakah dia membawa bekal sendiri ke tempat kerja?|tanya: Does + S + V||Do
+#146 active voice
+My friend ___ a new car. (buy, lampau)|bought|Teman saya membeli mobil baru.|aktif: agent + V||
+The dog ___ the ball. (chase, lampau)|chased|Anjing itu mengejar bola.|aktif: V + -ed||
+#147 direct speech
+John said, "I'll never live in this city ___." (lagi)|again|John berkata, "Saya tak akan pernah tinggal di kota ini lagi."|kutipan langsung||
+"I am hungry," ___ the boy. (berkata)|said|"Saya lapar," kata anak itu.|said + subjek||says
+#148 say vs tell
+She ___ she was late for the appointment.|said|Dia bilang dia terlambat ke janji.|say + klausa||told
+She ___ me that she was late. (tell)|told|Dia memberi tahu saya bahwa dia terlambat.|tell + O||said
+#149 will dalam first conditional
+If I see him, I ___ tell him the news.|will|Jika bertemu dia, saya akan memberitahunya.|If + present, will + V||would
+If you study hard, you ___ pass the exam.|will|Jika kamu belajar giat, kamu akan lulus ujian.|If + present, will + V||would
+#150 interjeksi primer
+___, that's a beautiful dress. (wah)|Ooh~Wow~Oh|Wah, gaun yang cantik.|interjeksi kagum||
+___! I finished at last. (lega)|Phew|Fiuh! Akhirnya selesai.|interjeksi lega||
+#151 interjeksi sekunder
+Oh ___, I'm sure we'll have better luck next time.|well|Ya sudahlah, saya yakin kita lebih beruntung lain kali.|oh well = ya sudahlah||
+___ you! (setelah orang bersin)|Bless|Semoga sehat!|bless you||
+#152 objek langsung dan tak langsung
+She gave ___ a gift. (saya)|me|Dia memberiku hadiah.|IO: objek pronoun||I
+She gave a gift ___ me.|to|Dia memberikan hadiah kepadaku.|DO + to + IO||for

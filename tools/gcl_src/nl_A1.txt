@@ -1,0 +1,295 @@
+// Bank Grammar Cloze nl A1 — format: lihat tools/gcl_build.py. Kolom: kalimat | jawaban(~alt) | terjemah | petunjuk | (romanisasi kosong) | pengecoh terlarang
+#0 aa
+De ___ schijnt 's nachts aan de hemel. (bulan)|maan|Bulan bersinar di langit malam.|vokal panjang aa||
+Wij gaan bij de bushalte ___. (berdiri)|staan|Kami berdiri di halte bus.|aa pada suku kata tertutup||
+#1 ee
+Mijn ___ doet pijn. (kaki)|been|Kaki saya sakit.|vokal panjang ee||
+Ik ___ elke dag een appel. (makan)|eet|Saya makan apel setiap hari.|stam eten → eet||
+#2 oo
+Er staat een ___ in de tuin. (pohon)|boom|Ada sebuah pohon di kebun.|vokal panjang oo||
+De appel is ___. (merah)|rood|Apel itu merah.|oo pada suku kata tertutup||
+#3 uu
+Ik ga ___ naar huis. (sekarang)|nu|Saya pulang sekarang.|u panjang pada suku kata terbuka||
+Het is drie ___. (jam)|uur|Sekarang pukul tiga.|uu pada suku kata tertutup||
+#4 ui
+Wij wonen in een groot ___. (rumah)|huis|Kami tinggal di rumah besar.|diftong ui||
+Ik kom ___ Indonesië. (dari, asal negara)|uit|Saya berasal dari Indonesia.|diftong ui||van
+#5 eu
+Doe de ___ dicht, het is koud. (pintu)|deur|Tutup pintunya, udaranya dingin.|bunyi eu||
+Het is ___ om je te zien! (menyenangkan)|leuk|Senang sekali bertemu denganmu!|bunyi eu||
+#6 ij
+Dit is ___ boek. (milikku)|mijn|Ini bukuku.|ij dibaca seperti ei||
+Ik heb geen ___ om te koken. (waktu)|tijd|Saya tidak punya waktu untuk memasak.|ij dibaca seperti ei||
+#7 ei
+Ik eet een ___ bij het ontbijt. (telur)|ei|Saya makan sebutir telur saat sarapan.|ei dibaca seperti ij||
+Mijn broertje is nog ___. (kecil)|klein|Adik laki-laki saya masih kecil.|ei dibaca seperti ij||
+#8 au
+Ik rijd in mijn ___ naar het werk. (mobil)|auto|Saya naik mobil saya ke tempat kerja.|au dibaca seperti ou||
+Ik wil ___ bij mijn pasta. (saus)|saus|Saya mau saus dengan pasta saya.|au dibaca seperti ou||
+#9 ou
+Mijn opa is erg ___. (tua)|oud|Kakek saya sangat tua.|ou dibaca seperti au||
+Het is erg ___ buiten. (dingin)|koud|Di luar sangat dingin.|ou dibaca seperti au||
+#10 oe
+Ik lees een ___. (buku)|boek|Saya membaca sebuah buku.|oe = u Indonesia||
+Dat is ___! (baik)|goed|Itu bagus!|oe = u Indonesia||
+#11 g
+Mijn huis is erg ___. (besar)|groot|Rumah saya sangat besar.|g serak||
+Ik heb geen ___ meer. (uang)|geld|Saya tidak punya uang lagi.|g serak||
+#12 ch
+De ___ is donker. (malam)|nacht|Malam itu gelap.|ch serak||
+Mijn zoon is ___ jaar. (delapan)|acht|Anak laki-laki saya berumur delapan tahun.|ch serak||
+#13 sch
+Mijn zoon gaat naar ___. (sekolah)|school|Anak laki-laki saya pergi ke sekolah.|sch di awal dibaca sx||
+Het ___ vaart over de zee. (kapal)|schip|Kapal itu berlayar di laut.|sch di awal||
+#14 sj
+Ik draag een ___ om mijn nek. (syal)|sjaal|Saya memakai syal di leher.|sj dibaca sy||
+Mijn ___ is rood en warm. (syal)|sjaal|Syal saya merah dan hangat.|sj dibaca sy||
+#15 tj
+Het ___ speelt buiten. (anak perempuan)|meisje|Anak perempuan itu bermain di luar.|-je dibaca cə||
+Wij hebben een klein ___. (rumah kecil)|huisje|Kami punya rumah kecil.|-tje/-je dibaca cə||
+#16 nj
+Mijn favoriete kleur is ___. (oranye)|oranje|Warna favorit saya oranye.|nj dibaca ny||
+De Nederlandse voetbalploeg draagt ___. (oranye)|oranje|Tim sepak bola Belanda memakai oranye.|nj dibaca ny||
+#17 w
+Ik drink een glas ___. (air)|water|Saya minum segelas air.|w = antara v dan w||
+Ik ___ in Amsterdam. (tinggal)|woon|Saya tinggal di Amsterdam.|w = antara v dan w||
+#18 v
+Een hand heeft ___ vingers. (lima)|vijf|Satu tangan punya lima jari.|v dibaca seperti f||
+Mijn ___ werkt in een bank. (ayah)|vader|Ayah saya bekerja di bank.|v dibaca seperti f||
+#19 r
+Ik eet ___ met kaas. (roti)|brood|Saya makan roti dengan keju.|r digulung / uvular||
+Ik heb veel ___ vandaag. (pekerjaan)|werk|Saya banyak pekerjaan hari ini.|r digulung / uvular||
+#20 abjad
+Hoe ___ je dat? (mengeja)|spel|Bagaimana kamu mengejanya?|Hoe spel je dat?||spelt
+Namen van dagen en maanden schrijf je met een ___ letter. (kecil)|kleine|Nama hari dan bulan ditulis dengan huruf kecil.|maandag, januari: huruf kecil||
+#21 suku kata pertama
+De klemtoon van 'werken' ligt op de ___ lettergreep. (pertama)|eerste|Tekanan kata 'werken' jatuh pada suku kata pertama.|tekanan di suku kata awal||
+Bij 'verstaan' ligt de klemtoon op de ___ lettergreep. (kedua)|tweede|Pada 'verstaan' tekanan jatuh pada suku kata kedua.|awalan ver- tak bertekanan||
+#22 wonen
+Ik ___ in Utrecht.|woon|Saya tinggal di Utrecht.|ik + stam||woont
+Zij ___ bij haar ouders.|woont|Dia tinggal bersama orang tuanya.|zij + stam + -t||woon
+#23 werken
+Ik ___ in een ziekenhuis.|werk|Saya bekerja di rumah sakit.|ik + stam||werkt
+___ u hier?|Werkt|Apakah Anda bekerja di sini?|u + stam + -t||Werk
+#24 komen
+Waar ___ je vandaan?|kom|Kamu berasal dari mana?|je setelah kata kerja: stam||komt
+Zij ___ uit Indonesië.|komt|Dia berasal dari Indonesia.|zij + stam + -t||kom
+#25 heten
+Ik ___ Anna.|heet|Nama saya Anna.|stam sudah berakhiran -t||heett~heten
+Hoe ___ hij?|heet|Siapa namanya?|stam heet (tanpa -t tambahan)||heett~heeft
+#26 maken
+Ik ___ het avondeten.|maak|Saya membuat makan malam.|maken → maak (vokal ganda)||make
+Mijn moeder ___ een taart.|maakt|Ibu saya membuat kue.|stam maak + -t||maak
+#27 lezen
+Ik ___ elke dag de krant.|lees|Saya membaca koran setiap hari.|lezen → lees (z → s)||lez
+Hij ___ een boek.|leest|Dia membaca sebuah buku.|lees + -t||lezt
+#28 zijn
+Ik ___ student.|ben|Saya mahasiswa.|zijn: ik ben||is
+Hij ___ erg aardig.|is|Dia sangat ramah.|zijn: hij is||bent
+#29 hebben
+Jij ___ een mooie fiets.|hebt|Kamu punya sepeda yang bagus.|hebben: jij hebt||heb~heeft
+Zij ___ twee kinderen.|heeft|Dia punya dua anak.|hebben: zij heeft||hebt~heb
+#30 gaan
+Ik ___ morgen werken.|ga|Saya akan bekerja besok.|gaan: ik ga||gaat
+Hij ___ naar school.|gaat|Dia pergi ke sekolah.|gaan: hij gaat||ga
+#31 doen
+Wat ___ je?|doe|Apa yang kamu lakukan?|je setelah kata kerja: stam||doet
+Hij ___ zijn huiswerk.|doet|Dia mengerjakan PR-nya.|hij + stam + -t||doe
+#32 kunnen
+Ik ___ goed zwemmen.|kan|Saya bisa berenang dengan baik.|kunnen: ik kan||kunt~kunnen
+Jij ___ goed koken.|kunt~kan|Kamu bisa memasak dengan baik.|kunnen: jij kunt / kan||kunnen
+#33 willen
+Ik ___ een kopje thee.|wil|Saya mau secangkir teh.|willen: ik wil (tanpa -t)||wilt
+Hij ___ naar huis.|wil|Dia mau pulang.|willen: hij wil (tanpa -t)||wilt
+#34 moeten
+Ik ___ vandaag werken.|moet|Saya harus bekerja hari ini.|moeten: ik moet||moeten
+Hij ___ vroeg opstaan.|moet|Dia harus bangun pagi.|moeten: hij moet||moeten~moeten
+#35 mogen
+Ik ___ hier niet roken.|mag|Saya tidak boleh merokok di sini.|mogen: ik mag||mogen
+Hij ___ naar de film.|mag|Dia boleh pergi ke bioskop.|mogen: hij mag (tanpa -t)||mogen
+#36 zullen
+___ ik de deur openen?|Zal|Perlu saya buka pintunya?|Zal ik ...?||Zullen
+___ we een kopje koffie drinken?|Zullen|Bagaimana kalau kita minum kopi?|Zullen we ...?||Zal
+#37 imperatif jij
+___ hier! (datanglah)|Kom|Datanglah ke sini!|stam tanpa jij dan tanpa -t||Komt
+___ dit boek! (bacalah)|Lees|Bacalah buku ini!|stam tanpa -t||Leest
+#38 imperatif u
+___ u binnen! (silakan masuk)|Komt|Silakan masuk!|formal: stam + -t + u||Kom
+___ u zitten. (silakan duduk)|Gaat|Silakan duduk.|formal: gaat u||Ga
+#39 laten we
+___ we naar huis gaan. (mari)|Laten|Mari kita pulang.|Laten we + infinitief||Laat
+Laten we koffie ___. (minum)|drinken|Mari kita minum kopi.|infinitief di akhir||drink
+#40 jullie
+___ even, jullie! (tunggu)|Wacht|Tunggu sebentar, kalian!|stam seperti jij||Wachten
+Jullie ___ hier. (tinggal)|wonen|Kalian tinggal di sini.|jullie + infinitief||woont
+#41 de-woord
+___ vrouw is erg aardig. (wanita itu)|De|Wanita itu sangat ramah.|vrouw = de-woord||Het
+___ tafel is groot. (meja itu)|De|Meja itu besar.|tafel = de-woord||Het
+#42 het-woord
+___ huis is erg groot. (rumah itu)|Het|Rumah itu sangat besar.|huis = het-woord||De
+___ kind speelt buiten. (anak itu)|Het|Anak itu bermain di luar.|kind = het-woord||De
+#43 jamak dengan de
+___ kinderen spelen buiten.|De|Anak-anak bermain di luar.|jamak selalu de||Het
+___ boeken liggen op tafel.|De|Buku-buku itu ada di meja.|jamak selalu de, juga untuk het-woord||Het
+#44 een
+Ik heb ___ fiets.|een|Saya punya sebuah sepeda.|artikel tak pasti||
+Zij heeft ___ huis in Utrecht.|een|Dia punya rumah di Utrecht.|een: de- maupun het-woord||
+#45 jamak -en
+Ik heb twee ___. (boek)|boeken|Saya punya dua buku.|stam + -en||boeks
+Ik schrijf drie ___. (brief)|brieven|Saya menulis tiga surat.|f → v + -en||brieffen
+#46 jamak -s
+Ik heb twee ___. (tafel)|tafels|Saya punya dua meja.|-el → -s||tafelen
+Zij heeft drie ___. (kamer)|kamers|Dia punya tiga kamar.|-er → -s||kameren
+#47 jamak -'s
+Ik heb twee ___. (auto)|auto's|Saya punya dua mobil.|vokal panjang → -'s||autos
+Er staan drie ___ in de straat. (taxi)|taxi's|Ada tiga taksi di jalan.|vokal panjang → -'s||taxis
+#48 jamak tak beraturan
+Er spelen veel ___ in de tuin. (kind)|kinderen|Banyak anak bermain di kebun.|kind → kinderen||kinds
+Ik heb drie ___ in de koelkast. (ei)|eieren|Saya punya tiga telur di kulkas.|ei → eieren||eis
+#49 diminutif
+Mijn zus heeft een klein ___. (huis)|huisje|Adik perempuan saya punya rumah kecil.|huis + -je||
+Wil je een ___ koffie? (cangkir kecil)|kopje|Mau secangkir kopi?|kop + -je||
+#50 gender de
+___ gezondheid is belangrijk.|De|Kesehatan itu penting.|-heid → de||Het
+___ woning is erg mooi. (tempat tinggal)|De|Tempat tinggal itu sangat indah.|-ing → de||Het
+#51 gender het
+___ museum is vandaag open.|Het|Museum itu buka hari ini.|-um → het||De
+___ meisje speelt buiten.|Het|Gadis kecil itu bermain di luar.|diminutif -je → het||De
+#52 orang ke-1 tunggal
+Kun je ___ helpen? (saya)|me~mij|Bisakah kamu membantu saya?|objek orang pertama||ik
+Dit is ___ fiets. (milikku)|mijn|Ini sepedaku.|posesif ik → mijn||mij
+#53 orang ke-2 akrab
+Hoe heet ___? (kamu)|je~jij|Siapa namamu?|jij / je||jou
+Is dit ___ tas? (milikmu)|jouw~je|Apakah ini tasmu?|posesif jij → jouw / je||jij
+#54 orang ke-2 formal
+Hoe heet ___? (Anda)|u|Siapa nama Anda?|formal: u||je
+Is dit ___ jas, mevrouw? (milik Anda)|uw|Apakah ini jas Anda, Bu?|posesif u → uw||jouw
+#55 orang ke-3 pria
+Ik ken ___. (dia lelaki)|hem|Saya kenal dia.|objek hij → hem||hij
+Dit is ___ fiets. (miliknya, lelaki)|zijn|Ini sepedanya.|posesif hij → zijn||hem
+#56 orang ke-3 wanita
+Ik zie ___. (dia perempuan)|haar|Saya melihatnya.|objek zij → haar||zij
+Dat is ___ boek. (miliknya, perempuan)|haar|Itu bukunya.|posesif zij → haar||zijn
+#57 orang ke-3 netral
+___ regent vandaag.|Het|Hari ini hujan.|subjek tak jelas → het||Er~Dat
+___ is warm buiten.|Het|Di luar hangat.|cuaca → het||Er~Dat
+#58 orang ke-1 jamak
+___ wonen in Utrecht. (kami)|Wij~We|Kami tinggal di Utrecht.|subjek wij / we||Ons
+Dat is ___ huis. (rumah kami)|ons|Itu rumah kami.|het-woord → ons||onze
+#59 orang ke-2 jamak
+___ wonen hier. (kalian)|Jullie|Kalian tinggal di sini.|subjek jullie||Jij
+Dit is ___ huis. (milik kalian)|jullie|Ini rumah kalian.|posesif jullie (tidak berubah)||jouw
+#60 orang ke-3 jamak
+Ik zie ___. (mereka, orang)|hen~ze|Saya melihat mereka.|objek mereka → hen / ze||zij
+Dit is ___ huis. (milik mereka)|hun|Ini rumah mereka.|posesif mereka → hun||hen
+#61 deze / die
+___ tafel is groot. (ini)|Deze|Meja ini besar.|de-woord dekat → deze||Dit
+___ man is mijn vader. (itu)|Die|Pria itu ayah saya.|de-woord jauh → die||Dat
+#62 dit / dat
+___ huis is oud. (ini)|Dit|Rumah ini tua.|het-woord dekat → dit||Deze
+___ kind is leuk. (itu)|Dat|Anak itu menyenangkan.|het-woord jauh → dat||Die
+#63 deze / die jamak
+___ boeken zijn goed. (ini)|Deze|Buku-buku ini bagus.|jamak dekat → deze||Dit
+___ mannen zijn aardig. (itu)|Die|Pria-pria itu ramah.|jamak jauh → die||Dat
+#64 kalimat pernyataan
+Hij ___ een fiets. (hebben)|heeft|Dia punya sepeda.|kata kerja di posisi 2||hebben
+Ik ___ het boek. (lezen)|lees|Saya membaca buku itu.|kata kerja di posisi 2||lezen
+#65 inversi
+Vandaag ___ ik het boek. (lezen)|lees|Hari ini saya membaca buku itu.|inversi: kata kerja sebelum subjek||lezen
+Morgen ___ wij naar Amsterdam. (gaan)|gaan|Besok kami pergi ke Amsterdam.|wij → gaan; kata kerja posisi 2||gaat
+#66 kata kerja ganda
+Ik kan Nederlands ___. (bicara)|spreken|Saya bisa berbicara bahasa Belanda.|infinitief di akhir||spreek
+Ik wil morgen naar school ___. (pergi)|gaan|Saya mau pergi ke sekolah besok.|infinitief di akhir||ga
+#67 kata tanya
+___ is dat? (apa)|Wat|Apa itu?|wat = apa||Wie
+___ woon je? (di mana)|Waar|Kamu tinggal di mana?|waar = di mana||Wanneer
+#68 kata tanya lain
+___ laat is het? (jam berapa)|Hoe|Jam berapa sekarang?|hoe laat||Wat
+___ kost dit? (berapa)|Hoeveel|Berapa harganya?|hoeveel kost het||Hoe
+#69 pertanyaan ya/tidak
+___ je hier? (tinggal: wonen)|Woon|Apakah kamu tinggal di sini?|kata kerja di awal: stam||Woont
+___ je een fiets? (punya: hebben)|Heb|Apakah kamu punya sepeda?|jij setelah kata kerja → heb||Hebt
+#70 negasi geen
+Ik heb ___ auto. (tidak punya)|geen|Saya tidak punya mobil.|geen + noun||niet
+Er is ___ melk meer. (tidak ada)|geen|Susu sudah habis.|geen + noun tanpa artikel||niet
+#71 negasi niet
+Ik werk ___. (tidak)|niet|Saya tidak bekerja.|niet menyangkal kata kerja||geen
+Dat is ___ duur. (tidak)|niet|Itu tidak mahal.|niet + adjektiva||geen
+#72 jawel
+A: Woon je niet hier? B: ___, ik woon hier.|Jawel|A: Apakah kamu tidak tinggal di sini? B: Ya, saya tinggal di sini.|ya pada pertanyaan negatif||Ja~Nee
+A: Heb je geen fiets? B: ___, ik heb een fiets.|Jawel|A: Kamu tidak punya sepeda? B: Punya, kok.|ya pada pertanyaan negatif||Ja~Nee
+#73 er is
+___ is een supermarkt.|Er|Ada satu supermarket.|Er is + tunggal||Het
+Er ___ geen melk in de koelkast.|is|Tidak ada susu di kulkas.|tunggal → is||zijn
+#74 er zijn
+Er ___ twee banken.|zijn|Ada dua bank.|jamak → zijn||is
+___ zijn veel mensen in de stad.|Er|Ada banyak orang di kota.|Er zijn + jamak||Het
+#75 angka 0–10
+Ik heb ___ broers. (2)|twee|Saya punya dua saudara laki-laki.|angka 2||drie
+Een week heeft ___ dagen. (7)|zeven|Seminggu punya tujuh hari.|angka 7||zes
+#76 angka 11–20
+Mijn zus is ___ jaar. (13)|dertien|Adik perempuan saya berumur tiga belas tahun.|13 = dertien||
+Een jaar heeft ___ maanden. (12)|twaalf|Setahun punya dua belas bulan.|12 = twaalf||elf
+#77 puluhan
+Mijn vader is ___ jaar. (40)|veertig|Ayah saya berumur empat puluh tahun.|40 = veertig||
+Het kost ___ euro. (50)|vijftig|Harganya lima puluh euro.|50 = vijftig||
+#78 ratusan
+Een eeuw is ___ jaar. (100)|honderd|Satu abad adalah seratus tahun.|100 = honderd||duizend
+Een kilo is ___ gram. (1000)|duizend|Satu kilo adalah seribu gram.|1000 = duizend||honderd
+#79 hari
+Na vrijdag komt ___. (Sabtu)|zaterdag|Setelah Jumat datang Sabtu.|nama hari huruf kecil||
+Op ___ ga ik naar de kerk. (Minggu)|zondag|Pada hari Minggu saya pergi ke gereja.|op + hari||
+#80 bulan
+Na maart komt ___. (April)|april|Setelah Maret datang April.|nama bulan huruf kecil||
+In ___ is het Kerstmis. (Desember)|december|Natal ada di bulan Desember.|in + bulan||
+#81 musim
+In de ___ is het warm. (musim panas)|zomer|Di musim panas udaranya hangat.|musim: zomer||winter
+In de ___ is het koud. (musim dingin)|winter|Di musim dingin udaranya dingin.|musim: winter||zomer
+#82 jam
+Het is ___ vier. (03.30)|half|Sekarang pukul setengah empat (03.30).|half vier = 3.30||kwart
+Het is ___ over drie. (15 menit lewat)|kwart|Pukul tiga lewat seperempat.|kwart over||half
+#83 pertanyaan waktu
+Hoe ___ begint de film? (jam berapa)|laat|Jam berapa film dimulai?|hoe laat||
+De les begint ___ negen uur. (pada pukul)|om|Pelajaran mulai pukul sembilan.|om + jam||op~in
+#84 in
+Ik woon ___ Utrecht.|in|Saya tinggal di Utrecht.|kota → in||op
+Hij is ___ de keuken.|in|Dia ada di dapur.|ruang tertutup → in||op
+#85 op
+Het boek ligt ___ tafel.|op|Buku itu ada di atas meja.|permukaan → op||in
+___ maandag werk ik. (pada)|Op|Pada hari Senin saya bekerja.|hari → op||In
+#86 naar
+Ik ga ___ Amsterdam.|naar|Saya pergi ke Amsterdam.|arah → naar||in~op
+Ik kijk ___ de tv.|naar|Saya menonton TV.|kijken naar||op
+#87 uit
+Zij komt ___ Duitsland. (asal negara)|uit|Dia berasal dari Jerman.|asal → uit||van
+Ik kom ___ Indonesië.|uit|Saya berasal dari Indonesia.|asal → uit||van
+#88 van
+Dit is het boek ___ mijn vader.|van|Ini buku milik ayah saya.|kepemilikan → van||uit
+De fiets is ___ mijn zus. (milik)|van|Sepeda itu milik adik perempuan saya.|kepemilikan → van||uit
+#89 met
+Ik reis ___ de trein.|met|Saya bepergian dengan kereta.|transportasi → met||in~op
+Ik ga ___ de bus naar school.|met|Saya pergi ke sekolah naik bus.|transportasi → met||in~op
+#90 zonder
+Koffie ___ suiker, graag.|zonder|Kopi tanpa gula, ya.|zonder = tanpa||met
+Ik drink thee ___ melk. (tanpa)|zonder|Saya minum teh tanpa susu.|zonder = tanpa||met
+#91 bij
+Ik woon ___ mijn ouders.|bij|Saya tinggal bersama orang tua saya.|bij = di tempat seseorang||met
+Hij werkt ___ een bank. (di)|bij|Dia bekerja di sebuah bank.|bij = di (tempat kerja)||op
+#92 voor
+Dit is ___ jou.|voor|Ini untukmu.|voor = untuk||van
+Ik koop een cadeau ___ mijn moeder.|voor|Saya membeli hadiah untuk ibu saya.|voor = untuk||van
+#93 om
+___ zeven uur eten wij. (pada pukul)|Om|Pada pukul tujuh kami makan.|om + jam||Op
+De film begint ___ acht uur.|om|Film mulai pukul delapan.|om + jam||op~in
+#94 salam
+___! (selamat pagi)|Goedemorgen|Selamat pagi!|salam pagi||Goedenavond
+Tot ___! (sampai jumpa)|ziens|Sampai jumpa!|Tot ziens||
+#95 perkenalan
+Hoe ___ het met u? (formal)|gaat|Apa kabar?|Hoe gaat het||
+Hoe ___ je? (nama)|heet|Siapa namamu?|Hoe heet je?||
+#96 sopan santun
+___ je wel! (terima kasih)|Dank|Terima kasih!|Dank je wel||
+___. Hier is uw koffie. (silakan, formal)|Alstublieft|Silakan. Ini kopi Anda.|bentuk formal||Alsjeblieft
+#97 dasar komunikasi
+Ik ___ het niet. (tidak mengerti)|begrijp|Saya tidak mengerti.|ik + stam||begrijpt
+___ u dat herhalen? (bisakah, formal)|Kunt|Bisakah Anda mengulanginya?|kunt u (formal)||Kun

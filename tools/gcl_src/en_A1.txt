@@ -1,0 +1,196 @@
+// Bank Grammar Cloze en A1 — format: lihat tools/gcl_build.py. Kolom: kalimat | jawaban(~alt) | terjemah | petunjuk | (romanisasi kosong) | pengecoh terlarang
+#0 have / have got
+I ___ a sister.|have|Saya punya seorang saudari.|have: I/you/we/they||
+My brother ___ a new bike.|has|Kakak saya punya sepeda baru.|have: he/she/it → has||
+#1 There is / There are
+There ___ a book on the table.|is|Ada sebuah buku di meja.|tunggal → there is||
+There ___ three cats in the garden.|are|Ada tiga ekor kucing di kebun.|jamak → there are||
+#2 object pronouns
+Can you help ___? I can't open this door.|me|Bisakah kamu membantu saya? Saya tidak bisa membuka pintu ini.|objek untuk I||us
+I like Anna. I often talk to ___.|her|Saya suka Anna. Saya sering bicara dengannya.|objek untuk she||
+#3 pronoun orang ketiga
+I have two cousins. ___ live in Bali.|They|Saya punya dua sepupu. Mereka tinggal di Bali.|jamak → they||We
+Look at the table. ___ is very old.|It|Lihat meja itu. Meja itu sangat tua.|benda → it||This~That
+#4 antecedent
+Maria has a bike. She rides ___ to school.|it|Maria punya sepeda. Dia mengendarainya ke sekolah.|pengganti 'a bike'||
+My parents are teachers. I love ___ very much.|them|Orang tua saya guru. Saya sangat menyayangi mereka.|pengganti 'my parents'||
+#5 personal pronoun
+My sister is a nurse. ___ works at a hospital.|She|Kakak perempuan saya perawat. Dia bekerja di rumah sakit.|perempuan tunggal → she||
+Tom and I are friends. ___ play football together.|We|Tom dan saya berteman. Kami bermain sepak bola bersama.|Tom + I → we||
+#6 subjective vs objective
+Anna and ___ are in the same class.|I|Anna dan saya sekelas.|subjek → I||me
+Tom is my friend. I often call ___.|him|Tom teman saya. Saya sering menelepon dia.|objek untuk he||
+#7 possessive determiner
+Tom is a farmer. ___ farm is very big.|His|Tom seorang petani. Pertaniannya sangat besar.|milik he → his||Her~Their
+We have a dog. ___ dog is called Max.|Our|Kami punya seekor anjing. Anjing kami bernama Max.|milik we → our||Their~My
+#8 this/that sebagai pronoun
+I'm holding a cup. ___ is my cup.|This|Saya sedang memegang cangkir. Ini cangkir saya.|dekat, tunggal||That
+Look at the mountains over there. ___ are very high.|Those~They|Lihat gunung-gunung di sana. Itu sangat tinggi.|jauh, jamak||These
+#9 demonstrative pronoun vs adjective
+I want ___ apple here in my hand.|this|Saya mau apel di tangan saya ini.|this + noun tunggal, dekat||that
+Are ___ your shoes over there?|those|Apakah itu sepatumu di sana?|those + noun jamak, jauh||these
+#10 subjek + predikat
+Dogs ___.|bark|Anjing menggonggong.|kata kerja: bark||
+The baby ___ loudly.|cries|Bayi itu menangis keras.|kata kerja: cry + -s||
+#11 urutan S-V-O
+She reads ___ every night.|books|Dia membaca buku setiap malam.|objek: jamak dari book||
+Tom ___ a cake.|makes|Tom membuat kue.|kata kerja: make + -s||
+#12 dummy it / there
+___ is hot today.|It|Hari ini panas.|cuaca → it||There
+___ are many people in the park.|There|Ada banyak orang di taman.|There + be + N||It
+#13 jenis kalimat
+Open the window, ___.|please|Tolong buka jendelanya.|perintah sopan||
+___ a beautiful day!|What|Hari yang indah!|kalimat seru: What + a + N||How
+#14 be sebagai linking verb
+I ___ hungry.|am|Saya lapar.|be + adjektiva||
+The children ___ tired after school.|are|Anak-anak lelah setelah sekolah.|jamak → are||
+#15 usia, tinggi, berat dengan be
+I ___ twenty years old.|am|Saya berusia dua puluh tahun.|be + angka + years old||
+She is ten years ___.|old|Dia berusia sepuluh tahun.|be + angka + years old||
+#16 the
+I have a cat and a dog. ___ cat is black.|The|Saya punya kucing dan anjing. Kucing itu hitam.|sudah disebut → the||A
+___ sun is very hot today.|The|Matahari sangat panas hari ini.|hanya ada satu → the||A
+#17 a / an
+I need ___ umbrella.|an|Saya butuh payung.|huruf awal vokal → an||a
+She has ___ new car.|a|Dia punya mobil baru.|huruf awal konsonan → a||an
+#18 artikel profesi
+My father is ___ engineer.|an|Ayah saya seorang insinyur.|be + an + profesi (vokal)||a
+Is she ___ doctor?|a|Apakah dia seorang dokter?|be + a + profesi||an
+#19 like / love / want
+I want ___ drink some water.|to|Saya mau minum air.|want + to + V||
+I like coffee, but I don't ___ tea.|like~want~love|Saya suka kopi, tapi saya tidak suka teh.|like + noun||
+#20 common vs proper noun
+Bandung is a ___ in Indonesia.|city~town|Bandung adalah sebuah kota di Indonesia.|common noun: kota||
+Sam is a ___ in my class.|student~pupil|Sam adalah seorang murid di kelas saya.|common noun: murid||
+#21 countable noun
+I have one pen and two ___.|pens|Saya punya satu pena dan dua pena lagi.|jamak dari pen||
+There are many ___ in the garden.|flowers|Ada banyak bunga di kebun.|jamak dari flower||
+#22 subject-verb agreement
+The boys ___ in the garden now.|are|Anak-anak lelaki itu ada di kebun sekarang.|jamak → are||were
+My brother ___ at home today.|is|Kakak saya ada di rumah hari ini.|tunggal → is||are
+#23 jamak +s / +es
+One box, two ___.|boxes|Satu kotak, dua kotak.|x → +es||
+She has three ___ on her wrist.|watches|Dia punya tiga jam tangan di pergelangan tangannya.|ch → +es||
+#24 jamak y → ies
+One baby, two ___.|babies|Satu bayi, dua bayi.|konsonan + y → -ies||
+One toy, two ___.|toys|Satu mainan, dua mainan.|vokal + y → +s||
+#25 Don't + V
+___ run in the corridor!|Don't~Do not|Jangan berlari di koridor!|imperatif negatif||
+___ be late, please.|Don't~Do not|Tolong jangan terlambat.|imperatif negatif||
+#26 Let's + V
+___ go to the park!|Let's~Let us|Ayo kita ke taman!|ajakan: Let's||
+Let's ___ football after school.|play~watch|Ayo bermain sepak bola setelah sekolah.|Let's + V dasar||
+#27 present continuous negatif dan tanya
+I ___ working now.|am not|Saya sedang tidak bekerja sekarang.|am + not + V-ing||
+___ you watching TV?|Are|Apakah kamu sedang menonton TV?|tanya: Be + S + V-ing||Do
+#28 present simple dengan be
+My parents ___ not at home today.|are|Orang tua saya tidak ada di rumah hari ini.|be + not||
+___ he your brother?|Is|Apakah dia kakak/adikmu?|tanya: Be + S||Does
+#29 present simple
+She ___ to work by bus every day.|goes|Dia pergi kerja naik bus setiap hari.|go + -es (orang ketiga)||
+My father ___ not like fish.|does|Ayah saya tidak suka ikan.|does + not + V||do
+#30 present continuous
+John ___ sleeping at the moment.|is|John sedang tidur saat ini.|be + V-ing||
+Look! The children ___ playing in the garden.|are|Lihat! Anak-anak sedang bermain di kebun.|jamak → are||
+#31 imperatif
+Please ___ quiet in the library.|be|Tolong tenang di perpustakaan.|imperatif: be → V dasar||is~are
+___ your hands before dinner.|Wash|Cuci tanganmu sebelum makan malam.|imperatif: V dasar||
+#32 verba berubah menurut person
+I like tea. He ___ coffee.|likes|Saya suka teh. Dia suka kopi.|like + -s (he)||
+My brother ___ in a bank.|works|Kakak saya bekerja di bank.|work + -s (he)||
+#33 konjugasi be
+I ___ thirty-two years old.|am|Saya berusia tiga puluh dua tahun.|I → am||
+We ___ at the park yesterday.|were|Kami di taman kemarin.|lampau, we → were||are~was
+#34 -s dan -ing
+Mia ___ her hair every morning. (brush)|brushes|Mia menyisir rambutnya setiap pagi.|sh → +es||
+They are ___ a letter. (write)|writing|Mereka sedang menulis surat.|write → writing (e hilang)||
+#35 not dan no
+I ___ not like spicy food.|do|Saya tidak suka makanan pedas.|do + not + V||
+She ___ not at school today.|is|Dia tidak di sekolah hari ini.|be + not||
+#36 kata tanya
+___ do you live?|Where|Kamu tinggal di mana?|tempat → where||When
+___ is she crying? She is sad.|Why|Mengapa dia menangis? Dia sedih.|alasan → why||
+#37 negatif dengan be
+He ___ not my teacher.|is|Dia bukan guru saya.|he → is + not||
+My shoes ___ not new.|are|Sepatu saya tidak baru.|jamak → are + not||
+#38 who what which
+___ is coming to the party tonight?|Who|Siapa yang akan datang ke pesta malam ini?|orang → who||What
+___ is your favourite colour?|What~Which|Apa warna kesukaanmu?|pertanyaan tentang benda → what||Who
+#39 inversi
+___ your brother play tennis?|Does|Apakah kakakmu bermain tenis?|does + S + V||Do~Is
+___ you like tea?|Do|Apakah kamu suka teh?|do + S + V||Does
+#40 do/does/did + not
+We ___ not work on weekends.|do|Kami tidak bekerja pada akhir pekan.|do + not + V||does
+She ___ not go to school yesterday.|did|Dia tidak pergi ke sekolah kemarin.|lampau → did + not||do~does
+#41 this / that / these / those
+___ cup in my hand is very pretty.|This|Cangkir di tangan saya ini sangat cantik.|dekat, tunggal → this||That
+I like ___ trees over there.|those|Saya suka pohon-pohon di sana.|jauh, jamak → those||these
+#42 demonstrative
+Is ___ your bag over there?|that|Apakah itu tasmu di sana?|jauh, tunggal → that||this
+___ shoes here are new.|These|Sepatu-sepatu ini baru.|dekat, jamak → these||Those
+#43 possessive determiner dan 's
+___ house is on Steven Street. (milik saya)|My|Rumah saya ada di Jalan Steven.|milik I → my||
+Sara has two dogs. ___ dogs are big.|Her|Sara punya dua anjing. Anjingnya besar.|milik she → her||His~Their
+#44 angka kardinal dan ordinal
+January is the ___ month of the year.|first|Januari adalah bulan pertama dalam setahun.|ordinal: first||one
+I have ___ brothers. (3)|three|Saya punya tiga saudara laki-laki.|kardinal: 3||
+#45 some dan any
+I have ___ apples.|some|Saya punya beberapa apel.|kalimat positif → some||any
+I don't have ___ money.|any|Saya tidak punya uang.|negatif → any||some
+#46 possessive 's dan s'
+This is my ___ room. (my sister)|sister's|Ini kamar adik saya.|noun tunggal + 's||
+The ___ classroom is big. (the students)|students'|Ruang kelas para siswa itu besar.|noun jamak + '||
+#47 kosakata fungsional A1
+It's half ___ three.|past|Jam setengah empat.|half past + jam||to
+Today is the ___ of May. (5th)|fifth|Hari ini tanggal lima Mei.|ordinal: 5th = fifth||
+#48 adjektiva memodifikasi nomina
+John wears ___ glasses. (merah)|red|John memakai kacamata merah.|adj + noun||
+It is a ___ day. (panas)|hot|Ini hari yang panas.|a + adj + noun||
+#49 attributive vs predicative
+The ___ dog is barking. (hitam)|black|Anjing hitam itu menggonggong.|attributive: adj + noun||
+The dog is ___. (hitam)|black|Anjing itu hitam.|predicative: be + adj||
+#50 preposisi tempat
+The cat is ___ the table. (di bawah)|under~beneath|Kucing itu di bawah meja.|di bawah → under||
+The bank is ___ the school and the post office.|between|Bank berada di antara sekolah dan kantor pos.|between + dua tempat||
+#51 from, to, with, for, of
+I'm ___ Indonesia.|from|Saya dari Indonesia.|asal → from||
+She lives ___ her grandparents.|with|Dia tinggal bersama kakek-neneknya.|bersama → with||
+#52 preposisi dan objeknya
+I live ___ Jakarta.|in|Saya tinggal di Jakarta.|kota → in||at~on
+She sits next ___ me.|to|Dia duduk di sebelah saya.|next to + objek||
+#53 at / in / on waktu
+The class starts ___ nine o'clock.|at|Kelas dimulai pukul sembilan.|jam → at||in~on
+My birthday is ___ 12 May.|on|Ulang tahun saya tanggal 12 Mei.|tanggal → on||in~at
+#54 at / in / on tempat
+The picture is ___ the wall.|on|Gambar itu ada di dinding.|permukaan → on||in~at
+Wait for me ___ the bus stop.|at~by|Tunggu saya di halte bus.|titik → at||in~on
+#55 can't / cannot
+I ___ swim.|can't~cannot|Saya tidak bisa berenang.|negatif: can't / cannot||
+Birds ___ read, but they can sing.|can't~cannot|Burung tidak bisa membaca, tapi bisa bernyanyi.|negatif: can't / cannot||
+#56 can: kemampuan
+She ___ speak three languages.|can|Dia bisa berbicara tiga bahasa.|can + V1||
+Can he ___ the piano? (bermain)|play|Bisakah dia bermain piano?|Can + S + V1||
+#57 can: permintaan dan tawaran
+___ you help me, please?|Can~Could|Bisakah kamu membantu saya?|permintaan: Can you + V||
+___ I open the window?|Can~May~Could|Bolehkah saya membuka jendela?|izin: Can I + V||
+#58 past simple
+She ___ in a bank last year. (work)|worked|Dia bekerja di bank tahun lalu.|regular: V + -ed||
+We ___ to Bali last summer. (go)|went|Kami pergi ke Bali musim panas lalu.|irregular: go → went||
+#59 past simple: adverbia dan tanya
+___ you see Tom yesterday?|Did|Apakah kamu melihat Tom kemarin?|tanya lampau: Did + S + V||Do~Does
+Who ___ you yesterday? (call)|called|Siapa yang meneleponmu kemarin?|Who + V2||
+#60 frekuensi tak tentu
+We ___ go to the cinema on Sundays. (biasanya)|usually~often|Kami biasanya pergi ke bioskop tiap Minggu.|adverbia sebelum verba||
+He ___ eats meat. (tidak pernah)|never|Dia tidak pernah makan daging.|never = tidak pernah||rarely
+#61 adverbia dasar
+It is ___ hot today. (sangat)|very|Hari ini sangat panas.|very + adjektiva||too
+Please sit ___. (di sini)|here|Silakan duduk di sini.|here = di sini||there
+#62 verba aksi
+The man ___ the ball. (throw, lampau)|threw|Pria itu melempar bola.|irregular: throw → threw||
+She ___ the door and went out. (close, lampau)|closed|Dia menutup pintu lalu keluar.|regular: close + -d||
+#63 and, but, or
+I like tea ___ I don't like coffee.|but|Saya suka teh tapi tidak suka kopi.|kontras → but||and
+Do you want tea ___ coffee?|or|Kamu mau teh atau kopi?|pilihan → or||and
+#64 kata hubung dasar
+We can go by bus ___ by train. (pilihan)|or|Kita bisa naik bus atau kereta.|pilihan → or||and
+She is small, ___ she is strong. (kontras)|but|Dia kecil, tapi kuat.|kontras → but||and
