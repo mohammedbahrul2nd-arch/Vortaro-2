@@ -305,14 +305,36 @@ function scLog(it,r,q){if(gxFree)return;const st=scStat(it.l);st.n++;if(r.ok)st.
  for(const z of r.vf){const e=scVoc()[z.v.w+'@'+it.l]||(scVoc()[z.v.w+'@'+it.l]={a:0,o:0});e.a++;if(z.ok)e.o++}}
 /* ---- tampilan kerangka ---- */
 const scPunc=t=>(t.match(/[、。，．,.?!？！…]+$/)||[''])[0];
-const scChip=(v)=>`<span class=scv>${esc(v.w)}<small>${esc(v.g)}</small></span>`;
-function scFrame(q){const it=q.it,nat=`<div class=scn>${esc(q.it.tr)}</div>`,P=q.plan,H=q.help,ex=H.v|0,vis=new Set(P.inl);for(let i=0;i<ex;i++)if(P.extra[i]!=null){if(!(q.o.vpl=='se'))vis.add(P.extra[i]);}
+/* v7.102.0: kelas kata kosakata dari kamus (D.C): V=verba (garis MERAH), N=nomina (garis KUNING), lainnya netral */
+const SCPOS={};
+function scPos(l,w){let m=SCPOS[l];if(!m){m=SCPOS[l]=new Map();const rx=/^(?:der|die|das|ein|eine|de|het|een|the|a|an|to|sich)\s+/i;
+ for(const pass of[0,1])for(const c of D.C){const a=c[3]&&c[3][l];if(!a)continue;const t=c[1],vn=t=='V'||t=='N';if(vn==!!pass)continue;for(const z of a){const k=String(z[0]).replace(rx,'').toLowerCase();if(k&&!m.has(k))m.set(k,vn?t:'O')}}}
+ const k=String(w).toLowerCase(),r=m.get(k);if(r)return r;if(l=='eo'){if(/i$/.test(k))return'V';if(/o$/.test(k))return'N'}return'X'}
+const scPc=p=>p=='V'?'v':p=='N'?'n':'x';
+const scChip=(v,l)=>`<span class="scv scp-${scPc(l?scPos(l,v.w):'X')}">${esc(v.w)}<small>${esc(v.g)}</small></span>`;
+/* token tiap segmen: SATU token = SATU kosakata (garis). Kosakata yang dikenali dicari di teks segmen (bentuk terkonjugasi/acc); sisa teks = token fungsi (garis netral) */
+function scToks(it,i){const l=it.l,cj=scSp(l),s=it.segs[i].t,pn=scPunc(s),body=pn?s.slice(0,s.length-pn.length):s,low=body.toLowerCase(),L=/\p{L}/u,sp0=[];
+ const vs=it.voc.map((v,j)=>({v,j})).filter(z=>z.v.s==i);
+ for(const z of vs){const fs=z.v.acc.concat([z.v.w]).filter(Boolean).map(f=>f.toLowerCase()).sort((a,b)=>b.length-a.length);let hit=null;
+  for(const f of fs){let p=0,ix;while(!hit&&(ix=low.indexOf(f,p))>=0){const e=ix+f.length;p=ix+1;
+    if(!cj&&((ix>0&&L.test(low[ix-1]))||(e<low.length&&L.test(low[e]))))continue;
+    if(sp0.some(x=>ix<x.e&&e>x.a))continue;hit={a:ix,e,j:z.j}}if(hit)break}
+  if(hit)sp0.push(hit)}
+ sp0.sort((x,y)=>x.a-y.a);const out=[];let pos=0;
+ const gap=t=>{if(!cj)t.split(/\s+/).forEach(w=>{w=w.replace(/^[、。，．,.?!？！…;:]+|[、。，．,.?!？！…;:]+$/g,'');if(w)out.push({j:-1,t:w})});else{const w=t.replace(/[、。，．,.?!？！…\s]+/g,'');if(w)out.push({j:-1,t:w})}};
+ for(const x of sp0){gap(body.slice(pos,x.a));out.push({j:x.j,t:body.slice(x.a,x.e)});pos=x.e}
+ gap(body.slice(pos));
+ for(const z of vs)if(!sp0.some(x=>x.j==z.j))out.push({j:z.j,t:z.v.w});/* kosakata yang bentuknya tak ketemu di teks: tetap satu garis */
+ if(!out.length)out.push({j:-1,t:body});
+ return{toks:out,pn}}
+function scFrame(q){const it=q.it,l=it.l,nat=`<div class=scn>${esc(q.it.tr)}</div>`,P=q.plan,H=q.help,ex=H.v|0,vis=new Set(P.inl);for(let i=0;i<ex;i++)if(P.extra[i]!=null){if(!(q.o.vpl=='se'))vis.add(P.extra[i]);}
  const bank=P.sep.slice();if(q.o.vpl=='se'||q.o.vpl=='mx')for(let i=0;i<ex;i++)if(P.extra[i]!=null&&q.o.vpl=='se')bank.push(P.extra[i]);
- const sg=it.segs.map((s,i)=>`<span class=scs><span class=scb><b class=scnum>${i+1}</b>＿＿＿${esc(scPunc(s.t))}</span></span>`).join('');
- const key=it.segs.map((s,i)=>{const vs=it.voc.map((v,j)=>({v,j})).filter(z=>z.v.s==i&&vis.has(z.j)).map(z=>scChip(z.v)).join(''),lb=P.lab.has(i)||H.s?esc(s.r):'';
-  return `<li class=\"${vs?'sck-c':'sck-h'}\"><b>${i+1}.</b>${lb?` <span class=sckl>${lb}</span>`:''} ${vs?`<span class=scvs>${vs}</span>`:'<i class=sckh>🔒 tersembunyi</i>'}</li>`}).join('');
- let h=nat+`<div class=scf>${sg}</div><ol class=sck>${key}</ol>`;
- if(bank.length)h+=`<div class=scbank><small>Bank kosakata (posisi tidak ditunjukkan)</small><div>${bank.map(j=>scChip(it.voc[j])).join('')}</div></div>`;
+ const sg=it.segs.map((s,i)=>{const T=scToks(it,i),w=T.toks.map(t=>{const v=t.j>=0?it.voc[t.j]:null,c=v?scPc(scPos(l,v.w)):'x';
+   return v&&vis.has(t.j)?`<span class="scw scp-${c}" data-w="${esc(v.w)}">${esc(v.w)}<small>${esc(v.g)}</small></span>`:`<span class="scw scln scp-${c}"${v?' data-h=1':''}>＿＿＿</span>`}).join('');
+  return `<span class=scs><b class=scnum>${i+1}</b>${w}${T.pn?`<span class=scpn>${esc(T.pn)}</span>`:''}</span>`}).join('');
+ const key=it.segs.map((s,i)=>{const lb=P.lab.has(i)||H.s?esc(s.r):'';return lb?`<li><b>${i+1}.</b> <span class=sckl>${lb}</span></li>`:''}).join('');
+ let h=nat+`<div class=scf>${sg}</div>`+(key?`<ol class=sck>${key}</ol>`:'')+`<div class=sclg><small>1 garis = 1 kosakata · <i class="scsw scp-v"></i> verba · <i class="scsw scp-n"></i> nomina</small></div>`;
+ if(bank.length)h+=`<div class=scbank><small>Bank kosakata (posisi tidak ditunjukkan)</small><div>${bank.map(j=>scChip(it.voc[j],l)).join('')}</div></div>`;
  if(q.o.gh!='0'||H.g)h+=`<div class=scg><small>Petunjuk grammar</small><ul>${it.gr.map(g=>`<li><b>${esc(g.lab)}</b>${g.ex?' — '+esc(g.ex):''}</li>`).join('')||'<li>—</li>'}</ul></div>`;
  if(H.a)h+=`<div class=scans><small>Contoh jawaban</small><div>${esc(it.full)}</div>${it.alt.map(a=>`<div>${esc(a)}</div>`).join('')}</div>`;
  const nx=P.extra.length-ex;

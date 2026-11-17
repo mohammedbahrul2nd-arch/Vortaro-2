@@ -407,6 +407,7 @@ function libDeVerb(raw){const o=new Set(),w=libLow(libC1(raw).replace(/^sich\s+/
  if(info.length>=2&&info[0]){const p3=info[0].split(/\s+/),pr=info[1].split(/\s+/),pp=(info[2]||'').split(/\s+/),h3=p3[0],hr=pr[0],ppw=pp[pp.length-1];
   part=p3.length>1?p3[p3.length-1]:'';
   [h3,h3+'st',hr,hr+'st',hr+'en',hr+'t',hr+'e'].forEach(x=>o.add(libLow(x)));
+  if(part&&w.startsWith(libLow(part))){const sp=o.sep=new Map();[h3,h3+'st',hr,hr+'st',hr+'en',hr+'t',hr+'e'].forEach(x=>sp.set(libLow(x),libLow(part)))}
   if(ppw&&!/^(?:hat|ist|haben|sein)$/.test(ppw)){const q=libLow(ppw);[q,q+'e',q+'en',q+'er',q+'em',q+'es'].forEach(x=>o.add(x))}
   if(part&&w.startsWith(part)){const P=libLow(part),h=libLow(h3),r=libLow(hr);[P+h,P+r,P+r+'en',P+h+'st'].forEach(x=>o.add(x));const base=w.slice(P.length);o.add(P+'zu'+base);reg(stemOf(base),P)}}
  else{const pf=LIBSEP_DE.find(p=>w.startsWith(p)&&w.length>p.length+3);if(pf){const base=w.slice(pf.length);reg(stemOf(base),pf);o.add(pf+'zu'+base);libEnd(stemOf(base),['e','st','t','en','te','ten']).forEach(x=>o.add(x))}}
@@ -439,6 +440,7 @@ function libNlVerb(raw){const o=new Set(),w=libLow(libC1(raw).replace(/^zich\s+/
   part=p3.length>1?libLow(p3[p3.length-1]):'';
   const st=[h3];if(/t$/.test(h3))st.push(h3.slice(0,-1));
   st.forEach(s=>{o.add(s);o.add(s+'t');o.add(s+'en')});o.add(hr);o.add(hr+(/e$/.test(hr)?'n':'en'));
+  if(part&&w.startsWith(part)){const sp=o.sep=new Map();st.forEach(s=>[s,s+'t',s+'en'].forEach(x=>sp.set(x,part)));[hr,hr+(/e$/.test(hr)?'n':'en')].forEach(x=>sp.set(x,part))}
   if(ppw&&!/^(?:heeft|is|hebben|zijn)$/.test(ppw)){o.add(ppw);o.add(ppw+'e')}
   if(part&&w.startsWith(part)){const base=w.slice(part.length);st.forEach(s=>{o.add(part+s);o.add(part+s+'t')});o.add(part+hr);o.add(part+hr+(/e$/.test(hr)?'n':'en'));reg(base,part)}}
  else{const pf=LIBSEP_NL.find(p=>w.startsWith(p)&&w.length>p.length+3);if(pf)reg(w.slice(pf.length),pf)}
@@ -609,10 +611,11 @@ function libForms(key,E){const ck=E?'E|'+key:key;if(libFM.has(ck))return libFM.g
  try{const b=base(key),L=lang(key),c=K[b],es=(E&&libEntOnly(key))||(c&&c[3][L]);if(es&&es.length){const pos=c[1];
   if(L=='zh')F={alts:[libZhF(es)],rom:libRomR(es,L)};
   else if(L=='ja')F={alts:[libJaF(es,pos)],rom:libRomR(es,L)};
-  else{const single=new Set(),alts=[];
+  else{const single=new Set(),alts=[],sep=new Map(),plain=new Set();
    const mk={de:libDeSets,nl:libNlSets,en:libEnSets,eo:libEo}[L];
-   for(const e of es){const sets=mk(e[0],pos);if(sets.length==1)sets[0].forEach(x=>single.add(x));else alts.push({k:'tok',sets})}
-   if(single.size)alts.unshift({k:'tok',sets:[single]});F={alts}}}}catch(e){F=null}
+   for(const e of es){const sets=mk(e[0],pos);if(sets.length==1){const s0=sets[0];s0.forEach(x=>{single.add(x);if(!(s0.sep&&s0.sep.has(x)))plain.add(x)});if(s0.sep)s0.sep.forEach((p,x)=>{if(!sep.has(x))sep.set(x,p);else if(sep.get(x)!=p)plain.add(x)})}else alts.push({k:'tok',sets})}
+   plain.forEach(x=>sep.delete(x));
+   if(single.size)alts.unshift({k:'tok',sets:[single],sep:sep.size?sep:null});F={alts}}}}catch(e){F=null}
  libFM.set(ck,F);return F}
 /* ---- v7.6: pencocokan lewat baris romaji / pinyin. Batas kata = spasi di baris romanisasi; bacaan kartu (≥4 huruf, nada pinyin dipertahankan) harus cocok persis pada batas kata. Dipakai sebagai tambahan di samping pencocokan aksara asli (hasil = nilai terbesar, tanpa hitung ganda) ---- */
 const libRomN=(s,L)=>{let t=String(s).toLowerCase().normalize('NFC');if(L=='ja')t=t.replace(/ā/g,'a').replace(/ī/g,'i').replace(/ū/g,'u').replace(/ē/g,'e').replace(/ō/g,'o').replace(/ou/g,'o').replace(/oo/g,'o').replace(/uu/g,'u').replace(/aa/g,'a').replace(/ii/g,'i');return t};
@@ -621,6 +624,13 @@ function libRomB(s,L){const tk=libRomT(s,L);if(!tk.length)return null;const b=ne
 function libRomR(es,L){const o=new Set();for(const e of es)String(e[1]||'').split(/\s*[\/;,、]\s*/).forEach(v=>{const t=libRomT(v.replace(/\(.*?\)/g,''),L).join('');if(t.length>=4)o.add(t)});return[...o]}
 function libRomCount(d,rom){if(!d.rs||!d.rs.some(Boolean))return 0;if(!d.rb)d.rb=d.rs.map(r=>r?libRomB(r,d.L):null);let n=0;
  for(const B of d.rb){if(!B)continue;for(const r of rom){let i=B.j.indexOf(r),ok=false;while(i>=0){if(B.b.has(i)&&B.b.has(i+r.length)){ok=true;break}i=B.j.indexOf(r,i+1)}if(ok){n++;break}}}return n}
+/* v7.103: kata kerja TERPISAH (nl/de: opschrijven, aufschreiben). Bentuk finit yang terpisah (schrijf/schrijft/schreef) hanya sah bila partikelnya ada di kalimat yang sama SESUDAH kata kerja dan berada di ujung klausa (. , ; ! ? atau und/en/maar/of…). "schrijft … op het papier" (preposisi) dan "schrift" (nomina) tidak lagi cocok. */
+const LIBSEP_END=/^\s*(?:$|[.,;:!?…"”)»]|(?:und|oder|aber|denn|sondern|doch|en|maar|of|want|dan|zu|te)(?![\p{L}]))/iu;
+function libSepScan(f,sep){const s=String(f),T=[...s.matchAll(/\p{L}+/gu)].map(m=>({w:libLow(m[0]),a:m.index,b:m.index+m[0].length})),out=[];
+ for(let i=0;i<T.length;i++){const p=sep.get(T[i].w);if(p===undefined)continue;
+  for(let j=i+1;j<T.length;j++){if(/[.!?;]/.test(s.slice(T[j-1].b,T[j].a)))break;if(T[j].w==p&&LIBSEP_END.test(s.slice(T[j].b))){out.push({v:i,a:T[i].a,b:T[i].b,pa:T[j].a,pb:T[j].b});break}}}
+ return out}
+function libSepCnt(d,F){let n=0;const S0=F.sets[0],sep=F.sep;for(const [w,c] of d.cnt)if(S0.has(w)&&!sep.has(w))n+=c;for(const s of d.sents)n+=libSepScan(s,sep).length;return n}
 const libDocs=new Map();
 function libTok(s,L){let t=libLow(String(s));if(L=='eo')t=t.replace(/([cghjs])x/g,(m,c)=>({c:'ĉ',g:'ĝ',h:'ĥ',j:'ĵ',s:'ŝ'}[c])).replace(/ux/g,'ŭ');return t.match(/\p{L}+/gu)||[]}
 function libDoc(it){let d=libDocs.get(it.id);if(d)return d;const L=it.L,sents=[],rs=[],is=[],tgs=[];it.ps.forEach(p=>p.f.forEach((s,k)=>{sents.push(s);const a=p.a!==0;rs.push(a&&p.r?p.r[k]||'':'');is.push(a&&p.i?p.i[k]||'':'');tgs.push(p.tg&&p.tg[k]||null)}));
@@ -632,6 +642,7 @@ function libCount1(d,F){if(F.k=='aff'){let n=0;for(const [w,c] of d.cnt)if(F.pre
   if(F.ord)for(const re of F.ord)for(const s of d.sents){re.lastIndex=0;const m=s.replace(/\s+/g,'').match(re);if(m)n+=m.length}
   if(F.co)for(const parts of F.co)for(const s of d.sents){const s2=s.replace(/\s+/g,'');if(parts.every(p=>s2.includes(p)))n++}
   return n}
+ if(F.sets.length==1&&F.sep)return libSepCnt(d,F);
  if(F.sets.length==1){let n=0;const S0=F.sets[0];if(S0.size<=d.cnt.size){for(const w of S0)n+=d.cnt.get(w)|0}else{for(const [w,c] of d.cnt)if(S0.has(w))n+=c}return n}
  let n=0;for(const st of d.sT){if(F.sets.every(S0=>{for(const w of S0)if(st.has(w))return true;return false}))n++}return n}
 function libCountKey(d,key,E){if(GK[key]&&typeof gmCount=='function')return gmCount(d,key);const F=libForms(key,E);if(!F)return 0;let n=0;for(const a of F.alts)n+=libCount1(d,a);if(F.rom&&F.rom.length)n=Math.max(n,libRomCount(d,F.rom));return n}
@@ -796,8 +807,11 @@ function libHL(f,key,L,E){const F=libForms(key,E);if(!F)return esc(f);
   F.alts.forEach(a=>{add(a.re);(a.ord||[]).forEach(add);(a.co||[]).forEach(parts=>parts.forEach(pt=>{let i=t.indexOf(pt);while(i>=0){res.push([i,i+pt.length]);i=t.indexOf(pt,i+pt.length)}}))});
   res.sort((a,b)=>a[0]-b[0]);const mg=[];res.forEach(r=>{const l=mg[mg.length-1];if(l&&r[0]<=l[1])l[1]=Math.max(l[1],r[1]);else mg.push(r.slice())});
   let h='',p=0;mg.forEach(r=>{h+=esc(t.slice(p,r[0]))+'<mark>'+esc(t.slice(r[0],r[1]))+'</mark>';p=r[1]});return h+esc(t.slice(p))}
- const sets=[],aff=[];F.alts.forEach(a=>{if(a.k=='tok')a.sets.forEach(x=>sets.push(x));else if(a.k=='aff')aff.push(a)});
- return esc(f).replace(/[\p{L}]+/gu,w=>{const l=libTok(w,L)[0]||'';const hit=sets.some(x=>x.has(l))||aff.some(a=>a.pre.some(q=>l.startsWith(q))||a.cont.some(q=>l.includes(q)));return hit?'<mark>'+w+'</mark>':w})}
+ const toks=[],aff=[];F.alts.forEach(a=>{if(a.k=='tok')toks.push(a);else if(a.k=='aff')aff.push(a)});
+ const okSep=new Set();toks.forEach(a=>{if(a.sep)libSepScan(f,a.sep).forEach(h=>okSep.add(h.a))});
+ let o='',last=0;const S0=String(f);for(const m of S0.matchAll(/[\p{L}]+/gu)){o+=esc(S0.slice(last,m.index));last=m.index+m[0].length;const l=libTok(m[0],L)[0]||'';
+  const hit=toks.some(a=>a.sets.some(x=>x.has(l))&&!(a.sep&&a.sep.has(l)&&!okSep.has(m.index)))||aff.some(a=>a.pre.some(q=>l.startsWith(q))||a.cont.some(q=>l.includes(q)));o+=hit?'<mark>'+esc(m[0])+'</mark>':esc(m[0])}
+ return o+esc(S0.slice(last))}
 function libSnips(it){const H=libHits(it,libCard);if(!H.length)return'';const L=it.L;
  return`<div class=lbsn><small class=lbl>Ada di ${H.length} kalimat</small>`+H.slice(0,6).map(h=>`<div class=lbs data-a=libgo data-k="${esc(it.id)}" data-v=${h.g}><small>Paragraf ${h.pi+1} · kalimat ${h.si+1}</small><div class=eo>${(h.sf&&h.sf.length&&gmHLS(h.f,h.sf,L))||libHL(h.f,libCard,L)}</div>${h.i?`<div class=idn>${esc(h.i)}</div>`:''}<span class=lbgo>▶ Putar dari sini</span></div>`).join('')+(H.length>6?`<small>…dan ${H.length-6} kalimat lain (buka Rincian).</small>`:'')+`</div>`}
 function libRow(it,mc,ws){const ns=libNS(it),op=libOpenId==it.id,kd=libKind(it),id=esc(it.id);

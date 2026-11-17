@@ -920,6 +920,8 @@ function fcAct(a,x,k){fcQV++;
  else if(a=='fcans')fcAns(+x);
  else if(a=='fcundo')fcUndo();
  else if(a=='fcxdel'){if(!gmDelSent(k,+x))return}
+ else if(a=='fcxuntag'){if(!gmUntagRow(k,+x))return}
+ else if(a=='fcxuntagall'){if(!gmUntagAll(k))return}
  else if(a=='fcsusp'){S.srs[k]=Object.assign(S.srs[k]||{},{z:1});fcCur=null}
  else if(a=='fcforget'){delete S.srs[k];if(S.o.lk)delete S.p[k];fcCur=null}
  else if(a=='fcsyncall'){const r=fcSyncAll();toast(r[0]+' status diterapkan ke jadwal kartu, '+r[1]+' status diperbarui dari jadwal kartu.')}
@@ -1036,7 +1038,7 @@ function fcView(){const q=fcQ(),o=S.o,now=Date.now();
   const hd=g?`${LN[g[1]]||'Jerman'} ${g[2]} · Grammar`:PN[K[base(k)][1]]+' · '+(LN[lang(k)]||'');
   h+=`<div class="card fcard"${rev?'':' data-a=fcshow'}><div class=hd><span>${esc(hd)}</span><span class=${c&&c.t?(c.t==2?'k3':'k2'):'k1'}>${fcInfo(c)}</span></div><div class=fcf>${fcBody(k,rev)}</div>${rev&&typeof aiMarkHtml=='function'?aiMarkHtml(k):''}</div>`;
   h+=rev?`<div class=dock><div class=fcb>${[1,2,3,4].map(r=>{const n=fcCalc(c,r,now,false);return`<button class="fb fb${r}" data-a=fcans data-v=${r}>${['Lagi','Sulit','Baik','Mudah'][r-1]}<small>${n.t==2?fcFmtD(n.i):fcFmt(n.d-now)}</small></button>`}).join('')}</div></div>`:'<div class=dock><button class=pri data-a=fcshow>Tampilkan jawaban</button></div>';
-  h+=`<div class=fct><button data-a=fcundo${fcUn.length?'':' disabled'}>Urungkan</button><button data-a=fcsusp data-k="${esc(k)}">Tangguhkan</button>${aiBtn(k,'Kelas AI')}${isLch(k)?`<button class=on data-ai=leech data-k="${esc(k)}">🧠 Mnemonik</button>`:''}${S.lib.some(t=>t.L==(g?g[1]:lang(k)))?`<button data-a=libfind data-k="${esc(k)}">📚 Teks</button>`:''}<button class="${S.ed[g?'g':'v'][g?k:base(k)]?'on':''}" data-a=edit data-k="${esc(g?k:base(k))}" data-v=${g?'g':'v'}>✎ ${S.ed[g?'g':'v'][g?k:base(k)]?'Diedit':'Edit'}</button>${c&&c.t?`<button data-a=fcforget data-k="${esc(k)}">Reset kartu</button>`:''}</div>`}
+  h+=`<div class=fct><button data-a=fcundo${fcUn.length?'':' disabled'}>Urungkan</button><button data-a=fcsusp data-k="${esc(k)}">Tangguhkan</button>${aiBtn(k,'Kelas AI')}${isLch(k)?`<button class=on data-ai=leech data-k="${esc(k)}">🧠 Mnemonik</button>`:''}${S.lib.some(t=>t.L==(g?g[1]:lang(k)))?`<button data-a=libfind data-k="${esc(k)}">📚 Teks</button>`:''}<button class="${S.ed[g?'g':'v'][g?k:base(k)]?'on':''}" data-a=edit data-k="${esc(g?k:base(k))}" data-v=${g?'g':'v'}>✎ ${S.ed[g?'g':'v'][g?k:base(k)]?'Diedit':'Edit'}</button>${c&&c.t?`<button data-a=fcforget data-k="${esc(k)}">Reset kartu</button>`:''}${(()=>{try{const n=(S.lib.length||S.sl.length)?gmExamples(k,10).n:0;return n?`<button data-a=fcxuntagall data-k="${esc(k)}" title="Lepas semua tag kalimat yang berkaitan dengan kartu ini (kalimat tetap di Pustaka)">🏷✕ Lepas tag kalimat (${n})</button>`:''}catch(e){return''}})()}</div>`}
  else{h+=fcDone(q,nn,rr);fcCelebrate(q,nn,rr)}
  return lkBar()+fcDeckBar()+fcFilt()+h}
 function fcStatsCard(){fcRoll();const td=fcDay(Date.now()),P=fcPool(),n={n:0,l:0,y:0,m:0},fc=Array(7).fill(0);

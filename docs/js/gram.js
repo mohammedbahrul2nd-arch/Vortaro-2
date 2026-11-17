@@ -228,15 +228,20 @@ function gmJaSpec(g,key){const ttl=String(g[4]||'').replace(/^[〜～~\s]+/,'').
  let src=pat,runs=libCjkRuns(src).filter(r=>!isCat(r));
  if(!runs.length&&!/[A-Za-z]/.test(strip(title))){src=title;runs=libCjkRuns(src).filter(r=>!isCat(r))}
  if(!runs.length)return{L:'ja',k:'none'};
+ /* v7.103: pola multi-komponen ([A] か、それとも [B] か): jangkar = literal khas TERPANJANG, bukan partikel 1 huruf di depan */
+ if(runs.length>=2&&runs[0].length<=1){let bi=0;runs.forEach((r,j)=>{if(r.length>runs[bi].length)bi=j});if(bi>0&&runs[bi].length>=3)runs=[runs[bi],...runs.filter((_,j)=>j!=bi)]}
  const ixo=src.indexOf(runs[0]),before=ixo>0?src.slice(0,ixo):'',seg=before.split(/\s*\+\s*/).filter(x=>x.trim()).pop()||'';
  const ver=[];if(src===pat)for(const [re,t] of GMJ_PRE)if(re.test(seg)&&!ver.includes(t)){ver.push(t);if(t=='te'||t=='ta'||t=='tara')break}
  const free=!ver.length||/Benda|Kalimat|Angka|Waktu|Satuan|Kata Ganti|Akhir|Nama|Pronomina|Bebas|\bN\b|\[|Sifat(?![-‑ ]?(?:i|na)\b)/i.test(seg)||/^\s*$/.test(seg);
  const all=runs.join(''),kanaOnly=!/[㐀-鿿]/.test(all),amb=all.length<=1?2:(all.length<=2&&kanaOnly)||(runs.length>=2&&kanaOnly&&all.length<=3&&runs.every(r=>r.length<=1))?1:0;
  return{L:'ja',k:'ja',a:runs[0],runs,ver,free,amb,alt:gmJaAlt(runs[0])}}
-function gmJaPos(flat,sp){const P=[];for(const a of (sp.alt||[sp.a])){let p=flat.indexOf(a);while(p>=0){P.push(p);p=flat.indexOf(a,p+1)}}return P}
+/* v7.103: pola berakhir partikel と tidak boleh diikuti kutipan (という/といった/と言う/って) atau kata lain berawalan と (とき・ところ) */
+const GMJ_TOX=/^(?:いう|いっ|いわ|いえ|言|ってい|き|ころ)/;
+function gmJaPosOk(flat,p,a){return!(/と$/.test(a)&&GMJ_TOX.test(flat.slice(p+a.length)))}
+function gmJaPos(flat,sp){const P=[];for(const a of (sp.alt||[sp.a])){let p=flat.indexOf(a);while(p>=0){if(gmJaPosOk(flat,p,a))P.push(p);p=flat.indexOf(a,p+1)}}return P}
 function gmJaLv(rec,sp,key){if(sp.k=='none')return 0;
  if(sp.k=='jaf'){const sc=rec.scan||(rec.scan=gmJaScan(rec.flat));return sc.some(h=>h.a.some(x=>sp.feats.includes(String(x.f).split('+')[0])))?2:0}
- const raw=gmRaw(rec,key),flat=rec.flat,P=gmJaPos(flat,sp);if(!raw&&!P.length)return 0;
+ const raw=gmRaw(rec,key),flat=rec.flat,P=gmJaPos(flat,sp);if(!P.length){if(!raw||flat.indexOf(sp.a)>=0)return 0;/* v7.103: pola multi-komponen: cocok hanya lewat komponen pendek (か) tanpa literal khasnya -> bukan */if(sp.runs.length>=2&&!sp.alt&&sp.a.length>=3)return 0}
  if(sp.ver.length&&P.length){let gen=0;for(const p of P){if(gmJaBefore(flat,p,sp.ver))return 2;if(sp.ver.some(t=>GMJ_GEN[t]&&GMJ_GEN[t].test(flat.slice(Math.max(0,p-6),p))))gen=1}
   if(!sp.free)return gen?1:0}
  else if(sp.ver.length&&!sp.free)return 0;
@@ -469,10 +474,17 @@ function gmNounForOk(key,E,f,idm){const L=lang(key),p=gzpParse(libHL(f,key,L,E))
   for(let l=0;l<=2;l++)for(let r=0;r<=2;r++){if(!l&&!r)continue;if(a-l<0)continue;const w=t.slice(a-l,b+r);if(w!=s&&lx.has(w))return false}return true})}
  return p.sp.some(([a,b])=>{const s=t.slice(a,b);if(!spB(a,b))return false;if(L=='de'&&!/^\p{Lu}/u.test(s))return false;
   return true})}
-function gmCollect(key,E){const L=libOfKey(key),isG=!!GK[key],m=gmMin(),out=[];E=!!E&&!isG;const sup=E?gmSupSib(key):null,nn=gmNounK(key);
- const vk=isG?'':ik(base(key),lang(key)),ver=(d,i)=>!isG&&gmTagHit(d.tgs&&d.tgs[0],vk,i)&&(!E||gmTagEnt(d.tgs[0],key)>=0),test=(d,i)=>{if(isG)return gmLv(d,0,key);if(E&&gmTagEnt(d.tgs&&d.tgs[0],key)<0)return 0;if(ver(d,i))return 3;if(!(libCountKey(sup?gmStripSib(d,sup):d,key,E)>0))return 0;if(nn){const im=gmNounIdOk(i,key);if(im&&gmNounForOk(key,E,d.sents[0],im))return 3}return 2};
- for(const x of S.sl){if(x.L!=L)continue;const it=slPs(x),d=libSentDoc(it,0,0),lv=test(d,x.i||'');if(lv>=m)out.push({lv,f:x.f,r:x.r||'',i:x.i||'',t:'s',tg:x.tg||null,L,ver:!isG&&lv==3,o:{t:'sl',id:x.id}})}
- for(const it of S.lib){if(it.L!=L)continue;it.ps.forEach((p,pi)=>p.f.forEach((f,si)=>{const d=libSentDoc(it,pi,si),ii=p.a!==0&&p.i?p.i[si]||'':'',lv=test(d,ii);if(lv>=m)out.push({lv,f,r:p.a!==0&&p.r?p.r[si]||'':'',i:p.a!==0&&p.i?p.i[si]||'':'',t:libKind(it),tg:p.tg&&p.tg[si]||null,L,sp:p.sp&&p.sp[si]||'',ver:!isG&&lv==3,o:{t:'lib',id:it.id,pi,si}})}))}
+/* v7.103: kata kerja ja yang bentuk turunannya (potensial/pasif/kausatif) bertabrakan dengan bentuk BIASA kata kerja lain (入る~入れる, 開く~開ける): kecocokan itu milik kartu lain */
+function gmJaVeto(d,key,E){const F=libForms(key,E);if(!F||!F.alts||!F.alts[0])return false;const a=F.alts[0];if(!a.re||a.co||a.ord)return false;
+ if(F.rom&&F.rom.length&&libRomCount(d,F.rom))return false;gmJaBuild();const vk=ik(base(key),lang(key)),sc=gmJaScan(d.flat),re=new RegExp(a.re.source,'g'),DV=/^(?:pot|pass|caus|cpass)(?:\+|$)/;let any=0,ok=0,m;
+ while((m=re.exec(d.flat))){if(!m[0].length){re.lastIndex++;continue}any++;const h=sc.find(h=>h.i<=m.index&&m.index<h.i+h.s.length);
+  if(h){const mine=h.a.filter(x=>x.k==vk),oth=h.a.some(x=>x.k!=vk&&!DV.test(x.f));if(oth&&(!mine.length||mine.every(x=>DV.test(x.f))))continue}
+  ok++}
+ return any>0&&!ok}
+function gmCollect(key,E){const L=libOfKey(key),isG=!!GK[key],m=gmMin(),out=[],no=gmNoSet(key);E=!!E&&!isG;const sup=E?gmSupSib(key):null,nn=gmNounK(key);
+ const vk=isG?'':ik(base(key),lang(key)),ver=(d,i)=>!isG&&gmTagHit(d.tgs&&d.tgs[0],vk,i)&&(!E||gmTagEnt(d.tgs[0],key)>=0),test=(d,i)=>{if(isG)return gmLv(d,0,key);if(E&&gmTagEnt(d.tgs&&d.tgs[0],key)<0)return 0;if(ver(d,i))return 3;if(!(libCountKey(sup?gmStripSib(d,sup):d,key,E)>0))return 0;if(!isG&&L=='ja'&&gmJaVeto(d,key,E))return 0;if(nn){const im=gmNounIdOk(i,key);if(im&&gmNounForOk(key,E,d.sents[0],im))return 3}return 2};
+ for(const x of S.sl){if(x.L!=L||(no&&no.has(x.f)))continue;const it=slPs(x),d=libSentDoc(it,0,0),lv=test(d,x.i||'');if(lv>=m)out.push({lv,f:x.f,r:x.r||'',i:x.i||'',t:'s',tg:x.tg||null,L,ver:!isG&&lv==3,o:{t:'sl',id:x.id}})}
+ for(const it of S.lib){if(it.L!=L)continue;it.ps.forEach((p,pi)=>p.f.forEach((f,si)=>{if(no&&no.has(f))return;const d=libSentDoc(it,pi,si),ii=p.a!==0&&p.i?p.i[si]||'':'',lv=test(d,ii);if(lv>=m)out.push({lv,f,r:p.a!==0&&p.r?p.r[si]||'':'',i:p.a!==0&&p.i?p.i[si]||'':'',t:libKind(it),tg:p.tg&&p.tg[si]||null,L,sp:p.sp&&p.sp[si]||'',ver:!isG&&lv==3,o:{t:'lib',id:it.id,pi,si}})}))}
  return out}
 function gmPick(c,N){const seen=new Set(),sc=x=>x.lv*100+(x.i?12:0)+(x.r||x.L=='de'||x.L=='nl'||x.L=='en'||x.L=='eo'?4:0)-Math.abs(String(x.f).replace(/\s+/g,'').length-(x.L=='ja'||x.L=='zh'?14:60))*.4;
  return c.map(x=>({...x,s:sc(x)})).sort((a,b)=>b.s-a.s).filter(x=>{const k=String(x.f).replace(/\s+/g,'').toLowerCase();if(seen.has(k))return false;seen.add(k);return true}).slice(0,N)}
@@ -488,9 +500,33 @@ function gmRollRows(key,v){const sig=gmSig();if(gmRoll.key==key&&gmRoll.sig==sig
 function gmExBlock(key){if(!key||(!S.lib.length&&!S.sl.length))return'';const v0=gmExamples(key,10);if(!v0.rows.length)return'';const v={n:v0.n,nv:v0.nv|0,rows:gmRollRows(key,v0)};const L=libOfKey(key);
  return`<div class=gmx><div class=gsec style="margin-top:12px">📚 Contoh dari Pustakamu <small>(${v.rows.length}${v.n>v.rows.length?' dari '+v.n:''})</small>${GK[key]?'':`<br><small class=gmcnt>${v.nv} terverifikasi (bertag AI / kata benda cocok persis) · ${v.n-v.nv} terdeteksi otomatis</small>`}</div>`+
   v.rows.map((x,xi)=>{const sf=GK[key]?gmTagSf(x.tg,key):[];const hl=(sf.length&&gmHLS(x.f,sf,L))||libHL(x.f,key,L,true);
-   return`<div class=gmr><button class=gmdel data-a=fcxdel data-k=\"${esc(key)}\" data-v=${xi} title=\"Hapus kalimat ini dari Pustaka\" aria-label=\"Hapus kalimat\">🗑</button><div class=eo>${x.sp?`<b class=spk>${esc(x.sp)}</b> `:''}${hl}${spk(x.f,L)}</div>${x.r?`<div class="r rom">${esc(x.r)}</div>`:''}${x.i?`<div class=idn>${esc(x.i)}</div>`:''}<small class=gmsrc>${GMSRC[x.t]||''}${GK[key]?(x.lv==3?' · ✓ ditandai AI':x.lv==1?' · perkiraan':''):(x.ver?' · ✓ terverifikasi':'')}</small></div>`}).join('')+
+   return`<div class=gmr><button class=gmdel data-a=fcxdel data-k=\"${esc(key)}\" data-v=${xi} title=\"Hapus kalimat ini dari Pustaka\" aria-label=\"Hapus kalimat\">🗑</button><button class="gmdel gmunt" data-a=fcxuntag data-k=\"${esc(key)}\" data-v=${xi} title=\"Lepas tag kartu ini dari kalimat ini (kalimat tetap di Pustaka)\" aria-label=\"Lepas tag kartu dari kalimat\">✕</button><div class=eo>${x.sp?`<b class=spk>${esc(x.sp)}</b> `:''}${hl}${spk(x.f,L)}</div>${x.r?`<div class="r rom">${esc(x.r)}</div>`:''}${x.i?`<div class=idn>${esc(x.i)}</div>`:''}<small class=gmsrc>${GMSRC[x.t]||''}${GK[key]?(x.lv==3?' · ✓ ditandai AI':x.lv==1?' · perkiraan':''):(x.ver?' · ✓ terverifikasi':'')}</small></div>`}).join('')+
   `<div class=btns style="margin-top:6px"><button class=mini data-a=libfind data-k="${esc(key)}">Lihat semua di Pustaka${v.n>v.rows.length?' ('+v.n+')':''}</button></div></div>`}
 
+/* v7.102.0: lepas TAG KARTU dari kalimat (kalimat tetap di Pustaka). S.o.gmNo[kartu]=[teks kalimat] = "bukan contoh kartu ini" (juga mencegah terdeteksi otomatis lagi). */
+const gmNoSet=key=>{const m=S.o.gmNo;return m&&m[key]&&m[key].length?new Set(m[key]):null};
+function gmUntagList(tg,key){const isG=!!GK[key],vk=isG?key:ik(base(key),lang(key)),out=[];let ch=false;
+ for(const t of(tg||[])){if(!t)continue;
+  if(isG){if(t.t=='g'&&t.k==key){ch=true;continue}out.push(t);continue}
+  if(t.t=='v'){const ks=gmTagKeys(t);if(ks.includes(vk)){ch=true;const rest=ks.filter(z=>z!=vk);if(!rest.length)continue;const n={...t,k:rest[0]};if(rest.length>1)n.ks=rest.slice(1);else delete n.ks;out.push(n);continue}}
+  out.push(t)}
+ return[out,ch]}
+function gmAddNo(key,fs){const o=S.o;if(!o.gmNo||typeof o.gmNo!='object')o.gmNo={};const a=o.gmNo[key]||(o.gmNo[key]=[]);for(const f of fs)if(f&&!a.includes(f))a.push(f);if(a.length>400)a.splice(0,a.length-400)}
+function gmUntagRec(o,key,f){let n=0;
+ if(o.t=='sl'){const x=S.sl.find(y=>y.id==o.id);if(x&&x.tg){const[a,ch]=gmUntagList(x.tg,key);if(ch){if(a.length)x.tg=a;else delete x.tg;n++}}}
+ else{const it=S.lib.find(t=>t.id==o.id);if(it){let p=it.ps[o.pi],si=o.si;if(!p||p.f[si]!==f){p=null;it.ps.some(q=>{const b=q.f.indexOf(f);if(b>=0){p=q;si=b;return true}return false})}
+  if(p&&Array.isArray(p.tg)&&p.tg[si]){const[a,ch]=gmUntagList(p.tg[si],key);if(ch){p.tg[si]=a.length?a:0;n++}}}}
+ return n}
+function gmUntagRow(key,idx){const r=gmRoll.key==key?gmRoll.rows[idx]:null;if(!r||!r.o)return false;
+ if(!confirm('Lepas tag kartu ini dari kalimat berikut? Kalimat tetap ada di Pustaka, tetapi tidak dipakai lagi sebagai contoh kartu ini.\n\n'+String(r.f).slice(0,120)))return false;
+ gmUntagRec(r.o,key,r.f);gmAddNo(key,[r.f]);gmDelCaches();
+ const c=GZP.cur;if(c&&c.k==key&&((c.row&&c.row.f===r.f)||(c.v&&c.v.f===r.f))){try{gzpRoll(key)}catch(e){GZP.cur={k:key,row:null,v:null}}}
+ toast('Tag kartu dilepas dari kalimat ✓');return true}
+function gmUntagAll(key){const rows=gmCollect(key);if(!rows.length){toast('Tidak ada kalimat terkait kartu ini.');return false}
+ if(!confirm('Lepas SEMUA tag kalimat yang berkaitan dengan kartu ini ('+rows.length+' kalimat)? Kalimat tetap ada di Pustaka, tetapi tidak dipakai lagi sebagai contoh kartu ini.'))return false;
+ let n=0;for(const r of rows)n+=gmUntagRec(r.o,key,r.f);gmAddNo(key,rows.map(r=>r.f));gmDelCaches();
+ try{gzpRoll(key)}catch(e){GZP.cur={k:key,row:null,v:null}}
+ toast(rows.length+' kalimat dilepas dari kartu ini ('+n+' tag dihapus) ✓');return true}
 /* v7.26.0 (B2): hapus satu kalimat contoh dari Pustaka lewat daftar contoh di flashcard */
 function gmDelCaches(){GMVER.sig='';GMVER.sigG='';GMVER.sigE='';GMEXC.clear();gmRoll.key='';gmRoll.rows=[];GZP.c.clear();GZP.sig='';GZV.c.clear();GZV.sig='';
  libSD.clear();libDocs.clear();libAna.clear();libAnaG.clear()}
@@ -584,7 +620,7 @@ function idSame(x,y,strict){if(x==y)return true;if(strict)return false;
  for(const c of cx)if(c.length>=4&&cy.has(c))return true;return false}
 function idAlts(gl){return String(gl||'').replace(/\([^)]*\)|\[[^\]]*\]/g,' ').split(/[\/~,;]|\batau\b/i).map(x=>x.trim().toLowerCase()).filter(x=>/\p{L}{2,}/u.test(x)).map(x=>(x.match(/\p{L}+(?:-\p{L}+)*/gu)||[])).filter(a=>a.length).sort((a,b)=>b.length-a.length)}
 /* -> [[a,b]] posisi kata Indonesia yang cocok dengan arti kartu, atau null */
-const IDGEN=new Set('menggunakan memakai melakukan membuat menjadi pergi datang mengambil memberi punya memiliki berada orang barang sesuatu hal'.split(' '));
+const IDGEN=new Set('menggunakan memakai melakukan membuat menjadi pergi datang mengambil memberi punya memiliki berada orang barang sesuatu hal tempat waktu arah cara titik bagian posisi lokasi keadaan kondisi hubungan'.split(' '));
 const IDQUAL=new Set('umum sopan santai formal resmi lisan informal kasar halus tegas langsung biasa lembut keras tulisan percakapan netral populer klasik kuno baru lama'.split(' '));
 function gzvIdSpan(txt,gloss,relax){if(!txt||!gloss)return null;const T=idTok(txt);if(!T.length)return null;
  const pg=String(gloss).split('\u2016'),alts=idAlts(pg[0]),alts2=pg[1]?idAlts(pg[1]).filter(a=>!(a.length==1&&IDQUAL.has(a[0]))):[];

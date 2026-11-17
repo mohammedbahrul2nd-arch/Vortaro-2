@@ -48,6 +48,13 @@ const aqCount=g=>/^gcl_/.test(g)&&typeof aczCount=='function'?aczCount(g.slice(4
 const aqGames=()=>(typeof GXL!='undefined'?GXL:[]).filter(m=>ACZ[m.lg]).map(m=>m.id);
 const AQTH=['rumah & keluarga','sekolah & belajar','kantor & pekerjaan','makanan & restoran','belanja & uang','transportasi & perjalanan','kesehatan & dokter','cuaca & musim','hobi & olahraga','teknologi & ponsel','kota & alamat','liburan & hotel','teman & pesta','berita & budaya'];
 /* ---------- prompt ---------- */
+/* blok ATURAN LEVEL keras (dipakai prompt soal rumpang & prompt kalimat natural) */
+function aqLvBlock(L,capIdx){const A=ACZ[L],v=AQLV(L),cap=v[capIdx],allow=v.slice(0,capIdx+1),hi=v.slice(capIdx+1),forb=hi.map(x=>`${x}: ${A.up[x]}`),mine=allow.map(x=>`${x}: ${A.up[x]}`);
+ return[`ATURAN LEVEL (WAJIB & KERAS):`,
+  `1. Level yang boleh dipakai: ${allow.join(', ')}. Dilarang keras ada unsur di atas ${cap}${hi.length?' ('+hi.join(', ')+')':''} — baik tata bahasa, kosakata, maupun ungkapan.`,
+  hi.length?`2. Struktur yang baru muncul di level lebih tinggi sehingga DILARANG:\n   ${forb.join('\n   ')}`:`2. ${cap} adalah level tertinggi bahasa ini; tetap pakai kalimat yang jelas dan natural.`,
+  `3. Struktur yang boleh dipakai sebagai kerangka (≤ ${cap}):\n   ${mine.join('\n   ')}`,
+  `4. Bila ragu apakah sebuah kata atau struktur melebihi ${cap}, GANTI dengan yang lebih sederhana.`].join('\n')}
 function aqBuild(g,capIdx,N,themes){const m=aqMeta(g),L=m.lg,A=ACZ[L],nm=GCN[L],v=AQLV(L),cap=v[capIdx],allow=v.slice(0,capIdx+1),hi=v.slice(capIdx+1),forb=hi.map(x=>`${x}: ${A.up[x]}`),mine=allow.map(x=>`${x}: ${A.up[x]}`);
  const have=aqList(g).slice(-12).map(x=>String(x.q[0]).replace(/\s+/g,' '));
  const th=(themes&&themes.length?themes:AQTH.slice(0,3)).join(', ');
@@ -144,6 +151,7 @@ let aqS=null;
 function aqClose(){const m=document.getElementById('aqm');if(m)m.remove();document.body.style.overflow='';aqS=null}
 function aqPick3(){const a=AQTH.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a.slice(0,3)}
 function aqOpen(g){if(/^gcl_/.test(g)){if(typeof aczOpen=='function')aczOpen(g.slice(4));return}
+ if(AQSENT(g)){aqSentOpen(g);return}
  const m=aqMeta(g);if(!m||!ACZ[m.lg])return;aqClose();if(typeof aiClose=='function'&&document.getElementById('aim'))aiClose();
  const o=aqO(),v=aqLevels(g);let c=o.aqCap[g];if(c==null||c<0||c>=v.length)c=Math.min(1,v.length-1);
  aqS={g,cap:c,th:aqPick3(),inp:'',rep:''};
@@ -185,4 +193,66 @@ document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest
   gxQ=null;aqPanel()}
 },true);
 document.addEventListener('keydown',e=>{if(e.key=='Escape'&&document.getElementById('aqm'))aqClose()});
+}
+
+/* ===== v7.102.0: Speaking Cloze & Shadowing — «➕ Soal AI» = prompt KALIMAT NATURAL ala Kelas AI Pustaka =====
+   Kartu fokus = kartu (kosakata ATAU grammar) dengan contoh TERVERIFIKASI paling sedikit (aiGatherLib), dengan level maksimum & jumlah sendiri (TERPISAH
+   dari pengaturan Pustaka: pengaturan Pustaka dipinjam sebentar lalu dikembalikan). Hasil tempel → libParseSents → Pustaka → Kalimat (dengan tag kartu).
+   SATU ARAH: input game masuk Pustaka; kalimat Pustaka biasa tidak pernah otomatis jadi soal game. Jumlah kalimat boleh KURANG dari diminta (hanya yang natural). */
+const AQSENT=g=>/^(scl|shd)_/.test(g);
+const AQSNS=[6,10,15,20],AQSNK=[6,10,14];
+const AQSNAT={scl:'Game «Speaking Cloze»: pemain menerjemahkan kalimat Indonesia secara lisan memakai kerangka segmen. Karena itu setiap kalimat harus (a) sangat natural, seperti yang benar-benar diucapkan penutur asli sehari-hari; (b) berupa SATU kalimat utuh yang jelas bisa dipecah menjadi 2–5 segmen bermakna (subjek / predikat / objek / keterangan / klausa); (c) tidak terlalu panjang (maks. ±15 kata, zh/ja ±25 aksara).',
+ shd:'Game «Shadowing»: pemain mendengar kalimat lalu menirukannya dengan suara. Karena itu setiap kalimat harus (a) sangat natural, seperti yang benar-benar diucapkan penutur asli sehari-hari; (b) enak diucapkan keras dalam satu napas, ritme wajar, tanpa tanda kurung/angka digit/singkatan; (c) pendek–sedang (±5–14 kata, zh/ja ±8–22 aksara).'};
+function aqSentOverride(L,capIdx,k,N,fn){const o=aiO(),keys=['aiLL','aiSn','aiLW','aiLG','aiNew','aiNW','aiNG'],sv={};keys.forEach(x=>{sv[x]=o[x]});const lv0=o.aiLvs[L],has=Object.prototype.hasOwnProperty.call(o.aiLvs,L);
+ try{const w=Math.max(1,Math.round(k*.7)),gg=Math.max(1,k-w);o.aiLL=L;o.aiSn=N;o.aiLvs[L]=aiLvAll(L).slice(0,capIdx+1);o.aiLW=Math.max(1,Math.ceil(w/2));o.aiLG=Math.max(1,Math.ceil(gg/2));o.aiNew=1;o.aiNW=Math.max(1,w-o.aiLW);o.aiNG=Math.max(1,gg-o.aiLG);return fn()}
+ finally{keys.forEach(x=>{if(sv[x]===undefined)delete o[x];else o[x]=sv[x]});if(has)o.aiLvs[L]=lv0;else delete o.aiLvs[L]}}
+function aqSentBuild(g,capIdx,k,N){const L=aqLang(g),fam=aqFam(g),nm=GCN[L];
+ return aqSentOverride(L,capIdx,k,N,()=>{const ctx=aiGatherLib(L,1);let p=aiBuildSent(ctx);const cap=AQLV(L)[capIdx];
+  p+=`\n\nATURAN KHUSUS GAME (WAJIB; bila bertentangan dengan aturan lain di atas, aturan ini yang menang):\n1. ${AQSNAT[fam]}\n2. HANYA kalimat yang benar-benar natural. Jangan memaksakan sebuah kartu ke dalam kalimat janggal/buatan. Bila sebuah kartu tidak bisa dibuatkan kalimat natural pada level ≤ ${cap}, LEWATI kartu itu.\n3. Jumlah kalimat BOLEH KURANG dari ${N} (bahkan sedikit) bila tidak ada lagi kalimat natural yang mungkin; lebih baik sedikit tapi natural. Abaikan perintah “tepat ${N}” di atas: tulis sebanyak kalimat natural yang ada (maksimum ${N}), penomoran [1], [2], … tetap berurutan tanpa lompat sesuai jumlah yang benar-benar ditulis.\n4. Pertama-tama pakai kartu di daftar KARTU PRIORITAS / KARTU BARU (yang contoh terverifikasinya paling sedikit); satu kalimat boleh memuat beberapa kartu bila tetap natural.\n\n${aqLvBlock(L,capIdx)}\n5. Kalimat ${nm} harus benar secara tata bahasa dan idiomatik; tanpa “null”, “undefined”, “NaN”.`;
+  return{ctx,prompt:p}})}
+function aqSentSave(g,text,N){const L=aqLang(g),r=libParseSents(text,{L});if(r.err)return{err:r.err};
+ let n=0,d=0,t=0;const seen=new Set(S.sl.map(x=>x.L+'|'+x.f));
+ r.sents.forEach(x=>{const key=r.L+'|'+x.f;if(seen.has(key)){d++;return}seen.add(key);S.sl.unshift({id:libId(),L:r.L,f:x.f,r:x.r||'',i:x.i||'',c:Date.now(),d:0,pb:x.pb||'',...(x.tg&&x.tg.length?{tg:x.tg}:{})});n++;if(x.tg&&x.tg.length)t++});
+ if(typeof LIB_SL_MAX!='undefined'&&S.sl.length>LIB_SL_MAX)S.sl.length=LIB_SL_MAX;
+ if(typeof gmDelCaches=='function')gmDelCaches();if(typeof save=='function')save();return{n,d,t,warn:r.warn||[],N}}
+let aqSS=null;
+function aqSentClose(){const m=document.getElementById('aqs');if(m)m.remove();document.body.style.overflow='';aqSS=null}
+function aqSentOpen(g){const m0=aqMeta(g);if(!m0||!ACZ[m0.lg]||typeof aiGatherLib!='function')return;aqSentClose();if(typeof aiClose=='function'&&document.getElementById('aim'))aiClose();
+ const o=aqO(),v=aqLevels(g);let c=o.aqCap[g];if(c==null||c<0||c>=v.length)c=Math.min(1,v.length-1);
+ aqSS={g,cap:c,k:o.aqSK||10,N:o.aqSN||10,inp:'',rep:'',b:null};
+ const d=document.createElement('div');d.id='aqs';d.className='edm';d.innerHTML=`<div class=eds role=dialog aria-modal=true aria-label="Soal AI"><div class=edh><div><b>➕ Soal AI · ${esc(m0.t)}</b><small>Prompt kalimat natural → hasil masuk Pustaka → Kalimat</small></div><button class=mini data-aqs=close aria-label=Tutup>✕</button></div><div class=edb></div><div class="edf aif"><button class=pri data-aqs=copy>Salin prompt</button><div class=aisites><a data-aqs=site href="https://chatgpt.com/" target=_blank rel=noopener>ChatGPT</a><a data-aqs=site href="https://claude.ai/new" target=_blank rel=noopener>Claude</a><a data-aqs=site href="https://gemini.google.com/app" target=_blank rel=noopener>Gemini</a></div></div></div>`;
+ document.body.appendChild(d);document.body.style.overflow='hidden';aqSentPanel(1)}
+function aqSentName(x,L){if(x.g)return x.g[4];const es=(x.c&&x.c[3]&&x.c[3][L])||[],e=es[ent(x.k)]||es[0];return e?e[0]:String(x.k)}
+function aqSentPanel(rebuild){const s=aqSS,m=document.getElementById('aqs');if(!s||!m)return;const g=s.g,L=aqLang(g),v=aqLevels(g),ch=(k,val,on,t)=>`<button class="chip${on?' on':''}" data-aqs=${k} data-v="${val}">${t}</button>`;
+ if(rebuild||!s.b){try{s.b=aqSentBuild(g,s.cap,s.k,s.N)}catch(e){s.b={ctx:null,prompt:'Gagal menyusun prompt: '+e.message}}}
+ const b=s.b,ctx=b.ctx,fo=ctx?ctx.pw.concat(ctx.pg,ctx.nw,ctx.ng):[],f=n=>n.toLocaleString('id-ID');
+ const list=fo.slice(0,Math.max(12,s.k)).map(x=>`<span class=scv>${esc(aqSentName(x,L))}<small>${x.g?'grammar':'kata'} · ${esc((x.tags&&x.tags[0])||'')}</small></span>`).join('');
+ const z=ctx&&ctx.lvC?aqSentOverride(L,s.cap,s.k,s.N,()=>aiLvCountHtml(ctx)):'';
+ m.querySelector('.edb').innerHTML=`<div class=aidest><b>${esc(aqMeta(g).t)}</b><small>Kalimat dibuat dari kartu (kosakata maupun grammar) dengan <b>contoh terverifikasi paling sedikit</b> di level yang kamu pilih. Hasil tempel masuk ke Pustaka → Kalimat (dengan tag kartu). Arah sebaliknya tidak ada: kalimat Pustaka tidak otomatis jadi soal game.</small></div>`+
+ `<div class=aio><small>Level MAKSIMUM (keras: struktur di atasnya dilarang)</small><div class=chips>${v.map((x,i)=>ch('cap',i,i==s.cap,esc(x))).join('')}</div></div>`+
+ `<div class=aio><small>Jumlah kartu fokus</small><div class=chips>${AQSNK.map(n=>ch('k',n,s.k==n,n)).join('')}</div></div>`+
+ `<div class=aio><small>Jumlah kalimat maksimum (AI boleh menulis lebih sedikit bila tak ada yang natural)</small><div class=chips>${AQSNS.map(n=>ch('n',n,s.N==n,n)).join('')}</div></div>`+
+ `<div class=aidest><b>📊 Cakupan (terpisah dari Pustaka)</b>${z}${list?`<div class=scbank style="margin-top:6px"><small>Kartu fokus prompt ini (contoh terverifikasi paling sedikit)</small><div>${list}</div></div>`:''}</div>`+
+ `<div class=aio style="margin-top:12px"><div class=aih><small>Pratinjau prompt <i class=aicnt>${f(b.prompt.length)} karakter</i> — boleh diedit sebelum disalin</small><button class=mini data-aqs=reroll>↻ Acak ulang</button></div><textarea id=aqsTxt spellcheck=false>${esc(b.prompt)}</textarea></div>`+
+ `<div class=aio style="margin-top:12px"><div class=aih><small>Tempel hasil AI di sini → masuk Pustaka → Kalimat</small></div><textarea id=aqsIn rows=6 spellcheck=false placeholder="[1] kalimat&#10;(romanisasi bila ada)&#10;terjemahan Indonesia">${esc(s.inp)}</textarea><button class=pri data-aqs=import style="margin-top:6px">Tambahkan ke Pustaka</button><div id=aqsRep>${s.rep}</div></div>`}
+if(typeof document!='undefined'&&document&&typeof document.addEventListener=='function'){
+document.addEventListener('input',e=>{if(e.target&&e.target.id=='aqsIn'&&aqSS)aqSS.inp=e.target.value});
+document.addEventListener('click',e=>{const m=document.getElementById('aqs');if(m&&e.target===m){aqSentClose();return}
+ const b=e.target.closest&&e.target.closest('[data-aqs]');if(!b||!aqSS)return;const a=b.dataset.aqs,s=aqSS,o=aqO();
+ if(a=='site'){const x=document.getElementById('aqsTxt');if(x&&typeof ltCopy=='function')ltCopy(x.value);return}
+ e.stopPropagation();e.preventDefault();
+ if(a=='close')aqSentClose();
+ else if(a=='cap'){s.cap=+b.dataset.v;o.aqCap[s.g]=s.cap;if(typeof save=='function')save();aqSentPanel(1)}
+ else if(a=='k'){s.k=+b.dataset.v;o.aqSK=s.k;if(typeof save=='function')save();aqSentPanel(1)}
+ else if(a=='n'){s.N=+b.dataset.v;o.aqSN=s.N;if(typeof save=='function')save();aqSentPanel(1)}
+ else if(a=='reroll')aqSentPanel(1);
+ else if(a=='copy'){const x=document.getElementById('aqsTxt'),t=x?x.value:s.b.prompt;if(!t)return;
+  const done=ok=>{if(typeof toast=='function')toast(ok?'Prompt disalin ✓ Tempel di AI favoritmu':'Salin otomatis gagal. Teks prompt sudah terpilih — salin manual.');if(!ok&&x){x.focus();x.select()}};
+  if(typeof ltCopy=='function')ltCopy(t).then(done);else done(false)}
+ else if(a=='import'){const x=document.getElementById('aqsIn'),t=x?x.value:s.inp;s.inp=t;if(!String(t).trim()){if(typeof toast=='function')toast('Tempel hasil AI dulu.');return}
+  const r=aqSentSave(s.g,t,s.N);
+  s.rep=r.err?`<small style="color:var(--bad)">${esc(r.err)}</small>`:`<small><b>✓ ${r.n} kalimat masuk Pustaka → Kalimat</b>${r.t?` · ${r.t} bertag kartu`:''}${r.d?` · ${r.d} sudah ada`:''}${r.n<r.N?` · lebih sedikit dari ${r.N}: tidak apa-apa, hanya kalimat natural yang dipakai`:''}.${r.warn.length?'<br>'+r.warn.map(esc).join('<br>'):''}</small>`;
+  if(!r.err&&r.n&&!r.warn.length)s.inp='';aqSentPanel(0)}
+},true);
+document.addEventListener('keydown',e=>{if(e.key=='Escape'&&document.getElementById('aqs'))aqSentClose()});
 }
