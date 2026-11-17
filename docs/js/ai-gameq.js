@@ -58,7 +58,8 @@ function aqLvBlock(L,capIdx){const A=ACZ[L],v=AQLV(L),cap=v[capIdx],allow=v.slic
 function aqBuild(g,capIdx,N,themes){const m=aqMeta(g),L=m.lg,A=ACZ[L],nm=GCN[L],v=AQLV(L),cap=v[capIdx],allow=v.slice(0,capIdx+1),hi=v.slice(capIdx+1),forb=hi.map(x=>`${x}: ${A.up[x]}`),mine=allow.map(x=>`${x}: ${A.up[x]}`);
  const have=aqList(g).slice(-12).map(x=>String(x.q[0]).replace(/\s+/g,' '));
  const th=(themes&&themes.length?themes:AQTH.slice(0,3)).join(', ');
- const head=`Buatkan ${N} soal TAMBAHAN untuk game «${m.t}» (${m.d}) bahasa ${nm}, untuk penutur Indonesia. Level MAKSIMUM yang kupilih: ${cap}.`;
+ const nat=`PRIORITAS TERTINGGI: KALIMAT NATURAL (mengalahkan aturan lain di bawah, kecuali aturan LEVEL dan FORMAT).\nSetiap kalimat soal harus benar-benar natural: akan diucapkan atau ditulis penutur asli dalam situasi nyata, masuk akal secara makna dan logika, pilihan kata dan kolokasinya wajar, bukan terjemahan harfiah. Lebih baik jumlah soal berkurang daripada ada satu soal yang janggal. Jumlah soal yang diminta hanyalah MAKSIMUM: bila sebuah kartu tidak bisa dibuatkan kalimat yang natural (apalagi dengan tepat satu jawaban benar), buat lebih sedikit soal untuk kartu itu atau lewati kartu itu, dan jangan memaksakan. Sebelum menjawab, periksa tiap kalimat: “Apakah penutur asli benar-benar akan mengatakannya begini?” Bila tidak atau ragu, tulis ulang atau buang.`;
+ const head=`Buatkan sampai ${N} soal TAMBAHAN (boleh lebih sedikit demi kalimat yang natural) untuk game «${m.t}» (${m.d}) bahasa ${nm}, untuk penutur Indonesia. Level MAKSIMUM yang kupilih: ${cap}.`;
  const gm=`ATURAN GAME (soal harus cocok dengan permainan ini):\n${aqTopic(g)}\nBentuk soal selalu kalimat rumpang: kalimat ${nm} utuh dengan celah “___”; pemain memilih atau mengetik bagian yang rumpang.`;
  const lv=[`ATURAN LEVEL (WAJIB & KERAS — soal yang melanggar akan DITOLAK otomatis oleh aplikasi):`,
   `1. Level yang boleh dipakai: ${allow.join(', ')}. Dilarang keras ada unsur di atas ${cap}${hi.length?' ('+hi.join(', ')+')':''} — baik tata bahasa, kosakata, maupun ungkapan.`,
@@ -74,8 +75,8 @@ function aqBuild(g,capIdx,N,themes){const m=aqMeta(g),L=m.lg,A=ACZ[L],nm=GCN[L],
   `Kolom 6 = kata yang bisa juga benar di kalimat itu tetapi tidak kamu daftarkan sebagai jawaban (agar tidak dipakai sebagai pengecoh), dipisah “~”; kosongkan bila tidak ada.`,
   `Variasikan jenis kalimat, subjek, dan tema (mis. ${th}); jangan ada dua soal yang hampir sama. Jangan memakai kata “null”, “undefined”, atau “NaN”.`+(have.length?`\n   Soal yang sudah ada (JANGAN diulang atau dibuat mirip): ${have.join(' // ')}`:''),
   `Tanpa hiasan: tanpa **tebal**, tabel, bullet, emoji, nomor di awal soal, atau blok kode; tanpa judul/kalimat pembuka/penutup. Hanya baris soal.`,
-  `Hitung dulu: harus ada TEPAT ${N} baris soal. Bila jawabanmu terpotong dan aku mengetik “lanjut”, teruskan dengan format sama tanpa mengulang.`];
- return[head,gm,lv.join('\n'),fmt,'ATURAN FORMAT:\n'+r.map((x,i)=>`${i+1}. ${x}`).join('\n')].join('\n\n')}
+  `Jumlah baris soal paling banyak ${N}; jumlah yang lebih sedikit boleh (kalimat natural lebih penting). Bila jawabanmu terpotong dan aku mengetik “lanjut”, teruskan dengan format sama tanpa mengulang.`];
+ return[head,nat,gm,lv.join('\n'),fmt,'ATURAN FORMAT:\n'+r.map((x,i)=>`${i+1}. ${x}`).join('\n')].join('\n\n')}
 /* ---------- impor ---------- */
 function aqParse(text,g,capIdx){const L=aqLang(g),A=ACZ[L],v=AQLV(L),cap=v[capIdx],out=[],bad=[],cur=aqList(g),have=new Set(cur.map(x=>AQN(x.q[0])));let ln=0,room=AQMAX-cur.length;
  String(text||'').replace(/\r/g,'').split('\n').forEach(raw=>{ln++;let s=raw.trim();if(!s||/^(\/\/|```|#)/.test(s)||s.indexOf('|')<0)return;

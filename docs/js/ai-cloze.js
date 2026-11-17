@@ -46,7 +46,8 @@ const aczLine=(g,i,L)=>{const ex=(g[7]||[]).slice(0,1).map(e=>String(e).split('\
 /* prompt lengkap */
 function aczBuild(L,capIdx,cards,per){const A=ACZ[L],nm=GCN[L],v=aczLvs(L),cap=v[capIdx],allow=v.slice(0,capIdx+1),hi=v.slice(capIdx+1),N=cards.length;
  const forb=hi.map(x=>`${x}: ${A.up[x]}`),mine=allow.map(x=>`${x}: ${A.up[x]}`);
- const head=`Buatkan soal Grammar Cloze (kalimat rumpang) bahasa ${nm} untuk game latihanku (penutur Indonesia). Level MAKSIMUM yang kupilih: ${cap}. Untuk tiap kartu grammar di bawah buat TEPAT ${per} soal berbeda (total ${N*per} soal).`;
+ const head=`Buatkan soal Grammar Cloze (kalimat rumpang) bahasa ${nm} untuk game latihanku (penutur Indonesia). Level MAKSIMUM yang kupilih: ${cap}. Untuk tiap kartu grammar di bawah buat sampai ${per} soal berbeda (maksimum total ${N*per} soal; boleh lebih sedikit demi kalimat yang natural).`;
+ const nat=`PRIORITAS TERTINGGI: KALIMAT NATURAL (mengalahkan aturan lain di bawah, kecuali aturan LEVEL dan FORMAT).\nSetiap kalimat soal harus benar-benar natural: akan diucapkan atau ditulis penutur asli dalam situasi nyata, masuk akal secara makna dan logika, pilihan kata dan kolokasinya wajar, bukan terjemahan harfiah. Lebih baik jumlah soal berkurang daripada ada satu soal yang janggal. Jumlah soal yang diminta hanyalah MAKSIMUM: bila sebuah kartu tidak bisa dibuatkan kalimat yang natural (apalagi dengan tepat satu jawaban benar), buat lebih sedikit soal untuk kartu itu atau lewati kartu itu, dan jangan memaksakan. Sebelum menjawab, periksa tiap kalimat: “Apakah penutur asli benar-benar akan mengatakannya begini?” Bila tidak atau ragu, tulis ulang atau buang.`;
  const lv=[`ATURAN LEVEL (WAJIB & KERAS — soal yang melanggar akan DITOLAK otomatis oleh aplikasi):`,
   `1. Level yang boleh dipakai: ${allow.join(', ')}. Unsur level yang sama atau LEBIH RENDAH dari ${cap} boleh masuk. Dilarang keras ada unsur di atas ${cap}${hi.length?' ('+hi.join(', ')+')':''} — baik tata bahasa, kosakata, maupun ungkapan.`,
   hi.length?`2. Struktur yang baru muncul di level lebih tinggi sehingga DILARANG di kalimatmu (di luar celah pun):\n   ${forb.join('\n   ')}`:`2. ${cap} adalah level tertinggi bahasa ini; tetap pakai kalimat yang jelas dan natural.`,
@@ -54,7 +55,7 @@ function aczBuild(L,capIdx,cards,per){const A=ACZ[L],nm=GCN[L],v=aczLvs(L),cap=v
   `4. Kosakata: pilih kata paling umum dan sederhana (level ≤ ${cap}). Bila ragu apakah sebuah kata atau struktur melebihi ${cap}, GANTI dengan yang lebih sederhana. Kartu level rendah tetap dibuat pada level kartunya; jangan sengaja menaikkan kalimat ke ${cap}.`,
   `5. Kolom 7 tiap soal = level TERTINGGI unsur apa pun di kalimat itu (tata bahasa atau kosakata), memakai penulisan: ${v.join(' / ')}. Jujur: bila ada unsur di atas ${cap}, kamu salah — tulis ulang kalimatnya, jangan sekadar menurunkan angka.`];
  const cards_=`KARTU (nomor #n dipakai untuk mencocokkan; kerjakan berurutan):\n`+cards.map((g,i)=>aczLine(g,i,L)).join('\n');
- const fmt=`FORMAT OUTPUT (satu soal = satu baris, TEPAT 7 kolom dipisah “ | ”; kolom kosong tetap ditulis sebagai “| |”):\n#1 Judul kartu persis seperti daftar\nkalimat dengan ___ | jawaban | terjemah Indonesia | petunjuk singkat | romanisasi | pengecoh terlarang | level\n(${per} baris soal untuk #1) lalu satu baris kosong, lanjut ke #2 dst. sampai #${N}.\nContoh satu baris soal:\n${A.ex}`;
+ const fmt=`FORMAT OUTPUT (satu soal = satu baris, TEPAT 7 kolom dipisah “ | ”; kolom kosong tetap ditulis sebagai “| |”):\n#1 Judul kartu persis seperti daftar\nkalimat dengan ___ | jawaban | terjemah Indonesia | petunjuk singkat | romanisasi | pengecoh terlarang | level\n(sampai ${per} baris soal untuk #1) lalu satu baris kosong, lanjut ke #2 dst. sampai #${N}.\nContoh satu baris soal:\n${A.ex}`;
  const r=[`Kolom 1: kalimat ${nm} utuh dan natural dengan celah “___” (tiga garis bawah) tepat di bagian yang diajarkan kartu. ${A.fmt}`,
   `Kolom 2 = jawaban. Alternatif yang SAH dipisah “~” (yang pertama = utama). Bila ada lebih dari satu celah, jawaban per celah dipisah “;” (mis. 不但~不仅;而且~也). Hanya boleh ada SATU jawaban benar yang tak ambigu: daftarkan SEMUA alternatif yang juga benar.`,
   `Kolom 3 = terjemah bahasa Indonesia yang natural. Kolom 4 = petunjuk singkat tanpa membocorkan jawaban (mis. “kata kerja penghubung”).`,
@@ -62,8 +63,8 @@ function aczBuild(L,capIdx,cards,per){const A=ACZ[L],nm=GCN[L],v=aczLvs(L),cap=v
   `Kolom 6 = kata yang bisa juga benar di kalimat itu tetapi tidak kamu daftarkan sebagai jawaban (agar tidak dipakai sebagai pengecoh), dipisah “~”; kosongkan bila tidak ada.`,
   A.gap,`Variasikan jenis kalimat, subjek, dan konteks; jangan menyalin contoh materiku. Jangan ada dua soal yang hampir sama. Jangan memakai kata “null”, “undefined”, atau “NaN”.`,
   `Tanpa hiasan: tanpa **tebal**, tabel, bullet, emoji, nomor di awal soal, atau blok kode; tanpa kalimat pembuka/penutup. Hanya baris “#n Judul” dan baris soal.`,
-  `Sebelum menjawab, hitung: ${N} kartu × ${per} soal = ${N*per} baris soal. Bila jawabanmu terpotong dan aku mengetik “lanjut”, teruskan dari kartu berikutnya dengan format sama tanpa mengulang.`];
- return[head,lv.join('\n'),cards_,fmt,'ATURAN FORMAT:\n'+r.map((x,i)=>`${i+1}. ${x}`).join('\n')].join('\n\n')}
+  `Jumlah baris soal paling banyak ${N} kartu × ${per} soal = ${N*per}; jumlah yang lebih sedikit boleh (kalimat natural lebih penting). Bila jawabanmu terpotong dan aku mengetik “lanjut”, teruskan dari kartu berikutnya dengan format sama tanpa mengulang.`];
+ return[head,nat,lv.join('\n'),cards_,fmt,'ATURAN FORMAT:\n'+r.map((x,i)=>`${i+1}. ${x}`).join('\n')].join('\n\n')}
 /* ---------- impor: teks hasil AI → soal tervalidasi ---------- */
 function aczMapIds(L){const o=S.o;return o.aczMap&&o.aczMap.L==L&&Array.isArray(o.aczMap.ids)?o.aczMap.ids:[]}
 function aczParse(text,L,capIdx,ids){const out=[],bad=[],A=ACZ[L],cards=gcCards()[L]||[],byId={},byT={};cards.forEach(g=>{byId[g[0]]=g;byT[aczNm(g[4])]=g});
