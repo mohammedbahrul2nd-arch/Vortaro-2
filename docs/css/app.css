@@ -370,10 +370,9 @@ mark{background:color-mix(in srgb,var(--a) 28%,transparent);color:inherit;border
 .gmr{padding:9px 12px;background:var(--c2);border:1px solid var(--b);border-radius:12px;margin:0 0 7px;text-align:left}
 .gmr{position:relative}
 .gmdel{position:absolute;top:6px;right:6px;width:32px;height:32px;padding:0;border:0;background:transparent;color:var(--bad);font-size:.95rem;opacity:.7;border-radius:8px;cursor:pointer}
-.gmr .eo{padding-right:68px}
 .gmunt{right:40px;color:var(--mut,inherit);font-size:.85rem}
 .gmdel:active{opacity:1;background:var(--c1,rgba(127,127,127,.15))}
-.gmr .eo{padding-right:30px;font-size:1.02rem;line-height:1.55}
+.gmr .eo{padding-right:74px;font-size:1.02rem;line-height:1.55}
 .gmr .idn{font-size:.9rem;color:var(--m);margin-top:2px}
 .gmr .rom{font-size:.82rem;color:var(--m)}
 .gmsrc{display:block;margin-top:3px;font-size:.72rem;color:var(--m)}

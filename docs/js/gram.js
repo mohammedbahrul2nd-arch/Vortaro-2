@@ -54,12 +54,15 @@ function gmSurfOk(f,s,L){s=String(s||'').trim();if(!s)return true;
  if(L=='ja'||L=='zh'){const t=String(f).replace(/\s+/g,'');let p=0;for(const x of parts){const q=x.replace(/\s+/g,'');const i=t.indexOf(q,p);if(i<0)return false;p=i+q.length}return true}
  const t=' '+libTok(f,L).join(' ')+' ';let p=0;for(const x of parts){const q=' '+libTok(x,L).join(' ')+' ';const i=t.indexOf(q,p);if(i<0)return false;p=i+q.length-1}return true}
 /* keluarkan tag per kalimat: kembalikan {map:{key:[tag]},drop,unres} */
-function gmResolveTags(tag,L,sentOf){const P=gmTagLines(tag),map={};let drop=0,unres=0,n=0;
+/* v7.105.0: tag grammar boleh memuat sorotan terjemahan Indonesia: «Gn: potongan asing >> potongan Indonesia» (potongan Indonesia harus ada di baris Arti) */
+const gmIdSplit=v=>{const m=String(v).split(/\s*(?:>>|»|⇒|＞＞)\s*/);return[m[0].trim(),(m[1]||'').trim()]};
+const gmIdTrOk=(tr,s)=>{const t=String(tr).toLowerCase().replace(/\s+/g,' '),ps=String(s).split(/\s*(?:…|\.{3})\s*/).map(x=>x.trim().toLowerCase().replace(/\s+/g,' ')).filter(Boolean);return ps.length>0&&ps.every(p=>t.includes(p))};
+function gmResolveTags(tag,L,sentOf,iOf){const P=gmTagLines(tag),map={};let drop=0,unres=0,n=0,idDrop=0;
  /* v7.29.0 (B5): daftar tag yang gagal masuk beserta alasannya */
  const fail=[],F=(key,kind,name,surface,reason)=>fail.push({key,kind,name:String(name||''),surface:String(surface||''),reason});
  const dsc=it=>{if(it.c=='V'||it.c=='K'){const sp=it.v.split(/\s*(?:>|→|->|=>|＞)\s*/);return{kind:it.c,name:sp[0].trim(),surface:(sp[1]||sp[0]).trim().replace(/\s*[（(][^()（）]+[)）]\s*$/,'')}}
-  if(/^G\d+$/.test(it.c))return{kind:'G',name:P.leg[it.c]||it.c,surface:it.v.replace(/\s*[（(][^()（）]*[)）]\s*$/,'').trim()};
-  const mm=it.v.match(/^(.*?)\s*(?:＝|=)\s*(.+)$/);return{kind:'G',name:mm?mm[1].trim():it.v,surface:mm?mm[2].trim().replace(/\s*[（(][^()（）]*[)）]\s*$/,''):''}};
+  if(/^G\d+$/.test(it.c))return{kind:'G',name:P.leg[it.c]||it.c,surface:gmIdSplit(it.v)[0].replace(/\s*[（(][^()（）]*[)）]\s*$/,'').trim()};
+  const mm=gmIdSplit(it.v)[0].match(/^(.*?)\s*(?:＝|=)\s*(.+)$/);return{kind:'G',name:mm?mm[1].trim():gmIdSplit(it.v)[0],surface:mm?mm[2].trim().replace(/\s*[（(][^()（）]*[)）]\s*$/,''):''}};
  for(const ln of P.lines){const f=sentOf(ln.key),bad=ln.items.bad||[];
   if(f==null){for(const it of ln.items){const d=dsc(it);F(ln.key,d.kind,d.name,d.surface,'nomor kalimat tidak ada di teks yang ditempel')}
    bad.forEach(b=>F(ln.key,'?',b,'','nomor kalimat tidak ada di teks yang ditempel; format tag juga tidak dikenali'));
@@ -73,25 +76,28 @@ function gmResolveTags(tag,L,sentOf){const P=gmTagLines(tag),map={};let drop=0,u
     if(!gmSurfOk(f,s,L)){drop++;F(ln.key,it.c,lem,s,'potongan teks tidak ada di kalimat');continue}
     let wks=gmWordKeys(lem,L);if(!wks.length)wks=gmWordKeys(s,L);const wk=wks[0]||'';if(!wk)F(ln.key,it.c,lem,s,'kartu kosakata tidak ditemukan (tag disimpan sebagai catatan tanpa tautan)');
     (map[ln.key]=map[ln.key]||[]).push({t:'v',k:wk,ks:wks.slice(0,8),n:lem,s,f:fm});n++;continue}
-   let title='',s='',keys=[];
-   if(/^G\d+$/.test(it.c)){title=P.leg[it.c]||'';s=it.v;keys=title?gmTitleKeys(title,L):[]}
-   else{const mm=it.v.match(/^(.*?)\s*(?:＝|=)\s*(.+)$/);if(mm){title=mm[1].trim();s=mm[2].trim()}else{title=it.v;s=''}keys=gmTitleKeys(title,L)}
+   let title='',s='',keys=[];const sp2=gmIdSplit(it.v),vv=sp2[0],idp=sp2[1];
+   if(/^G\d+$/.test(it.c)){title=P.leg[it.c]||'';s=vv;keys=title?gmTitleKeys(title,L):[]}
+   else{const mm=vv.match(/^(.*?)\s*(?:＝|=)\s*(.+)$/);if(mm){title=mm[1].trim();s=mm[2].trim()}else{title=vv;s=''}keys=gmTitleKeys(title,L)}
    s=s.replace(/\s*[（(][^()（）]*[)）]\s*$/,'').trim();
    if(!gmSurfOk(f,s,L)){drop++;F(ln.key,'G',title||it.v,s,'potongan teks tidak ada di kalimat');continue}
-   if(!keys.length){unres++;F(ln.key,'G',title||it.c,s,/^G\d+$/.test(it.c)&&!title?'legenda '+it.c+' tidak ditemukan (baris "'+it.c+' = judul grammar")':'judul grammar tidak cocok dengan kartu mana pun');(map[ln.key]=map[ln.key]||[]).push({t:'g',k:'',n:title||it.v,s});continue}
-   keys.forEach(k=>{(map[ln.key]=map[ln.key]||[]).push({t:'g',k,n:GK[k][4],s});n++})}}
- return{map,drop,unres,n,fail}}
+   const trI=iOf?iOf(ln.key):'';let idv='';if(idp&&idp!='-'&&idp!='–'){if(trI&&gmIdTrOk(trI,idp))idv=idp;else idDrop++}
+   const idO=idv?{id:idv}:{};
+   if(!keys.length){unres++;F(ln.key,'G',title||it.c,s,/^G\d+$/.test(it.c)&&!title?'legenda '+it.c+' tidak ditemukan (baris "'+it.c+' = judul grammar")':'judul grammar tidak cocok dengan kartu mana pun');(map[ln.key]=map[ln.key]||[]).push({t:'g',k:'',n:title||it.v,s,...idO});continue}
+   keys.forEach(k=>{(map[ln.key]=map[ln.key]||[]).push({t:'g',k,n:GK[k][4],s,...idO});n++})}}
+ return{map,drop,unres,n,fail,idDrop}}
 /* pasang ke hasil parser (ps atau sents) */
 function gmApplyTags(r,tag,L){if(!tag||!tag.trim())return;let res;
  if(r.sents){const idx=new Map();r.sents.forEach((s,i)=>{if(s.n)idx.set(String(s.n),i)});
-  res=gmResolveTags(tag,L,key=>idx.has(key)?r.sents[idx.get(key)].f:null);
+  res=gmResolveTags(tag,L,key=>idx.has(key)?r.sents[idx.get(key)].f:null,key=>idx.has(key)?r.sents[idx.get(key)].i||'':'');
   for(const k in res.map)r.sents[idx.get(k)].tg=res.map[k]}
  else if(r.ps){const idx=new Map();r.ps.forEach((p,pi)=>(p.ks||[]).forEach((k,si)=>{if(k&&!idx.has(k))idx.set(k,[pi,si])}));
-  res=gmResolveTags(tag,L,key=>idx.has(key)?r.ps[idx.get(key)[0]].f[idx.get(key)[1]]:null);
+  res=gmResolveTags(tag,L,key=>idx.has(key)?r.ps[idx.get(key)[0]].f[idx.get(key)[1]]:null,key=>{if(!idx.has(key))return'';const q=r.ps[idx.get(key)[0]];return q.a!==0&&q.i?q.i[idx.get(key)[1]]||'':''});
   for(const k in res.map){const [pi,si]=idx.get(k),p=r.ps[pi];if(!p.tg)p.tg=p.f.map(()=>0);p.tg[si]=res.map[k]}}
  r.warn=r.warn||[];r.fail=res.fail||[];
  if(res.n)r.tagN=res.n;
  if(res.drop)r.warn.push(res.drop+' tag dibuang karena potongan teksnya tidak ada di kalimat (kemungkinan salah ketik/halusinasi AI).');
+ if(res.idDrop)r.warn.push(res.idDrop+' sorotan terjemahan Indonesia (setelah >>) dibuang karena potongannya tidak ada di baris Arti.');
  if(res.unres)r.warn.push(res.unres+' tag grammar tidak cocok dengan kartu mana pun (tetap disimpan sebagai catatan).');
  if(!res.n&&!res.unres&&!res.drop)r.warn.push('Blok TAG ditemukan tetapi tidak ada baris bernomor yang cocok.')}
 
@@ -411,13 +417,14 @@ function gmVerbView(it){if(it.L!='ja'&&it.L!='de'&&it.L!='nl'&&it.L!='en')return
 
 /* ---------- 5. Tag AI: tampilan & penyorotan ---------- */
 function gmTagChips(p,si){const tg=p.tg&&p.tg[si];if(!tg||!tg.length)return'';
- return`<div class=gmts>`+tg.map(t=>t.t=='g'?`<span class="gmt${t.k?' ok':''}" title="${t.k?'Grammar terhubung ke kartu':'Grammar tanpa kartu yang cocok'}">${esc(String(t.n).replace(/\s*[（(][^)）]*[)）]/g,'').slice(0,40))}${t.s?' <i>'+esc(t.s)+'</i>':''}</span>`:`<span class="gmt v">${esc(t.n)}${t.s&&t.s!=t.n?' → <i>'+esc(t.s)+'</i>':''}${t.f?' <em>'+esc(t.f)+'</em>':''}</span>`).join('')+`</div>`}
+ return`<div class=gmts>`+tg.map(t=>t.t=='g'?`<span class="gmt${t.k?' ok':''}" title="${t.k?'Grammar terhubung ke kartu':'Grammar tanpa kartu yang cocok'}">${esc(String(t.n).replace(/\s*[（(][^)）]*[)）]/g,'').slice(0,40))}${t.s?' <i>'+esc(t.s)+'</i>':''}${t.id?' → <i>'+esc(t.id)+'</i>':''}</span>`:`<span class="gmt v">${esc(t.n)}${t.s&&t.s!=t.n?' → <i>'+esc(t.s)+'</i>':''}${t.f?' <em>'+esc(t.f)+'</em>':''}</span>`).join('')+`</div>`}
 function gmHLS(f,sf,L){const rom=L=='ja'||L=='zh',t=rom?String(f).replace(/\s+/g,''):String(f),R=[];
  for(const s0 of sf){for(const part of String(s0).split(/\s*(?:…|\.{3})\s*/)){const s=rom?part.replace(/\s+/g,''):part;if(!s)continue;const hay=rom?t:t.toLowerCase(),nd=rom?s:s.toLowerCase();let i=hay.indexOf(nd);while(i>=0){R.push([i,i+nd.length]);i=hay.indexOf(nd,i+nd.length)}}}
  if(!R.length)return null;R.sort((a,b)=>a[0]-b[0]);const mg=[];R.forEach(r=>{const l=mg[mg.length-1];if(l&&r[0]<=l[1])l[1]=Math.max(l[1],r[1]);else mg.push(r.slice())});
  let h='',p=0;mg.forEach(r=>{h+=esc(t.slice(p,r[0]))+'<mark>'+esc(t.slice(r[0],r[1]))+'</mark>';p=r[1]});return h+esc(t.slice(p))}
 /* tag grammar untuk kartu `key` pada kalimat bertag */
 const gmTagSf=(tg,key)=>(tg||[]).filter(t=>t.t=='g'&&t.k==key&&t.s).map(t=>t.s);
+const gmTagId=(tg,key)=>(tg||[]).filter(t=>t&&t.t=='g'&&t.k==key&&t.id).map(t=>t.id);
 
 /* ---------- 6. Contoh dari Pustaka saat kartu dibuka ---------- */
 const GMEXC=new Map();
@@ -500,7 +507,7 @@ function gmRollRows(key,v){const sig=gmSig();if(gmRoll.key==key&&gmRoll.sig==sig
 function gmExBlock(key){if(!key||(!S.lib.length&&!S.sl.length))return'';const v0=gmExamples(key,10);if(!v0.rows.length)return'';const v={n:v0.n,nv:v0.nv|0,rows:gmRollRows(key,v0)};const L=libOfKey(key);
  return`<div class=gmx><div class=gsec style="margin-top:12px">📚 Contoh dari Pustakamu <small>(${v.rows.length}${v.n>v.rows.length?' dari '+v.n:''})</small>${GK[key]?'':`<br><small class=gmcnt>${v.nv} terverifikasi (bertag AI / kata benda cocok persis) · ${v.n-v.nv} terdeteksi otomatis</small>`}</div>`+
   v.rows.map((x,xi)=>{const sf=GK[key]?gmTagSf(x.tg,key):[];const hl=(sf.length&&gmHLS(x.f,sf,L))||libHL(x.f,key,L,true);
-   return`<div class=gmr><button class=gmdel data-a=fcxdel data-k=\"${esc(key)}\" data-v=${xi} title=\"Hapus kalimat ini dari Pustaka\" aria-label=\"Hapus kalimat\">🗑</button><button class="gmdel gmunt" data-a=fcxuntag data-k=\"${esc(key)}\" data-v=${xi} title=\"Lepas tag kartu ini dari kalimat ini (kalimat tetap di Pustaka)\" aria-label=\"Lepas tag kartu dari kalimat\">✕</button><div class=eo>${x.sp?`<b class=spk>${esc(x.sp)}</b> `:''}${hl}${spk(x.f,L)}</div>${x.r?`<div class="r rom">${esc(x.r)}</div>`:''}${x.i?`<div class=idn>${esc(x.i)}</div>`:''}<small class=gmsrc>${GMSRC[x.t]||''}${GK[key]?(x.lv==3?' · ✓ ditandai AI':x.lv==1?' · perkiraan':''):(x.ver?' · ✓ terverifikasi':'')}</small></div>`}).join('')+
+   return`<div class=gmr><button class=gmdel data-a=fcxdel data-k=\"${esc(key)}\" data-v=${xi} title=\"Hapus kalimat ini dari Pustaka\" aria-label=\"Hapus kalimat\">🗑</button><button class="gmdel gmunt" data-a=fcxuntag data-k=\"${esc(key)}\" data-v=${xi} title=\"Lepas tag kartu ini dari kalimat ini (kalimat tetap di Pustaka)\" aria-label=\"Lepas tag kartu dari kalimat\">✕</button><div class=eo>${x.sp?`<b class=spk>${esc(x.sp)}</b> `:''}${hl}${spk(x.f,L)}</div>${x.r?`<div class="r rom">${esc(x.r)}</div>`:''}${x.i?`<div class=idn>${(GK[key]&&gmTagId(x.tg,key).length&&gmHLS(x.i,gmTagId(x.tg,key),'id'))||esc(x.i)}</div>`:''}<small class=gmsrc>${GMSRC[x.t]||''}${GK[key]?(x.lv==3?' · ✓ ditandai AI':x.lv==1?' · perkiraan':''):(x.ver?' · ✓ terverifikasi':'')}</small></div>`}).join('')+
   `<div class=btns style="margin-top:6px"><button class=mini data-a=libfind data-k="${esc(key)}">Lihat semua di Pustaka${v.n>v.rows.length?' ('+v.n+')':''}</button></div></div>`}
 
 /* v7.102.0: lepas TAG KARTU dari kalimat (kalimat tetap di Pustaka). S.o.gmNo[kartu]=[teks kalimat] = "bukan contoh kartu ini" (juga mencegah terdeteksi otomatis lagi). */

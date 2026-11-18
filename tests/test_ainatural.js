@@ -52,6 +52,9 @@ for(const lt of ['sent','dialog','read','listen']){
 }
 const ps=X.aiLibBuild(lc,'sent');
 ok(!/Tidak boleh ada kalimat tanpa unsur ini/.test(ps)&&!/SETIAP kalimat memuat minimal 1/.test(ps),'pustaka: tidak lagi mewajibkan kartu di tiap kalimat');
+/* 4b. format sorotan Indonesia (>>) di tag grammar */
+{S.o={aiT:'acc',aiSn:10};const pa=X.aiBuild(X.aiGather(gk,0));ok(/>> \[potongan arti Indonesia\]/.test(pa)&&/SOROTAN BAHASA ASING DAN INDONESIA/.test(pa),'acc grammar: format >> ada');
+ for(const lt of ['sent','dialog','read','listen']){const pp=X.aiLibBuild(lc,lt);ok(/>> \[potongan arti Indonesia\]/.test(pp)&&/SOROTAN BAHASA ASING DAN INDONESIA/.test(pp),'pustaka '+lt+': format >> ada')}}
 /* 5. tab ada di kedua daftar tab */
 ok(X.aiTabsHtml({aiLT:'sent'}).includes('data-v=acc'),'tab Akurat ada di aiTabsHtml');
 ok(X.AIDEST.acc&&X.AIDEST.acc.lib==='Pustaka → Kalimat','AIDEST.acc');
