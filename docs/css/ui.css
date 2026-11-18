@@ -229,3 +229,12 @@ body::after{content:"";position:fixed;left:0;right:0;bottom:0;z-index:49;pointer
 nav{background:color-mix(in srgb,var(--c) 94%,transparent)}
 .navi{background:color-mix(in srgb,var(--c) 94%,transparent)}
 @media(min-width:960px){body::after{display:none}}
+
+/* v7.105.2: bar menu desktop — aturan mobile di atas (bottom/left/right/max-width/radius) menimpa app.css sehingga bar melebar penuh tinggi layar */
+@media(min-width:960px){
+ nav{top:0;bottom:auto;left:0;right:0;max-width:none;margin:0;border:0;border-bottom:1px solid var(--b);border-radius:0;box-shadow:none;height:auto}
+ .navi{max-width:1160px;margin:0 auto;padding:10px 24px;gap:6px;justify-content:flex-start;background:none}
+ nav button{flex:none;flex-direction:row;gap:8px;min-height:44px;padding:0 16px;font-size:.92rem;border-radius:14px}
+ nav button svg{width:20px;height:20px}
+ .dock{bottom:12px}
+}

@@ -590,7 +590,7 @@ function gzpCands(g){const key=g[0],L=g[1],q=S.o.gzq=='tag'?'tag':'auto',sig=gmS
    if(!p){if(!lex||q=='tag')continue;p=gzpParse(libHL(x.f,key,L))}
    if(!gzpOk(p,L,tagged))continue;
    const nk=p.t.replace(/\s+/g,'').toLowerCase();if(seen.has(nk))continue;seen.add(nk);
-   v.push({k:key,L,t:p.t,sp:p.sp,i:x.i||'',r:x.r||'',f:x.f,src:x.t,o:x.o,lv:tagged?3:2,w:(tagged?3:1)*(x.i?2:1)})}}
+   v.push({k:key,L,t:p.t,sp:p.sp,i:x.i||'',ids:tagged?gmTagId(x.tg,key):[],r:x.r||'',f:x.f,src:x.t,o:x.o,lv:tagged?3:2,w:(tagged?3:1)*(x.i?2:1)})}}
  catch(e){v=[]}
  GZP.c.set(key,v);return v}
 /* dipanggil sekali tiap kartu grammar muncul (lihat fcView) */
@@ -691,11 +691,12 @@ function gzpMask(h,parts){const ps=[...new Set(parts.map(x=>String(x).trim()).fi
  const re=rxLB(alt.join('|'),'giu');
  return h.split(/(<[^>]*>)/).map(p=>p[0]=='<'?p:p.replace(re,m=>`<span class="gzb gze gzs" style="--n:${m.length}">&nbsp;</span>`)).join('')}
 function gzTrG(g,t){if(typeof gzTrH!='function')return esc(t);const o=GZG;GZG=g;try{return gzTrH(t)}finally{GZG=o}}
+function gzpTr(g,row){if(!row.i)return'';if(row.ids&&row.ids.length){const h=gmHLS(row.i,row.ids,'id');if(h)return h.replace(/<mark>/g,'<mark class=gzh>')}return gzTrG(g,row.i)}
 function gzpFront(g,row){const L=g[1],base=String(gzFront(g)),m=base.match(/^<div class="gzq[^"]*">[\s\S]*?<\/div>/),
   fn=m?gzpMask(m[0],row.sp.map(([a,b])=>row.t.slice(a,b))):'';
- return fn+`<div class="gzc ${gzpCls(L)}">${gzpSeg(row,(w)=>gzpBox(L,[...w.replace(/\s/g,'')].length))}</div>`+(row.i?`<div class=gzm>${gzTrG(g,row.i)}</div>`:'')+`<div class=fchint><small>Isi bagian yang hilang &amp; ingat rumus polanya · 📚 soal dari Pustakamu</small></div>`}
+ return fn+`<div class="gzc ${gzpCls(L)}">${gzpSeg(row,(w)=>gzpBox(L,[...w.replace(/\s/g,'')].length))}</div>`+(row.i?`<div class=gzm>${gzpTr(g,row)}</div>`:'')+`<div class=fchint><small>Isi bagian yang hilang &amp; ingat rumus polanya · 📚 soal dari Pustakamu</small></div>`}
 function gzpBack(g,row){const L=g[1];
- return`<div class=gzps><small class=gzpl>📚 Soal dari Pustakamu · ${GMSRC[row.src]||''}${row.lv==3?' · ✓ ditandai AI':' · terdeteksi otomatis'}</small><div class="gzc ${gzpCls(L)}">${gzpSeg(row,w=>`<mark class=gzh>${esc(w)}</mark>`)}${spk(row.f,L)}</div>${row.i?`<div class=gzm>${gzTrG(g,row.i)}</div>`:''}${row.r?`<div class="r rom">${esc(row.r)}</div>`:''}</div><hr>`}
+ return`<div class=gzps><small class=gzpl>📚 Soal dari Pustakamu · ${GMSRC[row.src]||''}${row.lv==3?' · ✓ ditandai AI':' · terdeteksi otomatis'}</small><div class="gzc ${gzpCls(L)}">${gzpSeg(row,w=>`<mark class=gzh>${esc(w)}</mark>`)}${spk(row.f,L)}</div>${row.i?`<div class=gzm>${gzpTr(g,row)}</div>`:''}${row.r?`<div class="r rom">${esc(row.r)}</div>`:''}</div><hr>`}
 
 /* ---------- 7. Ekspor / impor: JSON progres dan JSON pustaka ---------- */
 const gmP2=n=>String(n).padStart(2,'0');

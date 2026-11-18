@@ -100,7 +100,8 @@ var nav=document.querySelector('nav'),d=document.createElement('div');d.classNam
 top.forEach(function(k){var nb=nav&&nav.querySelector('[data-a=tab][data-v='+k+'] span');if(!nb)return;var x=document.createElement('button');x.type='button';x.className='vrscb';x.setAttribute('data-vsc',k);x.textContent=nb.textContent;d.appendChild(x)});
 if(!d.children.length)return;var after=v.querySelector(':scope>.vrgr')||h;after.insertAdjacentElement('afterend',d)}
 document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-vsc]');if(!b)return;var n=document.querySelector('nav [data-a=tab][data-v='+b.getAttribute('data-vsc')+']');if(n)n.click()});
-function run(){var v=document.getElementById('v');if(!v)return;var h=v.querySelector(':scope>h1');if(h&&h.textContent.trim()==='Kartu')shortcuts(v,h)}
+/* v7.105.2: jalan pintas kuning (Pustaka/Games) di layar Kartu dihapus; pelacakan u_use tetap */
+function run(){var v=document.getElementById('v');if(!v)return;var o=v.querySelector(':scope>.vrsc');if(o)o.remove()}
 function boot(){var v=document.getElementById('v');if(!v||!O())return setTimeout(boot,200);new MutationObserver(run).observe(v,{childList:true});run()}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot()})();
 /* Tahap D1: layar Pengaturan — kelompok bisa dilipat (status diingat di S.o.u_sg), kolom cari, ikon */
