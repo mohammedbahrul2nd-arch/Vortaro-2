@@ -1,3 +1,8 @@
+## 7.105.2 — Perbaikan tampilan desktop, sorotan Indonesia di soal kartu, hapus tombol jalan pintas
+- **Desktop PC**: aturan `nav` mobile di ui.css (bottom/left/right/max-width/radius) menimpa aturan desktop app.css sehingga bar menu menjadi panel setinggi layar yang menutupi konten. Ditambah blok `@media(min-width:960px)` di akhir ui.css (bar penuh lebar di atas, `.dock` kembali bottom:12px).
+- **Soal kartu grammar dari Pustaka**: terjemahan Indonesia di sisi depan (sebelum dibuka) dan belakang kini menyorot bagian `>>` dari tag AI (`gzpCands` menyimpan `ids`; `gzpTr` di gram.js); tanpa tag tetap memakai pencocok arti pola.
+- Tombol kuning «Pustaka»/«Games» (jalan pintas `.vrsc`) di layar Kartu dihapus (ui.js).
+
 ## 7.105.1 — Perbaikan tombol ✕/🗑 menimpa teks di «Contoh dari Pustakamu»
 - app.css: aturan `.gmr .eo{padding-right:30px}` menimpa `68px` sehingga teks kalimat panjang (termasuk sorotan) berjalan di bawah tombol ✕ (lepas tag) dan 🗑. Kini `padding-right:74px` (cukup untuk dua tombol); aturan 68px yang mati dihapus.
 
