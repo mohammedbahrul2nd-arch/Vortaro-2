@@ -1,0 +1,83 @@
+#6 Kata Benda berakhiran -o
+La kato dormas. | Kucing itu tidur. | kato | Kucing
+La knabo legas. | Anak laki-laki itu membaca. | knabo | Anak laki-laki
+La birdo kantas. | Burung itu bernyanyi. | birdo | Burung
+La tablo estas nova. | Meja itu baru. | tablo | Meja
+Mia patro laboras. | Ayah saya bekerja. | patro | Ayah
+La hundo kuras en la ĝardeno. | Anjing itu berlari di kebun. | hundo | Anjing
+La urbo estas bela kaj granda. | Kota itu indah dan besar. | urbo | Kota
+La infano amas la hundon. | Anak itu menyukai anjing itu. | infano | Anak
+Pano kaj lakto estas sur la tablo. | Roti dan susu ada di atas meja. | Pano | Roti
+La instruisto estas en la lernejo. | Guru itu ada di sekolah. | instruisto | Guru
+La floro estas ruĝa kaj la arbo estas verda. | Bunga itu merah dan pohon itu hijau. | floro | Bunga
+Mi vidas grandan arbon en la ĝardeno. | Saya melihat pohon besar di kebun. | ĝardeno | kebun
+Mia fratino loĝas en granda domo. | Saudari perempuan saya tinggal di rumah besar. | domo | rumah
+La virino laboras en la urbo kaj la viro laboras en la lernejo. | Wanita itu bekerja di kota dan pria itu bekerja di sekolah. | virino | Wanita
+#7 Artikel Tentu la
+La viro laboras. | Pria itu bekerja. | La viro | Pria itu
+La birdo ne kantas hodiaŭ. | Burung itu tidak bernyanyi hari ini. | La birdo | Burung itu
+La knabo ludas. | Anak laki-laki itu bermain. | La knabo | Anak laki-laki itu
+Mi vidas la hundon. | Saya melihat anjing itu. | la hundon | anjing itu
+Ŝi amas la katon. | Dia menyukai kucing itu. | la katon | kucing itu
+Mi legas la libron. | Saya membaca buku itu. | la libron | buku itu
+La floroj estas belaj. | Bunga-bunga itu indah. | La floroj | Bunga-bunga itu
+La instruisto parolas kun Maria. | Guru itu berbicara dengan Maria. | La instruisto | Guru itu
+Li loĝas en la urbo kun Maria. | Dia tinggal di kota itu bersama Maria. | la urbo | kota itu
+Anna manĝas la panon kaj trinkas akvon. | Anna makan roti itu dan minum air. | la panon | roti itu
+Mi trinkas la lakton, sed ŝi trinkas kafon. | Saya minum susu itu, tetapi dia minum kopi. | la lakton | susu itu
+#8 Kata Sifat berakhiran -a
+La domo estas nova. | Rumah itu baru. | nova | baru
+La suno estas varma. | Matahari itu hangat. | varma | hangat
+La tago estas bela. | Hari itu indah. | bela | indah
+La hundo estas granda. | Anjing itu besar. | granda | besar
+La libro estas blua. | Buku itu biru. | blua | biru
+La lakto estas blanka. | Susu itu putih. | blanka | putih
+La akvo estas malvarma. | Air itu dingin. | malvarma | dingin
+Li estas bona instruisto. | Dia guru yang baik. | bona | baik
+La knabino estas juna kaj feliĉa. | Anak perempuan itu muda dan bahagia. | juna | muda
+Mia avo estas maljuna, sed li estas forta. | Kakek saya sudah tua, tetapi dia kuat. | maljuna | tua
+La urbo estas granda kaj bela. | Kota itu besar dan indah. | bela | indah
+La ĉielo estas blua hodiaŭ. | Langit biru hari ini. | blua | biru
+La floro estas ruĝa kaj la folio estas verda. | Bunga itu merah dan daunnya hijau. | verda | hijau
+Mia lernejo estas malgranda, sed ĝi estas tre bona. | Sekolah saya kecil, tetapi sangat bagus. | malgranda | kecil
+#9 Kala Kini -as
+La suno brilas. | Matahari bersinar. | brilas | bersinar
+La kato dormas sur la seĝo. | Kucing tidur di atas kursi. | dormas | tidur
+Mi legas libron. | Saya membaca buku. | legas | membaca
+Ŝi skribas leteron. | Dia menulis surat. | skribas | menulis
+Ni manĝas panon. | Kami makan roti. | manĝas | makan
+Li laboras en la urbo. | Dia bekerja di kota. | laboras | bekerja
+Mi loĝas en granda domo. | Saya tinggal di rumah besar. | loĝas | tinggal
+La infanoj ludas en la ĝardeno. | Anak-anak bermain di kebun. | ludas | bermain
+La birdoj kantas en la arbo. | Burung-burung bernyanyi di pohon. | kantas | bernyanyi
+Vi iras al la lernejo ĉiutage. | Kamu pergi ke sekolah setiap hari. | iras | pergi
+Ili trinkas akvon kaj manĝas panon. | Mereka minum air dan makan roti. | trinkas | minum
+La instruisto parolas kun la lernantoj. | Guru berbicara dengan para murid. | parolas | berbicara
+La hundo kuras kaj la kato sidas sur la tablo. | Anjing berlari dan kucing duduk di atas meja. | kuras | berlari
+Ŝi aĉetas panon en la butiko kaj ni manĝas ĝin. | Dia membeli roti di toko dan kami memakannya. | aĉetas | membeli
+#10 Bentuk Jamak -j
+La infanoj ludas. | Anak-anak bermain. | infanoj | Anak-anak
+La birdoj kantas. | Burung-burung bernyanyi. | birdoj | Burung-burung
+Floroj estas belaj. | Bunga-bunga indah. | Floroj | Bunga-bunga
+La libroj estas sur la tablo. | Buku-buku ada di atas meja. | libroj | Buku-buku
+La viroj laboras en la urbo. | Para pria bekerja di kota. | viroj | Para pria
+La arboj en la ĝardeno estas grandaj. | Pohon-pohon di kebun besar. | arboj | Pohon-pohon
+La domoj en la urbo estas malnovaj. | Rumah-rumah di kota itu tua. | domoj | Rumah-rumah
+Miaj amikoj loĝas en la urbo. | Teman-teman saya tinggal di kota. | amikoj | Teman-teman
+La knaboj kaj la knabinoj kuras. | Anak-anak laki-laki dan anak-anak perempuan berlari. | knaboj | anak-anak laki-laki
+Du belaj birdoj sidas sur la arbo. | Dua burung indah duduk di pohon. | belaj birdoj | burung indah
+La lernantoj kaj la instruistoj parolas en la klaso. | Para murid dan para guru berbicara di kelas. | lernantoj | Para murid
+Birdoj kantas en la arboj, kaj floroj estas en la ĝardeno. | Burung-burung bernyanyi di pohon-pohon, dan bunga-bunga ada di kebun. | Birdoj | Burung-burung
+#11 Kata Sifat Predikat
+La birdo estas bela. | Burung itu indah. | estas bela | indah
+La suno estas ruĝa vespere. | Matahari itu merah pada sore hari. | estas ruĝa | merah
+Mi estas feliĉa. | Saya bahagia. | estas feliĉa | bahagia
+La kafo estas malvarma. | Kopi itu dingin. | estas malvarma | dingin
+Mia patro ŝajnas feliĉa. | Ayah saya tampak bahagia. | ŝajnas feliĉa | tampak bahagia
+Ŝi ŝajnas laca hodiaŭ. | Dia tampak lelah hari ini. | ŝajnas laca | tampak lelah
+La lernejo estas granda kaj nova. | Sekolah itu besar dan baru. | estas granda | besar
+La libro estas bona, sed ĝi estas tro longa. | Buku itu bagus, tetapi terlalu panjang. | estas bona | bagus
+La akvo estas tre malvarma hodiaŭ. | Air itu sangat dingin hari ini. | estas tre malvarma | sangat dingin
+Anna estas juna kaj la instruisto estas maljuna. | Anna masih muda dan guru itu sudah tua. | estas maljuna | tua
+La viro ŝajnas maljuna, sed li estas forta. | Pria itu tampak tua, tetapi dia kuat. | ŝajnas maljuna | tampak tua
+La ĉielo estas blua kaj la suno estas varma hodiaŭ. | Langit biru dan matahari hangat hari ini. | estas blua | biru

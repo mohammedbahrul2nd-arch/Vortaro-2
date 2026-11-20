@@ -14,7 +14,7 @@ OUT={'zh':'gamedata15.js','ja':'gamedata16.js','de':'gamedata17.js','en':'gameda
 LVSORT={'zh':['HSK1','HSK2','HSK3','HSK4','HSK5'],'ja':['N5','N4','N3','N2','N1'],'de':['A1','A2','B1','B2','C1'],'en':['A1','A2','B1','B2','C1','C2'],'nl':['A1','A2','B1','B2','C1','C2'],'eo':['A1','A2','B1','B2','C1','C2']}
 PUN='，。！？、：；“”‘’（）…—,.!?:;"\'()'
 BAD=re.compile(r'undefined|\bnull\b|\bNaN\b|\[object')
-PIN_EXTRA={'姐姐':'jiějie','爸爸':'bàba','零':'líng','第':'dì','们':'men','地':'de','得':'de','的':'de','了':'le','都':'dōu','还':'hái','觉得':'juéde','睡觉':'shuìjiào','没':'méi','哪':'nǎ','几':'jǐ','什么':'shénme','一起':'yìqǐ','一边':'yìbiān','一块儿':'yíkuàir','早点儿':'zǎodiǎnr','玩儿':'wánr','事':'shì','把':'bǎ','钥匙':'yàoshi','有点儿':'yǒudiǎnr','点儿':'diǎnr','一点儿':'yìdiǎnr','李':'lǐ','画儿':'huàr','照相机':'zhàoxiàngjī','玫瑰':'méigui','奇怪':'qíguài','欧洲':'Ōuzhōu','并':'bìng','机':'jī','觉':'jiào','第一':'dìyī','里':'li','南':'nán','个个':'gègè','活儿':'huór','难怪':'nánguài','怪':'guài','鸟儿':'niǎor','瓶子':'píngzi','灰尘':'huīchén'}  # koreksi/kamus tambahan (menimpa hasil otomatis)
+PIN_EXTRA={'号楼':'hàolóu','不一会儿':'bùyíhuìr','什么的':'shénmede','玩':'wán','照相':'zhàoxiàng','一会儿':'yíhuìr','妹妹':'mèimei','姐姐':'jiějie','爸爸':'bàba','零':'líng','第':'dì','们':'men','地':'de','得':'de','的':'de','了':'le','都':'dōu','还':'hái','觉得':'juéde','睡觉':'shuìjiào','没':'méi','哪':'nǎ','几':'jǐ','什么':'shénme','一起':'yìqǐ','一边':'yìbiān','一块儿':'yíkuàir','早点儿':'zǎodiǎnr','玩儿':'wánr','事':'shì','把':'bǎ','钥匙':'yàoshi','有点儿':'yǒudiǎnr','点儿':'diǎnr','一点儿':'yìdiǎnr','李':'lǐ','画儿':'huàr','照相机':'zhàoxiàngjī','玫瑰':'méigui','奇怪':'qíguài','欧洲':'Ōuzhōu','并':'bìng','机':'jī','觉':'jiào','第一':'dìyī','里':'li','南':'nán','个个':'gègè','活儿':'huór','难怪':'nánguài','怪':'guài','鸟儿':'niǎor','瓶子':'píngzi','灰尘':'huīchén'}  # koreksi/kamus tambahan (menimpa hasil otomatis)
 def dump():
     r=subprocess.run(['node',os.path.join(ROOT,'tools','gcl_dump.js')],capture_output=True,text=True,check=True,cwd=ROOT)
     d=json.loads(r.stdout);d['pin'].update(PIN_EXTRA);return d
@@ -106,4 +106,5 @@ def main():
         open(os.path.join(ROOT,'docs','js',OUT[lang]),'w',encoding='utf8').write(hdr+'Object.assign(GCX,{\n'+body+'\n});\n')
         print(lang,len(bank),'kartu',nq,'soal ->',OUT[lang])
     sys.exit(1 if bad else 0)
-main()
+
+if __name__=='__main__': main()

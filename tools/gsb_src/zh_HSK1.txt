@@ -1,0 +1,1962 @@
+#0 Kalimat Depan dengan 是
+我 是 学生。 | Saya adalah murid. | 是 | adalah
+他 是 老师。 | Dia adalah guru. | 是 | adalah
+她 是 我 朋友。 | Dia adalah temanku. | 是 | adalah
+我 是 中国{Zhōngguó} 人。 | Saya adalah orang Tiongkok. | 是 | adalah
+这 是 我 的 书。 | Ini adalah bukuku. | 是 | adalah
+那 是 我 妈妈。 | Itu adalah ibuku. | 是 | adalah
+他 是 我 哥哥。 | Dia adalah kakak laki-lakiku. | 是 | adalah
+我们 都 是 学生。 | Kami semua adalah murid. | 是 | adalah
+我们 是 好 朋友。 | Kami adalah teman baik. | 是 | adalah
+我 爸爸 是 医生。 | Ayahku adalah dokter. | 是 | adalah
+王 先生 是 医生。 | Tuan Wang adalah dokter. | 是 | adalah
+我 的 名字 是 李{Lǐ} 明{Míng}。 | Namaku adalah Li Ming. | 是 | adalah
+我 的 同学 是 日本 人。 | Teman sekelasku adalah orang Jepang. | 是 | adalah
+他们 是 大学 的 学生。 | Mereka adalah murid universitas. | 是 | adalah
+他 是 我 的 汉语 老师。 | Dia adalah guru bahasa Mandarinku. | 是 | adalah
+#1 Pertanyaan Interogatif dengan 什么
+他 叫 什么 名字？ | Siapa namanya? | 什么 | Siapa
+你 叫 什么 名字？ | Siapa namamu? | 什么 | Siapa
+她 叫 什么 名字？ | Siapa nama dia? | 什么 | Siapa
+你好，你 叫 什么 名字？ | Halo, siapa namamu? | 什么 | siapa
+请问，你 叫 什么 名字？ | Permisi, siapa namamu? | 什么 | siapa
+你 妈妈 叫 什么 名字？ | Siapa nama ibumu? | 什么 | Siapa
+你 爸爸 叫 什么 名字？ | Siapa nama ayahmu? | 什么 | Siapa
+你 朋友 叫 什么 名字？ | Siapa nama temanmu? | 什么 | Siapa
+你 哥哥 叫 什么 名字？ | Siapa nama kakak laki-lakimu? | 什么 | Siapa
+你 的 老师 叫 什么 名字？ | Siapa nama gurumu? | 什么 | Siapa
+你 的 同学 叫 什么 名字？ | Siapa nama teman sekelasmu? | 什么 | Siapa
+你 的 小 狗 叫 什么 名字？ | Siapa nama anjing kecilmu? | 什么 | Siapa
+你 家 的 小猫 叫 什么 名字？ | Siapa nama kucing kecil di rumahmu? | 什么 | Siapa
+我 叫 李{Lǐ} 明{Míng}，你 叫 什么 名字？ | Namaku Li Ming, siapa namamu? | 什么 | siapa
+请问，你们 的 老师 叫 什么 名字？ | Permisi, siapa nama guru kalian? | 什么 | siapa
+#2 Partikel 呢 untuk pertanyaan balik
+我 很 好，你 呢？ | Aku baik-baik saja, bagaimana denganmu? | 呢 | bagaimana denganmu
+我 是 学生，你 呢？ | Aku murid, bagaimana denganmu? | 呢 | bagaimana denganmu
+我 喜欢 茶，你 呢？ | Aku suka teh, kamu bagaimana? | 呢 | kamu bagaimana
+我 今天 很 忙，你 呢？ | Hari ini aku sibuk, bagaimana denganmu? | 呢 | bagaimana denganmu
+我 想 喝 茶，你 呢？ | Aku mau minum teh, kamu bagaimana? | 呢 | kamu bagaimana
+我 去 学校，你 呢？ | Aku pergi ke sekolah, bagaimana denganmu? | 呢 | bagaimana denganmu
+我 吃 米饭，你 呢？ | Aku makan nasi, bagaimana denganmu? | 呢 | bagaimana denganmu
+我 有 一 个 哥哥，你 呢？ | Aku punya seorang kakak laki-laki, bagaimana denganmu? | 呢 | bagaimana denganmu
+我 叫 李{Lǐ} 明{Míng}，你 呢？ | Namaku Li Ming, namamu siapa? | 呢 | namamu siapa
+我 今年 二十 岁，你 呢？ | Tahun ini aku dua puluh tahun, kamu berapa? | 呢 | kamu berapa
+我 住 在 北京{Běijīng}，你 呢？ | Aku tinggal di Beijing, bagaimana denganmu? | 呢 | bagaimana denganmu
+我 喜欢 看 电影，你 呢？ | Aku suka menonton film, bagaimana denganmu? | 呢 | bagaimana denganmu
+我 明天 不 工作，你 呢？ | Besok aku tidak bekerja, bagaimana denganmu? | 呢 | bagaimana denganmu
+他 是 医生，她 呢？ | Dia seorang dokter, bagaimana dengan dia yang perempuan? | 呢 | bagaimana dengan dia
+我 的 书 在 桌子 上，你 的 呢？ | Bukuku ada di atas meja, bagaimana punyamu? | 呢 | bagaimana punyamu
+#3 Kalimat Tanya dengan 吗
+你 好 吗？ | Apakah kamu baik-baik saja? | 吗 | Apakah
+你 是 学生 吗？ | Apakah kamu murid? | 吗 | Apakah
+他 是 老师 吗？ | Apakah dia guru? | 吗 | Apakah
+你 有 哥哥 吗？ | Apakah kamu punya kakak laki-laki? | 吗 | Apakah
+你 认识 他 吗？ | Apakah kamu mengenal dia? | 吗 | Apakah
+你 想 喝 茶 吗？ | Apakah kamu mau minum teh? | 吗 | Apakah
+你 家 很 大 吗？ | Apakah rumahmu besar? | 吗 | Apakah
+这 是 你 的 书 吗？ | Apakah ini bukumu? | 吗 | Apakah
+你 会 说 汉语 吗？ | Apakah kamu bisa berbahasa Mandarin? | 吗 | Apakah
+你 爱 吃 米饭 吗？ | Apakah kamu suka makan nasi? | 吗 | Apakah
+你 明天 在 家 吗？ | Apakah besok kamu ada di rumah? | 吗 | Apakah
+你 今天 去 学校 吗？ | Apakah hari ini kamu pergi ke sekolah? | 吗 | Apakah
+你 喜欢 这 个 杯子 吗？ | Apakah kamu suka gelas ini? | 吗 | Apakah
+请问，这儿 有 电话 吗？ | Permisi, apakah di sini ada telepon? | 吗 | apakah
+你 爸爸 在 北京{Běijīng} 工作 吗？ | Apakah ayahmu bekerja di Beijing? | 吗 | Apakah
+#4 Penggunaan 很 sebagai Penghubung
+我 很 好。 | Aku sangat baik. | 很 | sangat
+我 很 忙。 | Aku sangat sibuk. | 很 | sangat
+她 很 高。 | Dia sangat tinggi. | 很 | sangat
+他 很 高兴。 | Dia sangat senang. | 很 | sangat
+今天 很 热。 | Hari ini sangat panas. | 很 | sangat
+我 家 很 大。 | Rumahku sangat besar. | 很 | sangat
+这儿 的 人 很 多。 | Orang di sini sangat banyak. | 很 | sangat
+你 的 衣服 很 漂亮。 | Bajumu sangat cantik. | 很 | sangat
+他 的 汉语 很 好。 | Bahasa Mandarinnya sangat bagus. | 很 | sangat
+这 个 学校 很 大。 | Sekolah ini sangat besar. | 很 | sangat
+那 个 电影 很 好看。 | Film itu sangat bagus. | 很 | sangat
+北京{Běijīng} 的 天气 很 冷。 | Cuaca di Beijing sangat dingin. | 很 | sangat
+我们 的 老师 很 漂亮。 | Guru kami sangat cantik. | 很 | sangat
+我 家 的 小 狗 很 漂亮。 | Anjing kecil di rumahku sangat cantik. | 很 | sangat
+我 妈妈 做 的 菜 很 好吃。 | Masakan buatan ibuku sangat enak. | 很 | sangat
+#5 Pertanyaan Interogatif dengan 谁
+他 是 谁？ | Siapa dia? | 谁 | Siapa
+这 是 谁？ | Siapa ini? | 谁 | Siapa
+你 是 谁？ | Kamu siapa? | 谁 | siapa
+谁 在 家？ | Siapa yang ada di rumah? | 谁 | Siapa
+谁 是 你 的 老师？ | Siapa gurumu? | 谁 | Siapa
+谁 想 喝 茶？ | Siapa yang mau minum teh? | 谁 | Siapa
+谁 会 说 汉语？ | Siapa yang bisa berbahasa Mandarin? | 谁 | Siapa
+谁 认识 他？ | Siapa yang mengenal dia? | 谁 | Siapa
+今天 谁 来？ | Siapa yang datang hari ini? | 谁 | Siapa
+今天 谁 做 饭？ | Siapa yang memasak hari ini? | 谁 | Siapa
+这 是 谁 的 书？ | Ini buku siapa? | 谁 | siapa
+你 的 朋友 是 谁？ | Siapa temanmu itu? | 谁 | Siapa
+前面 的 那 个 人 是 谁？ | Siapa orang yang ada di depan itu? | 谁 | Siapa
+谁 的 杯子 在 桌子 上？ | Gelas siapa yang ada di atas meja? | 谁 | siapa
+谁 在 说话？ | Siapa yang sedang berbicara? | 谁 | Siapa
+#6 Pertanyaan Interogatif dengan 多少
+这 个 多少 钱？ | Berapa harga yang ini? | 多少 | Berapa
+这 本 书 多少 钱？ | Berapa harga buku ini? | 多少 | Berapa
+一 个 苹果 多少 钱？ | Berapa harga satu apel? | 多少 | Berapa
+这 个 杯子 多少 钱？ | Berapa harga gelas ini? | 多少 | Berapa
+这 个 桌子 多少 钱？ | Berapa harga meja ini? | 多少 | Berapa
+请问，这 个 多少 钱？ | Permisi, berapa harga yang ini? | 多少 | berapa
+你 的 电话 是 多少？ | Berapa nomor teleponmu? | 多少 | Berapa
+你 家 有 多少 人？ | Berapa orang di keluargamu? | 多少 | Berapa
+你 有 多少 个 朋友？ | Berapa banyak temanmu? | 多少 | Berapa
+你 想 买 多少 苹果？ | Kamu mau beli berapa banyak apel? | 多少 | berapa banyak
+你 要 多少 米饭？ | Kamu mau nasi berapa banyak? | 多少 | berapa banyak
+你 想 喝 多少 水？ | Kamu mau minum air berapa banyak? | 多少 | berapa banyak
+今天 来 了 多少 人？ | Berapa orang yang datang hari ini? | 多少 | Berapa
+你们 学校 有 多少 学生？ | Berapa murid di sekolah kalian? | 多少 | Berapa
+北京{Běijīng} 有 多少 人？ | Berapa penduduk Beijing? | 多少 | Berapa
+#7 Pertanyaan dengan 什么 setelah Kata Kerja
+你 吃 什么？ | Kamu makan apa? | 什么 | apa
+你 喝 什么？ | Kamu minum apa? | 什么 | apa
+你 看 什么？ | Kamu melihat apa? | 什么 | apa
+你 说 什么？ | Kamu bilang apa? | 什么 | apa
+你 喜欢 什么？ | Kamu suka apa? | 什么 | apa
+你 想 吃 什么？ | Kamu mau makan apa? | 什么 | apa
+你 要 喝 什么？ | Kamu mau minum apa? | 什么 | apa
+你 想 学 什么？ | Kamu mau belajar apa? | 什么 | apa
+他 爱 吃 什么？ | Dia suka makan apa? | 什么 | apa
+你 在 做 什么？ | Kamu sedang melakukan apa? | 什么 | apa
+你 在 看 什么？ | Kamu sedang melihat apa? | 什么 | apa
+你 今天 做 什么？ | Hari ini kamu melakukan apa? | 什么 | apa
+你们 在 说 什么？ | Kalian sedang membicarakan apa? | 什么 | apa
+你 昨天 买 了 什么？ | Kemarin kamu membeli apa? | 什么 | apa
+你 想 在 商店 买 什么？ | Kamu mau beli apa di toko? | 什么 | apa
+#8 Partikel 吧 untuk Memberi Saran
+好 吧。 | Baiklah. | 吧 | Baiklah
+你 坐 吧。 | Silakan duduk. | 吧 | Silakan
+你 说 吧。 | Silakan bicara. | 吧 | Silakan
+我们 走 吧。 | Ayo kita pergi. | 吧 | Ayo
+我们 吃饭 吧。 | Ayo kita makan. | 吧 | Ayo
+我们 回家 吧。 | Ayo kita pulang. | 吧 | Ayo
+你 喝 茶 吧。 | Minum teh saja. | 吧 | saja
+你 在 家 看 书 吧。 | Baca buku di rumah saja. | 吧 | saja
+你 明天 再 来 吧。 | Datanglah lagi besok. | 吧 | Datanglah
+你 给 他 打 电话 吧。 | Telepon dia saja. | 吧 | saja
+我们 坐 一会儿 吧。 | Ayo kita duduk sebentar. | 吧 | Ayo
+你 先 喝 点儿 水 吧。 | Minumlah sedikit air dulu. | 吧 | Minumlah
+你 现在 去 买 苹果 吧。 | Pergilah beli apel sekarang. | 吧 | Pergilah
+我们 去 看 电影 吧。 | Ayo kita pergi menonton film. | 吧 | Ayo
+明天 我们 一起 去 看 电影 吧。 | Ayo besok kita menonton film bersama. | 吧 | Ayo
+#9 Partikel Pemilik / Posesif 的
+我 的 书 在 这儿。 | Bukuku ada di sini. | 的 | Bukuku
+这 是 你 的 杯子。 | Ini gelasmu. | 的 | gelasmu
+这 是 老师 的 书。 | Ini buku guru. | 的 | buku guru
+他 是 我 的 好 朋友。 | Dia adalah teman baikku. | 的 | teman baikku
+你 的 小 狗 很 漂亮。 | Anjing kecilmu sangat cantik. | 的 | Anjing kecilmu
+我们 的 学校 很 大。 | Sekolah kami sangat besar. | 的 | Sekolah kami
+我 的 汉语 老师 很 好。 | Guru bahasa Mandarinku sangat baik. | 的 | Guru bahasa Mandarinku
+那 是 我 朋友 的 家。 | Itu adalah rumah temanku. | 的 | rumah temanku
+她 的 名字 叫 小{Xiǎo} 红{Hóng}。 | Nama dia adalah Xiao Hong. | 的 | Nama dia
+我 哥哥 的 朋友 是 医生。 | Teman kakakku adalah dokter. | 的 | Teman kakakku
+你 妈妈 的 衣服 很 漂亮。 | Baju ibumu sangat cantik. | 的 | Baju ibumu
+我 很 喜欢 她 的 衣服。 | Aku sangat suka bajunya. | 的 | bajunya
+我 爸爸 的 电话 在 桌子 上。 | Telepon ayahku ada di atas meja. | 的 | Telepon ayahku
+我 家 的 小猫 在 桌子 下面。 | Kucing kecil di rumahku ada di bawah meja. | 的 | Kucing kecil di rumahku
+这 是 我 在 北京{Běijīng} 的 家。 | Ini adalah rumahku di Beijing. | 的 | rumahku
+#10 Kata Tunjuk 这 (Ini) dan 那 (Itu)
+这 是 书。 | Ini adalah buku. | 这 | Ini
+这 是 我 家。 | Ini adalah rumahku. | 这 | Ini
+这 是 我 的 杯子。 | Ini adalah gelasku. | 这 | Ini
+这 不 是 我 的 书。 | Ini bukan bukuku. | 这 | Ini
+这 个 杯子 很 漂亮。 | Gelas ini sangat cantik. | 这 | ini
+这 是 我 的 汉语 书。 | Ini adalah buku bahasa Mandarinku. | 这 | Ini
+这 是 我 朋友 的 电话。 | Ini adalah telepon temanku. | 这 | Ini
+这 是 我 妈妈 做 的 菜。 | Ini adalah masakan buatan ibuku. | 这 | Ini
+那 是 电脑。 | Itu adalah komputer. | 那 | Itu
+那 是 他 的 书。 | Itu adalah bukunya. | 那 | Itu
+那 不 是 我 的 杯子。 | Itu bukan gelasku. | 那 | Itu
+那 是 我们 的 学校。 | Itu adalah sekolah kami. | 那 | Itu
+那 个 人 是 我 的 老师。 | Orang itu adalah guruku. | 那 | itu
+那 是 你 的 衣服 吗？ | Apakah itu bajumu? | 那 | itu
+那 是 我 哥哥 的 小 狗。 | Itu adalah anjing kecil kakakku. | 那 | Itu
+#11 Kata Negasi 不
+我 不 去。 | Aku tidak pergi. | 不 | tidak
+我 不 是 学生。 | Aku bukan murid. | 不 | bukan
+他 不 是 我 的 老师。 | Dia bukan guruku. | 不 | bukan
+今天 不 热。 | Hari ini tidak panas. | 不 | tidak
+我 不 喝 茶。 | Aku tidak minum teh. | 不 | tidak
+这 个 不 贵。 | Yang ini tidak mahal. | 不 | tidak
+我 不 认识 他。 | Aku tidak mengenalnya. | 不 | tidak
+他 不 吃 米饭。 | Dia tidak makan nasi. | 不 | tidak
+她 不 爱 吃 苹果。 | Dia tidak suka makan apel. | 不 | tidak
+我 妈妈 不 在 家。 | Ibuku tidak ada di rumah. | 不 | tidak
+我 不 想 看 电影。 | Aku tidak mau menonton film. | 不 | tidak
+他 不 会 说 汉语。 | Dia tidak bisa berbahasa Mandarin. | 不 | tidak
+明天 我 不 去 学校。 | Besok aku tidak pergi ke sekolah. | 不 | tidak
+今天 天气 不 太 好。 | Cuaca hari ini tidak begitu bagus. | 不 | tidak
+我 爸爸 不 在 北京{Běijīng} 工作。 | Ayahku tidak bekerja di Beijing. | 不 | tidak
+#12 Penggunaan 两 vs 二
+我 有 两 个 哥哥。 | Aku punya dua kakak laki-laki. | 两 | dua
+我 有 两 个 妹妹。 | Aku punya dua adik perempuan. | 两 | dua
+他 有 两 本 书。 | Dia punya dua buku. | 两 | dua
+两 个 人 在 说话。 | Dua orang sedang berbicara. | 两 | Dua
+现在 是 两 点。 | Sekarang jam dua. | 两 | dua
+我 两 点 去 学校。 | Aku pergi ke sekolah jam dua. | 两 | dua
+他 喝 了 两 杯 水。 | Dia minum dua gelas air. | 两 | dua
+请 给 我 两 杯 茶。 | Tolong beri aku dua gelas teh. | 两 | dua
+我 想 买 两 个 苹果。 | Aku mau beli dua apel. | 两 | dua
+我 买 了 两 个 西瓜。 | Aku membeli dua semangka. | 两 | dua
+我 要 两 碗 米饭。 | Aku mau dua mangkuk nasi. | 两 | dua
+桌子 上 有 两 个 杯子。 | Di atas meja ada dua gelas. | 两 | dua
+我 今天 看 了 两 个 电影。 | Hari ini aku menonton dua film. | 两 | dua
+我 想 买 两 本 汉语 书。 | Aku mau beli dua buku bahasa Mandarin. | 两 | dua
+我们 学校 有 两 个 汉语 老师。 | Sekolah kami punya dua guru bahasa Mandarin. | 两 | dua
+#13 Pertanyaan Interogatif dengan 哪
+你 是 哪 国 人？ | Kamu orang dari negara mana? | 哪 | negara mana
+他 是 哪 国 人？ | Dia orang dari negara mana? | 哪 | negara mana
+她 是 哪 国 人？ | Dia orang negara mana? | 哪 | negara mana
+他们 是 哪 国 人？ | Mereka orang dari negara mana? | 哪 | negara mana
+你好，你 是 哪 国 人？ | Halo, kamu orang dari negara mana? | 哪 | negara mana
+请问，你 是 哪 国 人？ | Permisi, kamu orang dari negara mana? | 哪 | negara mana
+王 先生 是 哪 国 人？ | Tuan Wang orang dari negara mana? | 哪 | negara mana
+你 爸爸 是 哪 国 人？ | Ayahmu orang dari negara mana? | 哪 | negara mana
+你 朋友 是 哪 国 人？ | Temanmu orang dari negara mana? | 哪 | negara mana
+你 的 老师 是 哪 国 人？ | Gurumu orang dari negara mana? | 哪 | negara mana
+你 的 同学 是 哪 国 人？ | Teman sekelasmu orang dari negara mana? | 哪 | negara mana
+你 的 医生 是 哪 国 人？ | Dokter kamu orang dari negara mana? | 哪 | negara mana
+你 的 新 同学 是 哪 国 人？ | Teman sekelas barumu orang dari negara mana? | 哪 | negara mana
+我 是 中国{Zhōngguó} 人，你 是 哪 国 人？ | Aku orang Tiongkok, kamu orang dari negara mana? | 哪 | negara mana
+你 的 汉语 很 好，你 是 哪 国 人？ | Bahasa Mandarinmu sangat bagus, kamu orang dari negara mana? | 哪 | negara mana
+#14 Pertanyaan Interogatif dengan 哪儿
+你 在 哪儿 工作？ | Di mana kamu bekerja? | 哪儿 | Di mana
+你 在 哪儿 住？ | Di mana kamu tinggal? | 哪儿 | Di mana
+你 在 哪儿 吃饭？ | Di mana kamu makan? | 哪儿 | Di mana
+你 爸爸 在 哪儿 工作？ | Di mana ayahmu bekerja? | 哪儿 | Di mana
+你 妈妈 在 哪儿 工作？ | Di mana ibumu bekerja? | 哪儿 | Di mana
+他 在 哪儿 学习 汉语？ | Di mana dia belajar bahasa Mandarin? | 哪儿 | Di mana
+你 在 哪儿 学习 汉语？ | Di mana kamu belajar bahasa Mandarin? | 哪儿 | Di mana
+你 在 哪儿 看 电影？ | Di mana kamu menonton film? | 哪儿 | Di mana
+你 在 哪儿 买 苹果？ | Di mana kamu membeli apel? | 哪儿 | Di mana
+我们 在 哪儿 吃饭？ | Di mana kita makan? | 哪儿 | Di mana
+你 明天 在 哪儿 吃饭？ | Di mana kamu makan besok? | 哪儿 | Di mana
+你 昨天 在 哪儿 看 书？ | Di mana kamu membaca buku kemarin? | 哪儿 | Di mana
+你 想 在 哪儿 喝 茶？ | Kamu mau minum teh di mana? | 哪儿 | di mana
+你 哥哥 在 哪儿 学习？ | Di mana kakak laki-lakimu belajar? | 哪儿 | Di mana
+你 想 去 哪儿 玩儿？ | Kamu mau bermain ke mana? | 哪儿 | ke mana
+#15 Kata Depan Lokasi 在
+我 在 家。 | Aku ada di rumah. | 在 | di
+他 在 学校。 | Dia ada di sekolah. | 在 | di
+她 在 北京{Běijīng}。 | Dia ada di Beijing. | 在 | di
+爸爸 在 医院。 | Ayah ada di rumah sakit. | 在 | di
+我们 在 学校。 | Kami ada di sekolah. | 在 | di
+小 狗 在 家 里。 | Anjing kecil ada di dalam rumah. | 在 | di
+书 在 桌子 上。 | Buku ada di atas meja. | 在 | di
+我 的 老师 在 前面。 | Guruku ada di depan. | 在 | di
+小猫 在 椅子 下面。 | Kucing kecil ada di bawah kursi. | 在 | di
+请问，王{Wáng} 老师 在 吗？ | Permisi, apakah Guru Wang ada? | 在 | ada
+我 哥哥 在 医院 工作。 | Kakak laki-lakiku bekerja di rumah sakit. | 在 | di
+我 妈妈 在 家 做 饭。 | Ibuku memasak di rumah. | 在 | di
+他们 在 饭店 吃饭。 | Mereka makan di restoran. | 在 | di
+我 朋友 在 北京{Běijīng} 学习 汉语。 | Temanku belajar bahasa Mandarin di Beijing. | 在 | di
+今天 我 在 学校 看 书。 | Hari ini aku membaca buku di sekolah. | 在 | di
+#16 Pertanyaan dengan 几
+你 几 岁？ | Kamu umur berapa? | 几 | berapa
+你 今年 几 岁？ | Tahun ini kamu umur berapa? | 几 | berapa
+他 今年 几 岁？ | Tahun ini dia umur berapa? | 几 | berapa
+你 有 几 个 朋友？ | Berapa temanmu? | 几 | Berapa
+你 有 几 个 哥哥？ | Berapa kakak laki-lakimu? | 几 | Berapa
+你 有 几 个 妹妹？ | Berapa adik perempuanmu? | 几 | Berapa
+你 家 有 几 口 人？ | Berapa orang di keluargamu? | 几 | Berapa
+你 要 几 杯 茶？ | Kamu mau berapa gelas teh? | 几 | berapa
+你 想 喝 几 杯 水？ | Kamu mau minum berapa gelas air? | 几 | berapa
+你 想 买 几 个 苹果？ | Kamu mau beli berapa apel? | 几 | berapa
+桌子 上 有 几 本 书？ | Berapa buku di atas meja? | 几 | Berapa
+你 买 了 几 个 杯子？ | Berapa gelas yang kamu beli? | 几 | Berapa
+你 昨天 看 了 几 个 电影？ | Kemarin kamu menonton berapa film? | 几 | berapa
+你们 学校 有 几 个 汉语 老师？ | Berapa guru bahasa Mandarin di sekolah kalian? | 几 | Berapa
+你 想 请 几 个 朋友 来 家 里？ | Kamu mau mengundang berapa teman ke rumah? | 几 | berapa
+#17 Urutan Kata Keterangan Waktu dan Tempat
+我 今天 在 家 吃饭。 | Hari ini aku makan di rumah. | 今天 … 在 | Hari ini … di
+我 妈妈 今天 在 家 做 饭。 | Ibuku hari ini memasak di rumah. | 今天 … 在 | hari ini … di
+我 爸爸 今天 在 家 工作。 | Ayahku hari ini bekerja di rumah. | 今天 … 在 | hari ini … di
+我们 今天 在 家 喝 茶。 | Hari ini kami minum teh di rumah. | 今天 … 在 | Hari ini … di
+我 今天 在 学校 学习 汉语。 | Hari ini aku belajar bahasa Mandarin di sekolah. | 今天 … 在 | Hari ini … di
+我 同学 今天 在 学校 看 电影。 | Temanku hari ini menonton film di sekolah. | 今天 … 在 | hari ini … di
+我 哥哥 今天 在 北京{Běijīng} 工作。 | Kakak laki-lakiku hari ini bekerja di Beijing. | 今天 … 在 | hari ini … di
+他 明天 在 学校 学习。 | Besok dia belajar di sekolah. | 明天 … 在 | Besok … di
+我们 明天 在 饭店 吃饭。 | Besok kami makan di restoran. | 明天 … 在 | Besok … di
+我 朋友 明天 在 家 看 电影。 | Temanku besok menonton film di rumah. | 明天 … 在 | besok … di
+我 老师 明天 在 北京{Běijīng} 工作。 | Guruku besok bekerja di Beijing. | 明天 … 在 | besok … di
+她 昨天 在 家 看 书。 | Kemarin dia membaca buku di rumah. | 昨天 … 在 | Kemarin … di
+他 昨天 在 医院 工作。 | Kemarin dia bekerja di rumah sakit. | 昨天 … 在 | Kemarin … di
+我 昨天 在 商店 买 了 苹果。 | Kemarin aku membeli apel di toko. | 昨天 … 在 | Kemarin … di
+我 妹妹 昨天 在 商店 买 了 衣服。 | Adik perempuanku kemarin membeli baju di toko. | 昨天 … 在 | kemarin … di
+#18 Pertanyaan Afirmatif-Negatif (V不V)
+你 去 不 去？ | Kamu pergi atau tidak? | 去不去 | atau tidak
+你 吃 不 吃？ | Kamu makan atau tidak? | 吃不吃 | atau tidak
+他 来 不 来？ | Dia datang atau tidak? | 来不来 | atau tidak
+你 喝 不 喝 茶？ | Kamu minum teh atau tidak? | 喝不喝 | atau tidak
+你 看 不 看 电影？ | Kamu menonton film atau tidak? | 看不看 | atau tidak
+你 想 不 想 去？ | Kamu mau pergi atau tidak? | 想不想 | atau tidak
+你 是 不 是 学生？ | Kamu murid atau bukan? | 是不是 | atau bukan
+今天 冷 不 冷？ | Hari ini dingin atau tidak? | 冷不冷 | atau tidak
+这 个 贵 不 贵？ | Yang ini mahal atau tidak? | 贵不贵 | atau tidak
+你 爱 不 爱 吃 米饭？ | Kamu suka makan nasi atau tidak? | 爱不爱 | atau tidak
+你 会 不 会 说 汉语？ | Kamu bisa berbahasa Mandarin atau tidak? | 会不会 | atau tidak
+你 认识 不 认识 他？ | Kamu kenal dia atau tidak? | 认识不认识 | atau tidak
+你 喜欢 不 喜欢 汉语？ | Kamu suka bahasa Mandarin atau tidak? | 喜欢不喜欢 | atau tidak
+你们 学校 大 不 大？ | Sekolah kalian besar atau tidak? | 大不大 | atau tidak
+你 想 不 想 买 这 个 杯子？ | Kamu mau beli gelas ini atau tidak? | 想不想 | atau tidak
+#19 Kata Kerja 做 untuk Pekerjaan
+你 做 什么 工作？ | Kamu bekerja sebagai apa? | 做 | bekerja
+他 做 什么 工作？ | Dia bekerja sebagai apa? | 做 | bekerja
+她 做 什么 工作？ | Dia bekerja sebagai apa? | 做 | bekerja
+你 爸爸 做 什么 工作？ | Ayahmu bekerja sebagai apa? | 做 | bekerja
+你 妈妈 做 什么 工作？ | Ibumu bekerja sebagai apa? | 做 | bekerja
+你 哥哥 做 什么 工作？ | Kakak laki-lakimu bekerja sebagai apa? | 做 | bekerja
+你 朋友 做 什么 工作？ | Temanmu bekerja sebagai apa? | 做 | bekerja
+请问，您 做 什么 工作？ | Permisi, Anda bekerja sebagai apa? | 做 | bekerja
+你 现在 做 什么 工作？ | Sekarang kamu bekerja sebagai apa? | 做 | bekerja
+你 在 北京{Běijīng} 做 什么 工作？ | Di Beijing kamu bekerja sebagai apa? | 做 | bekerja
+他 在 学校 做 什么 工作？ | Di sekolah dia bekerja sebagai apa? | 做 | bekerja
+你 爸爸 在 医院 做 什么 工作？ | Di rumah sakit ayahmu bekerja sebagai apa? | 做 | bekerja
+你 的 朋友 在 北京{Běijīng} 做 什么 工作？ | Temanmu di Beijing bekerja sebagai apa? | 做 | bekerja
+我 是 老师，你 做 什么 工作？ | Aku seorang guru, kamu bekerja sebagai apa? | 做 | bekerja
+你 姐姐 做 什么 工作？ | Kakak perempuanmu bekerja sebagai apa? | 做 | bekerja
+#20 Kalimat Possesif / Keberadaan dengan 有
+我 有 书。 | Aku punya buku. | 有 | punya
+我 有 一 个 哥哥。 | Aku punya seorang kakak laki-laki. | 有 | punya
+他 有 两 个 妹妹。 | Dia punya dua adik perempuan. | 有 | punya
+我 家 有 三 口 人。 | Keluargaku ada tiga orang. | 有 | ada
+我 家 有 一 个 小 狗。 | Di rumahku ada seekor anjing kecil. | 有 | ada
+桌子 上 有 一 个 杯子。 | Di atas meja ada sebuah gelas. | 有 | ada
+他 有 很 多 书。 | Dia punya banyak buku. | 有 | punya
+你 有 电话 吗？ | Apakah kamu punya telepon? | 有 | punya
+我 有 一 个 好 朋友。 | Aku punya seorang teman baik. | 有 | punya
+我 有 一 个 汉语 老师。 | Aku punya seorang guru bahasa Mandarin. | 有 | punya
+这 个 学校 有 很 多 学生。 | Sekolah ini punya banyak murid. | 有 | punya
+我们 学校 里 有 一 个 商店。 | Di dalam sekolah kami ada sebuah toko. | 有 | ada
+我 爸爸 有 一 个 朋友 在 北京{Běijīng}。 | Ayahku punya seorang teman di Beijing. | 有 | punya
+我 有 很 多 朋友 在 北京{Běijīng}。 | Aku punya banyak teman di Beijing. | 有 | punya
+我 有 两 个 汉语 老师。 | Aku punya dua guru bahasa Mandarin. | 有 | punya
+#21 Negasi Kata Kerja 有 menggunakan 没
+我 没有 书。 | Aku tidak punya buku. | 没有 | tidak punya
+我 没有 哥哥。 | Aku tidak punya kakak laki-laki. | 没有 | tidak punya
+我 没有 电话。 | Aku tidak punya telepon. | 没有 | tidak punya
+我 没有 钱。 | Aku tidak punya uang. | 没有 | tidak punya
+他 没有 妹妹。 | Dia tidak punya adik perempuan. | 没有 | tidak punya
+她 没有 衣服。 | Dia tidak punya baju. | 没有 | tidak punya
+这儿 没有 人。 | Di sini tidak ada orang. | 没有 | tidak ada
+我 家 没有 小猫。 | Di rumahku tidak ada kucing. | 没有 | tidak ada
+桌子 上 没有 杯子。 | Di atas meja tidak ada gelas. | 没有 | tidak ada
+他 没有 汉语 老师。 | Dia tidak punya guru bahasa Mandarin. | 没有 | tidak punya
+学校 里 没有 商店。 | Di dalam sekolah tidak ada toko. | 没有 | tidak ada
+我 没有 很 多 朋友。 | Aku tidak punya banyak teman. | 没有 | tidak punya
+我 家 里 没有 电脑。 | Di rumahku tidak ada komputer. | 没有 | tidak ada
+我 的 同学 没有 苹果。 | Teman sekelasku tidak punya apel. | 没有 | tidak punya
+我们 学校 没有 医院。 | Sekolah kami tidak punya rumah sakit. | 没有 | tidak punya
+#22 Kata Bantu Bilangan (量词)
+我 买 了 一 本 书。 | Aku membeli sebuah buku. | 本 | sebuah buku
+我 有 三 本 汉语 书。 | Aku punya tiga buku bahasa Mandarin. | 本 | tiga buku
+他 买 了 十 本 书。 | Dia membeli sepuluh buku. | 本 | sepuluh buku
+我 有 三 个 苹果。 | Aku punya tiga buah apel. | 个 | tiga buah
+我 想 买 一 个 杯子。 | Aku mau membeli sebuah gelas. | 个 | sebuah gelas
+我 要 一 个 西瓜。 | Aku mau satu buah semangka. | 个 | satu buah
+桌子 上 有 六 个 苹果。 | Di atas meja ada enam buah apel. | 个 | enam buah
+我 有 九 个 同学。 | Aku punya sembilan teman sekelas. | 个 | sembilan teman
+请 给 我 一 杯 茶。 | Tolong beri aku secangkir teh. | 杯 | secangkir teh
+他 喝 了 五 杯 水。 | Dia minum lima gelas air. | 杯 | lima gelas
+我 家 有 四 口 人。 | Keluargaku ada empat orang. | 口 | empat orang
+我们 家 有 五 口 人。 | Keluarga kami ada lima orang. | 口 | lima orang
+这 个 苹果 三 块 钱。 | Apel ini tiga yuan. | 块 | tiga yuan
+我们 学校 有 八 个 老师。 | Sekolah kami punya delapan guru. | 个 | delapan guru
+我 朋友 有 两 个 小 狗。 | Temanku punya dua anjing kecil. | 个 | dua anjing
+#23 Urutan Penulisan Tanggal
+今天 是 十 月 一 号。 | Hari ini tanggal satu Oktober. | 十月一号 | satu Oktober
+明天 是 五 月 二十 号。 | Besok tanggal dua puluh Mei. | 五月二十号 | dua puluh Mei
+昨天 是 三 月 八 号。 | Kemarin tanggal delapan Maret. | 三月八号 | delapan Maret
+今天 是 星期五，八 月 九 号。 | Hari ini hari Jumat, tanggal sembilan Agustus. | 八月九号 | sembilan Agustus
+我 二 月 六 号 去 北京{Běijīng}。 | Aku pergi ke Beijing tanggal enam Februari. | 二月六号 | enam Februari
+我们 九 月 一 号 去 学校。 | Kami pergi ke sekolah tanggal satu September. | 九月一号 | satu September
+我 朋友 十二 月 三 号 来 北京{Běijīng}。 | Temanku datang ke Beijing tanggal tiga Desember. | 十二月三号 | tiga Desember
+我 哥哥 六 月 十 号 在 家。 | Kakak laki-lakiku ada di rumah tanggal sepuluh Juni. | 六月十号 | sepuluh Juni
+我们 七 月 四 号 去 看 电影。 | Kami pergi menonton film tanggal empat Juli. | 七月四号 | empat Juli
+我 爸爸 四 月 二 号 在 北京{Běijīng} 工作。 | Ayahku bekerja di Beijing tanggal dua April. | 四月二号 | dua April
+我 的 老师 一 月 一 号 去 北京{Běijīng}。 | Guruku pergi ke Beijing tanggal satu Januari. | 一月一号 | satu Januari
+他 二 月 十四 号 去 学校。 | Dia pergi ke sekolah tanggal empat belas Februari. | 二月十四号 | empat belas Februari
+我 八 月 十五 号 在 家 看 电影。 | Aku menonton film di rumah tanggal lima belas Agustus. | 八月十五号 | lima belas Agustus
+今天 是 三 月 十二 号，天气 很 好。 | Hari ini tanggal dua belas Maret, cuacanya sangat bagus. | 三月十二号 | dua belas Maret
+明天 是 十二 月 二十 号。 | Besok tanggal dua puluh Desember. | 十二月二十号 | dua puluh Desember
+#24 Pertanyaan tentang Tanggal dan Hari
+今天 几 月 几 号？ | Hari ini tanggal berapa? | 几月几号 | tanggal berapa
+明天 几 月 几 号？ | Besok tanggal berapa? | 几月几号 | tanggal berapa
+昨天 几 月 几 号？ | Kemarin tanggal berapa? | 几月几号 | tanggal berapa
+请问，今天 几 月 几 号？ | Permisi, hari ini tanggal berapa? | 几月几号 | tanggal berapa
+你 几 月 几 号 去 北京{Běijīng}？ | Tanggal berapa kamu pergi ke Beijing? | 几月几号 | Tanggal berapa
+你 朋友 几 月 几 号 来？ | Tanggal berapa temanmu datang? | 几月几号 | Tanggal berapa
+今天 星期 几？ | Hari ini hari apa? | 星期几 | hari apa
+明天 星期 几？ | Besok hari apa? | 星期几 | hari apa
+昨天 星期 几？ | Kemarin hari apa? | 星期几 | hari apa
+请问，今天 星期 几？ | Permisi, hari ini hari apa? | 星期几 | hari apa
+你 星期 几 去 学校？ | Hari apa kamu pergi ke sekolah? | 星期几 | Hari apa
+他 星期 几 在 家？ | Hari apa dia ada di rumah? | 星期几 | Hari apa
+你 星期 几 在 北京{Běijīng} 工作？ | Hari apa kamu bekerja di Beijing? | 星期几 | Hari apa
+我们 星期 几 去 看 电影？ | Hari apa kita pergi menonton film? | 星期几 | Hari apa
+你 星期 几 去 医院？ | Hari apa kamu pergi ke rumah sakit? | 星期几 | Hari apa
+#25 Pertanyaan Pendapat dengan 怎么样
+你 的 汉语 怎么样？ | Bagaimana bahasa Mandarinmu? | 怎么样 | Bagaimana
+你 家 怎么样？ | Bagaimana rumahmu? | 怎么样 | Bagaimana
+学校 怎么样？ | Bagaimana sekolahnya? | 怎么样 | Bagaimana
+今天 的 天气 怎么样？ | Bagaimana cuaca hari ini? | 怎么样 | Bagaimana
+明天 的 天气 怎么样？ | Bagaimana cuaca besok? | 怎么样 | Bagaimana
+北京{Běijīng} 的 天气 怎么样？ | Bagaimana cuaca di Beijing? | 怎么样 | Bagaimana
+这 个 杯子 怎么样？ | Bagaimana gelas ini? | 怎么样 | Bagaimana
+这 个 电影 怎么样？ | Bagaimana film ini? | 怎么样 | Bagaimana
+你 的 工作 怎么样？ | Bagaimana pekerjaanmu? | 怎么样 | Bagaimana
+你 的 小 狗 怎么样？ | Bagaimana kabar anjing kecilmu? | 怎么样 | Bagaimana
+这儿 的 菜 怎么样？ | Bagaimana masakan di sini? | 怎么样 | Bagaimana
+你 的 新 同学 怎么样？ | Bagaimana teman sekelas barumu? | 怎么样 | Bagaimana
+你 新 买 的 衣服 怎么样？ | Bagaimana baju yang baru kamu beli? | 怎么样 | Bagaimana
+我们 去 看 电影，怎么样？ | Bagaimana kalau kita pergi menonton film? | 怎么样 | Bagaimana kalau
+我们 明天 去 北京{Běijīng}，怎么样？ | Bagaimana kalau besok kita pergi ke Beijing? | 怎么样 | Bagaimana kalau
+#26 Kata Sifat dengan 太...了
+太 好 了！ | Bagus sekali! | 太 … 了 | sekali
+这 个 太 贵 了。 | Yang ini terlalu mahal. | 太 … 了 | terlalu
+太 冷 了。 | Dingin sekali. | 太 … 了 | sekali
+今天 太 热 了。 | Hari ini panas sekali. | 太 … 了 | sekali
+你 太 忙 了。 | Kamu terlalu sibuk. | 太 … 了 | terlalu
+我 家 太 小 了。 | Rumahku terlalu kecil. | 太 … 了 | terlalu
+这 个 杯子 太 小 了。 | Gelas ini terlalu kecil. | 太 … 了 | terlalu
+这 个 菜 太 好吃 了。 | Masakan ini enak sekali. | 太 … 了 | sekali
+他 的 汉语 太 好 了。 | Bahasa Mandarinnya bagus sekali. | 太 … 了 | sekali
+今天 我 太 高兴 了。 | Hari ini aku senang sekali. | 太 … 了 | sekali
+今天 的 天气 太 好 了。 | Cuaca hari ini bagus sekali. | 太 … 了 | sekali
+这 个 电影 太 好看 了。 | Film ini bagus sekali. | 太 … 了 | sekali
+你 的 衣服 太 漂亮 了。 | Bajumu cantik sekali. | 太 … 了 | sekali
+北京{Běijīng} 的 天气 太 冷 了。 | Cuaca di Beijing dingin sekali. | 太 … 了 | sekali
+这儿 的 人 太 多 了。 | Orang di sini terlalu banyak. | 太 … 了 | terlalu
+#27 Kata Kerja Pikiran 觉得
+我 觉得 很 好。 | Menurutku itu sangat bagus. | 觉得 | Menurutku
+我 觉得 他 是 医生。 | Kurasa dia adalah dokter. | 觉得 | Kurasa
+我 觉得 今天 很 热。 | Aku merasa hari ini panas. | 觉得 | Aku merasa
+我 觉得 这儿 太 冷 了。 | Aku merasa di sini terlalu dingin. | 觉得 | Aku merasa
+我 觉得 我 家 太 小 了。 | Aku merasa rumahku terlalu kecil. | 觉得 | Aku merasa
+我 觉得 这 个 电影 很 好看。 | Menurutku film ini sangat bagus. | 觉得 | Menurutku
+我 觉得 这 个 菜 很 好吃。 | Menurutku masakan ini sangat enak. | 觉得 | Menurutku
+我 觉得 你 的 衣服 很 漂亮。 | Menurutku bajumu sangat cantik. | 觉得 | Menurutku
+我 觉得 北京{Běijīng} 的 天气 很 好。 | Menurutku cuaca di Beijing sangat bagus. | 觉得 | Menurutku
+他 觉得 北京{Běijīng} 很 大。 | Dia merasa Beijing sangat besar. | 觉得 | merasa
+她 觉得 我 的 汉语 很 好。 | Dia merasa bahasa Mandarinku sangat bagus. | 觉得 | merasa
+你 觉得 这 个 怎么样？ | Menurutmu yang ini bagaimana? | 觉得 | Menurutmu
+你 觉得 这 个 学校 大 吗？ | Menurutmu, apakah sekolah ini besar? | 觉得 | Menurutmu
+我 觉得 这 个 杯子 太 小 了。 | Menurutku gelas ini terlalu kecil. | 觉得 | Menurutku
+我 妈妈 觉得 这 个 苹果 太 贵 了。 | Ibuku merasa apel ini terlalu mahal. | 觉得 | merasa
+#28 Menyatakan Waktu (Jam dan Setengah)
+现在 是 一 点。 | Sekarang jam satu. | 点 | jam
+现在 是 四 点。 | Sekarang jam empat. | 点 | jam
+现在 是 五 点。 | Sekarang jam lima. | 点 | jam
+我 七 点 起床。 | Aku bangun jam tujuh. | 点 | jam
+我 八 点 去 学校。 | Aku pergi ke sekolah jam delapan. | 点 | jam
+我们 十二 点 吃饭。 | Kami makan jam dua belas. | 点 | jam
+我 六 点 回家。 | Aku pulang jam enam. | 点 | jam
+他 九 点 睡觉。 | Dia tidur jam sembilan. | 点 | jam
+现在 是 三 点 半。 | Sekarang jam setengah empat. | 点半 | setengah empat
+现在 是 两 点 半。 | Sekarang jam setengah tiga. | 点半 | setengah tiga
+我 七 点 半 吃饭。 | Aku makan jam setengah delapan. | 点半 | setengah delapan
+我们 八 点 半 去 学校。 | Kami pergi ke sekolah jam setengah sembilan. | 点半 | setengah sembilan
+他 十一 点 半 回家。 | Dia pulang jam setengah dua belas. | 点半 | setengah dua belas
+我们 四 点 半 在 学校。 | Kami ada di sekolah jam setengah lima. | 点半 | setengah lima
+我 十二 点 半 在 家 看 电视。 | Aku menonton televisi di rumah jam setengah satu. | 点半 | setengah satu
+#29 Pertanyaan dengan 几点
+现在 几 点？ | Sekarang jam berapa? | 几点 | jam berapa
+请问，现在 几 点？ | Permisi, sekarang jam berapa? | 几点 | jam berapa
+你 几 点 起床？ | Jam berapa kamu bangun? | 几点 | Jam berapa
+你 几 点 睡觉？ | Jam berapa kamu tidur? | 几点 | Jam berapa
+你 几 点 去 学校？ | Jam berapa kamu pergi ke sekolah? | 几点 | Jam berapa
+你 几 点 吃饭？ | Jam berapa kamu makan? | 几点 | Jam berapa
+你 几 点 回家？ | Jam berapa kamu pulang? | 几点 | Jam berapa
+他 几 点 工作？ | Jam berapa dia bekerja? | 几点 | Jam berapa
+我们 几 点 去 吃饭？ | Jam berapa kita pergi makan? | 几点 | Jam berapa
+你 妈妈 几 点 做 饭？ | Jam berapa ibumu memasak? | 几点 | Jam berapa
+你 爸爸 几 点 在 家？ | Jam berapa ayahmu ada di rumah? | 几点 | Jam berapa
+你们 几 点 看 电影？ | Jam berapa kalian menonton film? | 几点 | Jam berapa
+你 明天 几 点 去 北京{Běijīng}？ | Jam berapa besok kamu pergi ke Beijing? | 几点 | Jam berapa
+你 今天 几 点 去 医院？ | Jam berapa hari ini kamu pergi ke rumah sakit? | 几点 | Jam berapa
+你 朋友 几 点 来 我们 家？ | Jam berapa temanmu datang ke rumah kita? | 几点 | Jam berapa
+#30 Aspek Progresif (Sedang) dengan 正在...呢
+我 正在 吃饭 呢。 | Aku sedang makan. | 正在 … 呢 | sedang
+他 正在 看 书 呢。 | Dia sedang membaca buku. | 正在 … 呢 | sedang
+妈妈 正在 做 饭 呢。 | Ibu sedang memasak. | 正在 … 呢 | sedang
+爸爸 正在 工作 呢。 | Ayah sedang bekerja. | 正在 … 呢 | sedang
+老师 正在 说话 呢。 | Guru sedang berbicara. | 正在 … 呢 | sedang
+小 狗 正在 睡觉 呢。 | Anjing kecil sedang tidur. | 正在 … 呢 | sedang
+她 正在 打 电话 呢。 | Dia sedang menelepon. | 正在 … 呢 | sedang
+他们 正在 喝 茶 呢。 | Mereka sedang minum teh. | 正在 … 呢 | sedang
+我们 正在 看 电影 呢。 | Kami sedang menonton film. | 正在 … 呢 | sedang
+我 正在 学习 汉语 呢。 | Aku sedang belajar bahasa Mandarin. | 正在 … 呢 | sedang
+我 哥哥 正在 学校 学习 呢。 | Kakak laki-lakiku sedang belajar di sekolah. | 正在 … 呢 | sedang
+我 朋友 正在 家 里 看 书 呢。 | Temanku sedang membaca buku di dalam rumah. | 正在 … 呢 | sedang
+我 爸爸 正在 家 里 看 电视 呢。 | Ayahku sedang menonton televisi di rumah. | 正在 … 呢 | sedang
+我 正在 给 朋友 打 电话 呢。 | Aku sedang menelepon temanku. | 正在 … 呢 | sedang
+我 妈妈 正在 商店 买 苹果 呢。 | Ibuku sedang membeli apel di toko. | 正在 … 呢 | sedang
+#31 Aspek Lampau / Sudah Terjadi dengan 了
+我 吃 了 米饭。 | Aku sudah makan nasi. | 了 | sudah
+他 喝 了 茶。 | Dia sudah minum teh. | 了 | sudah
+他 喝 了 一 杯 水。 | Dia sudah minum segelas air. | 了 | sudah
+我 买 了 一 个 苹果。 | Aku sudah membeli sebuah apel. | 了 | sudah
+他 买 了 两 本 书。 | Dia sudah membeli dua buku. | 了 | sudah
+我 看 了 一 个 电影。 | Aku sudah menonton sebuah film. | 了 | sudah
+昨天 我 去 了 学校。 | Kemarin aku sudah pergi ke sekolah. | 了 | sudah
+她 昨天 去 了 北京{Běijīng}。 | Kemarin dia sudah pergi ke Beijing. | 了 | sudah
+我 给 朋友 打 了 电话。 | Aku sudah menelepon temanku. | 了 | sudah
+妈妈 做 了 很 多 菜。 | Ibu sudah memasak banyak masakan. | 了 | sudah
+我 哥哥 买 了 一 个 电脑。 | Kakak laki-lakiku sudah membeli sebuah komputer. | 了 | sudah
+我 今天 吃 了 三 个 苹果。 | Hari ini aku sudah makan tiga apel. | 了 | sudah
+我们 昨天 看 了 一 个 电影。 | Kemarin kami sudah menonton sebuah film. | 了 | sudah
+他 昨天 吃 了 很 多 米饭。 | Kemarin dia makan banyak nasi. | 了 | makan
+昨天 我 在 商店 买 了 衣服。 | Kemarin aku membeli baju di toko. | 了 | membeli
+#32 Kata Keterangan Frekuensi: 常 (Sering)
+我 常 喝 茶。 | Aku sering minum teh. | 常 | sering
+他 常 看 电影。 | Dia sering menonton film. | 常 | sering
+我 常 去 北京{Běijīng}。 | Aku sering pergi ke Beijing. | 常 | sering
+妈妈 常 做 饭。 | Ibu sering memasak. | 常 | sering
+老师 常 说 汉语。 | Guru sering berbicara bahasa Mandarin. | 常 | sering
+我 常 想 家。 | Aku sering rindu rumah. | 常 | sering
+我 常 在 家 看 书。 | Aku sering membaca buku di rumah. | 常 | sering
+我 朋友 常 来 我 家。 | Temanku sering datang ke rumahku. | 常 | sering
+我 常 给 妈妈 打 电话。 | Aku sering menelepon ibuku. | 常 | sering
+我们 常 在 饭店 吃饭。 | Kami sering makan di restoran. | 常 | sering
+他 常 去 商店 买 苹果。 | Dia sering pergi ke toko membeli apel. | 常 | sering
+她 常 在 学校 学习 汉语。 | Dia sering belajar bahasa Mandarin di sekolah. | 常 | sering
+我 哥哥 常 喝 咖啡。 | Kakak laki-lakiku sering minum kopi. | 常 | sering
+我 常 看 汉语 电影。 | Aku sering menonton film berbahasa Mandarin. | 常 | sering
+我 爸爸 常 在 北京{Běijīng} 工作。 | Ayahku sering bekerja di Beijing. | 常 | sering
+#33 Kata Kerja Keinginan: 想 (Ingin)
+我 想 喝 水。 | Aku mau minum air. | 想 | mau
+我 想 吃 米饭。 | Aku mau makan nasi. | 想 | mau
+我 想 去 北京{Běijīng}。 | Aku ingin pergi ke Beijing. | 想 | ingin
+我 想 看 电影。 | Aku mau menonton film. | 想 | mau
+我 想 学 汉语。 | Aku ingin belajar bahasa Mandarin. | 想 | ingin
+我 想 回家。 | Aku mau pulang. | 想 | mau
+他 想 买 衣服。 | Dia ingin membeli baju. | 想 | ingin
+她 想 去 商店。 | Dia mau pergi ke toko. | 想 | mau
+你 想 喝 什么？ | Kamu mau minum apa? | 想 | mau
+我 想 给 妈妈 打 电话。 | Aku ingin menelepon ibuku. | 想 | ingin
+我们 想 在 家 吃饭。 | Kami mau makan di rumah. | 想 | mau
+我 想 买 一 个 电脑。 | Aku ingin membeli sebuah komputer. | 想 | ingin
+他们 想 去 学校 看 书。 | Mereka mau pergi ke sekolah untuk membaca buku. | 想 | mau
+我 明天 想 去 医院。 | Besok aku mau pergi ke rumah sakit. | 想 | mau
+我 哥哥 想 在 北京{Běijīng} 工作。 | Kakak laki-lakiku ingin bekerja di Beijing. | 想 | ingin
+#34 Preposisi 跟
+我 跟 朋友 一起 吃饭。 | Aku makan bersama temanku. | 跟 … 一起 | bersama
+我 跟 妈妈 一起 做 饭。 | Aku memasak bersama ibuku. | 跟 … 一起 | bersama
+他 跟 同学 一起 学习。 | Dia belajar bersama teman sekelasnya. | 跟 … 一起 | bersama
+我 跟 哥哥 一起 看 电影。 | Aku menonton film bersama kakak laki-lakiku. | 跟 … 一起 | bersama
+我 跟 爸爸 一起 去 北京{Běijīng}。 | Aku pergi ke Beijing bersama ayahku. | 跟 … 一起 | bersama
+她 跟 朋友 一起 去 商店。 | Dia pergi ke toko bersama temannya. | 跟 … 一起 | bersama
+我们 跟 老师 一起 吃饭。 | Kami makan bersama guru. | 跟 … 一起 | bersama
+我 想 跟 你 一起 去。 | Aku ingin pergi bersamamu. | 跟 … 一起 | bersama
+我 想 跟 朋友 一起 喝 茶。 | Aku mau minum teh bersama temanku. | 跟 … 一起 | bersama
+你 想 跟 我 一起 去 吗？ | Apakah kamu mau pergi bersamaku? | 跟 … 一起 | bersama
+我 明天 跟 朋友 一起 看 电影。 | Besok aku menonton film bersama temanku. | 跟 … 一起 | bersama
+他 常 跟 朋友 一起 看 书。 | Dia sering membaca buku bersama temannya. | 跟 … 一起 | bersama
+我 跟 妈妈 一起 在 家 看 电视。 | Aku menonton televisi di rumah bersama ibuku. | 跟 … 一起 | bersama
+他 跟 哥哥 一起 在 北京{Běijīng} 工作。 | Dia bekerja di Beijing bersama kakak laki-lakinya. | 跟 … 一起 | bersama
+我 昨天 跟 同学 一起 去 了 学校。 | Kemarin aku pergi ke sekolah bersama teman sekelasku. | 跟 … 一起 | bersama
+#35 Frasa Waktu dengan 的时候
+我 吃饭 的时候 不 看 电视。 | Saat makan, aku tidak menonton televisi. | 的时候 | Saat
+我 小 的时候 住 在 北京{Běijīng}。 | Waktu aku kecil, aku tinggal di Beijing. | 的时候 | Waktu
+他 工作 的时候 很 忙。 | Saat bekerja, dia sangat sibuk. | 的时候 | Saat
+他 来 的时候，我 在 家。 | Ketika dia datang, aku ada di rumah. | 的时候 | Ketika
+我 在 家 的时候，常 看 书。 | Saat di rumah, aku sering membaca buku. | 的时候 | Saat
+我 学习 汉语 的时候 很 高兴。 | Aku senang saat belajar bahasa Mandarin. | 的时候 | saat
+我 喝 茶 的时候 喜欢 看 书。 | Saat minum teh, aku suka membaca buku. | 的时候 | Saat
+我 看 电影 的时候 喜欢 喝 茶。 | Saat menonton film, aku suka minum teh. | 的时候 | Saat
+妈妈 做 饭 的时候，我 在 看 书。 | Ketika ibu memasak, aku sedang membaca buku. | 的时候 | Ketika
+我 看 电视 的时候，爸爸 在 工作。 | Ketika aku menonton televisi, ayah sedang bekerja. | 的时候 | Ketika
+你 回家 的时候，给 我 打 电话。 | Saat kamu pulang, telepon aku. | 的时候 | Saat
+我 去 北京{Běijīng} 的时候，认识 了 他。 | Ketika aku pergi ke Beijing, aku mengenalnya. | 的时候 | Ketika
+天气 热 的时候，我 喜欢 喝 水。 | Saat cuaca panas, aku suka minum air. | 的时候 | Saat
+天气 冷 的时候，我 不 想 去 学校。 | Saat cuaca dingin, aku tidak mau pergi ke sekolah. | 的时候 | Saat
+你 在 北京{Běijīng} 的时候，住 在 哪儿？ | Saat kamu di Beijing, di mana kamu tinggal? | 的时候 | Saat
+#36 Kalimat Larangan dengan 别
+别 去。 | Jangan pergi. | 别 | Jangan
+别 说话。 | Jangan berbicara. | 别 | Jangan
+请 别 说话。 | Tolong jangan berbicara. | 别 | jangan
+别 喝 了。 | Jangan minum lagi. | 别 | Jangan
+别 忙 了。 | Jangan sibuk lagi. | 别 | Jangan
+别 买 这 个。 | Jangan beli yang ini. | 别 | Jangan
+别 想 家 了。 | Jangan rindu rumah lagi. | 别 | Jangan
+别 吃 太 多。 | Jangan makan terlalu banyak. | 别 | Jangan
+别 喝 太 多 茶。 | Jangan minum teh terlalu banyak. | 别 | Jangan
+别 给 他 打 电话。 | Jangan menelepon dia. | 别 | Jangan
+别 在 这儿 坐。 | Jangan duduk di sini. | 别 | Jangan
+别 看 电视 了。 | Jangan menonton televisi lagi. | 别 | Jangan
+别 在 家 看 电视 了。 | Jangan menonton televisi di rumah lagi. | 别 | Jangan
+别 去 北京{Běijīng} 了。 | Jangan pergi ke Beijing lagi. | 别 | Jangan
+别 看 书 了，睡觉 吧。 | Jangan membaca buku lagi, tidurlah. | 别 | Jangan
+#37 Menyatakan Gejala Sakit
+我 头 疼。 | Kepalaku sakit. | 疼 | sakit
+他 头 疼。 | Kepalanya sakit. | 疼 | sakit
+妈妈 头 疼。 | Kepala ibu sakit. | 疼 | sakit
+我 手 疼。 | Tanganku sakit. | 疼 | sakit
+我 眼睛 疼。 | Mataku sakit. | 疼 | sakit
+我 的 手 很 疼。 | Tanganku sangat sakit. | 疼 | sakit
+我 今天 头 很 疼。 | Hari ini kepalaku sangat sakit. | 疼 | sakit
+你 头 疼 吗？ | Apakah kepalamu sakit? | 疼 | sakit
+我 头 疼，不 想 吃饭。 | Kepalaku sakit, aku tidak mau makan. | 疼 | sakit
+我 感冒 了。 | Aku pilek. | 感冒 | pilek
+我 妈妈 感冒 了。 | Ibuku pilek. | 感冒 | pilek
+他 感冒 了，不 想 去 学校。 | Dia pilek, tidak mau pergi ke sekolah. | 感冒 | pilek
+我 发烧 了。 | Aku demam. | 发烧 | demam
+他 昨天 发烧 了。 | Kemarin dia demam. | 发烧 | demam
+我 朋友 发烧 了，在 医院。 | Temanku demam, dia ada di rumah sakit. | 发烧 | demam
+#38 Preposisi 给 untuk Penerima
+我 给 妈妈 打 电话。 | Aku menelepon ibuku. | 给 | menelepon ibuku
+我 给 朋友 打 电话。 | Aku menelepon temanku. | 给 | menelepon temanku
+他 给 我 打 电话。 | Dia menelepon aku. | 给 | menelepon aku
+他 常 给 我 打 电话。 | Dia sering menelepon aku. | 给 | menelepon aku
+我 明天 给 你 打 电话。 | Besok aku menelepon kamu. | 给 | menelepon kamu
+你 给 他 打 电话 了 吗？ | Apakah kamu sudah menelepon dia? | 给 | menelepon dia
+我 给 妈妈 做 饭。 | Aku memasak untuk ibuku. | 给 | untuk ibuku
+妈妈 给 我 做 饭。 | Ibu memasak untuk aku. | 给 | untuk aku
+我 给 爸爸 做 了 米饭。 | Aku memasak nasi untuk ayah. | 给 | untuk ayah
+我 给 你 买 苹果。 | Aku membelikan apel untukmu. | 给 | untukmu
+爸爸 给 我 买 了 一 个 电脑。 | Ayah membelikan aku sebuah komputer. | 给 | membelikan aku
+我 给 哥哥 买 了 一 本 书。 | Aku membelikan kakak laki-lakiku sebuah buku. | 给 | membelikan kakak
+我 想 给 朋友 买 一 个 杯子。 | Aku ingin membelikan temanku sebuah gelas. | 给 | membelikan temanku
+我 昨天 给 朋友 买 了 衣服。 | Kemarin aku membelikan temanku baju. | 给 | membelikan temanku
+请 给 我 一 个 杯子。 | Tolong beri aku sebuah gelas. | 给 | beri aku
+#39 人称代词: 您 (Anda, Sopan)
+您 好 吗？ | Apa kabar Anda? | 您 | Anda
+您 是 老师 吗？ | Apakah Anda guru? | 您 | Anda
+您 是 哪 国 人？ | Anda orang dari negara mana? | 您 | Anda
+请问，您 叫 什么 名字？ | Permisi, siapa nama Anda? | 您 | Anda
+您 想 喝 茶 吗？ | Apakah Anda mau minum teh? | 您 | Anda
+您 想 喝 什么？ | Anda mau minum apa? | 您 | Anda
+您 有 电话 吗？ | Apakah Anda punya telepon? | 您 | Anda
+您 在 哪儿 工作？ | Di mana Anda bekerja? | 您 | Anda
+您 做 什么 工作？ | Anda bekerja sebagai apa? | 您 | Anda
+您 的 汉语 很 好。 | Bahasa Mandarin Anda sangat bagus. | 您 | Anda
+您 请 坐。 | Silakan Anda duduk. | 您 | Anda
+谢谢 您。 | Terima kasih kepada Anda. | 您 | Anda
+我 想 请 您 吃饭。 | Aku ingin mengundang Anda makan. | 您 | Anda
+您 的 电话 是 多少？ | Berapa nomor telepon Anda? | 您 | Anda
+您 家 有 几 口 人？ | Berapa orang di keluarga Anda? | 您 | Anda
+#40 人称代词: 他 / 她 (Dia)
+他 很 忙。 | Dia sangat sibuk. | 他 | Dia
+她 很 漂亮。 | Dia sangat cantik. | 她 | Dia
+他 在 家 看 电视。 | Dia menonton televisi di rumah. | 他 | Dia
+她 在 学校 学习。 | Dia belajar di sekolah. | 她 | Dia
+他 有 一 个 妹妹。 | Dia punya seorang adik perempuan. | 他 | Dia
+她 有 两 个 哥哥。 | Dia punya dua kakak laki-laki. | 她 | Dia
+他 想 去 北京{Běijīng}。 | Dia ingin pergi ke Beijing. | 他 | Dia
+她 想 买 衣服。 | Dia ingin membeli baju. | 她 | Dia
+他 不 喝 咖啡。 | Dia tidak minum kopi. | 他 | Dia
+她 常 给 我 打 电话。 | Dia sering menelepon aku. | 她 | Dia
+他 三 点 回家。 | Dia pulang jam tiga. | 他 | Dia
+她 八 点 去 学校。 | Dia pergi ke sekolah jam delapan. | 她 | Dia
+他 昨天 去 了 医院。 | Kemarin dia pergi ke rumah sakit. | 他 | Dia
+她 今天 做 了 很 多 菜。 | Hari ini dia memasak banyak masakan. | 她 | Dia
+他 的 名字 叫 王{Wáng} 明{Míng}。 | Nama dia adalah Wang Ming. | 他 | dia
+#41 人称代词: 们 (Jamak)
+我们 很 忙。 | Kami sangat sibuk. | 们 | Kami
+我们 是 朋友。 | Kami adalah teman. | 们 | Kami
+你们 好！ | Halo, kalian semua! | 们 | kalian
+你们 是 学生 吗？ | Apakah kalian murid? | 们 | kalian
+他们 在 家。 | Mereka ada di rumah. | 们 | Mereka
+她们 在 学校。 | Mereka ada di sekolah. | 们 | Mereka
+我们 想 去 北京{Běijīng}。 | Kami ingin pergi ke Beijing. | 们 | Kami
+你们 想 喝 什么？ | Kalian mau minum apa? | 们 | Kalian
+他们 有 两 个 老师。 | Mereka punya dua guru. | 们 | Mereka
+我们 明天 去 看 电影。 | Besok kami pergi menonton film. | 们 | kami
+你们 几 点 去 学校？ | Jam berapa kalian pergi ke sekolah? | 们 | kalian
+他们 常 在 饭店 吃饭。 | Mereka sering makan di restoran. | 们 | Mereka
+她们 昨天 去 了 商店。 | Kemarin mereka pergi ke toko. | 们 | mereka
+你们 的 老师 很 漂亮。 | Guru kalian sangat cantik. | 们 | kalian
+他们 正在 看 电视 呢。 | Mereka sedang menonton televisi. | 们 | Mereka
+#42 指示代词: 这 / 那 (Ini / Itu)
+这 个 苹果 很 好吃。 | Apel ini sangat enak. | 这 | ini
+这 本 书 很 好看。 | Buku ini sangat bagus. | 这 | ini
+这 杯 茶 很 热。 | Teh ini sangat panas. | 这 | ini
+这 个 人 是 我 的 同学。 | Orang ini adalah teman sekelasku. | 这 | ini
+这 个 电脑 多少 钱？ | Berapa harga komputer ini? | 这 | ini
+这 个 杯子 不 是 我 的。 | Gelas ini bukan milikku. | 这 | ini
+这 个 学校 有 多少 学生？ | Berapa murid di sekolah ini? | 这 | ini
+这 个 电影 我 看 了。 | Aku sudah menonton film ini. | 这 | ini
+那 个 杯子 是 我 的。 | Gelas itu milikku. | 那 | itu
+那 本 书 是 谁 的？ | Buku itu milik siapa? | 那 | itu
+那 个 小 狗 很 漂亮。 | Anjing kecil itu sangat cantik. | 那 | itu
+那 个 医生 是 我 爸爸。 | Dokter itu adalah ayahku. | 那 | itu
+那 个 老师 是 北京{Běijīng} 人。 | Guru itu orang Beijing. | 那 | itu
+那 个 商店 很 大。 | Toko itu sangat besar. | 那 | itu
+那 个 人 在 医院 工作。 | Orang itu bekerja di rumah sakit. | 那 | itu
+#43 指示代词: 这儿 / 那儿 (Tempat)
+我 在 这儿。 | Aku ada di sini. | 这儿 | sini
+他 在 那儿。 | Dia ada di sana. | 那儿 | sana
+这儿 很 冷。 | Di sini sangat dingin. | 这儿 | sini
+那儿 很 热。 | Di sana sangat panas. | 那儿 | sana
+这儿 有 人 吗？ | Apakah ada orang di sini? | 这儿 | sini
+那儿 有 一 个 学校。 | Di sana ada sebuah sekolah. | 那儿 | sana
+请 坐 这儿。 | Silakan duduk di sini. | 这儿 | sini
+我 家 在 那儿。 | Rumahku ada di sana. | 那儿 | sana
+我 的 书 在 那儿。 | Bukuku ada di sana. | 那儿 | sana
+这儿 没有 苹果。 | Di sini tidak ada apel. | 这儿 | sini
+你 在 那儿 工作 吗？ | Apakah kamu bekerja di sana? | 那儿 | sana
+他 常 来 这儿 吃饭。 | Dia sering datang makan di sini. | 这儿 | sini
+那儿 的 天气 很 好。 | Cuaca di sana sangat bagus. | 那儿 | sana
+这儿 的 汉语 老师 很 好。 | Guru bahasa Mandarin di sini sangat baik. | 这儿 | sini
+你 想 在 这儿 吃饭 吗？ | Apakah kamu mau makan di sini? | 这儿 | sini
+#44 指示代词: 这些 / 那些 (Jamak)
+这些 是 我 的 书。 | Ini adalah buku-bukuku. | 这些 | Ini
+那些 是 我 的 衣服。 | Itu adalah baju-bajuku. | 那些 | Itu
+这些 苹果 很 好吃。 | Apel-apel ini sangat enak. | 这些 | ini
+那些 书 很 好看。 | Buku-buku itu sangat bagus. | 那些 | itu
+这些 人 是 我 的 同学。 | Orang-orang ini adalah teman sekelasku. | 这些 | ini
+那些 人 是 老师。 | Orang-orang itu adalah guru. | 那些 | itu
+这些 杯子 多少 钱？ | Berapa harga gelas-gelas ini? | 这些 | ini
+那些 学生 都 在 学校。 | Murid-murid itu semuanya ada di sekolah. | 那些 | itu
+这些 菜 都 是 我 妈妈 做 的。 | Semua masakan ini dibuat oleh ibuku. | 这些 | ini
+那些 小 狗 很 漂亮。 | Anjing-anjing kecil itu sangat cantik. | 那些 | itu
+这些 书 我 都 想 买。 | Aku mau membeli semua buku ini. | 这些 | ini
+那些 衣服 太 贵 了。 | Baju-baju itu terlalu mahal. | 那些 | itu
+我 喜欢 这些 杯子。 | Aku suka gelas-gelas ini. | 这些 | ini
+我 不 认识 那些 人。 | Aku tidak mengenal orang-orang itu. | 那些 | itu
+你 想 买 这些 苹果 吗？ | Apakah kamu mau membeli apel-apel ini? | 这些 | ini
+#45 指示代词: 有的……，有的…… (Sebagian)
+有的 大，有的 小。 | Ada yang besar, ada yang kecil. | 有的大，有的 | Ada yang besar, ada yang
+有的 多，有的 少。 | Ada yang banyak, ada yang sedikit. | 有的多，有的 | Ada yang banyak, ada yang
+有的 好，有的 不 好。 | Ada yang baik, ada yang tidak baik. | 有的好，有的 | Ada yang baik, ada yang
+有的 人 来，有的 人 不 来。 | Ada orang yang datang, ada orang yang tidak datang. | 有的人来，有的 | Ada orang yang datang, ada orang yang
+有的 人 喝 茶，有的 人 喝 水。 | Ada orang yang minum teh, ada orang yang minum air. | 有的人喝茶，有的 | Ada orang yang minum teh, ada orang yang
+有的 同学 在 学校，有的 同学 在 家。 | Ada teman sekelas yang di sekolah, ada yang di rumah. | 有的同学在学校，有的 | Ada teman sekelas yang di sekolah, ada yang
+我 的 朋友 有的 是 医生，有的 是 老师。 | Teman-temanku ada yang menjadi dokter, ada yang menjadi guru. | 有的是医生，有的 | ada yang menjadi dokter, ada yang
+有的 书 很 好看，有的 书 不 好看。 | Ada buku yang sangat bagus, ada buku yang tidak bagus. | 有的书很好看，有的 | Ada buku yang sangat bagus, ada buku yang
+有的 苹果 很 大，有的 苹果 很 小。 | Ada apel yang sangat besar, ada apel yang sangat kecil. | 有的苹果很大，有的 | Ada apel yang sangat besar, ada apel yang
+有的 人 喜欢 看 电影，有的 人 喜欢 看 书。 | Ada orang yang suka menonton film, ada orang yang suka membaca buku. | 有的人喜欢看电影，有的 | Ada orang yang suka menonton film, ada orang yang
+有的 学生 在 看书，有的 学生 在 写字。 | Ada murid yang sedang membaca, ada murid yang sedang menulis. | 有的学生在看书，有的 | Ada murid yang sedang membaca, ada murid yang
+有的 人 在 北京 工作，有的 人 在 学校 工作。 | Ada orang yang bekerja di Beijing, ada orang yang bekerja di sekolah. | 有的人在北京工作，有的 | Ada orang yang bekerja di Beijing, ada orang yang
+我们 班 有的 同学 会 说 汉语，有的 同学 不 会。 | Di kelas kami ada teman yang bisa berbahasa Mandarin, ada yang tidak bisa. | 有的同学会说汉语，有的 | ada teman yang bisa berbahasa Mandarin, ada yang
+商店 里 的 东西 有的 很 漂亮，有的 不 太 漂亮。 | Barang-barang di toko ada yang sangat bagus, ada yang kurang bagus. | 有的很漂亮，有的 | ada yang sangat bagus, ada yang
+#46 指示代词: 别的 (Yang Lain)
+还 有 别的 吗？ | Apakah masih ada yang lain? | 别的 | yang lain
+没有 别的 了。 | Tidak ada yang lain lagi. | 别的 | yang lain
+你 想 吃 别的 吗？ | Apakah kamu mau makan yang lain? | 别的 | yang lain
+你 有 别的 朋友 吗？ | Apakah kamu punya teman yang lain? | 别的 | yang lain
+我 不 想 看 别的 书。 | Aku tidak mau membaca buku yang lain. | 别的 | yang lain
+这 个 不 好，我 要 别的。 | Yang ini tidak bagus, aku mau yang lain. | 别的 | yang lain
+别的 人 都 去 学校 了。 | Orang-orang yang lain semuanya sudah pergi ke sekolah. | 别的 | yang lain
+别的 同学 都 在 看 电视。 | Teman-teman sekelas yang lain semuanya sedang menonton TV. | 别的 | yang lain
+我 想 喝 茶，不 想 喝 别的。 | Aku mau minum teh, tidak mau minum yang lain. | 别的 | yang lain
+今天 我 不 想 做 别的 工作。 | Hari ini aku tidak mau mengerjakan pekerjaan yang lain. | 别的 | yang lain
+我 妈妈 说 别的 菜 都 很 好吃。 | Ibuku bilang masakan yang lain semuanya enak. | 别的 | yang lain
+这 个 杯子 太 小 了，有 别的 吗？ | Gelas ini terlalu kecil, adakah yang lain? | 别的 | yang lain
+你 先 看 这 本 书，别的 明天 看。 | Kamu baca buku ini dulu, yang lain besok saja. | 别的 | yang lain
+这儿 没有 苹果，我们 去 别的 商店 买。 | Di sini tidak ada apel, kita beli di toko yang lain. | 别的 | yang lain
+#47 疑问代词: 几 / 多少 (Berapa)
+今天 是 几 号？ | Hari ini tanggal berapa? | 几 | berapa
+现在 几 点 了？ | Sekarang jam berapa? | 几 | berapa
+昨天 是 星期 几？ | Kemarin hari apa? | 几 | apa
+这 个 椅子 多少 钱？ | Berapa harga kursi ini? | 多少 | Berapa
+你 儿子 几 岁 了？ | Anak laki-lakimu umur berapa? | 几 | berapa
+你们 家 有 几 口 人？ | Keluarga kalian ada berapa orang? | 几 | berapa
+这 些 苹果 多少 钱？ | Berapa harga apel-apel ini? | 多少 | Berapa
+你 明天 几 点 来？ | Besok kamu datang jam berapa? | 几 | berapa
+你 要 买 几 个 杯子？ | Kamu mau membeli berapa gelas? | 几 | berapa
+你们 学校 有 多少 老师？ | Sekolah kalian ada berapa guru? | 多少 | berapa
+一 个 星期 有 几 天？ | Seminggu ada berapa hari? | 几 | berapa
+你 今天 喝 了 几 杯 茶？ | Hari ini kamu sudah minum berapa gelas teh? | 几 | berapa
+你们 班 有 多少 个 学生？ | Kelas kalian ada berapa murid? | 多少 | berapa
+你 看见 几 个 人 在 学校 前面？ | Berapa orang yang kamu lihat di depan sekolah? | 几 | Berapa
+#48 疑问代词: 什么 (Apa)
+这 是 什么？ | Ini apa? | 什么 | apa
+你 想 买 什么？ | Kamu mau membeli apa? | 什么 | apa
+你 现在 在 做 什么？ | Sekarang kamu sedang melakukan apa? | 什么 | apa
+你 喜欢 吃 什么？ | Kamu suka makan apa? | 什么 | apa
+你 想 喝 什么 茶？ | Kamu mau minum teh apa? | 什么 | apa
+你们 的 汉语 老师 叫 什么 名字？ | Siapa nama guru bahasa Mandarin kalian? | 什么 | Siapa
+他 在 看 什么 书？ | Buku apa yang sedang dia baca? | 什么 | apa
+你 什么 时候 去 学校？ | Kapan kamu pergi ke sekolah? | 什么 | Kapan
+我 没 听见，你 说 什么？ | Aku tidak dengar, kamu bilang apa? | 什么 | apa
+你 今天 看 什么 电影？ | Film apa yang kamu tonton hari ini? | 什么 | apa
+你 的 女儿 做 什么 工作？ | Apa pekerjaan putrimu? | 什么 | Apa
+昨天 你 在 商店 买 了 什么？ | Kemarin kamu membeli apa di toko? | 什么 | apa
+你 下午 在 家 做 什么？ | Kamu melakukan apa di rumah sore ini? | 什么 | apa
+你 的 同学 在 学校 学 什么？ | Temanmu belajar apa di sekolah? | 什么 | apa
+#49 疑问代词: 怎么 (Bagaimana)
+这 个 字 怎么 读？ | Bagaimana cara membaca karakter ini? | 怎么 | Bagaimana
+这 个 字 怎么 写？ | Bagaimana cara menulis karakter ini? | 怎么 | Bagaimana
+你 怎么 去 学校？ | Bagaimana kamu pergi ke sekolah? | 怎么 | Bagaimana
+这 个 菜 怎么 做？ | Bagaimana cara memasak masakan ini? | 怎么 | Bagaimana
+你 的 名字 怎么 写？ | Bagaimana cara menulis namamu? | 怎么 | Bagaimana
+这 个 电脑 怎么 开？ | Bagaimana cara menyalakan komputer ini? | 怎么 | Bagaimana
+你 明天 怎么 去 北京？ | Bagaimana kamu pergi ke Beijing besok? | 怎么 | Bagaimana
+你 昨天 怎么 回 家 的？ | Bagaimana kamu pulang ke rumah kemarin? | 怎么 | Bagaimana
+妈妈，这 个 菜 怎么 吃？ | Bu, bagaimana cara memakan masakan ini? | 怎么 | bagaimana
+这 个 东西 汉语 怎么 说？ | Bagaimana mengatakan benda ini dalam bahasa Mandarin? | 怎么 | Bagaimana
+你 今天 是 怎么 来 学校 的？ | Bagaimana kamu datang ke sekolah hari ini? | 怎么 | Bagaimana
+我 想 去 医院，怎么 去？ | Aku mau ke rumah sakit, bagaimana perginya? | 怎么 | bagaimana
+#50 疑问代词: 哪 / 哪儿 / 哪里 (Yang Mana / Di Mana)
+你 住 哪儿？ | Kamu tinggal di mana? | 哪儿 | mana
+你 去 哪儿？ | Kamu mau ke mana? | 哪儿 | mana
+你 家 在 哪儿？ | Di mana rumahmu? | 哪儿 | mana
+你 要 哪 个？ | Kamu mau yang mana? | 哪 | mana
+你 是 哪儿 的 人？ | Kamu orang dari mana? | 哪儿 | mana
+哪 个 是 你 的 杯子？ | Yang mana gelasmu? | 哪 | mana
+你 喜欢 哪 本 书？ | Kamu suka buku yang mana? | 哪 | mana
+你 昨天 去 哪儿 了？ | Kemarin kamu pergi ke mana? | 哪儿 | mana
+你们 学校 在 哪里？ | Di mana sekolah kalian? | 哪里 | mana
+对不起，医院 在 哪儿？ | Maaf, di mana rumah sakitnya? | 哪儿 | mana
+你 想 去 哪 家 商店？ | Kamu mau pergi ke toko yang mana? | 哪 | mana
+你 的 朋友 在 哪儿 工作？ | Di mana temanmu bekerja? | 哪儿 | mana
+你 今天 想 在 哪里 吃饭？ | Hari ini kamu mau makan di mana? | 哪里 | mana
+你 在 哪 个 学校 学习 汉语？ | Kamu belajar bahasa Mandarin di sekolah yang mana? | 哪 | mana
+#51 数词: 百 / 零 (Ratusan)
+这 本 书 一百 块。 | Buku ini seratus yuan. | 一百 | seratus
+我 家 有 两百 本 书。 | Di rumahku ada dua ratus buku. | 两百 | dua ratus
+他 一百零一 岁 了。 | Usianya sudah seratus satu tahun. | 一百零一 | seratus satu
+这 个 杯子 一百零五 块。 | Gelas ini seratus lima yuan. | 一百零五 | seratus lima
+这 个 电脑 九百 块。 | Komputer ini sembilan ratus yuan. | 九百 | sembilan ratus
+我们 学校 有 三百 个 学生。 | Sekolah kami punya tiga ratus murid. | 三百 | tiga ratus
+这 本 书 有 二百零六 页。 | Buku ini ada dua ratus enam halaman. | 二百零六 | dua ratus enam
+商店 里 有 七百 个 杯子。 | Di toko ada tujuh ratus gelas. | 七百 | tujuh ratus
+他们 学校 有 六百零二 个 学生。 | Sekolah mereka punya enam ratus dua murid. | 六百零二 | enam ratus dua
+那 家 医院 有 五百 个 医生。 | Rumah sakit itu punya lima ratus dokter. | 五百 | lima ratus
+#52 数词: 半 (Setengah)
+现在 八 点 半。 | Sekarang pukul delapan lewat setengah. | 半 | setengah
+我 六 点 半 吃饭。 | Aku makan pukul enam lewat setengah. | 半 | setengah
+我 想 喝 半 杯 水。 | Aku mau minum setengah gelas air. | 半 | setengah
+我 吃 了 半 个 苹果。 | Aku makan setengah buah apel. | 半 | setengah
+现在 是 下午 三 点 半。 | Sekarang pukul tiga lewat setengah sore. | 半 | setengah
+我 昨天 十 点 半 睡觉。 | Kemarin aku tidur pukul sepuluh lewat setengah. | 半 | setengah
+他 在 北京 住 了 一 年 半。 | Dia sudah tinggal di Beijing satu setengah tahun. | 半 | setengah
+我 学 了 一 个 半 月 汉语。 | Aku sudah belajar bahasa Mandarin satu setengah bulan. | 半 | setengah
+他 在 医院 工作 了 两 年 半。 | Dia sudah bekerja di rumah sakit dua setengah tahun. | 半 | setengah
+明天 上午 九 点 半 去 学校。 | Besok pagi pukul sembilan lewat setengah pergi ke sekolah. | 半 | setengah
+我 妈妈 上午 十 点 半 去 医院。 | Ibuku pergi ke rumah sakit pukul sepuluh lewat setengah pagi. | 半 | setengah
+中午 十二 点 半，我们 在 学校 吃饭。 | Siang pukul dua belas lewat setengah, kami makan di sekolah. | 半 | setengah
+昨天 下午 四 点 半，我 在 商店 买 东西。 | Kemarin sore pukul empat lewat setengah, aku berbelanja di toko. | 半 | setengah
+#53 数词: 两 (Dua Jumlah)
+现在 是 下午 两 点。 | Sekarang pukul dua siang. | 两 | dua
+我 有 两 个 朋友。 | Aku punya dua teman. | 两 | dua
+他 有 两 个 儿子。 | Dia punya dua anak laki-laki. | 两 | dua
+她 有 两 个 女儿。 | Dia punya dua anak perempuan. | 两 | dua
+我 买 了 两 本 书。 | Aku membeli dua buku. | 两 | dua
+我 要 两 杯 水。 | Aku mau dua gelas air. | 两 | dua
+我 的 桌子 上 有 两 本 书。 | Di atas mejaku ada dua buku. | 两 | dua
+我 想 喝 两 杯 茶。 | Aku mau minum dua gelas teh. | 两 | dua
+妈妈 想 买 两 个 苹果。 | Ibu mau membeli dua apel. | 两 | dua
+学校 里 有 两 家 商店。 | Di sekolah ada dua toko. | 两 | dua
+我 想 在 北京 住 两 个 月。 | Aku mau tinggal di Beijing selama dua bulan. | 两 | dua
+我们 班 有 两 个 中国 同学。 | Di kelas kami ada dua teman sekelas dari Tiongkok. | 两 | dua
+我 在 商店 看见 了 两 个 老师。 | Aku melihat dua guru di toko. | 两 | dua
+明天 有 两 个 同学 来 我 家 学习。 | Besok ada dua teman sekelas yang datang ke rumahku untuk belajar. | 两 | dua
+我 家 前面 有 两 家 饭馆，都 很 好吃。 | Di depan rumahku ada dua restoran, keduanya enak. | 两 | dua
+#54 数词: 二 (Dua Urutan)
+我 家 在 二 楼。 | Rumahku ada di lantai dua. | 二 | dua
+今天 是 二十 号。 | Hari ini tanggal dua puluh. | 二十 | dua puluh
+他 二十 岁 了。 | Usianya sudah dua puluh tahun. | 二十 | dua puluh
+明天 是 三 月 二 号。 | Besok tanggal dua bulan tiga. | 二 | dua
+他 住 在 二十 楼。 | Dia tinggal di lantai dua puluh. | 二十 | dua puluh
+我们 班 有 二十 个 学生。 | Kelas kami ada dua puluh murid. | 二十 | dua puluh
+我 的 朋友 二十 号 来 北京。 | Temanku datang ke Beijing tanggal dua puluh. | 二十 | dua puluh
+我 在 二 号 楼 学习 汉语。 | Aku belajar bahasa Mandarin di gedung nomor dua. | 二 | dua
+商店 在 二 楼，饭馆 在 三 楼。 | Toko ada di lantai dua, restoran ada di lantai tiga. | 二 | dua
+我 想 在 二十 号 去 北京。 | Aku mau pergi ke Beijing tanggal dua puluh. | 二十 | dua puluh
+那 个 二十 岁 的 学生 是 我 同学。 | Murid berusia dua puluh tahun itu adalah teman sekelasku. | 二十 | dua puluh
+我 昨天 在 二 楼 看见 了 我 的 老师。 | Kemarin aku melihat guruku di lantai dua. | 二 | dua
+#55 名量词: 个 (Umum)
+他 是 一 个 医生。 | Dia adalah seorang dokter. | 个 | seorang
+我 有 一 个 中国 朋友。 | Aku punya seorang teman dari Tiongkok. | 个 | seorang
+我 有 一 个 电脑。 | Aku punya sebuah komputer. | 个 | sebuah
+我 想 买 三 个 苹果。 | Aku mau membeli tiga buah apel. | 个 | buah
+他 有 三 个 好 朋友。 | Dia punya tiga orang teman baik. | 个 | orang
+你 家 有 几 个 人？ | Di rumahmu ada berapa orang? | 个 | orang
+桌子 上 有 五 个 杯子。 | Di atas meja ada lima buah gelas. | 个 | buah
+我们 班 有 十 个 学生。 | Di kelas kami ada sepuluh orang murid. | 个 | orang
+他 一 个 人 在 家 看 电视。 | Dia menonton TV di rumah seorang diri. | 个 | seorang
+我 想 买 一 个 漂亮 的 杯子。 | Aku mau membeli sebuah gelas yang cantik. | 个 | sebuah
+昨天 我 在 商店 买 了 六 个 杯子。 | Kemarin aku membeli enam buah gelas di toko. | 个 | buah
+今天 有 一 个 学生 没 来 学校。 | Hari ini ada seorang murid yang tidak datang ke sekolah. | 个 | seorang
+我 昨天 看 了 一 个 很 好看 的 电影。 | Kemarin aku menonton sebuah film yang sangat bagus. | 个 | sebuah
+学校 里 有 二十 个 中国 学生。 | Di sekolah ada dua puluh orang murid Tiongkok. | 个 | orang
+#56 名量词: 口 (Anggota Keluarga)
+你 家 几 口 人？ | Keluargamu ada berapa orang? | 口 | orang
+我 家 有 五 口 人。 | Keluargaku ada lima orang. | 口 | orang
+他 家 有 五 口 人。 | Keluarganya ada lima orang. | 口 | orang
+我们 家 有 三 口 人。 | Keluarga kami ada tiga orang. | 口 | orang
+我 朋友 家 有 两 口 人。 | Keluarga temanku ada dua orang. | 口 | orang
+他们 家 五 口 人 都 住 在 北京。 | Lima orang anggota keluarga mereka semuanya tinggal di Beijing. | 口 | orang
+我 家 有 四 口 人，爸爸、妈妈、哥哥 和 我。 | Keluargaku ada empat orang, yaitu ayah, ibu, kakak laki-laki, dan aku. | 口 | orang
+我 朋友 家 有 三 口 人，都 喜欢 喝 茶。 | Keluarga temanku ada tiga orang, semuanya suka minum teh. | 口 | orang
+老师 家 有 三 口 人，他 有 一 个 女儿。 | Keluarga guru ada tiga orang, dia punya seorang anak perempuan. | 口 | orang
+医生 家 有 四 口 人，他 有 两 个 儿子。 | Keluarga dokter ada empat orang, dia punya dua anak laki-laki. | 口 | orang
+我 家 有 六 口 人，我们 都 喜欢 吃 米饭。 | Keluargaku ada enam orang, kami semua suka makan nasi. | 口 | orang
+#57 名量词: 间 (Ruangan)
+我 有 一 间 房子。 | Aku punya sebuah rumah. | 间 | sebuah
+他 有 两 间 房子。 | Dia punya dua buah rumah. | 间 | buah
+医生 有 三 间 房子。 | Dokter itu punya tiga buah rumah. | 间 | buah
+我 想 买 一 间 大 房子。 | Aku mau membeli sebuah rumah besar. | 间 | sebuah
+学校 前面 有 三 间 房子。 | Di depan sekolah ada tiga buah rumah. | 间 | buah
+他 在 北京 住 在 一 间 小 房子 里。 | Dia tinggal di sebuah rumah kecil di Beijing. | 间 | sebuah
+我 朋友 在 北京 有 一 间 小 房子。 | Temanku punya sebuah rumah kecil di Beijing. | 间 | sebuah
+他们 在 北京 买 了 一 间 漂亮 的 房子。 | Mereka membeli sebuah rumah yang cantik di Beijing. | 间 | sebuah
+我 哥哥 在 学校 后面 买 了 两 间 房子。 | Kakak laki-lakiku membeli dua buah rumah di belakang sekolah. | 间 | buah
+#58 名量词: 块 (Potongan / Yuan)
+这 本 书 十 块。 | Buku ini sepuluh yuan. | 块 | yuan
+这 个 杯子 五十 块 钱。 | Gelas ini lima puluh yuan. | 块 | yuan
+这 个 东西 多少 块 钱？ | Berapa yuan barang ini? | 块 | yuan
+我 想 吃 一 块 面包。 | Aku mau makan sepotong roti. | 块 | sepotong
+我 买 了 两 块 面包。 | Aku membeli dua potong roti. | 块 | potong
+你 要 几 块 面包？ | Kamu mau berapa potong roti? | 块 | potong
+这 些 苹果 二十 块 钱。 | Apel-apel ini dua puluh yuan. | 块 | yuan
+这 些 衣服 三百 块。 | Baju-baju ini tiga ratus yuan. | 块 | yuan
+请 你 买 三 块 面包，好 吗？ | Tolong belikan tiga potong roti, ya? | 块 | potong
+我 爸爸 说 这 个 苹果 要 五 块 钱。 | Ayahku bilang apel ini lima yuan. | 块 | yuan
+我 在 商店 买 了 一 块 面包 和 一 杯 水。 | Aku membeli sepotong roti dan segelas air di toko. | 块 | sepotong
+我 同学 说 这 家 饭馆 的 菜 很 好吃，一 个 菜 二十 块。 | Temanku bilang masakan restoran ini sangat enak, satu masakan dua puluh yuan. | 块 | yuan
+#59 名量词: 家 (Tempat Usaha)
+这儿 有 一 家 商店。 | Di sini ada sebuah toko. | 家 | sebuah
+学校 前面 有 一 家 饭馆。 | Di depan sekolah ada sebuah restoran. | 家 | sebuah
+学校 后面 有 两 家 医院。 | Di belakang sekolah ada dua buah rumah sakit. | 家 | buah
+医院 前面 有 三 家 商店。 | Di depan rumah sakit ada tiga buah toko. | 家 | buah
+他 爸爸 有 一 家 大 商店。 | Ayahnya punya sebuah toko besar. | 家 | sebuah
+我 朋友 在 北京 开 了 一 家 饭馆。 | Temanku membuka sebuah restoran di Beijing. | 家 | sebuah
+我们 想 去 那 家 饭馆 吃饭。 | Kami mau makan di restoran itu. | 家 | -
+这 家 商店 的 衣服 很 漂亮。 | Baju-baju di toko ini sangat bagus. | 家 | -
+北京 有 三 家 很 大 的 商店。 | Di Beijing ada tiga buah toko yang sangat besar. | 家 | buah
+我们 昨天 去 了 一 家 很 小 的 饭馆。 | Kemarin kami pergi ke sebuah restoran yang sangat kecil. | 家 | sebuah
+我 想 买 苹果，这 家 商店 有 吗？ | Aku mau membeli apel, apakah toko ini punya? | 家 | -
+这 家 饭馆 的 菜 很 好吃，我 常 来 这儿。 | Masakan restoran ini sangat enak, aku sering datang ke sini. | 家 | -
+#60 名量词: 页 (Halaman)
+这 本 书 有 一百 页。 | Buku ini ada seratus halaman. | 页 | halaman
+他 的 书 有 两百 页。 | Bukunya ada dua ratus halaman. | 页 | halaman
+你 看 了 几 页 书？ | Berapa halaman buku yang sudah kamu baca? | 页 | halaman
+我 今天 看 了 十 页 书。 | Hari ini aku membaca sepuluh halaman buku. | 页 | halaman
+请 你 看 五 页 书。 | Tolong baca lima halaman buku. | 页 | halaman
+我 的 汉语 书 有 三百 页。 | Buku bahasa Mandarinku ada tiga ratus halaman. | 页 | halaman
+那 本 书 很 好看，有 四 百 页。 | Buku itu sangat bagus, ada empat ratus halaman. | 页 | halaman
+老师 说，我们 明天 要 看 二十 页。 | Guru bilang besok kita harus membaca dua puluh halaman. | 页 | halaman
+我 昨天 写 了 三 页 汉语 字。 | Kemarin aku menulis tiga halaman karakter Mandarin. | 页 | halaman
+这 本 书 的 字 很 小，一 页 有 很 多 字。 | Tulisan di buku ini sangat kecil, satu halaman ada banyak tulisan. | 页 | halaman
+这 本 汉语 书 有 一百零二 页，我 都 看 了。 | Buku bahasa Mandarin ini ada seratus dua halaman, aku sudah membaca semuanya. | 页 | halaman
+我 想 买 一 本 有 两百 页 的 汉语 书。 | Aku mau membeli buku bahasa Mandarin yang tebalnya dua ratus halaman. | 页 | halaman
+
+#61 数量短语 (Frasa Numeral-Klasifikator)
+我 想 喝 一 杯 茶。 | Aku mau minum secangkir teh. | 一杯 | secangkir
+请 给 我 一 杯 水。 | Tolong beri aku segelas air. | 一杯 | segelas
+他 买 了 三 本 书。 | Dia membeli tiga buku. | 三本 | tiga
+桌子 上 有 四 个 苹果。 | Di atas meja ada empat apel. | 四个 | empat
+我 昨天 喝 了 两 杯 水。 | Kemarin aku minum dua gelas air. | 两杯 | dua
+我 想 吃 三 个 苹果。 | Aku mau makan tiga apel. | 三个 | tiga
+我 朋友 家 有 四 口 人。 | Keluarga temanku ada empat orang. | 四口 | empat
+医院 后面 有 两 家 饭馆。 | Di belakang rumah sakit ada dua restoran. | 两家 | dua
+今天 我 看 了 五 页 书。 | Hari ini aku membaca lima halaman buku. | 五页 | lima
+我 想 在 北京 住 三 个 月。 | Aku mau tinggal di Beijing selama tiga bulan. | 三个 | tiga
+我 要 买 六 本 汉语 书。 | Aku mau membeli enam buku bahasa Mandarin. | 六本 | enam
+我 妈妈 在 商店 买 了 十 个 杯子。 | Ibuku membeli sepuluh gelas di toko. | 十个 | sepuluh
+我 的 老师 有 两 个 女儿 和 一 个 儿子。 | Guruku punya dua anak perempuan dan seorang anak laki-laki. | 两个 | dua
+#62 方位名词: 上 (Di Atas)
+学生 的 书 在 桌子 上。 | Buku murid itu ada di atas meja. | 上 | di atas
+杯子 在 桌子 上。 | Gelas ada di atas meja. | 上 | di atas
+衣服 在 椅子 上。 | Baju ada di atas kursi. | 上 | di atas
+桌子 上 有 水。 | Di atas meja ada air. | 上 | Di atas
+桌子 上 有 三 本 书。 | Di atas meja ada tiga buku. | 上 | Di atas
+椅子 上 有 一 个 人。 | Di atas kursi ada seseorang. | 上 | Di atas
+我 的 电脑 在 桌子 上。 | Komputerku ada di atas meja. | 上 | di atas
+桌子 上 的 苹果 很 好吃。 | Apel di atas meja sangat enak. | 上 | di atas
+你 的 书 在 椅子 上，我 看见 了。 | Bukumu ada di atas kursi, aku melihatnya. | 上 | di atas
+我 想 在 桌子 上 写 汉语 字。 | Aku mau menulis karakter Mandarin di atas meja. | 上 | di atas
+我 家 桌子 上 有 苹果、茶 和 米饭。 | Di atas meja rumahku ada apel, teh, dan nasi. | 上 | Di atas
+桌子 上 有 一 个 杯子，杯子 里 有 水。 | Di atas meja ada sebuah gelas, di dalam gelas ada air. | 上 | Di atas
+#63 方位名词: 下 (Di Bawah)
+书 在 桌子 下。 | Buku ada di bawah meja. | 下 | di bawah
+桌子 下 有 一 个 杯子。 | Di bawah meja ada sebuah gelas. | 下 | Di bawah
+桌子 下 没有 水。 | Di bawah meja tidak ada air. | 下 | Di bawah
+椅子 下 有 我 的 书。 | Di bawah kursi ada bukuku. | 下 | Di bawah
+桌子 下 有 两 个 苹果。 | Di bawah meja ada dua apel. | 下 | Di bawah
+我 的 杯子 在 椅子 下，你 看见 了 吗？ | Gelasku ada di bawah kursi, apakah kamu melihatnya? | 下 | di bawah
+#64 方位名词: 里 (Di Dalam)
+水 在 杯子 里。 | Air ada di dalam gelas. | 里 | di dalam
+他 在 家 里。 | Dia ada di dalam rumah. | 里 | di dalam
+学校 里 有 商店。 | Di dalam sekolah ada toko. | 里 | Di dalam
+杯子 里 没有 茶。 | Di dalam gelas tidak ada teh. | 里 | Di dalam
+商店 里 有 很 多 东西。 | Di dalam toko ada banyak barang. | 里 | Di dalam
+医院 里 有 很 多 医生。 | Di dalam rumah sakit ada banyak dokter. | 里 | Di dalam
+我 在 学校 里 学习 汉语。 | Aku belajar bahasa Mandarin di sekolah. | 里 | -
+爸爸 在 家 里 看 电视。 | Ayah menonton TV di rumah. | 里 | -
+你 的 杯子 里 有 什么？ | Di dalam gelasmu ada apa? | 里 | Di dalam
+我 妈妈 在 商店 里 买 苹果。 | Ibuku membeli apel di dalam toko. | 里 | di dalam
+饭馆 里 的 菜 很 好吃。 | Masakan di dalam restoran itu sangat enak. | 里 | di dalam
+我 的 电脑 在 家 里。 | Komputerku ada di dalam rumah. | 里 | di dalam
+学校 里 的 学生 都 喜欢 这 个 老师。 | Murid-murid di dalam sekolah semuanya suka guru ini. | 里 | di dalam
+#65 方位名词: 前边 / 后边 (Depan / Belakang)
+商店 前边 有 人。 | Di depan toko ada orang. | 前边 | Di depan
+学校 后边 有 医院。 | Di belakang sekolah ada rumah sakit. | 后边 | Di belakang
+前边 是 医院。 | Di depan sana ada rumah sakit. | 前边 | Di depan
+他 在 我 后边。 | Dia ada di belakangku. | 后边 | belakang
+椅子 在 桌子 前边。 | Kursi ada di depan meja. | 前边 | di depan
+老师 在 学生 前边。 | Guru ada di depan murid-murid. | 前边 | di depan
+我 家 前边 有 商店。 | Di depan rumahku ada toko. | 前边 | Di depan
+我 家 后边 有 一 个 学校。 | Di belakang rumahku ada sebuah sekolah. | 后边 | Di belakang
+饭馆 后边 没有 商店。 | Di belakang restoran tidak ada toko. | 后边 | Di belakang
+医院 后边 有 一 家 饭馆。 | Di belakang rumah sakit ada sebuah restoran. | 后边 | Di belakang
+学校 前边 有 一 家 饭馆。 | Di depan sekolah ada sebuah restoran. | 前边 | Di depan
+我 的 同学 坐 在 我 前边。 | Teman sekelasku duduk di depanku. | 前边 | di depan
+你 看，我 爸爸 在 商店 前边。 | Lihat, ayahku ada di depan toko. | 前边 | di depan
+他 坐 在 我 后边，我们 都 是 学生。 | Dia duduk di belakangku, kami semua adalah murid. | 后边 | belakang
+我 想 在 学校 前边 买 苹果。 | Aku mau membeli apel di depan sekolah. | 前边 | depan
+#66 方位名词: 东 / 南 / 西 / 北边 (Arah Mata Angin)
+学校 在 东边。 | Sekolah ada di sebelah timur. | 东边 | timur
+医院 在 南边。 | Rumah sakit ada di sebelah selatan. | 南边 | selatan
+商店 在 西边。 | Toko ada di sebelah barat. | 西边 | barat
+我 家 在 北边。 | Rumahku ada di sebelah utara. | 北边 | utara
+北京 在 中国 的 北边。 | Beijing ada di bagian utara Tiongkok. | 北边 | utara
+学校 的 东边 有 一 家 饭馆。 | Di sebelah timur sekolah ada sebuah restoran. | 东边 | timur
+医院 的 南边 有 一 家 商店。 | Di sebelah selatan rumah sakit ada sebuah toko. | 南边 | selatan
+我 的 学校 在 医院 的 西边。 | Sekolahku ada di sebelah barat rumah sakit. | 西边 | barat
+商店 的 北边 有 很 多 人。 | Di sebelah utara toko ada banyak orang. | 北边 | utara
+我 朋友 家 在 学校 东边。 | Rumah temanku ada di sebelah timur sekolah. | 东边 | timur
+他 住 在 医院 的 南边。 | Dia tinggal di sebelah selatan rumah sakit. | 南边 | selatan
+你 去 学校 的 西边 买 苹果 吧。 | Pergilah membeli apel di sebelah barat sekolah. | 西边 | barat
+我 想 在 学校 的 北边 买 一 间 房子。 | Aku mau membeli sebuah rumah di sebelah utara sekolah. | 北边 | utara
+#67 陈述句 (Kalimat Berita / Deklaratif)
+我 妈妈 喝 茶。 | Ibuku minum teh. | 喝 | minum
+爸爸 看 电视。 | Ayah menonton TV. | 看 | menonton
+我 哥哥 吃 米饭。 | Kakak laki-lakiku makan nasi. | 吃 | makan
+我 妈妈 做 米饭。 | Ibuku memasak nasi. | 做 | memasak
+老师 写 汉语 字。 | Guru menulis karakter Mandarin. | 写 | menulis
+学生 学习 汉语。 | Murid belajar bahasa Mandarin. | 学习 | belajar
+我 的 老师 说 汉语。 | Guruku berbicara bahasa Mandarin. | 说 | berbicara
+他们 昨天 去 北京。 | Kemarin mereka pergi ke Beijing. | 去 | pergi
+我 朋友 买 苹果。 | Temanku membeli apel. | 买 | membeli
+我 爸爸 昨天 回 家。 | Kemarin ayahku pulang ke rumah. | 回 | pulang
+医生 在 医院 工作。 | Dokter bekerja di rumah sakit. | 工作 | bekerja
+我 朋友 住 在 北京。 | Temanku tinggal di Beijing. | 住 | tinggal
+我们 在 家 看 电影。 | Kami menonton film di rumah. | 看 | menonton
+同学们 都 喜欢 这 个 老师。 | Teman-teman sekelas semuanya menyukai guru ini. | 喜欢 | menyukai
+#68 特殊句型: “是”字句 (Kalimat Menggunakan 是)
+他 是 我 同学。 | Dia adalah teman sekelasku. | 是 | adalah
+这 是 我 朋友 的 杯子。 | Ini adalah gelas temanku. | 是 | adalah
+我 哥哥 是 医生。 | Kakak laki-lakiku adalah seorang dokter. | 是 | adalah
+我 妈妈 是 老师。 | Ibuku adalah seorang guru. | 是 | adalah
+那 是 一 家 商店。 | Itu adalah sebuah toko. | 是 | adalah
+今天 是 十 号。 | Hari ini adalah tanggal sepuluh. | 是 | adalah
+她 是 我 的 好 朋友。 | Dia adalah sahabatku. | 是 | adalah
+我们 的 汉语 老师 是 北京 人。 | Guru bahasa Mandarin kami adalah orang Beijing. | 是 | adalah
+那 个 学生 是 我 朋友 的 哥哥。 | Murid itu adalah kakak laki-laki temanku. | 是 | adalah
+这 是 我 昨天 买 的 杯子。 | Ini adalah gelas yang kemarin kubeli. | 是 | adalah
+我 的 朋友 是 中国 人，他 住 在 北京。 | Temanku adalah orang Tiongkok, dia tinggal di Beijing. | 是 | adalah
+那 个 在 商店 前面 的 人 是 我 的 老师。 | Orang yang ada di depan toko itu adalah guruku. | 是 | adalah
+#69 “有”字句: 领有 (Memiliki)
+我 有 很 多 书。 | Aku punya banyak buku. | 有 | punya
+他 有 很 多 朋友。 | Dia punya banyak teman. | 有 | punya
+你 有 苹果 吗？ | Apakah kamu punya apel? | 有 | punya
+我 明天 有 工作。 | Besok aku punya pekerjaan. | 有 | punya
+我 妈妈 有 一 个 漂亮 的 杯子。 | Ibuku punya sebuah gelas yang cantik. | 有 | punya
+我 朋友 有 一 个 中国 老师。 | Temanku punya seorang guru dari Tiongkok. | 有 | punya
+你 有 几 个 好 朋友？ | Kamu punya berapa teman baik? | 有 | punya
+我 的 老师 有 很 多 汉语 书。 | Guruku punya banyak buku bahasa Mandarin. | 有 | punya
+医生 有 一 个 漂亮 的 女儿。 | Dokter itu punya seorang anak perempuan yang cantik. | 有 | punya
+他 有 一 个 在 北京 工作 的 哥哥。 | Dia punya seorang kakak laki-laki yang bekerja di Beijing. | 有 | punya
+我 的 同学 有 一 个 很 大 的 家。 | Temanku punya keluarga yang sangat besar. | 有 | punya
+我 昨天 有 很 多 工作，没 去 学校。 | Kemarin aku punya banyak pekerjaan, jadi tidak pergi ke sekolah. | 有 | punya
+#70 “有”字句: 存在 (Ada di Tempat)
+家 里 有 人。 | Di rumah ada orang. | 有 | ada
+桌子 上 有 苹果。 | Di atas meja ada apel. | 有 | ada
+杯子 里 有 茶。 | Di dalam gelas ada teh. | 有 | ada
+学校 里 有 饭馆。 | Di dalam sekolah ada restoran. | 有 | ada
+北京 有 很 多 饭馆。 | Di Beijing ada banyak restoran. | 有 | ada
+椅子 上 有 一 本 书。 | Di atas kursi ada sebuah buku. | 有 | ada
+商店 后边 有 一 家 医院。 | Di belakang toko ada sebuah rumah sakit. | 有 | ada
+我们 班 有 十五 个 学生。 | Di kelas kami ada lima belas murid. | 有 | ada
+电视 里 有 一 个 好看 的 电影。 | Di TV ada sebuah film yang bagus. | 有 | ada
+我 家 前边 有 一 家 很 大 的 商店。 | Di depan rumahku ada sebuah toko yang sangat besar. | 有 | ada
+昨天 我 家 里 有 五 个 朋友。 | Kemarin di rumahku ada lima orang teman. | 有 | ada
+
+#71 名词、代词或名词性短语作主语 (Subjek Kalimat)
+衣服 很 好看。 | Bajunya sangat bagus. | 衣服 | Bajunya
+苹果 在 桌子 上。 | Apel ada di atas meja. | 苹果 | Apel
+今天 的 天气 很 好。 | Cuaca hari ini sangat bagus. | 天气 | Cuaca
+这 杯 水 太 热 了。 | Air di gelas ini terlalu panas. | 水 | Air
+我 的 同学 都 在 学校。 | Teman-teman sekelasku semuanya ada di sekolah. | 同学 | Teman-teman sekelasku
+学校 里 的 学生 很 多。 | Murid di sekolah itu banyak. | 学生 | Murid
+昨天 的 电影 很 好看。 | Film kemarin sangat bagus. | 电影 | Film
+他 的 电脑 很 漂亮。 | Komputernya sangat bagus. | 电脑 | Komputernya
+北京 的 商店 很 多。 | Toko di Beijing banyak. | 商店 | Toko
+我 朋友 做 的 菜 很 好吃。 | Masakan buatan temanku sangat enak. | 菜 | Masakan
+医院 里 的 医生 都 很 好。 | Dokter di rumah sakit itu semuanya baik. | 医生 | Dokter
+你 的 汉语 老师 是 北京 人 吗？ | Apakah guru bahasa Mandarinmu orang Beijing? | 老师 | guru
+#72 动词、形容词或其短语作谓语 (Predikat Kalimat)
+我们 学 汉语。 | Kami belajar bahasa Mandarin. | 学 | belajar
+他 在 医院 工作。 | Dia bekerja di rumah sakit. | 工作 | bekerja
+这 个 菜 很 好吃。 | Masakan ini sangat enak. | 很好吃 | sangat enak
+我 的 朋友 喜欢 喝 茶。 | Temanku suka minum teh. | 喜欢 | suka
+今天 的 天气 很 冷。 | Cuaca hari ini sangat dingin. | 很冷 | sangat dingin
+他 的 女儿 很 漂亮。 | Putrinya sangat cantik. | 很漂亮 | sangat cantik
+我 哥哥 在 北京 学习。 | Kakak laki-lakiku belajar di Beijing. | 学习 | belajar
+我 妈妈 昨天 去 了 商店。 | Kemarin ibuku pergi ke toko. | 去 | pergi
+这 个 杯子 很 小。 | Gelas ini sangat kecil. | 很小 | sangat kecil
+老师 和 学生 都 来 了。 | Guru dan murid semuanya sudah datang. | 来 | datang
+我 想 去 北京 工作。 | Aku mau pergi bekerja di Beijing. | 想 | mau
+我 昨天 喝 了 三 杯 茶。 | Kemarin aku minum tiga gelas teh. | 喝 | minum
+#73 名词、代词或名词性短语作宾语 (Objek Kalimat)
+妈妈 来 看 我 了。 | Ibu datang menjenguk aku. | 我 | aku
+我 喜欢 汉语。 | Aku suka bahasa Mandarin. | 汉语 | bahasa Mandarin
+我 想 喝 一 杯 水。 | Aku mau minum segelas air. | 水 | air
+我 爸爸 在 看 电视。 | Ayahku sedang menonton TV. | 电视 | TV
+我们 都 爱 老师。 | Kami semua menyayangi guru. | 老师 | guru
+他 认识 我 的 哥哥。 | Dia mengenal kakak laki-lakiku. | 哥哥 | kakak laki-lakiku
+我 想 吃 三 个 苹果 和 米饭。 | Aku mau makan nasi dan tiga apel. | 米饭 | nasi
+我 昨天 看见 了 你 的 朋友。 | Kemarin aku melihat temanmu. | 朋友 | temanmu
+我 不 认识 那 个 学生。 | Aku tidak mengenal murid itu. | 学生 | murid
+我 在 商店 买 了 衣服。 | Aku membeli baju di toko. | 衣服 | baju
+她 在 学校 学习 汉语。 | Dia belajar bahasa Mandarin di sekolah. | 汉语 | bahasa Mandarin
+我们 去 医院 看 医生。 | Kami pergi ke rumah sakit menemui dokter. | 医生 | dokter
+#74 主谓句1: 动词谓语句 (Kalimat Berpredikat Kata Kerja)
+我 昨天 买 衣服。 | Kemarin aku membeli baju. | 买 | membeli
+他 在 家 看 电影。 | Dia menonton film di rumah. | 看 | menonton
+我 朋友 喝 水。 | Temanku minum air. | 喝 | minum
+我 妈妈 做 菜。 | Ibuku memasak. | 做 | memasak
+爸爸 开 电脑。 | Ayah menyalakan komputer. | 开 | menyalakan
+我 昨天 去 医院。 | Kemarin aku pergi ke rumah sakit. | 去 | pergi
+我 听 老师 说 汉语。 | Aku mendengarkan guru berbicara bahasa Mandarin. | 听 | mendengarkan
+我 认识 你 的 老师。 | Aku mengenal gurumu. | 认识 | mengenal
+我 爱 我 的 妈妈。 | Aku menyayangi ibuku. | 爱 | menyayangi
+我 坐 在 椅子 上。 | Aku duduk di atas kursi. | 坐 | duduk
+她 昨天 吃 了 三 个 苹果。 | Kemarin dia makan tiga apel. | 吃 | makan
+我们 学习 汉语。 | Kami belajar bahasa Mandarin. | 学习 | belajar
+#75 主谓句2: 形容词谓语句 (Kalimat Berpredikat Kata Sifat)
+我 的 书 很 多。 | Bukuku sangat banyak. | 很多 | sangat banyak
+这 杯 水 很 热。 | Air di gelas ini sangat panas. | 很热 | sangat panas
+她 的 朋友 很 漂亮。 | Temannya sangat cantik. | 很漂亮 | sangat cantik
+这 个 苹果 很 大。 | Apel ini sangat besar. | 很大 | sangat besar
+那 个 杯子 很 小。 | Gelas itu sangat kecil. | 很小 | sangat kecil
+那 家 商店 的 杯子 很 多。 | Gelas di toko itu banyak. | 很多 | banyak
+我 爸爸 做 的 米饭 很 好吃。 | Nasi buatan ayahku sangat enak. | 很好吃 | sangat enak
+这 个 电影 很 好看。 | Film ini sangat bagus. | 很好看 | sangat bagus
+我 今天 很 高兴。 | Hari ini aku sangat senang. | 很高兴 | sangat senang
+学校 里 的 学生 很 高兴。 | Murid-murid di sekolah sangat senang. | 很高兴 | sangat senang
+今天 很 冷，我 想 在 家 看 电视。 | Hari ini sangat dingin, aku mau menonton TV di rumah. | 很冷 | sangat dingin
+那 家 商店 里 的 东西 很 漂亮。 | Barang-barang di toko itu sangat bagus. | 很漂亮 | sangat bagus
+#76 否定副词: 别 (Jangan)
+你 别 说 话。 | Jangan berbicara. | 别 | Jangan
+你 别 去 了。 | Jangan pergi. | 别 | Jangan
+别 买 这 个 杯子。 | Jangan membeli gelas ini. | 别 | Jangan
+请 别 在 这儿 喝 茶。 | Tolong jangan minum teh di sini. | 别 | jangan
+你 别 太 高兴 了。 | Jangan terlalu senang. | 别 | Jangan
+你 别 喝 太 多 水。 | Jangan minum terlalu banyak air. | 别 | Jangan
+别 坐 在 桌子 上。 | Jangan duduk di atas meja. | 别 | Jangan
+你 别 在 家 看 电视 了。 | Jangan menonton TV di rumah lagi. | 别 | Jangan
+今天 下雨，你 别 去 商店 了。 | Hari ini hujan, jangan pergi ke toko. | 别 | jangan
+妈妈 说 别 看 电视 了。 | Ibu bilang jangan menonton TV lagi. | 别 | jangan
+你 别 打 电话 了，他 在 睡觉。 | Jangan menelepon lagi, dia sedang tidur. | 别 | Jangan
+老师 说，我们 别 在 学校 里 喝 茶。 | Guru bilang kita jangan minum teh di sekolah. | 别 | jangan
+#77 否定副词: 不 (Tidak)
+今天 的 天气 不 热。 | Cuaca hari ini tidak panas. | 不 | tidak
+他 不 是 老师。 | Dia bukan guru. | 不 | bukan
+我 今天 不 喝 茶。 | Hari ini aku tidak minum teh. | 不 | tidak
+我 不 想 去 学校。 | Aku tidak mau pergi ke sekolah. | 不 | tidak
+这 个 菜 不 好吃。 | Masakan ini tidak enak. | 不 | tidak
+我 爸爸 今天 不 在 家。 | Hari ini ayahku tidak ada di rumah. | 不 | tidak
+我 不 认识 你 的 同学。 | Aku tidak mengenal temanmu. | 不 | tidak
+今天 不 下雨。 | Hari ini tidak hujan. | 不 | tidak
+我 的 同学 不 会 说 汉语。 | Temanku tidak bisa berbahasa Mandarin. | 不 | tidak
+我 哥哥 不 喜欢 看 电影。 | Kakak laki-lakiku tidak suka menonton film. | 不 | tidak
+他 不 在 北京 工作。 | Dia tidak bekerja di Beijing. | 不 | tidak
+我 今天 不 去 商店，在 家 学习 汉语。 | Hari ini aku tidak pergi ke toko, aku belajar bahasa Mandarin di rumah. | 不 | tidak
+#78 否定副词: 没 / 没有 (Tidak / Belum)
+我 没 去 学校。 | Aku tidak pergi ke sekolah. | 没 | tidak
+他 昨天 没 来。 | Kemarin dia tidak datang. | 没 | tidak
+我 昨天 没 吃饭。 | Kemarin aku tidak makan. | 没 | tidak
+我 没 看 电视。 | Aku tidak menonton TV. | 没 | tidak
+他 没有 来 学校。 | Dia tidak datang ke sekolah. | 没有 | tidak
+我 昨天 没有 喝 茶。 | Kemarin aku tidak minum teh. | 没有 | tidak
+妈妈 今天 没 做 饭。 | Hari ini ibu tidak memasak. | 没 | tidak
+老师 昨天 没 说 汉语。 | Kemarin guru tidak berbicara bahasa Mandarin. | 没 | tidak
+我 没 买 苹果。 | Aku tidak membeli apel. | 没 | tidak
+我 同学 没有 回 家。 | Temanku belum pulang ke rumah. | 没有 | belum
+他 昨天 在 家，没 去 商店。 | Kemarin dia di rumah, tidak pergi ke toko. | 没 | tidak
+昨天 我 没 看见 你。 | Kemarin aku tidak melihatmu. | 没 | tidak
+我 昨天 没 给 他 打 电话。 | Kemarin aku tidak menelepon dia. | 没 | tidak
+#79 提问的方法: 用“吗”提问 (Metode Bertanya: Partikel 吗)
+你 想 喝 水 吗？ | Apakah kamu mau minum air? | 吗 | Apakah
+你 儿子 是 学生 吗？ | Apakah anakmu seorang murid? | 吗 | Apakah
+你 明天 去 学校 吗？ | Apakah besok kamu pergi ke sekolah? | 吗 | Apakah
+你 爸爸 在 家 吗？ | Apakah ayahmu ada di rumah? | 吗 | Apakah
+你 喜欢 北京 吗？ | Apakah kamu suka Beijing? | 吗 | Apakah
+你 有 姐姐 吗？ | Apakah kamu punya kakak perempuan? | 吗 | Apakah
+她 是 你 的 同学 吗？ | Apakah dia teman sekelasmu? | 吗 | Apakah
+你 的 朋友 会 说 汉语 吗？ | Apakah temanmu bisa berbahasa Mandarin? | 吗 | Apakah
+你 认识 我 的 老师 吗？ | Apakah kamu mengenal guruku? | 吗 | Apakah
+你 明天 想 去 商店 吗？ | Apakah besok kamu mau pergi ke toko? | 吗 | Apakah
+你们 学校 有 医院 吗？ | Apakah sekolah kalian punya rumah sakit? | 吗 | Apakah
+你 昨天 看 电视 了 吗？ | Apakah kemarin kamu menonton TV? | 吗 | Apakah
+你 妈妈 做 的 菜 好吃 吗？ | Apakah masakan buatan ibumu enak? | 吗 | Apakah
+你 的 朋友 住 在 北京 吗？ | Apakah temanmu tinggal di Beijing? | 吗 | Apakah
+#80 疑问句: 是非问句 (Ya / Tidak)
+这 是 你 的 电脑 吗？ | Apakah ini komputermu? | 吗 | Apakah
+你 想 吃 米饭 吗？ | Apakah kamu mau makan nasi? | 吗 | Apakah
+他 在 学校 吗？ | Apakah dia ada di sekolah? | 吗 | Apakah
+你 要 买 苹果 吗？ | Apakah kamu mau membeli apel? | 吗 | Apakah
+他 是 你 哥哥 吗？ | Apakah dia kakak laki-lakimu? | 吗 | Apakah
+今天 很 热 吗？ | Apakah hari ini panas? | 吗 | Apakah
+你 家 前边 有 商店 吗？ | Apakah di depan rumahmu ada toko? | 吗 | Apakah
+这 个 杯子 是 你 的 吗？ | Apakah gelas ini milikmu? | 吗 | Apakah
+你 昨天 喝 茶 了 吗？ | Apakah kemarin kamu minum teh? | 吗 | Apakah
+你 想 在 家 看 电影 吗？ | Apakah kamu mau menonton film di rumah? | 吗 | Apakah
+你 的 同学 都 会 说 汉语 吗？ | Apakah teman-temanmu semuanya bisa berbahasa Mandarin? | 吗 | Apakah
+你 能 来 我 家 吗？ | Apakah kamu bisa datang ke rumahku? | 吗 | Apakah
+#81 疑问句: 特指问句 (Kata Tanya)
+那 个 人 是 谁？ | Siapa orang itu? | 谁 | Siapa
+谁 是 你 的 汉语 老师？ | Siapa guru bahasa Mandarinmu? | 谁 | Siapa
+今天 谁 在 家？ | Hari ini siapa yang ada di rumah? | 谁 | siapa
+谁 想 吃 米饭？ | Siapa yang mau makan nasi? | 谁 | Siapa
+谁 买 了 这 本 书？ | Siapa yang membeli buku ini? | 谁 | Siapa
+你 和 谁 去 学校？ | Kamu pergi ke sekolah bersama siapa? | 谁 | siapa
+这 是 谁 的 杯子？ | Ini gelas siapa? | 谁 | siapa
+你 的 汉语 老师 怎么样？ | Bagaimana guru bahasa Mandarinmu? | 怎么样 | Bagaimana
+你们 的 学校 怎么样？ | Bagaimana sekolah kalian? | 怎么样 | Bagaimana
+你 的 学校 在 哪儿？ | Di mana sekolahmu? | 哪儿 | mana
+你们 想 吃 什么 菜？ | Kalian mau makan masakan apa? | 什么 | apa
+谁 在 看 电视？ | Siapa yang sedang menonton TV? | 谁 | Siapa
+你 有 几 个 朋友 在 北京？ | Berapa temanmu yang ada di Beijing? | 几 | Berapa
+#82 提问的方法: 用疑问代词提问 (Metode Bertanya: Kata Ganti Tanya)
+你 有 几 本 汉语 书？ | Kamu punya berapa buku bahasa Mandarin? | 几 | berapa
+你 想 买 多少 杯子？ | Kamu mau membeli berapa banyak gelas? | 多少 | berapa banyak
+你 喜欢 哪 个 电影？ | Kamu suka film yang mana? | 哪 | mana
+你 想 去 哪儿 学习 汉语？ | Kamu mau belajar bahasa Mandarin di mana? | 哪儿 | mana
+你 看 了 多少 页 书？ | Kamu sudah membaca berapa halaman buku? | 多少 | berapa
+你们 班 有 几 个 中国 同学？ | Kelas kalian ada berapa teman dari Tiongkok? | 几 | berapa
+你 的 汉语 老师 是 哪儿 的 人？ | Guru bahasa Mandarinmu orang dari mana? | 哪儿 | mana
+你 在 商店 看见 了 什么？ | Apa yang kamu lihat di toko? | 什么 | Apa
+你 昨天 几 点 睡觉？ | Kemarin kamu tidur jam berapa? | 几 | berapa
+你 想 吃 哪 个 苹果？ | Kamu mau makan apel yang mana? | 哪 | mana
+谁 是 你 的 好 朋友？ | Siapa sahabatmu? | 谁 | Siapa
+你 今天 看 了 几 个 电影？ | Hari ini kamu menonton berapa film? | 几 | berapa
+
+#83 语气助词: 吧 (Saran / Ajakan)
+你们 回 学校 吧。 | Kalian kembali ke sekolah saja. | 吧 | saja
+你 坐 在 这儿 吧。 | Kamu duduk di sini saja. | 吧 | saja
+我们 一起 去 商店 吧。 | Ayo kita pergi ke toko bersama-sama. | 吧 | Ayo
+我们 去 看 医生 吧。 | Ayo kita pergi menemui dokter. | 吧 | Ayo
+你 喝 杯 茶 吧。 | Minumlah teh, ya. | 吧 | ya
+明天 去 北京 吧。 | Besok kita ke Beijing saja. | 吧 | saja
+我们 在 家 吃饭 吧。 | Ayo kita makan di rumah. | 吧 | Ayo
+现在 九 点 了，你 睡觉 吧。 | Sekarang sudah jam sembilan, tidurlah. | 吧 | -
+你 先 去 吧，我 想 在 家 看书。 | Kamu pergi duluan saja, aku mau membaca di rumah. | 吧 | saja
+他 是 你 的 老师 吧？ | Dia gurumu, ya? | 吧 | ya
+今天 很 冷 吧？ | Hari ini dingin, ya? | 吧 | ya
+你 是 北京 人 吧？ | Kamu orang Beijing, ya? | 吧 | ya
+我们 一起 学习 汉语 吧。 | Ayo kita belajar bahasa Mandarin bersama. | 吧 | Ayo
+请 你 来 我 家 吃饭 吧。 | Silakan datang makan di rumahku, ya. | 吧 | ya
+#84 语气助词: 了 (Keadaan Baru)
+下雨 了。 | Hujan sudah turun. | 了 | sudah
+天气 热 了。 | Cuaca sudah panas. | 了 | sudah
+我 儿子 九 岁 了。 | Anakku sudah berumur sembilan tahun. | 了 | sudah
+现在 十 点 了。 | Sekarang sudah jam sepuluh. | 了 | sudah
+他 是 学生 了。 | Dia sudah menjadi murid. | 了 | sudah
+我 会 说 汉语 了。 | Aku sudah bisa berbahasa Mandarin. | 了 | sudah
+我 的 女儿 大 了。 | Putriku sudah besar. | 了 | sudah
+我 的 汉语 很 好 了。 | Bahasa Mandarinku sudah bagus. | 了 | sudah
+我 现在 在 北京 工作 了。 | Sekarang aku sudah bekerja di Beijing. | 了 | sudah
+学校 的 学生 多 了。 | Murid di sekolah sudah bertambah banyak. | 了 | sudah
+他 现在 不 住 在 北京 了。 | Dia sekarang tidak tinggal di Beijing lagi. | 了 | lagi
+我 不 喝 茶 了，我 想 喝 水。 | Aku tidak minum teh lagi, aku mau minum air. | 了 | lagi
+我 有 电脑 了。 | Aku sudah punya komputer. | 了 | sudah
+#85 语气助词: 吗 (Tanya Ya/Tidak)
+他 在 看 电视 吗？ | Apakah dia sedang menonton TV? | 吗 | Apakah
+你 的 杯子 在 桌子 上 吗？ | Apakah gelasmu ada di atas meja? | 吗 | Apakah
+今天 是 星期 六 吗？ | Apakah hari ini hari Sabtu? | 吗 | Apakah
+你们 都 是 学生 吗？ | Apakah kalian semua murid? | 吗 | Apakah
+我 能 坐 在 这儿 吗？ | Apakah aku boleh duduk di sini? | 吗 | Apakah
+这 个 苹果 好吃 吗？ | Apakah apel ini enak? | 吗 | Apakah
+你 妈妈 现在 在 商店 吗？ | Apakah ibumu sekarang ada di toko? | 吗 | Apakah
+这儿 有 水 吗？ | Apakah di sini ada air? | 吗 | Apakah
+你 想 去 医院 看 医生 吗？ | Apakah kamu mau pergi ke rumah sakit menemui dokter? | 吗 | Apakah
+你 儿子 喜欢 学习 汉语 吗？ | Apakah anakmu suka belajar bahasa Mandarin? | 吗 | Apakah
+你 在 北京 住 了 两 年 吗？ | Apakah kamu sudah tinggal di Beijing selama dua tahun? | 吗 | Apakah
+你 的 老师 是 中国 人 吗？ | Apakah gurumu orang Tiongkok? | 吗 | Apakah
+你 昨天 看见 我 哥哥 了 吗？ | Apakah kemarin kamu melihat kakak laki-lakiku? | 吗 | Apakah
+你们 班 的 学生 都 来 了 吗？ | Apakah murid-murid di kelas kalian semuanya sudah datang? | 吗 | Apakah
+#86 语气助词: 呢 (Tanya Lanjutan / Sedang)
+我 在 家，你 呢？ | Aku di rumah, kalau kamu? | 呢 | Kalau
+我 喝 茶，你 呢？ | Aku minum teh, kalau kamu? | 呢 | kalau
+我 是 医生，你 呢？ | Aku seorang dokter, kalau kamu? | 呢 | kalau
+我 想 去 商店，你 呢？ | Aku mau pergi ke toko, kalau kamu? | 呢 | kalau
+你 的 电脑 呢？ | Komputermu mana? | 呢 | -
+我 爸爸 在 北京 工作，你 爸爸 呢？ | Ayahku bekerja di Beijing, kalau ayahmu? | 呢 | kalau
+我 妈妈 在 家，你 妈妈 呢？ | Ibuku ada di rumah, kalau ibumu? | 呢 | kalau
+他 在 做 什么 呢？ | Dia sedang melakukan apa, ya? | 呢 | ya
+我 的 书 在 哪儿 呢？ | Di mana ya bukuku? | 呢 | ya
+妈妈 在 家 做 饭 呢。 | Ibu sedang memasak di rumah. | 呢 | sedang
+我 的 同学 在 商店 买 衣服 呢。 | Temanku sedang membeli baju di toko. | 呢 | sedang
+他们 都 在 学校 学习 汉语 呢。 | Mereka semua sedang belajar bahasa Mandarin di sekolah. | 呢 | sedang
+#87 时间表示法: 年月日 (Tanggal)
+今天 是 十一 月 十九 号。 | Hari ini tanggal sembilan belas bulan sebelas. | 月 | bulan
+明天 是 三 月 五 号。 | Besok tanggal lima bulan tiga. | 号 | tanggal
+我 十二 月 来 北京。 | Aku datang ke Beijing bulan dua belas. | 月 | bulan
+我 二零二零{Èrlíng'èrlíng} 年 在 北京 学习 汉语。 | Pada tahun 2020 aku belajar bahasa Mandarin di Beijing. | 年 | tahun
+我 朋友 二零一九{Èrlíngyījiǔ} 年 去 了 中国。 | Temanku pergi ke Tiongkok pada tahun 2019. | 年 | tahun
+他 是 一九九五{Yījiǔjiǔwǔ} 年 十 月 来 北京 的。 | Dia datang ke Beijing pada bulan sepuluh tahun 1995. | 月 | bulan
+八 月 十五 号，我 在 家 看 电影。 | Tanggal lima belas bulan delapan, aku menonton film di rumah. | 号 | tanggal
+昨天 是 十 月 三十 号。 | Kemarin tanggal tiga puluh bulan sepuluh. | 号 | tanggal
+今天 是 二零二零{Èrlíng'èrlíng} 年 十二 月 二十五 号。 | Hari ini tanggal dua puluh lima bulan dua belas tahun 2020. | 年 | tahun
+我 儿子 二零一八{Èrlíngyībā} 年 九 月 去 学校 了。 | Anakku mulai bersekolah pada bulan sembilan tahun 2018. | 月 | bulan
+现在 是 二零二六{Èrlíng'èrliù} 年。 | Sekarang tahun 2026. | 年 | tahun
+你 是 几 月 几 号 来 学校 的？ | Kamu datang ke sekolah bulan berapa, tanggal berapa? | 月 | bulan
+我 想 十 月 十 号 去 北京。 | Aku mau pergi ke Beijing tanggal sepuluh bulan sepuluh. | 号 | tanggal
+#88 时间表示法: 星期 (Hari)
+今天 星期 三。 | Hari ini hari Rabu. | 星期三 | Rabu
+明天 星期 四。 | Besok hari Kamis. | 星期四 | Kamis
+昨天 星期 二。 | Kemarin hari Selasa. | 星期二 | Selasa
+星期 一，我 去 学校。 | Hari Senin aku pergi ke sekolah. | 星期一 | Senin
+我们 星期 五 去 看 电影。 | Hari Jumat kami pergi menonton film. | 星期五 | Jumat
+星期 六，我 在 家 看 电视。 | Hari Sabtu aku menonton TV di rumah. | 星期六 | Sabtu
+我 星期 天 不 去 学校。 | Hari Minggu aku tidak pergi ke sekolah. | 星期天 | Minggu
+今天 是 星期 五，我 很 高兴。 | Hari ini hari Jumat, aku sangat senang. | 星期五 | Jumat
+我 妈妈 星期 四 去 医院。 | Ibuku pergi ke rumah sakit hari Kamis. | 星期四 | Kamis
+他 星期 六 来 我 家 学习 汉语。 | Dia datang ke rumahku hari Sabtu untuk belajar bahasa Mandarin. | 星期六 | Sabtu
+你 星期 几 有 工作？ | Hari apa kamu punya pekerjaan? | 星期几 | Hari apa
+我们 学校 星期 天 没有 学生。 | Hari Minggu di sekolah kami tidak ada murid. | 星期天 | Minggu
+今天 星期 一，天气 很 好。 | Hari ini hari Senin, cuacanya sangat bagus. | 星期一 | Senin
+#89 时间表示法: 点 / 分 (Jam)
+现在 三 点 零 五 分。 | Sekarang jam tiga lewat lima menit. | 点 … 分 | jam … menit
+现在 七 点 十 分。 | Sekarang jam tujuh lewat sepuluh menit. | 点 … 分 | jam … menit
+我 八 点 二十 分 去 学校。 | Aku pergi ke sekolah jam delapan lewat dua puluh menit. | 点 … 分 | jam … menit
+他 九 点 三十 分 回 家。 | Dia pulang jam sembilan lewat tiga puluh menit. | 点 … 分 | jam … menit
+现在 十 点 零 八 分，我 想 睡觉。 | Sekarang jam sepuluh lewat delapan menit, aku mau tidur. | 点 … 分 | jam … menit
+我 昨天 十一 点 十五 分 睡觉。 | Kemarin aku tidur jam sebelas lewat lima belas menit. | 点 … 分 | jam … menit
+老师 八 点 五十 分 来 学校。 | Guru datang ke sekolah jam delapan lewat lima puluh menit. | 点 … 分 | jam … menit
+我 妈妈 下午 四 点 四十 分 回 家。 | Ibuku pulang jam empat lewat empat puluh menit sore. | 点 … 分 | jam … menit
+他们 中午 十二 点 十 分 在 学校 吃饭。 | Mereka makan di sekolah jam dua belas lewat sepuluh menit siang. | 点 … 分 | jam … menit
+我 今天 下午 两 点 五十 分 去 医院。 | Hari ini aku pergi ke rumah sakit jam dua lewat lima puluh menit sore. | 点 … 分 | jam … menit
+现在 是 上午 九 点 零 五 分。 | Sekarang pukul sembilan lewat lima menit pagi. | 点 … 分 | pukul … menit
+明天 上午 十 点 二十 分，我 在 学校 学习 汉语。 | Besok pagi jam sepuluh lewat dua puluh menit, aku belajar bahasa Mandarin di sekolah. | 点 … 分 | jam … menit
+#90 时间表示法: 差 (Kurang)
+现在 差 五 分 八 点。 | Sekarang kurang lima menit jam delapan. | 差 | kurang
+现在 差 十 分 九 点。 | Sekarang kurang sepuluh menit jam sembilan. | 差 | kurang
+现在 差 一 分 十 点。 | Sekarang kurang satu menit jam sepuluh. | 差 | kurang
+我 差 五 分 七 点 回 家。 | Aku pulang kurang lima menit jam tujuh. | 差 | kurang
+他 差 十 分 八 点 来 学校。 | Dia datang ke sekolah kurang sepuluh menit jam delapan. | 差 | kurang
+差 五 分 三 点，老师 来 了。 | Kurang lima menit jam tiga, guru datang. | 差 | Kurang
+现在 差 三 分 两 点。 | Sekarang kurang tiga menit jam dua. | 差 | kurang
+现在 差 十五 分 十 点。 | Sekarang kurang lima belas menit jam sepuluh. | 差 | kurang
+我 昨天 差 五 分 十一 点 睡觉。 | Kemarin aku tidur kurang lima menit jam sebelas. | 差 | kurang
+医生 差 十 分 九 点 来 医院。 | Dokter datang ke rumah sakit kurang sepuluh menit jam sembilan. | 差 | kurang
+现在 差 二十 分 十二 点，我们 去 吃饭。 | Sekarang kurang dua puluh menit jam dua belas, kita pergi makan. | 差 | kurang
+#91 钱数表示法: 块 (Yuan)
+这 个 杯子 九 块 三。 | Gelas ini sembilan yuan tiga mao. | 块 | yuan
+这 本 书 十二 块 五。 | Buku ini dua belas yuan lima mao. | 块 | yuan
+一 杯 茶 五 块 五。 | Secangkir teh lima yuan lima mao. | 块 | yuan
+这 个 苹果 三 块 二。 | Apel ini tiga yuan dua mao. | 块 | yuan
+一 杯 水 两 块 五。 | Segelas air dua yuan lima mao. | 块 | yuan
+我 买 了 一 个 杯子，十八 块 六。 | Aku membeli sebuah gelas, delapan belas yuan enam mao. | 块 | yuan
+这 些 苹果 十五 块 八。 | Apel-apel ini lima belas yuan delapan mao. | 块 | yuan
+我 在 商店 买 水，两 块 五。 | Aku membeli air di toko, dua yuan lima mao. | 块 | yuan
+他 给 我 十 块 五。 | Dia memberiku sepuluh yuan lima mao. | 块 | yuan
+老师 的 汉语 书 二十九 块 九。 | Buku bahasa Mandarin guru dua puluh sembilan yuan sembilan mao. | 块 | yuan
+#92 钱数表示法: 毛 / 分 (Satuan Kecil)
+这 本 书 十五 块 六 毛 三。 | Buku ini lima belas yuan enam mao tiga fen. | 毛 | mao
+这 个 杯子 八 块 五 毛。 | Gelas ini delapan yuan lima mao. | 毛 | mao
+一 个 苹果 一 块 二 毛。 | Satu apel satu yuan dua mao. | 毛 | mao
+这 杯 茶 九 块 九 毛 九。 | Teh ini sembilan yuan sembilan mao sembilan fen. | 毛 | mao
+我 买 了 一 杯 水，两 块 五 毛。 | Aku membeli segelas air, dua yuan lima mao. | 毛 | mao
+那 本 汉语 书 二十 块 三 毛。 | Buku bahasa Mandarin itu dua puluh yuan tiga mao. | 毛 | mao
+这 些 苹果 十二 块 四 毛。 | Apel-apel ini dua belas yuan empat mao. | 毛 | mao
+他 给 我 五 块 八 毛。 | Dia memberiku lima yuan delapan mao. | 毛 | mao
+学校 前面 的 商店 里，一 杯 茶 三 块 六 毛。 | Di toko depan sekolah, secangkir teh tiga yuan enam mao. | 毛 | mao
+我 想 买 一 个 八 块 二 毛 的 杯子。 | Aku mau membeli sebuah gelas seharga delapan yuan dua mao. | 毛 | mao
+#93 钱数表示法: 零 (Nol di Tengah)
+这 个 杯子 二十五 块 零 八。 | Gelas ini dua puluh lima yuan nol delapan. | 零 | nol
+这 本 书 十 块 零 五。 | Buku ini sepuluh yuan nol lima. | 零 | nol
+一 杯 茶 三 块 零 二。 | Secangkir teh tiga yuan nol dua. | 零 | nol
+那 个 苹果 五 块 零 六。 | Apel itu lima yuan nol enam. | 零 | nol
+我 买 了 一 个 杯子，九 块 零 七。 | Aku membeli sebuah gelas, sembilan yuan nol tujuh. | 零 | nol
+这 本 汉语 书 十二 块 零 五。 | Buku bahasa Mandarin ini dua belas yuan nol lima. | 零 | nol
+他 给 了 我 二十 块 零 三。 | Dia memberiku dua puluh yuan nol tiga. | 零 | nol
+我 昨天 在 商店 买 水，一 块 零 五。 | Kemarin aku membeli air di toko, satu yuan nol lima. | 零 | nol
+一 个 苹果 两 块 零 五。 | Satu apel dua yuan nol lima. | 零 | nol
+这 个 电脑 九百零五 块。 | Komputer ini sembilan ratus lima yuan. | 零 | -
+我 家 有 三百零四 本 书。 | Di rumahku ada tiga ratus empat buku. | 零 | -
+#94 钱数表示法: 元 (Formal / Bulat)
+这 本 书 十五 元。 | Buku ini lima belas yuan. | 元 | yuan
+这 个 杯子 二十 元。 | Gelas ini dua puluh yuan. | 元 | yuan
+一 杯 茶 八 元。 | Secangkir teh delapan yuan. | 元 | yuan
+这 些 苹果 三十 元。 | Apel-apel ini tiga puluh yuan. | 元 | yuan
+我 买 了 一 本 汉语 书，二十五 元。 | Aku membeli sebuah buku bahasa Mandarin, dua puluh lima yuan. | 元 | yuan
+这 个 电脑 九百 元。 | Komputer ini sembilan ratus yuan. | 元 | yuan
+他 给 了 我 一百 元。 | Dia memberiku seratus yuan. | 元 | yuan
+请 给 我 二十 元。 | Tolong beri aku dua puluh yuan. | 元 | yuan
+一 个 苹果 两 元。 | Satu apel dua yuan. | 元 | yuan
+那 家 商店 的 衣服 三百 元。 | Baju di toko itu tiga ratus yuan. | 元 | yuan
+学校 前面 的 商店 里，一 杯 茶 十 元。 | Di toko depan sekolah, secangkir teh sepuluh yuan. | 元 | yuan
+这 个 杯子 多少 元？ | Berapa yuan gelas ini? | 元 | yuan
+#95 介词: 在 (Preposisi: Di)
+我 在 家 吃 米饭。 | Aku makan nasi di rumah. | 在 | di
+他 在 学校 学习 汉语。 | Dia belajar bahasa Mandarin di sekolah. | 在 | di
+妈妈 在 商店 买 苹果。 | Ibu membeli apel di toko. | 在 | di
+爸爸 在 北京 工作。 | Ayah bekerja di Beijing. | 在 | di
+我 在 桌子 上 写 字。 | Aku menulis di atas meja. | 在 | di
+他 在 手机 上 看 电影。 | Dia menonton film di ponsel. | 在 | di
+我 朋友 在 医院 工作。 | Temanku bekerja di rumah sakit. | 在 | di
+她 在 电视 上 看见 了 她 的 老师。 | Dia melihat gurunya di televisi. | 在 | di
+我 在 学校 前面 的 商店 买 水。 | Aku membeli air di toko depan sekolah. | 在 | di
+我 在 椅子 上 坐 了 一 个 上午。 | Aku duduk di kursi selama satu pagi. | 在 | di
+我们 在 饭店 吃 了 很 多 菜。 | Kami makan banyak hidangan di restoran. | 在 | di
+昨天 我 在 医院 认识 了 一 个 医生。 | Kemarin aku berkenalan dengan seorang dokter di rumah sakit. | 在 | di
+#96 介词: 从 (Preposisi: Dari)
+我 从 学校 回 家。 | Aku pulang dari sekolah. | 从 | dari
+他 从 北京 来。 | Dia datang dari Beijing. | 从 | dari
+我 从 医院 回 来 了。 | Aku sudah kembali dari rumah sakit. | 从 | dari
+朋友 从 中国 来 看 我。 | Temanku datang dari Tiongkok untuk menemuiku. | 从 | dari
+老师 从 北京 给 我 打 电话。 | Guru menelepon aku dari Beijing. | 从 | dari
+这 个 水果 是 从 中国 来 的。 | Buah ini datang dari Tiongkok. | 从 | dari
+我 从 朋友 那儿 买 了 一 本 汉语 书。 | Aku membeli sebuah buku bahasa Mandarin dari temanku. | 从 | dari
+他 从 家 里 给 我 打 电话。 | Dia menelepon aku dari rumah. | 从 | dari
+这 本 书 是 从 学校 前面 的 商店 买 的。 | Buku ini dibeli dari toko depan sekolah. | 从 | dari
+他 从 昨天 下午 到 现在 都 在 医院。 | Dia ada di rumah sakit dari kemarin sore sampai sekarang. | 从 | dari
+我们 从 上午 九 点 学习 到 十一 点。 | Kami belajar dari pukul sembilan pagi sampai pukul sebelas. | 从 | dari
+商店 从 上午 八 点 开 到 下午 六 点。 | Toko buka dari pukul delapan pagi sampai pukul enam sore. | 从 | dari
+#97 介词: 跟、和 (Preposisi: Dengan / Bersama)
+我 跟 他 一起 去。 | Aku pergi bersama dia. | 跟 | bersama
+我 和 朋友 去 商店。 | Aku pergi ke toko bersama temanku. | 和 | bersama
+我 想 跟 你 做 朋友。 | Aku ingin berteman denganmu. | 跟 | dengan
+他 跟 老师 学习 汉语。 | Dia belajar bahasa Mandarin dengan guru. | 跟 | dengan
+他 和 同学 一起 学习。 | Dia belajar bersama teman sekelas. | 和 | bersama
+我 喜欢 跟 妈妈 一起 做 菜。 | Aku suka memasak bersama ibu. | 跟 | bersama
+你 跟 谁 住 在 北京？ | Kamu tinggal di Beijing dengan siapa? | 跟 | dengan
+你 想 跟 我 一起 去 北京 吗？ | Kamu ingin pergi ke Beijing bersamaku? | 跟 | bersama
+昨天 我 和 爸爸 一起 看 了 一 个 电影。 | Kemarin aku menonton film bersama ayah. | 和 | bersama
+明天 我 想 跟 同学 去 商店 买 衣服。 | Besok aku ingin pergi ke toko bersama teman sekelas untuk membeli baju. | 跟 | bersama
+我们 和 老师 一起 在 饭店 吃 了 很 多 菜。 | Kami makan banyak hidangan di restoran bersama guru. | 和 | bersama
+#98 连词: 和 / 跟 (Dan)
+我 家 有 电视 和 电脑。 | Di rumahku ada TV dan komputer. | 和 | dan
+我 喜欢 茶 和 水果。 | Aku suka teh dan buah. | 和 | dan
+桌子 上 有 书 和 杯子。 | Di atas meja ada buku dan gelas. | 和 | dan
+桌子 和 椅子 都 很 小。 | Meja dan kursi keduanya kecil. | 和 | dan
+我 跟 他 都 是 学生。 | Aku dan dia sama-sama siswa. | 跟 | dan
+老师 和 学生 都 在 学校。 | Guru dan siswa semuanya ada di sekolah. | 和 | dan
+我 喜欢 吃 米饭 和 苹果。 | Aku suka makan nasi dan apel. | 和 | dan
+今天 和 明天 我 都 不 工作。 | Hari ini dan besok aku tidak bekerja. | 和 | dan
+我 爸爸 和 妈妈 都 是 医生。 | Ayah dan ibuku keduanya dokter. | 和 | dan
+他 在 商店 买 了 衣服 和 水果。 | Dia membeli baju dan buah di toko. | 和 | dan
+我 的 同学 和 老师 都 是 北京 人。 | Teman sekelas dan guruku semuanya orang Beijing. | 和 | dan
+我 想 买 一 个 杯子 和 一 本 书。 | Aku ingin membeli sebuah gelas dan sebuah buku. | 和 | dan
+医院 前面 有 一 个 商店 和 一 个 饭店。 | Di depan rumah sakit ada sebuah toko dan sebuah restoran. | 和 | dan
+#99 连词: 还是 (Atau, Pertanyaan)
+你 去 还是 不 去？ | Kamu pergi atau tidak? | 还是 | atau
+他 是 老师 还是 学生？ | Dia guru atau siswa? | 还是 | atau
+你 喝 茶 还是 喝 水？ | Kamu minum teh atau air? | 还是 | atau
+你 今天 去 还是 明天 去？ | Kamu pergi hari ini atau besok? | 还是 | atau
+你 想 吃 米饭 还是 吃 菜？ | Kamu ingin makan nasi atau lauk? | 还是 | atau
+你 想 买 苹果 还是 买 水？ | Kamu ingin membeli apel atau air? | 还是 | atau
+你 喜欢 看 电影 还是 看 电视？ | Kamu suka menonton film atau menonton TV? | 还是 | atau
+你 是 上午 来 还是 下午 来？ | Kamu datang pagi atau sore? | 还是 | atau
+这 个 杯子 是 大 的 还是 小 的？ | Gelas ini yang besar atau yang kecil? | 还是 | atau
+她 是 你 的 朋友 还是 你 的 同学？ | Dia temanmu atau teman sekelasmu? | 还是 | atau
+这 是 你 的 书 还是 他 的 书？ | Ini bukumu atau bukunya? | 还是 | atau
+你 在 家 吃 还是 在 饭店 吃？ | Kamu makan di rumah atau di restoran? | 还是 | atau
+你 想 去 学校 还是 去 商店？ | Kamu ingin ke sekolah atau ke toko? | 还是 | atau
+#100 能愿动词: 想 (Ingin)
+我 想 喝 热 茶。 | Aku ingin minum teh panas. | 想 | ingin
+我 想 学习 汉语。 | Aku ingin belajar bahasa Mandarin. | 想 | ingin
+你 想 吃 什么 菜？ | Kamu ingin makan lauk apa? | 想 | ingin
+妈妈 想 去 商店。 | Ibu ingin pergi ke toko. | 想 | ingin
+我 不 想 吃 米饭。 | Aku tidak ingin makan nasi. | 想 | ingin
+你 想 看 电影 吗？ | Apakah kamu ingin menonton film? | 想 | ingin
+我 想 买 一 个 大 杯子。 | Aku ingin membeli sebuah gelas besar. | 想 | ingin
+我 朋友 想 去 中国 工作。 | Temanku ingin bekerja di Tiongkok. | 想 | ingin
+我 儿子 想 在 家 看 电视。 | Anak laki-lakiku ingin menonton TV di rumah. | 想 | ingin
+明天 我 想 去 医院 看 医生。 | Besok aku ingin pergi ke rumah sakit menemui dokter. | 想 | ingin
+我 女儿 想 认识 一 个 中国 朋友。 | Putriku ingin berkenalan dengan seorang teman Tiongkok. | 想 | ingin
+今天 天气 很 热，我 想 喝 冷 水。 | Hari ini cuacanya sangat panas, aku ingin minum air dingin. | 想 | ingin
+下午 我 想 在 学校 前面 的 商店 买 一 些 水果。 | Sore ini aku ingin membeli sedikit buah di toko depan sekolah. | 想 | ingin
+#101 能愿动词: 要 (Mau / Akan)
+我 要 两 杯 茶。 | Aku mau dua cangkir teh. | 要 | mau
+你 好，我 要 一 个 苹果。 | Halo, aku mau sebuah apel. | 要 | mau
+你 要 喝 茶 吗？ | Apakah kamu mau minum teh? | 要 | mau
+我 要 那 个 大 杯子。 | Aku mau gelas besar itu. | 要 | mau
+明天 我 要 去 北京。 | Besok aku akan pergi ke Beijing. | 要 | akan
+我 要 去 商店 买 东西。 | Aku mau ke toko untuk membeli barang. | 要 | mau
+你 要 买 多少 苹果？ | Kamu mau beli berapa apel? | 要 | mau
+老师 说 明天 要 下雨。 | Guru bilang besok akan hujan. | 要 | akan
+今天 下午 我 要 在 家 写 字。 | Sore ini aku akan menulis di rumah. | 要 | akan
+我 女儿 要 去 学校 读 书。 | Putriku akan pergi ke sekolah untuk belajar. | 要 | akan
+他 要 一 本 汉语 书 和 一 个 杯子。 | Dia mau sebuah buku bahasa Mandarin dan sebuah gelas. | 要 | mau
+我们 要 在 北京 住 三 个 星期。 | Kami akan tinggal di Beijing selama tiga minggu. | 要 | akan
+我 朋友 要 去 医院 看 医生，我 跟 他 一起 去。 | Temanku akan ke rumah sakit menemui dokter, aku pergi bersamanya. | 要 | akan
+#102 能愿动词: 会 (Bisa, Hasil Belajar)
+我 会 说 汉语。 | Aku bisa berbicara bahasa Mandarin. | 会 | bisa
+我 妈妈 会 做 菜。 | Ibuku bisa memasak. | 会 | bisa
+我 爸爸 会 开 飞机。 | Ayahku bisa menerbangkan pesawat. | 会 | bisa
+你 会 做 菜 吗？ | Apakah kamu bisa memasak? | 会 | bisa
+他 会 写 很 多 字。 | Dia bisa menulis banyak huruf. | 会 | bisa
+我 不 会 做 米饭。 | Aku tidak bisa memasak nasi. | 会 | bisa
+你 会 做 中国 菜 吗？ | Apakah kamu bisa memasak masakan Tiongkok? | 会 | bisa
+我 女儿 三 岁，不 会 写 字。 | Putriku berumur tiga tahun, belum bisa menulis. | 会 | bisa
+我 学习 了 三 个 月，会 说 一 些 汉语 了。 | Aku sudah belajar tiga bulan, sudah bisa berbicara sedikit bahasa Mandarin. | 会 | bisa
+他 在 北京 住 了 三 年，会 说 很 好 的 汉语。 | Dia sudah tinggal di Beijing tiga tahun, bisa berbicara bahasa Mandarin dengan baik. | 会 | bisa
+#103 能愿动词: 能 (Bisa, Kondisi)
+你 明天 能 来 吗？ | Apakah kamu bisa datang besok? | 能 | bisa
+我 能 坐 这儿 吗？ | Bolehkah aku duduk di sini? | 能 | Bolehkah
+这儿 不 能 打 电话。 | Di sini tidak boleh menelepon. | 能 | tidak boleh
+对不起，我 今天 不 能 去。 | Maaf, hari ini aku tidak bisa pergi. | 能 | tidak bisa
+你 能 给 我 一 杯 水 吗？ | Bisakah kamu memberiku segelas air? | 能 | Bisakah
+我 现在 能 看 电视 吗？ | Bolehkah aku menonton TV sekarang? | 能 | Bolehkah
+医生 说 我 不 能 喝 茶。 | Dokter bilang aku tidak boleh minum teh. | 能 | tidak boleh
+今天 下雨，我们 不 能 去 学校。 | Hari ini hujan, kami tidak bisa pergi ke sekolah. | 能 | tidak bisa
+你 能 在 下午 三 点 来 医院 吗？ | Bisakah kamu datang ke rumah sakit jam tiga sore? | 能 | Bisakah
+她 的 女儿 现在 能 读 很 多 汉语 书 了。 | Putrinya sekarang sudah bisa membaca banyak buku bahasa Mandarin. | 能 | bisa
+对不起，现在 我 不 能 跟 你 一起 去 商店。 | Maaf, sekarang aku tidak bisa pergi ke toko bersamamu. | 能 | tidak bisa
+明天 天气 很 好，我们 能 去 北京 看 朋友。 | Besok cuacanya bagus, kita bisa pergi ke Beijing menemui teman. | 能 | bisa
+#104 祈使句 (Kalimat Perintah / Permintaan)
+请 你 坐 这儿。 | Silakan kamu duduk di sini. | 请 | Silakan
+请 给 我 两 个 小 杯子。 | Tolong beri aku dua gelas kecil. | 请 | Tolong
+别 在 这儿 打 电话。 | Jangan menelepon di sini. | 别 | Jangan
+请 在 这儿 写 你 的 名字。 | Silakan tulis namamu di sini. | 请 | Silakan
+别 买 太 多 东西。 | Jangan membeli terlalu banyak barang. | 别 | Jangan
+别 看 电视 了，去 睡觉。 | Jangan menonton TV lagi, tidurlah. | 别 | Jangan
+请 你 给 我 打 电话，好 吗？ | Tolong telepon aku, ya? | 请 | Tolong
+请 你 在 医院 前面 的 商店 买 水果。 | Silakan beli buah di toko depan rumah sakit. | 请 | Silakan
+请 你 明天 下午 三 点 来 学校。 | Silakan datang ke sekolah besok jam tiga sore. | 请 | Silakan
+请 给 我 两 个 苹果 和 一 杯 茶。 | Tolong beri aku dua apel dan secangkir teh. | 请 | Tolong
+别 喝 冷 水，天气 太 冷 了。 | Jangan minum air dingin, cuacanya terlalu dingin. | 别 | Jangan
+#105 程度副词: 很 (Sangat / Penghubung)
+我 朋友 很 高。 | Temanku sangat tinggi. | 很 | sangat
+今天 天气 很 热。 | Cuaca hari ini sangat panas. | 很 | sangat
+这 本 书 很 好。 | Buku ini sangat bagus. | 很 | sangat
+我 妈妈 很 高兴。 | Ibuku sangat senang. | 很 | sangat
+我们 学校 很 大。 | Sekolah kami sangat besar. | 很 | sangat
+我 女儿 的 衣服 很 漂亮。 | Baju putriku sangat cantik. | 很 | sangat
+这儿 的 水 很 冷。 | Air di sini sangat dingin. | 很 | sangat
+下雨 了，天气 很 冷。 | Hujan turun, cuacanya sangat dingin. | 很 | sangat
+这 个 商店 的 东西 很 多。 | Barang di toko ini sangat banyak. | 很 | sangat
+他 家 的 菜 很 好 吃。 | Masakan di rumahnya sangat enak. | 很 | sangat
+他 的 汉语 老师 很 漂亮。 | Guru bahasa Mandarinnya sangat cantik. | 很 | sangat
+这 个 学校 的 学生 很 多，老师 不 多。 | Sekolah ini siswanya sangat banyak, gurunya tidak banyak. | 很 | sangat
+#106 程度副词: 非常 (Sangat)
+我 非常 高兴。 | Aku sangat senang. | 非常 | sangat
+他 非常 喜欢 狗。 | Dia sangat menyukai anjing. | 非常 | sangat
+今天 非常 冷。 | Hari ini sangat dingin. | 非常 | sangat
+这 个 苹果 非常 好。 | Apel ini sangat bagus. | 非常 | sangat
+我 非常 爱 我 的 妈妈。 | Aku sangat menyayangi ibuku. | 非常 | sangat
+老师 的 汉语 非常 好。 | Bahasa Mandarin guru sangat bagus. | 非常 | sangat
+这儿 的 天气 非常 热。 | Cuaca di sini sangat panas. | 非常 | sangat
+这 个 饭店 的 菜 非常 好。 | Masakan restoran ini sangat enak. | 非常 | sangat
+昨天 我 非常 想 回 家。 | Kemarin aku sangat ingin pulang. | 非常 | sangat
+医院 前面 的 商店 非常 大。 | Toko di depan rumah sakit sangat besar. | 非常 | sangat
+她 做 的 中国 菜 非常 好 吃。 | Masakan Tiongkok buatannya sangat enak. | 非常 | sangat
+我 的 同学 非常 喜欢 看 中国 电影。 | Teman sekelasku sangat suka menonton film Tiongkok. | 非常 | sangat
+#107 程度副词: 太 (Terlalu)
+这里 太 冷 了。 | Di sini terlalu dingin. | 太 … 了 | terlalu
+今天 的 天气 太 热 了。 | Cuaca hari ini terlalu panas. | 太 … 了 | terlalu
+你 能 来，太 好 了！ | Kamu bisa datang, bagus sekali! | 太 … 了 | sekali
+我 的 杯子 太 小 了。 | Gelasku terlalu kecil. | 太 … 了 | terlalu
+这 些 菜 太 多 了。 | Hidangan ini terlalu banyak. | 太 … 了 | terlalu
+我 的 衣服 太 大 了。 | Bajuku terlalu besar. | 太 … 了 | terlalu
+你 的 汉语 太 好 了。 | Bahasa Mandarinmu bagus sekali. | 太 … 了 | sekali
+你 的 电脑 太 漂亮 了。 | Komputermu bagus sekali. | 太 … 了 | sekali
+妈妈 做 的 菜 太 好 吃 了。 | Masakan buatan ibu enak sekali. | 太 … 了 | sekali
+这 个 商店 的 人 太 多 了。 | Orang di toko ini terlalu banyak. | 太 … 了 | terlalu
+这 个 水 太 热 了，我 不 能 喝。 | Air ini terlalu panas, aku tidak bisa meminumnya. | 太 … 了 | terlalu
+我 太 高兴 了，明天 要 去 北京。 | Aku senang sekali, besok akan pergi ke Beijing. | 太 … 了 | sekali
+今天 天气 太 冷 了，我们 不 能 去 学校。 | Hari ini cuaca terlalu dingin, kami tidak bisa pergi ke sekolah. | 太 … 了 | terlalu
+#108 程度副词: 最 (Paling)
+我 最 喜欢 茶。 | Aku paling suka teh. | 最 | paling
+这 个 杯子 最 大。 | Gelas ini yang paling besar. | 最 | paling
+他 是 我 最 好 的 朋友。 | Dia temanku yang paling baik. | 最 | paling
+你 最 想 去 哪儿？ | Kamu paling ingin pergi ke mana? | 最 | paling
+今天 是 最 冷 的 一 天。 | Hari ini adalah hari yang paling dingin. | 最 | paling
+我 最 喜欢 吃 中国 菜。 | Aku paling suka makan masakan Tiongkok. | 最 | paling
+这 个 商店 的 苹果 最 好。 | Apel toko ini yang paling bagus. | 最 | paling
+他 是 我们 学校 最 高 的 学生。 | Dia siswa paling tinggi di sekolah kami. | 最 | paling
+我 家 最 小 的 是 我 女儿。 | Yang paling kecil di rumahku adalah putriku. | 最 | paling
+在 我们 学校，他 的 汉语 最 好。 | Di sekolah kami, bahasa Mandarinnya yang paling bagus. | 最 | paling
+在 这 个 饭店，米饭 最 好 吃。 | Di restoran ini, nasinya yang paling enak. | 最 | paling
+我 最 高兴 的 是 认识 了 你。 | Yang paling menyenangkan bagiku adalah mengenalmu. | 最 | paling
+下午 三 点 是 一 天 里 最 热 的 时候。 | Pukul tiga sore adalah saat paling panas dalam sehari. | 最 | paling
+#109 程度副词: 真 (Sungguh)
+你 的 家 真 大！ | Rumahmu sungguh besar! | 真 | sungguh
+今天 天气 真 冷！ | Cuaca hari ini sungguh dingin! | 真 | sungguh
+这 个 苹果 真 大！ | Apel ini sungguh besar! | 真 | sungguh
+你 的 汉语 真 好！ | Bahasa Mandarinmu sungguh bagus! | 真 | sungguh
+你 的 衣服 真 漂亮！ | Bajumu sungguh cantik! | 真 | sungguh
+这 个 杯子 真 漂亮！ | Gelas ini sungguh cantik! | 真 | sungguh
+你 女儿 真 漂亮！ | Putrimu sungguh cantik! | 真 | sungguh
+这儿 的 天气 真 好！ | Cuaca di sini sungguh bagus! | 真 | sungguh
+这 本 汉语 书 真 好！ | Buku bahasa Mandarin ini sungguh bagus! | 真 | sungguh
+我 的 朋友 真 高！ | Temanku sungguh tinggi! | 真 | sungguh
+你 做 的 菜 真 好 吃！ | Masakan buatanmu sungguh enak! | 真 | sungguh
+昨天 的 电影 真 好 看！ | Film kemarin sungguh bagus! | 真 | sungguh
+北京 的 天气 真 热，我 想 喝 冷 水。 | Cuaca Beijing sungguh panas, aku ingin minum air dingin. | 真 | sungguh
+#110 提问的方法: 用“还是”提问 (Metode Bertanya: Pertanyaan Pilihan)
+他 是 医生 还是 老师？ | Dia dokter atau guru? | 还是 | atau
+你 是 学生 还是 老师？ | Kamu siswa atau guru? | 还是 | atau
+你 喝 热 的 还是 喝 冷 的？ | Kamu minum yang panas atau yang dingin? | 还是 | atau
+他 在 学校 还是 在 医院？ | Dia di sekolah atau di rumah sakit? | 还是 | atau
+你 想 看 电视 还是 看 书？ | Kamu ingin menonton TV atau membaca buku? | 还是 | atau
+你 买 大 的 还是 小 的？ | Kamu membeli yang besar atau yang kecil? | 还是 | atau
+你们 去 商店 还是 去 医院？ | Kalian pergi ke toko atau ke rumah sakit? | 还是 | atau
+她 是 你 妈妈 还是 你 朋友？ | Dia ibumu atau temanmu? | 还是 | atau
+这 是 你 的 杯子 还是 我 的 杯子？ | Ini gelasmu atau gelasku? | 还是 | atau
+你 是 今天 回 家 还是 明天 回 家？ | Kamu pulang hari ini atau besok? | 还是 | atau
+你 爸爸 是 昨天 来 还是 今天 来？ | Ayahmu datang kemarin atau hari ini? | 还是 | atau
+你 儿子 喜欢 看 电影 还是 喜欢 看 书？ | Putramu suka menonton film atau membaca buku? | 还是 | atau
+我们 在 你 家 做 菜 还是 在 饭店 吃？ | Kita memasak di rumahmu atau makan di restoran? | 还是 | atau
+#111 疑问句: 选择问句 (还是)
+你 爸爸 是 医生 还是 老师？ | Ayahmu dokter atau guru? | 还是 | atau
+你 学习 还是 工作？ | Kamu belajar atau bekerja? | 还是 | atau
+他 是 你 同学 还是 你 老师？ | Dia teman sekelasmu atau gurumu? | 还是 | atau
+你 想 喝 热 茶 还是 冷 水？ | Kamu ingin minum teh panas atau air dingin? | 还是 | atau
+你 爱 看 书 还是 爱 看 电视？ | Kamu suka membaca atau menonton TV? | 还是 | atau
+你 想 买 衣服 还是 买 书？ | Kamu ingin membeli baju atau buku? | 还是 | atau
+你 要 一 个 杯子 还是 两 个 杯子？ | Kamu mau satu gelas atau dua gelas? | 还是 | atau
+你 是 昨天 来 的 还是 今天 来 的？ | Kamu datang kemarin atau hari ini? | 还是 | atau
+你 的 朋友 在 医院 工作 还是 在 学校 工作？ | Temanmu bekerja di rumah sakit atau di sekolah? | 还是 | atau
+他 在 家 看 电视 还是 在 学校 学习？ | Dia menonton TV di rumah atau belajar di sekolah? | 还是 | atau
+你 先生 在 北京 工作 还是 在 家 工作？ | Suamimu bekerja di Beijing atau di rumah? | 还是 | atau
+你 喜欢 住 在 家 里 还是 住 在 学校？ | Kamu lebih suka tinggal di rumah atau di sekolah? | 还是 | atau
+这 是 你 买 的 还是 朋友 给 你 的？ | Ini kamu yang beli atau pemberian temanmu? | 还是 | atau
+#112 疑问句: 正反问句 (V 不 V)
+你 妈妈 喝 不 喝 茶？ | Ibumu minum teh atau tidak? | 喝 不 喝 | atau tidak
+你 吃 不 吃 苹果？ | Kamu makan apel atau tidak? | 吃 不 吃 | atau tidak
+他 去 不 去 医院？ | Dia pergi ke rumah sakit atau tidak? | 去 不 去 | atau tidak
+你 在 不 在 学校？ | Kamu ada di sekolah atau tidak? | 在 不 在 | atau tidak
+你 想 不 想 去 北京？ | Kamu mau pergi ke Beijing atau tidak? | 想 不 想 | atau tidak
+你 要 不 要 这 个 杯子？ | Kamu mau gelas ini atau tidak? | 要 不 要 | atau tidak
+你 认识 不 认识 这 个 医生？ | Kamu kenal dokter ini atau tidak? | 认识 不 认识 | atau tidak
+你 会 不 会 做 中国 菜？ | Kamu bisa memasak masakan Tiongkok atau tidak? | 会 不 会 | atau tidak
+你 能 不 能 来 我 家？ | Kamu bisa datang ke rumahku atau tidak? | 能 不 能 | atau tidak
+你 喜欢 不 喜欢 这 个 电影？ | Kamu suka film ini atau tidak? | 喜欢 不 喜欢 | atau tidak
+你们 明天 去 不 去 商店 买 东西？ | Kalian besok pergi ke toko untuk membeli barang atau tidak? | 去 不 去 | atau tidak
+你 朋友 喜欢 不 喜欢 北京 的 天气？ | Temanmu suka cuaca Beijing atau tidak? | 喜欢 不 喜欢 | atau tidak
+#113 正反疑问: V 不 V (Sekarang / Sifat)
+今天 天气 冷 不 冷？ | Cuaca hari ini dingin atau tidak? | 冷 不 冷 | atau tidak
+这 本 书 贵 不 贵？ | Buku ini mahal atau tidak? | 贵 不 贵 | atau tidak
+你 家 大 不 大？ | Rumahmu besar atau tidak? | 大 不 大 | atau tidak
+这 个 杯子 漂亮 不 漂亮？ | Gelas ini cantik atau tidak? | 漂亮 不 漂亮 | atau tidak
+北京 的 天气 好 不 好？ | Cuaca Beijing bagus atau tidak? | 好 不 好 | atau tidak
+这 个 水 热 不 热？ | Air ini panas atau tidak? | 热 不 热 | atau tidak
+你 今天 高兴 不 高兴？ | Kamu hari ini senang atau tidak? | 高兴 不 高兴 | atau tidak
+你 儿子 高 不 高？ | Putramu tinggi atau tidak? | 高 不 高 | atau tidak
+那 个 商店 的 东西 多 不 多？ | Barang di toko itu banyak atau tidak? | 多 不 多 | atau tidak
+这 个 饭店 的 菜 贵 不 贵？ | Hidangan restoran ini mahal atau tidak? | 贵 不 贵 | atau tidak
+这 个 苹果 好吃 不 好吃？ | Apel ini enak atau tidak? | 好吃 不 好吃 | atau tidak
+#114 正反疑问: V 没 V (Lampau)
+他 去 没 去 医院？ | Dia sudah pergi ke rumah sakit atau belum? | 去 没 去 | atau belum
+你 吃 没 吃 米饭？ | Kamu sudah makan nasi atau belum? | 吃 没 吃 | atau belum
+你 买 没 买 苹果？ | Kamu sudah membeli apel atau belum? | 买 没 买 | atau belum
+他 来 没 来 学校？ | Dia sudah datang ke sekolah atau belum? | 来 没 来 | atau belum
+你 看 没 看 昨天 的 电影？ | Kamu sudah menonton film kemarin atau belum? | 看 没 看 | atau belum
+你 喝 没 喝 这 个 茶？ | Kamu sudah minum teh ini atau belum? | 喝 没 喝 | atau belum
+你 读 没 读 这 本 书？ | Kamu sudah membaca buku ini atau belum? | 读 没 读 | atau belum
+妈妈 做 没 做 菜？ | Ibu sudah memasak atau belum? | 做 没 做 | atau belum
+他 回 没 回 家？ | Dia sudah pulang atau belum? | 回 没 回 | atau belum
+你 给 没 给 老师 打 电话？ | Kamu sudah menelepon guru atau belum? | 给 没 给 | atau belum
+你 昨天 去 没 去 商店 买 衣服？ | Kemarin kamu sudah pergi ke toko untuk membeli baju atau belum? | 去 没 去 | atau belum
+#115 正反疑问: …… 了没有
+你 吃 了 没有？ | Kamu sudah makan belum? | 了 没有 | belum
+你 来 了 没有？ | Kamu sudah datang belum? | 了 没有 | belum
+老师 来 了 没有？ | Apakah guru sudah datang belum? | 了 没有 | belum
+你 喝 水 了 没有？ | Kamu sudah minum air belum? | 了 没有 | belum
+你 写 字 了 没有？ | Kamu sudah menulis belum? | 了 没有 | belum
+他 去 医院 了 没有？ | Dia sudah pergi ke rumah sakit belum? | 了 没有 | belum
+你 买 衣服 了 没有？ | Kamu sudah membeli baju belum? | 了 没有 | belum
+妈妈 做 菜 了 没有？ | Ibu sudah memasak belum? | 了 没有 | belum
+你 给 他 打 电话 了 没有？ | Kamu sudah menelepon dia belum? | 了 没有 | belum
+你 看 那 个 电影 了 没有？ | Kamu sudah menonton film itu belum? | 了 没有 | belum
+你 昨天 去 商店 了 没有？ | Kemarin kamu sudah pergi ke toko belum? | 了 没有 | belum
+你 的 朋友 都 来 了 没有？ | Teman-temanmu semuanya sudah datang belum? | 了 没有 | belum
+#116 时间副词: 马上 (Segera)
+医生 马上 来。 | Dokter segera datang. | 马上 | segera
+我 马上 回 来。 | Aku segera kembali. | 马上 | segera
+我们 马上 去 医院。 | Kita segera pergi ke rumah sakit. | 马上 | segera
+老师 马上 来 学校。 | Guru segera datang ke sekolah. | 马上 | segera
+我 马上 给 你 打 电话。 | Aku segera menelepon kamu. | 马上 | segera
+请 你 马上 来 我 家。 | Tolong segera datang ke rumahku. | 马上 | segera
+妈妈 说 她 马上 回 家。 | Ibu bilang dia akan segera pulang. | 马上 | segera
+我 朋友 马上 要 来 了。 | Temanku sebentar lagi akan datang. | 马上 | sebentar lagi
+下雨 了，我 马上 回 学校。 | Hujan turun, aku segera kembali ke sekolah. | 马上 | segera
+他 马上 去 北京 看 朋友。 | Dia segera pergi ke Beijing menemui temannya. | 马上 | segera
+他 在 电话 里 说 他 马上 来。 | Dia bilang lewat telepon bahwa dia segera datang. | 马上 | segera
+你 马上 去 商店 买 一 些 水果。 | Segera pergi ke toko untuk membeli buah. | 马上 | segera
+现在 十一 点，我们 马上 去 饭店 吃 菜。 | Sekarang pukul sebelas, kita segera pergi ke restoran untuk makan. | 马上 | segera
+#117 时间副词: 在 / 正 / 正在 (Sedang)
+我 在 看 电视 呢。 | Aku sedang menonton TV. | 在 | sedang
+妈妈 在 做 菜 呢。 | Ibu sedang memasak. | 在 | sedang
+你 在 做 什么 呢？ | Kamu sedang apa? | 在 | sedang
+我 儿子 在 写 字 呢。 | Putraku sedang menulis. | 在 | sedang
+他 正在 学习 汉语。 | Dia sedang belajar bahasa Mandarin. | 正在 | sedang
+爸爸 正在 打 电话。 | Ayah sedang menelepon. | 正在 | sedang
+老师 正在 读 书。 | Guru sedang membaca buku. | 正在 | sedang
+我 朋友 正在 喝 茶。 | Temanku sedang minum teh. | 正在 | sedang
+我 的 同学 正在 学习 汉语。 | Teman sekelasku sedang belajar bahasa Mandarin. | 正在 | sedang
+我 女儿 正在 睡觉 呢。 | Putriku sedang tidur. | 正在 | sedang
+天气 很 热，他 在 喝 冷 水。 | Cuacanya sangat panas, dia sedang minum air dingin. | 在 | sedang
+我 去 他 家 的 时候，他 正在 做 米饭。 | Waktu aku ke rumahnya, dia sedang memasak nasi. | 正在 | sedang
+你 打 电话 来 的 时候，我 正在 看 电影。 | Waktu kamu menelepon, aku sedang menonton film. | 正在 | sedang
+#118 时间副词: 先 (Dulu)
+你 先 去 吧。 | Kamu pergi dulu saja. | 先 | dulu
+我 先 去 商店。 | Aku ke toko dulu. | 先 | dulu
+请 你 先 写 名字。 | Silakan tulis namamu dulu. | 先 | dulu
+你 先 坐，我 去 买 水。 | Kamu duduk dulu, aku pergi membeli air. | 先 | dulu
+我 先 给 妈妈 打 电话。 | Aku menelepon ibu dulu. | 先 | dulu
+你 先 说，我 在 听。 | Kamu bicara dulu, aku mendengarkan. | 先 | dulu
+你 先 喝 点 热 水。 | Minumlah sedikit air hangat dulu. | 先 | dulu
+你 先 回 家，我 马上 来。 | Kamu pulang dulu, aku segera datang. | 先 | dulu
+我们 先 吃 饭，再 看 电影。 | Kita makan dulu, lalu menonton film. | 先 | dulu
+我 想 先 去 医院 看 朋友。 | Aku ingin ke rumah sakit dulu menemui temanku. | 先 | dulu
+你 先 看 这 本 书，我 看 那 本。 | Kamu baca buku ini dulu, aku baca yang itu. | 先 | dulu
+明天 上午 我 先 去 学校，下午 去 医院。 | Besok pagi aku ke sekolah dulu, sore ke rumah sakit. | 先 | dulu
+#119 时间副词: 有时 (Kadang-kadang)
+我 有时 喝 茶。 | Aku kadang-kadang minum teh. | 有时 | kadang-kadang
+他 有时 在 家 看 书。 | Dia kadang-kadang membaca buku di rumah. | 有时 | kadang-kadang
+妈妈 有时 做 中国 菜。 | Ibu kadang-kadang memasak masakan Tiongkok. | 有时 | kadang-kadang
+我 有时 去 商店 买 水果。 | Aku kadang-kadang pergi ke toko membeli buah. | 有时 | kadang-kadang
+我 朋友 有时 来 我 家。 | Temanku kadang-kadang datang ke rumahku. | 有时 | kadang-kadang
+我 的 同学 有时 不 来 学校。 | Teman sekelasku kadang-kadang tidak datang ke sekolah. | 有时 | kadang-kadang
+我 有时 在 电脑 上 看 电影。 | Aku kadang-kadang menonton film di komputer. | 有时 | kadang-kadang
+老师 有时 和 我们 一起 吃 饭。 | Guru kadang-kadang makan bersama kami. | 有时 | kadang-kadang
+我 有时 想 回 北京 看 朋友。 | Aku kadang-kadang ingin pulang ke Beijing menemui teman. | 有时 | kadang-kadang
+我 有时 住 在 北京 的 朋友 家。 | Aku kadang-kadang menginap di rumah temanku di Beijing. | 有时 | kadang-kadang
+他 有时 在 学校 前面 的 饭店 吃 米饭。 | Dia kadang-kadang makan nasi di restoran depan sekolah. | 有时 | kadang-kadang
+天气 太 热 的 时候，我 有时 喝 冷 水。 | Kalau cuaca terlalu panas, aku kadang-kadang minum air dingin. | 有时 | kadang-kadang
+#120 频率副词: 常 / 常常 (Sering)
+他 常 去 饭店。 | Dia sering pergi ke restoran. | 常 | sering
+我 常 在 家 看 电影。 | Aku sering menonton film di rumah. | 常 | sering
+我 朋友 常 来 学校 看 我。 | Temanku sering datang ke sekolah menemuiku. | 常 | sering
+我 常常 喝 茶。 | Aku sering minum teh. | 常常 | sering
+妈妈 常常 做 中国 菜。 | Ibu sering memasak masakan Tiongkok. | 常常 | sering
+他 常常 给 我 打 电话。 | Dia sering meneleponku. | 常常 | sering
+我们 常 一起 吃饭。 | Kami sering makan bersama. | 常 | sering
+他 不 常 来 学校。 | Dia tidak sering datang ke sekolah. | 常 | sering
+我 常 去 学校 前面 的 商店 买 水。 | Aku sering membeli air di toko depan sekolah. | 常 | sering
+老师 常常 和 学生 一起 学习 汉语。 | Guru sering belajar bahasa Mandarin bersama murid. | 常常 | sering
+我 爸爸 常 坐 飞机 去 北京。 | Ayahku sering naik pesawat ke Beijing. | 常 | sering
+他 在 北京 工作，常常 回 家。 | Dia bekerja di Beijing, sering pulang ke rumah. | 常常 | sering
+#121 频率副词: 再 (Lagi, Nanti)
+我 明天 再 来。 | Besok aku datang lagi. | 再 | lagi
+你 再 喝 一 杯 茶。 | Minumlah secangkir teh lagi. | 再 | lagi
+我 想 再 买 一 个 杯子。 | Aku ingin membeli satu gelas lagi. | 再 | lagi
+我们 明天 再 去 商店。 | Kita ke toko lagi besok. | 再 | lagi
+我 想 再 看 一 个 电影。 | Aku ingin menonton satu film lagi. | 再 | lagi
+请 你 明天 下午 再 来。 | Silakan datang lagi besok sore. | 再 | lagi
+他 说 明天 再 给 我 打 电话。 | Dia bilang besok akan menelepon aku lagi. | 再 | lagi
+你 想 再 要 一 些 米饭 吗？ | Apakah kamu ingin menambah nasi lagi? | 再 | lagi
+我 想 再 学习 一 年 汉语。 | Aku ingin belajar bahasa Mandarin satu tahun lagi. | 再 | lagi
+你 先 吃 饭，我 再 给 你 打 电话。 | Kamu makan dulu, nanti aku menelepon lagi. | 再 | lagi
+今天 太 热 了，我们 明天 再 去。 | Hari ini terlalu panas, kita pergi lagi besok. | 再 | lagi
+我 吃 了 两 个 苹果，不 想 再 吃 了。 | Aku sudah makan dua apel, tidak ingin makan lagi. | 再 | lagi
+#122 范围副词: 都 (Semua)
+我们 都 很 高兴。 | Kami semua sangat senang. | 都 | semua
+他们 都 在 学校。 | Mereka semua ada di sekolah. | 都 | semua
+我 的 同学 都 来 了。 | Semua teman sekelasku sudah datang. | 都 | semua
+我 的 老师 都 很 好。 | Semua guruku baik. | 都 | semua
+这 些 苹果 都 很 大。 | Apel-apel ini semuanya besar. | 都 | semua
+这 些 书 我 都 读 了。 | Semua buku ini sudah kubaca. | 都 | semua
+这 些 衣服 我 都 买 了。 | Semua baju ini sudah kubeli. | 都 | semua
+我 的 朋友 都 喜欢 看 电影。 | Semua temanku suka menonton film. | 都 | semua
+我 家 的 人 都 喜欢 喝 茶。 | Semua orang di rumahku suka minum teh. | 都 | semua
+我 爸爸 妈妈 都 在 北京 工作。 | Ayah dan ibuku semuanya bekerja di Beijing. | 都 | semua
+商店 里 的 东西 都 很 漂亮。 | Semua barang di toko itu sangat bagus. | 都 | semua
+我们 都 想 去 中国 工作。 | Kami semua ingin bekerja di Tiongkok. | 都 | semua
+昨天 我 的 同学 都 没有 来 学校。 | Kemarin semua teman sekelasku tidak datang ke sekolah. | 都 | semua
+#123 协同副词: 一起 / 一块儿 (Bersama)
+我们 一起 去。 | Kita pergi bersama. | 一起 | bersama
+我们 一起 喝 茶。 | Kami minum teh bersama. | 一起 | bersama
+我们 常 一块儿 学习。 | Kami sering belajar bersama. | 一块儿 | bersama
+我 想 和 你 一起 去 商店。 | Aku ingin pergi ke toko bersamamu. | 一起 | bersama
+他 和 朋友 一起 看 电影。 | Dia menonton film bersama temannya. | 一起 | bersama
+你 想 一起 去 医院 吗？ | Apakah kamu mau pergi ke rumah sakit bersama? | 一起 | bersama
+我 和 同学 一块儿 学习 汉语。 | Aku belajar bahasa Mandarin bersama teman sekelas. | 一块儿 | bersama
+老师 和 学生 一起 在 学校 吃饭。 | Guru dan murid makan bersama di sekolah. | 一起 | bersama
+我 朋友 昨天 和 我 一起 看 了 电影。 | Temanku kemarin menonton film bersamaku. | 一起 | bersama
+我们 明天 一块儿 去 商店 买 衣服。 | Besok kita pergi bersama ke toko untuk membeli baju. | 一块儿 | bersama
+今天 下午 我们 一起 在 我 家 做 菜。 | Sore ini kami memasak bersama di rumahku. | 一起 | bersama
+我 和 女儿 一起 坐 飞机 去 北京。 | Aku dan putriku naik pesawat ke Beijing bersama. | 一起 | bersama
+#124 名词性词语、形容词性词语、数量短语作定语 (Atribut / Penjelas Kata Benda)
+他 在 看 汉语 书。 | Dia sedang membaca buku bahasa Mandarin. | 汉语 | bahasa Mandarin
+我 有 一 个 大 杯子。 | Aku punya sebuah gelas besar. | 大 | besar
+她 是 我 的 汉语 老师。 | Dia guru bahasa Mandarinku. | 汉语 | bahasa Mandarin
+我 买 了 三 本 书。 | Aku membeli tiga buku. | 三 本 | tiga
+这 是 我 朋友 的 电脑。 | Ini komputer temanku. | 朋友 的 | temanku
+我 喜欢 中国 菜。 | Aku suka masakan Tiongkok. | 中国 | Tiongkok
+桌子 上 有 两 个 苹果。 | Di atas meja ada dua apel. | 两 个 | dua
+我 家 有 五 个 人。 | Di rumahku ada lima orang. | 五 个 | lima
+他 买 了 一 些 水果。 | Dia membeli sedikit buah. | 一 些 | sedikit
+我 的 朋友 是 北京 人。 | Temanku orang Beijing. | 北京 | Beijing
+学校 里 有 很 多 学生。 | Di sekolah ada banyak siswa. | 很 多 | banyak
+医院 前面 的 商店 很 大。 | Toko di depan rumah sakit sangat besar. | 医院 前面 的 | di depan rumah sakit
+他 是 一 个 很 好 的 老师。 | Dia guru yang sangat baik. | 很 好 的 | sangat baik
+#125 结构助词: 的 (Penjelas Kata Benda)
+你 的 电话 在 桌子 上。 | Teleponmu ada di atas meja. | 的 | Teleponmu
+他 是 我 的 同学。 | Dia teman sekelasku. | 的 | teman sekelasku
+那 是 我 爸爸 的 电脑。 | Itu komputer ayahku. | 的 | komputer ayahku
+我 妈妈 的 汉语 很 好。 | Bahasa Mandarin ibuku sangat bagus. | 的 | Bahasa Mandarin ibuku
+这 是 老师 的 椅子。 | Ini kursi guru. | 的 | kursi guru
+我 喜欢 你 的 名字。 | Aku suka namamu. | 的 | namamu
+这 是 中国 的 苹果。 | Ini apel Tiongkok. | 的 | apel Tiongkok
+我 想 买 一 个 大 的。 | Aku ingin membeli yang besar. | 的 | yang besar
+这 个 杯子 是 我 朋友 的。 | Gelas ini milik temanku. | 的 | milik temanku
+他 喜欢 喝 热 的。 | Dia suka minum yang panas. | 的 | yang panas
+我 在 北京 的 朋友 是 医生。 | Temanku yang di Beijing adalah dokter. | 的 | Temanku yang di Beijing
+学校 前面 的 饭店 很 漂亮。 | Restoran di depan sekolah sangat bagus. | 的 | Restoran di depan sekolah
+#126 结构助词: 地 (Penjelas Kata Kerja)
+孩子 高兴 地 回 家。 | Anak itu pulang dengan gembira. | 地 | dengan gembira
+他 高兴 地 说 他 明天 回 家。 | Dia dengan gembira berkata bahwa dia akan pulang besok. | 地 | dengan gembira
+妈妈 高兴 地 给 我 打 电话。 | Ibu dengan gembira meneleponku. | 地 | dengan gembira
+他 高兴 地 吃 了 一 个 苹果。 | Dia dengan gembira makan sebuah apel. | 地 | dengan gembira
+女儿 高兴 地 看 电视。 | Putriku dengan gembira menonton TV. | 地 | dengan gembira
+他 高兴 地 喝 了 一 杯 茶。 | Dia dengan gembira minum secangkir teh. | 地 | dengan gembira
+我们 高兴 地 学习 汉语。 | Kami dengan gembira belajar bahasa Mandarin. | 地 | dengan gembira
+他 好好 地 学习 汉语。 | Dia belajar bahasa Mandarin dengan baik. | 地 | dengan baik
+请 你 好好 地 写 字。 | Tolong menulis dengan baik. | 地 | dengan baik
+你 要 好好 地 睡觉。 | Kamu harus tidur dengan baik. | 地 | dengan baik
+我 的 同学 高兴 地 去 商店 买 水果。 | Teman sekelasku dengan gembira pergi ke toko membeli buah. | 地 | dengan gembira
+我 朋友 高兴 地 说 他 要 去 北京。 | Temanku dengan gembira berkata dia akan pergi ke Beijing. | 地 | dengan gembira
+#127 副词、形容词、时间/处所词语作状语 (Adverbial / Keterangan Kalimat)
+他 十 点 睡觉。 | Dia tidur pukul sepuluh. | 十 点 | pukul sepuluh
+我 明天 去 北京。 | Besok aku pergi ke Beijing. | 明天 | Besok
+妈妈 在 家 做 菜。 | Ibu memasak di rumah. | 在 家 | di rumah
+我 昨天 去 了 医院。 | Kemarin aku pergi ke rumah sakit. | 昨天 | Kemarin
+他 很 喜欢 狗。 | Dia sangat menyukai anjing. | 很 | sangat
+我们 今天 下午 学习 汉语。 | Sore ini kami belajar bahasa Mandarin. | 今天 下午 | Sore ini
+我 朋友 在 北京 工作。 | Temanku bekerja di Beijing. | 在 北京 | di Beijing
+他 明天 在 医院 工作。 | Besok dia bekerja di rumah sakit. | 明天 | Besok
+我们 都 喜欢 这 个 老师。 | Kami semua suka guru ini. | 都 | semua
+我 想 明天 上午 去 学校。 | Aku ingin pergi ke sekolah besok pagi. | 明天 上午 | besok pagi
+我 常 在 家 看 电视。 | Aku sering menonton TV di rumah. | 常 | sering
+他 在 电脑 上 写 字。 | Dia menulis di komputer. | 在 电脑 上 | di komputer
+#128 比较句: A比B + Kata Sifat
+我 朋友 比 我 高。 | Temanku lebih tinggi daripada aku. | 比 | daripada
+他 比 我 大 三 岁。 | Dia tiga tahun lebih tua daripada aku. | 比 | daripada
+今天 比 昨天 热。 | Hari ini lebih panas daripada kemarin. | 比 | daripada
+这 个 杯子 比 那 个 大。 | Gelas ini lebih besar daripada yang itu. | 比 | daripada
+医院 比 学校 大。 | Rumah sakit lebih besar daripada sekolah. | 比 | daripada
+我 妈妈 比 爸爸 高。 | Ibuku lebih tinggi daripada ayahku. | 比 | daripada
+我 的 汉语 比 他 好。 | Bahasa Mandarinku lebih bagus daripada dia. | 比 | daripada
+我 的 电脑 比 你 的 小。 | Komputerku lebih kecil daripada milikmu. | 比 | daripada
+昨天 的 天气 比 今天 好。 | Cuaca kemarin lebih bagus daripada hari ini. | 比 | daripada
+北京 的 天气 比 这儿 冷。 | Cuaca Beijing lebih dingin daripada di sini. | 比 | daripada
+我 女儿 比 我 儿子 小 两 岁。 | Putriku dua tahun lebih muda daripada putraku. | 比 | daripada
+北京 的 学校 比 我们 的 学校 大。 | Sekolah di Beijing lebih besar daripada sekolah kami. | 比 | daripada
+#129 比较句: A没有B + Kata Sifat
+今天 没有 昨天 热。 | Hari ini tidak sepanas kemarin. | 没有 | tidak sepanas
+我 没有 他 高。 | Aku tidak setinggi dia. | 没有 | tidak setinggi
+这 个 杯子 没有 那 个 大。 | Gelas ini tidak sebesar yang itu. | 没有 | tidak sebesar
+北京 没有 这儿 热。 | Beijing tidak sepanas di sini. | 没有 | tidak sepanas
+我 的 汉语 没有 他 好。 | Bahasa Mandarinku tidak sebagus dia. | 没有 | tidak sebagus
+我 家 没有 学校 大。 | Rumahku tidak sebesar sekolah. | 没有 | tidak sebesar
+妈妈 没有 爸爸 高。 | Ibu tidak setinggi ayah. | 没有 | tidak setinggi
+我 的 朋友 没有 我 高。 | Temanku tidak setinggi aku. | 没有 | tidak setinggi
+今天 下午 没有 上午 热。 | Sore ini tidak sepanas pagi. | 没有 | tidak sepanas
+这儿 的 天气 没有 北京 冷。 | Cuaca di sini tidak sedingin Beijing. | 没有 | tidak sedingin
+我 的 电脑 没有 你 的 好。 | Komputerku tidak sebagus milikmu. | 没有 | tidak sebagus
+我 儿子 没有 我 女儿 高。 | Putraku tidak setinggi putriku. | 没有 | tidak setinggi
+这 个 商店 没有 那 个 商店 大。 | Toko ini tidak sebesar toko itu. | 没有 | tidak sebesar
+这 个 饭店 的 菜 没有 那 个 饭店 的 好吃。 | Hidangan restoran ini tidak seenak restoran itu. | 没有 | tidak seenak
+#130 介词: 比 (Preposisi Perbandingan: Daripada)
+他 比 我 高。 | Dia lebih tinggi daripada aku. | 比 | daripada
+哥哥 比 我 大 两 岁。 | Kakak laki-lakiku dua tahun lebih tua daripada aku. | 比 | daripada
+我 比 他 小 三 岁。 | Aku tiga tahun lebih muda daripada dia. | 比 | daripada
+今天 比 昨天 冷。 | Hari ini lebih dingin daripada kemarin. | 比 | daripada
+这 本 书 比 那 本 书 好。 | Buku ini lebih bagus daripada buku itu. | 比 | daripada
+我 家 比 你 家 小。 | Rumahku lebih kecil daripada rumahmu. | 比 | daripada
+这 个 苹果 比 那 个 小。 | Apel ini lebih kecil daripada yang itu. | 比 | daripada
+他 的 汉语 比 我 好。 | Bahasa Mandarinnya lebih bagus daripada aku. | 比 | daripada
+我 爸爸 比 妈妈 大 两 岁。 | Ayahku dua tahun lebih tua daripada ibuku. | 比 | daripada
+下午 的 天气 比 上午 好。 | Cuaca sore lebih bagus daripada pagi. | 比 | daripada
+他 的 电脑 比 我 的 电脑 大。 | Komputernya lebih besar daripada komputerku. | 比 | daripada
+商店 里 的 苹果 比 学校 里 的 大。 | Apel di toko lebih besar daripada di sekolah. | 比 | daripada
+这 个 饭店 的 菜 比 那 个 饭店 的 好吃。 | Hidangan restoran ini lebih enak daripada restoran itu. | 比 | daripada
+#131 感叹句 (Kalimat Seruan / Eksklamasi)
+你 太 漂亮 了！ | Kamu cantik sekali! | 太 … 了 | sekali
+这儿 太 冷 了！ | Di sini dingin sekali! | 太 … 了 | sekali
+今天 太 高兴 了！ | Hari ini senang sekali! | 太 … 了 | sekali
+你 儿子 真 高！ | Putramu tinggi sekali! | 真 | sekali
+这 个 电影 太 好 看 了！ | Film ini bagus sekali! | 太 … 了 | sekali
+这 个 苹果 太 好 吃 了！ | Apel ini enak sekali! | 太 … 了 | sekali
+北京 的 天气 太 好 了！ | Cuaca Beijing bagus sekali! | 太 … 了 | sekali
+你 家 的 狗 真 小！ | Anjing di rumahmu kecil sekali! | 真 | sekali
+今天 的 菜 真 多！ | Hidangan hari ini banyak sekali! | 真 | sekali
+这儿 的 人 真 多！ | Orang di sini banyak sekali! | 真 | sekali
+我 太 喜欢 这 个 杯子 了！ | Aku suka sekali gelas ini! | 太 … 了 | sekali
+你 做 的 米饭 太 好 吃 了！ | Nasi buatanmu enak sekali! | 太 … 了 | sekali
+桌子 上 的 书 太 多 了！ | Buku di atas meja banyak sekali! | 太 … 了 | sekali
+你 说 的 汉语 真 好！ | Bahasa Mandarin yang kamu ucapkan sungguh bagus! | 真 | sungguh
+#132 动作的态: 进行态 (Aspek Tindakan: Sedang Berlangsung)
+他 在 睡觉 呢。 | Dia sedang tidur. | 在 | sedang
+我们 在 学习 汉语。 | Kami sedang belajar bahasa Mandarin. | 在 | sedang
+女儿 正在 写 字。 | Putriku sedang menulis. | 正在 | sedang
+学生 正在 读 书。 | Murid sedang membaca buku. | 正在 | sedang
+我 爸爸 在 看 电视 呢。 | Ayahku sedang menonton TV. | 在 | sedang
+他 在 吃 苹果 呢。 | Dia sedang makan apel. | 在 | sedang
+你 看，他 正在 买 水。 | Lihat, dia sedang membeli air. | 正在 | sedang
+妈妈 正在 给 朋友 打 电话。 | Ibu sedang menelepon temannya. | 正在 | sedang
+我 在 喝 茶，你 想 喝 吗？ | Aku sedang minum teh, apakah kamu mau? | 在 | sedang
+外边 正在 下雨。 | Di luar sedang turun hujan. | 正在 | sedang
+你 打 电话 的 时候，他 在 做 什么 呢？ | Waktu kamu menelepon, dia sedang apa? | 在 | sedang
+昨天 下午 三 点，我 正在 学习 汉语。 | Kemarin pukul tiga sore, aku sedang belajar bahasa Mandarin. | 正在 | sedang
+#133 动态助词: 了 (Partikel Aspek: Selesai/Past)
+他 买 了 一 本 书。 | Dia sudah membeli sebuah buku. | 了 | sudah
+我 吃 了 两 个 苹果。 | Aku sudah makan dua apel. | 了 | sudah
+我 喝 了 一 杯 茶。 | Aku sudah minum secangkir teh. | 了 | sudah
+他 去 了 医院。 | Dia sudah pergi ke rumah sakit. | 了 | sudah
+昨天 我 看 了 一 个 电影。 | Kemarin aku sudah menonton sebuah film. | 了 | sudah
+妈妈 做 了 米饭 和 菜。 | Ibu sudah memasak nasi dan lauk. | 了 | sudah
+我 写 了 三 个 字。 | Aku sudah menulis tiga huruf. | 了 | sudah
+老师 给 了 我 一 本 书。 | Guru sudah memberiku sebuah buku. | 了 | sudah
+我 给 他 打 了 电话。 | Aku sudah meneleponnya. | 了 | sudah
+她 在 北京 住 了 三 年。 | Dia sudah tinggal di Beijing selama tiga tahun. | 了 | sudah
+他 在 商店 买 了 一 些 水果。 | Dia sudah membeli sedikit buah di toko. | 了 | sudah
+我 女儿 昨天 认识 了 一 个 中国 朋友。 | Putriku kemarin sudah berkenalan dengan seorang teman Tiongkok. | 了 | sudah
+昨天 我 和 朋友 去 商店 买 了 衣服。 | Kemarin aku dan temanku sudah pergi ke toko membeli baju. | 了 | sudah
+#134 动作的态: 完成态 (Aspek Tindakan: Selesai/Sempurna)
+他 买 了 两 个 面包。 | Dia sudah membeli dua roti. | 了 | sudah
+我 喝 了 两 杯 水。 | Aku sudah minum dua gelas air. | 了 | sudah
+我 看 了 两 个 电影。 | Aku sudah menonton dua film. | 了 | sudah
+他 吃 了 三 个 苹果。 | Dia sudah makan tiga apel. | 了 | sudah
+她 写 了 五 个 字。 | Dia sudah menulis lima huruf. | 了 | sudah
+我 买 了 一 个 杯子。 | Aku sudah membeli sebuah gelas. | 了 | sudah
+妈妈 买 了 一 些 水果。 | Ibu sudah membeli sedikit buah. | 了 | sudah
+老师 看 了 我 的 汉语 书。 | Guru sudah melihat buku bahasa Mandarinku. | 了 | sudah
+我 认识 了 一 个 医生。 | Aku sudah berkenalan dengan seorang dokter. | 了 | sudah
+爸爸 给 我 买 了 一 个 大 苹果。 | Ayah sudah membelikanku sebuah apel besar. | 了 | sudah
+哥哥 昨天 给 我 打 了 一 个 电话。 | Kakak laki-lakiku kemarin sudah meneleponku. | 了 | sudah
+我 在 北京 买 了 一 个 电脑。 | Aku sudah membeli sebuah komputer di Beijing. | 了 | sudah
+昨天 我 和 同学 吃 了 很 多 米饭。 | Kemarin aku dan teman sekelasku sudah makan banyak nasi. | 了 | sudah
+#135 关联副词 (Kata Keterangan Hubung)
+我 也 是 学生。 | Aku juga siswa. | 也 | juga
+他 也 喜欢 喝 茶。 | Dia juga suka minum teh. | 也 | juga
+我 妈妈 也 在 北京 工作。 | Ibuku juga bekerja di Beijing. | 也 | juga
+你 喝 茶，我 也 喝 茶。 | Kamu minum teh, aku juga minum teh. | 也 | juga
+你 去 学校，我 也 去 学校。 | Kamu ke sekolah, aku juga ke sekolah. | 也 | juga
+昨天 下雨，今天 也 下雨。 | Kemarin hujan, hari ini juga hujan. | 也 | juga
+他 会 说 汉语，也 会 写 字。 | Dia bisa berbicara bahasa Mandarin, juga bisa menulis. | 也 | juga
+他 爸爸 是 老师，他 妈妈 也 是 老师。 | Ayahnya guru, ibunya juga guru. | 也 | juga
+他 要 去 商店，还 要 去 医院。 | Dia mau ke toko, juga mau ke rumah sakit. | 还 | juga
+我 买 了 苹果，还 买 了 水。 | Aku membeli apel, juga membeli air. | 还 | juga
+我 有 一 个 儿子，还 有 一 个 女儿。 | Aku punya seorang putra, juga seorang putri. | 还 | juga
+妈妈 做 了 米饭，还 做 了 很 多 菜。 | Ibu memasak nasi, juga memasak banyak hidangan. | 还 | juga
+今天 又 下雨 了。 | Hari ini hujan lagi. | 又 | lagi
+#136 复句: 并列复句 (Kalimat Majemuk Setara)
+她 又 高 又 漂亮。 | Dia tinggi dan cantik. | 又 高 又 | tinggi dan
+我 儿子 又 高 又 大。 | Putraku tinggi dan besar. | 又 高 又 | tinggi dan
+这 个 苹果 又 大 又 好吃。 | Apel ini besar dan enak. | 又 大 又 | besar dan
+这 个 杯子 又 大 又 漂亮。 | Gelas ini besar dan cantik. | 又 大 又 | besar dan
+我们 学校 又 大 又 漂亮。 | Sekolah kami besar dan bagus. | 又 大 又 | besar dan
+今天 又 冷 又 下 雨。 | Hari ini dingin dan hujan. | 又 冷 又 | dingin dan
+他 一边 看 电视，一边 喝 茶。 | Dia menonton TV sambil minum teh. | 一边 看 电视，一边 | sambil
+妈妈 一边 做 菜，一边 打 电话。 | Ibu memasak sambil menelepon. | 一边 做 菜，一边 | sambil
+我 一边 听，一边 写 字。 | Aku menulis sambil mendengarkan. | 一边 听，一边 | sambil
+女儿 一边 看 书，一边 喝 水。 | Putriku minum air sambil membaca buku. | 一边 看 书，一边 | sambil
+他 又 会 说 汉语，又 会 写 字。 | Dia bisa berbicara bahasa Mandarin dan juga bisa menulis. | 又 会 说 汉语，又 | dan juga
+#137 非主谓句 (Kalimat Tanpa Subjek-Predikat Tradisional)
+下雨 了！ | Hujan turun! | 下雨 | Hujan
+明天 下雨。 | Besok hujan. | 下雨 | hujan
+谢谢 你！ | Terima kasih! | 谢谢 | Terima kasih
+对不起！ | Maaf! | 对不起 | Maaf
+没关系！ | Tidak apa-apa! | 没关系 | Tidak apa-apa
+不客气！ | Sama-sama! | 不客气 | Sama-sama
+学校 现在 几 点 开 门？ | Jam berapa sekolah buka sekarang? | 几 | jam berapa
+请 坐！ | Silakan duduk! | 请 | Silakan
+你 家 的 人 好 吗？ | Apa kabar keluargamu? | 好 | Apa kabar
+再见！ | Sampai jumpa! | 再见 | Sampai jumpa
+有 人 在 家 吗？ | Ada orang di rumah? | 有 | Ada
+那 个 电脑 多少 钱？ | Berapa harga komputer itu? | 多少 | Berapa

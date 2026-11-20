@@ -1,0 +1,1811 @@
+#0 opstaan
+Ik sta vroeg op. | Aku bangun pagi. | sta … op | bangun
+Hij staat laat op. | Dia bangun terlambat. | staat … op | bangun
+Hoe laat sta jij op? | Jam berapa kamu bangun? | sta … op | bangun
+Wij staan om zeven uur op. | Kami bangun pukul tujuh. | staan … op | bangun
+Mijn zoon staat nooit vroeg op. | Anakku tidak pernah bangun pagi. | staat … op | bangun
+Staat u elke dag om zes uur op? | Apakah Anda bangun setiap hari pukul enam? | Staat … op | bangun
+Ik moet morgen vroeg opstaan. | Besok aku harus bangun pagi. | opstaan | bangun
+Jullie staan zaterdag laat op. | Kalian bangun terlambat pada hari Sabtu. | staan … op | bangun
+Wil je niet liever later opstaan? | Apakah kamu tidak lebih suka bangun lebih siang? | opstaan | bangun
+Zij staat altijd als eerste in huis op. | Dia selalu bangun paling awal di rumah. | staat … op | bangun
+Als de wekker gaat, kan ik meteen opstaan. | Kalau alarm berbunyi, aku bisa langsung bangun. | opstaan | bangun
+Ik probeer elke dag een uur eerder op te staan. | Aku berusaha bangun satu jam lebih awal setiap hari. | op te staan | bangun
+In het weekend staan wij meestal pas om negen uur op. | Pada akhir pekan kami biasanya baru bangun pukul sembilan. | staan … op | bangun
+Mijn buurman staat elke ochtend om vijf uur op om te sporten. | Tetanggaku bangun pukul lima setiap pagi untuk berolahraga. | staat … op | bangun
+Mijn kinderen hebben vandaag geen school, dus ze staan later op. | Anak-anakku hari ini tidak sekolah, jadi mereka bangun lebih siang. | staan … op | bangun
+#1 meenemen
+Neem je paraplu mee! | Bawa payungmu! | Neem … mee | Bawa
+Ik neem mijn tas mee. | Aku membawa tasku. | neem … mee | membawa
+Hij neemt zijn laptop mee. | Dia membawa laptopnya. | neemt … mee | membawa
+Wij nemen een cadeau mee. | Kami membawa hadiah. | nemen … mee | membawa
+Zij neemt altijd een boek mee. | Dia selalu membawa buku. | neemt … mee | membawa
+Nemen jullie je fiets mee? | Apakah kalian membawa sepeda? | Nemen … mee | membawa
+Neemt u uw paspoort mee? | Apakah Anda membawa paspor Anda? | Neemt … mee | membawa
+Kun je een flesje water meenemen? | Bisakah kamu membawa sebotol air? | meenemen | membawa
+Ik wil mijn hond graag meenemen. | Aku ingin sekali membawa anjingku. | meenemen | membawa
+Vergeet niet je jas mee te nemen. | Jangan lupa membawa jaketmu. | mee te nemen | membawa
+Wat nemen jullie mee naar het feest? | Apa yang kalian bawa ke pesta? | nemen … mee | bawa
+Mag ik een vriend meenemen naar de bruiloft? | Bolehkah aku membawa seorang teman ke pernikahan? | meenemen | membawa
+Mijn moeder neemt vaak koekjes mee voor de buren. | Ibuku sering membawa kue kering untuk para tetangga. | neemt … mee | membawa
+Ik neem morgen een lunchpakket mee naar mijn werk. | Besok aku membawa bekal makan siang ke tempat kerja. | neem … mee | membawa
+Als het regent, nemen wij altijd een paraplu en een jas mee. | Kalau hujan, kami selalu membawa payung dan jaket. | nemen … mee | membawa
+#2 uitgaan
+Ik ga vanavond uit. | Malam ini aku keluar. | ga … uit | keluar
+Hij gaat nooit uit. | Dia tidak pernah keluar. | gaat … uit | keluar
+Ga je met ons uit? | Apakah kamu keluar bersama kami? | Ga … uit | keluar
+Gaan jullie zaterdag uit? | Apakah kalian keluar hari Sabtu? | Gaan … uit | keluar
+Gaat u vanavond uit? | Apakah Anda keluar malam ini? | Gaat … uit | keluar
+Wil je uitgaan? | Apakah kamu mau keluar? | uitgaan | keluar
+Mijn zus gaat elke zaterdag uit. | Kakakku keluar setiap Sabtu. | gaat … uit | keluar
+Het is koud, maar ik ga toch uit. | Dingin, tapi aku tetap keluar. | ga … uit | keluar
+Wij gaan vandaag lekker uit eten. | Hari ini kami keluar makan enak. | gaan … uit | keluar
+Ik wil vanavond niet uitgaan, ik ben moe. | Aku tidak mau keluar malam ini, aku capek. | uitgaan | keluar
+Hij gaat uit, want hij heeft een vrije avond. | Dia keluar karena punya malam bebas. | gaat … uit | keluar
+Zij gaat in het weekend vaak uit met vrienden. | Dia sering keluar bersama teman-teman saat akhir pekan. | gaat … uit | keluar
+Mijn ouders gaan zaterdag uit en ik pas op mijn broertje. | Orang tuaku keluar hari Sabtu dan aku menjaga adikku. | gaan … uit | keluar
+Na het werk gaan we vaak even uit met collega's. | Sepulang kerja kami sering sebentar keluar bersama rekan kerja. | gaan … uit | keluar
+Op zaterdagavond gaan mijn ouders vaak uit met vrienden. | Pada Sabtu malam orang tuaku sering keluar bersama teman-teman. | gaan … uit | keluar
+#3 terugkomen
+Ik kom morgen terug. | Aku kembali besok. | kom … terug | kembali
+Wanneer kom je terug? | Kapan kamu kembali? | kom … terug | kembali
+Hij komt zaterdag terug. | Dia kembali hari Sabtu. | komt … terug | kembali
+Wij komen om vijf uur terug. | Kami kembali pukul lima. | komen … terug | kembali
+Komt u straks terug? | Apakah Anda kembali nanti? | Komt … terug | kembali
+Ik wil graag terugkomen. | Aku ingin sekali kembali. | terugkomen | kembali
+Zij komt nooit meer terug. | Dia tidak akan pernah kembali lagi. | komt … terug | kembali
+Komen jullie volgende week terug? | Apakah kalian kembali minggu depan? | Komen … terug | kembali
+Kom je ook terug naar Nederland? | Apakah kamu juga kembali ke Belanda? | Kom … terug | kembali
+Het is beter om morgen terug te komen. | Lebih baik kembali besok. | terug te komen | kembali
+Mijn zus komt over een maand uit Spanje terug. | Kakakku kembali dari Spanyol sebulan lagi. | komt … terug | kembali
+Ik kom pas terug als de vergadering klaar is. | Aku baru kembali kalau rapatnya selesai. | kom … terug | kembali
+De kinderen komen om half vier terug van school. | Anak-anak kembali dari sekolah pukul setengah empat. | komen … terug | kembali
+Mijn vader komt vanavond laat terug van zijn werk. | Ayahku kembali larut malam ini dari kerja. | komt … terug | kembali
+Wij komen na de vakantie weer terug naar kantoor. | Setelah liburan kami kembali lagi ke kantor. | komen … terug | kembali
+#4 begrijpen
+Ik begrijp het. | Aku mengerti. | begrijp | mengerti
+Begrijp je dat? | Apakah kamu mengerti itu? | Begrijp | mengerti
+Hij begrijpt mij niet. | Dia tidak mengerti aku. | begrijpt | mengerti
+Wij begrijpen de vraag. | Kami mengerti pertanyaan itu. | begrijpen | mengerti
+Begrijpt u de les? | Apakah Anda mengerti pelajarannya? | Begrijpt | mengerti
+Zij begrijpt Frans heel goed. | Dia sangat memahami bahasa Prancis. | begrijpt | memahami
+Begrijpen jullie de tekst? | Apakah kalian memahami teksnya? | Begrijpen | memahami
+Het is moeilijk te begrijpen. | Ini sulit dipahami. | begrijpen | dipahami
+Mijn kinderen begrijpen alles al. | Anak-anakku sudah mengerti semuanya. | begrijpen | mengerti
+Ik begrijp je probleem heel goed. | Aku sangat memahami masalahmu. | begrijp | memahami
+Ik begrijp niet waarom hij boos is. | Aku tidak mengerti mengapa dia marah. | begrijp | mengerti
+Als je langzaam praat, begrijpt hij je beter. | Kalau kamu bicara pelan, dia lebih mengerti kamu. | begrijpt | mengerti
+Wij begrijpen niet wat de dokter bedoelt. | Kami tidak mengerti maksud dokter. | begrijpen | mengerti
+Begrijpt iedereen de opdracht of moet ik het nog eens uitleggen? | Apakah semua orang memahami tugasnya atau aku harus menjelaskannya lagi? | Begrijpt | memahami
+Mijn oma begrijpt geen woord Engels, maar ze lacht altijd. | Nenekku tidak mengerti sepatah kata pun bahasa Inggris, tapi dia selalu tersenyum. | begrijpt | mengerti
+#5 vergeten
+Vergeet je sleutels niet! | Jangan lupa kuncimu! | Vergeet | lupa
+Ik vergeet het altijd. | Aku selalu lupa. | vergeet | lupa
+Hij vergeet zijn tas. | Dia lupa tasnya. | vergeet | lupa
+Wij vergeten de tijd. | Kami lupa waktu. | vergeten | lupa
+Zij vergeet nooit een verjaardag. | Dia tidak pernah lupa ulang tahun. | vergeet | lupa
+Jullie vergeten het huiswerk. | Kalian lupa pekerjaan rumah. | vergeten | lupa
+Vergeet jij ook altijd alles? | Apakah kamu juga selalu lupa segalanya? | Vergeet | lupa
+Vergeet niet om melk te kopen. | Jangan lupa membeli susu. | Vergeet | lupa
+Mijn opa vergeet soms mijn naam. | Kakekku kadang lupa namaku. | vergeet | lupa
+Ik ben bang dat ik de afspraak vergeet. | Aku takut lupa janji temu itu. | vergeet | lupa
+Kinderen vergeten de tijd als ze buiten spelen. | Anak-anak lupa waktu kalau bermain di luar. | vergeten | lupa
+Als ik niet oplet, vergeet ik mijn wachtwoord. | Kalau tidak hati-hati, aku lupa kata sandiku. | vergeet | lupa
+Wij vergeten nooit de mooie zomer in Italië. | Kami tidak pernah melupakan musim panas yang indah di Italia. | vergeten | melupakan
+Mijn man vergeet vaak waar hij zijn bril heeft gelegd. | Suamiku sering lupa di mana dia meletakkan kacamatanya. | vergeet | lupa
+Vergeten jullie niet dat de winkel morgen vroeg dicht gaat? | Apakah kalian tidak lupa bahwa toko besok tutup lebih awal? | Vergeten | lupa
+#6 zich wassen
+Ik was me. | Aku mandi. | was me | mandi
+Hij wast zich. | Dia mandi. | wast zich | mandi
+Wij wassen ons. | Kami mandi. | wassen ons | mandi
+Zij wast zich snel. | Dia mandi dengan cepat. | wast zich | mandi
+Jullie wassen je voor het eten. | Kalian mencuci diri sebelum makan. | wassen je | mencuci diri
+Ik was me altijd met warm water. | Aku selalu mandi dengan air hangat. | was me | mandi
+Na het sporten wast hij zich. | Setelah olahraga dia mandi. | wast … zich | mandi
+Mijn zoontje wast zich al zelf. | Anakku sudah mandi sendiri. | wast zich | mandi
+Wast u zich elke dag met koud water? | Apakah Anda mandi setiap hari dengan air dingin? | Wast u zich | mandi
+Ik was me snel, want ik ben te laat. | Aku mandi cepat-cepat, soalnya aku terlambat. | was me | mandi
+Als het warm is, was ik me twee keer per dag. | Kalau panas, aku mandi dua kali sehari. | was ik me | mandi
+Mijn buurman wast zich elke dag met koud water. | Tetanggaku mandi setiap hari dengan air dingin. | wast zich | mandi
+Na het zwemmen wassen wij ons onder de douche. | Setelah berenang kami mandi di bawah pancuran. | wassen wij ons | mandi
+De kinderen wassen zich voor het slapengaan in de badkamer. | Anak-anak mandi di kamar mandi sebelum tidur. | wassen zich | mandi
+Voordat jullie gaan eten, wassen jullie je eerst. | Sebelum makan, kalian mandi dulu. | wassen jullie je | mandi
+#7 zich voelen
+Ik voel me goed. | Aku merasa baik. | voel me | merasa
+Hij voelt zich ziek. | Dia merasa sakit. | voelt zich | merasa
+Zij voelt zich moe. | Dia merasa lelah. | voelt zich | merasa
+Hoe voel je je? | Kamu merasa bagaimana? | voel je je | merasa
+Wij voelen ons thuis. | Kami merasa betah. | voelen ons | merasa
+Voelt u zich beter? | Apakah Anda merasa lebih baik? | Voelt u zich | merasa
+Ik voel me niet zo lekker. | Aku merasa kurang enak badan. | voel me | merasa
+Voelen jullie je hier prettig? | Apakah kalian merasa nyaman di sini? | Voelen jullie je | merasa
+Mijn zoon voelt zich vandaag veel beter. | Anakku merasa jauh lebih baik hari ini. | voelt zich | merasa
+Ik voel me eenzaam in deze grote stad. | Aku merasa kesepian di kota besar ini. | voel me | merasa
+Als ik koffie drink, voel ik me wakker. | Kalau minum kopi, aku merasa segar. | voel ik me | merasa
+Wij voelen ons veilig in dit kleine dorp. | Kami merasa aman di desa kecil ini. | voelen ons | merasa
+Voel je je soms gestrest op je werk? | Apakah kamu kadang merasa stres di tempat kerjamu? | Voel je je | merasa
+Mijn oma voelt zich de laatste tijd erg moe. | Nenekku akhir-akhir ini merasa sangat lelah. | voelt zich | merasa
+Na de vakantie voelen de kinderen zich weer vrolijk. | Setelah liburan anak-anak merasa ceria lagi. | voelen … zich | merasa
+#8 zich herinneren
+Ik herinner me dat. | Aku mengingat itu. | herinner me | mengingat
+Hij herinnert zich alles. | Dia mengingat semuanya. | herinnert zich | mengingat
+Wij herinneren ons die dag. | Kami mengingat hari itu. | herinneren ons | mengingat
+Herinner je je mij nog? | Apakah kamu masih mengingatku? | Herinner je je | mengingat
+Herinnert u zich de naam? | Apakah Anda mengingat namanya? | Herinnert u zich | mengingat
+Zij herinnert zich het huis nog. | Dia masih mengingat rumah itu. | herinnert zich | mengingat
+Herinneren jullie je het feest? | Apakah kalian mengingat pestanya? | Herinneren jullie je | mengingat
+Ik herinner me mijn eerste schooldag nog goed. | Aku masih ingat hari pertama sekolahku. | herinner me | ingat
+Mijn dochter herinnert zich elk woord van het liedje. | Putriku mengingat setiap kata lagu itu. | herinnert zich | mengingat
+Ik herinner me niet waar ik mijn sleutels heb gelaten. | Aku tidak ingat di mana aku meninggalkan kunciku. | herinner me | ingat
+Herinner je je nog hoe we elkaar hebben ontmoet? | Apakah kamu masih ingat bagaimana kita bertemu? | Herinner je je | ingat
+Mijn opa herinnert zich de oorlog nog heel goed. | Kakekku masih mengingat perang itu dengan sangat baik. | herinnert zich | mengingat
+Zij herinnert zich haar jeugd in Rotterdam met plezier. | Dia mengingat masa kecilnya di Rotterdam dengan senang. | herinnert zich | mengingat
+Wij herinneren ons de mooie zomer in Spanje nog goed. | Kami masih ingat musim panas yang indah di Spanyol. | herinneren ons | ingat
+Als ik die foto zie, herinner ik me ineens onze reis naar Italië. | Kalau melihat foto itu, aku tiba-tiba ingat perjalanan kami ke Italia. | herinner ik me | ingat
+#9 gaan + infinitief
+Ik ga werken. | Aku akan bekerja. | ga … werken | akan
+Hij gaat koken. | Dia akan memasak. | gaat … koken | akan
+Wij gaan eten. | Kami akan makan. | gaan … eten | akan
+Ga je morgen werken? | Apakah kamu akan bekerja besok? | Ga … werken | akan
+Gaat u vanavond bellen? | Apakah Anda akan menelepon malam ini? | Gaat … bellen | akan
+Zij gaat volgende week verhuizen. | Dia akan pindah rumah minggu depan. | gaat … verhuizen | akan
+Gaan jullie zaterdag voetballen? | Apakah kalian akan bermain sepak bola hari Sabtu? | Gaan … voetballen | akan
+Wat ga je vanavond doen? | Apa yang akan kamu lakukan malam ini? | ga … doen | akan
+Ik ga morgen mijn oma bezoeken. | Besok aku akan mengunjungi nenekku. | ga … bezoeken | akan
+Ga je ons helpen met de verhuizing? | Apakah kamu akan membantu kami pindahan? | Ga … helpen | akan
+Wij gaan in juli naar Spanje reizen. | Kami akan bepergian ke Spanyol bulan Juli. | gaan … reizen | akan
+Mijn broer gaat een nieuwe auto kopen. | Kakakku akan membeli mobil baru. | gaat … kopen | akan
+Zij gaan volgend jaar trouwen in Amsterdam. | Mereka akan menikah di Amsterdam tahun depan. | gaan … trouwen | akan
+De kinderen gaan na school bij hun opa spelen. | Anak-anak akan bermain di rumah kakek mereka sepulang sekolah. | gaan … spelen | akan
+Als het morgen mooi weer is, gaan wij een lange wandeling maken. | Kalau besok cuaca bagus, kami akan berjalan jauh. | gaan … maken | akan
+#10 zullen + infinitief
+Hij zal komen. | Dia akan datang. | zal komen | akan
+Ik zal je bellen. | Aku akan meneleponmu. | zal … bellen | akan
+Wij zullen winnen. | Kami akan menang. | zullen winnen | akan
+Zij zal blij zijn. | Dia akan senang. | zal … zijn | akan
+Het zal morgen regenen. | Besok akan hujan. | zal … regenen | akan
+Zul je op tijd zijn? | Apakah kamu akan datang tepat waktu? | Zul … zijn | akan
+Zullen we naar het strand gaan? | Bagaimana kalau kita pergi ke pantai? | Zullen we | Bagaimana kalau
+Zullen jullie er morgen zijn? | Apakah kalian akan ada di sana besok? | Zullen … zijn | akan
+Ik zal het nooit vergeten. | Aku tidak akan pernah melupakannya. | zal … vergeten | akan
+Zal ik de deur voor je openen? | Perlukah aku membukakan pintu untukmu? | Zal ik | Perlukah
+Je zult dit verhaal zeker mooi vinden. | Kamu pasti akan menyukai cerita ini. | zult … vinden | akan
+Wij zullen er om acht uur zijn. | Kami akan berada di sana pukul delapan. | zullen … zijn | akan
+Het zal dit weekend waarschijnlijk koud worden. | Akhir pekan ini mungkin akan dingin. | zal … worden | akan
+Mijn vader zal je morgen zeker terugbellen. | Ayahku pasti akan meneleponmu kembali besok. | zal … terugbellen | akan
+Als je goed leert, zul je zeker slagen voor het examen. | Kalau belajar dengan baik, kamu pasti akan lulus ujian. | zul … slagen | akan
+
+#11 werken
+Ik werkte gisteren. | Kemarin aku bekerja. | werkte | bekerja
+Hij werkte hard. | Dia bekerja keras. | werkte | bekerja
+Wij werkten samen. | Kami bekerja sama. | werkten | bekerja
+Ik heb gewerkt. | Aku sudah bekerja. | gewerkt | bekerja
+Zij heeft vandaag niet gewerkt. | Hari ini dia tidak bekerja. | gewerkt | bekerja
+Waar werkte je vroeger? | Dulu kamu bekerja di mana? | werkte | bekerja
+Heb je vandaag thuis gewerkt? | Apakah hari ini kamu bekerja dari rumah? | gewerkt | bekerja
+Mijn vader werkte vroeger in een fabriek. | Dulu ayahku bekerja di pabrik. | werkte | bekerja
+Wij hebben de hele dag gewerkt. | Kami bekerja sepanjang hari. | gewerkt | bekerja
+De kinderen werkten rustig aan hun huiswerk. | Anak-anak mengerjakan pekerjaan rumah dengan tenang. | werkten | mengerjakan
+Zij werkten tien jaar bij hetzelfde bedrijf. | Mereka bekerja sepuluh tahun di perusahaan yang sama. | werkten | bekerja
+Ik heb vorige zomer in een restaurant gewerkt. | Musim panas lalu aku bekerja di restoran. | gewerkt | bekerja
+Mijn collega heeft gisteren tot acht uur gewerkt. | Rekan kerjaku kemarin bekerja sampai pukul delapan. | gewerkt | bekerja
+Toen ik in Utrecht woonde, werkte ik in een boekwinkel. | Waktu tinggal di Utrecht, aku bekerja di toko buku. | werkte | bekerja
+Hebben jullie het hele weekend aan het project gewerkt? | Apakah kalian bekerja pada proyek itu sepanjang akhir pekan? | gewerkt | bekerja
+#12 maken
+Ik maakte soep. | Aku membuat sup. | maakte | membuat
+Hij maakte een fout. | Dia membuat kesalahan. | maakte | membuat
+Wij maakten een foto. | Kami mengambil foto. | maakten | mengambil
+Ik heb koffie gemaakt. | Aku sudah membuat kopi. | gemaakt | membuat
+Zij heeft taart gemaakt. | Dia membuat kue tart. | gemaakt | membuat
+Wat maakte je gisteren? | Apa yang kamu buat kemarin? | maakte | buat
+Heb je het avondeten al gemaakt? | Apakah kamu sudah membuat makan malam? | gemaakt | membuat
+Mijn moeder maakte altijd pannenkoeken. | Ibuku selalu membuat pannenkoek. | maakte | membuat
+De kinderen maakten veel lawaai. | Anak-anak membuat banyak kebisingan. | maakten | membuat
+Wij hebben een lange wandeling gemaakt. | Kami melakukan jalan kaki yang panjang. | gemaakt | melakukan
+Hij heeft zijn huiswerk nog niet gemaakt. | Dia belum mengerjakan pekerjaan rumahnya. | gemaakt | mengerjakan
+Mijn buurvrouw maakte gisteren een heerlijke appeltaart. | Tetanggaku kemarin membuat kue apel yang lezat. | maakte | membuat
+Wij hebben samen een plan gemaakt voor de vakantie. | Kami bersama-sama membuat rencana untuk liburan. | gemaakt | membuat
+Mijn broer maakte in zijn jeugd mooie tekeningen. | Kakakku membuat gambar-gambar indah semasa kecil. | maakte | membuat
+Zij hebben een afspraak gemaakt voor volgende week. | Mereka membuat janji untuk minggu depan. | gemaakt | membuat
+#13 wonen
+Ik woonde in Bandung. | Aku tinggal di Bandung. | woonde | tinggal
+Hij woonde alleen. | Dia tinggal sendirian. | woonde | tinggal
+Wij woonden in Utrecht. | Kami tinggal di Utrecht. | woonden | tinggal
+Ik heb daar gewoond. | Aku pernah tinggal di sana. | gewoond | tinggal
+Waar woonde je eerst? | Di mana kamu tinggal dulu? | woonde | tinggal
+Zij woonde bij haar oma. | Dia tinggal bersama neneknya. | woonde | tinggal
+Heb je ooit in het buitenland gewoond? | Pernahkah kamu tinggal di luar negeri? | gewoond | tinggal
+Mijn ouders woonden vroeger in een klein dorp. | Orang tuaku dulu tinggal di desa kecil. | woonden | tinggal
+Wij hebben tien jaar in Rotterdam gewoond. | Kami tinggal sepuluh tahun di Rotterdam. | gewoond | tinggal
+Hij heeft drie jaar bij zijn tante gewoond. | Dia tinggal tiga tahun bersama tantenya. | gewoond | tinggal
+Toen ik jong was, woonde ik aan zee. | Waktu aku muda, aku tinggal di tepi laut. | woonde | tinggal
+Mijn zus heeft een jaar in Spanje gewoond. | Kakakku pernah tinggal setahun di Spanyol. | gewoond | tinggal
+De familie woonde in een groot huis met een tuin. | Keluarga itu tinggal di rumah besar dengan kebun. | woonde | tinggal
+Wij woonden in een flat bij het station. | Kami tinggal di apartemen dekat stasiun. | woonden | tinggal
+Heeft hij altijd in dezelfde straat gewoond? | Apakah dia selalu tinggal di jalan yang sama? | gewoond | tinggal
+#14 leren
+Ik leerde Frans. | Aku belajar bahasa Prancis. | leerde | belajar
+Hij leerde snel. | Dia belajar dengan cepat. | leerde | belajar
+Wij leerden samen. | Kami belajar bersama. | leerden | belajar
+Ik heb veel geleerd. | Aku sudah belajar banyak. | geleerd | belajar
+Zij heeft Nederlands geleerd. | Dia sudah belajar bahasa Belanda. | geleerd | belajar
+Wat leerde je op school? | Apa yang kamu pelajari di sekolah? | leerde | pelajari
+Heb je voor de toets geleerd? | Apakah kamu belajar untuk ujian? | geleerd | belajar
+De kinderen leerden zingen. | Anak-anak belajar bernyanyi. | leerden | belajar
+Mijn opa leerde mij schaken. | Kakekku mengajariku bermain catur. | leerde | mengajariku
+Wij hebben de hele avond voor het examen geleerd. | Kami belajar sepanjang malam untuk ujian. | geleerd | belajar
+Hij leerde zwemmen toen hij vijf jaar oud was. | Dia belajar berenang waktu berumur lima tahun. | leerde | belajar
+Mijn zoon leerde vorig jaar fietsen. | Anakku belajar bersepeda tahun lalu. | leerde | belajar
+Mijn dochter heeft gisteren een nieuw liedje geleerd. | Putriku kemarin mempelajari lagu baru. | geleerd | mempelajari
+Ik heb in Jakarta Nederlands geleerd bij een goede lerares. | Aku belajar bahasa Belanda di Jakarta pada guru yang baik. | geleerd | belajar
+Wat hebben jullie vandaag op school geleerd? | Apa yang kalian pelajari hari ini di sekolah? | geleerd | pelajari
+#15 reizen
+Ik reisde veel. | Aku sering bepergian. | reisde | bepergian
+Hij reisde alleen. | Dia bepergian sendirian. | reisde | bepergian
+Wij reisden samen. | Kami bepergian bersama. | reisden | bepergian
+Ik heb veel gereisd. | Aku sudah banyak bepergian. | gereisd | bepergian
+Zij heeft door Azië gereisd. | Dia sudah bepergian keliling Asia. | gereisd | bepergian
+Hoe reisde je naar Berlijn? | Bagaimana kamu bepergian ke Berlin? | reisde | bepergian
+Heb je ooit met de boot gereisd? | Pernahkah kamu bepergian dengan kapal? | gereisd | bepergian
+Mijn ouders reisden vroeger met de trein. | Orang tuaku dulu bepergian dengan kereta. | reisden | bepergian
+Wij hebben een maand door Italië gereisd. | Kami bepergian selama sebulan keliling Italia. | gereisd | bepergian
+Wij hebben nog nooit zo comfortabel gereisd. | Kami belum pernah bepergian senyaman ini. | gereisd | bepergian
+Hebben jullie met de bus of met de trein gereisd? | Apakah kalian bepergian dengan bus atau kereta? | gereisd | bepergian
+Vroeger reisden wij elk jaar naar het zuiden van Frankrijk. | Dulu kami setiap tahun bepergian ke Prancis selatan. | reisden | bepergian
+In de zomer reisde hij met zijn vrienden naar Portugal. | Di musim panas dia bepergian ke Portugal bersama teman-temannya. | reisde | bepergian
+Mijn zus heeft vorig jaar alleen door Japan gereisd. | Kakakku tahun lalu bepergian sendirian keliling Jepang. | gereisd | bepergian
+Hij reisde met weinig bagage, want hij hield niet van sjouwen. | Dia bepergian dengan sedikit bagasi karena tidak suka mengangkat barang berat. | reisde | bepergian
+#16 schrijven
+Ik schreef een brief. | Aku menulis surat. | schreef | menulis
+Hij schreef een boek. | Dia menulis buku. | schreef | menulis
+Wij schreven een kaartje. | Kami menulis kartu pos. | schreven | menulis
+Ik heb geschreven. | Aku sudah menulis. | geschreven | menulis
+Zij heeft een mail geschreven. | Dia sudah menulis email. | geschreven | menulis
+Wie schreef dit boek? | Siapa yang menulis buku ini? | schreef | menulis
+Heb je je naam geschreven? | Apakah kamu sudah menulis namamu? | geschreven | menulis
+Ze schreven allebei een lang verslag. | Mereka berdua menulis laporan panjang. | schreven | menulis
+De leraar schreef de woorden op het bord. | Guru menulis kata-kata itu di papan tulis. | schreef | menulis
+Wij hebben gisteren veel mails geschreven. | Kemarin kami menulis banyak email. | geschreven | menulis
+Hij heeft zijn adres op een papiertje geschreven. | Dia menulis alamatnya di secarik kertas. | geschreven | menulis
+Wanneer hebben jullie die tekst geschreven? | Kapan kalian menulis teks itu? | geschreven | menulis
+Mijn opa schreef elke week een brief aan mijn oma. | Kakekku menulis surat untuk nenekku setiap minggu. | schreef | menulis
+Mijn dochter schreef een kaart aan haar vriendin in Spanje. | Putriku menulis kartu untuk temannya di Spanyol. | schreef | menulis
+Mijn zus heeft het hele verhaal in één nacht geschreven. | Kakakku menulis seluruh cerita itu dalam satu malam. | geschreven | menulis
+#17 drinken
+Ik dronk thee. | Aku minum teh. | dronk | minum
+Hij dronk water. | Dia minum air. | dronk | minum
+Wij dronken koffie. | Kami minum kopi. | dronken | minum
+Ik heb gedronken. | Aku sudah minum. | gedronken | minum
+Zij heeft melk gedronken. | Dia sudah minum susu. | gedronken | minum
+Wat dronk je gisteren? | Kamu minum apa kemarin? | dronk | minum
+Heb je genoeg gedronken? | Apakah kamu sudah cukup minum? | gedronken | minum
+De kinderen dronken veel limonade. | Anak-anak minum banyak limun. | dronken | minum
+Zij dronken hun koffie op het terras. | Mereka minum kopi di teras. | dronken | minum
+Wij hebben samen een biertje gedronken. | Kami minum bir bersama. | gedronken | minum
+Mijn vader dronk altijd een kopje thee na het eten. | Ayahku selalu minum secangkir teh setelah makan. | dronk | minum
+Ik heb vanochtend al twee koppen koffie gedronken. | Pagi ini aku sudah minum dua cangkir kopi. | gedronken | minum
+Mijn oma dronk elke avond een glas warme melk. | Nenekku minum segelas susu hangat setiap malam. | dronk | minum
+Hebben jullie genoeg water gedronken tijdens de wandeling? | Apakah kalian minum cukup air selama berjalan kaki? | gedronken | minum
+Hij heeft te veel cola gedronken en kan nu niet slapen. | Dia minum terlalu banyak cola dan sekarang tidak bisa tidur. | gedronken | minum
+#18 nemen
+Ik nam een boek. | Aku mengambil buku. | nam | mengambil
+Hij nam de bus. | Dia naik bus. | nam | naik
+Wij namen een taxi. | Kami naik taksi. | namen | naik
+Ik heb een besluit genomen. | Aku sudah mengambil keputusan. | genomen | mengambil
+Zij heeft haar jas genomen. | Dia sudah mengambil jaketnya. | genomen | mengambil
+Welke trein nam je gisteren? | Kereta mana yang kamu naiki kemarin? | nam | naiki
+Heb je een paraplu genomen? | Apakah kamu mengambil payung? | genomen | mengambil
+De kinderen namen een koekje. | Anak-anak mengambil sebuah kue kering. | namen | mengambil
+Mijn vader nam altijd de fiets naar zijn werk. | Ayahku selalu naik sepeda ke tempat kerja. | nam | naik
+Wij hebben de tram genomen omdat het regende. | Kami naik trem karena hujan. | genomen | naik
+Zij namen een kamer in een klein hotel. | Mereka menyewa kamar di hotel kecil. | namen | menyewa
+Ik heb vorige week een paar dagen vrij genomen. | Minggu lalu aku mengambil cuti beberapa hari. | genomen | mengambil
+Hij nam zijn tijd en antwoordde heel rustig. | Dia meluangkan waktu dan menjawab dengan sangat tenang. | nam | meluangkan
+Welke weg hebben jullie genomen om hier te komen? | Jalan mana yang kalian ambil untuk sampai ke sini? | genomen | ambil
+Mijn zus heeft een belangrijk besluit genomen over haar studie. | Kakakku sudah mengambil keputusan penting tentang kuliahnya. | genomen | mengambil
+#19 spreken
+Ik sprak Engels. | Aku berbicara bahasa Inggris. | sprak | berbicara
+Hij sprak zacht. | Dia berbicara pelan. | sprak | berbicara
+Wij spraken Duits. | Kami berbicara bahasa Jerman. | spraken | berbicara
+Ik heb hem gesproken. | Aku sudah berbicara dengannya. | gesproken | berbicara
+Zij heeft met de dokter gesproken. | Dia sudah berbicara dengan dokter. | gesproken | berbicara
+Met wie sprak je gisteren? | Dengan siapa kamu berbicara kemarin? | sprak | berbicara
+Heb je al met je baas gesproken? | Apakah kamu sudah berbicara dengan atasanmu? | gesproken | berbicara
+Mijn oma sprak alleen Javaans met ons. | Nenekku hanya berbicara bahasa Jawa dengan kami. | sprak | berbicara
+Hebben jullie de nieuwe buren al gesproken? | Apakah kalian sudah berbicara dengan tetangga baru? | gesproken | berbicara
+Wij hebben gisteren lang over het plan gesproken. | Kemarin kami lama berbicara tentang rencana itu. | gesproken | berbicara
+Zij spraken fluisterend, om de baby niet wakker te maken. | Mereka berbicara berbisik agar tidak membangunkan bayi. | spraken | berbicara
+Ik heb vandaag al drie keer met mijn moeder gesproken. | Hari ini aku sudah tiga kali berbicara dengan ibuku. | gesproken | berbicara
+Mijn broer sprak vroeger beter Frans dan ik. | Dulu kakakku berbicara bahasa Prancis lebih baik daripada aku. | sprak | berbicara
+De leraar sprak langzaam, zodat iedereen het begreep. | Guru berbicara pelan supaya semua orang mengerti. | sprak | berbicara
+Tijdens de vergadering sprak de directeur over de plannen voor volgend jaar. | Saat rapat, direktur berbicara tentang rencana tahun depan. | sprak | berbicara
+#20 zien
+Ik zag hem. | Aku melihatnya. | zag | melihat
+Hij zag een vogel. | Dia melihat seekor burung. | zag | melihat
+Wij zagen de zee. | Kami melihat laut. | zagen | melihat
+Ik heb haar gezien. | Aku sudah melihatnya. | gezien | melihat
+Zij heeft de film gezien. | Dia sudah menonton film itu. | gezien | menonton
+Wat zag je daar? | Apa yang kamu lihat di sana? | zag | lihat
+Heb je mijn sleutels gezien? | Apakah kamu melihat kunciku? | gezien | melihat
+De kinderen zagen een grote hond. | Anak-anak melihat seekor anjing besar. | zagen | melihat
+Ik zag gisteren je broer in de stad. | Kemarin aku melihat kakakmu di kota. | zag | melihat
+Wij hebben dat huis nooit gezien. | Kami belum pernah melihat rumah itu. | gezien | melihat
+Zij zagen elkaar voor het eerst op een feest. | Mereka pertama kali bertemu di sebuah pesta. | zagen | bertemu
+Hebben jullie de nieuwe film al gezien? | Apakah kalian sudah menonton film baru itu? | gezien | menonton
+Toen ik naar buiten keek, zag ik veel sneeuw. | Waktu menengok ke luar, aku melihat banyak salju. | zag | melihat
+Mijn oma zag niet goed meer, maar ze las toch elke dag. | Nenekku sudah tidak bisa melihat dengan baik, tapi dia tetap membaca setiap hari. | zag | melihat
+Ik heb haar al jaren niet meer gezien, maar ik denk vaak aan haar. | Sudah bertahun-tahun aku tidak melihatnya, tapi aku sering memikirkannya. | gezien | melihat
+#21 kopen
+Ik kocht brood. | Aku membeli roti. | kocht | membeli
+Hij kocht een fiets. | Dia membeli sepeda. | kocht | membeli
+Wij kochten bloemen. | Kami membeli bunga. | kochten | membeli
+Ik heb een jas gekocht. | Aku sudah membeli jaket. | gekocht | membeli
+Zij heeft kaartjes gekocht. | Dia sudah membeli tiket. | gekocht | membeli
+Wat kocht je daar? | Apa yang kamu beli di sana? | kocht | beli
+Heb je al brood gekocht? | Apakah kamu sudah membeli roti? | gekocht | membeli
+De kinderen kochten snoep bij de kiosk. | Anak-anak membeli permen di kios. | kochten | membeli
+Mijn zus kocht een jurk voor het feest. | Kakakku membeli gaun untuk pesta. | kocht | membeli
+Wij hebben een cadeau voor opa gekocht. | Kami membeli hadiah untuk kakek. | gekocht | membeli
+Mijn vader kocht vorig jaar een nieuwe auto. | Ayahku membeli mobil baru tahun lalu. | kocht | membeli
+Waar hebben jullie die mooie tas gekocht? | Di mana kalian membeli tas bagus itu? | gekocht | membeli
+Zij kochten een klein huis dicht bij het station. | Mereka membeli rumah kecil dekat stasiun. | kochten | membeli
+Ik heb vanochtend op de markt verse groenten gekocht. | Pagi ini aku membeli sayuran segar di pasar. | gekocht | membeli
+Hij heeft eindelijk de laptop gekocht waar hij zo lang voor gespaard had. | Dia akhirnya membeli laptop yang sudah lama ia tabung. | gekocht | membeli
+#22 gaan
+Ik ging naar de stad. | Aku pergi ke kota. | ging | pergi
+Hij ging naar school. | Dia pergi ke sekolah. | ging | pergi
+Wij gingen naar het strand. | Kami pergi ke pantai. | gingen | pergi
+Ik ben naar mijn oma gegaan. | Aku pergi ke rumah nenekku. | gegaan | pergi
+Zij is naar Parijs gegaan. | Dia pergi ke Paris. | gegaan | pergi
+Waar ging je gisteren heen? | Ke mana kamu pergi kemarin? | ging | pergi
+Ben je naar de dokter gegaan? | Apakah kamu pergi ke dokter? | gegaan | pergi
+De kinderen gingen vroeg naar bed. | Anak-anak pergi tidur lebih awal. | gingen | pergi
+Ben je ooit naar Indonesië gegaan? | Pernahkah kamu pergi ke Indonesia? | gegaan | pergi
+Wij zijn gisteren naar de bioscoop gegaan. | Kemarin kami pergi ke bioskop. | gegaan | pergi
+Hij ging naar buiten omdat het zo warm was. | Dia pergi ke luar karena begitu panas. | ging | pergi
+Zij gingen samen op vakantie naar Griekenland. | Mereka pergi berlibur ke Yunani bersama-sama. | gingen | pergi
+Mijn vader ging elke dag met de fiets naar zijn werk. | Ayahku pergi bekerja dengan sepeda setiap hari. | ging | pergi
+Na de les is zij meteen naar het station gegaan. | Setelah pelajaran dia langsung pergi ke stasiun. | gegaan | pergi
+Wij gingen met de hele familie naar het verjaardagsfeest van opa. | Kami pergi bersama seluruh keluarga ke pesta ulang tahun kakek. | gingen | pergi
+#23 komen
+Ik kwam te laat. | Aku datang terlambat. | kwam | datang
+Hij kwam gisteren. | Dia datang kemarin. | kwam | datang
+Wij kwamen samen. | Kami datang bersama. | kwamen | datang
+Ik ben gekomen. | Aku sudah datang. | gekomen | datang
+Zij is vandaag niet gekomen. | Hari ini dia tidak datang. | gekomen | datang
+Wanneer kwam je thuis? | Kapan kamu sampai di rumah? | kwam | sampai
+Is hij op tijd gekomen? | Apakah dia datang tepat waktu? | gekomen | datang
+De gasten kwamen om acht uur. | Para tamu datang pukul delapan. | kwamen | datang
+Wij zijn met de trein gekomen. | Kami datang naik kereta. | gekomen | datang
+Ik ben vandaag met de fiets gekomen. | Hari ini aku datang naik sepeda. | gekomen | datang
+Zij kwam uit een klein dorp in het noorden. | Dia berasal dari desa kecil di utara. | kwam | berasal
+Zijn jullie ook naar het feest gekomen? | Apakah kalian juga datang ke pesta? | gekomen | datang
+Mijn oom kwam elke zomer bij ons logeren. | Pamanku datang menginap di rumah kami setiap musim panas. | kwam | datang
+Veel mensen kwamen naar de markt om verse vis te kopen. | Banyak orang datang ke pasar untuk membeli ikan segar. | kwamen | datang
+Mijn buurvrouw is gisteravond nog even gekomen om de sleutel te brengen. | Tetanggaku tadi malam sempat datang untuk mengantar kunci. | gekomen | datang
+#24 blijven
+Ik bleef thuis. | Aku tetap di rumah. | bleef | tetap
+Hij bleef rustig. | Dia tetap tenang. | bleef | tetap
+Wij bleven lang. | Kami tinggal lama. | bleven | tinggal
+Ik ben thuis gebleven. | Aku tetap di rumah. | gebleven | tetap
+Zij is op kantoor gebleven. | Dia tetap di kantor. | gebleven | tetap
+Waarom bleef je zo lang? | Mengapa kamu tinggal begitu lama? | bleef | tinggal
+Ben je gisteren thuis gebleven? | Apakah kemarin kamu tetap di rumah? | gebleven | tetap
+De kinderen bleven binnen vanwege de regen. | Anak-anak tetap di dalam karena hujan. | bleven | tetap
+Mijn vader bleef de hele dag in bed. | Ayahku tetap di tempat tidur sepanjang hari. | bleef | tetap
+Wij zijn een week in Amsterdam gebleven. | Kami tinggal seminggu di Amsterdam. | gebleven | tinggal
+Zij bleven vrienden, ook na de verhuizing. | Mereka tetap berteman, bahkan setelah pindahan. | bleven | tetap
+Ben je lang bij je oma gebleven? | Apakah kamu lama tinggal di rumah nenekmu? | gebleven | tinggal
+Hij bleef maar praten, ook al was het laat. | Dia terus saja berbicara, meski sudah larut. | bleef | terus
+Het is niet gelukt, maar wij zijn positief gebleven. | Tidak berhasil, tapi kami tetap positif. | gebleven | tetap
+Mijn zus is na het feest nog een nacht bij ons gebleven. | Kakakku masih menginap semalam di rumah kami setelah pesta. | gebleven | menginap
+#25 zijn
+Ik was thuis. | Aku berada di rumah. | was | berada
+Het was koud. | Cuacanya dingin. | was | -
+Wij waren er. | Kami ada di sana. | waren | ada
+Zij was in Parijs. | Dia berada di Paris. | was | berada
+Ik ben ziek geweest. | Aku sempat sakit. | geweest | sempat
+Waar was je gisteren? | Kamu berada di mana kemarin? | was | berada
+Ben je ooit in Italië geweest? | Pernahkah kamu ke Italia? | geweest | Pernahkah
+Mijn vader was vroeger leraar. | Dulu ayahku adalah seorang guru. | was | adalah
+De kinderen waren moe na de reis. | Anak-anak capek setelah perjalanan. | waren | -
+Wij zijn nog nooit in Azië geweest. | Kami belum pernah ke Asia. | geweest | belum pernah ke
+Hij was blij dat zijn vrienden er waren. | Dia senang teman-temannya ada di sana. | waren | ada
+Ik ben vorig jaar twee weken in Indonesië geweest. | Tahun lalu aku pergi ke Indonesia selama dua minggu. | geweest | pergi ke
+Mijn oma was erg trots op haar kleinkinderen. | Nenekku sangat bangga pada cucu-cucunya. | was | -
+Zijn jullie al eens in het museum geweest? | Apakah kalian pernah ke museum? | geweest | pernah ke
+Toen wij jong waren, was er nog geen internet. | Waktu kami muda, belum ada internet. | waren | -
+#26 hebben
+Ik had een fiets. | Aku punya sepeda. | had | punya
+Hij had een hond. | Dia punya anjing. | had | punya
+Wij hadden tijd. | Kami punya waktu. | hadden | punya
+Ik heb een goede dag gehad. | Aku mengalami hari yang menyenangkan. | gehad | mengalami
+Zij heeft veel werk gehad. | Dia punya banyak pekerjaan. | gehad | punya
+Hadden jullie mooi weer in Spanje? | Apakah cuaca di Spanyol bagus bagi kalian? | Hadden | -
+Heb je een fijn weekend gehad? | Apakah akhir pekanmu menyenangkan? | gehad | -
+Mijn opa had vroeger een kleine boerderij. | Dulu kakekku punya peternakan kecil. | had | punya
+De kinderen hadden veel plezier op het feest. | Anak-anak bersenang-senang di pesta. | hadden | -
+Wij hebben nooit een auto gehad. | Kami tidak pernah punya mobil. | gehad | punya
+Ik had gisteren hoofdpijn en bleef thuis. | Kemarin aku sakit kepala dan tinggal di rumah. | had | sakit kepala
+Zij hadden drie kinderen en een grote tuin. | Mereka punya tiga anak dan kebun besar. | hadden | punya
+Mijn zus heeft een drukke week gehad. | Minggu kakakku sangat sibuk. | gehad | -
+Hebben jullie genoeg tijd gehad voor de opdracht? | Apakah kalian punya cukup waktu untuk tugas itu? | gehad | punya
+Toen ik jong was, had ik lang haar en een rode fiets. | Waktu muda, aku punya rambut panjang dan sepeda merah. | had | punya
+#27 kunnen
+Ik kon niet slapen. | Aku tidak bisa tidur. | kon | bisa
+Hij kon goed zwemmen. | Dia bisa berenang dengan baik. | kon | bisa
+Wij konden niet komen. | Kami tidak bisa datang. | konden | bisa
+Kon je mij verstaan? | Apakah kamu bisa mengerti aku? | Kon | bisa
+Zij kon gisteren niet werken. | Kemarin dia tidak bisa bekerja. | kon | bisa
+Konden jullie de weg vinden? | Apakah kalian bisa menemukan jalannya? | Konden | bisa
+Mijn oma kon heel mooi zingen. | Nenekku bisa menyanyi dengan sangat indah. | kon | bisa
+Ik kon de sleutel nergens vinden. | Aku tidak bisa menemukan kuncinya di mana pun. | kon | bisa
+Dat heb ik nooit gekund. | Itu tidak pernah bisa kulakukan. | gekund | bisa
+Als kind kon ik uren buiten spelen. | Waktu kecil aku bisa bermain di luar berjam-jam. | kon | bisa
+Kon u mij gisteren niet bellen? | Apakah Anda tidak bisa meneleponku kemarin? | Kon | bisa
+De kinderen konden niet naar buiten door de regen. | Anak-anak tidak bisa keluar karena hujan. | konden | bisa
+Mijn broer kon niet komen omdat hij nog moest werken. | Kakakku tidak bisa datang karena masih harus bekerja. | kon | bisa
+Wij konden de film niet zien, want er stond een man voor ons. | Kami tidak bisa melihat filmnya karena ada pria di depan kami. | konden | bisa
+Zij kon vroeger niet fietsen, maar nu rijdt ze overal heen. | Dulu dia tidak bisa bersepeda, tapi sekarang dia ke mana-mana. | kon | bisa
+#28 willen
+Ik wilde water. | Aku mau air. | wilde | mau
+Hij wilde gaan. | Dia mau pergi. | wilde | mau
+Wij wilden eten. | Kami mau makan. | wilden | mau
+Wilde je koffie? | Apakah kamu mau kopi? | Wilde | mau
+Zij wilde niet komen. | Dia tidak mau datang. | wilde | mau
+Wat wilde je gisteren? | Apa yang kamu mau kemarin? | wilde | mau
+Wilden jullie thee of koffie? | Apakah kalian mau teh atau kopi? | Wilden | mau
+De kinderen wilden niet naar bed. | Anak-anak tidak mau tidur. | wilden | mau
+Ik wilde vroeger piloot worden. | Dulu aku ingin jadi pilot. | wilde | ingin
+Dat heb ik nooit gewild. | Aku tidak pernah menginginkan itu. | gewild | menginginkan
+Mijn vader wilde altijd een boerderij kopen. | Ayahku selalu ingin membeli peternakan. | wilde | ingin
+Zij wilden eerst nog even naar de winkel. | Mereka ingin ke toko dulu sebentar. | wilden | ingin
+Hij wilde mij bellen, maar zijn telefoon was leeg. | Dia ingin meneleponku, tapi ponselnya kehabisan baterai. | wilde | ingin
+Wij wilden naar het strand, maar het begon te regenen. | Kami ingin ke pantai, tapi hujan mulai turun. | wilden | ingin
+Wilde je mij iets vertellen toen je gisteren belde? | Apakah kamu ingin memberitahuku sesuatu waktu menelepon kemarin? | Wilde | ingin
+#29 moeten
+Ik moest werken. | Aku harus bekerja. | moest | harus
+Hij moest wachten. | Dia harus menunggu. | moest | harus
+Wij moesten gaan. | Kami harus pergi. | moesten | harus
+Moest je vroeg opstaan? | Apakah kamu harus bangun pagi? | Moest | harus
+Zij moest naar de dokter. | Dia harus ke dokter. | moest | harus
+Moesten jullie veel leren? | Apakah kalian harus banyak belajar? | Moesten | harus
+Moest u lang wachten? | Apakah Anda harus menunggu lama? | Moest | harus
+Ik moest gisteren overwerken. | Kemarin aku harus lembur. | moest | harus
+Mijn zus moest het huis schoonmaken. | Kakakku harus membersihkan rumah. | moest | harus
+De kinderen moesten vroeg naar bed. | Anak-anak harus tidur lebih awal. | moesten | harus
+Wij moesten een uur op de trein wachten. | Kami harus menunggu kereta selama satu jam. | moesten | harus
+Hij moest zijn huiswerk nog afmaken voordat hij kon spelen. | Dia masih harus menyelesaikan pekerjaan rumahnya sebelum bisa bermain. | moest | harus
+Wij moesten het formulier in het Nederlands invullen. | Kami harus mengisi formulir itu dalam bahasa Belanda. | moesten | harus
+Toen ik klein was, moest ik elke zondag naar de kerk. | Waktu kecil, aku harus pergi ke gereja setiap hari Minggu. | moest | harus
+Mijn vader moest elke dag twee uur reizen naar zijn werk. | Ayahku harus menempuh perjalanan dua jam setiap hari ke tempat kerja. | moest | harus
+#30 mogen
+Ik mocht niet gaan. | Aku tidak boleh pergi. | mocht | boleh
+Hij mocht blijven. | Dia boleh tinggal. | mocht | boleh
+Wij mochten kiezen. | Kami boleh memilih. | mochten | boleh
+Mocht je dat? | Apakah kamu boleh melakukan itu? | Mocht | boleh
+Zij mocht eindelijk naar huis. | Akhirnya dia boleh pulang. | mocht | boleh
+Mochten jullie buiten spelen? | Apakah kalian boleh bermain di luar? | Mochten | boleh
+Mocht u hier parkeren? | Apakah Anda boleh parkir di sini? | Mocht | boleh
+Als kind mocht ik geen snoep. | Waktu kecil aku tidak boleh makan permen. | mocht | boleh
+De kinderen mochten een film kijken. | Anak-anak boleh menonton film. | mochten | boleh
+Mijn zus mocht van mijn ouders alleen op reis. | Kakakku boleh bepergian sendirian oleh orang tuaku. | mocht | boleh
+Wij mochten van de leraar onze telefoon gebruiken. | Guru mengizinkan kami memakai ponsel. | mochten | mengizinkan
+Hij mocht niet naar het feest omdat hij ziek was. | Dia tidak boleh pergi ke pesta karena sakit. | mocht | boleh
+Vroeger mochten kinderen op straat voetballen. | Dulu anak-anak boleh bermain sepak bola di jalan. | mochten | boleh
+Mijn vader mocht niet roken in het ziekenhuis. | Ayahku tidak boleh merokok di rumah sakit. | mocht | boleh
+Wij mochten niet te laat thuiskomen van onze ouders. | Orang tua kami melarang kami pulang terlalu larut. | mochten | melarang
+#31 Perfectum (Voltooid Tegenwoordige Tijd)
+Ik heb vandaag veel gelopen. | Hari ini aku sudah banyak berjalan. | heb … gelopen | sudah banyak berjalan
+Wij hebben gegeten. | Kami sudah makan. | hebben … gegeten | sudah makan
+Zij is gekomen. | Dia sudah datang. | is gekomen | sudah datang
+Heb je gebeld? | Apakah kamu sudah menelepon? | Heb … gebeld | sudah menelepon
+Hij heeft koffie gedronken. | Dia sudah minum kopi. | heeft … gedronken | sudah minum
+Ik heb gisteren hard gewerkt. | Kemarin aku bekerja keras. | heb … gewerkt | -
+Wij zijn naar Amsterdam gegaan. | Kami pergi ke Amsterdam. | zijn … gegaan | -
+Heb je mijn mail gelezen? | Apakah kamu sudah membaca emailku? | Heb … gelezen | sudah membaca
+De kinderen hebben buiten gespeeld. | Anak-anak sudah bermain di luar. | hebben … gespeeld | sudah bermain
+Mijn vader is al naar zijn werk vertrokken. | Ayahku sudah berangkat ke tempat kerja. | is … vertrokken | sudah berangkat
+Wij hebben een mooi huis gevonden. | Kami sudah menemukan rumah yang bagus. | hebben … gevonden | sudah menemukan
+Ben je vanochtend al naar de markt gegaan? | Apakah pagi ini kamu sudah pergi ke pasar? | Ben … gegaan | sudah pergi
+Mijn zus heeft vorige week een nieuwe baan gekregen. | Kakakku minggu lalu mendapat pekerjaan baru. | heeft … gekregen | -
+Zij zijn gisteren met de trein naar Utrecht gereisd. | Kemarin mereka bepergian dengan kereta ke Utrecht. | zijn … gereisd | -
+Hebben jullie het nieuws al gehoord, of moeten wij het nog vertellen? | Apakah kalian sudah mendengar kabarnya, atau perlu kami ceritakan? | Hebben … gehoord | sudah mendengar
+#32 Awalan tanpa ge-
+Ik heb het begrepen. | Aku sudah mengerti. | begrepen | mengerti
+Hij heeft zijn sleutel vergeten. | Dia lupa kuncinya. | vergeten | lupa
+Wij hebben haar ontmoet. | Kami sudah bertemu dengannya. | ontmoet | bertemu
+Zij heeft haar fiets verkocht. | Dia sudah menjual sepedanya. | verkocht | menjual
+Wij hebben mijn oma bezocht. | Kami mengunjungi nenekku. | bezocht | mengunjungi
+Ik heb de vraag herhaald. | Aku mengulang pertanyaannya. | herhaald | mengulang
+Hij heeft een mooi verhaal verteld. | Dia menceritakan kisah yang indah. | verteld | menceritakan
+Zij is vroeg opgestaan. | Dia bangun pagi. | opgestaan | bangun
+Ik heb mijn tas meegenomen. | Aku membawa tasku. | meegenomen | membawa
+Hebben jullie de les begrepen? | Apakah kalian mengerti pelajarannya? | begrepen | mengerti
+Mijn buurman heeft zijn oude auto verkocht. | Tetanggaku menjual mobil lamanya. | verkocht | menjual
+Wij hebben onze ouders in Rotterdam bezocht. | Kami mengunjungi orang tua kami di Rotterdam. | bezocht | mengunjungi
+Gisteren hebben wij onze nieuwe buren ontmoet in de lift. | Kemarin kami bertemu tetangga baru kami di lift. | ontmoet | bertemu
+Ik ben vanochtend om zes uur opgestaan om te kunnen sporten. | Pagi ini aku bangun pukul enam supaya bisa berolahraga. | opgestaan | bangun
+Hij heeft zijn paraplu in de trein vergeten en nu is hij nat. | Dia lupa payungnya di kereta dan sekarang dia basah. | vergeten | lupa
+#33 Negasi
+Ik heb dat niet gedaan. | Aku tidak melakukannya. | niet gedaan | tidak
+Zij heeft het niet gezien. | Dia tidak melihatnya. | niet gezien | tidak
+Wij hebben niet gewacht. | Kami tidak menunggu. | niet gewacht | tidak
+Hij is niet gekomen. | Dia tidak datang. | niet gekomen | tidak
+Heb je dat niet begrepen? | Apakah kamu tidak mengerti itu? | niet begrepen | tidak
+Ik heb mijn huiswerk niet gemaakt. | Aku tidak mengerjakan pekerjaan rumahku. | niet gemaakt | tidak
+Waarom heb je mij niet gebeld? | Kenapa kamu tidak meneleponku? | niet gebeld | tidak
+Wij hebben de film niet gekeken. | Kami tidak menonton filmnya. | niet gekeken | tidak
+Mijn zus is gisteren niet gebleven. | Kakakku kemarin tidak menginap. | niet gebleven | tidak
+Ik heb vanochtend nog niet ontbeten. | Pagi ini aku belum sarapan. | niet ontbeten | belum
+De kinderen hebben hun soep niet opgegeten. | Anak-anak tidak menghabiskan supnya. | niet opgegeten | tidak
+Wij hebben er niet over nagedacht. | Kami tidak memikirkannya. | niet … nagedacht | tidak
+Mijn broer is niet naar het feest gegaan omdat hij moe was. | Kakakku tidak pergi ke pesta karena dia capek. | niet … gegaan | tidak
+Hij heeft zijn kamer niet schoongemaakt, dus zijn moeder is boos. | Dia tidak membersihkan kamarnya, jadi ibunya marah. | niet schoongemaakt | tidak
+Ik heb de sleutel nergens kunnen vinden, en mijn moeder heeft hem ook niet gezien. | Aku tidak bisa menemukan kuncinya di mana pun, dan ibuku juga tidak melihatnya. | niet gezien | tidak
+#34 Imperfectum (Onvoltooid Verleden Tijd)
+Hij lachte. | Dia tertawa. | lachte | tertawa
+Wij speelden buiten. | Kami bermain di luar. | speelden | bermain
+Ik woonde in Utrecht. | Saya tinggal di Utrecht. | woonde | tinggal
+Zij kocht een nieuwe jas. | Dia membeli jaket baru. | kocht | membeli
+Gisteren werkte ik de hele dag. | Kemarin saya bekerja seharian. | werkte | bekerja
+Mijn opa vertelde vaak verhalen. | Kakek saya sering bercerita. | vertelde | bercerita
+Wij wachtten twintig minuten op de bus. | Kami menunggu bus selama dua puluh menit. | wachtten | menunggu
+De kinderen schreven een brief aan hun oma. | Anak-anak menulis surat untuk nenek mereka. | schreven | menulis
+Ik las als kind elke avond een boek. | Waktu kecil saya membaca buku setiap malam. | las | membaca
+Hij kwam te laat, want de trein reed niet. | Dia datang terlambat, karena kereta tidak jalan. | kwam | datang
+Ik zag gisteren op straat een oude vriend van school. | Kemarin saya melihat teman lama sekolah di jalan. | zag | melihat
+Toen ik jong was, speelde ik elke dag voetbal. | Waktu saya masih muda, saya bermain sepak bola setiap hari. | speelde | bermain
+Het regende de hele ochtend, dus we bleven thuis. | Hujan sepanjang pagi, jadi kami tinggal di rumah. | regende | Hujan
+Vorig jaar gingen wij met de hele familie een week naar de Ardennen. | Tahun lalu kami sekeluarga pergi seminggu ke Ardennen. | gingen | pergi
+Mijn vader werkte vroeger bij de post, maar nu is hij met pensioen. | Ayah saya dulu bekerja di kantor pos, tetapi sekarang dia sudah pensiun. | werkte | bekerja
+#35 groot (besar)
+Mijn tas is groot. | Tas saya besar. | groot | besar
+Wat een grote hond! | Anjing besar sekali! | grote | besar
+Onze tuin is niet groot. | Kebun kami tidak besar. | groot | besar
+Ik zoek een groot huis. | Saya mencari rumah yang besar. | groot | besar
+Mijn zoontje wordt snel groot. | Anak kecil saya cepat besar. | groot | besar
+Het hotel heeft een grote kamer voor ons. | Hotel itu punya kamar besar untuk kami. | grote | besar
+Amsterdam is een grote stad met veel musea. | Amsterdam adalah kota besar dengan banyak museum. | grote | besar
+Voor deze pizza heb je een grote oven nodig. | Untuk pizza ini kamu butuh oven yang besar. | grote | besar
+We hebben een groot probleem: de auto start niet. | Kami punya masalah besar: mobilnya tidak mau hidup. | groot | besar
+In de woonkamer staat een grote bank bij het raam. | Di ruang tamu ada sofa besar dekat jendela. | grote | besar
+Hij droeg een grote rugzak vol boeken naar school. | Dia membawa ransel besar penuh buku ke sekolah. | grote | besar
+Het feest was groot, want bijna de hele familie kwam. | Pestanya besar, karena hampir seluruh keluarga datang. | groot | besar
+Mijn schoenen zijn te groot, dus ik moet andere kopen. | Sepatu saya terlalu besar, jadi saya harus beli yang lain. | groot | besar
+Ik wil graag een groot glas water, want ik heb veel dorst. | Saya mau segelas besar air, karena saya sangat haus. | groot | besar
+In de supermarkt koop ik meestal een grote fles melk voor het hele gezin. | Di supermarket saya biasanya membeli sebotol besar susu untuk seluruh keluarga. | grote | besar
+#36 klein (kecil)
+Mijn kamer is klein. | Kamar saya kecil. | klein | kecil
+Wat een kleine auto! | Mobil kecil sekali! | kleine | kecil
+Het huis is klein, maar gezellig. | Rumahnya kecil, tetapi nyaman. | klein | kecil
+Ik heb een klein probleem. | Saya punya masalah kecil. | klein | kecil
+Zij woont in een klein dorp. | Dia tinggal di desa kecil. | klein | kecil
+Mijn tas is te klein voor al mijn boeken. | Tas saya terlalu kecil untuk semua buku saya. | klein | kecil
+Mag ik een klein kopje koffie? | Boleh saya minta secangkir kecil kopi? | klein | kecil
+Als klein meisje woonde ze bij haar oma. | Waktu masih kecil, dia tinggal bersama neneknya. | klein | kecil
+Het restaurant is klein, dus je moet reserveren. | Restorannya kecil, jadi kamu harus reservasi. | klein | kecil
+Mijn broertje is nog klein en gaat vroeg naar bed. | Adik laki-laki saya masih kecil dan tidur lebih awal. | klein | kecil
+Voor een klein feestje heb ik maar tien stoelen nodig. | Untuk pesta kecil saya hanya perlu sepuluh kursi. | klein | kecil
+Deze broek is mij te klein geworden. | Celana ini sudah jadi terlalu kecil buat saya. | klein | kecil
+Er staat een klein tafeltje naast het bed. | Ada meja kecil di samping tempat tidur. | klein | kecil
+Hij kocht een klein cadeautje voor zijn moeder. | Dia membeli hadiah kecil untuk ibunya. | klein | kecil
+In onze klas zitten maar weinig kinderen, want de school is klein. | Di kelas kami hanya ada sedikit anak, karena sekolahnya kecil. | klein | kecil
+#37 mooi (indah)
+Dat is mooi. | Itu indah. | mooi | indah
+Wat een mooie dag! | Hari yang indah! | mooie | indah
+Zij heeft een mooie stem. | Dia punya suara yang indah. | mooie | indah
+Wat een mooi uitzicht! | Pemandangan yang indah! | mooi | indah
+Ik vind dit lied heel mooi. | Menurut saya lagu ini sangat indah. | mooi | indah
+De bloemen in de tuin zijn mooi. | Bunga-bunga di kebun itu indah. | mooi | indah
+Er hangt een mooie foto aan de muur. | Ada foto indah tergantung di dinding. | mooie | indah
+Het schilderij in het museum is erg mooi. | Lukisan di museum itu sangat indah. | mooi | indah
+Het strand is hier erg mooi in de zomer. | Pantai di sini sangat indah pada musim panas. | mooi | indah
+In de lente is het park altijd heel mooi. | Pada musim semi taman itu selalu sangat indah. | mooi | indah
+Ik heb voor mijn moeder een mooie jurk gekocht. | Saya membelikan ibu saya gaun yang indah. | mooie | indah
+Mijn oma woont in een mooi oud huis. | Nenek saya tinggal di rumah tua yang indah. | mooi | indah
+Wat is het hier mooi als de zon schijnt! | Indah sekali di sini kalau matahari bersinar! | mooi | Indah
+Ons dorp is niet groot, maar het is wel mooi. | Desa kami tidak besar, tetapi memang indah. | mooi | indah
+Voor onze bruiloft zochten we een mooie plek aan het water. | Untuk pernikahan kami, kami mencari tempat indah di tepi air. | mooie | indah
+#38 oud (tua)
+Hij is oud. | Dia sudah tua. | oud | tua
+Mijn fiets is oud. | Sepeda saya tua. | oud | tua
+Wat een oude boom! | Pohon yang tua sekali! | oude | tua
+Zij woont in een oud huis. | Dia tinggal di rumah tua. | oud | tua
+Mijn hond is al heel oud. | Anjing saya sudah sangat tua. | oud | tua
+De kerk in ons dorp is heel oud. | Gereja di desa kami sangat tua. | oud | tua
+In de stad staan veel oude gebouwen. | Di kota ada banyak gedung tua. | oude | tua
+Ik heb een oude computer die vaak crasht. | Saya punya komputer tua yang sering rusak. | oude | tua
+Deze oude foto komt uit het jaar 1950. | Foto tua ini berasal dari tahun 1950. | oude | tua
+Hij droeg een oude jas met grote knopen. | Dia mengenakan jaket tua dengan kancing besar. | oude | tua
+Het museum laat een oude kaart van Nederland zien. | Museum itu menampilkan peta tua Belanda. | oude | tua
+We lopen graag door het oude centrum van de stad. | Kami suka berjalan di pusat kota tua. | oude | tua
+De bus is te oud, dus de gemeente koopt een nieuwe. | Busnya terlalu tua, jadi pemerintah kota membeli yang baru. | oud | tua
+Mijn buurvrouw is al oud, dus ik doe haar boodschappen. | Tetangga saya sudah tua, jadi saya yang berbelanja untuk dia. | oud | tua
+Mijn opa is erg oud, maar hij fietst nog elke dag. | Kakek saya sudah sangat tua, tetapi dia masih bersepeda setiap hari. | oud | tua
+#39 duur (mahal)
+Dit is duur. | Ini mahal. | duur | mahal
+Die tas is te duur. | Tas itu terlalu mahal. | duur | mahal
+Wat een dure auto! | Mobil yang mahal sekali! | dure | mahal
+Is het hotel duur? | Apakah hotelnya mahal? | duur | mahal
+Vlees is tegenwoordig erg duur. | Daging sekarang sangat mahal. | duur | mahal
+Ik koop deze jas niet, want hij is te duur. | Saya tidak membeli jas ini, karena terlalu mahal. | duur | mahal
+Een kaartje voor het concert is best duur. | Tiket konser itu lumayan mahal. | duur | mahal
+In dit restaurant is alles duur. | Di restoran ini semuanya mahal. | duur | mahal
+Mijn broer heeft een dure telefoon gekocht. | Kakak saya membeli telepon yang mahal. | dure | mahal
+Het huis is duur, dus we wachten nog even met kopen. | Rumahnya mahal, jadi kami menunggu dulu untuk membeli. | duur | mahal
+Het appartement in het centrum is veel te duur voor ons. | Apartemen di pusat kota jauh terlalu mahal buat kami. | duur | mahal
+Voor zo'n duur horloge moet je lang sparen. | Untuk jam tangan semahal itu kamu harus menabung lama. | duur | mahal
+Deze schoenen zijn niet duur, ze kosten maar dertig euro. | Sepatu ini tidak mahal, harganya hanya tiga puluh euro. | duur | mahal
+In de winkel hangen dure jassen, maar ik zoek iets goedkoops. | Di toko itu ada jaket mahal, tetapi saya mencari yang murah. | dure | mahal
+Ik vind biologisch eten wat duur, maar het smaakt goed. | Menurut saya makanan organik agak mahal, tetapi rasanya enak. | duur | mahal
+#40 lief (manis)
+Ze is lief. | Dia manis. | lief | manis
+Wat een lieve baby! | Bayi yang manis sekali! | lieve | manis
+De hond is heel lief. | Anjingnya sangat manis. | lief | manis
+Zij heeft een lief gezicht. | Dia punya wajah yang manis. | lief | manis
+Wees lief voor je zusje! | Bersikaplah manis pada adikmu! | lief | manis
+Mijn dochter is een lief meisje. | Putri saya anak perempuan yang manis. | lief | manis
+Dat is een lief gebaar van haar. | Itu isyarat yang manis dari dia. | lief | manis
+Het kind was lief en ging zonder problemen naar bed. | Anak itu manis dan tidur tanpa masalah. | lief | manis
+Hij schreef een lief kaartje voor mijn verjaardag. | Dia menulis kartu yang manis untuk ulang tahun saya. | lief | manis
+Het is lief van je om me te helpen. | Manis sekali kamu mau membantu saya. | lief | Manis
+Ze kreeg een lief berichtje van haar vriend. | Dia mendapat pesan manis dari pacarnya. | lief | manis
+De juf is lief en geeft de kinderen vaak een snoepje. | Gurunya manis dan sering memberi anak-anak permen. | lief | manis
+Onze kat is lief, maar ze krabt soms aan de bank. | Kucing kami manis, tetapi kadang mencakar sofa. | lief | manis
+#41 open (terbuka)
+De deur is open. | Pintunya terbuka. | open | terbuka
+Het raam staat open. | Jendelanya terbuka. | open | terbuka
+Laat de deur maar open. | Biarkan saja pintunya terbuka. | open | terbuka
+Mijn boek ligt open op tafel. | Buku saya terbuka di atas meja. | open | terbuka
+De koffer stond open op de grond. | Kopernya terbuka di lantai. | open | terbuka
+Hij sliep met zijn mond open. | Dia tidur dengan mulut terbuka. | open | terbuka
+Het raam staat open, want het is hier warm. | Jendelanya terbuka, karena di sini panas. | open | terbuka
+Zij liet het hek open, dus de hond liep weg. | Dia membiarkan pagar terbuka, jadi anjingnya kabur. | open | terbuka
+De poort was open, maar niemand was thuis. | Gerbangnya terbuka, tetapi tidak ada orang di rumah. | open | terbuka
+Mijn tas stond open, dus de sleutels vielen eruit. | Tasku terbuka, jadi kuncinya jatuh. | open | terbuka
+Ik zag dat de kast open stond en alles op de grond lag. | Saya melihat lemarinya terbuka dan semuanya ada di lantai. | open | terbuka
+Ik laat de deur open staan zodat de kat naar binnen kan. | Saya membiarkan pintu terbuka supaya kucing bisa masuk. | open | terbuka
+De achterdeur staat open en het tocht in de hele kamer. | Pintu belakang terbuka dan angin masuk ke seluruh ruangan. | open | terbuka
+#42 groot
+Mijn broer is groter dan ik. | Kakak saya lebih besar dari saya. | groter | lebih besar
+Deze kamer is groter dan die. | Kamar ini lebih besar dari yang itu. | groter | lebih besar
+Amsterdam is groter dan Utrecht. | Amsterdam lebih besar dari Utrecht. | groter | lebih besar
+Haar zoon is al groter dan zij. | Putranya sudah lebih besar dari dia. | groter | lebih besar
+Heb je ook een groter formaat? | Apakah ada ukuran yang lebih besar? | groter | lebih besar
+Voor vier personen hebben we een grotere tafel nodig. | Untuk empat orang kami butuh meja yang lebih besar. | grotere | lebih besar
+Dit huis is veel groter dan ons oude huis. | Rumah ini jauh lebih besar dari rumah lama kami. | groter | lebih besar
+Wat is de grootste stad van Nederland? | Apa kota yang paling besar di Belanda? | grootste | paling besar
+Dat is het grootste huis in onze straat. | Itu rumah paling besar di jalan kami. | grootste | paling besar
+Onze school is de grootste van de stad. | Sekolah kami yang paling besar di kota. | grootste | paling besar
+Mijn oudste zus heeft de grootste kamer. | Kakak tertua saya punya kamar paling besar. | grootste | paling besar
+Dit is de grootste pizza die ik ooit gezien heb. | Ini pizza paling besar yang pernah saya lihat. | grootste | paling besar
+Het grootste probleem is dat we te weinig tijd hebben. | Masalah paling besar adalah kami kekurangan waktu. | grootste | paling besar
+Ik wil graag het grootste stuk taart, want ik heb honger. | Saya mau potongan kue yang paling besar, karena saya lapar. | grootste | paling besar
+#43 klein
+Mijn zus is kleiner dan ik. | Adik saya lebih kecil dari saya. | kleiner | lebih kecil
+Nederland is kleiner dan Indonesië. | Belanda lebih kecil dari Indonesia. | kleiner | lebih kecil
+Deze kamer is kleiner dan mijn oude kamer. | Kamar ini lebih kecil dari kamar lama saya. | kleiner | lebih kecil
+Heeft u deze jas ook in een kleinere maat? | Apakah jaket ini ada dalam ukuran yang lebih kecil? | kleinere | lebih kecil
+Mijn tuin is kleiner dan die van mijn buren. | Kebun saya lebih kecil dari kebun tetangga saya. | kleiner | lebih kecil
+Dit appartement is veel kleiner dan het vorige. | Apartemen ini jauh lebih kecil dari yang sebelumnya. | kleiner | lebih kecil
+In een kleinere stad is het huren goedkoper. | Di kota yang lebih kecil, menyewa lebih murah. | kleinere | lebih kecil
+Mijn nieuwe telefoon is kleiner, maar het scherm is beter. | Telepon baru saya lebih kecil, tetapi layarnya lebih bagus. | kleiner | lebih kecil
+Het kleinste kind in de klas is Sanne. | Anak paling kecil di kelas adalah Sanne. | kleinste | paling kecil
+Dit is de kleinste kamer van het hotel. | Ini kamar paling kecil di hotel. | kleinste | paling kecil
+Dit is het kleinste cafeetje van de hele stad. | Ini kafe paling kecil di seluruh kota. | kleinste | paling kecil
+Het kleinste probleem lost hij meteen op. | Masalah yang paling kecil langsung dia selesaikan. | kleinste | paling kecil
+Mijn kleinste broertje is pas twee jaar oud. | Adik laki-laki saya yang paling kecil baru berumur dua tahun. | kleinste | paling kecil
+Ik zoek de kleinste maat, want deze is veel te groot. | Saya mencari ukuran yang paling kecil, karena ini jauh terlalu besar. | kleinste | paling kecil
+#44 snel
+De trein is sneller dan de bus. | Kereta lebih cepat dari bus. | sneller | lebih cepat
+Mijn broer fietst sneller dan ik. | Kakak saya bersepeda lebih cepat dari saya. | sneller | lebih cepat
+Kun je wat sneller lopen? | Bisakah kamu berjalan sedikit lebih cepat? | sneller | lebih cepat
+Met de auto ben je sneller thuis. | Dengan mobil kamu lebih cepat sampai rumah. | sneller | lebih cepat
+Zij leert sneller dan haar klasgenoten. | Dia belajar lebih cepat daripada teman sekelasnya. | sneller | lebih cepat
+Deze computer is veel sneller dan mijn oude. | Komputer ini jauh lebih cepat dari komputer lama saya. | sneller | lebih cepat
+Het internet is hier sneller dan bij ons thuis. | Internet di sini lebih cepat daripada di rumah kami. | sneller | lebih cepat
+Wie is de snelste van jullie? | Siapa yang paling cepat di antara kalian? | snelste | paling cepat
+Dat is de snelste trein van het land. | Itu kereta paling cepat di negara ini. | snelste | paling cepat
+Neem de snelste route, want ik ben al laat. | Ambil rute paling cepat, karena saya sudah terlambat. | snelste | paling cepat
+Mijn zus is de snelste zwemster van de club. | Kakak saya perenang paling cepat di klub. | snelste | paling cepat
+De snelste weg naar het station gaat door het park. | Jalan paling cepat ke stasiun melewati taman. | snelste | paling cepat
+Hij is de snelste in zijn team en wint bijna elke race. | Dia yang paling cepat di timnya dan hampir selalu menang balapan. | snelste | paling cepat
+Met de fiets ben je in de stad meestal het snelst. | Dengan sepeda di kota biasanya kamu paling cepat. | snelst | paling cepat
+#45 duur
+Deze jas is duurder dan die. | Jaket ini lebih mahal dari yang itu. | duurder | lebih mahal
+Een taxi is duurder dan de bus. | Taksi lebih mahal dari bus. | duurder | lebih mahal
+Vliegen is duurder dan met de trein reizen. | Naik pesawat lebih mahal daripada naik kereta. | duurder | lebih mahal
+Mijn nieuwe telefoon was duurder dan mijn oude. | Telepon baru saya lebih mahal dari yang lama. | duurder | lebih mahal
+In Zwitserland is alles duurder dan in Nederland. | Di Swiss semuanya lebih mahal daripada di Belanda. | duurder | lebih mahal
+In de stad is het eten duurder dan op het platteland. | Di kota makanan lebih mahal daripada di pedesaan. | duurder | lebih mahal
+De biologische melk is een stuk duurder, maar ook lekkerder. | Susu organik itu jauh lebih mahal, tetapi juga lebih enak. | duurder | lebih mahal
+Dit hotel is veel duurder dan het hotel naast het station. | Hotel ini jauh lebih mahal daripada hotel di sebelah stasiun. | duurder | lebih mahal
+Dit is de duurste tas in de winkel. | Ini tas paling mahal di toko. | duurste | paling mahal
+Dat is het duurste restaurant van de stad. | Itu restoran paling mahal di kota. | duurste | paling mahal
+Het duurste gerecht op de kaart kost vijftig euro. | Hidangan paling mahal di menu harganya lima puluh euro. | duurste | paling mahal
+Welke telefoon is het duurst? | Ponsel mana yang paling mahal? | duurst | paling mahal
+Mijn duurste spullen staan in de kluis. | Barang-barang saya yang paling mahal ada di brankas. | duurste | paling mahal
+Ik kocht de duurste kaartjes, want we wilden dichtbij zitten. | Saya membeli tiket paling mahal, karena kami mau duduk dekat. | duurste | paling mahal
+#46 mooi
+Dit huis is mooier dan het mijne. | Rumah ini lebih indah dari rumah saya. | mooier | lebih indah
+Jouw jurk is mooier dan mijn jurk. | Gaunmu lebih indah dari gaun saya. | mooier | lebih indah
+Het strand is in de zomer nog mooier. | Pantai itu pada musim panas lebih indah lagi. | mooier | lebih indah
+Deze foto vind ik mooier dan die. | Menurut saya foto ini lebih indah dari yang itu. | mooier | lebih indah
+In het voorjaar is het park veel mooier dan in de winter. | Pada musim semi taman itu jauh lebih indah daripada pada musim dingin. | mooier | lebih indah
+Dit is de mooiste dag van mijn leven. | Ini hari paling indah dalam hidup saya. | mooiste | paling indah
+Dat is het mooiste schilderij in het museum. | Itu lukisan paling indah di museum. | mooiste | paling indah
+De mooiste plek van het dorp is het meer. | Tempat paling indah di desa itu adalah danau. | mooiste | paling indah
+Zij heeft de mooiste stem van het koor. | Dia punya suara paling indah di paduan suara. | mooiste | paling indah
+Mijn moeder droeg haar mooiste jurk naar de bruiloft. | Ibu saya mengenakan gaunnya yang paling indah ke pernikahan. | mooiste | paling indah
+We maakten een foto van het mooiste uitzicht in de bergen. | Kami memotret pemandangan paling indah di pegunungan. | mooiste | paling indah
+Ik vind de herfst het mooist, want de bladeren zijn oranje. | Menurut saya musim gugur paling indah, karena daunnya oranye. | mooist | paling indah
+#47 goed
+Dit boek is beter dan dat boek. | Buku ini lebih baik dari buku itu. | beter | lebih baik
+Ik voel me vandaag beter. | Hari ini saya merasa lebih baik. | beter | lebih baik
+Mijn Nederlands is beter dan vorig jaar. | Bahasa Belanda saya lebih baik daripada tahun lalu. | beter | lebih baik
+Deze telefoon is beter dan de vorige. | Telepon ini lebih baik dari yang sebelumnya. | beter | lebih baik
+Je kunt beter even rusten. | Kamu lebih baik istirahat dulu. | beter | lebih baik
+Het is beter om vroeg te vertrekken, want er is veel verkeer. | Lebih baik berangkat lebih awal, karena lalu lintas padat. | beter | Lebih baik
+Dit is het beste restaurant van de stad. | Ini restoran terbaik di kota. | beste | terbaik
+Wie is de beste leerling van de klas? | Siapa murid terbaik di kelas? | beste | terbaik
+Zij is de beste zwemster van het land. | Dia perenang terbaik di negara ini. | beste | terbaik
+Voor mij is dit de beste oplossing. | Bagi saya ini solusi terbaik. | beste | terbaik
+Dat was het beste advies dat ik ooit kreeg. | Itu nasihat terbaik yang pernah saya terima. | beste | terbaik
+Ons team speelde gisteren het best van het hele toernooi. | Tim kami kemarin bermain paling baik di seluruh turnamen. | best | paling baik
+#48 veel
+Hij werkt meer dan ik. | Dia bekerja lebih banyak daripada saya. | meer | lebih banyak
+Ik wil meer water drinken. | Saya mau minum lebih banyak air. | meer | lebih banyak
+Heb je meer tijd nodig? | Apakah kamu butuh lebih banyak waktu? | meer | lebih banyak
+Mijn zus leest meer boeken dan ik. | Kakak saya membaca lebih banyak buku daripada saya. | meer | lebih banyak
+Ze eet nu meer groente dan vroeger. | Sekarang dia makan lebih banyak sayur daripada dulu. | meer | lebih banyak
+In de zomer komen er meer toeristen naar de stad. | Pada musim panas lebih banyak turis datang ke kota. | meer | lebih banyak
+Dit jaar heb ik meer vrienden gemaakt dan vorig jaar. | Tahun ini saya punya lebih banyak teman baru daripada tahun lalu. | meer | lebih banyak
+Op zaterdag zijn er meer mensen op de markt dan op dinsdag. | Pada hari Sabtu ada lebih banyak orang di pasar daripada hari Selasa. | meer | lebih banyak
+We hebben meer stoelen nodig, want er komen twintig gasten. | Kami butuh lebih banyak kursi, karena dua puluh tamu akan datang. | meer | lebih banyak
+Wie heeft de meeste punten? | Siapa yang punya poin paling banyak? | meeste | paling banyak
+Van alle steden heeft Amsterdam de meeste fietsen. | Dari semua kota, Amsterdam punya sepeda paling banyak. | meeste | paling banyak
+Ik drink thee het meest in de winter. | Saya paling banyak minum teh pada musim dingin. | meest | paling banyak
+Dit weekend heb ik het meest gelachen met mijn neef. | Akhir pekan ini saya paling banyak tertawa bersama sepupu. | meest | paling banyak
+Welk land heeft de meeste inwoners van Europa? | Negara mana di Eropa yang penduduknya paling banyak? | meeste | paling banyak
+#49 weinig
+Ik slaap minder dan jij. | Saya tidur lebih sedikit daripada kamu. | minder | lebih sedikit
+Ze eet minder vlees dan vroeger. | Dia makan lebih sedikit daging daripada dulu. | minder | lebih sedikit
+Er zijn minder mensen op straat dan gisteren. | Ada lebih sedikit orang di jalan daripada kemarin. | minder | lebih sedikit
+Ik wil graag minder suiker in mijn thee. | Saya mau lebih sedikit gula di teh saya. | minder | lebih sedikit
+Hij maakt minder fouten dan vorig jaar. | Dia membuat lebih sedikit kesalahan daripada tahun lalu. | minder | lebih sedikit
+We hebben minder tijd dan we dachten. | Kami punya waktu lebih sedikit dari yang kami kira. | minder | lebih sedikit
+Mijn broer werkt minder uren dan ik. | Kakak saya bekerja lebih sedikit jam daripada saya. | minder | lebih sedikit
+In de winter komen er minder toeristen naar het strand. | Pada musim dingin lebih sedikit turis datang ke pantai. | minder | lebih sedikit
+Wie heeft de minste punten? | Siapa yang punya poin paling sedikit? | minste | paling sedikit
+Op dinsdag zijn er de minste klanten in de winkel. | Pada hari Selasa pelanggan di toko paling sedikit. | minste | paling sedikit
+Dit dorp heeft de minste inwoners van de hele streek. | Desa ini penduduknya paling sedikit di seluruh daerah. | minste | paling sedikit
+Ik drink koffie het minst in de zomer. | Saya paling sedikit minum kopi pada musim panas. | minst | paling sedikit
+#50 graag
+Ik blijf liever thuis. | Saya lebih suka tinggal di rumah. | liever | lebih suka
+Ik drink liever thee dan koffie. | Saya lebih suka minum teh daripada kopi. | liever | lebih suka
+Wil je liever rijst of aardappelen? | Kamu lebih suka nasi atau kentang? | liever | lebih suka
+Mijn broer gaat liever met de fiets. | Kakak saya lebih suka naik sepeda. | liever | lebih suka
+We eten liever buiten als het warm is. | Kami lebih suka makan di luar kalau cuaca hangat. | liever | lebih suka
+Ik werk liever 's ochtends dan 's avonds. | Saya lebih suka bekerja pada pagi hari daripada malam. | liever | lebih suka
+Zij leest liever een boek dan dat ze televisie kijkt. | Dia lebih suka membaca buku daripada menonton televisi. | liever | lebih suka
+Wat zou je liever doen: zwemmen of wandelen? | Mana yang lebih kamu suka: berenang atau berjalan kaki? | liever | lebih
+Ik drink het liefst water, want dat is gezond. | Saya paling suka minum air, karena itu sehat. | liefst | paling suka
+De kinderen zitten het liefst vooraan in de bus. | Anak-anak paling suka duduk di depan bus. | liefst | paling suka
+Mijn zusje wil het liefst de hele dag buiten spelen. | Adik saya paling suka bermain di luar sepanjang hari. | liefst | paling suka
+Wat eet je het liefst voor het ontbijt? | Sarapan apa yang paling kamu suka? | liefst | paling
+Ik ga het liefst op vakantie naar een land met strand en zon. | Saya paling suka berlibur ke negara yang ada pantai dan mataharinya. | liefst | paling suka
+#51 Lebih ... dari
+Hij is ouder dan ik. | Dia lebih tua dari saya. | ouder dan | lebih tua dari
+Zij is langer dan haar zus. | Dia lebih tinggi dari kakaknya. | langer dan | lebih tinggi dari
+Deze weg is korter dan die weg. | Jalan ini lebih pendek dari jalan itu. | korter dan | lebih pendek dari
+Dit boek is dikker dan dat boek. | Buku ini lebih tebal dari buku itu. | dikker dan | lebih tebal dari
+Mijn tas is zwaarder dan jouw tas. | Tas saya lebih berat dari tasmu. | zwaarder dan | lebih berat dari
+Vandaag is het kouder dan gisteren. | Hari ini lebih dingin dari kemarin. | kouder dan | lebih dingin dari
+Dit probleem is moeilijker dan het vorige. | Masalah ini lebih sulit dari yang sebelumnya. | moeilijker dan | lebih sulit dari
+De bus is langzamer dan de trein. | Bus lebih lambat dari kereta. | langzamer dan | lebih lambat dari
+In Indonesië is het warmer dan in Nederland. | Di Indonesia lebih panas dari di Belanda. | warmer dan | lebih panas dari
+Het museum is interessanter dan ik dacht. | Museum itu lebih menarik dari yang saya kira. | interessanter dan | lebih menarik dari
+Deze soep is lekkerder dan de soep van gisteren. | Sup ini lebih enak dari sup kemarin. | lekkerder dan | lebih enak dari
+Mijn nieuwe baan is leuker dan mijn oude baan. | Pekerjaan baru saya lebih menyenangkan dari pekerjaan lama saya. | leuker dan | lebih menyenangkan dari
+Mijn zus is drukker dan ik, want ze heeft twee banen. | Kakak saya lebih sibuk dari saya, karena dia punya dua pekerjaan. | drukker dan | lebih sibuk dari
+De winkel in het centrum is goedkoper dan die bij het station. | Toko di pusat kota lebih murah dari toko dekat stasiun. | goedkoper dan | lebih murah dari
+Het is hier rustiger dan in het centrum, dus ik woon graag hier. | Di sini lebih tenang dari di pusat kota, jadi saya suka tinggal di sini. | rustiger dan | lebih tenang dari
+#52 Sama ... dengan
+Hij is even groot als zijn vader. | Dia sama besarnya dengan ayahnya. | even groot als | sama besarnya dengan
+Ik ben even oud als mijn buurman. | Saya sama tuanya dengan tetangga saya. | even oud als | sama tuanya dengan
+Mijn broer is net zo lang als ik. | Kakak saya sama tingginya dengan saya. | net zo lang als | sama tingginya dengan
+Deze koffie is net zo duur als die thee. | Kopi ini sama mahalnya dengan teh itu. | net zo duur als | sama mahalnya dengan
+Jouw tas is net zo zwaar als mijn tas. | Tasmu sama beratnya dengan tas saya. | net zo zwaar als | sama beratnya dengan
+Mijn kamer is net zo klein als jouw kamer. | Kamar saya sama kecilnya dengan kamarmu. | net zo klein als | sama kecilnya dengan
+Zij is even blij als haar moeder. | Dia sama senangnya dengan ibunya. | even blij als | sama senangnya dengan
+De trein is bijna even snel als de auto. | Kereta hampir sama cepatnya dengan mobil. | even snel als | sama cepatnya dengan
+Dit boek is net zo interessant als de film. | Buku ini sama menariknya dengan filmnya. | net zo interessant als | sama menariknya dengan
+Het huis is even groot als het huis van mijn oma. | Rumah itu sama besarnya dengan rumah nenek saya. | even groot als | sama besarnya dengan
+In juli is het hier even warm als in augustus. | Pada bulan Juli di sini sama hangatnya dengan bulan Agustus. | even warm als | sama hangatnya dengan
+Het restaurant is even gezellig als het café ernaast. | Restoran itu sama nyamannya dengan kafe di sebelahnya. | even gezellig als | sama nyamannya dengan
+Ik vind Nederlands net zo moeilijk als Duits. | Menurut saya bahasa Belanda sama sulitnya dengan bahasa Jerman. | net zo moeilijk als | sama sulitnya dengan
+Mijn zus werkt net zo hard als ik, maar ze verdient minder. | Kakak saya bekerja sama kerasnya dengan saya, tetapi penghasilannya lebih sedikit. | net zo hard als | sama kerasnya dengan
+#53 Makin ... makin
+Hoe eerder, hoe beter. | Makin cepat, makin baik. | Hoe eerder, hoe beter | makin cepat, makin baik
+Hoe meer je oefent, hoe beter je wordt. | Makin banyak kamu berlatih, makin baik kamu jadinya. | Hoe meer je oefent, hoe beter | makin banyak kamu berlatih, makin baik
+Hoe meer ik leer, hoe leuker het wordt. | Makin banyak saya belajar, makin menyenangkan jadinya. | Hoe meer ik leer, hoe leuker | makin banyak saya belajar, makin menyenangkan
+Hoe groter de stad, hoe duurder de huizen. | Makin besar kotanya, makin mahal rumahnya. | Hoe groter de stad, hoe duurder | makin besar kotanya, makin mahal
+Hoe hoger we kwamen, hoe kouder het werd. | Makin tinggi kami naik, makin dingin udaranya. | Hoe hoger we kwamen, hoe kouder | makin tinggi kami naik, makin dingin
+Hoe later het wordt, hoe drukker het op straat wordt. | Makin malam, makin ramai di jalan. | Hoe later het wordt, hoe drukker | makin malam, makin ramai
+Hoe ouder hij wordt, hoe wijzer hij wordt. | Makin tua dia, makin bijak dia. | Hoe ouder hij wordt, hoe wijzer | makin tua dia, makin bijak
+Hoe harder het regent, hoe minder mensen er op straat lopen. | Makin deras hujan, makin sedikit orang yang berjalan di jalan. | Hoe harder het regent, hoe minder | makin deras hujan, makin sedikit
+Hoe warmer het weer is, hoe meer ijs wij eten. | Makin panas cuaca, makin banyak es krim yang kami makan. | Hoe warmer het weer is, hoe meer | makin panas cuaca, makin banyak
+Hoe moeilijker de les is, hoe meer tijd ik nodig heb. | Makin sulit pelajarannya, makin banyak waktu yang saya butuhkan. | Hoe moeilijker de les is, hoe meer | makin sulit pelajarannya, makin banyak
+Hoe meer kinderen er komen, hoe gezelliger het feest wordt. | Makin banyak anak yang datang, makin meriah pestanya. | Hoe meer kinderen er komen, hoe gezelliger | makin banyak anak yang datang, makin meriah
+Hoe vroeger je opstaat, hoe meer tijd je hebt. | Makin pagi kamu bangun, makin banyak waktu yang kamu punya. | Hoe vroeger je opstaat, hoe meer | makin pagi kamu bangun, makin banyak
+Hoe langer ik hier woon, hoe meer ik van de stad hou. | Makin lama saya tinggal di sini, makin saya suka kota ini. | Hoe langer ik hier woon, hoe meer | makin lama saya tinggal di sini, makin
+Hoe dichter we bij de zee kwamen, hoe harder de wind waaide. | Makin dekat kami ke laut, makin kencang angin bertiup. | Hoe dichter we bij de zee kwamen, hoe harder | makin dekat kami ke laut, makin kencang
+#54 Paling ...
+Mijn zus is de oudste van ons drieën. | Kakak saya yang paling tua dari kami bertiga. | de oudste | paling tua
+Dit is de leukste film van het jaar. | Ini film paling menyenangkan tahun ini. | de leukste | paling menyenangkan
+Dat is het hoogste gebouw van Nederland. | Itu gedung paling tinggi di Belanda. | het hoogste | paling tinggi
+Dit is het goedkoopste hotel in de buurt. | Ini hotel paling murah di sekitar sini. | het goedkoopste | paling murah
+Maandag is de drukste dag van de week. | Hari Senin adalah hari paling sibuk dalam seminggu. | de drukste | paling sibuk
+Wie is de slimste van de klas? | Siapa yang paling pintar di kelas? | de slimste | paling pintar
+Het is hier in juli het warmst. | Di sini pada bulan Juli paling panas. | het warmst | paling panas
+In december is het hier het koudst. | Di sini pada bulan Desember paling dingin. | het koudst | paling dingin
+De Rijn is de langste rivier van Nederland. | Sungai Rhein adalah sungai paling panjang di Belanda. | de langste | paling panjang
+Februari is de kortste maand van het jaar. | Februari adalah bulan paling pendek dalam setahun. | de kortste | paling pendek
+Dit is de lekkerste soep die ik ooit gegeten heb. | Ini sup paling enak yang pernah saya makan. | de lekkerste | paling enak
+Het is de moeilijkste vraag van het hele examen. | Itu pertanyaan paling sulit dari seluruh ujian. | de moeilijkste | paling sulit
+Zij is de aardigste leraar van onze school. | Dia guru paling baik di sekolah kami. | de aardigste | paling baik
+#55 en (dan)
+Hij eet brood en kaas. | Dia makan roti dan keju. | brood en kaas | dan
+Ik werk en jij studeert. | Saya bekerja dan kamu belajar. | werk en jij | dan
+Ik heb een hond en een kat. | Saya punya anjing dan kucing. | hond en een kat | dan
+Ik drink thee en koffie. | Saya minum teh dan kopi. | thee en koffie | dan
+Mijn vader en moeder wonen in Utrecht. | Ayah dan ibu saya tinggal di Utrecht. | vader en moeder | dan
+Ik koop appels en peren op de markt. | Saya membeli apel dan pir di pasar. | appels en peren | dan
+Hij pakte zijn jas en liep naar buiten. | Dia mengambil jaketnya dan berjalan keluar. | jas en liep | dan
+Het is koud en het regent, dus ik blijf lekker thuis. | Cuacanya dingin dan hujan, jadi saya tinggal saja di rumah. | koud en het regent | dan
+Zij speelt gitaar en haar broer zingt. | Dia bermain gitar dan kakaknya bernyanyi. | gitaar en haar | dan
+In de kast liggen handdoeken en lakens. | Di lemari ada handuk dan seprai. | handdoeken en lakens | dan
+We gingen naar het strand en zwommen in de zee. | Kami pergi ke pantai dan berenang di laut. | strand en zwommen | dan
+Mijn zus woont in Londen en werkt bij een bank. | Kakak saya tinggal di London dan bekerja di sebuah bank. | Londen en werkt | dan
+Hij staat op, douchet en ontbijt daarna met zijn kinderen. | Dia bangun, mandi dan sesudah itu sarapan bersama anak-anaknya. | douchet en ontbijt | dan
+Ik vind Nederland mooi en ik wil hier graag blijven wonen. | Menurut saya Belanda indah dan saya ingin tinggal di sini. | mooi en ik | dan
+#56 maar (tetapi)
+Hij is klein, maar hij is erg sterk. | Dia kecil, tetapi dia sangat kuat. | maar | tetapi
+Het regent, maar we gaan toch wandelen. | Hujan, tetapi kami tetap berjalan-jalan. | maar | tetapi
+Hij heeft veel geld, maar hij is niet gelukkig. | Dia punya banyak uang, tetapi dia tidak bahagia. | maar | tetapi
+Ik heb honger, maar er is niets te eten in huis. | Saya lapar, tetapi tidak ada makanan di rumah. | maar | tetapi
+Ik wilde je bellen, maar mijn telefoon was leeg. | Saya ingin meneleponmu, tetapi baterai ponsel saya habis. | maar | tetapi
+De film was lang, maar ik vond hem toch heel leuk. | Filmnya panjang, tetapi saya tetap sangat menyukainya. | maar | tetapi
+De cursus is moeilijk, maar de leraar is erg aardig. | Kursusnya sulit, tetapi gurunya sangat baik. | maar | tetapi
+Het restaurant is duur, maar het eten is echt heerlijk. | Restorannya mahal, tetapi makanannya benar-benar lezat. | maar | tetapi
+We wilden naar het strand, maar het weer was te slecht. | Kami ingin ke pantai, tetapi cuacanya terlalu buruk. | maar | tetapi
+Ik hou van koffie, maar mijn man drinkt liever thee. | Saya suka kopi, tetapi suami saya lebih suka teh. | maar | tetapi
+Het appartement is klein, maar het ligt midden in het centrum. | Apartemennya kecil, tetapi letaknya di tengah pusat kota. | maar | tetapi
+Mijn vader is gepensioneerd, maar hij blijft elke dag bezig. | Ayah saya sudah pensiun, tetapi dia tetap sibuk setiap hari. | maar | tetapi
+Mijn zus komt graag naar het feest, maar ze moet die avond werken. | Kakak saya senang datang ke pesta, tetapi malam itu dia harus bekerja. | maar | tetapi
+Zij is al lang in Nederland, maar ze spreekt nog weinig Nederlands. | Dia sudah lama di Belanda, tetapi dia masih sedikit berbahasa Belanda. | maar | tetapi
+#57 of (atau)
+Wil je thee of koffie? | Mau teh atau kopi? | thee of koffie | atau
+Eet je rijst of brood? | Kamu makan nasi atau roti? | rijst of brood | atau
+Kom je vandaag of morgen? | Kamu datang hari ini atau besok? | vandaag of morgen | atau
+Heb je een broer of een zus? | Kamu punya kakak laki-laki atau perempuan? | broer of een zus | atau
+Gaan we met de bus of met de fiets? | Kita naik bus atau naik sepeda? | bus of met de fiets | atau
+Zullen we zaterdag of zondag afspreken? | Bagaimana kalau kita bertemu hari Sabtu atau Minggu? | zaterdag of zondag | atau
+Neem je de trein of de bus naar je werk? | Kamu naik kereta atau bus ke tempat kerja? | trein of de bus | atau
+Woont u in een huis of in een appartement? | Apakah Anda tinggal di rumah atau di apartemen? | huis of in een appartement | atau
+Heb je zin in pizza of liever in pasta? | Kamu mau pizza atau lebih suka pasta? | pizza of liever | atau
+We kunnen naar de film gaan of thuis blijven. | Kita bisa pergi menonton film atau tinggal di rumah. | gaan of thuis blijven | atau
+Ik weet niet of ik de rode of de blauwe jas moet kopen. | Saya tidak tahu apakah harus membeli jaket merah atau biru. | rode of de blauwe | atau
+Ik ga naar Utrecht of naar Den Haag. | Saya pergi ke Utrecht atau ke Den Haag. | Utrecht of naar Den Haag | atau
+Wij gaan op vakantie naar Spanje of naar Italië, dat weten we nog niet. | Kami berlibur ke Spanyol atau ke Italia, itu belum kami tentukan. | Spanje of naar Italië | atau
+#58 want (karena)
+Ik ga slapen, want ik ben moe. | Saya mau tidur, karena saya capek. | want | karena
+Hij blijft thuis, want hij heeft koorts. | Dia tinggal di rumah, karena dia demam. | want | karena
+Ik neem een jas mee, want het is koud. | Saya membawa jaket, karena cuacanya dingin. | want | karena
+Ik kan niet komen, want ik moet werken. | Saya tidak bisa datang, karena saya harus bekerja. | want | karena
+Ik koop niets, want alles is te duur. | Saya tidak membeli apa-apa, karena semuanya terlalu mahal. | want | karena
+Zij is blij, want ze heeft een nieuwe baan. | Dia senang, karena dia punya pekerjaan baru. | want | karena
+Ik eet niet mee, want ik heb al gegeten. | Saya tidak ikut makan, karena saya sudah makan. | want | karena
+De kinderen zijn stil, want hun vader slaapt. | Anak-anak diam, karena ayah mereka tidur. | want | karena
+Ze pakt een paraplu, want het gaat zo regenen. | Dia mengambil payung, karena sebentar lagi hujan. | want | karena
+Jan komt te laat, want de trein heeft vertraging. | Jan datang terlambat, karena kereta mengalami keterlambatan. | want | karena
+We nemen de fiets, want de bus rijdt niet. | Kami naik sepeda, karena busnya tidak jalan. | want | karena
+Wij gaan niet naar het strand, want het waait te hard. | Kami tidak pergi ke pantai, karena anginnya terlalu kencang. | want | karena
+Mijn zus belt me niet, want ze heeft geen tegoed meer. | Kakak saya tidak menelepon saya, karena pulsanya sudah habis. | want | karena
+Ik moet nog boodschappen doen, want de koelkast is helemaal leeg. | Saya masih harus belanja, karena kulkasnya kosong sama sekali. | want | karena
+Ik vind het hier heerlijk, want de mensen zijn vriendelijk en het eten is goed. | Saya sangat betah di sini, karena orang-orangnya ramah dan makanannya enak. | want | karena
+#59 dus (jadi)
+Ik heb honger, dus ik maak een broodje. | Saya lapar, jadi saya membuat roti isi. | dus | jadi
+Het is warm, dus ik trek een korte broek aan. | Cuacanya panas, jadi saya memakai celana pendek. | dus | jadi
+Hij is ziek, dus hij gaat niet naar school. | Dia sakit, jadi dia tidak pergi ke sekolah. | dus | jadi
+Het is zondag, dus alle winkels zijn dicht. | Hari ini Minggu, jadi semua toko tutup. | dus | jadi
+Ik heb geen tijd, dus ik kan niet meegaan. | Saya tidak punya waktu, jadi saya tidak bisa ikut. | dus | jadi
+Mijn fiets is kapot, dus ik ga met de bus. | Sepeda saya rusak, jadi saya naik bus. | dus | jadi
+De winkel is dicht, dus we kopen morgen brood. | Tokonya tutup, jadi kami membeli roti besok. | dus | jadi
+Mijn telefoon is leeg, dus ik kan je niet bellen. | Baterai ponsel saya habis, jadi saya tidak bisa meneleponmu. | dus | jadi
+Er is veel verkeer, dus we komen waarschijnlijk te laat. | Lalu lintas padat, jadi kami mungkin terlambat. | dus | jadi
+We hebben geen melk meer, dus ik loop even naar de supermarkt. | Susu kami sudah habis, jadi saya jalan sebentar ke supermarket. | dus | jadi
+Ze heeft veel gestudeerd, dus ze slaagt vast voor het examen. | Dia sudah banyak belajar, jadi dia pasti lulus ujian. | dus | jadi
+Ik heb mijn sleutel vergeten, dus ik moet bij de buren aanbellen. | Saya lupa membawa kunci, jadi saya harus membunyikan bel tetangga. | dus | jadi
+Het concert begint al om zeven uur, dus we moeten snel gaan eten. | Konsernya sudah mulai pukul tujuh, jadi kita harus cepat makan. | dus | jadi
+Mijn zus woont in Groningen, dus ik zie haar maar twee keer per jaar. | Kakak saya tinggal di Groningen, jadi saya hanya bertemu dia dua kali setahun. | dus | jadi
+#60 omdat (karena)
+Ik ben blij, omdat het weekend is. | Saya senang, karena sudah akhir pekan. | omdat | karena
+Hij komt niet, omdat hij moet werken. | Dia tidak datang, karena dia harus bekerja. | omdat | karena
+Ik neem de trein, omdat ik geen auto heb. | Saya naik kereta, karena saya tidak punya mobil. | omdat | karena
+Zij fietst naar school, omdat het mooi weer is. | Dia bersepeda ke sekolah, karena cuacanya bagus. | omdat | karena
+We eten buiten, omdat de zon schijnt. | Kami makan di luar, karena matahari bersinar. | omdat | karena
+Omdat het regent, blijven wij thuis. | Karena hujan, kami tinggal di rumah. | Omdat | Karena
+Omdat ik moe was, ging ik vroeg naar bed. | Karena saya capek, saya tidur lebih awal. | Omdat | Karena
+Ik ben te laat, omdat de bus niet kwam. | Saya terlambat, karena busnya tidak datang. | omdat | karena
+Ik drink veel water, omdat ik veel sport. | Saya minum banyak air, karena saya banyak berolahraga. | omdat | karena
+Zij heeft vandaag vrij, omdat haar dochter jarig is. | Dia libur hari ini, karena putrinya berulang tahun. | omdat | karena
+Mijn broer is boos, omdat ik zijn fiets heb gebruikt. | Kakak saya marah, karena saya memakai sepedanya. | omdat | karena
+Ik leer Nederlands, omdat ik in Nederland wil studeren. | Saya belajar bahasa Belanda, karena saya ingin kuliah di Belanda. | omdat | karena
+Omdat er veel sneeuw lag, konden de treinen niet rijden. | Karena banyak salju, kereta tidak bisa berjalan. | Omdat | Karena
+De kinderen lachen, omdat de clown een grappig liedje zingt. | Anak-anak tertawa, karena badutnya menyanyikan lagu lucu. | omdat | karena
+Mijn buurman heeft een nieuwe auto gekocht, omdat zijn oude auto kapot was. | Tetangga saya membeli mobil baru, karena mobil lamanya rusak. | omdat | karena
+#61 dat (bahwa)
+Ik denk dat hij gelijk heeft. | Saya pikir bahwa dia benar. | dat | bahwa
+Zij zegt dat ze moe is. | Dia bilang bahwa dia capek. | dat | bahwa
+Ik weet dat hij vandaag jarig is. | Saya tahu bahwa dia berulang tahun hari ini. | dat | bahwa
+Wij geloven dat Nederland een mooi land is. | Kami percaya bahwa Belanda adalah negara yang indah. | dat | bahwa
+Ik hoop dat het morgen mooi weer is. | Saya berharap bahwa besok cuacanya bagus. | dat | bahwa
+Hij vertelt dat hij een nieuwe baan heeft. | Dia bercerita bahwa dia punya pekerjaan baru. | dat | bahwa
+Ik hoorde dat de trein vandaag niet rijdt. | Saya dengar bahwa kereta hari ini tidak jalan. | dat | bahwa
+De leraar zegt dat we morgen een toets hebben. | Guru bilang bahwa besok kami ada ulangan. | dat | bahwa
+Zij weet dat haar broer vaak te laat komt. | Dia tahu bahwa kakaknya sering datang terlambat. | dat | bahwa
+Ik zie dat je een nieuwe jas hebt gekocht. | Saya lihat bahwa kamu membeli jaket baru. | dat | bahwa
+Mijn moeder zegt dat ik meer groente moet eten. | Ibu saya bilang bahwa saya harus makan lebih banyak sayur. | dat | bahwa
+Het is bekend dat Nederlanders veel fietsen. | Diketahui bahwa orang Belanda banyak bersepeda. | dat | bahwa
+Ik ben blij dat jullie vandaag bij ons kunnen eten. | Saya senang bahwa kalian bisa makan bersama kami hari ini. | dat | bahwa
+Hij zei dat hij de sleutel in de auto had laten liggen. | Dia bilang bahwa dia meninggalkan kunci di dalam mobil. | dat | bahwa
+Mijn buurvrouw vertelde dat ze volgende maand gaat verhuizen. | Tetangga saya bercerita bahwa dia akan pindah bulan depan. | dat | bahwa
+#62 als (jika / ketika [masa kini])
+Bel me als je thuis bent. | Telepon saya kalau kamu sudah di rumah. | als | kalau
+Als het regent, blijf ik thuis. | Kalau hujan, saya tinggal di rumah. | Als | Kalau
+Als ik moe ben, ga ik vroeg slapen. | Kalau saya capek, saya tidur lebih awal. | Als | Kalau
+Als het warm is, drinken we veel water. | Kalau cuaca panas, kami minum banyak air. | Als | Kalau
+Ik drink thee als ik verkouden ben. | Saya minum teh kalau saya sedang pilek. | als | kalau
+Als je honger hebt, mag je een broodje nemen. | Kalau kamu lapar, kamu boleh mengambil roti. | Als | Kalau
+Ik fiets naar school als het droog is. | Saya bersepeda ke sekolah kalau cuaca kering. | als | kalau
+Als de zon schijnt, gaan we naar het park. | Kalau matahari bersinar, kami pergi ke taman. | Als | Kalau
+Als ik tijd heb, lees ik graag een boek. | Kalau saya ada waktu, saya suka membaca buku. | Als | Kalau
+Als mijn zus belt, praten we vaak een uur. | Kalau kakak saya menelepon, kami sering mengobrol satu jam. | Als | Kalau
+Als je vragen hebt, kun je het aan de leraar vragen. | Kalau kamu punya pertanyaan, kamu bisa bertanya kepada guru. | Als | Kalau
+Als de bus te laat is, loop ik naar het station. | Kalau busnya terlambat, saya berjalan ke stasiun. | Als | Kalau
+Als ik naar de markt ga, koop ik meestal verse groente. | Kalau saya pergi ke pasar, saya biasanya membeli sayur segar. | Als | Kalau
+Als je naar Utrecht gaat, kun je ook even bij mij langskomen. | Kalau kamu pergi ke Utrecht, kamu bisa mampir sebentar ke tempat saya. | Als | Kalau
+#63 toen (ketika [lampau])
+Toen ik klein was, speelde ik vaak buiten. | Ketika saya kecil, saya sering bermain di luar. | Toen | Ketika
+Toen hij binnenkwam, was iedereen stil. | Ketika dia masuk, semua orang diam. | Toen | Ketika
+Toen het begon te regenen, gingen we naar binnen. | Ketika mulai hujan, kami masuk ke dalam. | Toen | Ketika
+Ik stond net onder de douche toen de telefoon ging. | Saya sedang mandi ketika telepon berdering. | toen | ketika
+Ik schrok erg toen ik de rekening zag. | Saya sangat kaget ketika melihat tagihannya. | toen | ketika
+Ik las een boek toen mijn zus thuiskwam. | Saya sedang membaca buku ketika kakak saya pulang. | toen | ketika
+Toen zij klaar was met werken, ging ze naar huis. | Ketika dia selesai bekerja, dia pulang. | Toen | Ketika
+Toen wij aankwamen, was het feest al begonnen. | Ketika kami tiba, pestanya sudah dimulai. | Toen | Ketika
+Toen mijn opa jong was, werkte hij op een boot. | Ketika kakek saya masih muda, dia bekerja di sebuah kapal. | Toen | Ketika
+Toen de film afgelopen was, gingen we met de bus naar huis. | Ketika filmnya selesai, kami pulang naik bus. | Toen | Ketika
+Toen ik gisteren de deur opendeed, stond mijn buurman voor me. | Ketika saya membuka pintu kemarin, tetangga saya berdiri di depan saya. | Toen | Ketika
+Toen ik als kind in Jakarta woonde, ging ik elke zomer naar mijn oma. | Ketika saya tinggal di Jakarta waktu kecil, saya mengunjungi nenek saya setiap liburan musim panas. | Toen | Ketika
+Toen het concert afgelopen was, wachtten wij nog een uur op de trein. | Ketika konser selesai, kami masih menunggu kereta satu jam lagi. | Toen | Ketika
+Toen ik vorig jaar in Nederland kwam, sprak ik nog geen woord Nederlands. | Ketika saya datang ke Belanda tahun lalu, saya belum bisa bahasa Belanda sama sekali. | Toen | Ketika
+Toen ze negentien was, verhuisde ze naar Amsterdam om te studeren. | Ketika dia berumur sembilan belas tahun, dia pindah ke Amsterdam untuk kuliah. | Toen | Ketika
+#64 terwijl
+Ik kook terwijl jij leest. | Saya memasak sementara kamu membaca. | terwijl | sementara
+Terwijl ik afwas, belt mijn moeder. | Sementara saya mencuci piring, ibu saya menelepon. | Terwijl | Sementara
+Hij luistert naar muziek terwijl hij werkt. | Dia mendengarkan musik sementara dia bekerja. | terwijl | sementara
+Zij kijkt televisie terwijl ze eet. | Dia menonton televisi sementara dia makan. | terwijl | sementara
+Terwijl het regende, zaten wij lekker binnen. | Sementara hujan turun, kami duduk nyaman di dalam. | Terwijl | Sementara
+Terwijl wij aten, begon het te onweren. | Sementara kami makan, mulai terdengar guntur. | Terwijl | Sementara
+De kinderen spelen terwijl hun vader koffie drinkt. | Anak-anak bermain sementara ayah mereka minum kopi. | terwijl | sementara
+Ik leer woordjes terwijl ik in de bus zit. | Saya belajar kosakata sementara saya duduk di bus. | terwijl | sementara
+Mijn zus studeert terwijl ik de tuin schoonmaak. | Kakak saya belajar sementara saya membersihkan kebun. | terwijl | sementara
+Terwijl ik op de trein wachtte, las ik de krant. | Sementara saya menunggu kereta, saya membaca koran. | Terwijl | Sementara
+Mijn moeder breit terwijl ze naar de radio luistert. | Ibu saya merajut sementara dia mendengarkan radio. | terwijl | sementara
+Ik heb mijn tas gepakt terwijl mijn broer nog sliep. | Saya sudah mengemas tas saya sementara adik saya masih tidur. | terwijl | sementara
+Hij fluit een liedje terwijl hij door het park loopt. | Dia bersiul menyanyikan sebuah lagu sementara berjalan di taman. | terwijl | sementara
+Terwijl mijn man de auto wast, maak ik het huis schoon. | Sementara suami saya mencuci mobil, saya membersihkan rumah. | Terwijl | Sementara
+Zij praten urenlang terwijl de kinderen buiten spelen. | Mereka mengobrol berjam-jam sementara anak-anak bermain di luar. | terwijl | sementara
+#65 voordat
+Was je handen voordat je gaat eten. | Cuci tanganmu sebelum kamu makan. | voordat | sebelum
+Ik eet iets voordat ik naar school ga. | Saya makan sesuatu sebelum saya pergi ke sekolah. | voordat | sebelum
+Voordat ik vertrek, controleer ik de deur. | Sebelum saya berangkat, saya memeriksa pintu. | Voordat | Sebelum
+Hij belt zijn moeder voordat hij naar bed gaat. | Dia menelepon ibunya sebelum dia tidur. | voordat | sebelum
+Ik drink een kop thee voordat ik ga werken. | Saya minum secangkir teh sebelum saya bekerja. | voordat | sebelum
+Voordat we gaan eten, moeten we de tafel dekken. | Sebelum kita makan, kita harus menata meja. | Voordat | Sebelum
+Zij leest altijd een boek voordat ze gaat slapen. | Dia selalu membaca buku sebelum tidur. | voordat | sebelum
+Pak je paraplu voordat je het huis verlaat. | Ambil payungmu sebelum kamu meninggalkan rumah. | voordat | sebelum
+Voordat de les begint, schrijft de leraar het onderwerp op het bord. | Sebelum pelajaran dimulai, guru menulis topiknya di papan tulis. | Voordat | Sebelum
+Mijn vader leest de krant voordat hij naar zijn werk fietst. | Ayah saya membaca koran sebelum dia bersepeda ke tempat kerja. | voordat | sebelum
+Wij moeten een kaartje kopen voordat de trein vertrekt. | Kami harus membeli tiket sebelum kereta berangkat. | voordat | sebelum
+Hij maakte zijn huiswerk af voordat zijn vrienden kwamen. | Dia menyelesaikan pekerjaan rumahnya sebelum teman-temannya datang. | voordat | sebelum
+Ik moet nog boodschappen doen voordat de winkel dicht gaat. | Saya masih harus berbelanja sebelum toko tutup. | voordat | sebelum
+Voordat hij naar Amsterdam verhuisde, woonde hij in een klein dorp. | Sebelum dia pindah ke Amsterdam, dia tinggal di sebuah desa kecil. | Voordat | Sebelum
+Voordat je de pizza in de oven doet, moet je de oven eerst aanzetten. | Sebelum kamu memasukkan pizza ke oven, kamu harus menyalakan ovennya dulu. | Voordat | Sebelum
+#66 nadat
+Ik ga slapen nadat ik de afwas heb gedaan. | Saya tidur setelah saya mencuci piring. | nadat | setelah
+Nadat hij klaar was, ging hij naar huis. | Setelah dia selesai, dia pulang. | Nadat | Setelah
+Nadat ik gegeten had, ging ik wandelen. | Setelah saya makan, saya pergi berjalan-jalan. | Nadat | Setelah
+Nadat zij had gebeld, kwam haar broer meteen. | Setelah dia menelepon, kakaknya langsung datang. | Nadat | Setelah
+Ik voel me beter nadat ik wat heb gerust. | Saya merasa lebih baik setelah saya beristirahat sebentar. | nadat | setelah
+Nadat de les was afgelopen, liepen de kinderen naar buiten. | Setelah pelajaran selesai, anak-anak berjalan keluar. | Nadat | Setelah
+Nadat wij hadden gegeten, deden we samen de afwas. | Setelah kami makan, kami mencuci piring bersama. | Nadat | Setelah
+Nadat ik mijn huiswerk heb gemaakt, kijk ik televisie. | Setelah saya mengerjakan pekerjaan rumah, saya menonton televisi. | Nadat | Setelah
+Hij pakte zijn jas nadat hij de rekening had betaald. | Dia mengambil jaketnya setelah dia membayar tagihan. | nadat | setelah
+Nadat ik was verhuisd, kende ik niemand in de stad. | Setelah saya pindah, saya tidak mengenal siapa pun di kota. | Nadat | Setelah
+Ik zag haar nadat ik uit de trein was gestapt. | Saya melihatnya setelah saya turun dari kereta. | nadat | setelah
+Nadat het concert was afgelopen, gingen we nog even wat drinken. | Setelah konser selesai, kami masih sempat minum sesuatu. | Nadat | Setelah
+Ik bel je nadat ik bij mijn ouders ben aangekomen. | Saya akan meneleponmu setelah saya tiba di rumah orang tua saya. | nadat | setelah
+Nadat mijn zus was geslaagd voor haar examen, gaven wij een feestje. | Setelah kakak saya lulus ujian, kami mengadakan pesta kecil. | Nadat | Setelah
+#67 Kata tanya
+Ik weet niet waar hij woont. | Saya tidak tahu di mana dia tinggal. | waar | di mana
+Ik weet niet wie de nieuwe leraar is. | Saya tidak tahu siapa guru barunya. | wie | siapa
+Ik snap niet waarom mijn buurman zo vaak boos is. | Saya tidak paham mengapa tetangga saya begitu sering marah. | waarom | mengapa
+Zij vraagt wat ik morgen doe. | Dia bertanya apa yang saya lakukan besok. | wat | apa
+Ik wil weten waar de bushalte is. | Saya ingin tahu di mana halte busnya. | waar | di mana
+Kun je me zeggen hoe laat het is? | Bisakah kamu memberi tahu saya jam berapa sekarang? | hoe laat | jam berapa
+Weet jij wanneer de winkel opengaat? | Apakah kamu tahu kapan tokonya buka? | wanneer | kapan
+Ik vraag me af wanneer mijn zus terugkomt. | Saya bertanya-tanya kapan kakak saya kembali. | wanneer | kapan
+Zij wil weten hoeveel de kaartjes kosten. | Dia ingin tahu berapa harga tiketnya. | hoeveel | berapa
+Ik weet niet welke bus naar het station gaat. | Saya tidak tahu bus mana yang ke stasiun. | welke | mana
+Ik heb geen idee wie er gisteren heeft gebeld. | Saya tidak tahu siapa yang menelepon kemarin. | wie | siapa
+Hij vertelt hoe hij naar Nederland is gekomen. | Dia bercerita bagaimana dia sampai di Belanda. | hoe | bagaimana
+Kun je uitleggen waarom het vandaag zo druk is? | Bisakah kamu menjelaskan mengapa hari ini begitu ramai? | waarom | mengapa
+Mijn opa vertelt vaak wat hij als kind deed. | Kakek saya sering bercerita apa yang dulu dia lakukan waktu kecil. | wat | apa
+#68 of
+Ik vraag of hij komt. | Saya bertanya apakah dia datang. | of hij | apakah
+Ik weet niet of ze thuis is. | Saya tidak tahu apakah dia ada di rumah. | of ze | apakah
+Hij vroeg of ik hem wilde helpen. | Dia bertanya apakah saya mau membantunya. | of ik | apakah
+Mijn moeder vroeg of ik al gegeten had. | Ibu saya bertanya apakah saya sudah makan. | of ik | apakah
+Kun je kijken of de deur dicht is? | Bisakah kamu melihat apakah pintunya tertutup? | of de deur | apakah
+Ik vraag me af of het morgen regent. | Saya bertanya-tanya apakah besok hujan. | of het | apakah
+Weet jij of de winkel zaterdag open is? | Apakah kamu tahu apakah toko buka hari Sabtu? | of de winkel | apakah
+Kijk even of er nog melk in de koelkast staat. | Lihat dulu apakah masih ada susu di kulkas. | of er nog melk | apakah
+Ik wil weten of mijn pakket al is aangekomen. | Saya ingin tahu apakah paket saya sudah tiba. | of mijn pakket | apakah
+Zij twijfelt of ze naar het feest zal gaan. | Dia ragu apakah dia akan pergi ke pesta. | of ze naar | apakah
+De leraar vroeg of iedereen de les begrepen had. | Guru bertanya apakah semua orang sudah mengerti pelajaran. | of iedereen | apakah
+Hij belde om te vragen of de kamer nog vrij was. | Dia menelepon untuk bertanya apakah kamarnya masih kosong. | of de kamer | apakah
+Ik weet niet of ik de trein van tien uur nog kan halen. | Saya tidak tahu apakah saya masih bisa mengejar kereta pukul sepuluh. | of ik de trein | apakah
+Ik heb gevraagd of we een tafel bij het raam kunnen krijgen. | Saya sudah bertanya apakah kami bisa mendapat meja dekat jendela. | of we een tafel | apakah
+#69 Anak + inversi
+Als het warm is, gaan we naar het strand. | Kalau cuaca panas, kami pergi ke pantai. | gaan we | Kalau
+Als de zon schijnt, eten wij buiten. | Kalau matahari bersinar, kami makan di luar. | eten wij | Kalau
+Als je tijd hebt, kun je me bellen. | Kalau kamu ada waktu, kamu bisa menelepon saya. | kun je | Kalau
+Omdat het regent, blijf ik thuis. | Karena hujan, saya tinggal di rumah. | blijf ik | Karena
+Omdat mijn fiets kapot is, neem ik de bus. | Karena sepeda saya rusak, saya naik bus. | neem ik | Karena
+Voordat ik naar bed ga, lees ik een boek. | Sebelum saya tidur, saya membaca buku. | lees ik | Sebelum
+Nadat wij gegeten hadden, ging mijn vader naar zijn werk. | Setelah kami makan, ayah saya pergi bekerja. | ging mijn vader | Setelah
+Toen ik klein was, woonden wij in Amsterdam. | Waktu saya kecil, kami tinggal di Amsterdam. | woonden wij | Waktu
+Terwijl ik kook, luistert mijn dochter naar muziek. | Sementara saya memasak, putri saya mendengarkan musik. | luistert mijn dochter | Sementara
+Als het morgen sneeuwt, blijven de kinderen thuis. | Kalau besok turun salju, anak-anak tinggal di rumah. | blijven de kinderen | Kalau
+Omdat de winkel dicht was, kochten wij niets. | Karena tokonya tutup, kami tidak membeli apa-apa. | kochten wij | Karena
+Nadat de film was afgelopen, gingen wij naar huis. | Setelah filmnya selesai, kami pulang. | gingen wij | Setelah
+Als ik naar Nederland ga, bezoek ik mijn oma. | Kalau saya pergi ke Belanda, saya mengunjungi nenek saya. | bezoek ik | Kalau
+Toen het begon te regenen, renden de kinderen naar binnen. | Ketika mulai hujan, anak-anak berlari ke dalam. | renden de kinderen | Ketika
+Omdat zij veel heeft geoefend, spreekt ze nu goed Nederlands. | Karena dia banyak berlatih, sekarang dia berbahasa Belanda dengan baik. | spreekt ze | Karena
+#70 S + ... + infinitief + finit / finit + infinitief
+Ik blijf thuis, omdat ik moet werken. | Saya di rumah, karena saya harus bekerja. | moet werken | harus bekerja
+Ik weet dat hij kan zwemmen. | Saya tahu dia bisa berenang. | kan zwemmen | bisa berenang
+Zij zegt dat ze wil komen. | Dia bilang dia mau datang. | wil komen | mau datang
+Hij is blij dat hij mag blijven. | Dia senang karena boleh tinggal. | mag blijven | boleh tinggal
+Ik hoop dat we morgen kunnen spelen. | Saya berharap kita besok bisa bermain. | kunnen spelen | bisa bermain
+Mijn moeder zegt dat ik moet leren. | Ibu saya bilang saya harus belajar. | moet leren | harus belajar
+Ik weet niet of ik kan komen. | Saya tidak tahu apakah saya bisa datang. | kan komen | bisa datang
+Zij blijft thuis omdat ze niet wil gaan. | Dia tinggal di rumah karena dia tidak mau pergi. | wil gaan | mau pergi
+De leraar zegt dat wij moeten luisteren. | Guru bilang kami harus mendengarkan. | moeten luisteren | harus mendengarkan
+Ik denk dat zij kan helpen. | Saya kira dia bisa membantu. | kan helpen | bisa membantu
+Wij hopen dat het niet gaat regenen. | Kami berharap tidak akan hujan. | gaat regenen | akan hujan
+Hij gaat vroeg slapen omdat hij morgen moet vertrekken. | Dia tidur lebih awal karena besok dia harus berangkat. | moet vertrekken | harus berangkat
+Ik was moe omdat ik gisteren moest werken. | Saya capek karena kemarin saya harus bekerja. | moest werken | harus bekerja
+Zij vertelt dat ze volgend jaar wil verhuizen. | Dia bercerita bahwa tahun depan dia mau pindah. | wil verhuizen | mau pindah
+#71 participle + finit
+Ik weet dat hij gisteren gewerkt heeft. | Saya tahu dia kemarin sudah bekerja. | gewerkt heeft | sudah bekerja
+Zij zegt dat ze al gegeten heeft. | Dia bilang dia sudah makan. | gegeten heeft | sudah makan
+Ik hoor dat jullie verhuisd zijn. | Saya dengar kalian sudah pindah. | verhuisd zijn | sudah pindah
+Hij vertelt dat hij in Rotterdam gewoond heeft. | Dia bercerita bahwa dia pernah tinggal di Rotterdam. | gewoond heeft | pernah tinggal
+Ik ben blij dat je gebeld hebt. | Saya senang kamu sudah menelepon. | gebeld hebt | sudah menelepon
+Ik hoop dat jij het boek gelezen hebt. | Saya harap kamu sudah membaca buku itu. | gelezen hebt | sudah membaca
+Wij weten dat de trein vertrokken is. | Kami tahu keretanya sudah berangkat. | vertrokken is | sudah berangkat
+Mijn moeder zegt dat ik te weinig geslapen heb. | Ibu saya bilang saya terlalu sedikit tidur. | geslapen heb | terlalu sedikit tidur
+Ik denk dat zij de sleutel verloren heeft. | Saya kira dia kehilangan kunci. | verloren heeft | kehilangan kunci
+Weet je of hij het huis gekocht heeft? | Apakah kamu tahu apakah dia sudah membeli rumah itu? | gekocht heeft | sudah membeli
+De leraar vraagt of wij het huiswerk gemaakt hebben. | Guru bertanya apakah kami sudah mengerjakan pekerjaan rumah. | gemaakt hebben | sudah mengerjakan
+Ik ben boos omdat hij mijn fiets gebruikt heeft. | Saya marah karena dia sudah memakai sepeda saya. | gebruikt heeft | sudah memakai
+Mijn zus belt omdat ze haar tas vergeten is. | Kakak saya menelepon karena dia lupa membawa tasnya. | vergeten is | lupa
+Ik zie dat het geregend heeft, want de straat is nat. | Saya lihat tadi hujan, karena jalannya basah. | geregend heeft | tadi hujan
+#72 in
+De kat zit in de doos. | Kucing itu ada di dalam kotak. | in de doos | di dalam
+Mijn sleutels liggen in mijn tas. | Kunci saya ada di dalam tas saya. | in mijn tas | di dalam
+Er zit melk in de koelkast. | Ada susu di dalam kulkas. | in de koelkast | di dalam
+Het kind zit in de auto. | Anak itu duduk di dalam mobil. | in de auto | di dalam
+Ze zit in haar kamer te lezen. | Dia membaca di dalam kamarnya. | in haar kamer | di dalam
+Mijn paspoort zit in die la. | Paspor saya ada di dalam laci itu. | in die la | di dalam
+De kleren hangen in de kast. | Pakaiannya tergantung di dalam lemari. | in de kast | di dalam
+Zijn handen zitten in zijn zakken. | Tangannya ada di dalam sakunya. | in zijn zakken | di dalam
+Er staat een grote pan in de keuken. | Ada panci besar di dalam dapur. | in de keuken | di dalam
+De kinderen zwemmen in het zwembad. | Anak-anak berenang di dalam kolam renang. | in het zwembad | di dalam
+Er zijn veel mensen in de winkel. | Ada banyak orang di dalam toko. | in de winkel | di dalam
+Het is donker in de tunnel, dus doe je licht aan. | Di dalam terowongan gelap, jadi nyalakan lampumu. | in de tunnel | di dalam
+Mijn oma zit al een uur in de bus naar Utrecht. | Nenek saya sudah satu jam di dalam bus ke Utrecht. | in de bus | di dalam
+Hij heeft een boterham in zijn jaszak gestopt. | Dia memasukkan sepotong roti ke dalam saku jaketnya. | in zijn jaszak | dalam
+#73 op
+Het boek ligt op de tafel. | Buku itu terletak di atas meja. | op de tafel | di atas
+De kat zit op de bank. | Kucing itu duduk di atas sofa. | op de bank | di atas
+Er staat een vaas op het kastje. | Ada vas di atas lemari kecil. | op het kastje | di atas
+De pen ligt op het papier. | Pulpen itu ada di atas kertas. | op het papier | di atas
+De vogel zit op het dak. | Burung itu hinggap di atas atap. | op het dak | di atas
+Ze zet de pan op het fornuis. | Dia menaruh panci di atas kompor. | op het fornuis | di atas
+Hij zit op de fiets en fluit een liedje. | Dia duduk di atas sepeda sambil bersiul. | op de fiets | di atas
+Er ligt een dikke trui op mijn bed. | Ada sweter tebal di atas tempat tidur saya. | op mijn bed | di atas
+Er liggen veel bladeren op het gras. | Ada banyak daun di atas rumput. | op het gras | di atas
+Er staat een kopje koffie op het bureau. | Ada secangkir kopi di atas meja kerja. | op het bureau | di atas
+De kleine jongen klimt op de rug van zijn vader. | Anak laki-laki kecil itu naik ke atas punggung ayahnya. | op de rug | atas
+Op de tafel staat een grote taart voor haar verjaardag. | Di atas meja ada kue besar untuk ulang tahunnya. | Op de tafel | Di atas
+Mijn laptop staat op het kleine bureau naast het raam. | Laptop saya ada di atas meja kecil di samping jendela. | op het kleine bureau | di atas
+#74 aan
+De foto hangt aan de muur. | Foto itu tergantung di dinding. | aan de muur | di dinding
+Zij zit aan tafel. | Dia duduk di meja makan. | aan tafel | di meja
+Hij staat aan het raam. | Dia berdiri di jendela. | aan het raam | di jendela
+Er hangt een jas aan de deur. | Ada jaket tergantung di pintu. | aan de deur | di pintu
+Mijn oma woont aan het strand. | Nenek saya tinggal di pantai. | aan het strand | di pantai
+Wij zitten aan het water. | Kami duduk di tepi air. | aan het water | di tepi
+De lamp hangt aan het plafond. | Lampu tergantung di langit-langit. | aan het plafond | di langit-langit
+Het restaurant ligt aan de rivier. | Restoran itu terletak di tepi sungai. | aan de rivier | di tepi sungai
+Het huis staat aan een rustige straat. | Rumah itu berada di jalan yang tenang. | aan een rustige straat | di jalan
+Aan het eind van de straat is een bakker. | Di ujung jalan ada toko roti. | Aan het eind | Di ujung
+Onze school ligt aan een groot plein. | Sekolah kami terletak di sebuah alun-alun besar. | aan een groot plein | di sebuah alun-alun
+Ze wonen in een huis aan het meer. | Mereka tinggal di rumah di tepi danau. | aan het meer | di tepi danau
+De kinderen zitten aan de keukentafel te tekenen. | Anak-anak duduk di meja dapur sambil menggambar. | aan de keukentafel | di meja dapur
+#75 achter
+Hij staat achter mij. | Dia berdiri di belakang saya. | achter mij | di belakang
+De tuin ligt achter het huis. | Kebun itu ada di belakang rumah. | achter het huis | di belakang
+Mijn tas staat achter de deur. | Tas saya ada di belakang pintu. | achter de deur | di belakang
+De fiets staat achter de schuur. | Sepeda itu ada di belakang gudang. | achter de schuur | di belakang
+De kat verstopt zich achter de bank. | Kucing itu bersembunyi di belakang sofa. | achter de bank | di belakang
+Het zwembad is achter de school. | Kolam renang ada di belakang sekolah. | achter de school | di belakang
+De bushalte is net achter de hoek. | Halte bus ada tepat di belakang tikungan. | achter de hoek | di belakang
+Achter ons huis loopt een kleine rivier. | Di belakang rumah kami mengalir sungai kecil. | Achter ons huis | Di belakang
+De leraar staat achter zijn bureau. | Guru berdiri di belakang mejanya. | achter zijn bureau | di belakang
+Er is een parkeerplaats achter het station. | Ada tempat parkir di belakang stasiun. | achter het station | di belakang
+De kinderen verstoppen zich achter een grote boom. | Anak-anak bersembunyi di belakang pohon besar. | achter een grote boom | di belakang
+Achter de supermarkt is een grote parkeerplaats voor klanten. | Di belakang supermarket ada tempat parkir besar untuk pelanggan. | Achter de supermarkt | Di belakang
+#76 voor
+De auto staat voor het huis. | Mobil itu berada di depan rumah. | voor het huis | di depan
+Zij staat voor de spiegel. | Dia berdiri di depan cermin. | voor de spiegel | di depan
+Hij wacht voor de deur. | Dia menunggu di depan pintu. | voor de deur | di depan
+De fiets staat voor de winkel. | Sepeda itu ada di depan toko. | voor de winkel | di depan
+Voor het station is een grote parkeerplaats. | Di depan stasiun ada tempat parkir besar. | Voor het station | Di depan
+Er staat een bank voor de school. | Ada bangku di depan sekolah. | voor de school | di depan
+Voor ons huis staat een grote boom. | Di depan rumah kami ada pohon besar. | Voor ons huis | Di depan
+De hond ligt voor de open haard. | Anjing itu berbaring di depan perapian. | voor de open haard | di depan
+Mijn vriend wacht voor het café op mij. | Teman saya menunggu saya di depan kafe. | voor het café | di depan
+Er staat een lange rij voor de kassa. | Ada antrean panjang di depan kasir. | voor de kassa | di depan
+De taxi staat voor het hotel te wachten. | Taksi itu menunggu di depan hotel. | voor het hotel | di depan
+De leraar staat voor de klas en vertelt een verhaal. | Guru berdiri di depan kelas dan bercerita. | voor de klas | di depan
+#77 naast
+Naast de bank is een winkel. | Di sebelah bank ada sebuah toko. | Naast de bank | Di sebelah
+Ik zit naast jou. | Saya duduk di sebelah kamu. | naast jou | di sebelah
+De kat ligt naast de hond. | Kucing itu berbaring di sebelah anjing. | naast de hond | di sebelah
+Mijn tas staat naast de stoel. | Tas saya ada di sebelah kursi. | naast de stoel | di sebelah
+Zij woont naast een bakker. | Dia tinggal di sebelah toko roti. | naast een bakker | di sebelah
+Naast het station is een café. | Di sebelah stasiun ada sebuah kafe. | Naast het station | Di sebelah
+Mijn buurman woont naast ons. | Tetangga saya tinggal di sebelah kami. | naast ons | di sebelah
+Er ligt een boek naast het bed. | Ada buku di sebelah tempat tidur. | naast het bed | di sebelah
+Naast mijn kamer is de keuken. | Di sebelah kamar saya ada dapur. | Naast mijn kamer | Di sebelah
+De bibliotheek staat naast de kerk. | Perpustakaan itu ada di sebelah gereja. | naast de kerk | di sebelah
+Het zwembad ligt naast de sporthal. | Kolam renang itu terletak di sebelah gedung olahraga. | naast de sporthal | di sebelah
+Ga maar naast je zus zitten. | Duduklah di sebelah kakakmu. | naast je zus | di sebelah
+Hij zit in de bus naast een oude man. | Dia duduk di bus di sebelah seorang pria tua. | naast een oude man | di sebelah
+Ons huis staat naast een groot park. | Rumah kami ada di sebelah taman besar. | naast een groot park | di sebelah
+#78 tussen
+Ik zit tussen mijn broer en mijn zus. | Saya duduk di antara kakak laki-laki dan kakak perempuan saya. | tussen mijn broer | di antara
+De kat slaapt tussen de kussens. | Kucing itu tidur di antara bantal-bantal. | tussen de kussens | di antara
+Het park ligt tussen twee drukke straten. | Taman itu terletak di antara dua jalan yang ramai. | tussen twee drukke straten | di antara
+Hij staat tussen zijn ouders op de foto. | Dia berdiri di antara orang tuanya di foto itu. | tussen zijn ouders | di antara
+De sleutels liggen tussen de boeken. | Kunci-kunci itu ada di antara buku-buku. | tussen de boeken | di antara
+Tussen de school en het station is een klein plein. | Di antara sekolah dan stasiun ada alun-alun kecil. | Tussen de school | Di antara
+Wij wonen tussen Utrecht en Amersfoort. | Kami tinggal di antara Utrecht dan Amersfoort. | tussen Utrecht | di antara
+Er staat een boom tussen de twee huizen. | Ada pohon di antara dua rumah itu. | tussen de twee huizen | di antara
+De bakkerij ligt tussen de supermarkt en de bank. | Toko roti itu terletak di antara supermarket dan bank. | tussen de supermarkt | di antara
+Zij zit tussen twee vriendinnen in de bioscoop. | Dia duduk di antara dua temannya di bioskop. | tussen twee vriendinnen | di antara
+Tussen de bomen loopt een smal pad. | Di antara pepohonan ada jalan setapak yang sempit. | Tussen de bomen | Di antara
+Mijn kamer is tussen de badkamer en de keuken. | Kamar saya ada di antara kamar mandi dan dapur. | tussen de badkamer | di antara
+Het museum is tussen de kerk en het station. | Museum itu ada di antara gereja dan stasiun. | tussen de kerk | di antara
+#79 boven
+De lamp hangt boven de tafel. | Lampu tergantung di atas meja. | boven de tafel | di atas
+Het schilderij hangt boven de bank. | Lukisan itu tergantung di atas sofa. | boven de bank | di atas
+Boven de deur hangt een klok. | Di atas pintu ada jam dinding. | Boven de deur | Di atas
+Mijn kamer is boven de keuken. | Kamar saya ada di atas dapur. | boven de keuken | di atas
+Boven ons woont een oudere vrouw. | Di atas kami tinggal seorang wanita lanjut usia. | Boven ons | Di atas
+Er vliegt een vogel boven het huis. | Seekor burung terbang di atas rumah. | boven het huis | di atas
+De spiegel hangt boven de wasbak. | Cermin itu tergantung di atas wastafel. | boven de wasbak | di atas
+Mijn buren wonen boven de bakkerij. | Tetangga saya tinggal di atas toko roti. | boven de bakkerij | di atas
+De zon staat hoog boven de bergen. | Matahari tinggi di atas pegunungan. | boven de bergen | di atas
+Boven de stad hangen donkere wolken. | Di atas kota menggantung awan gelap. | Boven de stad | Di atas
+Het vliegtuig vloog boven de wolken. | Pesawat itu terbang di atas awan. | boven de wolken | di atas
+Boven het bed hangt een foto van mijn familie. | Di atas tempat tidur ada foto keluarga saya. | Boven het bed | Di atas
+Hij houdt de paraplu boven mijn hoofd. | Dia memegang payung di atas kepala saya. | boven mijn hoofd | di atas
+#80 onder
+De kat slaapt onder de tafel. | Kucing itu tidur di bawah meja. | onder de tafel | di bawah
+Mijn schoenen staan onder het bed. | Sepatu saya ada di bawah tempat tidur. | onder het bed | di bawah
+De hond ligt onder de boom. | Anjing itu berbaring di bawah pohon. | onder de boom | di bawah
+De brief ligt onder het boek. | Surat itu ada di bawah buku. | onder het boek | di bawah
+Onder de brug stroomt een rivier. | Di bawah jembatan mengalir sebuah sungai. | Onder de brug | Di bawah
+Er ligt een tapijt onder de bank. | Ada karpet di bawah sofa. | onder de bank | di bawah
+Onder ons woont een jong gezin. | Di bawah kami tinggal sebuah keluarga muda. | Onder ons | Di bawah
+Onder de lamp staat een kleine tafel. | Di bawah lampu ada meja kecil. | Onder de lamp | Di bawah
+De garage is onder het huis. | Garasi ada di bawah rumah. | onder het huis | di bawah
+Zij zoekt haar sleutels onder de kussens. | Dia mencari kuncinya di bawah bantal-bantal. | onder de kussens | di bawah
+De kinderen spelen onder een grote boom. | Anak-anak bermain di bawah pohon besar. | onder een grote boom | di bawah
+Wij wachten onder het afdak, want het regent. | Kami menunggu di bawah atap, karena hujan. | onder het afdak | di bawah
+Mijn telefoon lag onder een stapel kranten. | Ponsel saya ada di bawah tumpukan koran. | onder een stapel | di bawah
+#81 voor
+Voor de les drink ik koffie. | Sebelum pelajaran saya minum kopi. | Voor de les | Sebelum
+Voor het eten wassen we onze handen. | Sebelum makan kami mencuci tangan. | Voor het eten | Sebelum
+Ik ben voor zes uur thuis. | Saya sudah di rumah sebelum pukul enam. | voor zes uur | sebelum
+Wij vertrekken voor het weekend. | Kami berangkat sebelum akhir pekan. | voor het weekend | sebelum
+Hij leest voor het slapen een boek. | Dia membaca buku sebelum tidur. | voor het slapen | sebelum
+Kun je voor vijf uur terugkomen? | Bisakah kamu kembali sebelum pukul lima? | voor vijf uur | sebelum
+Voor de vakantie moet ik veel werken. | Sebelum liburan saya harus banyak bekerja. | Voor de vakantie | Sebelum
+Mijn zus belt altijd voor het avondeten. | Kakak saya selalu menelepon sebelum makan malam. | voor het avondeten | sebelum
+Voor de film gaan we eerst pizza eten. | Sebelum film kita makan pizza dulu. | Voor de film | Sebelum
+Zij ruimt voor het ontbijt de keuken op. | Dia membereskan dapur sebelum sarapan. | voor het ontbijt | sebelum
+Voor het examen heb ik drie dagen geleerd. | Sebelum ujian saya belajar tiga hari. | Voor het examen | Sebelum
+Mijn vader leest de krant voor zijn werk. | Ayah saya membaca koran sebelum bekerja. | voor zijn werk | sebelum
+Voor het concert hebben ze een uur in de rij gestaan. | Sebelum konser mereka mengantre selama satu jam. | Voor het concert | Sebelum
+#82 na
+Na de les ga ik naar huis. | Setelah pelajaran saya pulang. | Na de les | Setelah
+Na het eten kijken we televisie. | Setelah makan kami menonton televisi. | Na het eten | Setelah
+Na school speel ik met mijn vrienden. | Setelah sekolah saya bermain dengan teman-teman. | Na school | Setelah
+Ik slaap na de lunch een uurtje. | Saya tidur satu jam setelah makan siang. | na de lunch | setelah
+Hij belt me na het concert. | Dia menelepon saya setelah konser. | na het concert | setelah
+Na het werk ga ik even sporten. | Setelah bekerja saya berolahraga sebentar. | Na het werk | Setelah
+Na de zomer begint het nieuwe schooljaar. | Setelah musim panas dimulai tahun ajaran baru. | Na de zomer | Setelah
+Mijn zus komt na zeven uur thuis. | Kakak saya pulang setelah pukul tujuh. | na zeven uur | setelah
+Na het examen gaan we feesten. | Setelah ujian kami berpesta. | Na het examen | Setelah
+Wij wandelen na het ontbijt langs het water. | Kami berjalan menyusuri air setelah sarapan. | na het ontbijt | setelah
+Na de vakantie moet ik weer hard werken. | Setelah liburan saya harus bekerja keras lagi. | Na de vakantie | Setelah
+Na het diner nemen we een kop koffie. | Setelah makan malam kami minum secangkir kopi. | Na het diner | Setelah
+Na een lange dag in de stad was ik erg moe. | Setelah seharian di kota saya sangat capek. | Na een lange dag | Setelah
+#83 tijdens
+Tijdens het eten praten we. | Selama makan kami mengobrol. | Tijdens het eten | Selama
+Tijdens de les mag je niet bellen. | Selama pelajaran kamu tidak boleh menelepon. | Tijdens de les | Selama
+Hij viel in slaap tijdens de film. | Dia tertidur selama film. | tijdens de film | selama
+Tijdens de pauze eet ik een appel. | Selama istirahat saya makan apel. | Tijdens de pauze | Selama
+Tijdens mijn vakantie lees ik veel boeken. | Selama liburan saya banyak membaca buku. | Tijdens mijn vakantie | Selama
+Tijdens de nacht regende het hard. | Selama malam hujan turun dengan deras. | Tijdens de nacht | Selama
+Zij werkte tijdens haar studie in een restaurant. | Dia bekerja di sebuah restoran selama kuliah. | tijdens haar studie | selama
+Tijdens het concert mag je geen foto's maken. | Selama konser kamu tidak boleh memotret. | Tijdens het concert | Selama
+Tijdens de reis luisterden wij naar muziek. | Selama perjalanan kami mendengarkan musik. | Tijdens de reis | Selama
+Tijdens het weekend slaapt mijn broer lang uit. | Selama akhir pekan kakak saya tidur sampai siang. | Tijdens het weekend | Selama
+Tijdens de vergadering schreef zij alles op. | Selama rapat dia menulis semuanya. | Tijdens de vergadering | Selama
+Mijn opa vertelde tijdens de wandeling over vroeger. | Kakek saya bercerita tentang masa lalu selama berjalan-jalan. | tijdens de wandeling | selama
+De kinderen zijn tijdens de les erg stil. | Anak-anak sangat diam selama pelajaran. | tijdens de les | selama
+#84 van ... tot
+Ik werk van negen tot vijf. | Saya bekerja dari pukul sembilan sampai lima. | van negen tot vijf | dari pukul sembilan sampai lima
+De winkel is open van maandag tot zaterdag. | Toko buka dari Senin sampai Sabtu. | van maandag tot zaterdag | dari Senin sampai Sabtu
+Wij wonen hier van 2015 tot 2020. | Kami tinggal di sini dari tahun 2015 sampai 2020. | van 2015 tot 2020 | dari tahun 2015 sampai 2020
+De les duurt van tien tot twaalf uur. | Pelajarannya berlangsung dari pukul sepuluh sampai dua belas. | van tien tot twaalf | dari pukul sepuluh sampai dua belas
+Van januari tot maart is het hier koud. | Dari Januari sampai Maret di sini dingin. | Van januari tot maart | Dari Januari sampai Maret
+Ik heb vakantie van juli tot september. | Saya libur dari Juli sampai September. | van juli tot september | dari Juli sampai September
+De bus rijdt van zes uur tot middernacht. | Bus berjalan dari pukul enam sampai tengah malam. | van zes uur tot middernacht | dari pukul enam sampai tengah malam
+Mijn zus studeerde van 2016 tot 2019 in Utrecht. | Kakak saya kuliah di Utrecht dari tahun 2016 sampai 2019. | van 2016 tot 2019 | dari tahun 2016 sampai 2019
+Het museum is dicht van maandag tot woensdag. | Museum tutup dari Senin sampai Rabu. | van maandag tot woensdag | dari Senin sampai Rabu
+De cursus loopt van oktober tot december. | Kursusnya berlangsung dari Oktober sampai Desember. | van oktober tot december | dari Oktober sampai Desember
+Hij sliep van tien uur tot zeven uur. | Dia tidur dari pukul sepuluh sampai pukul tujuh. | van tien uur tot zeven uur | dari pukul sepuluh sampai pukul tujuh
+Van acht uur tot half negen ontbijten wij. | Dari pukul delapan sampai setengah sembilan kami sarapan. | Van acht uur tot half negen | Dari pukul delapan sampai setengah sembilan
+De supermarkt is zondag open van twaalf tot zes uur. | Supermarket buka hari Minggu dari pukul dua belas sampai enam. | van twaalf tot zes uur | dari pukul dua belas sampai enam
+#85 vanaf
+Vanaf nu spreken we alleen Nederlands. | Mulai sekarang kami hanya berbicara bahasa Belanda. | Vanaf nu | Mulai sekarang
+Vanaf maandag werk ik thuis. | Mulai hari Senin saya bekerja dari rumah. | Vanaf maandag | Mulai hari Senin
+Vanaf morgen ga ik elke dag sporten. | Mulai besok saya berolahraga setiap hari. | Vanaf morgen | Mulai besok
+Ik ben ziek vanaf gisteren. | Saya sakit sejak kemarin. | vanaf gisteren | sejak kemarin
+Vanaf acht uur ben ik thuis. | Sejak pukul delapan saya ada di rumah. | Vanaf acht uur | Sejak pukul delapan
+Vanaf zaterdag is het hier weer warm. | Mulai hari Sabtu di sini hangat lagi. | Vanaf zaterdag | Mulai hari Sabtu
+Het regent vanaf vanochtend. | Hujan turun sejak pagi tadi. | vanaf vanochtend | sejak pagi tadi
+Vanaf mei wonen wij in een nieuw huis. | Sejak bulan Mei kami tinggal di rumah baru. | Vanaf mei | Sejak bulan Mei
+Vanaf volgende week begint mijn nieuwe baan. | Mulai minggu depan pekerjaan baru saya dimulai. | Vanaf volgende week | Mulai minggu depan
+Zij werkt vanaf juni bij een bank. | Dia bekerja di sebuah bank sejak Juni. | vanaf juni | sejak Juni
+Vanaf zes uur staat er een lange rij voor de winkel. | Sejak pukul enam ada antrean panjang di depan toko. | Vanaf zes uur | Sejak pukul enam
+Vanaf zondag is de winkel weer open. | Mulai hari Minggu toko buka lagi. | Vanaf zondag | Mulai hari Minggu
+Vanaf mijn zevende speel ik viool. | Sejak umur tujuh tahun saya bermain biola. | Vanaf mijn zevende | Sejak umur tujuh tahun
+Vanaf dit moment ga ik elke dag vroeg naar bed. | Mulai saat ini saya tidur lebih awal setiap hari. | Vanaf dit moment | Mulai saat ini
+#86 sinds
+Ik woon hier sinds 2020. | Saya tinggal di sini sejak 2020. | sinds 2020 | sejak 2020
+Hij werkt hier sinds vorig jaar. | Dia bekerja di sini sejak tahun lalu. | sinds vorig jaar | sejak tahun lalu
+Zij is ziek sinds maandag. | Dia sakit sejak hari Senin. | sinds maandag | sejak hari Senin
+Het regent sinds vanochtend. | Hujan sudah turun sejak pagi tadi. | sinds vanochtend | sejak pagi tadi
+Wij kennen elkaar sinds de basisschool. | Kami saling kenal sejak sekolah dasar. | sinds de basisschool | sejak sekolah dasar
+Mijn broer woont in Rotterdam sinds januari. | Kakak saya tinggal di Rotterdam sejak Januari. | sinds januari | sejak Januari
+Zij heeft sinds gisteren hoofdpijn. | Dia sakit kepala sejak kemarin. | sinds gisteren | sejak kemarin
+Sinds wanneer woon jij in Utrecht? | Sejak kapan kamu tinggal di Utrecht? | Sinds wanneer | Sejak kapan
+Sinds mijn verhuizing fiets ik elke dag. | Sejak pindah rumah saya bersepeda setiap hari. | Sinds mijn verhuizing | Sejak pindah rumah
+Sinds de zomer sport ik drie keer per week. | Sejak musim panas saya berolahraga tiga kali seminggu. | Sinds de zomer | Sejak musim panas
+De winkel is dicht sinds vorige week. | Toko itu tutup sejak minggu lalu. | sinds vorige week | sejak minggu lalu
+Mijn oma woont alleen sinds de dood van mijn opa. | Nenek saya tinggal sendirian sejak kakek saya meninggal. | sinds de dood | sejak
+Ik leer Nederlands sinds drie maanden. | Saya belajar bahasa Belanda sejak tiga bulan lalu. | sinds drie maanden | sejak tiga bulan lalu
+#87 in
+Mijn verjaardag is in mei. | Ulang tahun saya pada bulan Mei. | in mei | pada bulan Mei
+In januari is het hier koud. | Pada bulan Januari di sini dingin. | In januari | Pada bulan Januari
+In de zomer gaan wij naar het strand. | Pada musim panas kami pergi ke pantai. | In de zomer | Pada musim panas
+Het regent veel in de herfst. | Pada musim gugur sering hujan. | in de herfst | Pada musim gugur
+In de winter eet ik graag soep. | Pada musim dingin saya suka makan sup. | In de winter | Pada musim dingin
+In de lente bloeien de tulpen. | Pada musim semi tulip bermekaran. | In de lente | Pada musim semi
+Wij gaan in augustus op vakantie. | Kami berlibur pada bulan Agustus. | in augustus | pada bulan Agustus
+Mijn zus wordt in oktober dertig. | Kakak saya berumur tiga puluh pada bulan Oktober. | in oktober | pada bulan Oktober
+Hij is in juli geboren. | Dia lahir pada bulan Juli. | in juli | pada bulan Juli
+In maart begint het nieuwe seizoen. | Pada bulan Maret musim baru dimulai. | In maart | Pada bulan Maret
+We verhuizen in september naar Utrecht. | Kami pindah ke Utrecht pada bulan September. | in september | pada bulan September
+In december is het al vroeg donker. | Pada bulan Desember hari sudah gelap lebih awal. | In december | Pada bulan Desember
+Ik begin in februari met mijn nieuwe baan. | Saya mulai bekerja di tempat baru pada bulan Februari. | in februari | pada bulan Februari
+In de herfst vallen de bladeren van de bomen. | Pada musim gugur daun-daun berguguran dari pohon. | In de herfst | Pada musim gugur
+#88 op
+Op maandag heb ik les. | Pada hari Senin saya ada pelajaran. | Op maandag | Pada hari Senin
+Op zaterdag ga ik naar de markt. | Pada hari Sabtu saya pergi ke pasar. | Op zaterdag | Pada hari Sabtu
+Wij eten op zondag bij mijn oma. | Kami makan di rumah nenek saya pada hari Minggu. | op zondag | pada hari Minggu
+Op vrijdag werkt mijn man thuis. | Pada hari Jumat suami saya bekerja dari rumah. | Op vrijdag | Pada hari Jumat
+Het museum is op dinsdag dicht. | Museum tutup pada hari Selasa. | op dinsdag | pada hari Selasa
+Op woensdag speel ik voetbal. | Pada hari Rabu saya bermain sepak bola. | Op woensdag | Pada hari Rabu
+Op donderdag komt de buurvrouw langs. | Pada hari Kamis tetangga mampir. | Op donderdag | Pada hari Kamis
+Ik heb op zaterdag een feestje. | Saya ada pesta pada hari Sabtu. | op zaterdag | pada hari Sabtu
+Mijn zus belt me altijd op zondag. | Kakak saya selalu menelepon saya pada hari Minggu. | op zondag | pada hari Minggu
+Op dinsdag gaan de kinderen zwemmen. | Pada hari Selasa anak-anak pergi berenang. | Op dinsdag | Pada hari Selasa
+Op zondag slapen wij lang uit. | Pada hari Minggu kami tidur sampai siang. | Op zondag | Pada hari Minggu
+Op woensdagmiddag zijn de kinderen vrij. | Pada hari Rabu siang anak-anak libur. | Op woensdagmiddag | Pada hari Rabu
+Op maandag is de bibliotheek de hele dag open. | Pada hari Senin perpustakaan buka sepanjang hari. | Op maandag | Pada hari Senin
+#89 om
+Om acht uur begint de les. | Pelajaran dimulai pukul delapan. | Om acht uur | pukul delapan
+Ik sta om zeven uur op. | Saya bangun pukul tujuh. | om zeven uur | pukul tujuh
+De winkel gaat om negen uur open. | Toko buka pukul sembilan. | om negen uur | pukul sembilan
+Om twaalf uur eten wij lunch. | Pukul dua belas kami makan siang. | Om twaalf uur | Pukul dua belas
+De film begint om half acht. | Filmnya mulai pukul setengah delapan. | om half acht | pukul setengah delapan
+De afspraak bij de dokter is om tien uur. | Janji dengan dokter pukul sepuluh. | om tien uur | pukul sepuluh
+Wij zien elkaar om vijf uur bij het station. | Kita bertemu pukul lima di stasiun. | om vijf uur | pukul lima
+Mijn trein vertrekt om kwart over drie. | Kereta saya berangkat pukul tiga lewat seperempat. | om kwart over drie | pukul tiga lewat seperempat
+Ik ga vanavond om half elf naar bed. | Malam ini saya tidur pukul setengah sebelas. | om half elf | pukul setengah sebelas
+Om kwart voor zes komt mijn man thuis van zijn werk. | Pukul enam kurang seperempat suami saya pulang dari kerja. | Om kwart voor zes | Pukul enam kurang seperempat
+Om zes uur 's ochtends is het in de winter nog donker. | Pukul enam pagi pada musim dingin masih gelap. | Om zes uur | Pukul enam
+De kinderen komen om drie uur uit school en dan willen ze eten. | Anak-anak pulang sekolah pukul tiga dan lalu mereka ingin makan. | om drie uur | pukul tiga
+Het concert begint om acht uur, maar de deuren gaan al om zeven uur open. | Konser dimulai pukul delapan, tetapi pintunya sudah dibuka pukul tujuh. | om acht uur | pukul delapan
+#90 er = di sana
+Ik woon er al jaren. | Saya sudah tinggal di sana bertahun-tahun. | woon er | di sana
+Ik ben er nog nooit geweest. | Saya belum pernah ke sana. | ben er | ke sana
+Ben je er morgen? | Apakah kamu ada di sana besok? | je er | di sana
+Ik was er gisteren nog en het was erg druk. | Kemarin saya masih di sana dan sangat ramai. | was er gisteren | di sana
+Mijn oma woont in Utrecht en ik ga er morgen heen. | Nenek saya tinggal di Utrecht dan besok saya pergi ke sana. | ga er | ke sana
+Het restaurant is duur, dus wij eten er zelden. | Restorannya mahal, jadi kami jarang makan di sana. | eten er | di sana
+Zij werkt in Amsterdam, maar ze woont er niet. | Dia bekerja di Amsterdam, tetapi dia tidak tinggal di sana. | woont er | di sana
+Wacht maar, wij zijn er over tien minuten. | Tunggu saja, kami sampai di sana sepuluh menit lagi. | zijn er | di sana
+Mijn vader werkt in het ziekenhuis en mijn moeder werkt er ook. | Ayah saya bekerja di rumah sakit dan ibu saya juga bekerja di sana. | werkt er | di sana
+Het strand is mooi en we gaan er elke zomer naartoe. | Pantainya indah dan setiap musim panas kami pergi ke sana. | gaan er | ke sana
+Mijn broer studeert in Leiden en hij blijft er drie jaar. | Kakak laki-laki saya kuliah di Leiden dan dia tinggal di sana tiga tahun. | blijft er | di sana
+De kinderen spelen in de tuin en ik zit er ook graag. | Anak-anak bermain di kebun dan saya juga senang duduk di sana. | zit er | di sana
+Ik ken die stad goed, want ik heb er vier jaar gewoond. | Saya mengenal kota itu dengan baik, karena saya pernah tinggal di sana empat tahun. | heb er | di sana
+#91 erop
+Ik zit erop. | Saya duduk di atasnya. | erop | di atasnya
+Ga erop zitten, het is jouw stoel. | Duduklah di atasnya, itu kursimu. | erop | di atasnya
+Hij pakt de fiets en stapt erop. | Dia mengambil sepeda dan naik ke atasnya. | erop | ke atasnya
+Het ijs is dik genoeg, je kunt erop lopen. | Esnya cukup tebal, kamu bisa berjalan di atasnya. | erop | di atasnya
+Deze stoel is stevig, je kunt erop staan. | Kursi ini kokoh, kamu bisa berdiri di atasnya. | erop | di atasnya
+Hier is de envelop, plak een postzegel erop. | Ini amplopnya, tempelkan perangko di atasnya. | erop | di atasnya
+Mijn naam staat erop, dus het is mijn tas. | Nama saya tertulis di atasnya, jadi itu tas saya. | erop | di atasnya
+Pas op, de vloer is nat en je kunt erop uitglijden. | Hati-hati, lantainya basah dan kamu bisa tergelincir di atasnya. | erop | di atasnya
+Er ligt een kleed op de grond en de kat slaapt erop. | Ada karpet di lantai dan kucing tidur di atasnya. | erop | di atasnya
+De tafel is niet sterk, dus ga niet erop staan. | Mejanya tidak kuat, jadi jangan berdiri di atasnya. | erop | di atasnya
+Als de pizza klaar is, doe ik de kaas erop. | Kalau pizzanya sudah siap, saya taruh keju di atasnya. | erop | di atasnya
+#92 eraan
+Ik denk eraan. | Saya memikirkannya. | eraan | memikirkannya
+Wacht even, ik kom eraan! | Tunggu sebentar, saya segera datang! | eraan | segera datang
+Ik begin eraan. | Saya mulai mengerjakannya. | eraan | mulai mengerjakannya
+Het werk is zwaar, maar je went eraan. | Pekerjaannya berat, tetapi kamu akan terbiasa. | eraan | terbiasa
+De bus komt eraan, dus we moeten rennen. | Busnya sudah mau datang, jadi kita harus lari. | eraan | sudah mau datang
+Het is nieuw, maar ik ben eraan gewend. | Ini baru, tetapi saya sudah terbiasa dengannya. | eraan | terbiasa dengannya
+Ik twijfel eraan of hij echt komt. | Saya meragukan apakah dia benar-benar datang. | eraan | meragukan
+Denk eraan dat je morgen je paspoort meeneemt. | Ingatlah bahwa besok kamu membawa paspormu. | eraan | Ingatlah
+Dit is mijn scriptie en ik werk eraan. | Ini skripsi saya dan saya sedang mengerjakannya. | eraan | mengerjakannya
+Mijn dochter herinnert me eraan dat het feest morgen is. | Putri saya mengingatkan saya bahwa pestanya besok. | eraan | mengingatkan saya
+#93 ermee
+Ik ben ermee bezig. | Saya sedang mengerjakannya. | ermee | mengerjakannya
+Ben je ermee eens? | Apakah kamu setuju dengan hal itu? | ermee | setuju dengan hal itu
+Ik ga ermee akkoord. | Saya menyetujuinya. | ermee | menyetujuinya
+Dit is een nieuwe pen en ik schrijf ermee mijn naam. | Ini pulpen baru dan saya menulis nama saya dengannya. | ermee | dengannya
+Hier is je kaartje, je kunt ermee de bus nemen. | Ini kartumu, kamu bisa naik bus dengannya. | ermee | dengannya
+Ik heb een mes en ik snijd het brood ermee. | Saya punya pisau dan saya memotong roti dengannya. | ermee | dengannya
+Mijn fiets is oud, maar ik ga ermee naar school. | Sepeda saya sudah tua, tetapi saya pergi ke sekolah dengannya. | ermee | dengannya
+De kinderen hebben een bal en spelen ermee in de tuin. | Anak-anak punya bola dan bermain dengannya di kebun. | ermee | dengannya
+Mijn zus heeft een laptop en ze werkt ermee op kantoor. | Adik perempuan saya punya laptop dan dia bekerja dengannya di kantor. | ermee | dengannya
+Mijn vader rookt niet meer, hij is ermee gestopt. | Ayah saya tidak merokok lagi, dia sudah berhenti melakukannya. | ermee | melakukannya
+Het feest is morgen en we beginnen ermee om zeven uur. | Pestanya besok dan kami memulainya pukul tujuh. | ermee | memulainya
+#94 erover
+Wat denk je erover? | Bagaimana pendapatmu tentang hal itu? | erover | tentang hal itu
+Laten we erover praten. | Mari kita bicara tentang hal itu. | erover | tentang hal itu
+Je moet erover nadenken voordat je ja zegt. | Kamu harus memikirkan hal itu sebelum mengatakan ya. | erover | memikirkan hal itu
+De film was goed en iedereen praat erover. | Filmnya bagus dan semua orang membicarakannya. | erover | membicarakannya
+Mijn leraar vertelt erover in de les. | Guru saya bercerita tentang hal itu di kelas. | erover | tentang hal itu
+Bel me morgen, dan praten we erover. | Telepon saya besok, lalu kita bicara tentang hal itu. | erover | tentang hal itu
+Het is mijn geld, dus ik beslis erover. | Itu uang saya, jadi saya yang memutuskannya. | erover | memutuskannya
+Heb je het erover gehad met je baas? | Apakah kamu sudah membicarakan hal itu dengan atasanmu? | erover | membicarakan hal itu
+Ik heb erover nagedacht en mijn antwoord is ja. | Saya sudah memikirkan hal itu dan jawaban saya ya. | erover | memikirkan hal itu
+Hij heeft erover geschreven in zijn blog. | Dia menulis tentang hal itu di blognya. | erover | tentang hal itu
+#95 ervoor
+Bedankt ervoor! | Terima kasih untuk itu! | ervoor | untuk itu
+Ik betaal ervoor. | Saya membayar untuk itu. | ervoor | untuk itu
+Ik zorg ervoor dat alles klaar is. | Saya memastikan bahwa semuanya siap. | ervoor | memastikan bahwa
+De winkel is dicht en een man staat ervoor. | Toko itu tutup dan seorang pria berdiri di depannya. | ervoor | di depannya
+Daar staat een bank en de fiets staat ervoor. | Di sana ada bank dan sepeda berdiri di depannya. | ervoor | di depannya
+Jij moet ervoor zorgen dat de deur dicht is. | Kamu harus memastikan bahwa pintunya tertutup. | ervoor | memastikan bahwa
+Ik heb ervoor gekozen om in Utrecht te wonen. | Saya memilih untuk tinggal di Utrecht. | ervoor | memilih untuk
+Hartelijk bedankt ervoor, het was een mooie dag. | Terima kasih banyak untuk itu, hari itu menyenangkan. | ervoor | untuk itu
+Wij geven een feest en mijn vader zorgt ervoor dat er genoeg eten is. | Kami mengadakan pesta dan ayah saya memastikan bahwa makanannya cukup. | ervoor | memastikan bahwa
+#96 erin
+Doe suiker erin. | Tambahkan gula ke dalamnya. | erin | ke dalamnya
+Spring erin! | Lompatlah ke dalamnya! | erin | ke dalamnya
+Mijn laptop past erin. | Laptop saya muat di dalamnya. | erin | di dalamnya
+Het water is koud, maar de kinderen springen erin. | Airnya dingin, tetapi anak-anak melompat ke dalamnya. | erin | ke dalamnya
+Dit is mijn tas en mijn sleutels zitten erin. | Ini tas saya dan kunci saya ada di dalamnya. | erin | di dalamnya
+Daar is het zwembad en alle kinderen willen erin. | Itu kolam renang dan semua anak ingin masuk ke dalamnya. | erin | ke dalamnya
+Mijn kamer is klein, maar mijn bed past erin. | Kamar saya kecil, tetapi tempat tidur saya muat di dalamnya. | erin | di dalamnya
+Ik heb een grote koffer en al mijn kleren passen erin. | Saya punya koper besar dan semua pakaian saya muat di dalamnya. | erin | di dalamnya
+Hier is een doos en ik stop de foto's erin. | Ini ada kotak dan saya memasukkan foto-foto ke dalamnya. | erin | ke dalamnya
+#97 er + jumlah
+Ik heb er twee. | Saya punya dua. | er twee | -
+Wij hebben er drie. | Kami punya tiga. | er drie | -
+Ik heb een kat en mijn zus heeft er twee. | Saya punya seekor kucing dan adik perempuan saya punya dua. | er twee | -
+Heb je kaartjes? Ja, ik heb er vier gekocht. | Apakah kamu punya tiket? Ya, saya sudah membeli empat. | er vier | -
+Mijn tante heeft veel katten, ze heeft er wel zeven. | Bibi saya punya banyak kucing, dia punya tujuh. | er wel zeven | -
+Ze heeft drie jassen, maar ze draagt er maar één. | Dia punya tiga jaket, tetapi dia hanya memakai satu. | er maar één | -
+Ik wil een kopje koffie en mijn man wil er twee. | Saya mau secangkir kopi dan suami saya mau dua cangkir. | er twee | -
+Mijn moeder bakt koekjes en ik eet er wel tien. | Ibu saya membuat kue kering dan saya makan sepuluh. | er wel tien | -
+Ik heb zes eieren nodig en ik koop er twaalf. | Saya butuh enam telur dan saya membeli dua belas. | er twaalf | -
+De winkel verkoopt appels en ik neem er drie kilo. | Toko itu menjual apel dan saya ambil tiga kilo. | er drie kilo | -
+Er zijn vier stoelen aan tafel en wij hebben er nog twee nodig. | Ada empat kursi di meja dan kami masih butuh dua lagi. | er nog twee | -
+#98 altijd
+Ik ben altijd moe. | Saya selalu lelah. | altijd | selalu
+Hij komt altijd te laat. | Dia selalu terlambat. | altijd | selalu
+Mijn moeder is altijd thuis. | Ibu saya selalu ada di rumah. | altijd | selalu
+Wij drinken altijd koffie na het eten. | Kami selalu minum kopi setelah makan. | altijd | selalu
+Zij fietst altijd naar haar werk. | Dia selalu bersepeda ke tempat kerjanya. | altijd | selalu
+De bakker is altijd open op zaterdag. | Tukang roti selalu buka pada hari Sabtu. | altijd | selalu
+Mijn zoon vergeet altijd zijn sleutels. | Anak laki-laki saya selalu lupa kuncinya. | altijd | selalu
+Mijn buurman groet mij altijd vriendelijk. | Tetangga saya selalu menyapa saya dengan ramah. | altijd | selalu
+Als het regent, neem ik altijd een paraplu mee. | Kalau hujan, saya selalu membawa payung. | altijd | selalu
+In de zomer gaan wij altijd naar het strand. | Pada musim panas kami selalu pergi ke pantai. | altijd | selalu
+Mijn vader leest altijd de krant voordat hij gaat werken. | Ayah saya selalu membaca koran sebelum berangkat kerja. | altijd | selalu
+De kinderen zijn altijd blij als hun oma op bezoek komt. | Anak-anak selalu senang kalau nenek mereka berkunjung. | altijd | selalu
+#99 vaak
+Het regent hier vaak. | Di sini sering hujan. | vaak | sering
+Ik ga vaak naar de markt. | Saya sering pergi ke pasar. | vaak | sering
+Mijn vriend belt mij vaak. | Teman saya sering menelepon saya. | vaak | sering
+Ze is vaak ziek in de winter. | Dia sering sakit pada musim dingin. | vaak | sering
+Hoe vaak ga je naar de sportschool? | Seberapa sering kamu pergi ke tempat kebugaran? | vaak | sering
+Wij eten vaak rijst met groenten. | Kami sering makan nasi dengan sayur. | vaak | sering
+Mijn zus komt vaak op zondag bij ons eten. | Adik perempuan saya sering datang makan di tempat kami pada hari Minggu. | vaak | sering
+De bus is vaak te laat als het druk is. | Bus sering terlambat kalau jalanan ramai. | vaak | sering
+Mijn buren hebben vaak bezoek uit Duitsland. | Tetangga saya sering kedatangan tamu dari Jerman. | vaak | sering
+Vaak vergeet ik mijn paraplu als de zon schijnt. | Saya sering lupa payung kalau matahari bersinar. | Vaak | sering
+In het weekend gaan we vaak wandelen in het bos. | Pada akhir pekan kami sering berjalan-jalan di hutan. | vaak | sering
+De kinderen spelen vaak buiten, ook als het koud is. | Anak-anak sering bermain di luar, juga saat dingin. | vaak | sering
+Mijn collega neemt vaak een broodje mee naar zijn werk. | Rekan kerja saya sering membawa roti isi ke tempat kerjanya. | vaak | sering
+#100 soms
+Soms ben ik moe. | Kadang-kadang saya lelah. | Soms | kadang-kadang
+Ik drink soms thee. | Saya kadang-kadang minum teh. | soms | kadang-kadang
+Mijn broer belt mij soms. | Kakak laki-laki saya kadang-kadang menelepon saya. | soms | kadang-kadang
+Soms regent het in de zomer. | Kadang-kadang hujan turun pada musim panas. | Soms | kadang-kadang
+Wij gaan soms naar de bioscoop. | Kami kadang-kadang pergi ke bioskop. | soms | kadang-kadang
+De trein is soms te laat. | Kereta kadang-kadang terlambat. | soms | kadang-kadang
+Mijn vader werkt soms in het weekend. | Ayah saya kadang-kadang bekerja pada akhir pekan. | soms | kadang-kadang
+Soms lees ik een boek voordat ik ga slapen. | Kadang-kadang saya membaca buku sebelum tidur. | Soms | kadang-kadang
+Zij neemt soms de bus in plaats van de fiets. | Dia kadang-kadang naik bus alih-alih sepeda. | soms | kadang-kadang
+Als ik tijd heb, ga ik soms met mijn oma wandelen. | Kalau ada waktu, saya kadang-kadang berjalan-jalan dengan nenek saya. | soms | kadang-kadang
+De leraar is streng, maar soms maakt hij ook een grapje. | Gurunya tegas, tetapi kadang-kadang dia juga bercanda. | soms | kadang-kadang
+Mijn buurvrouw bakt soms een taart voor de hele straat. | Tetangga perempuan saya kadang-kadang membuat kue untuk seluruh jalan. | soms | kadang-kadang
+Mijn vrienden en ik eten soms samen in een klein restaurant. | Teman-teman saya dan saya kadang-kadang makan bersama di restoran kecil. | soms | kadang-kadang
+#101 zelden
+Hij is zelden ziek. | Dia jarang sakit. | zelden | jarang
+Ik drink zelden koffie. | Saya jarang minum kopi. | zelden | jarang
+Het sneeuwt hier zelden. | Di sini jarang turun salju. | zelden | jarang
+Wij gaan zelden uit eten. | Kami jarang makan di luar. | zelden | jarang
+Mijn opa kijkt zelden televisie. | Kakek saya jarang menonton televisi. | zelden | jarang
+Zij belt haar ouders zelden. | Dia jarang menelepon orang tuanya. | zelden | jarang
+De bus komt hier zelden op tijd. | Bus jarang datang tepat waktu di sini. | zelden | jarang
+Zelden zie ik mijn buren in de tuin. | Saya jarang melihat tetangga saya di kebun. | Zelden | jarang
+Mijn man werkt veel en daarom is hij zelden thuis. | Suami saya banyak bekerja dan karena itu dia jarang di rumah. | zelden | jarang
+Mijn zus eet zelden vlees, want ze houdt van groenten. | Adik perempuan saya jarang makan daging, karena dia suka sayuran. | zelden | jarang
+Mijn kinderen eten zelden snoep, omdat het niet gezond is. | Anak-anak saya jarang makan permen, karena tidak sehat. | zelden | jarang
+In Nederland is het in de zomer zelden heel warm. | Di Belanda pada musim panas jarang sangat panas. | zelden | jarang
+#102 nooit
+Ik rook nooit. | Saya tidak pernah merokok. | nooit | tidak pernah
+Hij komt nooit te laat. | Dia tidak pernah terlambat. | nooit | tidak pernah
+Zij eet nooit vlees. | Dia tidak pernah makan daging. | nooit | tidak pernah
+Wij drinken nooit alcohol. | Kami tidak pernah minum alkohol. | nooit | tidak pernah
+Mijn opa is nooit ziek. | Kakek saya tidak pernah sakit. | nooit | tidak pernah
+Ik heb nog nooit sneeuw gezien. | Saya belum pernah melihat salju. | nooit | belum pernah
+Ik ben nooit in Japan geweest. | Saya belum pernah ke Jepang. | nooit | belum pernah
+Mijn kat komt nooit binnen als het regent. | Kucing saya tidak pernah masuk kalau hujan. | nooit | tidak pernah
+Mijn man heeft nooit tijd om te koken. | Suami saya tidak pernah punya waktu untuk memasak. | nooit | tidak pernah
+Ik zal je verjaardag nooit vergeten. | Saya tidak akan pernah melupakan ulang tahunmu. | nooit | tidak akan pernah
+Mijn buurman groet nooit, hoe vriendelijk ik ook ben. | Tetangga saya tidak pernah menyapa, seramah apa pun saya. | nooit | tidak pernah
+Mijn kinderen gaan nooit zonder ontbijt naar school. | Anak-anak saya tidak pernah pergi ke sekolah tanpa sarapan. | nooit | tidak pernah
+Het wordt hier nooit echt koud in de winter. | Di sini musim dinginnya tidak pernah benar-benar dingin. | nooit | tidak pernah
+#103 vandaag
+Vandaag ben ik thuis. | Hari ini saya di rumah. | Vandaag | Hari ini
+Het is vandaag mijn verjaardag. | Hari ini ulang tahun saya. | vandaag | Hari ini
+Wat eten we vandaag? | Kita makan apa hari ini? | vandaag | hari ini
+Vandaag regent het de hele dag. | Hari ini hujan sepanjang hari. | Vandaag | Hari ini
+Ik moet vandaag nog boodschappen doen. | Hari ini saya masih harus belanja. | vandaag | Hari ini
+Mijn zus komt vandaag bij ons eten. | Adik perempuan saya datang makan di tempat kami hari ini. | vandaag | hari ini
+Hoe laat begint de les vandaag? | Jam berapa pelajaran dimulai hari ini? | vandaag | hari ini
+Vandaag heb ik geen zin om te koken. | Hari ini saya malas memasak. | Vandaag | Hari ini
+We hebben vandaag een nieuwe leraar gekregen. | Hari ini kami mendapat guru baru. | vandaag | Hari ini
+De winkel is vandaag gesloten, want het is een feestdag. | Toko tutup hari ini, karena hari libur. | vandaag | hari ini
+Mijn collega is vandaag ziek, dus ik werk extra. | Rekan kerja saya sakit hari ini, jadi saya bekerja lebih banyak. | vandaag | hari ini
+Vandaag is het mooi weer, dus we gaan naar het park. | Hari ini cuacanya bagus, jadi kami pergi ke taman. | Vandaag | Hari ini
+Mijn kinderen hebben vandaag een toets op school gehad. | Anak-anak saya ada ujian di sekolah hari ini. | vandaag | hari ini
+#104 morgen
+Tot morgen! | Sampai besok! | morgen | besok
+Het is morgen zondag. | Besok hari Minggu. | morgen | Besok
+Morgen ga ik werken. | Besok saya bekerja. | Morgen | Besok
+Morgen komt mijn oma op bezoek. | Besok nenek saya berkunjung. | Morgen | Besok
+Wat doe je morgen na school? | Apa yang kamu lakukan besok setelah sekolah? | morgen | besok
+Ik heb morgen een afspraak bij de dokter. | Saya ada janji dengan dokter besok. | morgen | besok
+De winkel is morgen de hele dag dicht. | Toko tutup sepanjang hari besok. | morgen | besok
+Morgen wordt het mooi weer, dus we gaan fietsen. | Besok cuacanya bagus, jadi kami bersepeda. | Morgen | Besok
+Mijn man begint morgen met zijn nieuwe baan. | Suami saya mulai bekerja di tempat baru besok. | morgen | besok
+Ik bel je morgen, want vandaag heb ik geen tijd. | Saya telepon kamu besok, karena hari ini saya tidak ada waktu. | morgen | besok
+Als het morgen regent, blijven wij thuis en spelen een spel. | Kalau besok hujan, kami tinggal di rumah dan bermain permainan. | morgen | besok
+Mijn zus vertrekt morgen naar Spanje en blijft daar twee weken. | Adik perempuan saya berangkat ke Spanyol besok dan tinggal di sana dua minggu. | morgen | besok
+Morgen is het feest bij ons thuis en we moeten nog veel doen. | Besok ada pesta di rumah kami dan masih banyak yang harus kami kerjakan. | Morgen | Besok
+#105 gisteren
+Gisteren was ik ziek. | Kemarin saya sakit. | Gisteren | Kemarin
+Het was gisteren erg warm. | Kemarin sangat panas. | gisteren | Kemarin
+Gisteren regende het de hele dag. | Kemarin hujan sepanjang hari. | Gisteren | Kemarin
+Ik heb gisteren mijn oma gebeld. | Kemarin saya menelepon nenek saya. | gisteren | Kemarin
+Wat heb je gisteren gedaan? | Apa yang kamu lakukan kemarin? | gisteren | kemarin
+Mijn broer is gisteren naar Duitsland vertrokken. | Kakak laki-laki saya berangkat ke Jerman kemarin. | gisteren | kemarin
+De winkel was gisteren dicht, dus ik kon niets kopen. | Toko tutup kemarin, jadi saya tidak bisa membeli apa-apa. | gisteren | kemarin
+Gisteren hebben wij een leuk feestje gehad. | Kemarin kami mengadakan pesta kecil yang menyenangkan. | Gisteren | Kemarin
+Mijn dochter heeft gisteren een mooie tekening gemaakt. | Putri saya membuat gambar yang bagus kemarin. | gisteren | kemarin
+Gisteren hebben we de hele dag in de tuin gewerkt. | Kemarin kami bekerja di kebun sepanjang hari. | Gisteren | Kemarin
+We waren gisteren in de stad en hebben nieuwe schoenen gekocht. | Kemarin kami ke kota dan membeli sepatu baru. | gisteren | Kemarin
+Ik wilde je gisteren bellen, maar mijn telefoon was kapot. | Saya mau menelepon kamu kemarin, tetapi ponsel saya rusak. | gisteren | kemarin
+Gisteren was het feest van mijn buurman en we hebben tot laat gedanst. | Kemarin pesta tetangga saya dan kami menari sampai larut. | Gisteren | Kemarin
+#106 nu
+Wat doe je nu? | Apa yang kamu lakukan sekarang? | je nu | sekarang
+Ik ben nu thuis. | Sekarang saya di rumah. | ben nu | Sekarang
+Nu moet ik gaan. | Sekarang saya harus pergi. | Nu | Sekarang
+Het regent nu. | Sekarang hujan. | regent nu | Sekarang
+Hij woont nu in Rotterdam. | Dia tinggal di Rotterdam sekarang. | woont nu | sekarang
+Mijn zoon slaapt nu in zijn kamer. | Anak laki-laki saya tidur di kamarnya sekarang. | slaapt nu | sekarang
+Wij wonen nu in een groot huis. | Kami tinggal di rumah besar sekarang. | wonen nu | sekarang
+De trein vertrekt nu van spoor drie. | Kereta berangkat sekarang dari jalur tiga. | vertrekt nu | sekarang
+Wij hebben nu les, dus ik kan niet bellen. | Kami sedang belajar sekarang, jadi saya tidak bisa menelepon. | hebben nu | sekarang
+Ik heb nu geen tijd, maar ik bel je later. | Sekarang saya tidak ada waktu, tetapi saya telepon kamu nanti. | heb nu | Sekarang
+Als je nu vertrekt, ben je er om acht uur. | Kalau kamu berangkat sekarang, kamu sampai pukul delapan. | je nu | sekarang
+Ik kan nu niet praten, want ik zit in de bus. | Saya tidak bisa bicara sekarang, karena saya sedang di bus. | kan nu | sekarang
+Ik ben nu klaar met mijn werk en ga naar huis. | Sekarang saya sudah selesai bekerja dan pulang. | ben nu | Sekarang
+Mijn vader is nu gepensioneerd en heeft veel vrije tijd. | Ayah saya sekarang sudah pensiun dan punya banyak waktu luang. | is nu | sekarang
+#107 straks
+Tot straks! | Sampai nanti! | straks | nanti
+Ik bel je straks. | Saya telepon kamu nanti. | straks | nanti
+Straks gaan we eten. | Nanti kita makan. | Straks | Nanti
+Wat ga je straks doen? | Apa yang akan kamu lakukan nanti? | straks | nanti
+Ik help je straks met het huiswerk. | Saya bantu kamu mengerjakan PR nanti. | straks | nanti
+Straks komt mijn vriend bij mij langs. | Nanti teman saya mampir ke tempat saya. | Straks | Nanti
+We hebben straks een vergadering op kantoor. | Kami ada rapat nanti di kantor. | straks | nanti
+Wacht even, ik kom straks naar je toe. | Tunggu sebentar, nanti saya datang ke tempatmu. | straks | nanti
+Het wordt straks koud, dus neem een jas mee. | Nanti akan dingin, jadi bawalah jaket. | straks | Nanti
+Straks regent het, dus ik blijf liever binnen. | Nanti hujan, jadi saya lebih suka tinggal di dalam. | Straks | Nanti
+Mijn moeder gaat straks naar de markt en koopt verse groente. | Ibu saya pergi ke pasar nanti dan membeli sayur segar. | straks | nanti
+Ik moet straks nog naar de supermarkt voordat de winkel dichtgaat. | Nanti saya masih harus ke supermarket sebelum toko tutup. | straks | Nanti
+Het feest begint straks, dus help je even met de stoelen? | Pesta dimulai sebentar lagi, jadi maukah kamu membantu dengan kursi? | straks | sebentar lagi
+#108 daarna
+Ik werk en daarna ga ik naar huis. | Saya bekerja dan setelah itu saya pulang. | daarna | setelah itu
+Ik eet en daarna ga ik slapen. | Saya makan dan setelah itu saya tidur. | daarna | setelah itu
+Eerst douche ik en daarna ontbijt ik. | Pertama saya mandi dan setelah itu saya sarapan. | daarna | setelah itu
+Eerst doe ik boodschappen en daarna kook ik. | Pertama saya belanja dan setelah itu saya memasak. | daarna | setelah itu
+Eerst eten we en daarna gaan we wandelen. | Pertama kami makan, setelah itu kami berjalan-jalan. | daarna | setelah itu
+Eerst kijken we een film en daarna gaan we slapen. | Pertama kami menonton film dan setelah itu kami tidur. | daarna | setelah itu
+Wij gaan eerst naar de markt en daarna naar het park. | Kami pergi dulu ke pasar dan setelah itu ke taman. | daarna | setelah itu
+Je moet eerst je handen wassen en daarna mag je aan tafel. | Kamu harus mencuci tangan dulu dan setelah itu boleh duduk di meja makan. | daarna | setelah itu
+Mijn moeder kookt eerst en daarna wassen wij samen af. | Ibu saya memasak dulu dan setelah itu kami mencuci piring bersama. | daarna | setelah itu
+De les is om negen uur klaar en daarna gaan wij lunchen. | Pelajaran selesai pukul sembilan dan setelah itu kami makan siang. | daarna | setelah itu
+Ik drink eerst koffie en daarna begin ik met werken. | Saya minum kopi dulu dan setelah itu mulai bekerja. | daarna | setelah itu
+Wij bezoeken eerst het museum en daarna eten we in een klein restaurant. | Kami mengunjungi museum dulu dan setelah itu makan di restoran kecil. | daarna | setelah itu
+Hij studeert drie jaar in Utrecht en daarna gaat hij in Amsterdam werken. | Dia kuliah tiga tahun di Utrecht dan setelah itu bekerja di Amsterdam. | daarna | setelah itu
+Eerst haal ik de kinderen van school en daarna ga ik naar de supermarkt. | Pertama saya menjemput anak-anak dari sekolah dan setelah itu saya ke supermarket. | daarna | setelah itu
+#109 heel
+Het is heel koud. | Cuacanya sangat dingin. | heel | sangat
+Mijn oma is heel lief. | Nenek saya sangat baik. | heel | sangat
+De soep is heel lekker. | Supnya sangat enak. | heel | sangat
+Het museum is heel groot. | Museumnya sangat besar. | heel | sangat
+Ik ben heel blij met mijn nieuwe fiets. | Saya sangat senang dengan sepeda baru saya. | heel | sangat
+Mijn buurman is een heel aardige man. | Tetangga saya pria yang sangat ramah. | heel | sangat
+Wij hebben een heel leuke vakantie gehad. | Kami mendapat liburan yang sangat menyenangkan. | heel | sangat
+De kinderen zijn heel stil als ze tekenen. | Anak-anak sangat tenang kalau mereka menggambar. | heel | sangat
+Het examen was heel moeilijk, maar ik ben geslaagd. | Ujiannya sangat sulit, tetapi saya lulus. | heel | sangat
+Mijn zus woont in een heel klein huis in de stad. | Adik perempuan saya tinggal di rumah yang sangat kecil di kota. | heel | sangat
+Het is heel belangrijk dat je op tijd komt. | Sangat penting bahwa kamu datang tepat waktu. | heel | Sangat
+De les is heel interessant, want de leraar vertelt mooie verhalen. | Pelajarannya sangat menarik, karena gurunya menceritakan kisah yang bagus. | heel | sangat
+In de winter is het hier heel donker en er schijnt weinig zon. | Pada musim dingin di sini sangat gelap dan matahari jarang bersinar. | heel | sangat
+#110 erg
+Hij is erg moe. | Dia sangat lelah. | erg | sangat
+Dat is erg jammer. | Itu sangat disayangkan. | erg | sangat
+Het spijt me erg. | Saya sangat menyesal. | erg | sangat
+Mijn been doet erg pijn. | Kaki saya sangat sakit. | erg | sangat
+Het is erg warm vandaag. | Hari ini sangat panas. | erg | sangat
+Ik vind dit boek erg mooi. | Saya menganggap buku ini sangat bagus. | erg | sangat
+De straat is erg druk met auto's. | Jalannya sangat ramai dengan mobil. | erg | sangat
+Mijn vader is erg trots op mij. | Ayah saya sangat bangga pada saya. | erg | sangat
+Het was erg koud, dus ik droeg een dikke jas. | Cuacanya sangat dingin, jadi saya memakai jaket tebal. | erg | sangat
+Mijn buurvrouw is erg aardig en helpt ons vaak. | Tetangga perempuan saya sangat ramah dan sering membantu kami. | erg | sangat
+De winkel is erg duur, daarom koop ik daar nooit iets. | Toko itu sangat mahal, karena itu saya tidak pernah membeli apa-apa di sana. | erg | sangat
+Ik heb erg veel zin om met jou naar het strand te gaan. | Saya sangat ingin pergi ke pantai bersamamu. | erg | sangat
+#111 zo
+Het huis is zo groot. | Rumahnya begitu besar. | zo groot | begitu besar
+Waarom ben je zo moe? | Kenapa kamu begitu lelah? | zo moe | begitu lelah
+Het water is zo koud. | Airnya begitu dingin. | zo koud | begitu dingin
+Ik ben zo blij dat jij er bent! | Saya begitu senang kamu ada di sini! | zo blij | begitu senang
+Het is niet zo duur als ik dacht. | Ini tidak semahal yang saya kira. | zo duur | semahal
+De soep is zo lekker dat ik nog een bord wil. | Supnya begitu enak sampai saya mau satu mangkuk lagi. | zo lekker | begitu enak
+Mijn broer is zo lang als mijn vader. | Kakak laki-laki saya setinggi ayah saya. | zo lang | setinggi
+Mijn kamer is niet zo groot als jouw kamer. | Kamar saya tidak sebesar kamarmu. | zo groot | sebesar
+Ik was zo moe dat ik meteen in slaap viel. | Saya begitu lelah sampai langsung tertidur. | zo moe | begitu lelah
+Zij praat zo snel dat ik haar niet kan volgen. | Dia bicara begitu cepat sehingga saya tidak bisa mengikutinya. | zo snel | begitu cepat
+Mijn oma is zo lief dat iedereen van haar houdt. | Nenek saya begitu baik sehingga semua orang menyayanginya. | zo lief | begitu baik
+Het was zo druk in de stad dat we niet konden lopen. | Begitu ramai di kota sehingga kami tidak bisa berjalan. | zo druk | Begitu ramai
+Het weer is vandaag zo mooi dat we in de tuin gaan eten. | Cuaca hari ini begitu bagus sehingga kami makan di kebun. | zo mooi | begitu bagus
+#112 te
+De jas is te groot. | Jaketnya terlalu besar. | te groot | terlalu besar
+Het is te koud. | Cuacanya terlalu dingin. | te koud | terlalu dingin
+Ik ben te moe. | Saya terlalu lelah. | te moe | terlalu lelah
+De soep is te heet. | Supnya terlalu panas. | te heet | terlalu panas
+Mijn broek is te kort. | Celana saya terlalu pendek. | te kort | terlalu pendek
+Het huis is te duur voor ons. | Rumah itu terlalu mahal bagi kami. | te duur | terlalu mahal
+De koffie is te sterk voor mij. | Kopinya terlalu kuat untuk saya. | te sterk | terlalu kuat
+De trein is te vol, dus ik ga lopen. | Keretanya terlalu penuh, jadi saya berjalan kaki. | te vol | terlalu penuh
+Dit boek is te moeilijk voor mijn dochter. | Buku ini terlalu sulit untuk putri saya. | te moeilijk | terlalu sulit
+De muziek is te hard, dus ik kan niet slapen. | Musiknya terlalu keras, jadi saya tidak bisa tidur. | te hard | terlalu keras
+Mijn schoenen zijn te klein, dus ik koop nieuwe. | Sepatu saya terlalu kecil, jadi saya membeli yang baru. | te klein | terlalu kecil
+Het is te donker om buiten te spelen. | Hari terlalu gelap untuk bermain di luar. | te donker | terlalu gelap
+Ik heb te veel gegeten en nu heb ik buikpijn. | Saya makan terlalu banyak dan sekarang sakit perut. | te veel | terlalu banyak
+Het water in de zee is te koud om te zwemmen. | Air laut terlalu dingin untuk berenang. | te koud | terlalu dingin
+#113 vrij
+Het is vrij koud. | Cuacanya cukup dingin. | vrij | cukup
+De les is vrij moeilijk. | Pelajarannya cukup sulit. | vrij | cukup
+Mijn kamer is vrij groot. | Kamar saya cukup besar. | vrij | cukup
+Dit boek is vrij dik. | Buku ini cukup tebal. | vrij | cukup
+Het eten was vrij lekker. | Makanannya cukup enak. | vrij | cukup
+De trein was vrij vol. | Keretanya cukup penuh. | vrij | cukup
+Mijn buurman is vrij lang en heeft grijs haar. | Tetangga saya cukup tinggi dan berambut abu-abu. | vrij | cukup
+Het huis is vrij oud, maar het is erg gezellig. | Rumahnya cukup tua, tetapi sangat nyaman. | vrij | cukup
+Het museum is vrij klein, maar de schilderijen zijn mooi. | Museumnya cukup kecil, tetapi lukisannya bagus. | vrij | cukup
+Het examen was vrij makkelijk en ik was snel klaar. | Ujiannya cukup mudah dan saya cepat selesai. | vrij | cukup
+Mijn zoon heeft vrij veel huiswerk voor morgen. | Putra saya punya cukup banyak PR untuk besok. | vrij | cukup
+De winkel is vrij duur, maar de kwaliteit is goed. | Tokonya cukup mahal, tetapi kualitasnya bagus. | vrij | cukup
+De bus komt vrij vaak, dus ik hoef niet lang te wachten. | Bus datang cukup sering, jadi saya tidak perlu menunggu lama. | vrij | cukup
+#114 nogal
+Het is nogal koud. | Cuacanya agak dingin. | nogal | agak
+Dit is nogal duur. | Ini agak mahal. | nogal | agak
+Hij is nogal moe. | Dia agak lelah. | nogal | agak
+De les was nogal saai. | Pelajarannya agak membosankan. | nogal | agak
+Mijn buurman is nogal stil. | Tetangga saya agak pendiam. | nogal | agak
+De soep is nogal zout. | Supnya agak asin. | nogal | agak
+Het was nogal druk in de supermarkt. | Di supermarket agak ramai. | nogal | agak
+Mijn zus is nogal lang voor haar leeftijd. | Adik perempuan saya agak tinggi untuk usianya. | nogal | agak
+Het weer is hier nogal wisselend in de herfst. | Cuaca di sini agak berubah-ubah pada musim gugur. | nogal | agak
+Mijn chef is nogal streng, maar hij is wel eerlijk. | Atasan saya agak tegas, tetapi dia jujur. | nogal | agak
+De kamer is nogal klein, maar er is veel licht. | Kamarnya agak kecil, tetapi banyak cahaya. | nogal | agak
+De film was nogal lang en een beetje saai. | Filmnya agak panjang dan sedikit membosankan. | nogal | agak
+Mijn broer reageert nogal boos als je zijn spullen pakt. | Kakak laki-laki saya bereaksi agak marah kalau kamu mengambil barangnya. | nogal | agak
+#115 Tijd – Manier – Plaats
+Ik ga vandaag met de fiets naar school. | Hari ini saya pergi ke sekolah naik sepeda. | vandaag met de fiets naar school | -
+Wij reizen morgen met de trein naar Utrecht. | Besok kami bepergian ke Utrecht naik kereta. | morgen met de trein naar Utrecht | -
+Zij komt vanavond met de bus naar ons huis. | Malam ini dia datang ke rumah kami naik bus. | vanavond met de bus naar ons huis | -
+Ik loop morgen snel naar de winkel. | Besok saya berjalan cepat ke toko. | morgen snel naar de winkel | -
+Ik ga zaterdag met de tram naar het centrum. | Hari Sabtu saya pergi ke pusat kota naik trem. | zaterdag met de tram naar het centrum | -
+Hij gaat vanmiddag te voet naar het station. | Sore ini dia berjalan kaki ke stasiun. | vanmiddag te voet naar het station | -
+Mijn zus rijdt elke dag met de auto naar haar werk. | Adik perempuan saya setiap hari mengendarai mobil ke tempat kerjanya. | elke dag met de auto naar haar werk | -
+Ik fiets vanmiddag langzaam naar het park. | Sore ini saya bersepeda pelan-pelan ke taman. | vanmiddag langzaam naar het park | -
+Wij komen morgen zonder auto naar het feest. | Besok kami datang ke pesta tanpa mobil. | morgen zonder auto naar het feest | -
+Wij gaan volgende week met het vliegtuig naar Spanje. | Minggu depan kami pergi ke Spanyol naik pesawat. | volgende week met het vliegtuig naar Spanje | -
+Mijn opa reist volgende maand met de boot naar Engeland. | Kakek saya bulan depan bepergian ke Inggris naik kapal. | volgende maand met de boot naar Engeland | -
+Mijn ouders komen zondag met de taxi naar het ziekenhuis. | Orang tua saya hari Minggu datang ke rumah sakit naik taksi. | zondag met de taxi naar het ziekenhuis | -
+#116 Bilangan Tingkat
+Dit is mijn eerste les. | Ini pelajaran pertama saya. | eerste | pertama
+Hij woont op de tweede verdieping. | Dia tinggal di lantai kedua. | tweede | kedua
+Mijn kantoor is op de derde verdieping. | Kantor saya di lantai ketiga. | derde | ketiga
+Morgen is mijn vijfde dag op het werk. | Besok hari kelima saya di tempat kerja. | vijfde | kelima
+Het is de zesde keer dat ik hier ben. | Ini kali keenam saya di sini. | zesde | keenam
+Mijn zus woont op de achtste verdieping. | Adik perempuan saya tinggal di lantai kedelapan. | achtste | kedelapan
+Ons huis is het zevende aan de rechterkant. | Rumah kami yang ketujuh di sisi kanan. | zevende | ketujuh
+Ik ga voor de tiende keer naar Parijs. | Saya pergi ke Paris untuk kesepuluh kalinya. | tiende | kesepuluh
+Het museum staat in de vierde straat links. | Museumnya ada di jalan keempat di sebelah kiri. | vierde | keempat
+Mijn dochter is de eerste van de klas die klaar is. | Putri saya yang pertama di kelas yang selesai. | eerste | pertama
+Dit is al de derde keer dat de bus te laat komt. | Ini sudah ketiga kalinya bus datang terlambat. | derde | ketiga
+Mijn broer is de tweede in de familie die gaat studeren. | Kakak laki-laki saya yang kedua dalam keluarga yang akan kuliah. | tweede | kedua
+#117 Tanggal
+De hoeveelste is het vandaag? | Tanggal berapa hari ini? | De hoeveelste | Tanggal berapa
+Het is vandaag de eerste mei. | Hari ini tanggal satu Mei. | de eerste mei | tanggal satu Mei
+Ons feest is op vijf juni. | Pesta kami pada tanggal lima Juni. | vijf juni | tanggal lima Juni
+De les begint op één september. | Pelajaran dimulai pada tanggal satu September. | één september | tanggal satu September
+Mijn zoon is jarig op acht november. | Putra saya berulang tahun pada tanggal delapan November. | acht november | tanggal delapan November
+Wij gaan op twaalf augustus op vakantie. | Kami berlibur pada tanggal dua belas Agustus. | twaalf augustus | tanggal dua belas Agustus
+Mijn ouders trouwden op tien oktober. | Orang tua saya menikah pada tanggal sepuluh Oktober. | tien oktober | tanggal sepuluh Oktober
+Mijn dochter is geboren op twintig maart. | Putri saya lahir pada tanggal dua puluh Maret. | twintig maart | tanggal dua puluh Maret
+Wij komen op dertig juli terug uit Frankrijk. | Kami kembali dari Prancis pada tanggal tiga puluh Juli. | dertig juli | tanggal tiga puluh Juli
+De winkel is op vijfentwintig december dicht. | Toko tutup pada tanggal dua puluh lima Desember. | vijfentwintig december | tanggal dua puluh lima Desember
+Het examen is op zeventien januari en ik moet nog veel leren. | Ujiannya pada tanggal tujuh belas Januari dan saya masih harus banyak belajar. | zeventien januari | tanggal tujuh belas Januari
+De cursus eindigt op vier februari, daarna hebben we vakantie. | Kursusnya berakhir pada tanggal empat Februari, setelah itu kami libur. | vier februari | tanggal empat Februari
+#118 Euro & Harga
+Hoeveel kost dit boek? | Berapa harga buku ini? | Hoeveel kost | Berapa harga
+Wat kost een broodje kaas? | Berapa harga roti isi keju? | Wat kost | Berapa harga
+Dit boek kost twaalf euro. | Buku ini harganya dua belas euro. | twaalf euro | dua belas euro
+De appels kosten drie euro per kilo. | Apel harganya tiga euro per kilo. | drie euro | tiga euro
+Een kopje koffie kost twee euro vijftig. | Secangkir kopi harganya dua euro lima puluh. | twee euro vijftig | dua euro lima puluh
+Mijn nieuwe jas kostte tachtig euro. | Jaket baru saya harganya delapan puluh euro. | tachtig euro | delapan puluh euro
+Het kaartje voor kinderen kost vijf euro. | Tiket untuk anak-anak harganya lima euro. | vijf euro | lima euro
+Ik betaal honderd euro voor de fiets. | Saya membayar seratus euro untuk sepeda itu. | honderd euro | seratus euro
+Een kilo kaas kost ongeveer tien euro. | Satu kilo keju harganya sekitar sepuluh euro. | tien euro | sepuluh euro
+De rekening is achtendertig euro vijftig. | Tagihannya tiga puluh delapan euro lima puluh. | achtendertig euro vijftig | tiga puluh delapan euro lima puluh
+Mijn huur is zeshonderd euro per maand. | Sewa saya enam ratus euro per bulan. | zeshonderd euro | enam ratus euro
+Hoeveel moet ik betalen voor twee kaartjes? | Berapa yang harus saya bayar untuk dua tiket? | Hoeveel moet ik betalen | Berapa yang harus saya bayar
+Het hotel kost negentig euro per nacht, met ontbijt. | Hotelnya harganya sembilan puluh euro per malam, dengan sarapan. | negentig euro | sembilan puluh euro
+#119 Jam formal & informal
+Hoe laat is het? | Jam berapa sekarang? | Hoe laat | Jam berapa
+Het is half negen. | Sekarang pukul setengah sembilan. | half negen | setengah sembilan
+Het is kwart over twee. | Sekarang pukul dua lewat seperempat. | kwart over twee | dua lewat seperempat
+Ik ben om tien over zes thuis. | Saya di rumah pukul enam lewat sepuluh. | tien over zes | enam lewat sepuluh
+Het journaal begint om twintig uur. | Berita dimulai pukul dua puluh. | twintig uur | dua puluh
+De les begint om vijf voor half twee. | Pelajaran dimulai pukul setengah dua kurang lima. | vijf voor half twee | setengah dua kurang lima
+De vergadering duurt tot kwart over drie. | Rapat berlangsung sampai pukul tiga lewat seperempat. | kwart over drie | tiga lewat seperempat
+De winkel sluit om zeventien uur dertig. | Toko tutup pukul tujuh belas tiga puluh. | zeventien uur dertig | tujuh belas tiga puluh
+De dokter komt om twaalf uur vijftien. | Dokter datang pukul dua belas lima belas. | twaalf uur vijftien | dua belas lima belas
+Het is al tien voor negen, dus we moeten gaan. | Sudah pukul sembilan kurang sepuluh, jadi kita harus pergi. | tien voor negen | sembilan kurang sepuluh
+Mijn bus komt om vijf over half vier. | Bus saya datang pukul setengah empat lewat lima. | vijf over half vier | setengah empat lewat lima
+Het vliegtuig landt om dertien uur vijfenveertig. | Pesawat mendarat pukul tiga belas empat puluh lima. | dertien uur vijfenveertig | tiga belas empat puluh lima
+Het is tien over half elf en wij hebben nog geen ontbijt gehad. | Sekarang setengah sebelas lewat sepuluh dan kami belum sarapan. | tien over half elf | setengah sebelas lewat sepuluh
+#120 elke dag
+Ik leer elke dag Nederlands. | Saya belajar bahasa Belanda setiap hari. | elke dag | setiap hari
+Wij eten elke dag rijst. | Kami makan nasi setiap hari. | elke dag | setiap hari
+Hij drinkt elke dag koffie. | Dia minum kopi setiap hari. | elke dag | setiap hari
+Elke dag fiets ik naar mijn werk. | Setiap hari saya bersepeda ke tempat kerja. | Elke dag | Setiap hari
+Mijn moeder belt elke dag. | Ibu saya menelepon setiap hari. | elke dag | setiap hari
+De kinderen spelen elke dag buiten. | Anak-anak bermain di luar setiap hari. | elke dag | setiap hari
+Ik loop elke dag met mijn hond in het park. | Saya berjalan dengan anjing saya di taman setiap hari. | elke dag | setiap hari
+Mijn buurman maakt elke dag een lange wandeling. | Tetangga saya berjalan-jalan jauh setiap hari. | elke dag | setiap hari
+Zij leest elke dag de krant voordat ze gaat werken. | Dia membaca koran setiap hari sebelum berangkat kerja. | elke dag | setiap hari
+Elke dag komt de postbode om tien uur langs. | Setiap hari tukang pos mampir pukul sepuluh. | Elke dag | Setiap hari
+Mijn opa wandelt elke dag, ook als het regent. | Kakek saya berjalan-jalan setiap hari, juga kalau hujan. | elke dag | setiap hari
+Wij hebben elke dag les, behalve op zaterdag en zondag. | Kami ada pelajaran setiap hari, kecuali hari Sabtu dan Minggu. | elke dag | setiap hari
+Ik ga elke dag met de bus naar mijn werk en lees dan een boek. | Saya pergi ke tempat kerja naik bus setiap hari dan membaca buku. | elke dag | setiap hari
+#121 één keer per week
+Ik bel mijn oma één keer per week. | Saya menelepon nenek saya sekali seminggu. | één keer per week | sekali seminggu
+Mijn zus belt één keer per week. | Adik perempuan saya menelepon sekali seminggu. | één keer per week | sekali seminggu
+Wij eten één keer per week vis. | Kami makan ikan sekali seminggu. | één keer per week | sekali seminggu
+Hij gaat één keer per week zwemmen. | Dia berenang sekali seminggu. | één keer per week | sekali seminggu
+De vuilnisman komt één keer per week. | Petugas sampah datang sekali seminggu. | één keer per week | sekali seminggu
+Ik was één keer per week mijn auto. | Saya mencuci mobil saya sekali seminggu. | één keer per week | sekali seminggu
+De markt is één keer per week op het plein. | Pasar ada di alun-alun sekali seminggu. | één keer per week | sekali seminggu
+Mijn dochter heeft één keer per week pianoles. | Putri saya ada les piano sekali seminggu. | één keer per week | sekali seminggu
+Ik ga één keer per week naar de sportschool. | Saya pergi ke tempat kebugaran sekali seminggu. | één keer per week | sekali seminggu
+Mijn buurvrouw komt één keer per week schoonmaken. | Tetangga perempuan saya datang membersihkan sekali seminggu. | één keer per week | sekali seminggu
+Wij hebben één keer per week les in de bibliotheek. | Kami ada pelajaran di perpustakaan sekali seminggu. | één keer per week | sekali seminggu
+Mijn vader speelt één keer per week voetbal met zijn vrienden. | Ayah saya bermain sepak bola dengan teman-temannya sekali seminggu. | één keer per week | sekali seminggu
+Wij gaan één keer per week met de hele familie uit eten. | Kami makan di luar bersama seluruh keluarga sekali seminggu. | één keer per week | sekali seminggu
+Ik doe één keer per week grote boodschappen bij de supermarkt. | Saya belanja besar di supermarket sekali seminggu. | één keer per week | sekali seminggu
+#122 twee keer per maand
+Ik bel mijn oma twee keer per maand. | Saya menelepon nenek saya dua kali sebulan. | twee keer per maand | dua kali sebulan
+Mijn zus belt twee keer per maand. | Adik perempuan saya menelepon dua kali sebulan. | twee keer per maand | dua kali sebulan
+Wij eten twee keer per maand pizza. | Kami makan pizza dua kali sebulan. | twee keer per maand | dua kali sebulan
+Hij gaat twee keer per maand naar de kapper. | Dia pergi ke tukang cukur dua kali sebulan. | twee keer per maand | dua kali sebulan
+Ik ga twee keer per maand naar de bioscoop. | Saya pergi ke bioskop dua kali sebulan. | twee keer per maand | dua kali sebulan
+Mijn moeder koopt twee keer per maand bloemen. | Ibu saya membeli bunga dua kali sebulan. | twee keer per maand | dua kali sebulan
+Wij hebben twee keer per maand een vergadering. | Kami ada rapat dua kali sebulan. | twee keer per maand | dua kali sebulan
+Mijn vader speelt twee keer per maand schaak met zijn buurman. | Ayah saya bermain catur dengan tetangganya dua kali sebulan. | twee keer per maand | dua kali sebulan
+De bibliotheek krijgt twee keer per maand nieuwe boeken. | Perpustakaan mendapat buku baru dua kali sebulan. | twee keer per maand | dua kali sebulan
+Mijn vrienden en ik gaan twee keer per maand samen uit eten. | Teman-teman saya dan saya makan di luar bersama dua kali sebulan. | twee keer per maand | dua kali sebulan
+Mijn dochter heeft twee keer per maand een toets op school. | Putri saya ada ujian di sekolah dua kali sebulan. | twee keer per maand | dua kali sebulan
+Wij bezoeken twee keer per maand mijn ouders in Utrecht. | Kami mengunjungi orang tua saya di Utrecht dua kali sebulan. | twee keer per maand | dua kali sebulan

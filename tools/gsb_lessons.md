@@ -1,0 +1,7 @@
+- Kalimat ≥5 aksara agar lolos soal rumpang; kunci hanya SATU kali di kalimat (pola berulang seperti 有的…有的 → kunci rentang «有的X，有的»; hindari 我家/这家 bila kunci 家; 现在 mengandung 在).
+- Jangan mengisi kalimat janggal demi 15; 6–14 natural lebih baik (catat otomatis oleh gsb_release).
+- Kalimat tidak boleh sama persis dengan kalimat lain dalam satu berkas (galat «kalimat ganda»); kalimat sederhana (书在桌子上, 这是我的杯子, 我爸爸是医生, 你叫什么名字) sudah terpakai: variasikan subjek/kosakata.
+- Kata di luar level kartu jangan dipakai (gsb_lvl.py membantu); kosakata kartu itu sendiri (别的, 半, 百, 页, 楼, 房子, 面包) boleh. Catatan: 饭馆 tercatat HSK2 di kamus aplikasi (dipakai di #45–#70; untuk HSK 1 baru, lebih baik 商店/饭店 sesuai contoh kartu).
+- Kata baru tanpa pinyin → PIN_EXTRA (tools/gcl_build.py); nama diri → override {Pinyin}.
+- Kartu tata bahasa umum (subjek/predikat/objek) → kunci = kata inti (kata kerja/sifat) agar tetap satu jawaban.
+- tests/test_gsb.js memeriksa kunci sebagai SUBSTRING (bukan batas kata): kunci pendek seperti «bei»(Arbeit), «in»(einer, Minuten, Kind) gagal bila muncul di dalam kata lain → perpanjang kunci («bei der», «in einer») atau hindari kata itu. Audit: de_A2 punya 93 kartu (preposisi #58–#92 sisa 23 kartu mulai #70).
