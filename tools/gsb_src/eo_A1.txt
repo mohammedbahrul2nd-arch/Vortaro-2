@@ -81,3 +81,480 @@ La akvo estas tre malvarma hodiaŭ. | Air itu sangat dingin hari ini. | estas tr
 Anna estas juna kaj la instruisto estas maljuna. | Anna masih muda dan guru itu sudah tua. | estas maljuna | tua
 La viro ŝajnas maljuna, sed li estas forta. | Pria itu tampak tua, tetapi dia kuat. | ŝajnas maljuna | tampak tua
 La ĉielo estas blua kaj la suno estas varma hodiaŭ. | Langit biru dan matahari hangat hari ini. | estas blua | biru
+
+#12 Kata Benda Predikat
+Violoj estas floroj. | Violet adalah bunga. | estas floroj | adalah bunga
+La kato estas besto. | Kucing adalah hewan. | estas besto | adalah hewan
+Li estas mia patro. | Dia adalah ayah saya. | estas mia patro | adalah ayah saya
+Ŝi estas instruistino. | Dia adalah guru perempuan. | estas instruistino | adalah guru perempuan
+Maria estas mia amikino. | Maria adalah teman perempuan saya. | estas mia amikino | adalah teman perempuan saya
+Anna kaj Petro estas lernantoj. | Anna dan Petro adalah murid. | estas lernantoj | adalah murid
+La hundo estas bona amiko. | Anjing adalah teman yang baik. | estas bona amiko | adalah teman yang baik
+Mia patrino estas kuracisto en la urbo. | Ibu saya adalah dokter di kota. | estas kuracisto | adalah dokter
+La arbo estas hejmo por birdoj. | Pohon itu adalah rumah bagi burung. | estas hejmo | adalah rumah
+Berlino estas granda urbo en Germanio. | Berlin adalah kota besar di Jerman. | estas granda urbo | adalah kota besar
+Mia frato estas studento kaj mia fratino estas instruistino. | Saudara laki-laki saya adalah mahasiswa dan saudari saya adalah guru. | estas studento | adalah mahasiswa
+#13 Kata Kerja Transitif
+Ŝi havas hundon. | Dia punya anjing. | havas | punya
+Li vidas katon. | Dia melihat kucing. | vidas | melihat
+Ni manĝas fruktojn. | Kami makan buah. | manĝas | makan
+Mi aĉetas panon. | Saya membeli roti. | aĉetas | membeli
+La knabo trovas florojn. | Anak laki-laki itu menemukan bunga-bunga. | trovas | menemukan
+Mi legas leteron. | Saya membaca surat. | legas | membaca
+Mi aŭdas birdojn en la ĝardeno. | Saya mendengar burung-burung di kebun. | aŭdas | mendengar
+Li trinkas kafon matene. | Dia minum kopi pada pagi hari. | trinkas | minum
+La instruisto helpas lernantojn. | Guru membantu para murid. | helpas | membantu
+La patro lavas la aŭton. | Ayah mencuci mobil itu. | lavas | mencuci
+Li konas la urbon. | Dia mengenal kota itu. | konas | mengenal
+Mia avino faras bonan kukon. | Nenek saya membuat kue yang enak. | faras | membuat
+La knabino rigardas la birdojn en la arbo. | Anak perempuan itu memandang burung-burung di pohon. | rigardas | memandang
+#14 Akusatif -n
+Mi vidas hundon. | Saya melihat anjing. | hundon | anjing
+Ŝi havas libron. | Dia punya buku. | libron | buku
+Li trinkas akvon. | Dia minum air. | akvon | air
+La knabo trovas belan floron. | Anak laki-laki itu menemukan bunga yang indah. | belan floron | bunga yang indah
+Mi legas interesan libron. | Saya membaca buku yang menarik. | interesan libron | buku yang menarik
+Ŝi aĉetas novan robon. | Dia membeli gaun baru. | novan robon | gaun baru
+Ni vidas grandajn arbojn. | Kami melihat pohon-pohon besar. | grandajn arbojn | pohon-pohon besar
+Mi amas mian familion. | Saya mencintai keluarga saya. | mian familion | keluarga saya
+La infanoj ŝatas la katojn. | Anak-anak menyukai kucing-kucing itu. | katojn | kucing-kucing
+La patrino faras bonan supon. | Ibu membuat sup yang enak. | bonan supon | sup yang enak
+Li havas du grandajn hundojn. | Dia punya dua anjing besar. | grandajn hundojn | anjing besar
+Mi manĝas freŝan panon matene. | Saya makan roti segar pada pagi hari. | freŝan panon | roti segar
+Ŝi portas ruĝan robon kaj nigrajn ŝuojn. | Dia memakai gaun merah dan sepatu hitam. | ruĝan robon | gaun merah
+#15 Konjungsi kaj … kaj
+La ĉevalo estas kaj granda kaj forta. | Kuda itu besar sekaligus kuat. | kaj granda kaj forta | besar sekaligus kuat
+Ŝi estas kaj bela kaj bona. | Dia cantik sekaligus baik. | kaj bela kaj bona | cantik sekaligus baik
+La domo estas kaj nova kaj malgranda. | Rumah itu baru sekaligus kecil. | kaj nova kaj malgranda | baru sekaligus kecil
+Mia amiko estas kaj juna kaj feliĉa. | Teman saya muda sekaligus bahagia. | kaj juna kaj feliĉa | muda sekaligus bahagia
+Mi havas kaj hundon kaj katon. | Saya punya baik anjing maupun kucing. | kaj hundon kaj katon | baik anjing maupun kucing
+Mi manĝas kaj panon kaj fruktojn. | Saya makan baik roti maupun buah. | kaj panon kaj fruktojn | baik roti maupun buah
+Kaj Anna kaj Petro estas lernantoj. | Baik Anna maupun Petro adalah murid. | Kaj Anna kaj Petro | Baik Anna maupun Petro
+La tago estas kaj varma kaj bela. | Hari itu hangat sekaligus indah. | kaj varma kaj bela | hangat sekaligus indah
+La birdoj kantas kaj matene kaj vespere. | Burung-burung bernyanyi baik pagi maupun sore. | kaj matene kaj vespere | baik pagi maupun sore
+Li parolas kaj en la lernejo kaj hejme. | Dia berbicara baik di sekolah maupun di rumah. | kaj en la lernejo kaj hejme | baik di sekolah maupun di rumah
+Kaj la patro kaj la patrino laboras en la urbo. | Baik ayah maupun ibu bekerja di kota. | Kaj la patro kaj la patrino | Baik ayah maupun ibu
+Ni iras kaj al la lernejo kaj al la butiko. | Kami pergi baik ke sekolah maupun ke toko. | kaj al la lernejo kaj al la butiko | baik ke sekolah maupun ke toko
+#16 Kata Negasi ne
+Mi ne dormas. | Saya tidak tidur. | ne dormas | tidak tidur
+La suno ne brilas. | Matahari tidak bersinar. | ne brilas | tidak bersinar
+La kato ne estas hundo. | Kucing itu bukan anjing. | ne estas | bukan
+Li ne laboras hodiaŭ. | Dia tidak bekerja hari ini. | ne laboras | tidak bekerja
+Ni ne manĝas viandon. | Kami tidak makan daging. | ne manĝas | tidak makan
+Ŝi ne skribas leteron. | Dia tidak menulis surat. | ne skribas | tidak menulis
+La akvo ne estas varma. | Air itu tidak hangat. | ne estas | tidak
+Ne mi, sed Anna havas la libron. | Bukan saya, melainkan Anna yang punya buku itu. | Ne mi | Bukan saya
+La infanoj ne iras al la lernejo hodiaŭ. | Anak-anak tidak pergi ke sekolah hari ini. | ne iras | tidak pergi
+La hundo ne kuras, ĉar ĝi estas laca. | Anjing itu tidak berlari, karena dia lelah. | ne kuras | tidak berlari
+Mi ne trinkas kafon, sed mi trinkas teon. | Saya tidak minum kopi, tetapi saya minum teh. | ne trinkas | tidak minum
+Mia patro ne estas instruisto, sed li estas kuracisto. | Ayah saya bukan guru, tetapi dia dokter. | ne estas instruisto | bukan guru
+Ili ne loĝas en granda urbo, sed en malgranda vilaĝo. | Mereka tidak tinggal di kota besar, tetapi di desa kecil. | ne loĝas | tidak tinggal
+#17 Infinitif -i
+Kuri estas sane. | Berlari itu sehat. | Kuri | Berlari
+Legi estas bone. | Membaca itu baik. | Legi | Membaca
+Danci estas agrabla. | Menari itu menyenangkan. | Danci | Menari
+Nagi estas bona por la sano. | Berenang baik untuk kesehatan. | Nagi | Berenang
+Manĝi fruktojn estas sane. | Makan buah itu sehat. | Manĝi | Makan
+Lerni Esperanton ne estas malfacile. | Belajar Esperanto tidak sulit. | Lerni | Belajar
+Skribi leterojn ne estas malfacila. | Menulis surat tidak sulit. | Skribi | Menulis
+Trinki akvon estas bona por la korpo. | Minum air baik untuk tubuh. | Trinki | Minum
+Labori ĉiutage estas malfacile. | Bekerja setiap hari itu sulit. | Labori | Bekerja
+Paroli kun amikoj estas agrabla. | Berbicara dengan teman itu menyenangkan. | Paroli | Berbicara
+Studi en la lernejo estas utila. | Belajar di sekolah itu berguna. | Studi | Belajar
+Kanti en la ĝardeno estas agrabla. | Bernyanyi di kebun itu menyenangkan. | Kanti | Bernyanyi
+Marŝi en la ĝardeno matene estas tre agrabla. | Berjalan di kebun pada pagi hari sangat menyenangkan. | Marŝi | Berjalan
+#18 Infinitif Pelengkap
+Mi povas nagi. | Saya bisa berenang. | povas nagi | bisa berenang
+Ŝi volas dormi. | Dia ingin tidur. | volas dormi | ingin tidur
+La knabo volas kuri. | Anak laki-laki itu ingin berlari. | volas kuri | ingin berlari
+Ni devas labori. | Kami harus bekerja. | devas labori | harus bekerja
+Li ne povas veni hodiaŭ. | Dia tidak bisa datang hari ini. | povas veni | bisa datang
+Ni ŝatas manĝi en la ĝardeno. | Kami suka makan di kebun. | ŝatas manĝi | suka makan
+Vi devas lerni ĉiutage. | Kamu harus belajar setiap hari. | devas lerni | harus belajar
+Ŝi povas kanti tre bele. | Dia bisa bernyanyi dengan sangat indah. | povas kanti | bisa bernyanyi
+Mi volas aĉeti novan libron. | Saya ingin membeli buku baru. | volas aĉeti | ingin membeli
+La infanoj ŝatas ludi en la ĝardeno. | Anak-anak suka bermain di kebun. | ŝatas ludi | suka bermain
+Mia patro volas iri al la urbo hodiaŭ. | Ayah saya ingin pergi ke kota hari ini. | volas iri | ingin pergi
+Mi ne scias kuiri, sed mi volas lerni. | Saya tidak bisa memasak, tetapi saya ingin belajar. | scias kuiri | bisa memasak
+La lernantoj devas skribi leteron al la instruisto. | Para murid harus menulis surat kepada guru. | devas skribi | harus menulis
+#19 Kalimat Tanya dengan ĉu
+Ĉu vi dormas? | Apakah kamu tidur? | Ĉu | Apakah
+Ĉu Anna laboras hodiaŭ? | Apakah Anna bekerja hari ini? | Ĉu | Apakah
+Ĉu vi havas hundon? | Apakah kamu punya anjing? | Ĉu | Apakah
+Ĉu la kato estas hejme? | Apakah kucing itu ada di rumah? | Ĉu | Apakah
+Ĉu la akvo estas malvarma? | Apakah airnya dingin? | Ĉu | Apakah
+Ĉu Petro estas via amiko? | Apakah Petro temanmu? | Ĉu | Apakah
+Ĉu la infanoj iras al la lernejo? | Apakah anak-anak pergi ke sekolah? | Ĉu | Apakah
+Ĉu ŝi legas libron en la ĝardeno? | Apakah dia membaca buku di kebun? | Ĉu | Apakah
+Ĉu vi volas trinki teon aŭ kafon? | Apakah kamu mau minum teh atau kopi? | Ĉu | Apakah
+Ĉu vi povas helpi min? | Apakah kamu bisa membantu saya? | Ĉu | Apakah
+Mi ne scias, ĉu la butiko estas malfermita. | Saya tidak tahu apakah toko itu buka. | ĉu | apakah
+Ĉu la birdoj kantas en la arbo, kaj ĉu la hundo dormas? | Apakah burung-burung bernyanyi di pohon, dan apakah anjing itu tidur? | Ĉu la birdoj | Apakah burung-burung
+#20 Konjungsi nek … nek
+Ili nek marŝas nek kuras. | Mereka tidak berjalan maupun berlari. | nek marŝas nek kuras | tidak berjalan maupun berlari
+Mi havas nek hundon nek katon. | Saya tidak punya anjing maupun kucing. | nek hundon nek katon | tidak punya anjing maupun kucing
+Li nek manĝas nek trinkas hodiaŭ. | Dia tidak makan maupun minum hari ini. | nek manĝas nek trinkas | tidak makan maupun minum
+La akvo estas nek varma nek malvarma. | Air itu tidak hangat maupun dingin. | nek varma nek malvarma | tidak hangat maupun dingin
+La ĉambro estas nek granda nek bela. | Kamar itu tidak besar maupun indah. | nek granda nek bela | tidak besar maupun indah
+Nek Anna nek Petro estas hejme. | Anna maupun Petro tidak ada di rumah. | Nek Anna nek Petro | Anna maupun Petro
+Mi nek legas nek skribas matene. | Saya tidak membaca maupun menulis pada pagi hari. | nek legas nek skribas | tidak membaca maupun menulis
+La infanoj nek ridas nek ploras, ili dormas. | Anak-anak tidak tertawa maupun menangis, mereka tidur. | nek ridas nek ploras | tidak tertawa maupun menangis
+Mi vidas nek hundon nek katon en la ĝardeno. | Saya tidak melihat anjing maupun kucing di kebun. | nek hundon nek katon | tidak melihat anjing maupun kucing
+Ŝi parolas nek en la lernejo nek hejme. | Dia tidak berbicara di sekolah maupun di rumah. | nek en la lernejo nek hejme | tidak berbicara di sekolah maupun di rumah
+Nek la patro nek la patrino laboras hodiaŭ. | Ayah maupun ibu tidak bekerja hari ini. | Nek la patro nek la patrino | Ayah maupun ibu
+La kato nek dormas nek manĝas, ĝi nur rigardas. | Kucing itu tidak tidur maupun makan, dia hanya memandang. | nek dormas nek manĝas | tidak tidur maupun makan
+#21 Kata Ganti Orang
+Mi estas hejme hodiaŭ. | Saya ada di rumah hari ini. | Mi estas | Saya
+Vi estas mia amiko. | Kamu adalah temanku. | Vi estas | Kamu
+Li laboras hejme. | Dia bekerja di rumah. | Li laboras | Dia
+Ŝi kantas tre bele. | Dia bernyanyi dengan sangat indah. | Ŝi kantas | Dia
+Ni ludas en la ĝardeno. | Kami bermain di kebun. | Ni ludas | Kami
+Ili iras al la lernejo. | Mereka pergi ke sekolah. | Ili iras | Mereka
+La kato estas malgranda, kaj ĝi dormas. | Kucing itu kecil, dan dia tidur. | ĝi dormas | dia
+Ĉu vi ŝatas la urbon? | Apakah kamu suka kota itu? | vi ŝatas | kamu
+Mi scias, ke li estas hejme. | Saya tahu bahwa dia ada di rumah. | li estas | dia
+Ili manĝas panon, sed ni manĝas fruktojn. | Mereka makan roti, tetapi kami makan buah. | ni manĝas | kami
+Mi havas hundon, kaj li havas katon. | Saya punya anjing dan dia punya kucing. | li havas | dia
+#22 Kesesuaian dengan Kata Ganti
+Ni estas amikoj. | Kami adalah teman. | estas amikoj | adalah teman
+Ili estas junaj. | Mereka muda. | estas junaj | muda
+Li estas alta kaj forta. | Dia tinggi dan kuat. | estas alta | tinggi
+Ni estas bonaj kaj feliĉaj. | Kami baik dan bahagia. | estas bonaj | baik
+Vi estas bonaj lernantoj. | Kalian murid yang baik. | estas bonaj lernantoj | murid yang baik
+Ŝi estas bela kaj juna. | Dia cantik dan muda. | estas bela | cantik
+Ni estas malgrandaj, sed ili estas grandaj. | Kami kecil, tetapi mereka besar. | estas grandaj | besar
+Ili estas instruistoj kaj ni estas lernantoj. | Mereka guru dan kami murid. | estas lernantoj | murid
+Ni estas hejme kaj la infanoj estas en la lernejo. | Kami ada di rumah dan anak-anak ada di sekolah. | Ni estas hejme | Kami ada di rumah
+Mi estas laca, sed ili estas feliĉaj hodiaŭ. | Saya lelah, tetapi mereka bahagia hari ini. | estas feliĉaj | bahagia
+Vi estas ankoraŭ junaj, sed ni estas maljunaj. | Kalian masih muda, tetapi kami sudah tua. | estas maljunaj | tua
+Ĝi estas bela birdo kaj ĝi estas feliĉa. | Itu burung yang indah dan dia bahagia. | Ĝi estas bela birdo | Itu burung yang indah
+#23 Konjugasi Kala Kini
+Mi lernas Esperanton. | Saya belajar Esperanto. | Mi lernas | Saya belajar
+Vi parolas rapide. | Kamu berbicara dengan cepat. | Vi parolas | Kamu berbicara
+Li kuiras supon. | Dia memasak sup. | Li kuiras | Dia memasak
+Ŝi aŭskultas muzikon. | Dia mendengarkan musik. | Ŝi aŭskultas | Dia mendengarkan
+Ĝi manĝas fiŝon. | Dia makan ikan. | Ĝi manĝas | Dia makan
+Ni vojaĝas per trajno. | Kami bepergian naik kereta. | Ni vojaĝas | Kami bepergian
+Ili laboras en banko. | Mereka bekerja di bank. | Ili laboras | Mereka bekerja
+Ni dormas malfrue. | Kami tidur larut. | Ni dormas | Kami tidur
+Ili ludas futbalon ĉiusabate. | Mereka bermain sepak bola setiap hari Sabtu. | Ili ludas | Mereka bermain
+Mi estas hejme kaj vi estas en la lernejo. | Saya di rumah dan kamu di sekolah. | Mi estas | Saya
+Li havas novan aŭton kaj ŝi havas malnovan biciklon. | Dia punya mobil baru dan dia punya sepeda tua. | Li havas | Dia punya
+Mi ofte aŭdas birdojn matene. | Saya sering mendengar burung pada pagi hari. | Mi ofte aŭdas | Saya sering mendengar
+#24 Kala Lampau -is
+Mi manĝis. | Saya sudah makan. | manĝis | sudah makan
+La birdo flugis. | Burung itu terbang (tadi). | flugis | terbang
+Ŝi dormis bone. | Dia tidur nyenyak. | dormis | tidur
+Li laboris en la ĝardeno. | Dia bekerja di kebun. | laboris | bekerja
+Ni ludis ekstere hieraŭ. | Kemarin kami bermain di luar. | ludis | bermain
+La infanoj kuris al la lernejo. | Anak-anak berlari ke sekolah. | kuris | berlari
+Hieraŭ mi legis libron. | Kemarin saya membaca buku. | legis | membaca
+Mi vidis belan birdon sur la arbo. | Saya melihat burung indah di pohon. | vidis | melihat
+Mia patrino kuiris bonan manĝon. | Ibu saya memasak makanan yang enak. | kuiris | memasak
+Ili iris al la urbo kaj aĉetis panon. | Mereka pergi ke kota dan membeli roti. | aĉetis | membeli
+Hieraŭ la suno brilis, sed hodiaŭ pluvas. | Kemarin matahari bersinar, tetapi hari ini hujan. | brilis | bersinar
+La hundo kuris en la ĝardeno kaj la kato dormis sur la tablo. | Anjing berlari di kebun dan kucing tidur di atas meja. | dormis | tidur
+#25 Preposisi
+La arbo estas en la ĝardeno. | Pohon itu ada di kebun. | en la ĝardeno | di kebun
+La libro estas sur la tablo. | Buku itu ada di atas meja. | sur la tablo | di atas meja
+La kato dormas sub la tablo. | Kucing tidur di bawah meja. | sub la tablo | di bawah meja
+Mi iras al la lernejo. | Saya pergi ke sekolah. | al la lernejo | ke sekolah
+Ŝi venas de la urbo. | Dia datang dari kota. | de la urbo | dari kota
+La infanoj ludas kun la hundo. | Anak-anak bermain dengan anjing itu. | kun la hundo | dengan anjing itu
+Mi parolas kun la instruisto. | Saya berbicara dengan guru. | kun la instruisto | dengan guru
+La domo estas apud la lernejo. | Rumah itu ada di sebelah sekolah. | apud la lernejo | di sebelah sekolah
+La butiko estas antaŭ la domo. | Toko itu ada di depan rumah. | antaŭ la domo | di depan rumah
+La ĝardeno estas malantaŭ la domo. | Kebun itu ada di belakang rumah. | malantaŭ la domo | di belakang rumah
+Mi aĉetas panon por mia patrino. | Saya membeli roti untuk ibu saya. | por mia patrino | untuk ibu saya
+Ŝi sidas inter Anna kaj Petro. | Dia duduk di antara Anna dan Petro. | inter Anna kaj Petro | di antara Anna dan Petro
+Mi laboras ĝis la vespero. | Saya bekerja sampai sore. | ĝis la vespero | sampai sore
+La infanoj iras per buso al la urbo. | Anak-anak pergi ke kota naik bus. | per buso | naik bus
+#26 Akusatif Kata Ganti
+Li aŭdas min. | Dia mendengar saya. | aŭdas min | mendengar saya
+Mi helpas vin hodiaŭ. | Saya membantu kamu hari ini. | helpas vin | membantu kamu
+Ŝi amas lin. | Dia mencintai pria itu. | amas lin | pria itu
+Li vidas ŝin en la ĝardeno. | Dia melihat wanita itu di kebun. | vidas ŝin | wanita itu
+Ŝi vizitas nin ĉiusabate. | Dia mengunjungi kami setiap hari Sabtu. | vizitas nin | mengunjungi kami
+Ili vidas nin en la parko. | Mereka melihat kami di taman. | vidas nin | melihat kami
+La instruisto helpas ilin. | Guru membantu mereka. | helpas ilin | membantu mereka
+La viro vidis vin kaj min. | Pria itu melihat kamu dan aku. | vin kaj min | kamu dan aku
+Mi vidas ilin ĉiutage en la lernejo. | Saya melihat mereka setiap hari di sekolah. | vidas ilin | melihat mereka
+La pano estas bona kaj mi manĝas ĝin. | Rotinya enak dan saya memakannya. | manĝas ĝin | memakannya
+Ili invitas nin al la festo. | Mereka mengundang kami ke pesta. | invitas nin | mengundang kami
+Mia patrino vokas min kaj mi helpas ŝin. | Ibu saya memanggil saya dan saya membantunya. | vokas min | memanggil saya
+Mi ne vidas vin, ĉar la ĉambro estas malluma. | Saya tidak melihat kamu, karena kamarnya gelap. | ne vidas vin | tidak melihat kamu
+#27 Kata Ganti Refleksif (mi/ni/vi)
+Vi povas fidi vin. | Kamu bisa memercayai dirimu. | fidi vin | memercayai dirimu
+Mi konas min bone. | Saya mengenal diri saya dengan baik. | konas min | mengenal diri saya
+Ĉu vi vidas vin en la spegulo? | Apakah kamu melihat dirimu di cermin? | vidas vin | melihat dirimu
+Mi vidas min en la spegulo. | Saya melihat diri saya di cermin. | vidas min | melihat diri saya
+Ni vidas nin sur la foto. | Kami melihat diri kami di foto. | vidas nin | melihat diri kami
+Vi kaŝis vin malantaŭ la pordo. | Kamu menyembunyikan dirimu di balik pintu. | kaŝis vin | menyembunyikan dirimu
+Mi tranĉis min per la tranĉilo. | Saya melukai diri saya dengan pisau. | tranĉis min | melukai diri saya
+Ni ĝojigas nin per muziko. | Kami menyenangkan diri kami dengan musik. | ĝojigas nin | menyenangkan diri kami
+Ni protektas nin kontraŭ la pluvo. | Kami melindungi diri kami dari hujan. | protektas nin | melindungi diri kami
+Ni preparas nin por la ekzameno. | Kami menyiapkan diri kami untuk ujian. | preparas nin | menyiapkan diri kami
+Mi demandas min, ĉu mi pravas. | Saya bertanya pada diri saya apakah saya benar. | demandas min | bertanya pada diri saya
+Mi ne povas vidi min en la mallumo. | Saya tidak bisa melihat diri saya dalam gelap. | vidi min | melihat diri saya
+#28 Kata Ganti Refleksif si (orang III)
+Ŝi lavas sin. | Dia mencuci dirinya. | lavas sin | mencuci dirinya
+La kato lekas sin. | Kucing itu menjilati dirinya. | lekas sin | menjilati dirinya
+La infano defendas sin. | Anak itu membela dirinya. | defendas sin | membela dirinya
+Li ne vidas sin en la spegulo. | Dia tidak melihat dirinya di cermin. | vidas sin | melihat dirinya
+Ili vidas sin en la akvo. | Mereka melihat diri mereka di air. | vidas sin | melihat diri mereka
+La viro tranĉis sin per tranĉilo. | Pria itu melukai dirinya dengan pisau. | tranĉis sin | melukai dirinya
+Li kaŝis sin malantaŭ la arbo. | Dia menyembunyikan dirinya di balik pohon. | kaŝis sin | menyembunyikan dirinya
+Ŝi demandis sin, ĉu ŝi pravas. | Dia bertanya pada dirinya apakah dia benar. | demandis sin | bertanya pada dirinya
+La knabo preparas sin por la lernejo. | Anak laki-laki itu menyiapkan dirinya untuk sekolah. | preparas sin | menyiapkan dirinya
+Ŝi ne povas protekti sin sen helpo. | Dia tidak bisa melindungi dirinya tanpa bantuan. | protekti sin | melindungi dirinya
+La instruisto ĝojigas sin per muziko. | Guru itu menyenangkan dirinya dengan musik. | ĝojigas sin | menyenangkan dirinya
+#29 Kata Kerja Refleksif
+Mi vestas min. | Saya berpakaian. | vestas min | berpakaian
+Ŝi banas sin vespere. | Dia mandi pada malam hari. | banas sin | mandi
+Li razas sin ĉiumatene. | Dia bercukur setiap pagi. | razas sin | bercukur
+Mi sentas min bone hodiaŭ. | Saya merasa sehat hari ini. | sentas min | merasa
+Vi sentas vin malbone? | Kamu merasa tidak enak badan? | sentas vin | merasa
+Mi lavas min kaj poste manĝas. | Saya mandi dan setelah itu makan. | lavas min | mandi
+La infanoj vestas sin rapide. | Anak-anak berpakaian dengan cepat. | vestas sin | berpakaian
+Ni preparas nin por la vojaĝo. | Kami bersiap untuk perjalanan. | preparas nin | bersiap
+Ŝi kombas sin antaŭ la spegulo. | Dia menyisir rambut di depan cermin. | kombas sin | menyisir rambut
+Mi sekigas min per tuko. | Saya mengeringkan badan dengan handuk. | sekigas min | mengeringkan badan
+Ni vestas nin varme, ĉar estas malvarme. | Kami berpakaian hangat karena dingin. | vestas nin | berpakaian
+Ŝi sentas sin sola en la nova urbo. | Dia merasa sendirian di kota baru. | sentas sin | merasa
+Vi bone kaŝis vin, mi ne vidis vin. | Kamu bersembunyi dengan baik, aku tidak melihatmu. | kaŝis vin | bersembunyi
+#30 Batas Pronomo Orang III
+Karlo vidas lin. | Karlo melihat dia. | vidas lin | melihat dia
+Karlo vidas sin. | Karlo melihat dirinya sendiri. | vidas sin | dirinya sendiri
+Maria laŭdas ŝin. | Maria memuji dia. | laŭdas ŝin | memuji dia
+Maria laŭdas sin. | Maria memuji dirinya sendiri. | laŭdas sin | dirinya sendiri
+La patro helpas lin, ne sin. | Ayah membantu dia, bukan dirinya sendiri. | helpas lin | membantu dia
+La infanoj vidas ilin en la parko. | Anak-anak melihat mereka di taman. | vidas ilin | melihat mereka
+La infanoj vidas sin en la spegulo. | Anak-anak melihat diri mereka di cermin. | vidas sin | melihat diri mereka
+La viro kaŝas sin, ĉar li timas ilin. | Pria itu bersembunyi karena takut pada mereka. | timas ilin | takut pada mereka
+#31 Kata Sifat Posesif
+Mia patro estas hejme. | Ayah saya ada di rumah. | Mia patro | Ayah saya
+Ĉi tiu estas via libro. | Ini buku kamu. | via libro | buku kamu
+Ŝia kato estas tre bela. | Kucingnya sangat cantik. | Ŝia kato | Kucingnya
+Nia lernejo estas granda. | Sekolah kami besar. | Nia lernejo | Sekolah kami
+Lia fratino estas instruistino. | Saudarinya adalah guru. | Lia fratino | Saudarinya
+Mia kafo estas tro varma. | Kopi saya terlalu panas. | Mia kafo | Kopi saya
+Kie estas via telefono? | Di mana teleponmu? | via telefono | teleponmu
+Ilia domo havas ruĝan pordon. | Rumah mereka punya pintu merah. | Ilia domo | Rumah mereka
+Ŝia patrino laboras en hospitalo. | Ibunya bekerja di rumah sakit. | Ŝia patrino | Ibunya
+Miaj gepatroj loĝas en Berlino. | Orang tua saya tinggal di Berlin. | Miaj gepatroj | Orang tua saya
+Viaj infanoj estas tre bonaj. | Anak-anakmu sangat baik. | Viaj infanoj | Anak-anakmu
+Liaj libroj estas sur la tablo. | Buku-bukunya ada di atas meja. | Liaj libroj | Buku-bukunya
+La kato dormas, kaj ĝia lito estas mola. | Kucing itu tidur, dan tempat tidurnya empuk. | ĝia lito | tempat tidurnya
+Ilia aŭto estas nova, sed nia aŭto estas malnova. | Mobil mereka baru, tetapi mobil kami tua. | Ilia aŭto | Mobil mereka
+#32 Posesif Refleksif sia
+Li amas sian patrinon. | Dia mencintai ibunya. | sian patrinon | ibunya
+Ŝi lavas siajn manojn. | Dia mencuci tangannya. | siajn manojn | tangannya
+Petro serĉas sian ŝlosilon. | Petro mencari kuncinya. | sian ŝlosilon | kuncinya
+Ŝi iras al sia ĉambro. | Dia pergi ke kamarnya. | sia ĉambro | kamarnya
+La viro vendis sian aŭton. | Pria itu menjual mobilnya. | sian aŭton | mobilnya
+La knabino amas sian katon. | Gadis itu menyayangi kucingnya. | sian katon | kucingnya
+Ĉiu lernanto havas sian libron. | Setiap murid punya bukunya sendiri. | sian libron | bukunya sendiri
+La infanoj ŝatas sian lernejon. | Anak-anak menyukai sekolah mereka. | sian lernejon | sekolah mereka
+La instruisto helpas siajn lernantojn. | Guru itu membantu murid-muridnya. | siajn lernantojn | murid-muridnya
+Anna kaj Petro vendas sian domon. | Anna dan Petro menjual rumah mereka. | sian domon | rumah mereka
+Mia amiko ŝatas sian laboron. | Teman saya menyukai pekerjaannya. | sian laboron | pekerjaannya
+Ili vizitas siajn geavojn en la somero. | Mereka mengunjungi kakek-nenek mereka di musim panas. | siajn geavojn | kakek-nenek mereka
+La knabo kisis sian patrinon kaj iris al la lernejo. | Anak laki-laki itu mencium ibunya dan pergi ke sekolah. | sian patrinon | ibunya
+#33 Penggunaan Posesif sebagai Pronomo
+Tiu libro estas la mia. | Buku itu milikku. | la mia | milikku
+La kafo estas la via. | Kopi itu milikmu. | la via | milikmu
+Ĉi tiu kajero estas la ŝia. | Buku tulis ini miliknya. | la ŝia | miliknya
+Ĉi tiuj ŝuoj estas la miaj. | Sepatu ini milikku. | la miaj | milikku
+Ĉi tiu ĉapelo estas la lia. | Topi ini milik dia. | la lia | milik dia
+La domo ĉe la rivero estas la nia. | Rumah di tepi sungai itu milik kami. | la nia | milik kami
+Via kato estas blanka, sed la mia estas nigra. | Kucingmu putih, tetapi kucingku hitam. | la mia | kucingku
+Mia aŭto estas ruĝa, kaj la via estas blua. | Mobil saya merah, dan milikmu biru. | la via | milikmu
+Ili havas hundon, kaj la ilia estas tre granda. | Mereka punya anjing, dan milik mereka sangat besar. | la ilia | milik mereka
+Ŝia filo estas juna, kaj la mia estas pli aĝa. | Anaknya masih muda, dan anakku lebih tua. | la mia | anakku
+Mi ne havas ŝlosilon; ĉu mi povas preni la vian? | Saya tidak punya kunci; bolehkah saya mengambil milikmu? | la vian | milikmu
+#34 Akusatif Arah (-n)
+Mi iras hejmen. | Saya pulang ke rumah. | hejmen | pulang
+Li iras Parizon. | Dia pergi ke Paris. | Parizon | ke Paris
+Ŝi veturas Berlinon. | Dia berangkat ke Berlin. | Berlinon | ke Berlin
+Ni iros Londonon morgaŭ. | Kami akan pergi ke London besok. | Londonon | ke London
+Ŝi iris hejmen post la laboro. | Dia pulang setelah bekerja. | hejmen | pulang
+La kato saltas sur la tablon. | Kucing itu melompat ke atas meja. | sur la tablon | ke atas meja
+La birdo flugas en la ĉambron. | Burung itu terbang ke dalam kamar. | en la ĉambron | ke dalam kamar
+La infanoj kuras en la lernejon. | Anak-anak berlari ke dalam sekolah. | en la lernejon | ke dalam sekolah
+La hundo kuras sub la liton. | Anjing itu berlari ke bawah tempat tidur. | sub la liton | ke bawah tempat tidur
+Post la lernejo ni iros en la urbon. | Setelah sekolah kami akan pergi ke kota. | en la urbon | ke kota
+Mi kuras en la ĝardenon por serĉi la katon. | Saya berlari ke kebun untuk mencari kucing itu. | en la ĝardenon | ke kebun
+Ŝi metis la ŝlosilon en la ŝrankon. | Dia meletakkan kunci ke dalam lemari. | en la ŝrankon | ke dalam lemari
+La turistoj veturas Parizon per trajno. | Para turis pergi ke Paris naik kereta. | Parizon | ke Paris
+#35 Artikel menggantikan Posesif
+Mi lavas la manojn. | Saya mencuci tangan saya. | la manojn | tangan saya
+Ŝi kombas la hararon. | Dia menyisir rambutnya. | la hararon | rambutnya
+Li fermas la okulojn. | Dia memejamkan matanya. | la okulojn | matanya
+Ŝi skuas la kapon. | Dia menggelengkan kepalanya. | la kapon | kepalanya
+La knabo levas la manon. | Anak laki-laki itu mengangkat tangannya. | la manon | tangannya
+Mi tranĉis la fingron. | Saya melukai jari saya. | la fingron | jari saya
+Ŝi mordis la langon. | Dia menggigit lidahnya. | la langon | lidahnya
+La infano krucas la brakojn. | Anak itu melipat tangannya. | la brakojn | tangannya
+La knabino frotas la okulojn. | Gadis itu menggosok matanya. | la okulojn | matanya
+Ŝi vizitas la patrinon hodiaŭ. | Dia mengunjungi ibunya hari ini. | la patrinon | ibunya
+Mi sentas doloron en la kapo. | Saya merasakan sakit di kepala saya. | en la kapo | di kepala saya
+Li ŝovas la manojn en la poŝojn. | Dia memasukkan tangannya ke saku. | la manojn | tangannya
+Mi kisis la patrinon kaj iris al la lernejo. | Saya mencium ibu saya dan pergi ke sekolah. | la patrinon | ibu saya
+Mi malfermas la buŝon kaj la kuracisto rigardas. | Saya membuka mulut saya dan dokter melihat. | la buŝon | mulut saya
+Ni lavas la vizaĝon kaj la manojn matene. | Kami mencuci wajah dan tangan kami setiap pagi. | la vizaĝon kaj la manojn | wajah dan tangan kami
+#36 Apozisi
+La urbo Parizo estas bela. | Kota Paris itu indah. | urbo Parizo | Kota Paris
+La monto Everesto estas tre alta. | Gunung Everest sangat tinggi. | monto Everesto | Gunung Everest
+La kato Mimi dormas sur la seĝo. | Kucing Mimi tidur di kursi. | kato Mimi | Kucing Mimi
+La rivero Sejno estas longa. | Sungai Seine itu panjang. | rivero Sejno | Sungai Seine
+La lago Bajkalo estas tre granda. | Danau Baikal sangat besar. | lago Bajkalo | Danau Baikal
+Ŝi legas la libron Hamleto. | Dia membaca buku Hamlet. | libron Hamleto | buku Hamlet
+Mia amiko Petro loĝas en Berlino. | Teman saya Petro tinggal di Berlin. | amiko Petro | Teman saya Petro
+La lando Germanio estas en Eŭropo. | Negara Jerman ada di Eropa. | lando Germanio | Negara Jerman
+Mi konas la instruiston Karlon. | Saya kenal guru Karlo. | instruiston Karlon | guru Karlo
+Ni loĝas en la urbo Londono. | Kami tinggal di kota London. | urbo Londono | kota London
+Mia frato Johano ŝatas futbalon. | Saudara laki-laki saya, Johano, suka sepak bola. | frato Johano | Saudara laki-laki saya, Johano
+Mi vizitas mian onklon Paŭlon. | Saya mengunjungi paman saya Paul. | onklon Paŭlon | paman saya Paul
+La rivero Danubo fluas tra multaj landoj. | Sungai Donau mengalir melalui banyak negara. | rivero Danubo | Sungai Donau
+La kuracisto Zamenhof loĝis en Varsovio. | Dokter Zamenhof tinggal di Warsawa. | kuracisto Zamenhof | Dokter Zamenhof
+#37 Genitif dengan de (kepemilikan)
+La libro de Petro estas nova. | Buku milik Petro baru. | libro de Petro | Buku milik Petro
+La patro de Anna laboras en banko. | Ayah Anna bekerja di bank. | patro de Anna | Ayah Anna
+La nomo de la knabo estas Tomaso. | Nama anak laki-laki itu Tomaso. | nomo de la knabo | Nama anak laki-laki itu
+La pordo de la ĉambro estas malfermita. | Pintu kamar itu terbuka. | pordo de la ĉambro | Pintu kamar itu
+La kato de mia fratino estas blanka. | Kucing saudari saya putih. | kato de mia fratino | Kucing saudari saya
+La koloro de la domo estas blanka. | Warna rumah itu putih. | koloro de la domo | Warna rumah itu
+La muroj de la domo estas altaj. | Dinding-dinding rumah itu tinggi. | muroj de la domo | Dinding-dinding rumah itu
+La ŝlosilo de la aŭto estas sur la tablo. | Kunci mobil ada di atas meja. | ŝlosilo de la aŭto | Kunci mobil
+La fenestroj de la lernejo estas grandaj. | Jendela sekolah besar. | fenestroj de la lernejo | Jendela sekolah
+Kie estas la telefono de via patrino? | Di mana ponsel ibumu? | telefono de via patrino | ponsel ibumu
+Mi ŝatas la ĝardenon de mia avo. | Saya suka kebun kakek saya. | ĝardenon de mia avo | kebun kakek saya
+Ni aŭdas la voĉon de la instruisto. | Kami mendengar suara guru itu. | voĉon de la instruisto | suara guru itu
+La libro de la instruisto kuŝas sur la seĝo. | Buku guru itu tergeletak di kursi. | libro de la instruisto | Buku guru itu
+La infanoj de nia najbaro ludas en la ĝardeno. | Anak-anak tetangga kami bermain di kebun. | infanoj de nia najbaro | Anak-anak tetangga kami
+La domo de miaj gepatroj estas proksime de la maro. | Rumah orang tua saya dekat laut. | domo de miaj gepatroj | Rumah orang tua saya
+#38 Kata Kerja Impersonal
+Pluvas. | Hujan turun. | Pluvas | Hujan turun
+Neĝas. | Salju turun. | Neĝas | Salju turun
+Ĉu pluvas en via urbo? | Apakah hujan di kotamu? | pluvas | hujan
+Hodiaŭ pluvas multe. | Hari ini hujan turun deras. | pluvas multe | hujan turun deras
+Ĉar pluvas, ni restas hejme. | Karena hujan, kami tinggal di rumah. | pluvas | hujan
+Ĉi tie neĝas en decembro. | Di sini turun salju pada bulan Desember. | neĝas | turun salju
+Hodiaŭ ne pluvas, kaj ni iras al la parko. | Hari ini tidak hujan, dan kami pergi ke taman. | ne pluvas | tidak hujan
+Hieraŭ neĝis la tutan tagon. | Kemarin salju turun sepanjang hari. | neĝis | salju turun
+Jen, pluvas! Prenu la ombrelon. | Lihat, hujan turun! Bawalah payung. | pluvas | hujan turun
+Matene pluvis, sed nun estas suno. | Tadi pagi hujan, tetapi sekarang ada matahari. | pluvis | hujan
+#39 Kata Kerja Mendahului Subjek
+Estas libro sur la seĝo. | Ada buku di kursi. | Estas libro | Ada buku
+Estas floroj sur la tablo. | Ada bunga di atas meja. | Estas floroj | Ada bunga
+Estas kato en la ĉambro. | Ada kucing di dalam kamar. | Estas kato | Ada kucing
+Estas akvo en la botelo. | Ada air di dalam botol. | Estas akvo | Ada air
+Estas pomoj en la korbo. | Ada apel di keranjang. | Estas pomoj | Ada apel
+Ne estas lakto en la fridujo. | Tidak ada susu di kulkas. | Ne estas lakto | Tidak ada susu
+Ĉu estas lakto en la fridujo? | Apakah ada susu di kulkas? | estas lakto | ada susu
+Estas du seĝoj apud la fenestro. | Ada dua kursi di dekat jendela. | Estas du seĝoj | Ada dua kursi
+Estas multaj homoj en la parko. | Ada banyak orang di taman. | Estas multaj homoj | Ada banyak orang
+Sur la strato estas multaj aŭtoj. | Di jalan ada banyak mobil. | estas multaj aŭtoj | ada banyak mobil
+Estas granda arbo antaŭ nia lernejo. | Ada pohon besar di depan sekolah kami. | Estas granda arbo | Ada pohon besar
+En la ĉambro estas tablo, seĝo kaj lito. | Di kamar ada meja, kursi, dan tempat tidur. | estas tablo, seĝo kaj lito | ada meja, kursi, dan tempat tidur
+En mia urbo estas nur unu granda biblioteko. | Di kota saya hanya ada satu perpustakaan besar. | estas nur unu granda biblioteko | hanya ada satu perpustakaan besar
+#40 Konjungsi aŭ (atau)
+Teo aŭ kafo? | Teh atau kopi? | aŭ | atau
+Vi povas veni per buso aŭ trajno. | Kamu bisa datang naik bus atau kereta. | aŭ | atau
+Ĉu vi volas teon aŭ kafon? | Apakah kamu mau teh atau kopi? | aŭ | atau
+Mi trinkas akvon aŭ lakton. | Saya minum air atau susu. | aŭ | atau
+Ĉu vi havas hundon aŭ katon? | Apakah kamu punya anjing atau kucing? | aŭ | atau
+Aŭ pluvas, aŭ neĝas. | Entah hujan, atau salju. | Aŭ pluvas, aŭ | Entah hujan, atau
+Ni povas manĝi en la restoracio aŭ hejme. | Kita bisa makan di restoran atau di rumah. | aŭ | atau
+Mi aĉetas pomon aŭ oranĝon por la infano. | Saya membeli apel atau jeruk untuk anak itu. | aŭ | atau
+Ŝi iras al la lernejo piede aŭ per buso. | Dia pergi ke sekolah dengan jalan kaki atau naik bus. | aŭ | atau
+Aŭ vi venas kun ni, aŭ vi restas hejme. | Entah kamu ikut kami, atau kamu tinggal di rumah. | Aŭ vi venas kun ni, aŭ | Entah kamu ikut kami, atau
+Aŭ mi telefonas al vi, aŭ vi telefonas al mi. | Entah aku meneleponmu, atau kamu meneleponku. | Aŭ mi telefonas al vi, aŭ | Entah aku meneleponmu, atau
+Ĉu vi legas libron aŭ rigardas filmon vespere? | Apakah kamu membaca buku atau menonton film pada malam hari? | aŭ | atau
+#41 Konjungsi kaj (dan)
+Ŝi estas bela kaj inteligenta. | Dia cantik dan pintar. | kaj | dan
+Mi manĝas panon kaj fromaĝon. | Saya makan roti dan keju. | kaj | dan
+Ni iras al la parko kaj ludas. | Kami pergi ke taman dan bermain. | kaj | dan
+La knabo kaj la knabino lernas. | Anak laki-laki dan anak perempuan itu belajar. | kaj | dan
+Mi aĉetas lakton, panon kaj pomojn. | Saya membeli susu, roti, dan apel. | kaj | dan
+Li laboras multe kaj dormas malmulte. | Dia bekerja banyak dan tidur sedikit. | kaj | dan
+La suno brilas kaj la birdoj kantas. | Matahari bersinar dan burung-burung bernyanyi. | kaj | dan
+Mia patro laboras kaj mia patrino ripozas. | Ayah saya bekerja dan ibu saya beristirahat. | kaj | dan
+Hodiaŭ estas bela tago, kaj ni iras al la maro. | Hari ini hari yang indah, dan kami pergi ke pantai. | kaj | dan
+Ŝi sidas en la ĉambro kaj legas interesan libron. | Dia duduk di kamar dan membaca buku yang menarik. | kaj | dan
+Anna kaj Petro loĝas en granda domo apud la rivero. | Anna dan Petro tinggal di rumah besar dekat sungai. | kaj | dan
+La infanoj vestas sin, manĝas matenmanĝon kaj iras al la lernejo. | Anak-anak berpakaian, sarapan, dan pergi ke sekolah. | kaj | dan
+#42 Konjungsi nek (maupun)
+Mi ne havas hundon nek katon. | Saya tidak punya anjing maupun kucing. | nek | maupun
+Li ne manĝas viandon nek fiŝon. | Dia tidak makan daging maupun ikan. | nek | maupun
+Mi ne ŝatas pluvon nek neĝon. | Saya tidak suka hujan maupun salju. | nek | maupun
+Li ne laboras hodiaŭ nek morgaŭ. | Dia tidak bekerja hari ini maupun besok. | nek | maupun
+Nek mi nek vi scias la respondon. | Baik aku maupun kamu tidak tahu jawabannya. | Nek mi nek | Baik aku maupun
+Mi nek legas nek skribas hodiaŭ. | Hari ini saya tidak membaca maupun menulis. | nek legas nek | tidak membaca maupun
+Nek la patro nek la patrino estas hejme. | Baik ayah maupun ibu tidak ada di rumah. | Nek la patro nek | Baik ayah maupun
+Ŝi ne parolas la francan nek la germanan. | Dia tidak berbicara bahasa Prancis maupun bahasa Jerman. | nek | maupun
+Ŝi ne volas iri al la maro nek al la monto. | Dia tidak mau pergi ke pantai maupun ke gunung. | nek | maupun
+Nek la knabo nek la knabino ŝatas legi. | Baik anak laki-laki maupun anak perempuan itu tidak suka membaca. | Nek la knabo nek | Baik anak laki-laki maupun
+Mi ne konas la urbon nek la homojn ĉi tie. | Saya tidak mengenal kota maupun orang-orang di sini. | nek | maupun
+#43 Konjungsi sed (tetapi)
+Hodiaŭ estas varme, sed pluvas. | Hari ini hangat, tetapi hujan. | sed | tetapi
+Mi estas laca, sed mi ne dormas. | Saya lelah, tetapi saya tidak tidur. | sed | tetapi
+La kafo estas bona, sed tro varma. | Kopinya enak, tetapi terlalu panas. | sed | tetapi
+La domo estas malgranda, sed tre bela. | Rumah itu kecil, tetapi sangat indah. | sed | tetapi
+La ŝuoj estas belaj, sed tro karaj. | Sepatu itu bagus, tetapi terlalu mahal. | sed | tetapi
+Ŝi ne estas instruistino, sed kuracistino. | Dia bukan guru, melainkan dokter. | sed | melainkan
+Mi volas iri, sed mi ne havas tempon. | Saya mau pergi, tetapi saya tidak punya waktu. | sed | tetapi
+Li ŝatas la urbon, sed ne la homojn. | Dia suka kota itu, tetapi tidak suka orang-orangnya. | sed | tetapi
+Mi parolas la anglan, sed ne la francan. | Saya berbicara bahasa Inggris, tetapi tidak bahasa Prancis. | sed | tetapi
+Ne mi, sed mia frato iras al la lernejo. | Bukan saya, melainkan saudara laki-laki saya yang pergi ke sekolah. | sed | melainkan
+La infanoj volas ludi en la ĝardeno, sed pluvas. | Anak-anak mau bermain di kebun, tetapi hujan. | sed | tetapi
+Li laboras multe, sed li ne havas multe da mono. | Dia bekerja banyak, tetapi dia tidak punya banyak uang. | sed | tetapi
+#44 Konjungsi tamen (namun)
+Estas malvarme. Tamen ni iras al la parko. | Dingin. Namun kami pergi ke taman. | Tamen | Namun
+Pluvas. Tamen la infanoj ludas ekstere. | Hujan. Namun anak-anak bermain di luar. | Tamen | Namun
+Mi ne ŝatas la supon. Tamen mi manĝas ĝin. | Saya tidak suka sup itu. Namun saya memakannya. | Tamen | Namun
+Mi manĝis multe. Tamen mi ankoraŭ estas malsata. | Saya makan banyak. Namun saya masih lapar. | Tamen | Namun
+Mi estas laca, tamen mi ne dormas. | Saya lelah, namun saya tidak tidur. | tamen | namun
+Ŝi estas malsana, tamen ŝi iras al la laboro. | Dia sakit, namun dia pergi bekerja. | tamen | namun
+La libro estas malnova, tamen tre interesa. | Buku itu tua, namun sangat menarik. | tamen | namun
+La lernejo estas malproksima, tamen mi iras piede. | Sekolah itu jauh, namun saya pergi dengan berjalan kaki. | tamen | namun
+Hodiaŭ estas dimanĉo, tamen mia patro laboras. | Hari ini hari Minggu, namun ayah saya bekerja. | tamen | namun
+La ĉambro estas malgranda, tamen ĝi estas tre komforta. | Kamar itu kecil, namun sangat nyaman. | tamen | namun
+Li ne havas multe da mono, tamen li estas feliĉa. | Dia tidak punya banyak uang, namun dia bahagia. | tamen | namun
+#45 Pernyataan Tidak Langsung dengan ke
+Mi scias, ke vi estas laca. | Saya tahu bahwa kamu lelah. | ke vi | bahwa
+Mi ĝojas, ke vi estas ĉi tie. | Saya senang bahwa kamu ada di sini. | ke vi | bahwa
+Ŝi diras, ke ŝi ŝatas la urbon. | Dia berkata bahwa dia suka kota itu. | ke ŝi | bahwa
+Mi pensas, ke la filmo estas bona. | Saya pikir bahwa filmnya bagus. | ke la filmo | bahwa
+Li vidas, ke la pordo estas fermita. | Dia melihat bahwa pintunya tertutup. | ke la pordo | bahwa
+Mi ne scias, ke vi loĝas en Berlino. | Saya tidak tahu bahwa kamu tinggal di Berlin. | ke vi | bahwa
+Ni opinias, ke la manĝo estas tre bona. | Kami berpendapat bahwa makanannya sangat enak. | ke la manĝo | bahwa
+Mi aŭdas, ke via patro estas malsana. | Saya dengar bahwa ayahmu sakit. | ke via patro | bahwa
+La instruisto diras, ke ni lernas bone. | Guru berkata bahwa kami belajar dengan baik. | ke ni | bahwa
+Ŝi vidas, ke estas multaj homoj en la parko. | Dia melihat bahwa ada banyak orang di taman. | ke estas | bahwa
+La knabo diras, ke li ne havas tempon hodiaŭ. | Anak laki-laki itu berkata bahwa dia tidak punya waktu hari ini. | ke li | bahwa
+Ŝi diris al mi, ke ŝia fratino laboras en banko. | Dia bilang kepada saya bahwa saudarinya bekerja di bank. | ke ŝia fratino | bahwa
+Mia amiko diris, ke li loĝas apud la maro kaj ŝatas naĝi. | Teman saya berkata bahwa dia tinggal dekat pantai dan suka berenang. | ke li | bahwa
+#46 Pronomo Tak Tentu oni
+Oni diras, ke li estas riĉa. | Orang bilang bahwa dia kaya. | Oni diras | Orang bilang
+Oni scias, ke la Tero estas ronda. | Orang tahu bahwa Bumi itu bulat. | Oni scias | Orang tahu
+Oni bezonas akvon por vivi. | Orang membutuhkan air untuk hidup. | Oni bezonas | Orang membutuhkan
+Oni povas aĉeti bileton en la stacidomo. | Orang bisa membeli tiket di stasiun. | Oni povas | Orang bisa
+Ĉi tie oni parolas la anglan. | Di sini orang berbicara bahasa Inggris. | oni parolas | orang berbicara
+En Japanio oni manĝas multe da rizo. | Di Jepang orang banyak makan nasi. | oni manĝas | orang banyak makan
+Oni diras, ke tiu restoracio estas tre bona. | Orang bilang bahwa restoran itu sangat enak. | Oni diras | Orang bilang
+#47 Kala Depan -os
+Morgaŭ mi laboros. | Besok saya akan bekerja. | laboros | akan bekerja
+Morgaŭ pluvos. | Besok akan turun hujan. | pluvos | akan turun hujan
+Ni iros al la maro. | Kami akan pergi ke pantai. | iros | akan pergi
+Ŝi venos hodiaŭ vespere. | Dia akan datang malam ini. | venos | akan datang
+Li havos novan aŭton. | Dia akan punya mobil baru. | havos | akan punya
+Ĉu vi helpos min morgaŭ? | Apakah kamu akan membantuku besok? | helpos | akan membantu
+La infanoj ludos en la ĝardeno. | Anak-anak akan bermain di kebun. | ludos | akan bermain
+Mia fratino estos kuracistino. | Saudari saya akan menjadi dokter. | estos | akan menjadi
+Kiam vi venos al nia urbo? | Kapan kamu akan datang ke kota kami? | venos | akan datang
+Mi vizitos mian avinon dimanĉe. | Saya akan mengunjungi nenek saya pada hari Minggu. | vizitos | akan mengunjungi
+Ni aĉetos novan telefonon morgaŭ. | Kami akan membeli ponsel baru besok. | aĉetos | akan membeli
+Vi vidos, ke la urbo estas tre bela. | Kamu akan melihat bahwa kotanya sangat indah. | vidos | akan melihat
+La trajno alvenos je la sesa horo. | Kereta akan tiba pada pukul enam. | alvenos | akan tiba
+Post la lernejo ni manĝos en la restoracio. | Setelah sekolah kami akan makan di restoran. | manĝos | akan makan

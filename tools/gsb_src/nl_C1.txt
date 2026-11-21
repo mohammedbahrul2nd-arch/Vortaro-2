@@ -1,0 +1,640 @@
+#0 Urutan di tengah klausa
+Ik geef het hem. | Saya memberikannya kepadanya. | het hem | memberikannya kepadanya
+Hij laat het ons zien. | Dia memperlihatkannya kepada kami. | het ons | memperlihatkannya kepada kami
+Ik koop morgen een nieuwe fiets. | Besok saya membeli sepeda baru. | morgen een nieuwe fiets | -
+Zij heeft gisteren het boek gelezen. | Kemarin dia membaca buku itu. | gisteren het boek | -
+Wij hebben vorige week de auto verkocht. | Minggu lalu kami menjual mobil itu. | vorige week de auto | -
+Ik heb gisteren het boek aan Piet gegeven. | Kemarin saya memberikan buku itu kepada Piet. | gisteren het boek aan Piet | -
+Zij heeft het hem eerlijk verteld. | Dia menceritakannya kepadanya dengan jujur. | het hem eerlijk | -
+Ik heb hem het cadeau nog niet gegeven. | Saya belum memberinya hadiah itu. | hem het cadeau nog niet | -
+Ik breng morgen mijn zus een cadeau. | Besok saya membawakan adik saya hadiah. | morgen mijn zus een cadeau | -
+De docent legt morgen de leerlingen de regels uit. | Besok guru menjelaskan aturan itu kepada para murid. | morgen de leerlingen de regels | -
+Mijn buurman heeft me gisteren zijn oude fiets gegeven. | Kemarin tetangga saya memberi saya sepeda tuanya. | me gisteren zijn oude fiets | -
+Hij heeft de krant zorgvuldig op tafel gelegd. | Dia dengan hati-hati meletakkan koran di atas meja. | de krant zorgvuldig op tafel | -
+Ik wil vanavond de kinderen snel naar bed brengen. | Malam ini saya ingin cepat-cepat membawa anak-anak ke tempat tidur. | vanavond de kinderen snel naar bed | -
+Na de vergadering heb ik de directeur meteen de nieuwe cijfers laten zien. | Setelah rapat saya langsung memperlihatkan angka-angka baru itu kepada direktur. | de directeur meteen de nieuwe cijfers | -
+Vorige zomer heeft ze haar ouders met veel plezier een mooie reis aangeboden. | Musim panas lalu dia dengan senang hati menghadiahkan perjalanan indah kepada orang tuanya. | haar ouders met veel plezier een mooie reis | -
+#1 Elemen apa pun di posisi 1
+Dat boek heb ik gisteren gelezen. | Buku itu kemarin sudah saya baca. | heb ik | -
+In Utrecht woont mijn zus. | Di Utrecht tinggal saudari saya. | woont mijn zus | -
+Morgen komt mijn oom op bezoek. | Besok paman saya datang berkunjung. | komt mijn oom | -
+Vanavond gaan wij naar de film. | Malam ini kami pergi menonton film. | gaan wij | -
+Soms vergeet hij zijn sleutels. | Kadang-kadang dia lupa membawa kuncinya. | vergeet hij | -
+Zonder jou kan ik het niet. | Tanpa kamu saya tidak bisa melakukannya. | kan ik | -
+Gelukkig heeft niemand het gemerkt. | Untungnya tidak ada yang menyadarinya. | heeft niemand | -
+Over een uur begint de vergadering. | Satu jam lagi rapat dimulai. | begint de vergadering | -
+Met de trein ben ik naar Amsterdam gegaan. | Saya pergi ke Amsterdam naik kereta. | ben ik | -
+Zulke dingen zeg je niet tegen je baas. | Hal seperti itu tidak boleh kamu katakan kepada atasanmu. | zeg je | -
+Je moeder heb ik gisteren nog gesproken. | Ibumu kemarin masih sempat saya ajak bicara. | heb ik | -
+Dit probleem kunnen wij alleen samen oplossen. | Masalah ini hanya bisa kami selesaikan bersama. | kunnen wij | -
+In de zomer fietsen veel Nederlanders naar hun werk. | Pada musim panas banyak orang Belanda bersepeda ke tempat kerja. | fietsen veel | -
+Na het eten gaat mijn vader altijd even wandelen. | Setelah makan ayah saya selalu berjalan-jalan sebentar. | gaat mijn vader | -
+Bij ons in de straat is vorige week een café geopend. | Di jalan kami minggu lalu sebuah kafe dibuka. | is vorige week | -
+#2 V (finit) + V (infinitif) / V (infinitif) + V (finit)
+Ik denk dat hij het boek gelezen moet hebben. | Saya kira dia pasti sudah membaca buku itu. | gelezen moet hebben | -
+Zij zegt dat ze de brief moet hebben verstuurd. | Dia bilang dia pasti sudah mengirim surat itu. | moet hebben verstuurd | -
+Hij beweert dat hij de sleutel niet gezien kan hebben. | Dia mengaku tidak mungkin melihat kunci itu. | gezien kan hebben | -
+Ik neem aan dat ze al thuis gekomen zal zijn. | Saya kira dia sudah sampai di rumah. | gekomen zal zijn | -
+Zij denkt dat de trein al vertrokken moet zijn. | Dia kira kereta itu pasti sudah berangkat. | vertrokken moet zijn | -
+Ik geloof dat hij de wedstrijd moet hebben gewonnen. | Saya yakin dia pasti memenangkan pertandingan itu. | moet hebben gewonnen | -
+Wij nemen aan dat hij de afspraak moet hebben vergeten. | Kami kira dia pasti lupa akan janji itu. | moet hebben vergeten | -
+De dokter denkt dat de patiënt te veel gegeten moet hebben. | Dokter mengira pasien itu terlalu banyak makan. | gegeten moet hebben | -
+Ik heb gehoord dat zij al verhuisd zal zijn. | Saya dengar dia mungkin sudah pindah rumah. | verhuisd zal zijn | -
+Hij zegt dat de storm veel schade moet hebben aangericht. | Dia bilang badai itu pasti menimbulkan banyak kerusakan. | moet hebben aangericht | -
+Ze denkt dat het pakket te laat verstuurd moet zijn. | Dia kira paket itu pasti dikirim terlambat. | verstuurd moet zijn | -
+Wij denken dat zij het geheim lang bewaard moet hebben. | Kami kira dia pasti sudah lama menyimpan rahasia itu. | bewaard moet hebben | -
+Ze zegt dat ze de hele avond hard gewerkt moet hebben. | Dia bilang dia pasti sudah bekerja keras sepanjang malam. | gewerkt moet hebben | -
+De buren zeggen dat de dief door het raam moet zijn binnengekomen. | Para tetangga bilang pencurinya pasti masuk lewat jendela. | moet zijn binnengekomen | -
+De leraar vermoedt dat de leerlingen het huiswerk van elkaar moeten hebben overgeschreven. | Guru menduga para murid pasti menyalin pekerjaan rumah dari satu sama lain. | moeten hebben overgeschreven | -
+#3 hebben/zijn + V1 + V2 (infinitif)
+Ik heb hem horen zingen. | Saya mendengar dia bernyanyi. | horen zingen | -
+Zij heeft ons laten wachten. | Dia membuat kami menunggu. | laten wachten | -
+Zij hebben moeten wachten. | Mereka harus menunggu. | moeten wachten | -
+Ik heb mijn tas laten vallen. | Saya menjatuhkan tas saya. | laten vallen | -
+Wij hebben de kinderen zien spelen. | Kami melihat anak-anak bermain. | zien spelen | -
+Hij heeft zijn vriend willen helpen. | Dia ingin menolong temannya. | willen helpen | -
+Hij heeft de dokter laten komen. | Dia memanggil dokter untuk datang. | laten komen | -
+Ik heb haar nooit durven vragen. | Saya tidak pernah berani bertanya kepadanya. | durven vragen | -
+Ik heb nooit kunnen zwemmen. | Saya tidak pernah bisa berenang. | kunnen zwemmen | -
+We hebben de hele avond kunnen praten. | Kami bisa mengobrol sepanjang malam. | kunnen praten | -
+Zij heeft de sleutel in de gracht zien vallen. | Dia melihat kunci itu jatuh ke dalam parit. | zien vallen | -
+Mijn broer heeft zijn auto laten repareren. | Kakak saya menyervis mobilnya di bengkel. | laten repareren | -
+Wij hebben haar nooit willen kwetsen. | Kami tidak pernah ingin menyakiti hatinya. | willen kwetsen | -
+De buren hebben ons de hele nacht horen schreeuwen. | Para tetangga mendengar kami berteriak sepanjang malam. | horen schreeuwen | -
+De leraar heeft de leerlingen urenlang laten werken. | Guru menyuruh para murid bekerja berjam-jam. | laten werken | -
+#4 Frasa preposisi setelah V akhir
+Hij heeft lang gewacht op zijn vriend. | Dia lama menunggu temannya. | gewacht op zijn vriend | -
+Ze heeft gisteren gesproken met de directeur. | Kemarin dia berbicara dengan direktur. | gesproken met de directeur | -
+Ik heb lang nagedacht over jouw voorstel. | Saya sudah lama memikirkan usulmu. | nagedacht over jouw voorstel | -
+Wij hebben hard gewerkt aan dit project. | Kami bekerja keras pada proyek ini. | gewerkt aan dit project | -
+Zij heeft vaak gezocht naar haar verloren ring. | Dia sering mencari cincinnya yang hilang. | gezocht naar haar verloren ring | -
+Hij heeft altijd geloofd in zijn eigen kracht. | Dia selalu percaya pada kekuatannya sendiri. | geloofd in zijn eigen kracht | -
+De kinderen hebben de hele middag gespeeld in de tuin. | Anak-anak bermain di kebun sepanjang siang. | gespeeld in de tuin | -
+Ik heb nooit gedacht aan zo'n oplossing. | Saya tidak pernah terpikir akan solusi seperti itu. | gedacht aan zo'n oplossing | -
+Zij heeft eindelijk gebeld naar het ziekenhuis. | Akhirnya dia menelepon rumah sakit. | gebeld naar het ziekenhuis | -
+Hij is vorige maand verhuisd naar een kleine stad aan de kust. | Bulan lalu dia pindah ke kota kecil di pesisir. | verhuisd naar een kleine stad | -
+Mijn collega heeft zich geërgerd aan de slechte organisatie. | Rekan kerja saya kesal akan organisasi yang buruk itu. | geërgerd aan de slechte organisatie | -
+De hele klas heeft gelachen om zijn grapjes. | Seluruh kelas tertawa karena lelucon-lelucon dia. | gelachen om zijn grapjes | -
+Ik heb me erg verheugd op de vakantie met mijn vrienden. | Saya sangat menantikan liburan bersama teman-teman. | verheugd op de vakantie | -
+We hebben tijdens het diner gesproken over de plannen voor volgend jaar. | Saat makan malam kami membicarakan rencana untuk tahun depan. | gesproken over de plannen | -
+Zij hebben jarenlang gespaard voor een huis met een grote tuin. | Mereka bertahun-tahun menabung untuk sebuah rumah dengan kebun besar. | gespaard voor een huis | -
+#5 Awalan menempel
+Ik zeg dat ik mijn zus opbel. | Saya bilang saya menelepon kakak saya. | opbel | -
+Hij is moe, omdat hij vroeg opstaat. | Dia lelah karena bangun pagi. | opstaat | -
+Ze vraagt of je morgen meekomt. | Dia bertanya apakah kamu ikut besok. | meekomt | -
+Ik hoop dat alles goed afloopt. | Saya berharap semuanya berakhir dengan baik. | afloopt | -
+Ik denk dat de trein om negen uur aankomt. | Saya kira kereta tiba pukul sembilan. | aankomt | -
+Hij zegt dat zij het raam openzet. | Dia bilang dia membuka jendela. | openzet | -
+Het is jammer dat de wedstrijd niet doorgaat. | Sayang sekali pertandingan itu tidak jadi berlangsung. | doorgaat | -
+Ik weet dat hij zijn kamer elke dag opruimt. | Saya tahu dia merapikan kamarnya setiap hari. | opruimt | -
+Ik hoop dat je me morgen terugbelt. | Saya harap kamu menelepon saya kembali besok. | terugbelt | -
+Wij weten dat zij haar werk niet opgeeft. | Kami tahu dia tidak akan melepaskan pekerjaannya. | opgeeft | -
+Toen ik thuiskwam, was het al donker. | Ketika saya sampai di rumah, hari sudah gelap. | thuiskwam | -
+Omdat de winkel om zes uur dichtgaat, moeten we opschieten. | Karena toko tutup pukul enam, kita harus bergegas. | dichtgaat | -
+Ik vraag me af of hij ons komt ophalen. | Saya bertanya-tanya apakah dia akan menjemput kami. | ophalen | -
+Zorg dat je het licht uitdoet als je weggaat. | Pastikan kamu mematikan lampu kalau kamu pergi. | uitdoet | -
+Ik begrijp niet waarom hij zijn jas aantrekt terwijl het zo warm is. | Saya tidak mengerti mengapa dia memakai jaketnya padahal cuacanya sangat panas. | aantrekt | -
+#6 Het is ... dat/die
+Het is Piet die het gedaan heeft. | Piet-lah yang melakukannya. | Het is … die | -
+Het is hier dat het gebeurde. | Di sinilah hal itu terjadi. | Het is … dat | -
+Het is mijn zus die in Parijs woont. | Adik saya-lah yang tinggal di Paris. | Het is … die | -
+Het is gisteren dat ik hem voor het eerst zag. | Kemarin itulah saat saya pertama kali melihatnya. | Het is … dat | -
+Het is jouw stem die ik elke dag mis. | Suaramulah yang saya rindukan setiap hari. | Het is … die | -
+Het is niet de kou die mij stoort, maar de wind. | Bukan dinginnya yang mengganggu saya, melainkan angin. | Het is … die | -
+Het is in dit café dat wij elkaar hebben ontmoet. | Di kafe inilah kami bertemu. | Het is … dat | -
+Het is de regering die de prijzen moet verlagen. | Pemerintahlah yang harus menurunkan harga. | Het is … die | -
+Het zijn de kleine dingen die het leven mooi maken. | Hal-hal kecil-lah yang membuat hidup indah. | Het zijn … die | -
+Het was de oude klok die haar dat gevoel gaf. | Jam tua itulah yang memberinya perasaan itu. | Het was … die | -
+Het is zijn eerlijkheid die ik het meest in hem waardeer. | Kejujurannyalah yang paling saya hargai darinya. | Het is … die | -
+Het is vooral de sfeer die deze stad zo bijzonder maakt. | Suasanalah yang terutama membuat kota ini begitu istimewa. | Het is … die | -
+Het is pas na de zomer dat de nieuwe school opengaat. | Baru setelah musim panas sekolah baru itu dibuka. | Het is … dat | -
+Het is met veel moeite dat ze dit diploma heeft gehaald. | Dengan susah payahlah dia meraih ijazah ini. | Het is … dat | -
+Het is mijn buurman die elke nacht zoveel lawaai maakt. | Tetangga saya-lah yang membuat begitu banyak kebisingan setiap malam. | Het is … die | -
+#7 be- (tak terpisah, tak bertekanan)
+Ik beloof dat ik je zal helpen. | Saya berjanji akan menolongmu. | beloof | berjanji
+Ik bewonder jouw geduld. | Saya mengagumi kesabaranmu. | bewonder | mengagumi
+Zij beantwoordt de vraag meteen. | Dia langsung menjawab pertanyaan itu. | beantwoordt | menjawab
+Hij bezoekt zijn oma elke zondag. | Dia mengunjungi neneknya setiap hari Minggu. | bezoekt | mengunjungi
+Wij bekijken morgen het appartement. | Besok kami melihat-lihat apartemen itu. | bekijken | melihat-lihat
+Zij heeft het probleem eindelijk begrepen. | Dia akhirnya memahami masalah itu. | begrepen | memahami
+Zij begroette alle gasten bij de deur. | Dia menyambut semua tamu di pintu. | begroette | menyambut
+Wij bedienen onze klanten altijd persoonlijk. | Kami selalu melayani pelanggan secara pribadi. | bedienen | melayani
+Ze heeft haar vriendin bedankt voor het cadeau. | Dia berterima kasih kepada temannya atas hadiah itu. | bedankt | berterima kasih
+De agent beschrijft de dader precies. | Polisi menggambarkan pelaku itu dengan tepat. | beschrijft | menggambarkan
+De rechter beslist morgen over de zaak. | Hakim memutuskan perkara itu besok. | beslist | memutuskan
+Het bedrijf beheert veel gebouwen in de stad. | Perusahaan itu mengelola banyak gedung di kota. | beheert | mengelola
+De brandweer heeft het vuur snel bestreden. | Pemadam kebakaran dengan cepat memadamkan api. | bestreden | memadamkan
+De regen heeft de hele oogst beschadigd. | Hujan merusak seluruh hasil panen. | beschadigd | merusak
+Hij heeft zijn fout nooit willen bekennen. | Dia tidak pernah mau mengakui kesalahannya. | bekennen | mengakui
+#8 ver- (perubahan / kesalahan / habis)
+Hij verkoopt zijn oude auto. | Dia menjual mobil tuanya. | verkoopt | menjual
+Ik ben mijn sleutels vergeten. | Saya lupa kunci saya. | vergeten | lupa
+Hij verliest altijd zijn paraplu. | Dia selalu kehilangan payungnya. | verliest | kehilangan
+We moeten de kamer verven. | Kita harus mengecat kamar itu. | verven | mengecat
+De sneeuw verandert langzaam in water. | Salju perlahan berubah menjadi air. | verandert | berubah
+Het water is helemaal verdampt. | Air itu sudah menguap seluruhnya. | verdampt | menguap
+Zij heeft de hele taart verorberd. | Dia menghabiskan seluruh kue itu. | verorberd | menghabiskan
+Ik heb me in de tijd vergist. | Saya keliru soal waktunya. | vergist | keliru
+Zij verstuurt de pakketjes vandaag nog. | Dia mengirim paket-paket itu hari ini juga. | verstuurt | mengirim
+Ik ben bang dat ik me heb verslapen. | Saya takut saya kesiangan bangun. | verslapen | kesiangan
+De winkel verhuist volgend jaar naar het centrum. | Toko itu pindah ke pusat kota tahun depan. | verhuist | pindah
+De leraar verbetert de toetsen in het weekend. | Guru memperbaiki ujian pada akhir pekan. | verbetert | memperbaiki
+Ze verwarmen het huis met zonnepanelen. | Mereka menghangatkan rumah dengan panel surya. | verwarmen | menghangatkan
+Wij hebben het hele dorp verkend. | Kami menjelajahi seluruh desa. | verkend | menjelajahi
+Mijn vader vertelt graag verhalen over vroeger. | Ayah saya suka menceritakan kisah masa lalu. | vertelt | menceritakan
+#9 ont- (pembalikan / permulaan)
+Zij ontkent alles. | Dia menyangkal semuanya. | ontkent | menyangkal
+Wij ontbijten altijd om acht uur. | Kami selalu sarapan pukul delapan. | ontbijten | sarapan
+De bom is vannacht ontploft. | Bom itu meledak tadi malam. | ontploft | meledak
+De politie ontdekt een geheime tunnel. | Polisi menemukan terowongan rahasia. | ontdekt | menemukan
+Hij is vanochtend vroeg ontwaakt. | Dia terbangun pagi-pagi tadi. | ontwaakt | terbangun
+Ik heb de brief nog niet ontvangen. | Saya belum menerima surat itu. | ontvangen | menerima
+De sneeuw ontdooit in de lente. | Salju mencair pada musim semi. | ontdooit | mencair
+Zij ontmoette hem op een feestje. | Dia bertemu dengannya di sebuah pesta. | ontmoette | bertemu
+Ze ontspant zich bij het koken. | Dia bersantai saat memasak. | ontspant | bersantai
+Kun je de computer even ontgrendelen? | Bisakah kamu membuka kunci komputer sebentar? | ontgrendelen | membuka kunci
+De ober ontkurkt een fles wijn. | Pelayan membuka sebotol anggur. | ontkurkt | membuka
+Het bedrijf is in 1990 ontstaan. | Perusahaan itu muncul pada tahun 1990. | ontstaan | muncul
+Hij ontvlucht elke discussie. | Dia melarikan diri dari setiap diskusi. | ontvlucht | melarikan diri dari
+Wij ontvingen de gasten met koffie en gebak. | Kami menyambut para tamu dengan kopi dan kue. | ontvingen | menyambut
+Mijn vader ontvangt elke maand zijn pensioen. | Ayah saya menerima pensiunnya setiap bulan. | ontvangt | menerima
+#10 her-
+Ik herken je stem meteen. | Saya langsung mengenali suaramu. | herken | mengenali
+Kun je dat nog een keer herhalen? | Bisakah kamu mengulanginya sekali lagi? | herhalen | mengulangi
+Hij herstelt snel van zijn operatie. | Dia cepat pulih dari operasinya. | herstelt | pulih
+Ik hoop dat ze mij nog zal herkennen. | Saya harap dia masih akan mengenali saya. | herkennen | mengenali
+Ze herinnert zich haar eerste schooldag nog goed. | Dia masih ingat hari pertamanya bersekolah. | herinnert | ingat
+Wij hervatten de vergadering na de pauze. | Kami melanjutkan rapat setelah istirahat. | hervatten | melanjutkan
+De leraar herziet het rooster. | Guru meninjau kembali jadwal itu. | herziet | meninjau kembali
+Ik moet mijn essay nog herschrijven. | Saya masih harus menulis ulang esai saya. | herschrijven | menulis ulang
+Kunt u mijn kapotte band herstellen? | Bisakah Anda memperbaiki ban saya yang bocor? | herstellen | memperbaiki
+Ik heb de brief nog eens herlezen. | Saya membaca ulang surat itu sekali lagi. | herlezen | membaca ulang
+Na de brand hebben ze het huis herbouwd. | Setelah kebakaran mereka membangun kembali rumah itu. | herbouwd | membangun kembali
+Het park is helemaal heringericht. | Taman itu ditata ulang seluruhnya. | heringericht | ditata ulang
+Na de vakantie herleefde hij helemaal. | Setelah liburan dia kembali bersemangat. | herleefde | kembali bersemangat
+Ik heb de oude film herontdekt. | Saya menemukan kembali film lama itu. | herontdekt | menemukan kembali
+Zij herdenken elk jaar de slachtoffers van de oorlog. | Setiap tahun mereka memperingati para korban perang. | herdenken | memperingati
+#11 er-
+Ik erken mijn fout. | Saya mengakui kesalahan saya. | erken | mengakui
+Hij erkent dat hij zich vergist heeft. | Dia mengakui bahwa dia keliru. | erkent | mengakui
+Mijn zus erft het huis van mijn oma. | Adik saya mewarisi rumah nenek saya. | erft | mewarisi
+Het land is internationaal erkend. | Negara itu diakui secara internasional. | erkend | diakui
+Zij ervaart veel stress op haar werk. | Dia mengalami banyak stres di tempat kerjanya. | ervaart | mengalami
+Ik erger me aan zijn gedrag. | Saya kesal dengan perilakunya. | erger | kesal
+Ik heb dat nooit zo ervaren. | Saya tidak pernah mengalaminya seperti itu. | ervaren | mengalami
+Een ervaren monteur kan dit snel oplossen. | Montir berpengalaman bisa menyelesaikannya dengan cepat. | ervaren | berpengalaman
+De universiteit erkent dit diploma niet. | Universitas itu tidak mengakui ijazah ini. | erkent | mengakui
+Hij heeft een grote som geld geërfd. | Dia mewarisi sejumlah besar uang. | geërfd | mewarisi
+De juf ergerde zich aan het lawaai. | Bu guru terganggu oleh kebisingan itu. | ergerde | terganggu
+Wij ervoeren de reis als een avontuur. | Kami merasakan perjalanan itu sebagai petualangan. | ervoeren | merasakan
+Zij zal zich over de zwakkeren erbarmen. | Dia akan mengasihani orang-orang yang lemah. | erbarmen | mengasihani
+De gemeente heeft de nieuwe school officieel erkend. | Pemerintah kota secara resmi mengakui sekolah baru itu. | erkend | mengakui
+De buurman erkende zijn schuld pas na lange tijd. | Tetangga itu baru lama kemudian mengakui kesalahannya. | erkende | mengakui
+#12 ge-
+Ik geloof je. | Saya percaya padamu. | geloof | percaya
+Zij geniet van de zon. | Dia menikmati sinar matahari. | geniet | menikmati
+Wat is hier gebeurd? | Apa yang terjadi di sini? | gebeurd | terjadi
+Wij gebruiken elke dag de fiets. | Kami memakai sepeda setiap hari. | gebruiken | memakai
+Het ongeluk gebeurde gisteravond. | Kecelakaan itu terjadi tadi malam. | gebeurde | terjadi
+Hij gedraagt zich als een kind. | Dia bersikap seperti anak kecil. | gedraagt | bersikap
+Deze regel geldt voor iedereen. | Aturan ini berlaku untuk semua orang. | geldt | berlaku
+Ze gelooft niet in toeval. | Dia tidak percaya pada kebetulan. | gelooft | percaya
+Gelukkig is alles goed gelukt. | Untunglah semuanya berhasil dengan baik. | gelukt | berhasil
+De leerlingen gehoorzamen hun leraar. | Para murid menurut kepada guru mereka. | gehoorzamen | menurut
+Ik wil mijn tijd beter gebruiken. | Saya ingin memanfaatkan waktu saya dengan lebih baik. | gebruiken | memanfaatkan
+Mijn zoon gelijkt sterk op zijn opa. | Anak saya sangat mirip dengan kakeknya. | gelijkt | mirip
+De bewoners geloofden hun ogen niet. | Para penghuni tidak percaya pada mata mereka. | geloofden | percaya
+Ik geniet elke dag van mijn werk. | Saya menikmati pekerjaan saya setiap hari. | geniet | menikmati
+Wij gedenken de doden met twee minuten stilte. | Kami mengenang orang-orang yang telah meninggal dengan hening dua menit. | gedenken | mengenang
+#13 aan-
+Ik wil een visum aanvragen. | Saya ingin mengajukan visa. | aanvragen | mengajukan
+Kun je het licht even aandoen? | Bisakah kamu menyalakan lampu sebentar? | aandoen | menyalakan
+Hij kon de kaars niet aansteken. | Dia tidak bisa menyalakan lilin itu. | aansteken | menyalakan
+Ze wil een nieuwe taal aanleren. | Dia ingin mempelajari bahasa baru. | aanleren | mempelajari
+Ik hoop dat de trein op tijd aankomt. | Saya harap kereta tiba tepat waktu. | aankomt | tiba
+Mag ik u iets te drinken aanbieden? | Boleh saya menawarkan minuman kepada Anda? | aanbieden | menawarkan
+Hij is gisteren in Rotterdam aangekomen. | Dia kemarin tiba di Rotterdam. | aangekomen | tiba
+Zij heeft haar jas aangetrokken. | Dia sudah memakai jasnya. | aangetrokken | memakai
+Ik heb mijn afspraak moeten aanpassen. | Saya terpaksa menyesuaikan janji saya. | aanpassen | menyesuaikan
+Het bedrijf wil dertig nieuwe mensen aannemen. | Perusahaan itu ingin merekrut tiga puluh orang baru. | aannemen | merekrut
+De minister heeft nieuwe maatregelen aangekondigd. | Menteri mengumumkan langkah-langkah baru. | aangekondigd | mengumumkan
+Ze heeft zich gisteren aangemeld voor de cursus. | Kemarin dia mendaftar untuk kursus itu. | aangemeld | mendaftar
+De dokter heeft mij aangeraden meer te rusten. | Dokter menyarankan saya agar lebih banyak istirahat. | aangeraden | menyarankan
+Zij heeft haar collega aangesproken op zijn gedrag. | Dia menegur rekan kerjanya atas perilakunya. | aangesproken | menegur
+Het huis moet nog worden aangesloten op het gasnet. | Rumah itu masih harus disambungkan ke jaringan gas. | aangesloten | disambungkan
+#14 af-
+Ik moet eerst mijn werk afmaken. | Saya harus menyelesaikan pekerjaan saya dulu. | afmaken | menyelesaikan
+Wie gaat er vanavond afwassen? | Siapa yang mencuci piring malam ini? | afwassen | mencuci piring
+Hebben jullie al iets afgesproken? | Apakah kalian sudah membuat janji? | afgesproken | membuat janji
+Het pakket wordt morgen afgeleverd. | Paket itu akan diantar besok. | afgeleverd | diantar
+Je mag niet afkijken tijdens de toets. | Kamu tidak boleh menyontek saat ujian. | afkijken | menyontek
+Ik ga mijn kaartjes bij het station afhalen. | Saya akan mengambil tiket saya di stasiun. | afhalen | mengambil
+Zij heeft de vergadering moeten afzeggen. | Dia terpaksa membatalkan rapat itu. | afzeggen | membatalkan
+Hij heeft zijn fiets goed afgesloten. | Dia mengunci sepedanya dengan baik. | afgesloten | mengunci
+De prijzen zijn dit jaar flink afgenomen. | Harga-harga turun cukup banyak tahun ini. | afgenomen | turun
+Ik moet de afspraak nog afbellen. | Saya masih harus membatalkan janji itu lewat telepon. | afbellen | membatalkan
+Wij moeten even afwachten wat de dokter zegt. | Kami harus menunggu dulu apa kata dokter. | afwachten | menunggu
+Kun je de datum afstemmen met je collega's? | Bisakah kamu menyesuaikan tanggalnya dengan rekan-rekanmu? | afstemmen | menyesuaikan
+Zij heeft haar studie vorig jaar afgerond. | Dia menyelesaikan studinya tahun lalu. | afgerond | menyelesaikan
+Het schip is gisteren afgevaren naar Engeland. | Kapal itu kemarin bertolak ke Inggris. | afgevaren | bertolak
+Ik heb het hele huis afgezocht naar mijn bril. | Saya sudah menggeledah seluruh rumah untuk mencari kacamata saya. | afgezocht | menggeledah
+#15 mee-
+Ik wil graag meekomen naar het feest. | Saya ingin ikut ke pesta itu. | meekomen | ikut
+Mag ik even meeluisteren? | Boleh saya ikut mendengarkan sebentar? | meeluisteren | ikut mendengarkan
+Zij heeft een cadeau meegebracht. | Dia membawa hadiah. | meegebracht | membawa
+De hele zaal wilde meezingen. | Seluruh ruangan ingin ikut bernyanyi. | meezingen | ikut bernyanyi
+Je mag je hond niet meenemen naar de bioscoop. | Kamu tidak boleh membawa anjingmu ke bioskop. | meenemen | membawa
+Heb je de e-mail al meegelezen? | Apakah kamu sudah ikut membaca surelnya? | meegelezen | ikut membaca
+Ik kan niet meekijken op jouw scherm. | Saya tidak bisa ikut melihat layarmu. | meekijken | ikut melihat
+Wij willen allemaal meedoen aan de wedstrijd. | Kami semua ingin ikut serta dalam pertandingan. | meedoen | ikut serta
+Wij willen graag met jullie meeleven. | Kami ingin turut berempati dengan kalian. | meeleven | berempati
+Ze is met haar zus meegegaan naar de dokter. | Dia menemani adiknya ke dokter. | meegegaan | menemani
+Wat hij heeft meegemaakt, is onvoorstelbaar. | Apa yang dia alami tidak terbayangkan. | meegemaakt | alami
+Hij heeft altijd graag meegewerkt aan het project. | Dia selalu dengan senang hati bekerja sama dalam proyek itu. | meegewerkt | bekerja sama
+De gemeente wil meebetalen aan de nieuwe brug. | Pemerintah kota ingin ikut membayar jembatan baru. | meebetalen | ikut membayar
+Het bedrijf moet meegroeien met de markt. | Perusahaan itu harus ikut berkembang bersama pasar. | meegroeien | ikut berkembang
+Mijn collega heeft mijn koffer meegenomen naar kantoor. | Rekan kerja saya membawa kopor saya ke kantor. | meegenomen | membawa
+#16 op-
+Ik moet morgen vroeg opstaan. | Saya harus bangun pagi besok. | opstaan | bangun
+Heb je me gisteren opgebeld? | Apakah kamu meneleponku kemarin? | opgebeld | menelepon
+Zij heeft alle koekjes opgegeten. | Dia sudah memakan habis semua kue kering itu. | opgegeten | memakan habis
+Niemand had de fout opgemerkt. | Tidak ada yang menyadari kesalahan itu. | opgemerkt | menyadari
+Wil je de telefoon opnemen? | Maukah kamu mengangkat telepon? | opnemen | mengangkat
+Kun je dit even opschrijven? | Bisakah kamu menuliskan ini sebentar? | opschrijven | menuliskan
+Ik wil mijn baan niet opgeven. | Saya tidak ingin melepaskan pekerjaan saya. | opgeven | melepaskan
+Hij heeft de rommel eindelijk opgeruimd. | Dia akhirnya membereskan sampah itu. | opgeruimd | membereskan
+Je moet opschieten, anders missen we de bus. | Kamu harus bergegas, kalau tidak kita ketinggalan bus. | opschieten | bergegas
+Zij heeft het nummer opgezocht in het telefoonboek. | Dia mencari nomor itu di buku telepon. | opgezocht | mencari
+De ouders hebben hun kinderen goed opgevoed. | Orang tua itu mendidik anak-anak mereka dengan baik. | opgevoed | mendidik
+Gelukkig kon de monteur het probleem snel oplossen. | Untungnya montir bisa menyelesaikan masalah itu dengan cepat. | oplossen | menyelesaikan
+De bus is vanmorgen opgehouden door de sneeuw. | Bus itu tertahan tadi pagi karena salju. | opgehouden | tertahan
+De organisatie heeft veel vluchtelingen opgevangen. | Organisasi itu menampung banyak pengungsi. | opgevangen | menampung
+Hij heeft zijn bedrijf helemaal zelf opgebouwd. | Dia membangun perusahaannya sepenuhnya sendiri. | opgebouwd | membangun
+#17 uit-
+Zullen we dit weekend uitgaan? | Bagaimana kalau kita keluar akhir pekan ini? | uitgaan | keluar
+Kunt u dit woord even uitleggen? | Bisakah Anda menjelaskan kata ini sebentar? | uitleggen | menjelaskan
+Ik heb mijn vrienden uitgenodigd voor het feest. | Saya mengundang teman-teman ke pesta. | uitgenodigd | mengundang
+Wie heeft de telefoon uitgevonden? | Siapa yang menemukan telepon? | uitgevonden | menemukan
+Zij hebben de vergadering uitgesteld. | Mereka menunda rapat itu. | uitgesteld | menunda
+Ik wil dit recept graag uitproberen. | Saya ingin mencoba resep ini. | uitproberen | mencoba
+Je moet goed uitkijken in het drukke verkeer. | Kamu harus berhati-hati di lalu lintas yang ramai. | uitkijken | berhati-hati
+In het weekend wil ik lekker uitslapen. | Akhir pekan saya ingin tidur sepuasnya. | uitslapen | tidur sepuasnya
+Ze heeft alles zorgvuldig uitgezocht. | Dia menyelidiki semuanya dengan teliti. | uitgezocht | menyelidiki
+Na de wandeling moeten we even uitrusten. | Setelah jalan-jalan kita harus beristirahat sebentar. | uitrusten | beristirahat
+De dokter heeft het plan goed uitgevoerd. | Dokter melaksanakan rencana itu dengan baik. | uitgevoerd | melaksanakan
+Mijn tante wil haar hond twee keer per dag uitlaten. | Bibi saya ingin mengajak anjingnya jalan-jalan dua kali sehari. | uitlaten | mengajak anjingnya jalan-jalan
+Het boek is vorig jaar uitgegeven door een kleine uitgeverij. | Buku itu diterbitkan tahun lalu oleh penerbit kecil. | uitgegeven | diterbitkan
+De burgemeester heeft een prachtige toespraak uitgesproken. | Wali kota menyampaikan pidato yang indah. | uitgesproken | menyampaikan
+Het bedrijf zal het salaris eind van de maand uitbetalen. | Perusahaan akan membayarkan gaji pada akhir bulan. | uitbetalen | membayarkan
+#18 in-
+Ik moet mijn paspoort inleveren. | Saya harus menyerahkan paspor saya. | inleveren | menyerahkan
+Heb je je koffer al ingepakt? | Apakah kamu sudah mengemas kopermu? | ingepakt | mengemas
+Kunt u dit formulier invullen? | Bisakah Anda mengisi formulir ini? | invullen | mengisi
+Je moet geen stof inademen. | Kamu tidak boleh menghirup debu. | inademen | menghirup
+Ik heb me ingeschreven voor een cursus Spaans. | Saya mendaftar kursus bahasa Spanyol. | ingeschreven | mendaftar
+Wij moeten bij het volgende station instappen. | Kita harus naik di stasiun berikutnya. | instappen | naik
+De fietser wilde de vrachtwagen inhalen. | Pengendara sepeda itu ingin menyalip truk. | inhalen | menyalip
+Hij heeft zijn fout nog niet ingezien. | Dia belum menyadari kesalahannya. | ingezien | menyadari
+De leraar heeft de toetsen ingenomen. | Guru mengumpulkan lembar ujian. | ingenomen | mengumpulkan
+De dief is vannacht in de winkel ingebroken. | Pencuri itu membobol toko tadi malam. | ingebroken | membobol
+Je moet deze medicijnen twee keer per dag innemen. | Kamu harus meminum obat ini dua kali sehari. | innemen | meminum
+De regering wil nieuwe regels invoeren. | Pemerintah ingin memberlakukan aturan baru. | invoeren | memberlakukan
+Wij hebben onze nieuwe woonkamer helemaal ingericht. | Kami menata ruang tamu baru kami sepenuhnya. | ingericht | menata
+Zij heeft haar oude telefoon ingeruild voor een nieuwe. | Dia menukar ponsel lamanya dengan yang baru. | ingeruild | menukar
+Het bedrijf zal extra personeel inzetten tijdens de drukte. | Perusahaan akan mengerahkan tenaga tambahan saat ramai. | inzetten | mengerahkan
+#19 terug-
+Wanneer kun je terugkomen? | Kapan kamu bisa kembali? | terugkomen | kembali
+Ik zal je later terugbellen. | Saya akan menelepon kamu kembali nanti. | terugbellen | menelepon kamu kembali
+Hij is teruggegaan naar zijn dorp. | Dia kembali ke desanya. | teruggegaan | kembali
+Ik moet het geld nog terugbetalen. | Saya masih harus membayar kembali uang itu. | terugbetalen | membayar kembali
+Wij moeten het pakket terugsturen. | Kami harus mengirim kembali paket itu. | terugsturen | mengirim kembali
+Hij wil zijn oude baan terugkrijgen. | Dia ingin mendapatkan kembali pekerjaan lamanya. | terugkrijgen | mendapatkan kembali
+Als ik terugkijk, was het een mooie tijd. | Kalau saya menengok ke belakang, itu masa yang indah. | terugkijk | menengok ke belakang
+Zij wil volgend jaar terugkeren naar Nederland. | Dia ingin kembali ke Belanda tahun depan. | terugkeren | kembali
+Je kunt de tijd niet terugdraaien. | Kamu tidak bisa memutar kembali waktu. | terugdraaien | memutar kembali
+Ze heeft het boek naar de bibliotheek teruggebracht. | Dia mengembalikan buku itu ke perpustakaan. | teruggebracht | mengembalikan
+Gelukkig hebben ze mijn tas teruggevonden. | Untunglah mereka menemukan kembali tasku. | teruggevonden | menemukan kembali
+De minister heeft zijn voorstel teruggetrokken. | Menteri menarik kembali usulnya. | teruggetrokken | menarik kembali
+Ik heb haar nog niet teruggezien sinds de zomer. | Saya belum bertemu dengannya lagi sejak musim panas. | teruggezien | bertemu dengannya lagi
+De ambassadeur is teruggeroepen door zijn regering. | Duta besar itu dipanggil pulang oleh pemerintahnya. | teruggeroepen | dipanggil pulang
+We zullen binnenkort terugkomen op dit onderwerp. | Kami akan segera kembali membahas topik ini. | terugkomen | kembali
+#20 weg-
+Ik wil niet weggaan. | Saya tidak mau pergi. | weggaan | pergi
+Hij heeft zijn oude kleren weggegooid. | Dia membuang pakaian lamanya. | weggegooid | membuang
+Kun je de kinderen naar school wegbrengen? | Bisakah kamu mengantar anak-anak ke sekolah? | wegbrengen | mengantar
+De dief is snel weggerend. | Pencuri itu cepat-cepat lari. | weggerend | lari
+De hond is weggelopen. | Anjing itu kabur. | weggelopen | kabur
+Mag ik dit bord alvast wegnemen? | Boleh saya mengambil piring ini dulu? | wegnemen | mengambil
+Zij wil dat probleem graag wegwerken. | Dia ingin sekali menyingkirkan masalah itu. | wegwerken | menyingkirkan
+Ik heb mijn paspoort veilig weggelegd. | Saya menyimpan paspor saya dengan aman. | weggelegd | menyimpan
+Ik mag niet te lang van huis wegblijven. | Saya tidak boleh terlalu lama tidak pulang. | wegblijven | tidak pulang
+De sneeuw is door de zon weggesmolten. | Salju itu mencair karena matahari. | weggesmolten | mencair
+Wij hebben de oude bank laten weghalen. | Kami minta sofa lama itu diangkut pergi. | weghalen | diangkut pergi
+De auto is met hoge snelheid weggereden. | Mobil itu melaju pergi dengan kecepatan tinggi. | weggereden | melaju pergi
+Hij heeft het pakje stilletjes weggestopt. | Dia diam-diam menyembunyikan bungkusan itu. | weggestopt | menyembunyikan
+De kat is steeds weggekropen onder de bank. | Kucing itu terus bersembunyi di bawah sofa. | weggekropen | bersembunyi
+De regen heeft de sporen helemaal weggespoeld. | Hujan menghapus semua jejak. | weggespoeld | menghapus
+#21 door-
+Ik wil doorgaan met mijn studie. | Saya ingin melanjutkan studi saya. | doorgaan | melanjutkan
+Kun je de fles even doorgeven? | Bisakah kamu mengoper botol itu sebentar? | doorgeven | mengoper
+Wij moeten tot het station doorlopen. | Kita harus terus berjalan sampai stasiun. | doorlopen | terus berjalan
+De politie heeft het hele huis doorzocht. | Polisi menggeledah seluruh rumah itu. | doorzocht | menggeledah
+Hij heeft de pijn zonder klagen doorstaan. | Dia menahan rasa sakit itu tanpa mengeluh. | doorstaan | menahan
+De zon doorbrak eindelijk de wolken. | Matahari akhirnya menembus awan. | doorbrak | menembus
+Het gesprek is helaas niet doorgegaan. | Sayang sekali pertemuan itu tidak jadi dilaksanakan. | doorgegaan | tidak jadi dilaksanakan
+Zij doorloopt een zware opleiding. | Dia menjalani pendidikan yang berat. | doorloopt | menjalani
+Zij wil haar plan koste wat kost doorzetten. | Dia ingin menjalankan rencananya bagaimanapun caranya. | doorzetten | menjalankan
+De fietser is gewoon doorgereden na de aanrijding. | Pengendara sepeda itu terus melaju setelah tabrakan. | doorgereden | terus melaju
+Ik heb de tekst nog niet helemaal doorgelezen. | Saya belum membaca teks itu sampai habis. | doorgelezen | sampai habis
+Het water heeft de grond doordrenkt. | Air itu membasahi tanah sepenuhnya. | doordrenkt | membasahi
+Mijn vader heeft de nacht doorgebracht in het ziekenhuis. | Ayah saya menghabiskan malam di rumah sakit. | doorgebracht | menghabiskan
+De huisarts zal u doorverwijzen naar een specialist. | Dokter umum akan merujuk Anda ke dokter spesialis. | doorverwijzen | merujuk
+Zij heeft het hele dorp doorkruist op haar fiets. | Dia menjelajahi seluruh desa dengan sepedanya. | doorkruist | menjelajahi
+#22 over-
+Ik hoop dat de pijn snel overgaat. | Saya harap rasa sakit itu segera hilang. | overgaat | hilang
+Wij moeten in Utrecht overstappen. | Kita harus berganti kereta di Utrecht. | overstappen | berganti kereta
+Ik moet dat plan goed overwegen. | Saya harus mempertimbangkan rencana itu dengan matang. | overwegen | mempertimbangkan
+Niemand heeft het ongeluk overleefd. | Tidak ada yang selamat dari kecelakaan itu. | overleefd | selamat
+Je overdrijft altijd een beetje. | Kamu selalu agak melebih-lebihkan. | overdrijft | melebih-lebihkan
+Gisteravond hebben we lang overlegd. | Tadi malam kami berunding lama. | overlegd | berunding
+Zij wil de zaak van haar vader overnemen. | Dia ingin mengambil alih usaha ayahnya. | overnemen | mengambil alih
+Ik moet mijn werk nog helemaal overdoen. | Saya masih harus mengulang seluruh pekerjaan saya. | overdoen | mengulang
+Hij probeert ons te overtuigen van zijn gelijk. | Dia berusaha meyakinkan kami bahwa dia benar. | overtuigen | meyakinkan
+De kinderen zijn de straat veilig overgestoken. | Anak-anak menyeberang jalan dengan aman. | overgestoken | menyeberang
+Zij overnachten dit weekend in een kleine herberg. | Mereka menginap di penginapan kecil akhir pekan ini. | overnachten | menginap
+Mijn buurvrouw overrompelde me met haar vraag. | Tetangga saya mengejutkan saya dengan pertanyaannya. | overrompelde | mengejutkan
+Mijn collega heeft zijn werk aan mij overgedragen. | Rekan kerja saya menyerahkan pekerjaannya kepada saya. | overgedragen | menyerahkan
+De temperatuur heeft de dertig graden overschreden. | Suhu itu melampaui tiga puluh derajat. | overschreden | melampaui
+Kunt u dit document overzetten naar het nieuwe systeem? | Bisakah Anda memindahkan dokumen ini ke sistem baru? | overzetten | memindahkan
+#23 om-
+Hij is halverwege omgekeerd. | Dia berbalik arah di tengah jalan. | omgekeerd | berbalik arah
+Je moet de sleutel twee keer omdraaien. | Kamu harus memutar kunci itu dua kali. | omdraaien | memutar
+Ik was bang dat de kast zou omvallen. | Saya takut lemari itu akan roboh. | omvallen | roboh
+Zij heeft zich nog even omgekeken. | Dia sempat menoleh sekali lagi. | omgekeken | menoleh
+De soldaten omringden het gebouw. | Para tentara mengepung gedung itu. | omringden | mengepung
+Zij omarmde haar zus bij het afscheid. | Dia memeluk adiknya saat berpisah. | omarmde | memeluk
+Het is koud, dus ik ga mijn sjaal omdoen. | Cuaca dingin, jadi saya akan mengenakan syal. | omdoen | mengenakan
+Het dorp wordt omgeven door bossen. | Desa itu dikelilingi hutan. | omgeven | dikelilingi
+Hij probeert de regels te omzeilen. | Dia berusaha menyiasati aturan itu. | omzeilen | menyiasati
+Kunt u het probleem even omschrijven? | Bisakah Anda menguraikan masalahnya sebentar? | omschrijven | menguraikan
+Hij heeft zijn plannen helemaal omgegooid. | Dia mengubah semua rencananya. | omgegooid | mengubah
+Mijn oma heeft haar tuin omgespit. | Nenek saya menggali kebunnya. | omgespit | menggali
+Door het ongeluk zijn twee mensen omgekomen. | Dua orang tewas akibat kecelakaan itu. | omgekomen | tewas
+Mijn broer wil zijn auto omruilen voor een kleinere. | Kakak saya ingin menukar mobilnya dengan yang lebih kecil. | omruilen | menukar
+Wij moeten helaas omrijden vanwege de wegwerkzaamheden. | Sayangnya kami harus mengambil jalan memutar karena perbaikan jalan. | omrijden | jalan memutar
+#24 onder-
+Het duurt nog even voordat de zon ondergaat. | Masih agak lama sebelum matahari terbenam. | ondergaat | terbenam
+Ik wil u niet onderbreken. | Saya tidak ingin menyela Anda. | onderbreken | menyela
+De arts onderzoekt de patiënt grondig. | Dokter memeriksa pasien itu dengan teliti. | onderzoekt | memeriksa
+Wij moeten het contract nog ondertekenen. | Kami masih harus menandatangani kontrak itu. | ondertekenen | menandatangani
+We moeten snel iets ondernemen. | Kita harus segera mengambil tindakan. | ondernemen | mengambil tindakan
+Hij onderschat de moeilijkheid van de taak. | Dia meremehkan kesulitan tugas itu. | onderschat | meremehkan
+Mijn oom onderhoudt zijn tuin zelf. | Paman saya merawat kebunnya sendiri. | onderhoudt | merawat
+Zij onderhandelen al weken over de prijs. | Mereka sudah berminggu-minggu berunding soal harga. | onderhandelen | berunding
+De regering wil kleine bedrijven ondersteunen. | Pemerintah ingin mendukung usaha-usaha kecil. | ondersteunen | mendukung
+Zij heeft de belangrijkste woorden onderstreept. | Dia menggarisbawahi kata-kata terpenting. | onderstreept | menggarisbawahi
+Het volk wilde niet langer onderdrukt worden. | Rakyat tidak mau lagi ditindas. | onderdrukt | ditindas
+Zij heeft veel pijn moeten ondergaan. | Dia harus menanggung banyak rasa sakit. | ondergaan | menanggung
+De juf onderwijst al dertig jaar kinderen. | Bu guru itu sudah tiga puluh tahun mengajar anak-anak. | onderwijst | mengajar
+Wij kunnen deze twee soorten moeilijk onderscheiden. | Kami sulit membedakan kedua jenis ini. | onderscheiden | membedakan
+Hij wil zich niet laten onderdrukken door zijn baas. | Dia tidak mau ditindas oleh atasannya. | onderdrukken | ditindas
+#25 voor-
+Mag ik mezelf voorstellen? | Boleh saya memperkenalkan diri? | voorstellen | memperkenalkan
+De juf gaat een verhaal voorlezen. | Bu guru akan membacakan sebuah cerita. | voorlezen | membacakan
+Wij willen ongelukken voorkomen. | Kami ingin mencegah kecelakaan. | voorkomen | mencegah
+Ik moet me nog op het examen voorbereiden. | Saya masih harus mempersiapkan diri untuk ujian. | voorbereiden | mempersiapkan
+De weerman voorspelt regen voor morgen. | Pembawa acara cuaca meramalkan hujan besok. | voorspelt | meramalkan
+Niemand had dit kunnen voorzien. | Tidak ada yang bisa memperkirakan ini. | voorzien | memperkirakan
+Zou je het even voordoen? | Bisakah kamu memperagakannya sebentar? | voordoen | memperagakan
+Hij wil dit voorstel aan de directie voorleggen. | Dia ingin mengajukan usul ini kepada direksi. | voorleggen | mengajukan
+Laat hem maar voorgaan, hij heeft haast. | Biarkan dia didahulukan, dia sedang terburu-buru. | voorgaan | didahulukan
+De dokter heeft mij slaappillen voorgeschreven. | Dokter meresepkan pil tidur kepada saya. | voorgeschreven | meresepkan
+De tijd is voorbijgegaan zonder dat ik het merkte. | Waktu berlalu tanpa saya sadari. | voorbijgegaan | berlalu
+De voorzitter heeft de vergadering voorgezeten. | Ketua memimpin rapat itu. | voorgezeten | memimpin
+Het kan voorkomen dat de trein vertraging heeft. | Bisa saja kereta mengalami keterlambatan. | voorkomen | bisa saja
+De muziek zal worden voorafgegaan door een korte toespraak. | Musik itu akan didahului pidato singkat. | voorafgegaan | didahului
+Hij is er financieel flink op vooruitgegaan. | Keuangannya jauh membaik. | vooruitgegaan | membaik
+#26 achter-
+Ik wil niet alleen achterblijven. | Saya tidak mau tinggal sendirian. | achterblijven | tinggal
+Hij wilde geen bericht achterlaten. | Dia tidak mau meninggalkan pesan. | achterlaten | meninggalkan
+De klok blijft achterlopen. | Jam itu terus ketinggalan. | achterlopen | ketinggalan
+Deze regels zijn allang achterhaald. | Aturan-aturan ini sudah lama ketinggalan zaman. | achterhaald | ketinggalan zaman
+Zij heeft haar tas in de trein achtergelaten. | Dia meninggalkan tasnya di kereta. | achtergelaten | meninggalkan
+De politie achtervolgde de dief door de hele stad. | Polisi mengejar pencuri itu keliling kota. | achtervolgde | mengejar
+Het is moeilijk om de oorzaak te achterhalen. | Sulit untuk menelusuri penyebabnya. | achterhalen | menelusuri
+Hij heeft belangrijke informatie achtergehouden. | Dia menyembunyikan informasi penting. | achtergehouden | menyembunyikan
+Zij voelt zich achtergesteld op school. | Dia merasa dianaktirikan di sekolah. | achtergesteld | dianaktirikan
+Het weer is de laatste dagen sterk achteruitgegaan. | Cuaca beberapa hari terakhir memburuk. | achteruitgegaan | memburuk
+Mag ik de auto achteruitrijden? | Bolehkah saya memundurkan mobilnya? | achteruitrijden | memundurkan
+De leerling is bij wiskunde achtergebleven. | Murid itu tertinggal dalam matematika. | achtergebleven | tertinggal
+Sinds het incident voelt ze zich achtervolgd. | Sejak kejadian itu dia merasa dikejar-kejar. | achtervolgd | dikejar-kejar
+Het team is achtergebleven bij de verwachtingen. | Tim itu tidak memenuhi harapan. | achtergebleven | tidak memenuhi
+Zij hebben een brief achtergelaten op de keukentafel. | Mereka meninggalkan sepucuk surat di meja dapur. | achtergelaten | meninggalkan
+#27 na-
+Ik wil er even over nadenken. | Saya ingin memikirkannya dulu. | nadenken | memikirkan
+Kunt u dit even navragen? | Bisakah Anda menanyakannya dulu? | navragen | menanyakan
+De juf moet de toetsen nog nakijken. | Bu guru masih harus memeriksa ujian itu. | nakijken | memeriksa
+Zij heeft haar belofte nagekomen. | Dia menepati janjinya. | nagekomen | menepati
+Ik heb alles nog eens nagerekend. | Saya sudah menghitung ulang semuanya. | nagerekend | menghitung ulang
+Wij moeten ons doel blijven nastreven. | Kita harus terus mengejar tujuan kita. | nastreven | mengejar
+De kinderen willen alles nadoen wat hun vader doet. | Anak-anak ingin meniru semua yang dilakukan ayah mereka. | nadoen | meniru
+De leerlingen moeten na schooltijd nablijven. | Para murid harus tinggal setelah jam sekolah. | nablijven | tinggal
+Ik zal nagaan of de winkel nog open is. | Saya akan memeriksa apakah toko masih buka. | nagaan | memeriksa
+Zij wilde haar lerares navolgen. | Dia ingin mengikuti jejak gurunya. | navolgen | mengikuti
+De acteur kan elke stem nabootsen. | Aktor itu bisa menirukan suara siapa pun. | nabootsen | menirukan
+Wij hebben de rekening nogmaals nagezien. | Kami sudah memeriksa tagihan itu sekali lagi. | nagezien | memeriksa
+Mag ik de tekst nog eens nalopen? | Boleh saya memeriksa teks itu sekali lagi? | nalopen | memeriksa
+Hij heeft de vergadering nabesproken met zijn collega's. | Dia membahas rapat itu lagi dengan rekan-rekannya. | nabesproken | membahas
+De gevolgen van de storm zullen nog lang nawerken. | Dampak badai itu akan terasa lama. | nawerken | terasa lama
+#28 -ing
+De wandeling duurde twee uur. | Jalan-jalan itu berlangsung dua jam. | wandeling | Jalan-jalan
+Wij kregen een uitnodiging voor de bruiloft. | Kami mendapat undangan pernikahan. | uitnodiging | undangan
+De vergadering begint om negen uur. | Rapat dimulai pukul sembilan. | vergadering | Rapat
+Ik zoek een oplossing voor dit probleem. | Saya mencari solusi untuk masalah ini. | oplossing | solusi
+Er is een grote verandering gaande in het dorp. | Sebuah perubahan besar sedang terjadi di desa itu. | verandering | perubahan
+Zij heeft veel ervaring met kinderen. | Dia punya banyak pengalaman dengan anak-anak. | ervaring | pengalaman
+De verwarming in de klas is kapot. | Pemanas di kelas rusak. | verwarming | Pemanas
+Het is een moeilijke beslissing voor haar. | Itu keputusan yang sulit baginya. | beslissing | keputusan
+De bediening in dit restaurant is vriendelijk. | Pelayanan di restoran ini ramah. | bediening | Pelayanan
+Wij hebben een goede opleiding nodig. | Kami membutuhkan pendidikan yang baik. | opleiding | pendidikan
+Er komt een nieuwe regeling voor de huursubsidie. | Akan ada peraturan baru untuk subsidi sewa. | regeling | peraturan
+Na de bespreking nam de directeur het woord. | Setelah pembahasan itu direktur angkat bicara. | bespreking | pembahasan
+De aankondiging van de minister kwam onverwacht. | Pengumuman menteri itu datang tak terduga. | aankondiging | Pengumuman
+Deze aanbieding is alleen deze week geldig. | Penawaran ini hanya berlaku minggu ini. | aanbieding | Penawaran
+Dankzij zijn voorbereiding verliep de presentatie vlekkeloos. | Berkat persiapannya presentasi berjalan mulus. | voorbereiding | persiapan
+#29 -heid
+Gezondheid is het belangrijkste. | Kesehatan adalah hal terpenting. | Gezondheid | Kesehatan
+De waarheid komt altijd uit. | Kebenaran selalu terungkap. | waarheid | Kebenaran
+Zij waardeert zijn eerlijkheid. | Dia menghargai kejujurannya. | eerlijkheid | kejujuran
+De snelheid is hier beperkt tot dertig kilometer per uur. | Kecepatan di sini dibatasi tiga puluh kilometer per jam. | snelheid | Kecepatan
+Wij vinden veiligheid erg belangrijk. | Kami menganggap keselamatan sangat penting. | veiligheid | keselamatan
+Er is nog een mogelijkheid om te winnen. | Masih ada kemungkinan untuk menang. | mogelijkheid | kemungkinan
+Ik wil van de gelegenheid gebruikmaken om u te bedanken. | Saya ingin memanfaatkan kesempatan ini untuk berterima kasih kepada Anda. | gelegenheid | kesempatan
+De schoonheid van het landschap verbaasde ons. | Keindahan pemandangan itu membuat kami takjub. | schoonheid | Keindahan
+Hij heeft grote moeilijkheden met het examen. | Dia mengalami kesulitan besar dengan ujian itu. | moeilijkheden | kesulitan
+Voor haar is vrijheid belangrijker dan geld. | Baginya kebebasan lebih penting daripada uang. | vrijheid | kebebasan
+Met zekerheid kan niemand dat zeggen. | Tidak ada yang bisa mengatakannya dengan pasti. | zekerheid | pasti
+De eenzaamheid van de oude man trof me. | Kesepian pria tua itu menyentuh hati saya. | eenzaamheid | Kesepian
+In werkelijkheid is het veel eenvoudiger. | Pada kenyataannya itu jauh lebih sederhana. | werkelijkheid | kenyataan
+De bekendheid van de zangeres groeide snel. | Ketenaran penyanyi itu tumbuh cepat. | bekendheid | Ketenaran
+Gastvrijheid is een belangrijk deel van onze cultuur. | Keramahtamahan adalah bagian penting dari budaya kami. | Gastvrijheid | Keramahtamahan
+#30 -schap
+Vriendschap is belangrijk voor mij. | Persahabatan penting bagi saya. | Vriendschap | Persahabatan
+Ik heb een boodschap voor je. | Saya punya pesan untukmu. | boodschap | pesan
+Het lidmaatschap kost vijftig euro per jaar. | Keanggotaan itu berbiaya lima puluh euro per tahun. | lidmaatschap | Keanggotaan
+De wetenschap heeft veel vooruitgang geboekt. | Ilmu pengetahuan telah membuat banyak kemajuan. | wetenschap | Ilmu pengetahuan
+Zij houdt van gezelschap. | Dia suka kebersamaan. | gezelschap | kebersamaan
+Het landschap is hier erg mooi. | Pemandangan di sini sangat indah. | landschap | Pemandangan
+Hij heeft goed leiderschap getoond. | Dia menunjukkan kepemimpinan yang baik. | leiderschap | kepemimpinan
+Het ouderschap verandert je leven. | Menjadi orang tua mengubah hidupmu. | ouderschap | orang tua
+Hun vriendschap duurt al twintig jaar. | Persahabatan mereka sudah berlangsung dua puluh tahun. | vriendschap | Persahabatan
+Eerlijkheid is een goede eigenschap. | Kejujuran adalah sifat yang baik. | eigenschap | sifat
+De burgemeester ontving een boodschap van de koning. | Wali kota menerima pesan dari raja. | boodschap | pesan
+Ons partnerschap met het bedrijf is goed. | Kemitraan kami dengan perusahaan itu baik. | partnerschap | Kemitraan
+Ze verwacht dat het moederschap haar zal veranderen. | Dia menduga menjadi ibu akan mengubahnya. | moederschap | menjadi ibu
+Hij komt altijd in gezelschap van zijn hond. | Dia selalu datang bersama anjingnya. | gezelschap | bersama
+Ons lidmaatschap loopt eind december af. | Keanggotaan kami berakhir pada akhir Desember. | lidmaatschap | Keanggotaan
+#31 -iteit
+De kwaliteit van dit product is hoog. | Kualitas produk ini tinggi. | kwaliteit | Kualitas
+Ik studeer aan de universiteit. | Saya kuliah di universitas. | universiteit | universitas
+Welke nationaliteit heb je? | Apa kewarganegaraanmu? | nationaliteit | kewarganegaraan
+Wij organiseren veel activiteiten voor kinderen. | Kami menyelenggarakan banyak kegiatan untuk anak-anak. | activiteiten | kegiatan
+Je moet de realiteit onder ogen zien. | Kamu harus menghadapi kenyataan. | realiteit | kenyataan
+De capaciteit van de zaal is tweehonderd personen. | Kapasitas aula itu dua ratus orang. | capaciteit | Kapasitas
+Hij heeft veel creativiteit in zijn werk. | Dia memiliki banyak kreativitas dalam pekerjaannya. | creativiteit | kreativitas
+De populariteit van de zanger groeit snel. | Popularitas penyanyi itu naik dengan cepat. | populariteit | Popularitas
+Hij toonde zijn autoriteit tegenover de leerlingen. | Dia menunjukkan otoritasnya terhadap para murid. | autoriteit | otoritas
+Onze identiteit is meer dan ons werk. | Identitas kita lebih dari sekadar pekerjaan. | identiteit | Identitas
+Dit bedrijf let op kwantiteit én kwaliteit. | Perusahaan ini memperhatikan kuantitas dan kualitas. | kwantiteit | kuantitas
+De mentaliteit in het team is veranderd. | Mentalitas di dalam tim telah berubah. | mentaliteit | Mentalitas
+Voor dit werk is flexibiliteit belangrijk. | Untuk pekerjaan ini fleksibilitas itu penting. | flexibiliteit | fleksibilitas
+De authenticiteit van het schilderij is bevestigd. | Keaslian lukisan itu sudah dipastikan. | authenticiteit | Keaslian
+Deze universiteit heeft een goede reputatie. | Universitas ini memiliki reputasi yang baik. | universiteit | Universitas
+#32 -er
+De bakker staat om vijf uur op. | Tukang roti itu bangun pukul lima. | bakker | tukang roti
+Mijn buurman is schrijver. | Tetangga saya seorang penulis. | schrijver | penulis
+De speler scoorde in de laatste minuut. | Pemain itu mencetak gol di menit terakhir. | speler | Pemain
+Die zanger heeft een mooie stem. | Penyanyi itu memiliki suara yang indah. | zanger | Penyanyi
+Elke bezoeker krijgt een kaartje. | Setiap pengunjung mendapat tiket. | bezoeker | pengunjung
+De verkoper legde het product uit. | Penjual itu menjelaskan produknya. | verkoper | Penjual
+Als gebruiker kun je instellingen wijzigen. | Sebagai pengguna kamu bisa mengubah pengaturan. | gebruiker | pengguna
+Een goede danser let op zijn houding. | Seorang penari yang baik memperhatikan posturnya. | danser | penari
+De kijkers hebben massaal gereageerd. | Para pemirsa memberi tanggapan secara besar-besaran. | kijkers | pemirsa
+Zij werkt als vertaler bij een groot bedrijf. | Dia bekerja sebagai penerjemah di perusahaan besar. | vertaler | penerjemah
+De reiziger had een zware rugzak bij zich. | Pelancong itu membawa ransel berat. | reiziger | Pelancong
+De winnaar krijgt een prijs van duizend euro. | Pemenang mendapat hadiah seribu euro. | winnaar | Pemenang
+Als bestuurder moet je de regels kennen. | Sebagai pengemudi kamu harus tahu aturannya. | bestuurder | pengemudi
+Mijn oma is een fanatieke wandelaar. | Nenek saya pecinta jalan kaki yang giat. | wandelaar | pecinta jalan kaki
+Een goede luisteraar stelt vragen. | Pendengar yang baik mengajukan pertanyaan. | luisteraar | Pendengar
+#33 -ster
+De verpleegster meet mijn bloeddruk. | Perawat itu mengukur tekanan darah saya. | verpleegster | Perawat
+Mijn oma was naaister. | Nenek saya dulu seorang penjahit. | naaister | penjahit
+De schoonmaakster komt elke dinsdag. | Petugas kebersihan perempuan itu datang setiap Selasa. | schoonmaakster | Petugas kebersihan
+De zwemster won goud op de Spelen. | Perenang putri itu meraih emas di Olimpiade. | zwemster | Perenang putri
+Ze is een getalenteerde schaatsster. | Dia pemain seluncur es putri yang berbakat. | schaatsster | pemain seluncur es putri
+De danster oefent elke dag zes uur. | Penari putri itu berlatih enam jam setiap hari. | danster | Penari putri
+De voorzitster opende de vergadering. | Ketua perempuan itu membuka rapat. | voorzitster | Ketua perempuan
+De aanvoerster van het team scoorde twee keer. | Kapten tim putri itu mencetak dua gol. | aanvoerster | Kapten
+De verkoopster hielp mij met het uitzoeken van een jas. | Penjual perempuan itu membantu saya memilih jaket. | verkoopster | Penjual perempuan
+Mijn tante werkt als werkster bij een rijke familie. | Bibi saya bekerja sebagai pembantu rumah tangga di keluarga kaya. | werkster | pembantu rumah tangga
+De bestuurster van de bus remde plotseling. | Pengemudi bus perempuan itu mengerem mendadak. | bestuurster | Pengemudi bus perempuan
+De kleuterleidster zingt een liedje met de kinderen. | Guru taman kanak-kanak itu menyanyikan lagu bersama anak-anak. | kleuterleidster | Guru taman kanak-kanak
+De schrijfster heeft een nieuwe roman gepubliceerd. | Penulis perempuan itu menerbitkan novel baru. | schrijfster | Penulis perempuan
+De hardloopster werd tweede in de marathon. | Pelari putri itu meraih peringkat kedua di maraton. | hardloopster | Pelari putri
+De zeilster heeft de race gewonnen. | Pelayar putri itu memenangkan lomba. | zeilster | Pelayar putri
+#34 afhangen van
+Het hangt van het weer af. | Itu tergantung cuaca. | hangt … af | tergantung
+Alles hangt van jou af. | Semuanya tergantung padamu. | hangt … af | tergantung
+Waar hangt dat van af? | Itu tergantung pada apa? | hangt … af | tergantung
+Of we gaan, hangt van de trein af. | Apakah kita pergi tergantung kereta. | hangt … af | tergantung
+Het hangt ervan af hoeveel tijd ik heb. | Itu tergantung berapa banyak waktu yang saya punya. | hangt ervan af | tergantung
+Ik weet niet of het van hem afhangt. | Saya tidak tahu apakah itu bergantung padanya. | afhangt | bergantung
+Hij wil niet meer van zijn ouders afhangen. | Dia tidak mau lagi bergantung pada orang tuanya. | afhangen | bergantung
+De prijs hangt af van de kwaliteit. | Harganya bergantung pada kualitasnya. | hangt af van | bergantung
+Of ik kom, hangt van mijn werk af. | Apakah saya datang tergantung pekerjaan saya. | hangt … af | tergantung
+Hoeveel ik betaal, hangt van het aantal gasten af. | Berapa yang saya bayar tergantung jumlah tamu. | hangt … af | tergantung
+Zijn humeur hangt sterk van het weer af. | Suasana hatinya sangat bergantung pada cuaca. | hangt … af | bergantung
+Mijn beslissing hangt ervan af wat je me vertelt. | Keputusan saya tergantung pada apa yang kamu ceritakan. | hangt ervan af | tergantung
+Het slagen van de operatie hangt van veel factoren af. | Keberhasilan operasi itu tergantung banyak faktor. | hangt … af | tergantung
+De uitkomst hangt volledig van de kiezers af. | Hasilnya sepenuhnya bergantung pada para pemilih. | hangt … af | bergantung
+Het succes van het project hangt van de samenwerking af. | Keberhasilan proyek itu bergantung pada kerja sama. | hangt … af | bergantung
+#35 bestaan uit
+De groep bestaat uit tien mensen. | Kelompok itu terdiri atas sepuluh orang. | bestaat uit | terdiri atas
+Het boek bestaat uit drie delen. | Buku itu terdiri atas tiga bagian. | bestaat uit | terdiri atas
+Water bestaat uit waterstof en zuurstof. | Air terdiri atas hidrogen dan oksigen. | bestaat uit | terdiri atas
+Het menu bestaat uit drie gangen. | Menu itu terdiri atas tiga hidangan. | bestaat uit | terdiri atas
+Waaruit bestaat deze soep? | Terdiri dari apa sup ini? | Waaruit bestaat | Terdiri dari
+Waaruit bestaat de oplossing precies? | Solusinya terdiri dari apa tepatnya? | Waaruit bestaat | terdiri dari
+De delegatie bestond uit twaalf mensen. | Delegasi itu terdiri atas dua belas orang. | bestond uit | terdiri atas
+Het hele gebouw bestaat uit staal en glas. | Seluruh gedung itu terbuat dari baja dan kaca. | bestaat uit | terbuat dari
+Mijn ontbijt bestaat meestal uit brood en kaas. | Sarapan saya biasanya terdiri dari roti dan keju. | bestaat meestal uit | terdiri dari
+De commissie zal uit vijf leden bestaan. | Panitia itu akan terdiri atas lima anggota. | uit … bestaan | terdiri atas
+Het park bestaat grotendeels uit oude bomen. | Taman itu sebagian besar terdiri atas pohon tua. | bestaat grotendeels uit | terdiri atas
+Zijn werk bestaat voornamelijk uit gesprekken met klanten. | Pekerjaannya terutama terdiri atas percakapan dengan pelanggan. | bestaat voornamelijk uit | terdiri atas
+Onze vereniging bestond oorspronkelijk uit twintig leden. | Perkumpulan kami semula terdiri atas dua puluh anggota. | bestond oorspronkelijk uit | terdiri atas
+Een zin moet uit minstens een onderwerp en een werkwoord bestaan. | Sebuah kalimat harus terdiri atas sekurang-kurangnya subjek dan kata kerja. | uit … bestaan | terdiri atas
+Het team bestaat uit vier vrouwen en drie mannen. | Tim itu terdiri atas empat perempuan dan tiga laki-laki. | bestaat uit | terdiri atas
+#36 deelnemen aan
+Ik neem deel aan de cursus. | Saya mengikuti kursus itu. | neem deel aan | mengikuti
+Hij nam niet deel aan de vergadering. | Dia tidak ikut rapat itu. | nam niet deel aan | ikut
+Wie wil er deelnemen aan de reis? | Siapa yang mau ikut dalam perjalanan itu? | deelnemen aan | ikut
+Mag ik ook deelnemen aan de discussie? | Bolehkah saya ikut dalam diskusi itu? | deelnemen aan | ikut
+Wij willen graag deelnemen aan de wedstrijd. | Kami ingin ikut serta dalam pertandingan. | deelnemen aan | ikut serta
+Iedereen mag deelnemen aan de loterij. | Siapa pun boleh ikut undian itu. | deelnemen aan | ikut
+Nemen jullie ook deel aan het project? | Apakah kalian juga ikut dalam proyek itu? | Nemen jullie ook deel aan | ikut
+Ik zou graag aan jullie feest deelnemen. | Saya ingin ikut pestamu. | deelnemen | ikut
+Ik weet dat zij aan het onderzoek deelneemt. | Saya tahu dia ikut dalam penelitian itu. | deelneemt | ikut
+Zij heeft vorig jaar deelgenomen aan de marathon. | Tahun lalu dia berpartisipasi dalam maraton. | deelgenomen aan | berpartisipasi
+Zij heeft nooit aan zulke activiteiten deelgenomen. | Dia tidak pernah ikut kegiatan seperti itu. | deelgenomen | ikut
+Meer dan honderd mensen nemen deel aan de actie. | Lebih dari seratus orang ikut dalam aksi itu. | nemen deel aan | ikut
+Het bedrijf neemt deel aan een grote beurs in Berlijn. | Perusahaan itu ikut serta dalam pameran besar di Berlin. | neemt deel aan | ikut serta
+Als je wilt deelnemen aan de test, meld je dan aan. | Kalau kamu mau ikut tes itu, daftarlah. | deelnemen aan | ikut
+Ik denk dat veel studenten aan deze enquête zullen deelnemen. | Saya kira banyak mahasiswa akan ikut survei ini. | deelnemen | ikut
+#37 zorgen voor
+Zij zorgt voor de kinderen. | Dia mengurus anak-anak. | zorgt voor | mengurus
+Ik zorg voor het eten. | Saya menyiapkan makanan. | zorg voor | menyiapkan
+Zorg goed voor jezelf. | Jaga dirimu baik-baik. | Zorg goed voor | Jaga
+Wij zorgen ervoor dat alles klaar is. | Kami memastikan semuanya siap. | zorgen ervoor | memastikan
+Zorg ervoor dat je op tijd bent. | Pastikan kamu tepat waktu. | Zorg ervoor | Pastikan
+Mijn broer zorgt voor onze oude moeder. | Kakak saya merawat ibu kami yang sudah tua. | zorgt voor | merawat
+De gemeente zorgt voor schone straten. | Pemerintah kota menjaga kebersihan jalan. | zorgt voor | menjaga
+Dit gebouw zorgt voor veel problemen. | Gedung ini menimbulkan banyak masalah. | zorgt voor | menimbulkan
+Hij zorgde ervoor dat niemand het zag. | Dia memastikan tidak ada yang melihatnya. | zorgde ervoor | memastikan
+Wie zorgt er morgen voor de drankjes? | Siapa yang menyediakan minuman besok? | zorgt er morgen voor | menyediakan
+Ik zal ervoor zorgen dat het niet meer gebeurt. | Saya akan memastikan hal itu tidak terjadi lagi. | ervoor zorgen | memastikan
+Hij heeft voor zijn zieke vader gezorgd. | Dia merawat ayahnya yang sakit. | voor … gezorgd | merawat
+De buren zorgen voor onze planten tijdens de vakantie. | Para tetangga merawat tanaman kami selama liburan. | zorgen voor | merawat
+Een goede kok zorgt voor een gezellige avond. | Koki yang baik menciptakan malam yang menyenangkan. | zorgt voor | menciptakan
+Mijn zus heeft altijd goed voor mij gezorgd. | Kakak saya selalu merawat saya dengan baik. | voor mij gezorgd | merawat
+#38 rekening houden met
+Je moet rekening houden met de kosten. | Kamu harus memperhitungkan biayanya. | rekening houden met | memperhitungkan
+We moeten rekening houden met vertraging. | Kita harus memperhitungkan keterlambatan. | rekening houden met | memperhitungkan
+Wij houden rekening met jullie wensen. | Kami memperhatikan keinginan kalian. | houden rekening met | memperhatikan
+Houd rekening met het slechte weer. | Perhitungkan cuaca buruk. | Houd rekening met | Perhitungkan
+Ik houd rekening met een lange wachttijd. | Saya memperkirakan waktu tunggu yang lama. | houd rekening met | memperkirakan
+Hij houdt altijd rekening met anderen. | Dia selalu memikirkan orang lain. | houdt altijd rekening met | memikirkan
+Zij heeft geen rekening gehouden met mijn gevoelens. | Dia tidak mempertimbangkan perasaan saya. | rekening gehouden met | mempertimbangkan
+Houd er rekening mee dat het druk kan zijn. | Ingatlah bahwa mungkin akan ramai. | Houd er rekening mee | Ingatlah
+Wij hielden geen rekening met zoveel gasten. | Kami tidak memperkirakan tamu sebanyak itu. | hielden geen rekening met | memperkirakan
+De gemeente moet rekening houden met de buurtbewoners. | Pemerintah kota harus mempertimbangkan warga sekitar. | rekening houden met | mempertimbangkan
+Je mag best wat meer rekening met je collega's houden. | Kamu boleh lebih memperhatikan rekan-rekanmu. | rekening … houden | memperhatikan
+De ontwerper heeft rekening gehouden met rolstoelgebruikers. | Perancang itu memperhitungkan pengguna kursi roda. | rekening gehouden met | memperhitungkan
+In dit plan is rekening gehouden met alle risico's. | Dalam rencana ini semua risiko telah diperhitungkan. | rekening gehouden met | diperhitungkan
+Hij vroeg of ik rekening wilde houden met zijn dieet. | Dia bertanya apakah saya mau memperhatikan dietnya. | rekening wilde houden met | memperhatikan
+Bij de planning is te weinig rekening gehouden met de feestdagen. | Dalam perencanaan hari libur kurang diperhitungkan. | rekening gehouden met | diperhitungkan
+#39 verwijzen naar
+Hij verwijst naar een oud rapport. | Dia merujuk pada laporan lama. | verwijst naar | merujuk pada
+Dit woord verwijst naar iets uit het verleden. | Kata ini mengacu pada sesuatu dari masa lalu. | verwijst naar | mengacu pada
+De bordjes verwijzen naar de uitgang. | Papan-papan itu menunjuk ke pintu keluar. | verwijzen naar | menunjuk ke
+Het voornaamwoord verwijst naar de directeur. | Kata ganti itu mengacu pada direktur. | verwijst naar | mengacu pada
+Het artikel verwijst niet naar zijn bronnen. | Artikel itu tidak merujuk pada sumber-sumbernya. | verwijst niet naar | merujuk pada
+Mijn moeder verwijst altijd naar vroeger. | Ibu saya selalu merujuk pada masa lalu. | verwijst altijd naar | merujuk pada
+De leraar verwees naar het boek op pagina tien. | Guru merujuk pada buku di halaman sepuluh. | verwees naar | merujuk pada
+De huisarts verwees mij naar een specialist. | Dokter umum merujuk saya ke seorang spesialis. | verwees mij naar | merujuk
+Waar verwijst dit pijltje naar? | Panah ini menunjuk ke mana? | Waar verwijst dit pijltje naar | menunjuk ke
+Ik wil graag verwijzen naar het artikel van gisteren. | Saya ingin merujuk pada artikel kemarin. | verwijzen naar | merujuk pada
+Mag ik u verwijzen naar de website voor meer informatie? | Boleh saya mengarahkan Anda ke situs web untuk informasi lebih lanjut? | verwijzen naar | mengarahkan
+Hij heeft in zijn toespraak naar de oorlog verwezen. | Dalam pidatonya dia menyinggung perang. | naar … verwezen | menyinggung
+De rechter heeft de zaak naar een andere rechtbank verwezen. | Hakim melimpahkan perkara itu ke pengadilan lain. | verwezen | melimpahkan
+Zij verwijzen in hun brief naar een eerdere afspraak. | Dalam surat mereka merujuk pada janji sebelumnya. | verwijzen in hun brief naar | merujuk
+Zij verwijzen klanten met klachten naar de klantenservice. | Mereka mengarahkan pelanggan yang mengeluh ke layanan pelanggan. | verwijzen klanten met klachten naar | mengarahkan

@@ -5,3 +5,5 @@
 - Kata baru tanpa pinyin → PIN_EXTRA (tools/gcl_build.py); nama diri → override {Pinyin}.
 - Kartu tata bahasa umum (subjek/predikat/objek) → kunci = kata inti (kata kerja/sifat) agar tetap satu jawaban.
 - tests/test_gsb.js memeriksa kunci sebagai SUBSTRING (bukan batas kata): kunci pendek seperti «bei»(Arbeit), «in»(einer, Minuten, Kind) gagal bila muncul di dalam kata lain → perpanjang kunci («bei der», «in einer») atau hindari kata itu. Audit: de_A2 punya 93 kartu (preposisi #58–#92 sisa 23 kartu mulai #70).
+- Urutan prioritas: HSK1–2, de A1–B1, ja N5–N3, nl A1–A2, eo A1–B2 TUNTAS; eo C1 selesai (31 kartu, #0–#30). Berikutnya: eo C2, lalu nl B1+, zh HSK3+, ja N2+, de B2+, en. Tulis kunci di tengah kalimat (bukan kapital awal) agar tes substring case-sensitive lolos.
+- Kunci pendek untuk eo (se, iam, ial, iel, iom, ja, mem, ajn): substring bisa tersangkut di kata lain (tiam/ĉiam/neniam ⊃ iam; kial/tial/nenial ⊃ ial; kiel/tiel/ĉielo ⊃ iel; neniom/kiom ⊃ iom; jaro/trajno ⊃ ja/ajn; -ajn akusatif jamak ⊃ ajn). Hindari kata itu di kalimat sama, atau pakai kunci 2 kata («se vi», «se la suno»). Kalimat ganda antar kartu juga dicek (galat «kalimat ganda»).

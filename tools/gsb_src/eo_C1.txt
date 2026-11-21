@@ -1,0 +1,437 @@
+#0 Pronomo Negatif neniu / nenies
+Hodiaŭ neniu estas hejme. | Hari ini tak seorang pun ada di rumah. | neniu | tak seorang pun
+Mi vidis neniun en la ĝardeno. | Saya tidak melihat siapa pun di kebun. | neniun | siapa pun
+Ĉi tie neniu parolas la rusan. | Di sini tak seorang pun berbicara bahasa Rusia. | neniu | tak seorang pun
+Hieraŭ vespere neniu telefonis al mi. | Kemarin malam tak seorang pun menelepon saya. | neniu | tak seorang pun
+Kaj neniu el ili komprenis la demandon. | Dan tak seorang pun dari mereka memahami pertanyaan itu. | neniu | tak seorang pun
+Tiu ĉi hundo estas nenies, ĝi vagas sur la strato. | Anjing ini milik tak seorang pun, ia berkeliaran di jalan. | nenies | milik tak seorang pun
+Se neniu respondos, ni devos mem decidi. | Jika tak seorang pun menjawab, kita harus memutuskan sendiri. | neniu | tak seorang pun
+La malnova domo ŝajnas nenies kaj ruiniĝas jam de jaroj. | Rumah tua itu tampak milik tak seorang pun dan sudah bertahun-tahun rusak. | nenies | milik tak seorang pun
+En ĉi tiu mondo neniu povas diri, kio okazos morgaŭ. | Di dunia ini tak seorang pun bisa mengatakan apa yang akan terjadi besok. | neniu | tak seorang pun
+Hieraŭ neniuj infanoj venis al la lernejo pro la granda neĝo. | Kemarin tak seorang pun anak datang ke sekolah karena salju lebat. | neniuj | tak seorang pun
+En la granda salono nenies voĉo estis aŭdebla pro la laŭta muziko. | Di aula besar suara tak seorang pun terdengar karena musik yang keras. | nenies | tak seorang pun
+Kiam la polico alvenis, neniu el la ĉeestantoj volis paroli pri la okazintaĵo. | Ketika polisi tiba, tak seorang pun dari yang hadir mau berbicara tentang kejadian itu. | neniu | tak seorang pun
+#1 Partisip Adverbial (-e)
+Ŝi ekparolis ridante. | Dia mulai berbicara sambil tertawa. | ridante | sambil tertawa
+Li eniris la ĉambron kantante. | Dia masuk ke kamar sambil bernyanyi. | kantante | sambil bernyanyi
+Mi manĝas legante gazeton. | Saya makan sambil membaca koran. | legante | sambil membaca
+Ŝi eliris plorante. | Dia keluar sambil menangis. | plorante | sambil menangis
+Ŝi respondis al la demando ridetante. | Dia menjawab pertanyaan itu sambil tersenyum. | ridetante | sambil tersenyum
+Ŝi, kuirinte la manĝon, sidiĝis por ripozi. | Setelah selesai memasak, dia duduk untuk beristirahat. | kuirinte | Setelah selesai memasak
+Li tuj telefonis al sia patrino, aŭdinte la novaĵon. | Dia segera menelepon ibunya setelah mendengar kabar itu. | aŭdinte | setelah mendengar
+Ŝi ĝuis la feston, ĉirkaŭite de amikoj. | Dia menikmati pesta itu dikelilingi teman-teman. | ĉirkaŭite | dikelilingi
+La knabo staris apud la vojo, atendante la buson. | Anak lelaki itu berdiri di tepi jalan sambil menunggu bus. | atendante | sambil menunggu
+Ni promenis laŭ la rivero, babilante pri niaj planoj. | Kami berjalan menyusuri sungai sambil mengobrol tentang rencana kami. | babilante | sambil mengobrol
+Mi ne povis daŭrigi la laboron, estante tre laca. | Saya tidak bisa melanjutkan pekerjaan karena sangat lelah. | estante | karena
+La studentoj, finlerninte la lecionon, foriris hejmen. | Para siswa, setelah selesai mempelajari pelajaran itu, pulang ke rumah. | finlerninte | setelah selesai mempelajari
+Ŝi kuris al la stacidomo, esperante ankoraŭ kapti la trajnon. | Dia berlari ke stasiun sambil berharap masih bisa mengejar kereta itu. | esperante | sambil berharap
+Dum la tuta vespero li sidis ĉe la fenestro, rigardante la pluvon kaj pensante pri la hejmo. | Sepanjang malam dia duduk di dekat jendela sambil memandangi hujan dan memikirkan rumah. | rigardante | sambil memandangi
+#2 Awalan re- (Ulang/Kembali)
+Li revenis hieraŭ. | Dia kembali kemarin. | revenis | kembali
+Mi relegos la libron. | Saya akan membaca ulang buku itu. | relegos | membaca ulang
+Bonvolu reskribi la leteron. | Tolong tulis ulang surat itu. | reskribi | tulis ulang
+Mi redonos al vi la monon morgaŭ. | Saya akan mengembalikan uang itu kepadamu besok. | redonos | mengembalikan
+Ŝi remetis la libron sur la breton. | Dia meletakkan kembali buku itu di rak. | remetis | meletakkan kembali
+La paciento resaniĝis post du semajnoj. | Pasien itu pulih kembali setelah dua minggu. | resaniĝis | pulih kembali
+Ni rekomencis la laboron post la paŭzo. | Kami memulai kembali pekerjaan setelah istirahat. | rekomencis | memulai kembali
+Post la tertremo la loĝantoj rekonstruis la urbon. | Setelah gempa penduduk membangun kembali kota itu. | rekonstruis | membangun kembali
+La esploristoj revenis hejmen post tri jaroj en Antarkto. | Para peneliti pulang ke rumah setelah tiga tahun di Antartika. | revenis | pulang
+Li reiris al sia naskiĝurbo kaj trovis ĝin tute ŝanĝita. | Dia pergi kembali ke kota kelahirannya dan mendapatinya sama sekali berubah. | reiris | pergi kembali
+La reĝo rekonis sian perditan filon post dudek jaroj. | Raja itu mengenali kembali putranya yang hilang setelah dua puluh tahun. | rekonis | mengenali kembali
+La tribunalo rekonsideris sian decidon pro novaj pruvoj. | Pengadilan mempertimbangkan kembali keputusannya karena bukti baru. | rekonsideris | mempertimbangkan kembali
+Ni devas reaŭskulti la registraĵon, ĉar mi ne komprenis ĉion. | Kita harus mendengarkan ulang rekaman itu karena saya tidak memahami semuanya. | reaŭskulti | mendengarkan ulang
+#3 Kata Sifat Negatif nenia
+Mi havas nenian ideon. | Saya tidak punya ide apa pun. | nenian | apa pun
+Li lasis nenian mesaĝon. | Dia tidak meninggalkan pesan apa pun. | nenian | apa pun
+Mi aĉetis nenian donacon por ŝi. | Saya tidak membelikan hadiah apa pun untuknya. | nenian | apa pun
+Li montris nenian intereson pri la laboro. | Dia tidak menunjukkan minat apa pun pada pekerjaan itu. | nenian | apa pun
+Ni ricevis nenian respondon al nia peto. | Kami tidak menerima jawaban apa pun atas permohonan kami. | nenian | apa pun
+Post la akcidento nenia vorto povis konsoli lin. | Setelah kecelakaan itu tak ada kata apa pun yang bisa menghiburnya. | nenia | apa pun
+Post la testo nenia dubo restis pri lia kulpo. | Setelah tes itu tak ada keraguan apa pun tentang kesalahannya. | nenia | apa pun
+Sur la tablo estis nenia manĝaĵo, nur malplenaj teleroj. | Di meja tidak ada makanan apa pun, hanya piring kosong. | nenia | apa pun
+La ŝtelisto lasis nenian spuron en la ĉambro. | Pencuri itu tidak meninggalkan jejak apa pun di kamar itu. | nenian | apa pun
+En ĉi tiu urbo mi trovis nenian laboron por mi. | Di kota ini saya tidak menemukan pekerjaan apa pun untuk saya. | nenian | apa pun
+La atestanto donis nenian utilan informon al la polico. | Saksi itu tidak memberi informasi berguna apa pun kepada polisi. | nenian | apa pun
+La instruisto donis al ni nenian helpon, kaj ni devis lerni sole. | Guru tidak memberi kami bantuan apa pun, dan kami harus belajar sendiri. | nenian | apa pun
+#4 Adverbia Negatif Tempat nenie / nenien
+Mia ŝlosilo estas nenie. | Kunci saya tidak ada di mana pun. | nenie | di mana pun
+Mi iros nenien hodiaŭ. | Hari ini saya tidak akan pergi ke mana pun. | nenien | ke mana pun
+La infanoj estas nenie en la domo. | Anak-anak tidak ada di mana pun di rumah. | nenie | di mana pun
+Dimanĉe mi iras nenien kaj ripozas hejme. | Pada hari Minggu saya tidak pergi ke mana pun dan beristirahat di rumah. | nenien | ke mana pun
+La vojo kondukas nenien, ĉar ĝi finiĝas en la arbaro. | Jalan itu tidak menuju ke mana pun, karena berakhir di hutan. | nenien | ke mana pun
+En la mondo mi nenie sentas min tiel trankvila. | Tak di mana pun di dunia ini saya merasa setenang ini. | nenie | Tak di mana pun
+Se vi nenien iras, vi povas helpi min en la ĝardeno. | Jika kamu tidak pergi ke mana pun, kamu bisa membantu saya di kebun. | nenien | ke mana pun
+En ĉi tiu urbo oni nenie povas aĉeti bonan kafon. | Di kota ini orang tidak bisa membeli kopi enak di mana pun. | nenie | di mana pun
+Ŝi serĉis sian ringon, sed ĝi estis nenie trovebla. | Dia mencari cincinnya, tetapi cincin itu tidak bisa ditemukan di mana pun. | nenie | di mana pun
+Ni serĉis la ŝatatan hundon tutan tagon, sed ĝi estis nenie. | Kami mencari anjing kesayangan itu seharian, tetapi ia tidak ada di mana pun. | nenie | di mana pun
+Post la fajro la familio havis nenien iri. | Setelah kebakaran keluarga itu tidak punya tempat untuk dituju. | nenien | tidak punya tempat
+Kvankam ni serĉis dum horoj, la perdita ŝlosilo troviĝis nenie. | Meskipun kami mencari berjam-jam, kunci yang hilang itu tidak ditemukan di mana pun. | nenie | di mana pun
+#5 Adverbia Negatif Waktu neniam
+Mi neniam trinkas kafon. | Saya tidak pernah minum kopi. | neniam | tidak pernah
+Li neniam mensogas. | Dia tidak pernah berbohong. | neniam | tidak pernah
+Ni neniam vidis la maron. | Kami belum pernah melihat laut. | neniam | belum pernah
+Ĉi tie neniam neĝas. | Di sini tidak pernah turun salju. | neniam | tidak pernah
+Mia avo neniam parolis pri la milito. | Kakek saya tidak pernah berbicara tentang perang itu. | neniam | tidak pernah
+Tiun belan tagon mi neniam forgesos. | Hari yang indah itu tidak akan pernah saya lupakan. | neniam | tidak akan pernah
+La infanoj neniam vidis tiel grandan ŝipon. | Anak-anak belum pernah melihat kapal sebesar itu. | neniam | belum pernah
+Li promesis, ke li neniam plu fumos. | Dia berjanji bahwa dia tidak akan pernah merokok lagi. | neniam | tidak akan pernah
+Ŝi neniam kredis, ke ŝi povos gajni la konkurson. | Dia tidak pernah percaya bahwa dia bisa memenangkan lomba itu. | neniam | tidak pernah
+Mi neniam antaŭe vidis tiom da homoj sur tiu placo. | Saya belum pernah melihat begitu banyak orang di alun-alun itu sebelumnya. | neniam | belum pernah
+Se mi neniam lernus Esperanton, mi ne konus tiom da interesaj homoj. | Seandainya saya tidak pernah belajar Esperanto, saya tidak akan mengenal begitu banyak orang menarik. | neniam | tidak pernah
+La reĝo ĉiam parolis pri paco, sed neniam faris ion por atingi ĝin. | Sang raja selalu berbicara tentang perdamaian, tetapi tidak pernah berbuat apa pun untuk mencapainya. | neniam | tidak pernah
+La maljuna kuracisto neniam rifuzis helpi pacienton, eĉ kiam li estis tre laca. | Dokter tua itu tidak pernah menolak membantu pasien, bahkan ketika dia sangat lelah. | neniam | tidak pernah
+#6 Akhiran -aĵ- (Benda Konkret)
+Mi aĉetis manĝaĵon. | Saya membeli makanan. | manĝaĵon | makanan
+Tio estas bona novaĵo. | Itu kabar baik. | novaĵo | kabar
+Mi volas malvarman trinkaĵon. | Saya mau minuman dingin. | trinkaĵon | minuman
+La konstruaĵo estas tre malnova. | Bangunan itu sangat tua. | konstruaĵo | bangunan
+La infano montris al mi sian desegnaĵon. | Anak itu menunjukkan gambarnya kepada saya. | desegnaĵon | gambar
+Ŝi vendas freŝajn bakaĵojn ĉiumatene. | Dia menjual kue dan roti segar setiap pagi. | bakaĵojn | kue dan roti
+Ŝi ĉiam portas belan juvelaĵon. | Dia selalu memakai perhiasan yang indah. | juvelaĵon | perhiasan
+En la muzeo ni vidis multajn antikvaĵojn. | Di museum kami melihat banyak barang antik. | antikvaĵojn | barang antik
+La fremda ŝipo portis valoran ŝarĝaĵon. | Kapal asing itu mengangkut muatan berharga. | ŝarĝaĵon | muatan
+La vendejo havas grandan elekton de vestaĵoj por infanoj. | Toko itu punya pilihan besar pakaian anak-anak. | vestaĵoj | pakaian
+En la ĝardeno kreskas legomoj kaj aliaj kultivaĵoj. | Di kebun tumbuh sayuran dan tanaman budidaya lainnya. | kultivaĵoj | tanaman budidaya
+Post la ekspozicio la artisto vendis ĉiujn pentraĵojn al kolektanto. | Setelah pameran seniman itu menjual semua lukisan kepada seorang kolektor. | pentraĵojn | lukisan
+Mia avino kudris belan broderaĵon por la naskiĝtago de sia nepo. | Nenek saya menyulam sebuah sulaman indah untuk ulang tahun cucunya. | broderaĵon | sulaman
+#7 Adverbia jen (Lihat!)
+Ho, jen la pordo! | Oh, inilah pintunya! | jen | inilah
+Kaj jen la rezulto de nia laboro. | Dan inilah hasil kerja kami. | jen | inilah
+Rigardu, jen venas la trajno! | Lihat, itu keretanya datang! | jen | itu
+Atendu, jen li venas! | Tunggu, itu dia datang! | jen | itu dia
+Kaj jen la respondo al via demando. | Dan inilah jawaban atas pertanyaanmu. | jen | inilah
+Post la monto, jen aperis larĝa valo. | Setelah gunung itu, tampaklah sebuah lembah luas. | jen | tampaklah
+Tenu, jen via libro, pri kiu vi tiom revis. | Ambillah, inilah bukumu yang sangat kamu dambakan. | jen | inilah
+Mi serĉis lin ĉie, kaj jen, li sidis en la ĝardeno! | Saya mencarinya ke mana-mana, dan lihatlah, dia duduk di kebun! | jen | lihatlah
+Mi malfermis la skatolon, kaj jen, ene troviĝis malnova letero. | Saya membuka kotak itu, dan lihatlah, di dalamnya ada sebuah surat tua. | jen | lihatlah
+Li estis tre malĝoja, sed jen alvenis letero kun bonaj novaĵoj. | Dia sangat sedih, tetapi tiba-tiba datanglah surat dengan kabar baik. | jen | tiba-tiba
+Ni marŝis longe tra la arbaro, kaj jen ni atingis belan lagon. | Kami berjalan lama menembus hutan, dan tibalah kami di sebuah danau indah. | jen | tibalah
+#8 Adverbia Negatif nenial (tanpa alasan)
+Li ploris nenial. | Dia menangis tanpa alasan. | nenial | tanpa alasan
+Ŝi nenial koleris kontraŭ mi. | Dia marah padaku tanpa alasan. | nenial | tanpa alasan
+La hundo bojas nenial en la nokto. | Anjing itu menggonggong tanpa alasan di malam hari. | nenial | tanpa alasan
+Mia frato kutimas maltrankviliĝi nenial. | Adik saya biasa merasa cemas tanpa alasan. | nenial | tanpa alasan
+Oni maldungis lin nenial, kaj li iris al la tribunalo. | Dia dipecat tanpa alasan, dan dia pergi ke pengadilan. | nenial | tanpa alasan
+La infano ekridis nenial, kaj ĉiuj rigardis ĝin. | Anak itu tiba-tiba tertawa tanpa alasan dan semua orang menatapnya. | nenial | tanpa alasan
+Ni ne ĉesigu la projekton nenial, post tiom da laboro. | Kita jangan menghentikan proyek itu tanpa alasan, setelah begitu banyak kerja. | nenial | tanpa alasan
+Mi ne scias, kial vi koleras; vi ne devas koleri nenial. | Saya tidak tahu mengapa kamu marah; kamu tidak perlu marah tanpa alasan. | nenial | tanpa alasan
+#9 Adverbia Negatif neniel (sama sekali tidak)
+Tio estas neniel ebla. | Itu sama sekali tidak mungkin. | neniel | sama sekali tidak
+Mi povas neniel helpi vin. | Saya sama sekali tidak bisa membantumu. | neniel | sama sekali tidak
+Li povis neniel malfermi la pordon. | Dia sama sekali tidak bisa membuka pintu itu. | neniel | sama sekali tidak
+Tio neniel validas por ni. | Itu sama sekali tidak berlaku bagi kami. | neniel | sama sekali tidak
+Mia opinio neniel ŝanĝiĝis. | Pendapat saya sama sekali tidak berubah. | neniel | sama sekali tidak
+Ŝi povis neniel kaŝi sian ĝojon. | Dia sama sekali tidak dapat menyembunyikan kegembiraannya. | neniel | sama sekali tidak
+Mi neniel komprenas, kial li foriris. | Saya sama sekali tidak mengerti mengapa dia pergi. | neniel | sama sekali tidak
+Ni povis neniel eviti la akcidenton. | Kami sama sekali tidak bisa menghindari kecelakaan itu. | neniel | sama sekali tidak
+La polico povis neniel pruvi lian kulpon. | Polisi sama sekali tidak dapat membuktikan kesalahannya. | neniel | sama sekali tidak
+Mi povus neniel akcepti tian proponon. | Saya sama sekali tidak mungkin menerima usul semacam itu. | neniel | sama sekali tidak
+La problemo estis neniel solvebla per simplaj rimedoj. | Masalah itu sama sekali tidak dapat diselesaikan dengan cara sederhana. | neniel | sama sekali tidak
+Tiu ĉi malnova komputilo povas neniel funkcii kun la nova programo. | Komputer lama ini sama sekali tidak dapat bekerja dengan program baru itu. | neniel | sama sekali tidak
+Kvankam li klopodis, li povis neniel fini la laboron antaŭ la vespero. | Meskipun dia berusaha, dia sama sekali tidak dapat menyelesaikan pekerjaan itu sebelum malam. | neniel | sama sekali tidak
+#10 Adverbia Negatif neniom (sedikit pun tidak)
+Mi havas neniom da mono. | Saya tidak punya uang sedikit pun. | neniom | sedikit pun
+Estas neniom da vento hodiaŭ. | Hari ini tidak ada angin sedikit pun. | neniom | sedikit pun
+Li havas neniom da pacienco. | Dia tidak punya kesabaran sedikit pun. | neniom | sedikit pun
+En la botelo estas neniom da akvo. | Di dalam botol itu tidak ada air sedikit pun. | neniom | sedikit pun
+Sur la ĉielo estis neniom da nuboj. | Di langit tidak ada awan sedikit pun. | neniom | sedikit pun
+En la fridujo restas neniom da lakto. | Di kulkas tidak tersisa susu sedikit pun. | neniom | sedikit pun
+Ŝi montris neniom da intereso pri la politiko. | Dia tidak menunjukkan ketertarikan sedikit pun pada politik. | neniom | sedikit pun
+La ĵurnalisto trovis neniom da pruvoj pri la akuzo. | Wartawan itu tidak menemukan bukti sedikit pun tentang tuduhan itu. | neniom | sedikit pun
+Post la longa sekeco en la rivero restis neniom da akvo. | Setelah kemarau panjang, di sungai itu tidak tersisa air sedikit pun. | neniom | sedikit pun
+En la tuta domo estis neniom da manĝaĵo, kaj la infanoj malsatis. | Di seluruh rumah tidak ada makanan sedikit pun, dan anak-anak kelaparan. | neniom | sedikit pun
+Mi sentis neniom da timo, kiam mi eniris la malluman ĉambron. | Saya tidak merasa takut sedikit pun ketika masuk ke kamar gelap itu. | neniom | sedikit pun
+#11 Akhiran -iĝ- (Menjadi / Inkoatif)
+La glacio fandiĝis. | Es itu mencair. | fandiĝis | mencair
+La pordo malfermiĝis. | Pintu itu terbuka. | malfermiĝis | terbuka
+Ŝi ruĝiĝis pro honto. | Dia memerah karena malu. | ruĝiĝis | memerah
+Li vekiĝis tre frue. | Dia terbangun sangat pagi. | vekiĝis | terbangun
+La vetero malvarmiĝis. | Cuaca menjadi dingin. | malvarmiĝis | menjadi dingin
+Mi enuiĝis dum la prelego. | Saya menjadi bosan selama kuliah itu. | enuiĝis | menjadi bosan
+La ĉielo mallumiĝis kaj komencis pluvi. | Langit menjadi gelap dan mulai hujan. | mallumiĝis | menjadi gelap
+La rivero ŝveliĝis post la fortaj pluvoj. | Sungai itu meluap setelah hujan lebat. | ŝveliĝis | meluap
+Mia amiko malsaniĝis post la vojaĝo. | Teman saya jatuh sakit setelah perjalanan itu. | malsaniĝis | jatuh sakit
+La infanoj trankviliĝis post la rakonto. | Anak-anak menjadi tenang setelah cerita itu. | trankviliĝis | menjadi tenang
+La kuracisto kaj la paciento renkontiĝis en la kafejo. | Dokter dan pasien itu bertemu di kafe. | renkontiĝis | bertemu
+Ni amikiĝis en la universitato antaŭ dek jaroj. | Kami menjadi teman di universitas sepuluh tahun lalu. | amikiĝis | menjadi teman
+Mia avo maljuniĝis, sed lia spirito restis juna. | Kakek saya menjadi tua, tetapi semangatnya tetap muda. | maljuniĝis | menjadi tua
+En la urbo la nombro de loĝantoj duobliĝis dum dudek jaroj. | Di kota itu jumlah penduduk menjadi dua kali lipat dalam dua puluh tahun. | duobliĝis | menjadi dua kali lipat
+#12 Pronomo berakhiran -o (Hal/Benda)
+Mi vidas ion en la ĝardeno. | Saya melihat sesuatu di kebun. | ion | sesuatu
+Nun ĉio estas preta. | Sekarang segalanya sudah siap. | ĉio | segalanya
+Ĉu vi scias, kio estas tio? | Tahukah kamu apa itu? | kio | apa
+Li nenion diris pri la afero. | Dia tidak mengatakan apa pun tentang hal itu. | nenion | apa pun
+Ŝi donis al mi ion por trinki. | Dia memberi saya sesuatu untuk diminum. | ion | sesuatu
+Do, kion vi volas manĝi? | Jadi, apa yang kamu mau makan? | kion | apa
+Mi pensas, ke ĉi tio estas mia plej ŝatata libro. | Saya pikir ini adalah buku favorit saya. | ĉi tio | ini
+Ĉu vi bezonas ion, antaŭ ol mi foriros? | Apakah kamu butuh sesuatu sebelum saya pergi? | ion | sesuatu
+Mi ne komprenas, kial vi ridas pro tio. | Saya tidak mengerti mengapa kamu tertawa karena hal itu. | tio | hal itu
+Ni parolis pri ĉio, kio okazis dum la ferioj. | Kami membicarakan segala sesuatu yang terjadi selama liburan. | ĉio | segala sesuatu
+Li vendis ĉion, kion li posedis, kaj foriris al alia lando. | Dia menjual segala sesuatu yang dia miliki dan pergi ke negara lain. | ĉion | segala sesuatu
+Neniu povas diri, kion li pensas pri tio. | Tak seorang pun bisa mengatakan apa yang dia pikirkan tentang hal itu. | kion | apa
+La esploristoj trovis nenion interesan en la malnova kelo. | Para peneliti tidak menemukan apa pun yang menarik di ruang bawah tanah tua itu. | nenion | apa pun
+Mi jam diris al la polico ĉion, kion mi scias pri la afero. | Saya sudah memberitahu polisi segala sesuatu yang saya ketahui tentang hal itu. | ĉion | segala sesuatu
+#13 Tabel Korelatif
+Mi konas tiun knabon. | Saya kenal anak laki-laki itu. | tiun | itu
+Ĉu vi scias, kiu venis hieraŭ? | Tahukah kamu siapa yang datang kemarin? | kiu | siapa
+Li ĉiam venas malfrue. | Dia selalu datang terlambat. | ĉiam | selalu
+En la vivo ĉiu homo bezonas amikojn. | Dalam hidup setiap orang membutuhkan teman. | ĉiu | setiap
+Mi ĵus renkontis iun malnovan amikon. | Saya baru saja bertemu seorang teman lama. | iun | seorang
+Mi ne ŝatas tian veteron. | Saya tidak suka cuaca seperti itu. | tian | seperti itu
+Diru al mi, kie vi loĝas. | Katakan kepada saya di mana kamu tinggal. | kie | di mana
+Diru, kiam vi alvenos. | Katakan kapan kamu akan tiba. | kiam | kapan
+Diru al mi, kia estas la vetero en via lando. | Katakan kepada saya seperti apa cuaca di negaramu. | kia | seperti apa
+Diru al mi, kiom kostas tiu libro. | Katakan kepada saya berapa harga buku itu. | kiom | berapa
+Ni vojaĝis ĉie en Eŭropo. | Kami bepergian ke segala penjuru Eropa. | ĉie | segala penjuru
+Mi pensas, ke neniu scias, kial li foriris. | Saya kira tak seorang pun tahu mengapa dia pergi. | neniu | tak seorang pun
+Mi atendis lin ĝis tiam, kiam la lasta trajno foriris. | Saya menunggunya sampai saat itu, ketika kereta terakhir berangkat. | tiam | saat itu
+Mi ne scias, kiel mi povus danki vin, ĉar vi helpis min tiel multe. | Saya tidak tahu bagaimana bisa berterima kasih kepadamu, karena kamu membantu saya begitu banyak. | tiel | begitu
+#14 Partikel ajn (Apa pun / Mana pun)
+Vi povas veni kiam ajn. | Kamu boleh datang kapan saja. | ajn | kapan saja
+Prenu iun ajn libron. | Ambillah buku mana saja. | ajn | mana saja
+Vi povas sidi kie ajn. | Kamu boleh duduk di mana saja. | ajn | di mana saja
+Kio ajn okazos, mi helpos vin. | Apa pun yang terjadi, saya akan membantumu. | ajn | Apa pun
+Kiu ajn vokas, diru, ke mi ne estas hejme. | Siapa pun yang menelepon, katakan saya tidak ada di rumah. | ajn | Siapa pun
+Mi manĝos ion ajn, mi estas tre malsata. | Saya akan makan apa saja, saya sangat lapar. | ajn | apa saja
+Kiel ajn vi decidos, mi subtenos vin. | Bagaimanapun kamu memutuskan, saya akan mendukungmu. | ajn | Bagaimanapun
+Li ne volas paroli kun iu ajn pri tio. | Dia tidak mau membicarakan hal itu dengan siapa pun. | ajn | siapa pun
+Kien ajn vi iros, mi iros kun vi. | Ke mana pun kamu pergi, saya akan ikut denganmu. | ajn | Ke mana pun
+Kiom ajn li klopodos, li ne sukcesos. | Berapa pun dia berusaha, dia tidak akan berhasil. | ajn | Berapa pun
+Tion povas fari iu ajn, kiu havas iom da pacienco. | Hal itu bisa dilakukan siapa saja yang punya sedikit kesabaran. | ajn | siapa saja
+Mi aĉetos la domon je ia ajn prezo, se la ĝardeno estos bela. | Saya akan membeli rumah itu dengan harga berapa pun, jika kebunnya indah. | ajn | berapa pun
+Ni povas renkonti hodiaŭ aŭ morgaŭ, kiam ajn vi havas tempon. | Kita bisa bertemu hari ini atau besok, kapan pun kamu punya waktu. | ajn | kapan pun
+#15 Akhiran -ing- (Wadah/Sarung)
+Mi metis la ovon en la ovingon. | Saya meletakkan telur itu di cangkir telur. | ovingon | cangkir telur
+La soldato eltiris sian glavon el la glavingo. | Prajurit itu menarik pedangnya dari sarungnya. | glavingo | sarungnya
+La glavingo de la reĝo estis ornamita per oro. | Sarung pedang sang raja dihiasi emas. | glavingo | Sarung pedang
+Li prenis cigaron el la cigaringo. | Dia mengambil cerutu dari tempat cerutu. | cigaringo | tempat cerutu
+Mia avo tenis la plumon en arĝenta plumingo. | Kakek saya menyimpan pena di tempat pena perak. | plumingo | tempat pena
+Sur la tablo staris kandelo en arĝenta kandelingo. | Di atas meja ada lilin dalam tempat lilin perak. | kandelingo | tempat lilin
+La infano rompis la ovingon, kaj ni devis aĉeti novan. | Anak itu memecahkan cangkir telur itu, dan kami harus membeli yang baru. | ovingon | cangkir telur
+Li ĉiam tenas siajn plumojn en la plumingo sur la skribotablo. | Dia selalu menyimpan pena-penanya di tempat pena di meja tulis. | plumingo | tempat pena
+Sur la kameno staris malnova kandelingo, kiun ŝi heredis de sia avino. | Di atas perapian ada tempat lilin tua yang diwarisinya dari neneknya. | kandelingo | tempat lilin
+Antaŭ la duelo la kavaliro zorge poluris sian glavon kaj ĝian glavingon. | Sebelum duel, sang ksatria dengan hati-hati memoles pedang dan sarungnya. | glavingon | sarungnya
+La kolektanto havis kolekton de kandelingoj el multaj landoj. | Kolektor itu punya koleksi tempat lilin dari banyak negara. | kandelingoj | tempat lilin
+#16 Pronomo ambaŭ
+Ili ambaŭ estas studentoj. | Mereka berdua adalah mahasiswa. | ambaŭ | berdua
+Ni ambaŭ ŝatas teon. | Kami berdua suka teh. | ambaŭ | berdua
+Mi konas ambaŭ fratojn. | Saya kenal kedua saudara itu. | ambaŭ | kedua
+Liaj ambaŭ manoj estis malpuraj. | Kedua tangannya kotor. | ambaŭ | Kedua
+Ni ambaŭ scias, ke tio ne estas vero. | Kita berdua tahu bahwa itu tidak benar. | ambaŭ | berdua
+Ŝi kisis ambaŭ infanojn antaŭ ol dormigi ilin. | Dia mencium kedua anak itu sebelum menidurkan mereka. | ambaŭ | kedua
+Hieraŭ ambaŭ landoj subskribis la interkonsenton. | Kemarin kedua negara menandatangani kesepakatan itu. | ambaŭ | kedua
+La instruisto donis al ambaŭ knabinoj la saman taskon. | Guru memberi kedua anak perempuan itu tugas yang sama. | ambaŭ | kedua
+Mi telefonis al ambaŭ miaj gepatroj hieraŭ vespere. | Saya menelepon kedua orang tua saya kemarin malam. | ambaŭ | kedua
+Mia onklo kaj mia onklino ambaŭ laboras en hospitalo. | Paman dan bibi saya berdua bekerja di rumah sakit. | ambaŭ | berdua
+Ŝi havas du katojn, kaj ŝi amas ambaŭ same multe. | Dia punya dua kucing, dan dia menyayangi keduanya sama banyak. | ambaŭ | keduanya
+La polico akuzis ambaŭ virojn pri la ŝtelo, sed ili neis. | Polisi menuduh kedua pria itu mencuri, tetapi mereka menyangkal. | ambaŭ | kedua
+Li staris inter ambaŭ pordoj kaj ne sciis, kiun malfermi. | Dia berdiri di antara kedua pintu itu dan tidak tahu mana yang harus dibuka. | ambaŭ | kedua
+#17 Kata Kerja Dasar -i (sidi, kuŝi)
+La kato sidas sur la tablo. | Kucing itu duduk di atas meja. | sidas | duduk
+La libro kuŝas sur la tablo. | Buku itu tergeletak di atas meja. | kuŝas | tergeletak
+Mi kuŝas en la lito kaj legas. | Saya berbaring di tempat tidur dan membaca. | kuŝas | berbaring
+Ni sidis apud la fenestro. | Kami duduk di dekat jendela. | sidis | duduk
+Ŝi sidas sola en la kafejo. | Dia duduk sendirian di kafe. | sidas | duduk
+Bonvolu sidi, la kuracisto venos tuj. | Silakan duduk, dokter akan segera datang. | sidi | duduk
+La hundo kuŝis antaŭ la pordo kaj atendis sian mastron. | Anjing itu berbaring di depan pintu dan menunggu tuannya. | kuŝis | berbaring
+Hieraŭ mi kuŝis malsana en la lito dum la tuta tago. | Kemarin saya terbaring sakit di tempat tidur seharian. | kuŝis | terbaring
+La instruisto sidis ĉe sia skribotablo kaj korektis la ekzamenojn. | Guru itu duduk di meja tulisnya dan memeriksa ujian. | sidis | duduk
+Sur la planko kuŝas multaj ludiloj, kaj mi ne povas trairi. | Di lantai banyak mainan tergeletak, dan saya tidak bisa lewat. | kuŝas | tergeletak
+La maljunulo ŝatas sidi sur la benko en la parko kaj rigardi la birdojn. | Orang tua itu suka duduk di bangku taman dan memandangi burung. | sidi | duduk
+Post la longa promenado ni kuŝis sur la herbo kaj rigardis la ĉielon. | Setelah jalan panjang kami berbaring di rumput dan memandangi langit. | kuŝis | berbaring
+Ĉiuj gastoj jam sidas ĉirkaŭ la tablo, kaj la manĝo povas komenciĝi. | Semua tamu sudah duduk mengelilingi meja, dan makan bisa dimulai. | sidas | duduk
+#18 Bentuk -ig-: Membuat (sidigi)
+Ŝi sidigis la infanon sur la seĝon. | Dia mendudukkan anak itu di kursi. | sidigis | mendudukkan
+Mi kuŝigis la bebon en la liton. | Saya membaringkan bayi itu di tempat tidur. | kuŝigis | membaringkan
+Ni starigis la tendon apud la rivero. | Kami mendirikan tenda di dekat sungai. | starigis | mendirikan
+La instruisto sidigis la studentojn laŭ alfabeta ordo. | Guru mendudukkan para siswa menurut urutan abjad. | sidigis | mendudukkan
+La flegistino kuŝigis la pacienton sur la liton. | Perawat membaringkan pasien itu di tempat tidur. | kuŝigis | membaringkan
+Bonvolu sidigi la gastojn ĉe la longa tablo. | Tolong dudukkan para tamu di meja panjang itu. | sidigi | dudukkan
+La patro kuŝigis la dormantan filon en la liton kaj ŝaltis la noktlampon. | Sang ayah membaringkan putranya yang tertidur di ranjang dan menyalakan lampu tidur. | kuŝigis | membaringkan
+Post la milito la loĝantoj starigis monumenton por memori la mortintojn. | Setelah perang penduduk mendirikan monumen untuk mengenang orang yang gugur. | starigis | mendirikan
+La policano sidigis la suspektaton en la aŭton kaj veturis al la stacidomo. | Polisi mendudukkan tersangka itu di mobil dan melaju ke kantor polisi. | sidigis | mendudukkan
+La kuracisto kuŝigis la vunditon sur la herbon kaj komencis kuraci lin. | Dokter membaringkan orang yang terluka itu di rumput dan mulai merawatnya. | kuŝigis | membaringkan
+Mi nur volis sidigi la knabon, sed li tuj ekstaris denove. | Saya hanya ingin mendudukkan anak laki-laki itu, tetapi dia langsung berdiri lagi. | sidigi | mendudukkan
+#19 Bentuk -iĝ-: Menjadi (sidiĝi)
+La knabo sidiĝis sur la seĝon. | Anak laki-laki itu duduk di kursi. | sidiĝis | duduk
+Ŝi kuŝiĝis sur la sofon por ripozi. | Dia berbaring di sofa untuk beristirahat. | kuŝiĝis | berbaring
+Ni stariĝis, kiam la instruisto eniris. | Kami berdiri ketika guru masuk. | stariĝis | berdiri
+Bonvolu sidiĝi, la kunveno tuj komenciĝos. | Silakan duduk, rapat akan segera dimulai. | sidiĝi | duduk
+La kato kuŝiĝis sur la varman tegmenton. | Kucing itu berbaring di atap yang hangat. | kuŝiĝis | berbaring
+Post la manĝo li sidiĝis antaŭ la televidilo. | Setelah makan dia duduk di depan televisi. | sidiĝis | duduk
+Mi tuj kuŝiĝis en la liton, ĉar mi estis tre laca. | Saya langsung berbaring di tempat tidur karena sangat lelah. | kuŝiĝis | berbaring
+La maljunulo malrapide stariĝis kaj iris al la fenestro. | Orang tua itu pelan-pelan berdiri dan berjalan ke jendela. | stariĝis | berdiri
+La gastoj sidiĝis ĉirkaŭ la tablo kaj komencis manĝi. | Para tamu duduk mengelilingi meja dan mulai makan. | sidiĝis | duduk
+Kiam la reĝino eniris la salonon, ĉiuj stariĝis. | Ketika sang ratu masuk ke aula, semua orang berdiri. | stariĝis | berdiri
+Ŝi laciĝis kaj kuŝiĝis sub la arbo por dormeti. | Dia menjadi lelah dan berbaring di bawah pohon untuk tidur sebentar. | kuŝiĝis | berbaring
+#20 Kalimat Bersyarat Faktual (se)
+Mi restas hejme, se pluvas. | Saya tinggal di rumah jika hujan. | se pluvas | jika
+Mi helpos vin, se vi telefonos al mi. | Saya akan membantumu jika kamu menelepon saya. | se vi | jika
+Ŝi ĉiam helpas, se oni petas ŝin. | Dia selalu membantu jika diminta. | se oni | jika
+Mi vokos vin, se mi bezonos helpon. | Saya akan memanggilmu jika saya butuh bantuan. | se mi | jika
+La infanoj ludas ekstere, se la suno brilas. | Anak-anak bermain di luar jika matahari bersinar. | se la | jika
+Li ricevos la premion, se li gajnos la konkurson. | Dia akan menerima hadiah jika dia memenangkan lomba. | se li | jika
+La trajno foriros sen ni, se ni ne hastos. | Kereta akan berangkat tanpa kita jika kita tidak bergegas. | se ni | jika
+La akvo bolas, se oni varmigas ĝin ĝis cent gradoj. | Air mendidih jika dipanaskan sampai seratus derajat. | se oni | jika
+Ni iros al la plaĝo morgaŭ, se la vetero estos bona. | Kita akan pergi ke pantai besok jika cuacanya baik. | se la | jika
+La vendisto reduktos la prezon, se vi aĉetos du pecojn. | Penjual akan menurunkan harga jika kamu membeli dua buah. | se vi | jika
+Vi povas veni al mia festo, se vi ne havas aliajn planojn. | Kamu boleh datang ke pestaku jika kamu tidak punya rencana lain. | se vi | jika
+Mi donos al vi mian malnovan biciklon, se vi promesos zorgi pri ĝi. | Saya akan memberimu sepeda lamaku jika kamu berjanji merawatnya. | se vi | jika
+La kompanio dungos novajn laboristojn, se la vendado plue kreskos. | Perusahaan akan mempekerjakan pekerja baru jika penjualan terus meningkat. | se la | jika
+La patro ĉiam diras, ke la infanoj ricevos deserton, se ili manĝos la tutan supon. | Sang ayah selalu berkata bahwa anak-anak akan mendapat hidangan penutup jika mereka menghabiskan semua supnya. | se ili | jika
+#21 Modus Kondisional (-us)
+Mi volus ankoraŭ unu glason da akvo. | Saya ingin satu gelas air lagi. | volus | ingin
+Ni ŝatus loĝi apud la maro. | Kami ingin tinggal di dekat laut. | ŝatus | ingin
+Ĉu vi povus helpi min? | Bisakah kamu membantu saya? | povus | Bisakah
+Mi preferus resti hejme hodiaŭ vespere. | Saya lebih suka tinggal di rumah malam ini. | preferus | lebih suka
+Mi ĝojus, se vi venus. | Saya akan senang jika kamu datang. | ĝojus | akan senang
+Mi ne farus tion, se mi estus vi. | Saya tidak akan melakukan itu jika saya jadi kamu. | farus | tidak akan melakukan
+Vi ne ridus, se vi scius la veron. | Kamu tidak akan tertawa jika kamu tahu yang sebenarnya. | ridus | tidak akan tertawa
+Mi aĉetus la domon, se mi havus sufiĉe da mono. | Saya akan membeli rumah itu jika punya cukup uang. | aĉetus | akan membeli
+Mi vojaĝus ĉirkaŭ la mondo, se mi estus riĉa. | Saya akan berkeliling dunia jika saya kaya. | vojaĝus | akan berkeliling
+Li dirus la veron, se oni demandus lin ĝentile. | Dia akan mengatakan yang sebenarnya jika ditanya dengan sopan. | dirus | akan mengatakan
+La infanoj ludus ekstere, se ne pluvus. | Anak-anak akan bermain di luar jika tidak hujan. | ludus | akan bermain
+Ŝi dankus vin, se vi helpus ŝin porti la valizojn. | Dia akan berterima kasih kepadamu jika kamu membantunya membawa koper. | dankus | akan berterima kasih
+Mi ŝatus scii, kiom kostus bileto al Londono. | Saya ingin tahu berapa kira-kira harga tiket ke London. | ŝatus | ingin
+#22 Kala Majemuk Kondisional
+Mi estus dormanta nun, se vi ne vokus min. | Saya akan sedang tidur sekarang jika kamu tidak memanggil saya. | estus dormanta | akan sedang tidur
+Ŝi estus laboranta ĉe la komputilo, se ŝi ne estus malsana. | Dia akan sedang bekerja di komputer jika dia tidak sakit. | estus laboranta | akan sedang bekerja
+La infanoj estus ludantaj en la ĝardeno nun, se ne pluvus. | Anak-anak akan sedang bermain di kebun sekarang jika tidak hujan. | estus ludantaj | akan sedang bermain
+Mi estus veninta pli frue, se mi scius pri la kunveno. | Saya akan sudah datang lebih awal jika saya tahu tentang rapat itu. | estus veninta | akan sudah datang
+Ni estus ripozantaj sur la plaĝo, se la vetero estus pli bona. | Kami akan sedang beristirahat di pantai jika cuacanya lebih baik. | estus ripozantaj | akan sedang beristirahat
+Ŝi estus manĝinta la tutan kukon, se ni ne estus haltigintaj ŝin. | Dia akan sudah memakan seluruh kue itu jika kami tidak menghentikannya. | estus manĝinta | akan sudah memakan
+Li estus aĉetinta la aŭton, se li havus sufiĉe da mono. | Dia akan sudah membeli mobil itu jika punya cukup uang. | estus aĉetinta | akan sudah membeli
+Mi estus sendonta la pakaĵon morgaŭ, sed la poŝtoficejo estas fermita. | Saya akan mengirim paket itu besok, tetapi kantor pos tutup. | estus sendonta | akan mengirim
+Ŝi estus vizitinta nin pli ofte, se ŝi loĝus pli proksime. | Dia akan lebih sering mengunjungi kami jika tinggal lebih dekat. | estus vizitinta | akan lebih sering mengunjungi
+La trajno estus foririnta jam antaŭ nia alveno, se ĝi ne estus malfruiĝinta. | Kereta itu akan sudah berangkat sebelum kedatangan kami jika tidak terlambat. | estus foririnta | akan sudah berangkat
+Ni estus finintaj la laboron hieraŭ, se la maŝino ne estus paneinta. | Kami akan sudah menyelesaikan pekerjaan kemarin jika mesin itu tidak rusak. | estus finintaj | akan sudah menyelesaikan
+#23 Syarat Kurang Nyata (Less Vivid)
+Se vi venus, mi ĝojus. | Seandainya kamu datang, saya akan senang. | ĝojus | akan senang
+Se mi havus tempon, mi helpus vin. | Seandainya saya punya waktu, saya akan membantumu. | helpus | akan membantumu
+Se ŝi scius la veron, ŝi ne ridus. | Seandainya dia tahu yang sebenarnya, dia tidak akan tertawa. | ridus | tidak akan tertawa
+Se la vetero estus bona, ni irus al la plaĝo. | Seandainya cuacanya baik, kami akan pergi ke pantai. | irus | akan pergi
+Se li lernus pli, li pasus la ekzamenon. | Seandainya dia belajar lebih banyak, dia akan lulus ujian. | pasus | akan lulus
+Se ni loĝus apud la maro, ni naĝus ĉiutage. | Seandainya kami tinggal dekat laut, kami akan berenang setiap hari. | naĝus | akan berenang
+Se mi estus pli juna, mi lernus la ĉinan lingvon. | Seandainya saya lebih muda, saya akan belajar bahasa Mandarin. | lernus | akan belajar
+Se vi petus lin ĝentile, li certe akceptus. | Seandainya kamu memintanya dengan sopan, dia pasti akan menerima. | akceptus | akan menerima
+Se mi gajnus multe da mono, mi aĉetus grandan domon. | Seandainya saya memenangkan banyak uang, saya akan membeli rumah besar. | aĉetus | akan membeli
+Se la prezoj ne altiĝus, pli da homoj ferius eksterlande. | Seandainya harga-harga tidak naik, lebih banyak orang akan berlibur ke luar negeri. | ferius | akan berlibur
+Se la lernejo estus pli proksima, la infanoj piediris tien. | Seandainya sekolah lebih dekat, anak-anak akan berjalan kaki ke sana. | piediris | akan berjalan kaki
+Se la registaro konstruus pli da bibliotekoj, la loĝantoj legus pli multe. | Seandainya pemerintah membangun lebih banyak perpustakaan, penduduk akan membaca lebih banyak. | legus | akan membaca
+#24 Kondisional Mandiri (Melunakkan)
+Mi ŝatus pagi. | Saya ingin membayar. | ŝatus | ingin
+Mi volus demandi vin ion. | Saya ingin menanyakan sesuatu kepadamu. | volus | ingin
+Ĉu vi povus fermi la fenestron? | Bisakah kamu menutup jendela? | povus | Bisakah
+Mi preferus teon anstataŭ kafo. | Saya lebih suka teh daripada kopi. | preferus | lebih suka
+Ĉu vi pardonus min pro la malfruo? | Maukah kamu memaafkan saya karena keterlambatan itu? | pardonus | Maukah
+Ni dankus vin pro via helpo. | Kami akan sangat berterima kasih atas bantuanmu. | dankus | akan sangat berterima kasih
+Ĉu vi havus iom da tempo por mi? | Apakah kiranya Anda punya sedikit waktu untukku? | havus | kiranya
+Ĉu vi scius, kie troviĝas la plej proksima apoteko? | Tahukah Anda di mana apotek terdekat berada? | scius | Tahukah
+Mi ja ŝatus helpi, sed mi ne havas tempon. | Saya sebenarnya ingin membantu, tetapi saya tidak punya waktu. | ŝatus | ingin
+Ĉu vi bonvolus montri al mi la vojon al la stacidomo? | Sudikah Anda menunjukkan jalan ke stasiun kepada saya? | bonvolus | Sudikah
+Ĉu vi dirus al mi, kiom kostas la bileto? | Bisakah Anda memberi tahu saya berapa harga tiketnya? | dirus | Bisakah
+Ĉu vi permesus al mi demandi pri via laboro? | Maukah Anda mengizinkan saya bertanya tentang pekerjaan Anda? | permesus | Maukah Anda mengizinkan
+#25 Awalan dis- (Terpisah)
+Li disdonis la librojn. | Dia membagikan buku-buku itu. | disdonis | membagikan
+La polico disigis la kolerajn homojn. | Polisi memisahkan orang-orang yang marah itu. | disigis | memisahkan
+La vento disblovis la foliojn. | Angin menyebarkan daun-daun itu ke segala arah. | disblovis | menyebarkan
+La infanoj dismetis siajn ludilojn sur la planko. | Anak-anak menyebar mainan mereka di lantai. | dismetis | menyebar
+La muroj disfalis post la terenmovo. | Dinding-dinding itu runtuh berantakan setelah gempa. | disfalis | runtuh berantakan
+Post la koncerto la spektantoj disiris al siaj hejmoj. | Setelah konser penonton bubar menuju rumah masing-masing. | disiris | bubar
+Ŝi dissendis la inviton al ĉiuj siaj amikoj. | Dia menyebarkan undangan itu kepada semua temannya. | dissendis | menyebarkan
+La infano disŝiris la leteron en malgrandajn pecojn. | Anak itu merobek-robek surat itu menjadi potongan kecil. | disŝiris | merobek-robek
+La novaĵo rapide disvastiĝis tra la tuta urbo. | Kabar itu cepat menyebar ke seluruh kota. | disvastiĝis | menyebar
+Post la vespermanĝo la familio disiĝis: ĉiu iris al sia ĉambro. | Setelah makan malam keluarga itu berpencar: setiap orang pergi ke kamarnya. | disiĝis | berpencar
+La profesoro disdonis la ekzamenajn foliojn kaj petis nin atendi. | Profesor membagikan lembar ujian dan meminta kami menunggu. | disdonis | membagikan
+Mia kato disŝiris la kusenon kaj la plumoj disflugis tra la tuta ĉambro. | Kucing saya mencabik bantal itu dan bulu-bulunya beterbangan ke seluruh kamar. | disŝiris | mencabik
+#26 Syarat Berlawanan dengan Fakta
+Se mi estus sciinta, mi estus veninta. | Seandainya saya tahu, saya sudah datang. | estus veninta | sudah datang
+Se vi estus vokinta min, mi estus helpinta vin. | Seandainya kamu memanggil saya, saya sudah membantumu. | estus helpinta | sudah membantumu
+Se la vetero estus pli bona, ni estus irintaj al la plaĝo. | Seandainya cuaca lebih baik, kami sudah pergi ke pantai. | estus irintaj | sudah pergi
+Se li estus lerninta pli, li estus pasinta la ekzamenon. | Seandainya dia belajar lebih banyak, dia sudah lulus ujian. | estus pasinta | sudah lulus
+Se mi estus havinta pli da mono, mi estus aĉetinta la domon. | Seandainya saya punya lebih banyak uang, saya sudah membeli rumah itu. | estus aĉetinta | sudah membeli
+Se ni estus ekirintaj pli frue, ni estus atinginta la trajnon. | Seandainya kami berangkat lebih awal, kami sudah mengejar kereta itu. | estus atinginta | sudah mengejar
+Se la polico estus alveninta pli frue, la ŝtelisto estus kaptita. | Seandainya polisi tiba lebih awal, pencuri itu sudah tertangkap. | estus kaptita | sudah tertangkap
+Se vi estus dirinta la veron, mi estus pardoninta vin. | Seandainya kamu mengatakan yang sebenarnya, saya sudah memaafkanmu. | estus pardoninta | sudah memaafkan
+Se ŝi estus aŭskultinta min, ŝi estus evitinta la eraron. | Seandainya dia mendengarkan saya, dia sudah menghindari kesalahan itu. | estus evitinta | sudah menghindari
+Se ŝi ne estus perdinta sian poŝtelefonon, ŝi estus ricevinta mian mesaĝon. | Seandainya dia tidak kehilangan ponselnya, dia sudah menerima pesan saya. | estus ricevinta | sudah menerima
+Se mi estus naskiĝinta en alia lando, mi estus lerninta alian lingvon en la infaneco. | Seandainya saya lahir di negara lain, saya sudah belajar bahasa lain sejak kecil. | estus lerninta | sudah belajar
+Se la inĝeniero estus zorge kontrolinta la ponton, la akcidento neniam estus okazinta. | Seandainya insinyur memeriksa jembatan dengan cermat, kecelakaan itu tidak akan pernah terjadi. | estus okazinta | tidak akan pernah terjadi
+#27 Kata Kerja devi (harus)
+Mi devas labori hodiaŭ. | Saya harus bekerja hari ini. | devas | harus
+Ni devas iri nun. | Kita harus pergi sekarang. | devas | harus
+Vi devas trinki pli da akvo. | Kamu harus minum lebih banyak air. | devas | harus
+Ŝi devis resti hejme pro la malsano. | Dia harus tinggal di rumah karena sakit. | devis | harus
+Mi devos ellitiĝi frue morgaŭ. | Saya harus bangun pagi besok. | devos | harus
+La studentoj devas fini la taskon ĝis vendredo. | Para siswa harus menyelesaikan tugas itu sampai Jumat. | devas | harus
+Li devis vendi sian aŭton por pagi la ŝuldojn. | Dia harus menjual mobilnya untuk membayar utang. | devis | harus
+Vi ne devas respondi tuj; vi povas pensi pri la demando. | Kamu tidak harus menjawab sekarang; kamu bisa memikirkan pertanyaan itu. | devas | tidak harus
+Oni devas respekti la leĝojn de la lando, kie oni vivas. | Orang harus menghormati hukum negara tempat ia tinggal. | devas | harus
+Se vi volas lerni lingvon, vi devas ekzerci vin ĉiutage. | Jika kamu ingin belajar bahasa, kamu harus berlatih setiap hari. | devas | harus
+La kuracisto diris, ke mi devus manĝi malpli da sukero. | Dokter berkata bahwa sebaiknya saya makan lebih sedikit gula. | devus | sebaiknya
+Post la akcidento la ŝoforo devis pagi grandan monpunon. | Setelah kecelakaan itu sopirnya harus membayar denda besar. | devis | harus
+Ĉiu civitano devas voĉdoni libere, sen timo kaj sen premo. | Setiap warga negara harus memilih dengan bebas, tanpa rasa takut dan tanpa tekanan. | devas | harus
+#28 Preposisi sen (Tanpa)
+Mi trinkas kafon sen sukero. | Saya minum kopi tanpa gula. | sen sukero | tanpa
+Ŝi eliris sen ombrelo. | Dia keluar tanpa payung. | sen ombrelo | tanpa
+Ni vojaĝis sen mapo. | Kami bepergian tanpa peta. | sen mapo | tanpa
+Li forlasis la ĉambron sen vorto. | Dia meninggalkan kamar tanpa sepatah kata. | sen vorto | tanpa
+Li venis al la kunveno sen invito. | Dia datang ke rapat tanpa undangan. | sen invito | tanpa
+Li laboris sen ripozo ekde la mateno. | Dia bekerja tanpa istirahat sejak pagi. | sen ripozo | tanpa
+La infano ne povas dormi sen sia ursaĉo. | Anak itu tidak bisa tidur tanpa boneka beruangnya. | sen sia | tanpa
+Mi ne povas imagi mian vivon sen muziko. | Saya tidak bisa membayangkan hidup saya tanpa musik. | sen muziko | tanpa
+La kuracisto operaciis la pacienton sen anestezo. | Dokter mengoperasi pasien itu tanpa bius. | sen anestezo | tanpa
+Ŝi respondis sen heziti, kvazaŭ ŝi jam konus la demandon. | Dia menjawab tanpa ragu, seolah-olah dia sudah tahu pertanyaan itu. | sen heziti | tanpa
+La ŝtelisto eniris la domon sen fari ian bruon. | Pencuri itu masuk ke rumah tanpa membuat suara apa pun. | sen fari | tanpa
+Mi neniam estus atinginta mian celon sen via helpo. | Saya tidak akan pernah mencapai tujuan saya tanpa bantuanmu. | sen via | tanpa
+La vilaĝo restis sen elektro dum tri tagoj post la ŝtormo. | Desa itu tetap tanpa listrik selama tiga hari setelah badai. | sen elektro | tanpa
+#29 Ringkasan Tiga Jenis Syarat
+Mi restas en la lito, se pluvas matene. | Saya tetap di tempat tidur jika hujan di pagi hari. | se pluvas | jika
+Mi restus en la lito, se pluvus matene. | Saya akan tetap di tempat tidur seandainya hujan di pagi hari. | se pluvus | seandainya
+Mi estus restinta en la lito, se estus pluvinta matene. | Saya sudah tetap di tempat tidur seandainya pagi tadi hujan. | se estus pluvinta | seandainya
+Ni manĝas ekstere, se la suno brilas. | Kami makan di luar jika matahari bersinar. | se la suno | jika
+Ni manĝus ekstere, se la suno brilus. | Kami akan makan di luar seandainya matahari bersinar. | se la suno | seandainya
+Ni estus manĝintaj ekstere, se la suno estus brilinta. | Kami sudah makan di luar seandainya matahari bersinar. | se la suno | seandainya
+La kato eliros, se vi ne fermos la fenestron. | Kucing itu akan keluar jika kamu tidak menutup jendela. | se vi | jika
+Kion vi farus, se vi gajnus milionon? | Apa yang akan kamu lakukan seandainya kamu menang sejuta? | se vi | seandainya
+Mi aĉetos la biciklon, se ĝi ne kostos tro multe. | Saya akan membeli sepeda itu jika harganya tidak terlalu mahal. | se ĝi | jika
+Mi aĉetus la biciklon, se ĝi ne kostus tro multe. | Saya akan membeli sepeda itu seandainya harganya tidak terlalu mahal. | se ĝi | seandainya
+Mi estus aĉetinta la biciklon, se ĝi ne estus kostinta tro multe. | Saya sudah membeli sepeda itu seandainya harganya tidak terlalu mahal. | se ĝi | seandainya
+#30 Perbandingan Khayalan kvazaŭ
+Li agas kvazaŭ li scius ĉion. | Dia bertingkah seolah-olah dia tahu segalanya. | kvazaŭ | seolah-olah
+Ŝi ridetis kvazaŭ nenio okazus. | Dia tersenyum seolah-olah tidak terjadi apa-apa. | kvazaŭ | seolah-olah
+Li parolas kvazaŭ li estus la estro. | Dia berbicara seolah-olah dia adalah bosnya. | kvazaŭ | seolah-olah
+Ŝi rigardis min kvazaŭ ŝi ne konus min. | Dia menatap saya seolah-olah dia tidak mengenal saya. | kvazaŭ | seolah-olah
+Li kriis kvazaŭ li freneziĝus. | Dia berteriak seolah-olah dia menjadi gila. | kvazaŭ | seolah-olah
+La infano kuris kvazaŭ lupo persekutus ĝin. | Anak itu berlari seolah-olah ada serigala mengejarnya. | kvazaŭ | seolah-olah
+La ĉambro odoras kvazaŭ iu fumus ĉi tie. | Ruangan ini berbau seolah-olah ada yang merokok di sini. | kvazaŭ | seolah-olah
+Vi aspektas kvazaŭ vi ne dormis la tutan nokton. | Kamu tampak seolah-olah tidak tidur sepanjang malam. | kvazaŭ | seolah-olah
+La knabo prezentis sin kvazaŭ li estus eksterlanda princo. | Anak laki-laki itu memperkenalkan diri seolah-olah dia pangeran asing. | kvazaŭ | seolah-olah
+Ŝi kantis tiel bele, kvazaŭ ŝi naskiĝus por la scenejo. | Dia bernyanyi begitu indah seolah-olah dia dilahirkan untuk panggung. | kvazaŭ | seolah-olah
+Mi sentas min kvazaŭ mi revus, ĉar ĉio ŝajnas tiel nereala. | Saya merasa seolah-olah saya bermimpi, karena segalanya tampak begitu tidak nyata. | kvazaŭ | seolah-olah
+Li traktas siajn laboristojn kvazaŭ ili ne estus homoj, sed maŝinoj. | Dia memperlakukan para pekerjanya seolah-olah mereka bukan manusia, melainkan mesin. | kvazaŭ | seolah-olah
+#31 al untuk Pihak yang Berkepentingan
+Mi aĉetis al mi novan ĉapelon. | Saya membeli topi baru untuk diri saya. | al mi | untuk diri saya
+Ŝi kudris al si novan robon. | Dia menjahit gaun baru untuk dirinya. | al si | untuk dirinya
+Li faris al si kafon. | Dia membuat kopi untuk dirinya sendiri. | al si | untuk dirinya sendiri
+La infano rompis al si la brakon. | Anak itu mematahkan lengannya sendiri. | al si | sendiri
+Li tranĉis al si la fingron per la tranĉilo. | Dia memotong jarinya sendiri dengan pisau. | al si | sendiri
+Mi esperas, ke vi trovos al vi bonan laboron. | Saya berharap kamu menemukan pekerjaan yang baik untuk dirimu. | al vi | untuk dirimu
+Ni konstruis al ni malgrandan domon apud la maro. | Kami membangun sebuah rumah kecil untuk diri kami di dekat laut. | al ni | untuk diri kami
+Kiam mi estas laca, mi preparas al mi varman teon. | Ketika lelah, saya membuatkan teh hangat untuk diri saya. | al mi | untuk diri saya
+Ŝi volis aĉeti al si libron, sed la vendejo estis fermita. | Dia ingin membeli buku untuk dirinya, tetapi toko itu tutup. | al si | untuk dirinya
+Ĉu vi jam elektis al vi universitaton por la venonta jaro? | Apakah kamu sudah memilih universitas untuk dirimu tahun depan? | al vi | untuk dirimu
+La reĝo konstruigis al si grandiozan palacon sur la monto. | Sang raja membangun istana megah untuk dirinya di atas gunung. | al si | untuk dirinya
+Post la longa laboro li permesis al si kelkajn tagojn da ripozo. | Setelah bekerja lama dia mengizinkan dirinya beberapa hari istirahat. | al si | dirinya
+#32 Akhiran -estr- (Kepala/Pemimpin)
+Mia patro estas lernejestro. | Ayah saya adalah kepala sekolah. | lernejestro | kepala sekolah
+La urbestro malfermis la novan ponton. | Wali kota meresmikan jembatan baru itu. | urbestro | Wali kota
+La vilaĝestro salutis nin ĉe la pordo. | Kepala desa menyambut kami di pintu. | vilaĝestro | Kepala desa
+La ŝipestro ordonis levi la ankron. | Kapten kapal memerintahkan mengangkat jangkar. | ŝipestro | Kapten kapal
+La policestro petis la civitanojn resti trankvilaj. | Kepala polisi meminta warga tetap tenang. | policestro | Kepala polisi
+La ŝtatestro vizitos nian landon la venontan monaton. | Kepala negara akan mengunjungi negara kita bulan depan. | ŝtatestro | Kepala negara
+La staciestro anoncis, ke la trajno malfruos. | Kepala stasiun mengumumkan bahwa kereta akan terlambat. | staciestro | Kepala stasiun
+La bankestro rifuzis doni al ni prunton. | Kepala bank menolak memberi kami pinjaman. | bankestro | Kepala bank
+En nia kompanio la projektestro respondecas pri la tuta teamo. | Di perusahaan kami kepala proyek bertanggung jawab atas seluruh tim. | projektestro | kepala proyek
+La departementestro kunvokis la tutan personaron por urĝa kunsido. | Kepala departemen mengumpulkan seluruh staf untuk rapat mendesak. | departementestro | Kepala departemen
+La domestro volas vendi la domon kaj translokiĝi al la kamparo. | Kepala keluarga ingin menjual rumah dan pindah ke desa. | domestro | Kepala keluarga

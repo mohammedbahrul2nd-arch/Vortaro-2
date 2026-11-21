@@ -1,0 +1,1080 @@
+#0 Kata Sifat Tanya kia
+Kia vetero estas hodiaŭ? | Cuaca seperti apa hari ini? | Kia | seperti apa
+Kia domo estas tio? | Itu rumah macam apa? | Kia | macam apa
+Kia estis la ekzameno? | Seperti apa ujian itu? | Kia | Seperti apa
+Kian panon vi preferas? | Roti jenis apa yang kamu sukai? | Kian | jenis apa
+Kian muzikon vi ŝatas? | Musik jenis apa yang kamu suka? | Kian | jenis apa
+Kia restoracio estas tiu? | Restoran seperti apa itu? | Kia | seperti apa
+Kian filmon vi volas rigardi? | Film jenis apa yang ingin kamu tonton? | Kian | jenis apa
+Kia homo estas via nova najbaro? | Orang seperti apa tetangga barumu? | Kia | seperti apa
+Kia estas la vivo en via urbo? | Seperti apa kehidupan di kotamu? | Kia | Seperti apa
+Kian trinkaĵon vi ŝatus? | Minuman jenis apa yang kamu inginkan? | Kian | jenis apa
+Mi ne scias, kia vetero estos morgaŭ. | Saya tidak tahu cuaca seperti apa besok. | kia | seperti apa
+Kiajn librojn vi legas en la libera tempo? | Buku jenis apa yang kamu baca di waktu luang? | Kiajn | jenis apa
+Kian donacon vi aĉetis por via patrino? | Hadiah jenis apa yang kamu beli untuk ibumu? | Kian | jenis apa
+#1 Kala Imperfek (estis + -anta)
+Mi estis dormanta, kiam vi venis. | Saya sedang tidur (waktu itu) ketika kamu datang. | estis dormanta | sedang tidur
+Ŝi estis kuiranta, kiam la telefono sonoris. | Dia sedang memasak (waktu itu) ketika telepon berdering. | estis kuiranta | sedang memasak
+Li estis atendanta la trajnon. | Dia sedang menunggu kereta (waktu itu). | estis atendanta | sedang menunggu
+Ni estis promenantaj en la parko. | Kami sedang berjalan-jalan di taman (waktu itu). | estis promenantaj | sedang berjalan-jalan
+La infanoj estis ludantaj ekstere. | Anak-anak sedang bermain di luar (waktu itu). | estis ludantaj | sedang bermain
+Mi estis parolanta kun mia patrino. | Saya sedang berbicara dengan ibu saya (waktu itu). | estis parolanta | sedang berbicara
+Ŝi estis skribanta leteron al sia fratino. | Dia sedang menulis surat kepada saudarinya (waktu itu). | estis skribanta | sedang menulis
+La studentoj estis aŭskultantaj la instruiston. | Para mahasiswa sedang mendengarkan guru (waktu itu). | estis aŭskultantaj | sedang mendengarkan
+La neĝo estis falanta, kiam ni alvenis. | Salju sedang turun (waktu itu) ketika kami tiba. | estis falanta | sedang turun
+Mia avo estis rakontanta historion al la infanoj. | Kakek saya sedang menceritakan kisah kepada anak-anak (waktu itu). | estis rakontanta | sedang menceritakan
+Li estis veturanta al la laboro, kiam la aŭto haltis. | Dia sedang berkendara ke tempat kerja (waktu itu) ketika mobil berhenti. | estis veturanta | sedang berkendara
+Mi estis rigardanta televidon, kiam mia amiko telefonis. | Saya sedang menonton televisi (waktu itu) ketika teman saya menelepon. | estis rigardanta | sedang menonton
+#2 Kala Depan Progresif (estos + -anta)
+Morgaŭ mi estos laboranta. | Besok saya akan sedang bekerja. | estos laboranta | akan sedang bekerja
+Je la oka mi estos dormanta. | Pukul delapan saya akan sedang tidur. | estos dormanta | akan sedang tidur
+Ne telefonu al mi, mi estos veturanta. | Jangan telepon saya, saya akan sedang berkendara. | estos veturanta | akan sedang berkendara
+Ŝi estos atendanta vin ĉe la stacidomo. | Dia akan sedang menunggumu di stasiun. | estos atendanta | akan sedang menunggu
+Kiam vi alvenos, mi estos kuiranta. | Ketika kamu tiba, saya akan sedang memasak. | estos kuiranta | akan sedang memasak
+La infanoj estos ludantaj en la ĝardeno. | Anak-anak akan sedang bermain di kebun. | estos ludantaj | akan sedang bermain
+Dum la ekzameno vi estos skribanta. | Selama ujian kamu akan sedang menulis. | estos skribanta | akan sedang menulis
+Je la dua mi estos parolanta kun la kuracisto. | Pukul dua saya akan sedang berbicara dengan dokter. | estos parolanta | akan sedang berbicara
+Post unu horo ni estos manĝantaj en la restoracio. | Satu jam lagi kami akan sedang makan di restoran. | estos manĝantaj | akan sedang makan
+Mia patro estos rigardanta futbalon vespere. | Ayah saya akan sedang menonton sepak bola malam nanti. | estos rigardanta | akan sedang menonton
+La gastoj estos dancantaj ĝis la mateno. | Para tamu akan sedang menari sampai pagi. | estos dancantaj | akan sedang menari
+Ni estos vojaĝantaj al Berlino morgaŭ vespere. | Kami akan sedang bepergian ke Berlin besok malam. | estos vojaĝantaj | akan sedang bepergian
+Venontan someron mi estos ripozanta ĉe la maro. | Musim panas depan saya akan sedang beristirahat di pantai. | estos ripozanta | akan sedang beristirahat
+#3 Salam dengan Akusatif (Bonan matenon!)
+Bonan tagon! | Selamat siang! | Bonan tagon | Selamat siang
+Bonan matenon! | Selamat pagi! | Bonan matenon | Selamat pagi
+Bonan vesperon! | Selamat sore! | Bonan vesperon | Selamat sore
+Bonan nokton! | Selamat malam! | Bonan nokton | Selamat malam
+Bonan apetiton! | Selamat makan! | Bonan apetiton | Selamat makan
+Bonan vojaĝon! | Selamat jalan! | Bonan vojaĝon | Selamat jalan
+Bonan sorton! | Semoga beruntung! | Bonan sorton | beruntung
+Dolĉajn sonĝojn! | Mimpi indah! | Dolĉajn sonĝojn | Mimpi indah
+Feliĉan novan jaron! | Selamat tahun baru! | Feliĉan novan jaron | Selamat tahun baru
+Feliĉan naskiĝtagon! | Selamat ulang tahun! | Feliĉan naskiĝtagon | Selamat ulang tahun
+Bonajn feriojn! | Selamat berlibur! | Bonajn feriojn | Selamat berlibur
+Ĝojan Kristnaskon! | Selamat Natal! | Ĝojan Kristnaskon | Selamat Natal
+Bonan matenon, kara amiko! | Selamat pagi, teman terkasih! | Bonan matenon | Selamat pagi
+Mi deziras al vi bonan vojaĝon. | Saya mengharapkan perjalanan yang menyenangkan untukmu. | bonan vojaĝon | perjalanan yang menyenangkan
+#4 Seruan dengan Akusatif (Dankon!)
+Dankon! | Terima kasih! | Dankon | Terima kasih
+Helpon! | Tolong! | Helpon | Tolong
+Atenton! | Awas! | Atenton | Awas
+Pardonon! | Maaf! | Pardonon | Maaf
+Bonvenon! | Selamat datang! | Bonvenon | Selamat datang
+Gratulon! | Selamat! | Gratulon | Selamat
+Silenton! | Tenang! | Silenton | Tenang
+Mil dankojn! | Seribu terima kasih! | dankojn | terima kasih
+Multan dankon! | Terima kasih banyak! | dankon | Terima kasih
+Koran dankon! | Terima kasih dari hati! | dankon | Terima kasih
+Ĉion bonan! | Semua yang terbaik! | Ĉion bonan | Semua yang terbaik
+Atenton, la pordo fermiĝas! | Awas, pintu menutup! | Atenton | Awas
+Bonvenon en nian urbon! | Selamat datang di kota kami! | Bonvenon | Selamat datang
+Dankon pro la helpo! | Terima kasih atas bantuannya! | Dankon | Terima kasih
+#5 Pembentukan Kata dari Akar
+La suno brilas. | Matahari bersinar. | brilas | bersinar
+Mi vidas brilon en la okuloj de la infano. | Saya melihat kilau di mata anak itu. | brilon | kilau
+La brila luno staras super la monto. | Bulan yang cemerlang berdiri di atas gunung. | brila | cemerlang
+Ŝi ĝojas pro la donaco. | Dia senang karena hadiah itu. | ĝojas | senang
+Ĝojo plenigis la ĉambron. | Kegembiraan memenuhi ruangan. | Ĝojo | Kegembiraan
+La ĝoja knabino kantas en la ĝardeno. | Gadis yang gembira bernyanyi di kebun. | ĝoja | gembira
+La infanoj ridis ĝoje. | Anak-anak tertawa dengan gembira. | ĝoje | dengan gembira
+Mia patro laboras en la urbo. | Ayah saya bekerja di kota. | laboras | bekerja
+La laboro estas malfacila, sed interesa. | Pekerjaan itu sulit tetapi menarik. | laboro | Pekerjaan
+La labora tago finiĝis. | Hari kerja telah berakhir. | labora | kerja
+Li laboris diligente. | Dia bekerja dengan rajin. | diligente | dengan rajin
+Ni dankas vin pro la helpo. | Kami berterima kasih kepadamu atas bantuan itu. | dankas | berterima kasih
+Mi sendis al vi grandan dankon. | Saya mengirimkan terima kasih yang besar kepadamu. | dankon | terima kasih
+La danka letero venis hieraŭ. | Surat terima kasih datang kemarin. | danka | terima kasih
+#6 koni (kenal)
+Mi konas lin. | Saya kenal dia. | konas | kenal
+Ĉu vi konas tiun personon? | Apakah kamu kenal orang itu? | konas | kenal
+Mi ne konas la urbon. | Saya tidak kenal kota itu. | konas | kenal
+Mi konas lian fratinon. | Saya kenal adik perempuannya. | konas | kenal
+Estas plezuro koni vin. | Senang berkenalan denganmu. | koni | berkenalan
+Mi konis lin, kiam mi estis infano. | Saya kenal dia ketika saya masih kecil. | konis | kenal
+Ŝi konas ĉiujn en la lernejo. | Dia kenal semua orang di sekolah. | konas | kenal
+Mi volas koni viajn gepatrojn. | Saya ingin mengenal orang tuamu. | koni | mengenal
+Mi konas ŝin de la infanaĝo. | Saya mengenalnya sejak kecil. | konas | mengenal
+Ĉu vi jam konas mian amikon Petro? | Apakah kamu sudah kenal temanku Petro? | konas | kenal
+Li konas multajn homojn en la ĉefurbo. | Dia kenal banyak orang di ibu kota. | konas | kenal
+Ni konos unu la alian pli bone. | Kami akan saling mengenal lebih baik. | konos | mengenal
+Ĉu vi konas bonan restoracion ĉi tie? | Apakah kamu kenal restoran bagus di sini? | konas | kenal
+Mi ŝatus koni la historion de via urbo. | Saya ingin mengenal sejarah kotamu. | koni | mengenal
+#7 scii (tahu)
+Mi ne scias. | Saya tidak tahu. | scias | tahu
+Ĉu vi scias la respondon? | Apakah kamu tahu jawabannya? | scias | tahu
+Mi scias, ke li estas nia najbaro. | Saya tahu bahwa dia tetangga kami. | scias | tahu
+Mi sciis, ke vi venos. | Saya tahu bahwa kamu akan datang. | sciis | tahu
+Mia filo jam scias legi. | Anak saya sudah tahu cara membaca. | scias | tahu
+Ŝi volas scii la veron. | Dia ingin tahu kebenaran. | scii | tahu
+Mi ne scias, kie li loĝas. | Saya tidak tahu di mana dia tinggal. | scias | tahu
+Ŝi ne scias, ĉu li venos. | Dia tidak tahu apakah dia akan datang. | scias | tahu
+Mi ne sciis, ke vi estas kuracisto. | Saya tidak tahu bahwa kamu seorang dokter. | sciis | tahu
+Ĉu vi scias, kiu venos morgaŭ? | Apakah kamu tahu siapa yang akan datang besok? | scias | tahu
+Ĉu vi scias, kiam la trajno foriras? | Apakah kamu tahu kapan kereta berangkat? | scias | tahu
+Mi ŝatus scii, kiom kostas tio. | Saya ingin tahu berapa harganya. | scii | tahu
+Neniu scias, kie la ŝlosilo estas. | Tidak ada yang tahu di mana kuncinya. | scias | tahu
+Li scias multe pri la historio de Eŭropo. | Dia tahu banyak tentang sejarah Eropa. | scias | tahu
+Ni scias, ke la lernejo estas fermita hodiaŭ. | Kami tahu bahwa sekolah ditutup hari ini. | scias | tahu
+#8 Adverbia Tanya Tempat kie / kien
+Kie vi loĝas? | Di mana kamu tinggal? | Kie | Di mana
+Kien vi iras? | Ke mana kamu pergi? | Kien | Ke mana
+Kie estas la libro? | Di mana buku itu? | Kie | Di mana
+Kien ni veturos morgaŭ? | Ke mana kita akan berkendara besok? | Kien | Ke mana
+Kie vi aĉetis tiun ĉapelon? | Di mana kamu membeli topi itu? | Kie | Di mana
+Kien la infanoj kuris? | Ke mana anak-anak berlari? | Kien | Ke mana
+Kie mia telefono nun estas? | Di mana ponselku sekarang? | Kie | Di mana
+Kien vi volas iri dum la ferio? | Ke mana kamu ingin pergi saat liburan? | Kien | Ke mana
+Mi ne scias, kie li laboras. | Saya tidak tahu di mana dia bekerja. | kie | di mana
+Diru al mi, kien vi metis la ŝlosilon. | Katakan padaku ke mana kamu menaruh kunci itu. | kien | ke mana
+Kie en la urbo troviĝas bona restoracio? | Di mana di kota ada restoran yang bagus? | Kie | Di mana
+Kien ni iru, se pluvos hodiaŭ vespere? | Ke mana kita harus pergi kalau hujan malam ini? | Kien | Ke mana
+Ŝi demandis min, kie mi lernis Esperanton. | Dia bertanya kepadaku di mana aku belajar Esperanto. | kie | di mana
+Kie vi estis hieraŭ vespere, kaj kien vi iris poste? | Di mana kamu kemarin malam, dan ke mana kamu pergi sesudahnya? | kien | ke mana
+Kie la vojo komenciĝas, kaj kien ĝi kondukas? | Di mana jalan itu mulai, dan ke mana jalan itu menuju? | kien | ke mana
+#9 Partisip Aktif Lampau -inta
+La falinta folio estas bruna. | Daun yang telah jatuh itu cokelat. | falinta | yang telah jatuh
+Mi vidis la foririntan trajnon. | Saya melihat kereta yang telah berangkat. | foririntan | yang telah berangkat
+La alvenintaj gastoj sidas ĉe la tablo. | Para tamu yang telah tiba duduk di meja. | alvenintaj | yang telah tiba
+La dormintaj infanoj ne aŭdis la bruon. | Anak-anak yang sudah tidur tidak mendengar kebisingan itu. | dormintaj | yang sudah tidur
+La ŝtelinta knabo kaŝis sin malantaŭ la domo. | Anak laki-laki yang telah mencuri itu bersembunyi di belakang rumah. | ŝtelinta | yang telah mencuri
+La finintaj studentoj ricevis diplomon. | Para mahasiswa yang telah selesai menerima ijazah. | finintaj | yang telah selesai
+Mi renkontis la edziĝintan fraton de mia amiko. | Saya bertemu saudara teman saya yang telah menikah. | edziĝintan | yang telah menikah
+La mortinta reĝo estis tre amata de la popolo. | Raja yang telah wafat itu sangat dicintai rakyat. | mortinta | yang telah wafat
+La venkinta teamo festis ĝis la mateno. | Tim yang telah menang merayakan sampai pagi. | venkinta | yang telah menang
+Ni helpis la perdiĝintan turiston trovi la hotelon. | Kami membantu turis yang telah tersesat menemukan hotel. | perdiĝintan | yang telah tersesat
+La nove alveninta instruisto jam konas ĉiujn studentojn. | Guru yang baru tiba itu sudah mengenal semua mahasiswa. | alveninta | yang baru tiba
+La rompiĝinta vazo restis sur la planko tutan tagon. | Vas yang telah pecah tetap berada di lantai sepanjang hari. | rompiĝinta | yang telah pecah
+Mi dankis la helpintan viron antaŭ ol foriri. | Saya berterima kasih kepada pria yang telah membantu sebelum pergi. | helpintan | yang telah membantu
+La homoj, loĝintaj ĉi tie dum jaroj, konas ĉiun straton. | Orang-orang yang telah tinggal di sini bertahun-tahun mengenal setiap jalan. | loĝintaj | yang telah tinggal
+La viro, laborinta en la fabriko dum tridek jaroj, nun ripozas hejme. | Pria yang telah bekerja di pabrik selama tiga puluh tahun kini beristirahat di rumah. | laborinta | yang telah bekerja
+#10 Adverbia dari Preposisi (-e)
+Li estas ekstere. | Dia ada di luar. | ekstere | di luar
+Ŝi sidas apude. | Dia duduk di dekatnya. | apude | di dekatnya
+Mi venos poste. | Saya akan datang nanti. | poste | nanti
+La kato dormas sube. | Kucing itu tidur di bawah. | sube | di bawah
+Ni manĝis antaŭe. | Kami sudah makan sebelumnya. | antaŭe | sebelumnya
+La infanoj ludas interne. | Anak-anak bermain di dalam. | interne | di dalam
+Kiu loĝas supre? | Siapa yang tinggal di atas? | supre | di atas
+Li staris malantaŭe kaj rigardis. | Dia berdiri di belakang dan melihat. | malantaŭe | di belakang
+La domo havas ĝardenon ĉirkaŭe. | Rumah itu punya kebun di sekelilingnya. | ĉirkaŭe | di sekelilingnya
+Antaŭe mi loĝis en Berlino, kaj nun mi loĝas en Parizo. | Dahulu saya tinggal di Berlin, dan sekarang saya tinggal di Paris. | Antaŭe | Dahulu
+Mi ne ŝatas tiun veston, kaj krome ĝi estas tro multekosta. | Saya tidak suka baju itu, dan lagi pula terlalu mahal. | krome | lagi pula
+Post la manĝo ni iris hejmen, kaj poste ni ripozis. | Setelah makan kami pulang, dan sesudahnya kami beristirahat. | poste | sesudahnya
+La biblioteko estas apude, do vi povas iri piede. | Perpustakaan ada di dekat sini, jadi kamu bisa berjalan kaki. | apude | di dekat sini
+Dum la pluvo ni restis interne, sed la hundo volis esti ekstere. | Selama hujan kami tinggal di dalam, tetapi anjing itu ingin berada di luar. | ekstere | di luar
+La knaboj kuris antaŭe, kaj la plenkreskuloj sekvis malantaŭe. | Anak-anak lelaki berlari di depan, dan orang dewasa mengikuti di belakang. | malantaŭe | di belakang
+#11 Adverbia Arah dengan -n
+Ni iras hejmen. | Kami pulang ke rumah. | hejmen | ke rumah
+Ŝi rigardis supren. | Dia melihat ke atas. | supren | ke atas
+La birdo flugis norden. | Burung itu terbang ke utara. | norden | ke utara
+Li kuris antaŭen. | Dia berlari ke depan. | antaŭen | ke depan
+Ni veturis suden dum du tagoj. | Kami berkendara ke selatan selama dua hari. | suden | ke selatan
+La trajno iras orienten. | Kereta itu pergi ke timur. | orienten | ke timur
+Paŝu malantaŭen, mi petas. | Melangkahlah ke belakang, silakan. | malantaŭen | ke belakang
+Li rigardis malsupren kaj vidis ŝlosilon. | Dia melihat ke bawah dan melihat sebuah kunci. | malsupren | ke bawah
+La ŝipo veturis okcidenten sub forta vento. | Kapal itu berlayar ke barat di bawah angin kencang. | okcidenten | ke barat
+Post la laboro mi tuj iras hejmen. | Setelah bekerja saya langsung pulang ke rumah. | hejmen | ke rumah
+La infanoj kuris eksteren por ludi en la neĝo. | Anak-anak berlari ke luar untuk bermain di salju. | eksteren | ke luar
+Ŝi ŝovis la tablon flanken por fari lokon. | Dia menggeser meja ke samping untuk memberi ruang. | flanken | ke samping
+Kiam ni alvenis, ili jam iris internen. | Ketika kami tiba, mereka sudah masuk ke dalam. | internen | ke dalam
+Li rajdis norden, kaj poste li devis reiri suden. | Dia berkuda ke utara, lalu harus kembali ke selatan. | norden | ke utara
+Antaŭ la ŝtormo la birdoj flugis suden, kaj ni iris hejmen. | Sebelum badai burung-burung terbang ke selatan, dan kami pulang ke rumah. | suden | ke selatan
+#12 Akhiran -eg- (Penguat)
+Tiu domego estas tre malnova. | Rumah besar itu sangat tua. | domego | Rumah besar
+Estas ventego ekstere. | Ada angin ribut di luar. | ventego | angin ribut
+Hodiaŭ estas varmega. | Hari ini panas sekali. | varmega | panas sekali
+La filmo estis belega. | Filmnya indah sekali. | belega | indah sekali
+Post la longa vojaĝo mi estas lacega. | Setelah perjalanan panjang saya capek sekali. | lacega | capek sekali
+Ni devas transiri la riveregon per ponto. | Kami harus menyeberangi sungai besar itu dengan jembatan. | riveregon | sungai besar
+Li ridegis, kiam li vidis la bildon. | Dia tertawa terbahak-bahak ketika melihat gambar itu. | ridegis | tertawa terbahak-bahak
+La pluvego daŭris tutan nokton. | Hujan deras berlangsung sepanjang malam. | pluvego | Hujan deras
+Estis ĝojego vidi vin denove. | Gembira sekali melihatmu lagi. | ĝojego | Gembira sekali
+En la urbego loĝas multaj milionoj da homoj. | Di kota besar itu tinggal jutaan orang. | urbego | kota besar
+La infanoj ĝojegis pro la neĝo. | Anak-anak sangat gembira karena salju. | ĝojegis | sangat gembira
+Mi ne ŝatas tiun fortegan odoron en la kuirejo. | Saya tidak suka bau yang sangat kuat itu di dapur. | fortegan | sangat kuat
+Post la ŝtormego multaj arboj kuŝis sur la strato. | Setelah badai besar banyak pohon tergeletak di jalan. | ŝtormego | badai besar
+La hotelo estas tre bona, sed la prezo estas multekostega. | Hotelnya sangat bagus, tetapi harganya mahal sekali. | multekostega | mahal sekali
+Mi amegas mian patrinon kaj mi dankas ŝin pro ĉio. | Saya sangat mencintai ibu saya dan berterima kasih padanya atas segalanya. | amegas | sangat mencintai
+#13 Adverbia Tanya Waktu kiam
+Kiam vi venos? | Kapan kamu akan datang? | Kiam | Kapan
+Kiam li foriris? | Kapan dia pergi? | Kiam | Kapan
+Kiam estas via naskiĝtago? | Kapan ulang tahunmu? | Kiam | Kapan
+Kiam la filmo komenciĝas? | Kapan filmnya mulai? | Kiam | Kapan
+Kiam vi lernis Esperanton? | Kapan kamu belajar Esperanto? | Kiam | Kapan
+Kiam ni manĝos vespermanĝon? | Kapan kita akan makan malam? | Kiam | Kapan
+Kiam vi revenos el la ferio? | Kapan kamu kembali dari liburan? | Kiam | Kapan
+Mi ne scias, kiam la trajno alvenos. | Saya tidak tahu kapan kereta akan tiba. | kiam | kapan
+Diru al mi, kiam vi havos tempon. | Katakan padaku kapan kamu punya waktu. | kiam | kapan
+Ŝi demandis, kiam la butiko malfermiĝas. | Dia bertanya kapan toko buka. | kiam | kapan
+Kiam mi estis infano, mi loĝis apud la maro. | Ketika saya masih kecil, saya tinggal di dekat laut. | Kiam | Ketika
+Kiam pluvas, ni restas hejme kaj legas. | Kalau hujan, kami tinggal di rumah dan membaca. | Kiam | Kalau
+Mi ĝojis, kiam mi ricevis vian leteron. | Saya senang ketika saya menerima suratmu. | kiam | ketika
+Kiam vi vizitos min, mi preparos bonan manĝon. | Saat kamu mengunjungiku, aku akan menyiapkan makanan enak. | Kiam | Saat
+Kiam la instruisto eniris, ĉiuj studentoj silentiĝis kaj atendis. | Ketika guru masuk, semua mahasiswa menjadi diam dan menunggu. | Kiam | Ketika
+#14 Kala Perfek (estas + -inta)
+Mi estas vidinta ŝin. | Saya telah melihatnya. | estas vidinta | telah melihat
+Li estas veninta. | Dia sudah datang. | estas veninta | sudah datang
+Ni estas manĝintaj. | Kami sudah makan. | estas manĝintaj | sudah makan
+Ŝi estas foririnta. | Dia sudah pergi. | estas foririnta | sudah pergi
+Mi estas finlerninta la lernejon. | Saya telah menyelesaikan sekolah. | estas finlerninta | telah menyelesaikan
+Ĉu vi estas leginta ĉi tiun libron? | Apakah kamu sudah membaca buku ini? | estas leginta | sudah membaca
+Ili estas alvenintaj antaŭ la ses. | Mereka sudah tiba sebelum pukul enam. | estas alvenintaj | sudah tiba
+Mi ne estas vizitinta Japanion. | Saya belum pernah mengunjungi Jepang. | estas vizitinta | pernah mengunjungi
+Mia frato estas ricevinta novan laboron. | Kakak saya sudah mendapat pekerjaan baru. | estas ricevinta | sudah mendapat
+Ni estas aĉetintaj biletojn por la koncerto. | Kami sudah membeli tiket untuk konser. | estas aĉetintaj | sudah membeli
+Ŝi estas skribinta al mi tri leterojn ĉi-semajne. | Dia telah menulis tiga surat kepadaku minggu ini. | estas skribinta | telah menulis
+Mi estas aŭdinta, ke la nova muzeo estas bonega. | Saya sudah mendengar bahwa museum baru itu bagus sekali. | estas aŭdinta | sudah mendengar
+La studentoj estas lernintaj multajn vortojn ĉi-monate. | Para mahasiswa sudah mempelajari banyak kata bulan ini. | estas lernintaj | sudah mempelajari
+Ĉu vi estas trovinta vian ŝlosilon, aŭ ĝi ankoraŭ mankas? | Apakah kamu sudah menemukan kuncimu, atau masih hilang? | estas trovinta | sudah menemukan
+Mi estas loĝinta en tri landoj, kaj mi ŝatas ilin ĉiujn. | Saya pernah tinggal di tiga negara, dan saya menyukai semuanya. | estas loĝinta | pernah tinggal
+#15 Preposisi ĉe (Situasi Umum)
+Li staras ĉe la pordo. | Dia berdiri di dekat pintu. | ĉe | di dekat
+Mi estas ĉe la kuracisto. | Saya sedang di tempat dokter. | ĉe | di tempat
+Ŝi laboras ĉe banko. | Dia bekerja di bank. | ĉe | di
+Ni sidas ĉe la tablo. | Kami duduk di meja. | ĉe | di
+Mi loĝas ĉe miaj gepatroj. | Saya tinggal di rumah orang tua saya. | ĉe | di rumah
+Ĉe ni ĉio estas bone. | Di tempat kami semuanya baik-baik saja. | Ĉe | Di tempat
+Ni renkontiĝos ĉe la stacidomo je la oka. | Kami akan bertemu di stasiun pukul delapan. | ĉe | di
+Ŝi aĉetis la panon ĉe la bakisto. | Dia membeli roti itu di tukang roti. | ĉe la bakisto | di tukang roti
+Mi restis ĉe mia amiko dum tri tagoj. | Saya menginap di tempat temanku selama tiga hari. | ĉe | di tempat
+Ĉe la fino de la strato vi vidos grandan domon. | Di ujung jalan kamu akan melihat rumah besar. | Ĉe | Di
+Mi ofte manĝas matenmanĝon ĉe mia onklino. | Saya sering sarapan di rumah bibi saya. | ĉe | di rumah
+La infanoj ludas ĉe la rivero apud nia vilaĝo. | Anak-anak bermain di tepi sungai dekat desa kami. | ĉe | di tepi
+Ni atendis vin ĉe la enirejo de la muzeo dum horo. | Kami menunggumu di pintu masuk museum selama satu jam. | ĉe | di
+Mi ŝatas ripozi ĉe la fenestro kaj rigardi la pluvon. | Saya suka beristirahat di dekat jendela dan melihat hujan. | ĉe | di dekat
+Ŝi estas nova ĉe tiu lernejo kaj ankoraŭ ne konas la instruistojn. | Dia baru di sekolah itu dan belum mengenal para gurunya. | ĉe | di
+#16 Akhiran -ar- (Kumpulan)
+Ni promenis en la arbaro. | Kami berjalan-jalan di hutan. | arbaro | hutan
+Mi aĉetis novan vortaron. | Saya membeli kamus baru. | vortaron | kamus
+Ŝi havas longan hararon. | Dia punya rambut yang panjang. | hararon | rambut
+La ŝafaro paŝtiĝas sur la monto. | Kawanan domba merumput di gunung. | ŝafaro | Kawanan domba
+Mi supreniris la ŝtuparon kaj frapis la pordon. | Saya naik tangga dan mengetuk pintu. | ŝtuparon | tangga
+La turistoj rigardis la stelaron nokte. | Para turis memandang gugusan bintang pada malam hari. | stelaron | gugusan bintang
+La tuta homaro devas protekti la naturon. | Seluruh umat manusia harus melindungi alam. | homaro | umat manusia
+La birdaro leviĝis de la arboj. | Kawanan burung terbang dari pohon-pohon. | birdaro | Kawanan burung
+Ili loĝas en la montaro, for de la urbo. | Mereka tinggal di pegunungan, jauh dari kota. | montaro | pegunungan
+La ŝiparo forlasis la havenon frumatene. | Armada kapal meninggalkan pelabuhan pagi-pagi sekali. | ŝiparo | Armada kapal
+Ni vizitis la insularon en la sudo de Japanio. | Kami mengunjungi kepulauan di selatan Jepang. | insularon | kepulauan
+La instruistaro de nia lernejo kunvenas ĉiumonate. | Seluruh staf pengajar sekolah kami berkumpul setiap bulan. | instruistaro | staf pengajar
+Post la ŝtormo la arbaro estis plena de rompitaj branĉoj. | Setelah badai, hutan itu penuh ranting patah. | arbaro | hutan
+Kiam mi ne konas vorton, mi serĉas ĝin en la vortaro. | Kalau saya tidak tahu sebuah kata, saya mencarinya di kamus. | vortaro | kamus
+En nia lernejo estas granda libraro kun multaj malnovaj libroj. | Di sekolah kami ada kumpulan buku yang besar dengan banyak buku lama. | libraro | kumpulan buku
+#17 tempo (waktu)
+Mi ne havas tempon. | Saya tidak punya waktu. | tempon | waktu
+Tempo pasas rapide. | Waktu berlalu dengan cepat. | Tempo | Waktu
+Ĉu vi havas tempon por mi? | Apakah kamu punya waktu untukku? | tempon | waktu
+Mi bezonas pli da tempo. | Saya butuh lebih banyak waktu. | tempo | waktu
+Kiom da tempo vi bezonas? | Berapa lama waktu yang kamu butuhkan? | tempo | waktu
+La tempo de la ekzameno estas mallonga. | Waktu ujian itu singkat. | tempo | Waktu
+Por studi, vi bezonas multe da tempo. | Untuk belajar, kamu butuh banyak waktu. | tempo | waktu
+Mi pasigis mian tempon en la biblioteko. | Saya menghabiskan waktu saya di perpustakaan. | tempon | waktu
+Ni ne perdu tempon, ĉar la trajno foriras baldaŭ. | Jangan buang waktu, karena kereta segera berangkat. | tempon | waktu
+Ŝi trovis tempon por vizito, malgraŭ la multa laboro. | Dia menemukan waktu untuk berkunjung, meski pekerjaan banyak. | tempon | waktu
+Kun la tempo li lernis paroli Esperanton bone. | Seiring waktu dia belajar berbicara Esperanto dengan baik. | tempo | waktu
+Hieraŭ mi havis nenian tempon, ĉar mi laboris ĝis nokto. | Kemarin saya tidak punya waktu sama sekali, karena bekerja sampai malam. | tempon | waktu
+Dum la tempo de la ferio ni vizitis multajn urbojn. | Selama masa liburan kami mengunjungi banyak kota. | tempo | masa
+Se vi havus pli da tempo, ni povus iri al la maro kune. | Kalau kamu punya lebih banyak waktu, kita bisa pergi ke laut bersama. | tempo | waktu
+Post longa tempo ni denove renkontis nian malnovan instruiston. | Setelah waktu yang lama kami bertemu lagi guru lama kami. | tempo | waktu
+#18 fojo (kali)
+Mi venis unu fojon. | Saya datang satu kali. | unu fojon | satu kali
+Li vizitis min du fojojn. | Dia mengunjungiku dua kali. | du fojojn | dua kali
+Ŝi iras al la lernejo kvin fojojn semajne. | Dia pergi ke sekolah lima kali seminggu. | kvin fojojn | lima kali
+Mi lavas la manojn multajn fojojn tage. | Saya mencuci tangan berkali-kali sehari. | multajn fojojn | berkali-kali
+Ĉu vi estis tie almenaŭ unu fojon? | Apakah kamu pernah ke sana setidaknya satu kali? | unu fojon | satu kali
+Mi legis ĉi tiun libron tri fojojn. | Saya membaca buku ini tiga kali. | tri fojojn | tiga kali
+Li telefonis al mi dek fojojn hieraŭ. | Dia menelepon saya sepuluh kali kemarin. | dek fojojn | sepuluh kali
+Mi vidis neĝon nur unu fojon en mia vivo. | Saya melihat salju hanya satu kali seumur hidup. | unu fojon | satu kali
+Ni manĝas kune du fojojn monate. | Kami makan bersama dua kali sebulan. | du fojojn | dua kali
+Mi petis lin kvar fojojn, sed li ne respondis. | Saya memintanya empat kali, tetapi dia tidak menjawab. | kvar fojojn | empat kali
+Ŝi ripetis la vortojn ses fojojn por memori ilin. | Dia mengulang kata-kata itu enam kali supaya ingat. | ses fojojn | enam kali
+Mi estis en Japanio tri fojojn, kaj ĉiufoje mi ŝatis ĝin. | Saya sudah tiga kali ke Jepang, dan setiap kali saya menyukainya. | tri fojojn | tiga kali
+Se vi legos la tekston plurajn fojojn, vi komprenos ĝin pli bone. | Kalau kamu membaca teks itu beberapa kali, kamu akan memahaminya lebih baik. | plurajn fojojn | beberapa kali
+Mia avo vizitas la kuraciston unu fojon ĉiun monaton. | Kakekku mengunjungi dokter satu kali setiap bulan. | unu fojon | satu kali
+Dum la ferio ni iris al la plaĝo ĉirkaŭ dudek fojojn. | Selama liburan kami pergi ke pantai sekitar dua puluh kali. | dudek fojojn | dua puluh kali
+#19 Penulisan Nama Diri
+Mi loĝas en Germanio. | Saya tinggal di Jerman. | Germanio | Jerman
+Ŝi venas el Francio. | Dia berasal dari Prancis. | Francio | Prancis
+Ni vizitis Japanion. | Kami mengunjungi Jepang. | Japanion | Jepang
+Li studas en Berlino. | Dia kuliah di Berlin. | Berlino | Berlin
+Tokio estas granda urbo. | Tokyo adalah kota besar. | Tokio | Tokyo
+Mia amiko loĝas en Parizo. | Temanku tinggal di Paris. | Parizo | Paris
+Ŝi estas el Nederlando. | Dia berasal dari Belanda. | Nederlando | Belanda
+Afriko estas tre granda kontinento. | Afrika adalah benua yang sangat besar. | Afriko | Afrika
+Ni veturis tra Eŭropo per trajno. | Kami bepergian melintasi Eropa dengan kereta. | Eŭropo | Eropa
+Mia onklino loĝas en Londono kaj laboras en banko. | Bibiku tinggal di London dan bekerja di bank. | Londono | London
+Mi volas iam viziti Usonon. | Saya ingin suatu hari mengunjungi Amerika Serikat. | Usonon | Amerika Serikat
+Moskvo estas pli granda ol Vieno. | Moskow lebih besar daripada Wina. | Moskvo | Moskow
+La lingvo Esperanto naskiĝis en Pollando. | Bahasa Esperanto lahir di Polandia. | Pollando | Polandia
+Mia amiko Johano parolas kvin lingvojn. | Temanku Yohan berbicara lima bahasa. | Johano | Yohan
+La aŭtoro Goethe naskiĝis en Frankfurto kaj multe vojaĝis. | Penulis Goethe lahir di Frankfurt dan banyak bepergian. | Goethe | Goethe
+#20 Adverbia Tanya Alasan kial
+Kial vi ploras? | Mengapa kamu menangis? | Kial | Mengapa
+Kial li ne venis? | Mengapa dia tidak datang? | Kial | Mengapa
+Kial la ĉielo estas blua? | Mengapa langit berwarna biru? | Kial | Mengapa
+Kial vi lernas Esperanton? | Mengapa kamu belajar Esperanto? | Kial | Mengapa
+Kial ŝi ne manĝas viandon? | Mengapa dia tidak makan daging? | Kial | Mengapa
+Kial la butiko estas fermita hodiaŭ? | Mengapa toko itu tutup hari ini? | Kial | Mengapa
+Kial vi alvenis tiel malfrue? | Mengapa kamu tiba selarut ini? | Kial | Mengapa
+Mi ne scias, kial li ne respondis. | Saya tidak tahu mengapa dia tidak menjawab. | kial | mengapa
+Diru al mi, kial vi estas malĝoja. | Katakan padaku mengapa kamu sedih. | kial | mengapa
+Ŝi demandis, kial la trajno ankoraŭ ne alvenis. | Dia bertanya mengapa kereta belum tiba. | kial | mengapa
+Kial la infanoj ne iris al la lernejo hieraŭ? | Mengapa anak-anak tidak pergi ke sekolah kemarin? | Kial | Mengapa
+Ĉu vi komprenas, kial ni devas forlasi la domon? | Apakah kamu mengerti mengapa kita harus meninggalkan rumah? | kial | mengapa
+Kial vi ne diris al mi, ke vi havas problemon? | Mengapa kamu tidak mengatakan kepadaku bahwa kamu punya masalah? | Kial | Mengapa
+Neniu scias, kial la vojo estas fermita ekde la mateno. | Tidak ada yang tahu mengapa jalan ditutup sejak pagi. | kial | mengapa
+Mi volus scii, kial tiom da homoj loĝas en granda urbo kaj ne en vilaĝo. | Saya ingin tahu mengapa begitu banyak orang tinggal di kota besar dan bukan di desa. | kial | mengapa
+#21 Infinitif sebagai Subjek
+Legi estas plezuro. | Membaca adalah kesenangan. | Legi | Membaca
+Promeni estas sana. | Berjalan-jalan itu sehat. | Promeni | Berjalan-jalan
+Naĝi estas bona sporto. | Berenang adalah olahraga yang baik. | Naĝi | Berenang
+Lerni lingvojn estas utile. | Belajar bahasa itu berguna. | Lerni | Belajar
+Dormi sufiĉe estas grava por la sano. | Tidur cukup itu penting bagi kesehatan. | Dormi | Tidur
+Paroli Esperanton estas ĝojo por mi. | Berbicara bahasa Esperanto adalah kegembiraan bagiku. | Paroli | Berbicara
+Kuiri estas ŝatata okupo de mia patrino. | Memasak adalah kegiatan kesukaan ibuku. | Kuiri | Memasak
+Danci estas bona maniero ripozi. | Menari adalah cara yang baik untuk bersantai. | Danci | Menari
+Frue leviĝi ne estas facile por mi. | Bangun pagi-pagi tidak mudah bagiku. | leviĝi | Bangun
+Vojaĝi al fremdaj landoj estas bona maniero koni novajn homojn. | Bepergian ke negeri asing adalah cara yang baik untuk mengenal orang baru. | Vojaĝi | Bepergian
+Manĝi tro multe da dolĉaĵoj estas malbone por la dentoj. | Makan terlalu banyak manisan itu buruk bagi gigi. | Manĝi | Makan
+Aĉeti biletojn interrete estas pli rapide kaj pli simple. | Membeli tiket secara daring lebih cepat dan lebih mudah. | Aĉeti | Membeli
+Atendi la trajnon en la malvarmo estis vera turmento. | Menunggu kereta dalam dingin adalah siksaan sungguhan. | Atendi | Menunggu
+Helpi homojn en malfacila tempo estas la plej bona afero en la vivo. | Menolong orang di masa sulit adalah hal terbaik dalam hidup. | Helpi | Menolong
+Rigardi la sunsubiron super la maro ĉiam estas granda plezuro por mi. | Memandang matahari terbenam di atas laut selalu menjadi kesenangan besar bagiku. | Rigardi | Memandang
+#22 Aksi Kini yang Dimulai di Masa Lalu
+Mi estas ĉi tie de lundo. | Saya ada di sini sejak Senin. | de lundo | sejak Senin
+Pluvas de la mateno. | Hujan turun sejak pagi. | de la mateno | sejak pagi
+Li laboras de la oka horo. | Dia bekerja sejak pukul delapan. | de la oka horo | sejak pukul delapan
+Mi lernas Esperanton de januaro. | Saya belajar Esperanto sejak Januari. | de januaro | sejak Januari
+Ŝi loĝas ĉi tie de la pasinta jaro. | Dia tinggal di sini sejak tahun lalu. | de la pasinta jaro | sejak tahun lalu
+La butiko estas fermita de hieraŭ. | Toko itu tutup sejak kemarin. | de hieraŭ | sejak kemarin
+La vetero estas bela de dimanĉo. | Cuaca bagus sejak Minggu. | de dimanĉo | sejak Minggu
+Ni konas unu la alian de nia infaneco. | Kami saling mengenal sejak masa kecil kami. | de nia infaneco | sejak masa kecil
+Mia patro estas malsana de pasinta semajno. | Ayahku sakit sejak minggu lalu. | de pasinta semajno | sejak minggu lalu
+Ŝi studas en la universitato de septembro. | Dia kuliah di universitas sejak September. | de septembro | sejak September
+Mi ne manĝis ion de la matenmanĝo. | Saya belum makan apa pun sejak sarapan. | de la matenmanĝo | sejak sarapan
+Ni loĝas en tiu ĉi urbo de nia geedziĝo. | Kami tinggal di kota ini sejak pernikahan kami. | de nia geedziĝo | sejak pernikahan
+Mi ne vidis mian fraton de lia naskiĝtago. | Saya belum melihat saudara laki-lakiku sejak ulang tahunnya. | de lia naskiĝtago | sejak ulang tahunnya
+Li estas kuracisto de la jaro 2010. | Dia menjadi dokter sejak tahun 2010. | de la jaro 2010 | sejak tahun 2010
+La infanoj ludas ekstere de kiam la pluvo ĉesis. | Anak-anak bermain di luar sejak hujan berhenti. | de kiam | sejak
+#23 Akhiran -ul- (Orang dengan Sifat)
+Mia frato estas junulo. | Kakak saya seorang pemuda. | junulo | pemuda
+Tiu riĉulo havas tri domojn. | Orang kaya itu punya tiga rumah. | riĉulo | Orang kaya
+La malriĉulo petis panon. | Orang miskin itu meminta roti. | malriĉulo | Orang miskin
+Ŝi helpas blindulojn en nia urbo. | Dia membantu orang buta di kota kami. | blindulojn | orang buta
+La malsanulo restis en la lito. | Orang sakit itu tetap di tempat tidur. | malsanulo | Orang sakit
+Mi ne konas tiun fremdulon. | Saya tidak mengenal orang asing itu. | fremdulon | orang asing
+La maljunulo sidas sur la benko kaj legas ĵurnalon. | Orang tua itu duduk di bangku dan membaca koran. | maljunulo | Orang tua
+Li estas pigrulo, ĉar li neniam helpas hejme. | Dia pemalas, karena tidak pernah membantu di rumah. | pigrulo | pemalas
+Tiu kuraĝulo savis la infanon el la rivero. | Orang pemberani itu menyelamatkan anak itu dari sungai. | kuraĝulo | Orang pemberani
+La saĝulo ĉiam aŭskultas pli multe ol li parolas. | Orang bijak selalu mendengarkan lebih banyak daripada berbicara. | saĝulo | Orang bijak
+Mia avo estis fortulo kaj povis levi tre pezajn ŝtonojn. | Kakekku orang kuat dan bisa mengangkat batu yang sangat berat. | fortulo | orang kuat
+Sur la strato mi renkontis junulon, kiu serĉis la bibliotekon. | Di jalan saya bertemu seorang pemuda yang mencari perpustakaan. | junulon | pemuda
+La belulo en la filmo estis ankaŭ tre bona aktoro. | Pria tampan di film itu juga aktor yang sangat bagus. | belulo | Pria tampan
+Nur la sanuloj povas partopreni en la longa marŝado. | Hanya orang sehat yang boleh ikut dalam jalan jauh itu. | sanuloj | orang sehat
+La avarulo kalkulis ĉiun moneron, kaj tamen li ne aĉetis eĉ panon. | Si kikir menghitung setiap koin, namun tidak membeli roti pun. | avarulo | Si kikir
+#24 loĝi (tinggal)
+Mi loĝas en Berlino. | Saya tinggal di Berlin. | loĝas | tinggal
+Kie loĝas via fratino nun? | Di mana adik perempuanmu tinggal sekarang? | loĝas | tinggal
+Ŝi loĝas kun sia avino. | Dia tinggal bersama neneknya. | loĝas | tinggal
+Ni loĝas en granda domo. | Kami tinggal di rumah besar. | loĝas | tinggal
+Mi loĝis en Parizo dum tri jaroj. | Saya tinggal di Paris selama tiga tahun. | loĝis | tinggal
+Ili volas loĝi apud la maro. | Mereka ingin tinggal di dekat laut. | loĝi | tinggal
+Ĉu vi ŝatas loĝi en la urbo? | Apakah kamu suka tinggal di kota? | loĝi | tinggal
+Mia onklo loĝos en nia domo dum la somero. | Pamanku akan tinggal di rumah kami selama musim panas. | loĝos | tinggal
+Kiu loĝas en tiu bela domo apud la rivero? | Siapa yang tinggal di rumah bagus dekat sungai itu? | loĝas | tinggal
+Mi ne povas loĝi en loko sen arboj kaj birdoj. | Saya tidak bisa tinggal di tempat tanpa pohon dan burung. | loĝi | tinggal
+Antaŭ jaroj ni loĝis en vilaĝo sen elektro. | Bertahun-tahun lalu kami tinggal di desa tanpa listrik. | loĝis | tinggal
+Mia fratino loĝas sola en malgranda loĝejo, sed ŝi ofte vizitas nin. | Adikku perempuan tinggal sendirian di apartemen kecil, tetapi sering mengunjungi kami. | loĝas | tinggal
+Ĉu vi scias, kie loĝas via nova najbaro? | Apakah kamu tahu di mana tetangga barumu tinggal? | loĝas | tinggal
+Se mi povus, mi loĝus en domo kun granda ĝardeno kaj multaj floroj. | Kalau bisa, saya akan tinggal di rumah dengan kebun besar dan banyak bunga. | loĝus | tinggal
+Dum la unua jaro en la urbo mi loĝis ĉe amiko, kaj poste mi trovis propran ĉambron. | Selama tahun pertama di kota saya tinggal di tempat teman, lalu saya menemukan kamar sendiri. | loĝis | tinggal
+#25 vivi (hidup)
+Mi vivas bone. | Saya hidup dengan baik. | vivas | hidup
+La avo ankoraŭ vivas. | Kakek masih hidup. | vivas | hidup
+Ĉiuj homoj volas vivi feliĉe. | Semua orang ingin hidup bahagia. | vivi | hidup
+Ŝi vivis tre longe. | Dia hidup sangat lama. | vivis | hidup
+Fiŝoj ne povas vivi sen akvo. | Ikan tidak bisa hidup tanpa air. | vivi | hidup
+Mia avino vivis ĝis naŭdek jaroj. | Nenekku hidup sampai sembilan puluh tahun. | vivis | hidup
+Oni vivas pli sane en la kamparo. | Orang hidup lebih sehat di pedesaan. | vivas | hidup
+Kiel oni povas vivi sen interreto? | Bagaimana orang bisa hidup tanpa internet? | vivi | hidup
+Dum la milito la homoj vivis en granda timo. | Selama perang orang-orang hidup dalam ketakutan besar. | vivis | hidup
+Mi volas vivi trankvile kaj helpi aliajn homojn. | Saya ingin hidup tenang dan membantu orang lain. | vivi | hidup
+La kato ankoraŭ vivas, kvankam ĝi falis de la tegmento. | Kucing itu masih hidup, meskipun jatuh dari atap. | vivas | hidup
+Tiuj bestoj vivas nur en la sudo de la lando. | Hewan-hewan itu hidup hanya di selatan negeri ini. | vivas | hidup
+Dum multaj jaroj mi vivis sola, sed nun mi havas familion. | Selama bertahun-tahun saya hidup sendiri, tetapi sekarang saya punya keluarga. | vivis | hidup
+Se vi vivus en la montoj, vi ne aŭdus tiom da bruo. | Kalau kamu hidup di pegunungan, kamu tidak akan mendengar begitu banyak kebisingan. | vivus | hidup
+Ĉiu, kiu vivas en granda urbo, scias, kiom multekosta ĝi estas. | Setiap orang yang hidup di kota besar tahu betapa mahalnya kota itu. | vivas | hidup
+#26 Adverbia Tanya Cara/Tingkat kiel
+Kiel vi fartas hodiaŭ? | Bagaimana kabarmu hari ini? | Kiel | Bagaimana
+Kiel oni diras tion en Esperanto? | Bagaimana orang mengatakan itu dalam bahasa Esperanto? | Kiel | Bagaimana
+Kiel vi venis ĉi tien? | Bagaimana kamu datang ke sini? | Kiel | Bagaimana
+Kiel longa estas tiu ponto? | Seberapa panjang jembatan itu? | Kiel | Seberapa
+Kiel alta estas via frato? | Seberapa tinggi kakakmu? | Kiel | Seberapa
+Kiel vi vojaĝos al Romo? | Bagaimana kamu akan pergi ke Roma? | Kiel | Bagaimana
+Kiel funkcias ĉi tiu maŝino? | Bagaimana mesin ini bekerja? | Kiel | Bagaimana
+Mi ne scias, kiel li faris tion. | Saya tidak tahu bagaimana dia melakukannya. | kiel | bagaimana
+Montru al mi, kiel oni kuiras tiun supon. | Tunjukkan padaku bagaimana orang memasak sup itu. | kiel | bagaimana
+Kiel vi lernis paroli tiel bone? | Bagaimana kamu belajar berbicara sebaik itu? | Kiel | Bagaimana
+Ŝi rakontis, kiel la knabo trovis la perdiĝintan hundon. | Dia menceritakan bagaimana anak itu menemukan anjing yang hilang. | kiel | bagaimana
+Mi ne komprenas, kiel vi povas dormi en tia bruo. | Saya tidak mengerti bagaimana kamu bisa tidur dalam kebisingan seperti itu. | kiel | bagaimana
+Li kuras tiel rapide, kiel la vento. | Dia berlari secepat angin. | kiel | secepat
+Kiel ofte vi vizitas viajn gepatrojn kaj kiom longe vi restas? | Seberapa sering kamu mengunjungi orang tuamu dan berapa lama kamu tinggal? | Kiel | Seberapa
+Ŝi sidas, kiel reĝino, sur la granda seĝo apud la fenestro. | Dia duduk seperti ratu di kursi besar dekat jendela. | kiel | seperti
+#27 Kala Pluperfek (estis + -inta)
+Mi estis vidinta lin. | Saya sudah melihatnya sebelumnya. | estis vidinta | sudah melihat
+Li estis veninta antaŭ mi. | Dia sudah datang sebelum saya. | estis veninta | sudah datang
+Ni estis manĝintaj tro frue. | Kami sudah makan terlalu awal. | estis manĝintaj | sudah makan
+La gastoj estis foririntaj, kiam mi revenis. | Para tamu sudah pergi ketika saya kembali. | estis foririntaj | sudah pergi
+Mi estis leginta la libron, antaŭ ol mi vidis la filmon. | Saya sudah membaca buku itu sebelum menonton filmnya. | estis leginta | sudah membaca
+Li estis laborinta tutan tagon kaj do estis tre laca. | Dia sudah bekerja seharian sehingga sangat lelah. | estis laborinta | sudah bekerja
+Ni estis aĉetintaj la biletojn jam antaŭ semajno. | Kami sudah membeli tiket seminggu sebelumnya. | estis aĉetintaj | sudah membeli
+La trajno jam estis foririnta, kiam ni atingis la stacidomon. | Kereta sudah berangkat ketika kami mencapai stasiun. | estis foririnta | sudah berangkat
+La infanoj estis lavintaj la manojn, kiam la patrino vokis ilin al la tablo. | Anak-anak sudah mencuci tangan ketika ibu memanggil mereka ke meja. | estis lavintaj | sudah mencuci
+Mi ne estis sciinta pri la problemo, ĝis ŝi diris ĝin al mi. | Saya belum tahu tentang masalah itu sampai dia mengatakannya padaku. | estis sciinta | tahu
+Kiam mi vekiĝis, la suno jam estis leviĝinta. | Ketika saya bangun, matahari sudah terbit. | estis leviĝinta | sudah terbit
+Ŝi estis loĝinta en Londono dum kvin jaroj, antaŭ ol ŝi translokiĝis al Romo. | Dia sudah tinggal di London selama lima tahun sebelum pindah ke Roma. | estis loĝinta | sudah tinggal
+Ni estis atendintaj horon, kiam la aŭtobuso finfine alvenis. | Kami sudah menunggu satu jam ketika bus akhirnya tiba. | estis atendintaj | sudah menunggu
+Antaŭ la ekzameno mi estis lerninta ĉiun nokton, kaj tial mi ne timis. | Sebelum ujian saya sudah belajar setiap malam, karena itu saya tidak takut. | estis lerninta | sudah belajar
+Kiam la polico alvenis, la ŝtelisto jam estis forkurinta kun la mono. | Ketika polisi tiba, pencuri itu sudah lari membawa uang. | estis forkurinta | sudah lari
+
+#28 Bilangan Pokok 1–12
+Mi havas unu fraton. | Saya punya satu saudara laki-laki. | unu | satu
+Mi havas du katojn. | Saya punya dua kucing. | du | dua
+Sur la tablo estas tri pomoj. | Di atas meja ada tiga apel. | tri | tiga
+La tablo havas kvar piedojn. | Meja itu punya empat kaki. | kvar | empat
+Mia mano havas kvin fingrojn. | Tanganku punya lima jari. | kvin | lima
+Ni estas ses personoj en la familio. | Kami enam orang dalam keluarga. | ses | enam
+La semajno havas sep tagojn. | Seminggu punya tujuh hari. | sep | tujuh
+La aŭtobuso foriras je la ok. | Bus berangkat pukul delapan. | ok | delapan
+Mi atendis la trajnon naŭ minutojn. | Saya menunggu kereta sembilan menit. | naŭ | sembilan
+Mi havas dek amikojn en tiu urbo. | Saya punya sepuluh teman di kota itu. | dek | sepuluh
+En nia klaso estas dek unu knaboj. | Di kelas kami ada sebelas anak laki-laki. | dek unu | sebelas
+Dek du monatoj faras unu jaron. | Dua belas bulan membentuk satu tahun. | Dek du | Dua belas
+Mi havas sep librojn en mia sako kaj tri en la mano. | Saya punya tujuh buku di tas dan tiga di tangan. | sep | tujuh
+Kvin personoj atendas apud la pordo, kaj ok aliaj sidas en la ĉambro. | Lima orang menunggu di dekat pintu, dan delapan lainnya duduk di kamar. | Kvin | Lima
+Ni sidis en la trajno dek du horojn, sed la vojaĝo estis tre agrabla. | Kami duduk di kereta dua belas jam, tetapi perjalanannya sangat menyenangkan. | dek du | dua belas
+#29 Akusatif Ukuran
+Mi marŝis tri kilometrojn. | Saya berjalan tiga kilometer. | tri kilometrojn | tiga kilometer
+La tablo estas du metrojn longa. | Meja itu panjangnya dua meter. | du metrojn | dua meter
+La ponto estas kvindek metrojn longa. | Jembatan itu panjangnya lima puluh meter. | kvindek metrojn | lima puluh meter
+La infano pezas dudek kilogramojn. | Anak itu beratnya dua puluh kilogram. | dudek kilogramojn | dua puluh kilogram
+La domo estas dek metrojn alta. | Rumah itu tingginya sepuluh meter. | dek metrojn | sepuluh meter
+Mia frato estas du ĉentimetrojn pli alta ol mi. | Kakakku dua sentimeter lebih tinggi daripada saya. | du ĉentimetrojn | dua sentimeter
+La lago estas tri metrojn profunda. | Danau itu dalamnya tiga meter. | tri metrojn | tiga meter
+Mi atendis kvin minutojn antaŭ la pordo. | Saya menunggu lima menit di depan pintu. | kvin minutojn | lima menit
+La rivero estas dudek metrojn larĝa. | Sungai itu lebarnya dua puluh meter. | dudek metrojn | dua puluh meter
+Li kuris kvar kilometrojn sen halti. | Dia berlari empat kilometer tanpa berhenti. | kvar kilometrojn | empat kilometer
+Ni veturis cent kilometrojn en unu horo. | Kami berkendara seratus kilometer dalam satu jam. | cent kilometrojn | seratus kilometer
+La kuko pezas duonan kilogramon. | Kue itu beratnya setengah kilogram. | duonan kilogramon | setengah kilogram
+La vojo ĝis la stacidomo longas tri kilometrojn. | Jalan ke stasiun panjangnya tiga kilometer. | tri kilometrojn | tiga kilometer
+La ŝtuparo estas dek ses metrojn alta kaj havas kvindek ŝtupojn. | Tangga itu tingginya enam belas meter dan punya lima puluh anak tangga. | dek ses metrojn | enam belas meter
+Mi dormis ok horojn kaj ankoraŭ estis laca. | Saya tidur delapan jam dan masih capek. | ok horojn | delapan jam
+#30 Adverbia Tanya Jumlah kiom
+Kiom kostas tio? | Berapa harganya itu? | Kiom | Berapa
+Kiom vi aĝas? | Berapa umurmu? | Kiom | Berapa
+Kiom da tempo vi havas? | Berapa banyak waktu yang kamu punya? | Kiom da | Berapa banyak
+Kiom longe vi atendis? | Berapa lama kamu menunggu? | Kiom | Berapa
+Kiom estas tri plus kvin? | Berapa tiga tambah lima? | Kiom | Berapa
+Kiom da panoj vi aĉetis? | Berapa banyak roti yang kamu beli? | Kiom da | Berapa banyak
+Kiom da homoj loĝas en via urbo? | Berapa banyak orang tinggal di kotamu? | Kiom da | Berapa banyak
+Mi ne scias, kiom li gajnas ĉiumonate. | Saya tidak tahu berapa dia menghasilkan setiap bulan. | kiom | berapa
+Diru al mi, kiom da sukero vi volas en la teo. | Katakan padaku berapa banyak gula yang kamu mau di tehmu. | kiom da | berapa banyak
+Ĉu vi scias, kiom da studentoj estas en nia klaso? | Apakah kamu tahu berapa banyak mahasiswa di kelas kami? | kiom da | berapa banyak
+Ŝi demandis, kiom multe kostas la bileto al Romo. | Dia bertanya berapa mahal tiket ke Roma. | kiom | berapa
+Kiom da libroj el la biblioteko vi jam legis ĉi-jare? | Berapa banyak buku dari perpustakaan sudah kamu baca tahun ini? | Kiom da | Berapa banyak
+Kiom da akvo mi devas trinki ĉiutage por resti sana? | Berapa banyak air yang harus saya minum setiap hari supaya tetap sehat? | Kiom da | Berapa banyak
+Ne gravas, kiom da mono vi havas, se vi estas feliĉa. | Tidak penting berapa banyak uang yang kamu punya, asalkan kamu bahagia. | kiom da | berapa banyak
+Neniu povas diri, kiom da jaroj la malnova arbo jam staras apud la rivero. | Tidak ada yang bisa mengatakan berapa tahun pohon tua itu sudah berdiri di dekat sungai. | kiom da | berapa
+#31 Keterangan pada Verba Impersonal
+Estas varme en la domo. | Di dalam rumah hangat. | Estas varme | hangat
+Estas malvarme hodiaŭ. | Hari ini dingin. | Estas malvarme | dingin
+Estas trankvile en la ĝardeno. | Di taman tenang. | Estas trankvile | tenang
+Ĉi tie estas agrable. | Di sini menyenangkan. | estas agrable | menyenangkan
+Ekstere estas mallume. | Di luar gelap. | estas mallume | gelap
+En la ĉambro estas silente. | Di kamar sunyi. | estas silente | sunyi
+Estas malfacile trovi bonan laboron nun. | Sulit menemukan pekerjaan bagus sekarang. | Estas malfacile | Sulit
+Estas bone, ke vi venis. | Baguslah kamu datang. | Estas bone | Baguslah
+En la biblioteko estas kviete, do mi povas studi. | Di perpustakaan sepi, jadi saya bisa belajar. | estas kviete | sepi
+Matene estas jam pli varme ol nokte. | Pagi hari sudah lebih hangat daripada malam. | estas jam pli varme | lebih hangat
+En tiu ĉambro estas tro varme por dormi. | Di kamar itu terlalu panas untuk tidur. | estas tro varme | terlalu panas
+Sur la monto estas ofte malvarme, eĉ en somero. | Di gunung sering dingin, bahkan di musim panas. | estas ofte malvarme | sering dingin
+Estas danĝere naĝi en la rivero post granda pluvo. | Berbahaya berenang di sungai setelah hujan deras. | Estas danĝere | Berbahaya
+Estas necese lerni la vortojn, se oni volas paroli flue. | Perlu mempelajari kata-kata itu kalau ingin berbicara lancar. | Estas necese | Perlu
+Kiam mi estis juna, estis pli trankvile en nia urbo ol hodiaŭ. | Waktu saya muda, di kota kami lebih tenang daripada sekarang. | estis pli trankvile | lebih tenang
+#32 Bilangan Puluhan dengan -dek
+Mi havas dudek librojn. | Saya punya dua puluh buku. | dudek | dua puluh
+En la klaso estas tridek studentoj. | Di kelas ada tiga puluh mahasiswa. | tridek | tiga puluh
+Mia patro estas kvardek jarojn aĝa. | Ayahku berusia empat puluh tahun. | kvardek | empat puluh
+La libro kostas kvindek eŭrojn. | Buku itu harganya lima puluh euro. | kvindek | lima puluh
+La aŭtobuso veturas sesdek kilometrojn hore. | Bus itu melaju enam puluh kilometer per jam. | sesdek | enam puluh
+Mia avino estas sepdek jarojn aĝa. | Nenekku berusia tujuh puluh tahun. | sepdek | tujuh puluh
+La vojaĝo daŭras okdek minutojn. | Perjalanan berlangsung delapan puluh menit. | okdek | delapan puluh
+Mia avo estas preskaŭ naŭdek jarojn aĝa. | Kakekku hampir sembilan puluh tahun. | naŭdek | sembilan puluh
+Li ricevis tridek leterojn hieraŭ. | Dia menerima tiga puluh surat kemarin. | tridek | tiga puluh
+La domo havas kvardek fenestrojn. | Rumah itu punya empat puluh jendela. | kvardek | empat puluh
+Dum la ferio mi legis kvindek paĝojn ĉiutage. | Selama liburan saya membaca lima puluh halaman setiap hari. | kvindek | lima puluh
+En la ĝardeno kreskas dudek diversaj floroj. | Di kebun tumbuh dua puluh bunga berbeda. | dudek | dua puluh
+Ni atendis sesdek minutojn, sed la kuracisto ankoraŭ ne venis. | Kami menunggu enam puluh menit, tetapi dokter belum datang. | sesdek | enam puluh
+Post tridek jaroj en la sama oficejo li fine ŝanĝis sian laboron. | Setelah tiga puluh tahun di kantor yang sama dia akhirnya mengganti pekerjaannya. | tridek | tiga puluh
+Mia onklo kolektas stampojn kaj havas jam pli ol sepdek albumojn. | Pamanku mengoleksi perangko dan sudah punya lebih dari tujuh puluh album. | sepdek | tujuh puluh
+#33 Bilangan Ratusan dengan -cent
+La libro havas cent paĝojn. | Buku itu punya seratus halaman. | cent | seratus
+Mi aĉetis ducent gramojn da fromaĝo. | Saya membeli dua ratus gram keju. | ducent | dua ratus
+La urbo estas tricent kilometrojn for. | Kota itu berjarak tiga ratus kilometer. | tricent | tiga ratus
+La bileto kostas kvarcent eŭrojn. | Tiket itu harganya empat ratus euro. | kvarcent | empat ratus
+En nia vilaĝo loĝas kvincent homoj. | Di desa kami tinggal lima ratus orang. | kvincent | lima ratus
+La muzeo havas sescent malnovajn bildojn. | Museum itu punya enam ratus lukisan lama. | sescent | enam ratus
+Sepcent studentoj partoprenis en la festo. | Tujuh ratus mahasiswa ikut dalam pesta itu. | Sepcent | Tujuh ratus
+La monto estas okcent metrojn alta. | Gunung itu tingginya delapan ratus meter. | okcent | delapan ratus
+Naŭcent homoj aŭskultis la koncerton. | Sembilan ratus orang mendengarkan konser itu. | Naŭcent | Sembilan ratus
+Mi havas cent amikojn en la reto, sed nur kvin veraj. | Saya punya seratus teman di internet, tetapi hanya lima yang sungguhan. | cent | seratus
+La hotelo havas ducent ĉambrojn kaj grandan ĝardenon. | Hotel itu punya dua ratus kamar dan kebun besar. | ducent | dua ratus
+Mi legis tricent paĝojn de la romano, sed ne finis ĝin. | Saya membaca tiga ratus halaman novel itu, tetapi belum menyelesaikannya. | tricent | tiga ratus
+Kvarcent personoj atendas ekster la teatro. | Empat ratus orang menunggu di luar teater. | Kvarcent | Empat ratus
+La domo kostas sescent mil eŭrojn. | Rumah itu harganya enam ratus ribu euro. | sescent | enam ratus
+Tiu malnova preĝejo staras ĉi tie jam kvincent jarojn. | Gereja tua itu sudah berdiri di sini lima ratus tahun. | kvincent | lima ratus
+#34 Bilangan Ribuan dengan -mil
+La urbo havas mil loĝantojn. | Kota itu punya seribu penduduk. | mil | seribu
+La aŭto kostas dumil eŭrojn. | Mobil itu harganya dua ribu euro. | dumil | dua ribu
+Trimil homoj venis al la festo. | Tiga ribu orang datang ke pesta itu. | Trimil | Tiga ribu
+La monto estas kvarmil metrojn alta. | Gunung itu tingginya empat ribu meter. | kvarmil | empat ribu
+Mi pagis kvinmil eŭrojn por la vojaĝo. | Saya membayar lima ribu euro untuk perjalanan itu. | kvinmil | lima ribu
+La biblioteko havas sesmil librojn. | Perpustakaan itu punya enam ribu buku. | sesmil | enam ribu
+En la stadiono estas sepmil spektantoj. | Di stadion ada tujuh ribu penonton. | sepmil | tujuh ribu
+La flugo estas okmil kilometrojn longa. | Penerbangan itu sepanjang delapan ribu kilometer. | okmil | delapan ribu
+La urbo havas naŭmil loĝantojn. | Kota itu punya sembilan ribu penduduk. | naŭmil | sembilan ribu
+La vortaro enhavas dekmil vortojn. | Kamus itu memuat sepuluh ribu kata. | dekmil | sepuluh ribu
+Mi jam lernis mil vortojn en Esperanto. | Saya sudah mempelajari seribu kata dalam bahasa Esperanto. | mil | seribu
+Tiu malnova ŝipo portis trimil sakojn da rizo. | Kapal tua itu mengangkut tiga ribu karung beras. | trimil | tiga ribu
+Pli ol dumil personoj atendis ekster la teatro. | Lebih dari dua ribu orang menunggu di luar teater. | dumil | dua ribu
+Por la festo ni preparis kvarmil sandviĉojn. | Untuk pesta kami menyiapkan empat ribu sandwich. | kvarmil | empat ribu
+La rivero estas kvinmil kilometrojn longa kaj trairas multajn landojn. | Sungai itu sepanjang lima ribu kilometer dan melintasi banyak negara. | kvinmil | lima ribu
+#35 Bilangan Majemuk
+Mi havas dudek tri librojn. | Saya punya dua puluh tiga buku. | dudek tri | dua puluh tiga
+Li estas tridek kvin jarojn aĝa. | Dia berusia tiga puluh lima tahun. | tridek kvin | tiga puluh lima
+En la klaso estas dek kvin studentoj. | Di kelas ada lima belas mahasiswa. | dek kvin | lima belas
+La domo havas kvardek ses ŝtupojn. | Rumah itu punya empat puluh enam anak tangga. | kvardek ses | empat puluh enam
+Mia frato estas dudek unu jarojn aĝa. | Kakakku berusia dua puluh satu tahun. | dudek unu | dua puluh satu
+La filmo daŭras cent dudek minutojn. | Film itu berlangsung seratus dua puluh menit. | cent dudek | seratus dua puluh
+Mi aĉetis ducent kvindek gramojn da butero. | Saya membeli dua ratus lima puluh gram mentega. | ducent kvindek | dua ratus lima puluh
+La aŭtobuso numero dek sep iras al la stacidomo. | Bus nomor tujuh belas pergi ke stasiun. | dek sep | tujuh belas
+Kvardek du estas la respondo al la granda demando. | Empat puluh dua adalah jawaban atas pertanyaan besar itu. | Kvardek du | Empat puluh dua
+En nia urbo loĝas mil ducent homoj. | Di kota kami tinggal seribu dua ratus orang. | mil ducent | seribu dua ratus
+Mia hotelĉambro havas numeron cent dudek tri. | Kamar hotelku bernomor seratus dua puluh tiga. | cent dudek tri | seratus dua puluh tiga
+La libro havas tricent sepdek ok paĝojn. | Buku itu punya tiga ratus tujuh puluh delapan halaman. | tricent sepdek ok | tiga ratus tujuh puluh delapan
+La suno estas pli ol cent kvindek milionojn da kilometroj for de la tero. | Matahari berjarak lebih dari seratus lima puluh juta kilometer dari bumi. | cent kvindek | seratus lima puluh
+Mia avino naskiĝis en la jaro mil naŭcent kvindek tri. | Nenekku lahir pada tahun seribu sembilan ratus lima puluh tiga. | mil naŭcent kvindek tri | seribu sembilan ratus lima puluh tiga
+Mi pagis tri mil kvarcent kvindek eŭrojn por la nova komputilo. | Saya membayar tiga ribu empat ratus lima puluh euro untuk komputer baru. | tri mil kvarcent kvindek | tiga ribu empat ratus lima puluh
+#36 Akhiran -an- (Penghuni/Anggota)
+Li estas parizano. | Dia warga Paris. | parizano | warga Paris
+Mia amiko estas bostonano. | Temanku warga Boston. | bostonano | warga Boston
+La urbanoj ofte uzas la metroon. | Penduduk kota sering memakai metro. | urbanoj | Penduduk kota
+Mi estas vilaĝano kaj ŝatas la kamparon. | Saya orang desa dan menyukai pedesaan. | vilaĝano | orang desa
+La landanoj kunvenis en la ĉefa placo. | Warga negara berkumpul di alun-alun utama. | landanoj | Warga negara
+Multaj eŭropanoj ferias apud la maro. | Banyak orang Eropa berlibur di dekat laut. | eŭropanoj | orang Eropa
+Tiu afrikano parolas kvar lingvojn. | Orang Afrika itu berbicara empat bahasa. | afrikano | Orang Afrika
+Ŝi estas klubano de nia ŝakklubo jam kvin jarojn. | Dia anggota klub catur kami sudah lima tahun. | klubano | anggota klub
+La kristanoj festas Kristnaskon en decembro. | Umat Kristen merayakan Natal pada bulan Desember. | kristanoj | Umat Kristen
+La berlinanoj ŝatas siajn parkojn kaj lagojn. | Warga Berlin menyukai taman dan danau mereka. | berlinanoj | Warga Berlin
+La montanoj konas ĉiun padon en la montaro. | Orang gunung mengenal setiap jalan setapak di pegunungan. | montanoj | Orang gunung
+Mia onklo estas usonano, sed li loĝas en Kanado. | Pamanku orang Amerika, tetapi dia tinggal di Kanada. | usonano | orang Amerika
+Granda parto de la azianoj loĝas en la urboj. | Sebagian besar orang Asia tinggal di kota. | azianoj | orang Asia
+La vilaĝanoj helpis unu la alian dum la inundo. | Para penduduk desa saling membantu saat banjir. | vilaĝanoj | penduduk desa
+Antaŭ la elektoj la urbanoj diskutis pri la nova ponto. | Menjelang pemilihan penduduk kota membahas jembatan baru. | urbanoj | penduduk kota
+#37 Pronomo Relatif kiu
+La viro, kiu laboras ĉi tie, estas kuracisto. | Pria yang bekerja di sini adalah dokter. | kiu | yang
+Mi konas knabinon, kiu parolas kvar lingvojn. | Saya kenal seorang gadis yang berbicara empat bahasa. | kiu | yang
+La libro, kiun mi legas, estas tre interesa. | Buku yang sedang saya baca sangat menarik. | kiun | yang
+La infanoj, kiuj ludas ekstere, estas miaj nevoj. | Anak-anak yang bermain di luar itu keponakanku. | kiuj | yang
+Jen la knabo, kiu helpis min. | Inilah anak laki-laki yang menolong saya. | kiu | yang
+Mi aĉetis libron, kiun vi rekomendis. | Saya membeli buku yang kamu rekomendasikan. | kiun | yang
+La studentoj, kiuj lernas Esperanton, renkontiĝas ĉiusemajne. | Para mahasiswa yang belajar Esperanto bertemu setiap minggu. | kiuj | yang
+Mi ŝatas la filmojn, kiujn vi montris al mi. | Saya suka film-film yang kamu tunjukkan kepada saya. | kiujn | yang
+Tio estas la hundo, kiu mordis mian amikon hieraŭ. | Itulah anjing yang menggigit temanku kemarin. | kiu | yang
+La dometo, en kiu mi loĝas, havas belan ĝardenon. | Rumah kecil tempat saya tinggal punya kebun yang indah. | en kiu | tempat
+La viro, kun kiu mi parolis, estas la nova instruisto. | Pria yang tadi saya ajak bicara adalah guru baru. | kun kiu | yang
+La virinoj, kiujn ni vidis en la parko, estis miaj instruistinoj. | Wanita-wanita yang kami lihat di taman itu adalah guru-guru perempuanku. | kiujn | yang
+La trajno, kiu foriras je la oka, estas jam plena de homoj. | Kereta yang berangkat pukul delapan sudah penuh orang. | kiu | yang
+Mi perdis la ŝlosilon, kiun mia patro donis al mi antaŭ unu semajno. | Saya kehilangan kunci yang diberikan ayahku kepadaku seminggu lalu. | kiun | yang
+La homoj, kiuj loĝas apud la maro, ofte konas multajn fiŝistojn kaj iliajn historiojn. | Orang-orang yang tinggal di dekat laut sering mengenal banyak nelayan dan kisah mereka. | kiuj | yang
+#38 kies sebagai Relatif ('yang … -nya')
+Jen la viro, kies filo estas kuracisto. | Inilah pria yang putranya dokter. | kies | yang
+Mi konas knabinon, kies patrino estas instruistino. | Saya kenal seorang gadis yang ibunya guru. | kies | yang
+Tiu estas la knabo, kies hundo estas malsana. | Itu anak laki-laki yang anjingnya sakit. | kies | yang
+Ŝi estas la aktorino, kies filmon ni vidis hieraŭ. | Dia aktris yang filmnya kami tonton kemarin. | kies | yang
+La viro, kies aŭton mi vidis, loĝas apude. | Pria yang mobilnya saya lihat tinggal di dekat sini. | kies | yang
+La studento, kies libron vi trovis, estas mia amiko. | Mahasiswa yang bukunya kamu temukan adalah temanku. | kies | yang
+Mi parolis kun la virino, kies filino laboras ĉe la banko. | Saya berbicara dengan wanita yang putrinya bekerja di bank. | kies | yang
+Ni vizitis la urbon, kies nomon mi forgesis. | Kami mengunjungi kota yang namanya saya lupa. | kies | yang
+La instruisto, kies lecionojn mi ŝatas, venas el Pollando. | Guru yang pelajarannya saya sukai berasal dari Polandia. | kies | yang
+La lernejo, kies tegmenton la ŝtormo rompis, estos riparita. | Sekolah yang atapnya dirusak badai akan diperbaiki. | kies | yang
+La knabino, kies biciklon oni ŝtelis, ploris sur la strato. | Gadis yang sepedanya dicuri menangis di jalan. | kies | yang
+Mia amiko, kies fratino loĝas en Japanio, lernas la japanan. | Temanku yang saudara perempuannya tinggal di Jepang belajar bahasa Jepang. | kies | yang
+Mi serĉas la homon, kies ŝlosilon mi trovis sur la strato. | Saya mencari orang yang kuncinya saya temukan di jalan. | kies | yang
+La libro, kies aŭtoron ĉiuj konas, estas tre malnova. | Buku yang penulisnya dikenal semua orang itu sangat tua. | kies | yang
+Tiuj familioj, kies domojn la inundo detruis, ricevis helpon de la urbo. | Keluarga-keluarga yang rumahnya dihancurkan banjir mendapat bantuan dari kota. | kies | yang
+#39 Kala Futurum Perfek (estos + -inta)
+Mi estos vidinta ĝin. | Nanti saya sudah melihatnya. | estos vidinta | sudah melihat
+Li estos veninta antaŭ la oka. | Dia sudah datang sebelum pukul delapan nanti. | estos veninta | sudah datang
+Ni estos manĝintaj, kiam vi alvenos. | Kami sudah makan ketika kamu tiba nanti. | estos manĝintaj | sudah makan
+Ŝi estos foririnta morgaŭ matene. | Dia sudah pergi besok pagi. | estos foririnta | sudah pergi
+Mi estos finlerninta la lernejon post du jaroj. | Dua tahun lagi saya sudah menyelesaikan sekolah. | estos finlerninta | sudah menyelesaikan
+Ĉu vi estos leginta la libron ĝis lundo? | Apakah kamu sudah membaca buku itu sampai hari Senin? | estos leginta | sudah membaca
+La trajno estos alveninta, kiam ni atingos la stacidomon. | Kereta sudah tiba ketika kami mencapai stasiun nanti. | estos alveninta | sudah tiba
+Se vi venos je la dek, mi jam estos foririnta. | Kalau kamu datang pukul sepuluh, saya sudah pergi. | estos foririnta | sudah pergi
+Ĝis la vespero mi estos skribinta la tutan leteron. | Sampai malam nanti saya sudah menulis seluruh surat. | estos skribinta | sudah menulis
+Kiam vi revenos, mi estos preparinta la vespermanĝon. | Ketika kamu kembali, saya sudah menyiapkan makan malam. | estos preparinta | sudah menyiapkan
+Post la ferio ni estos vizitintaj tri landojn. | Setelah liburan kami sudah mengunjungi tiga negara. | estos vizitintaj | sudah mengunjungi
+Ili estos aĉetintaj la biletojn antaŭ la fino de la monato. | Mereka sudah membeli tiketnya sebelum akhir bulan. | estos aĉetintaj | sudah membeli
+Antaŭ la ekzameno la studentoj estos lernintaj ĉiujn vortojn. | Sebelum ujian para mahasiswa sudah mempelajari semua kata. | estos lernintaj | sudah mempelajari
+Ĝis la fino de la jaro ŝi estos laborinta tie dudek jarojn. | Sampai akhir tahun ini dia sudah bekerja di sana dua puluh tahun. | estos laborinta | sudah bekerja
+Post kvin jaroj mi estos loĝinta en tiu urbo pli longe ol en mia naskiĝurbo. | Lima tahun lagi saya sudah tinggal di kota itu lebih lama daripada di kota kelahiran saya. | estos loĝinta | sudah tinggal
+#40 Bilangan Tingkat (Ordinal)
+Mi loĝas en la unua etaĝo. | Saya tinggal di lantai pertama. | unua | pertama
+Hodiaŭ estas la dua de majo. | Hari ini tanggal dua Mei. | dua | dua
+Ŝi estas la tria en la vico. | Dia ketiga dalam antrean. | tria | ketiga
+Nia ĉambro estas en la kvara etaĝo. | Kamar kami ada di lantai keempat. | kvara | keempat
+La kvina tago de la semajno estas vendredo. | Hari kelima dalam seminggu adalah Jumat. | kvina | kelima
+Mia naskiĝtago estas la sesa de oktobro. | Ulang tahunku tanggal enam Oktober. | sesa | enam
+La sepa tago de la semajno estas dimanĉo. | Hari ketujuh dalam seminggu adalah Minggu. | sepa | ketujuh
+La oka horo estas tro frue por mi. | Jam delapan terlalu pagi bagiku. | oka | delapan
+Li gajnis la naŭan lokon en la konkurso. | Dia meraih tempat kesembilan dalam lomba. | naŭan | kesembilan
+Hodiaŭ mia filino festas sian dekan naskiĝtagon. | Hari ini putriku merayakan ulang tahun kesepuluh. | dekan | kesepuluh
+La dek-unua monato de la jaro estas novembro. | Bulan kesebelas dalam setahun adalah November. | dek-unua | kesebelas
+Mi loĝas en la dudek-tria strato apud la parko. | Saya tinggal di jalan kedua puluh tiga dekat taman. | dudek-tria | kedua puluh tiga
+Tio estas lia tridek-kvina vizito al nia urbo. | Itu kunjungannya yang ketiga puluh lima ke kota kami. | tridek-kvina | ketiga puluh lima
+En la kvardek-dua jaro de sia vivo ŝi fariĝis instruistino. | Pada tahun keempat puluh dua hidupnya dia menjadi guru. | kvardek-dua | keempat puluh dua
+La sepcent-okdek-tria paĝo de la libro estis ŝirita. | Halaman ketujuh ratus delapan puluh tiga buku itu robek. | sepcent-okdek-tria | ketujuh ratus delapan puluh tiga
+#41 kia sebagai Sifat Relatif
+Mi havas tian libron, kian vi volas. | Saya punya buku seperti yang kamu inginkan. | kian | seperti
+Li aĉetis tian telefonon, kian mi havas. | Dia membeli ponsel seperti yang saya punya. | kian | seperti
+Tio estas tia vetero, kia plaĉas al mi. | Itu cuaca seperti yang saya sukai. | kia | seperti
+Ŝi portas tian robon, kian mi vidis en la vitrino. | Dia memakai gaun seperti yang saya lihat di etalase. | kian | seperti
+Mi ne trovis tian bildon, kian vi priskribis. | Saya tidak menemukan gambar seperti yang kamu gambarkan. | kian | seperti
+Mi volas aĉeti tian ĉapelon, kian havas via frato. | Saya ingin membeli topi seperti yang dimiliki kakakmu. | kian | seperti
+Ŝi kantis tian kanton, kian mi neniam antaŭe aŭdis. | Dia menyanyikan lagu seperti yang belum pernah saya dengar sebelumnya. | kian | seperti
+Mi bezonas tian ŝlosilon, kian oni uzas por tiu pordo. | Saya butuh kunci seperti yang dipakai untuk pintu itu. | kian | seperti
+Donu al mi tian paperon, kian vi uzis hieraŭ. | Berikan saya kertas seperti yang kamu pakai kemarin. | kian | seperti
+Ni serĉas tian domon, kian oni vidas en la filmoj. | Kami mencari rumah seperti yang terlihat di film-film. | kian | seperti
+Mi ricevis tian leteron, kian mi atendis jam delonge. | Saya menerima surat seperti yang sudah lama saya tunggu. | kian | seperti
+Mi neniam renkontis tian homon, kian vi priskribis hieraŭ vespere. | Saya belum pernah bertemu orang seperti yang kamu gambarkan kemarin malam. | kian | seperti
+Mi manĝis tian supon, kian mia avino kuiris dum mia infaneco. | Saya makan sup seperti yang dulu dimasak nenek saya pada masa kecil saya. | kian | seperti
+Ŝi pentris tian pejzaĝon, kian oni ne trovas en nia lando. | Dia melukis pemandangan seperti yang tidak ditemukan di negara kami. | kian | seperti
+Ili konstruis tian ponton, kian la urbo bezonis jam dum multaj jaroj. | Mereka membangun jembatan seperti yang sudah bertahun-tahun dibutuhkan kota. | kian | seperti
+#42 kie sebagai Adverbia Relatif Tempat
+Mi loĝas tie, kie mi naskiĝis. | Saya tinggal di tempat saya dilahirkan. | kie | di tempat
+Mi iros tien, kien vi iras. | Saya akan pergi ke tempat yang kamu tuju. | kien | ke tempat
+Restu tie, kie vi estas. | Tetaplah di tempat kamu berada. | kie | di tempat
+Ŝi sidas tie, kie la suno brilas. | Dia duduk di tempat matahari bersinar. | kie | di tempat
+La infanoj kuris tien, kie estis la hundo. | Anak-anak berlari ke tempat anjing itu berada. | kie | ke tempat
+Li metis la libron tien, kien mi ĝin volis. | Dia menaruh buku itu di tempat yang saya inginkan. | kien | di tempat
+Ni manĝos tie, kie oni servas bonan fiŝon. | Kami akan makan di tempat orang menyajikan ikan enak. | kie | di tempat
+Mi trovis la ŝlosilon tie, kie mi ĝin lasis hieraŭ. | Saya menemukan kunci itu di tempat saya meninggalkannya kemarin. | kie | di tempat
+La birdoj flugis tien, kie la vintro ne estas tiel malvarma. | Burung-burung terbang ke tempat yang musim dinginnya tidak sedingin itu. | kie | ke tempat
+Ni veturos tien, kien kondukas ĉi tiu vojo. | Kami akan pergi ke tempat yang dituju jalan ini. | kien | ke tempat
+Mi ŝatas loĝi tie, kie estas multaj arboj kaj trankvilo. | Saya suka tinggal di tempat yang banyak pohon dan tenang. | kie | di tempat
+Ili konstruis la domon tie, kie antaŭe staris malnova preĝejo. | Mereka membangun rumah itu di tempat dulu berdiri gereja tua. | kie | di tempat
+Mi dormis tie, kie mi trovis liton, ĉar la hotelo estis plena. | Saya tidur di tempat saya menemukan tempat tidur, karena hotel penuh. | kie | di tempat
+Se vi volas lerni la lingvon, vi devas iri tien, kie oni ĝin parolas. | Kalau ingin belajar bahasa itu, kamu harus pergi ke tempat orang berbicara dalam bahasa itu. | kie | ke tempat
+La turistoj iris tien, kien la gvidisto montris, kaj poste manĝis sub arbo. | Para turis pergi ke tempat yang ditunjukkan pemandu, lalu makan di bawah pohon. | kien | ke tempat
+#43 Partisip Aktif Depan -onta
+La forironta trajno estas sur la unua perono. | Kereta yang hendak berangkat ada di peron pertama. | forironta | yang hendak berangkat
+Mi helpis la falonta infano. | Saya menolong anak yang hampir jatuh. | falonta | yang hampir jatuh
+La alvenonta gasto portas florojn. | Tamu yang akan tiba membawa bunga. | alvenonta | yang akan tiba
+La dormonta infano ankoraŭ tenis sian ludilon. | Anak yang hendak tidur itu masih memegang mainannya. | dormonta | yang hendak tidur
+La edziĝonta paro serĉas novan domon. | Pasangan yang akan menikah mencari rumah baru. | edziĝonta | yang akan menikah
+La kantonta knabino staris antaŭ la publiko. | Gadis yang akan bernyanyi berdiri di depan penonton. | kantonta | yang akan bernyanyi
+La translokiĝonta familio vendis siajn meblojn. | Keluarga yang akan pindah menjual perabotnya. | translokiĝonta | yang akan pindah
+La parolonta ministro staras apud la mikrofono. | Menteri yang akan berbicara berdiri di dekat mikrofon. | parolonta | yang akan berbicara
+La naskonta virino iris rapide al la hospitalo. | Wanita yang akan melahirkan pergi cepat ke rumah sakit. | naskonta | yang akan melahirkan
+La akvumonta ĝardenisto jam prenis la ŝlaŭkon. | Tukang kebun yang akan menyiram sudah mengambil selang. | akvumonta | yang akan menyiram
+La leviĝonta suno farbis la ĉielon ruĝa. | Matahari yang akan terbit mewarnai langit merah. | leviĝonta | yang akan terbit
+Mi parolis kun la vojaĝonta studento pri la vetero en Italio. | Saya berbicara dengan mahasiswa yang akan bepergian tentang cuaca di Italia. | vojaĝonta | yang akan bepergian
+La laborontaj studentoj jam preparis siajn skribilojn. | Mahasiswa yang akan bekerja sudah menyiapkan penanya. | laborontaj | yang akan bekerja
+Por la vojaĝontaj turistoj la gvidisto preparis mapojn kaj biletojn. | Untuk para turis yang akan bepergian pemandu menyiapkan peta dan tiket. | vojaĝontaj | yang akan bepergian
+La forironta viro vokis sian serviston, kaj la servisto tuj venis kun la mantelo. | Pria yang hendak pergi itu memanggil pelayannya, dan pelayan segera datang membawa mantel. | forironta | yang hendak pergi
+#44 Kala Futurum Periphrastik
+Mi estas veturonta hejmen. | Saya hendak pulang. | estas veturonta | hendak
+Ni estas manĝonta. | Kami hendak makan. | estas manĝonta | hendak
+Ŝi estas forironta. | Dia hendak pergi. | estas forironta | hendak
+La filmo estas komenciĝonta. | Filmnya akan segera mulai. | estas komenciĝonta | akan segera
+Li estis dormonta, kiam la telefono sonoris. | Dia hendak tidur ketika telepon berdering. | estis dormonta | hendak tidur
+Ni estis forirontaj, kiam la pluvo komenciĝis. | Kami hendak pergi ketika hujan mulai turun. | estis forirontaj | hendak pergi
+Mi estis leviĝonta, kiam la instruisto eniris. | Saya hendak berdiri ketika guru masuk. | estis leviĝonta | hendak berdiri
+La infano estis ploronta, sed la patrino ekridis. | Anak itu hampir menangis, tetapi ibunya tertawa. | estis ploronta | hampir menangis
+Ŝi estis telefononta al mi, kiam mi mem vokis ŝin. | Dia hendak menelepon saya ketika saya sendiri meneleponnya. | estis telefononta | hendak menelepon
+La aŭtobuso estas alvenonta post kelkaj minutoj. | Bus akan segera tiba dalam beberapa menit. | estas alvenonta | akan segera
+Kiam vi venos, mi estos forironta. | Ketika kamu datang, saya akan bersiap pergi. | estos forironta | bersiap pergi
+Mi estis dironta ion al vi, sed mi forgesis. | Saya hendak mengatakan sesuatu kepadamu, tetapi lupa. | estis dironta | hendak mengatakan
+La studentoj estas komencontaj la ekzamenon, do bonvolu silenti. | Para mahasiswa akan segera memulai ujian, jadi tolong diam. | estas komencontaj | akan segera memulai
+Kiam la ŝtormo ekis, la fiŝistoj estis revenontaj al la haveno. | Ketika badai mulai, para nelayan hendak kembali ke pelabuhan. | estis revenontaj | hendak kembali
+Mi estas aĉetonta novan aŭton, sed mi ankoraŭ ne decidis kiun. | Saya hendak membeli mobil baru, tetapi belum memutuskan yang mana. | estas aĉetonta | hendak membeli
+#45 Akhiran -ind- (Layak)
+La muzeo estas vizitinda. | Museum itu layak dikunjungi. | vizitinda | layak dikunjungi
+Tiu libro estas leginda. | Buku itu layak dibaca. | leginda | layak dibaca
+Ŝia kuraĝo estas admirinda. | Keberaniannya patut dikagumi. | admirinda | patut dikagumi
+Ĝi estas rimarkinda filmo. | Itu film yang patut diperhatikan. | rimarkinda | patut diperhatikan
+Li faris laŭdindan laboron. | Dia melakukan pekerjaan yang terpuji. | laŭdindan | terpuji
+Tiu urbo estas tre vidinda. | Kota itu sangat layak dilihat. | vidinda | layak dilihat
+La situacio de la bestoj estas bedaŭrinda. | Keadaan hewan-hewan itu patut disesalkan. | bedaŭrinda | patut disesalkan
+Ĝi estas aĉetinda produkto pro la malalta prezo. | Itu produk yang layak dibeli karena harganya murah. | aĉetinda | layak dibeli
+Ŝia sinteno estas imitinda por ĉiuj infanoj. | Sikapnya patut ditiru semua anak. | imitinda | patut ditiru
+Ni havis memorindan ferion apud la maro. | Kami punya liburan yang layak dikenang di dekat laut. | memorindan | layak dikenang
+La respondo estas kredinda, sed mi volas kontroli ĝin. | Jawabannya layak dipercaya, tetapi saya ingin memeriksanya. | kredinda | layak dipercaya
+Estas atentinda, ke la vojo estas fermita dum la vintro. | Perlu diperhatikan bahwa jalan itu ditutup selama musim dingin. | atentinda | Perlu diperhatikan
+Mi ne konas lin bone, do mi ne povas diri, ke li estas fidinda. | Saya tidak mengenalnya dengan baik, jadi saya tidak bisa bilang dia layak dipercaya. | fidinda | layak dipercaya
+Dum nia vojaĝo ni vidis multajn mirindajn ŝtonojn kaj arbojn. | Selama perjalanan kami melihat banyak batu dan pohon yang menakjubkan. | mirindajn | menakjubkan
+Tiu ĉi malnova preĝejo estas konservinda, ĉar ĝi estas parto de nia historio. | Gereja tua ini patut dilestarikan, karena merupakan bagian dari sejarah kita. | konservinda | patut dilestarikan
+#46 kiam sebagai Adverbia Relatif Waktu
+Mi ĝojas tiam, kiam la suno brilas. | Saya senang pada saat matahari bersinar. | kiam | pada saat
+Venu tiam, kiam vi havos tempon. | Datanglah pada saat kamu punya waktu. | kiam | pada saat
+Mi vizitos vin tiam, kiam mi revenos de la ferio. | Saya akan mengunjungimu pada waktu saya kembali dari liburan. | kiam | pada waktu
+Tiam, kiam mi loĝis en Berlino, mi iris ĉiutage en la parkon. | Pada waktu saya tinggal di Berlin, saya pergi ke taman setiap hari. | kiam | Pada waktu
+Mi ŝatas la tempon, kiam ĉiuj dormas kaj la strato estas silenta. | Saya suka saat semua orang tidur dan jalan sunyi. | kiam | saat
+Estis frido je la tempo, kiam ni alvenis ĉi tien. | Waktu kami tiba di sini cuacanya dingin. | kiam | Waktu
+Ŝi ploris je la momento, kiam la trajno ekmoviĝis. | Dia menangis pada saat kereta mulai bergerak. | kiam | pada saat
+Tio okazis tiam, kiam la lernejo estis ankoraŭ nova. | Itu terjadi pada waktu sekolah itu masih baru. | kiam | pada waktu
+Mi neniam forgesos la tagon, kiam mi unuafoje vidis la maron. | Saya tak akan pernah melupakan hari ketika saya pertama kali melihat laut. | kiam | ketika
+Mi memoras la vesperon, kiam ni unuafoje renkontis vian fratinon. | Saya ingat malam ketika kami pertama kali bertemu adikmu. | kiam | ketika
+Tiam, kiam la ŝtormo venis, la fiŝistoj ankoraŭ estis sur la maro. | Pada saat badai datang, para nelayan masih berada di laut. | kiam | Pada saat
+La infanoj ĝojas je la tago, kiam komenciĝas la somera ferio. | Anak-anak senang pada hari ketika liburan musim panas dimulai. | kiam | ketika
+Mi pensas pri la tempo, kiam ni ĉiuj vivis kune en la malgranda domo. | Saya memikirkan masa ketika kita semua tinggal bersama di rumah kecil itu. | kiam | ketika
+Ni ofte parolas pri la jaro, kiam la ponto ruiniĝis kaj la tuta urbo devis helpi. | Kami sering membicarakan tahun ketika jembatan itu roboh dan seluruh kota harus membantu. | kiam | ketika
+La plej bela momento estis tiam, kiam la tuta publiko ekstaris kaj aplaŭdis. | Momen terindah adalah pada saat seluruh penonton berdiri dan bertepuk tangan. | kiam | pada saat
+#47 kiel sebagai Adverbia Relatif Cara
+Li kuras tiel rapide kiel mi. | Dia berlari sama cepatnya seperti saya. | kiel | seperti
+Ŝi kantas same bele kiel sia patrino. | Dia bernyanyi sama indahnya seperti ibunya. | kiel | seperti
+Faru tion same kiel mi. | Lakukan itu sama seperti saya. | kiel | seperti
+Mi estas tiel laca kiel vi. | Saya sama lelahnya seperti kamu. | kiel | seperti
+La supo ne estas tiel varma kiel hieraŭ. | Sup itu tidak sama panasnya seperti kemarin. | kiel | seperti
+Tiu ĉambro estas same granda kiel la nia. | Kamar itu sama besarnya seperti kamar kita. | kiel | seperti
+Mi dormis tiel profunde kiel infano. | Saya tidur sama nyenyaknya seperti anak kecil. | kiel | seperti
+Ŝi parolas Esperanton tiel flue kiel vera esperantisto. | Dia berbicara bahasa Esperanto sama lancarnya seperti esperantis sejati. | kiel | seperti
+Li laboras tiel diligente kiel liaj kolegoj. | Dia bekerja sama rajinnya seperti rekan-rekannya. | kiel | seperti
+Mi ne ŝatas ĝin tiel multe kiel mia fratino. | Saya tidak menyukainya sama banyaknya seperti adik perempuan saya. | kiel | seperti
+Ne ĉiuj lernas same kiel vi, do ne kritiku ilin. | Tidak semua orang belajar sama seperti kamu, jadi jangan kritik mereka. | kiel | seperti
+Vi parolas same kiel mia avo antaŭ multaj jaroj. | Kamu berbicara sama seperti kakekku bertahun-tahun lalu. | kiel | seperti
+Li vivas tiel simple kiel liaj geavoj vivis antaŭ cent jaroj. | Dia hidup sama sederhananya seperti kakek-neneknya hidup seratus tahun lalu. | kiel | seperti
+Ĉi-jare la somero ne estas tiel varma kiel pasintjare, kaj mi ĝojas pro tio. | Tahun ini musim panas tidak sama panasnya seperti tahun lalu, dan saya senang karenanya. | kiel | seperti
+Mi ne scias, ĉu mi iam povos paroli tiel bone kiel vi, sed mi daŭre provas. | Saya tidak tahu apakah suatu hari saya bisa berbicara sama baiknya seperti kamu, tetapi saya terus mencoba. | kiel | seperti
+#48 Kata Benda Bilangan
+Mi aĉetis dekduon da ovoj. | Saya membeli selusin telur. | dekduon da | selusin
+Centoj da homoj iris al la festo. | Ratusan orang pergi ke pesta itu. | Centoj da | Ratusan
+Miloj da birdoj flugis super la maro. | Ribuan burung terbang di atas laut. | Miloj da | Ribuan
+Ni estas trio: mi, mia frato kaj mia amiko. | Kami bertiga: saya, kakak saya, dan teman saya. | trio | bertiga
+La duo staris apud la pordo. | Keduanya berdiri di dekat pintu. | duo | Keduanya
+Dekoj da studentoj atendis antaŭ la biblioteko. | Puluhan mahasiswa menunggu di depan perpustakaan. | Dekoj da | Puluhan
+Ni estas kvaro en la teamo. | Kami berempat di tim itu. | kvaro | berempat
+Milionoj da homoj parolas la anglan. | Jutaan orang berbicara bahasa Inggris. | Milionoj da | Jutaan
+Mi vidis milojn da steloj en la ĉielo dum la nokto. | Saya melihat ribuan bintang di langit malam itu. | milojn da | ribuan
+Por la festo ni bezonas du dekduojn da glasoj. | Untuk pesta kita butuh dua lusin gelas. | dekduojn da | dua lusin
+Preskaŭ dekduo da aŭtoj staris antaŭ la hotelo. | Hampir selusin mobil berhenti di depan hotel. | dekduo da | selusin
+Mi trovis tri dekduojn da malnovaj stampoj en la skatolo. | Saya menemukan tiga lusin perangko lama di dalam kotak. | dekduojn da | tiga lusin
+En la ĝardeno kreskas centoj da floroj, kaj ĉiun printempon aperas pli. | Di kebun tumbuh ratusan bunga, dan setiap musim semi muncul lebih banyak. | centoj da | ratusan
+Centoj da turistoj vizitas nian vilaĝon ĉiusomere, kaj la lokaj homoj ĝojas pro tio. | Ratusan turis mengunjungi desa kami setiap musim panas, dan penduduk setempat senang karenanya. | Centoj da | Ratusan
+La lernejo havas milojn da libroj en la biblioteko, kaj ĉiujare oni aĉetas centojn da novaj. | Sekolah punya ribuan buku di perpustakaan, dan setiap tahun dibeli ratusan yang baru. | milojn da | ribuan
+#49 Adverbia dari Bilangan (-e)
+Unue ni manĝos, kaj poste ni iros. | Pertama-tama kita makan, lalu kita pergi. | Unue | Pertama-tama
+Unue, mi volas danki vin pro la helpo. | Pertama-tama, saya ingin berterima kasih atas bantuanmu. | Unue | Pertama-tama
+Unue vi devas atendi, due vi devas silenti. | Pertama kamu harus menunggu, kedua kamu harus diam. | due | kedua
+Trie, mi ne havas monon. | Ketiga, saya tidak punya uang. | Trie | Ketiga
+Kvare, la vojo estas tro longa. | Keempat, jalannya terlalu panjang. | Kvare | Keempat
+Kvine, la vetero estas malbona hodiaŭ. | Kelima, cuaca hari ini buruk. | Kvine | Kelima
+Sese, ni ne havas sufiĉe da tempo. | Keenam, kita tidak punya cukup waktu. | Sese | Keenam
+Septe, la hotelo estas tro for de la stacidomo. | Ketujuh, hotelnya terlalu jauh dari stasiun. | Septe | Ketujuh
+Oke, la lasta kialo estas la plej grava. | Kedelapan, alasan terakhir adalah yang terpenting. | Oke | Kedelapan
+Mi ne aĉetos ĝin: unue ĝi estas multekosta, due mi ne bezonas ĝin. | Saya tidak akan membelinya: pertama mahal, kedua saya tidak membutuhkannya. | due | kedua
+Kiam vi kuiras, unue lavu la manojn kaj poste metu la akvon sur la fajron. | Kalau memasak, pertama-tama cucilah tangan lalu taruh air di atas api. | unue | pertama-tama
+Unue li prenis la ŝlosilon, due li malfermis la pordon, kaj trie li eniris. | Pertama dia mengambil kunci, kedua membuka pintu, dan ketiga masuk. | trie | ketiga
+Mi ŝatas ĝin pro tri kialoj: unue ĝi estas bela, due ĝi estas utila, kaj trie ĝi estas malmultekosta. | Saya menyukainya karena tiga alasan: pertama indah, kedua berguna, dan ketiga murah. | trie | ketiga
+En la letero ŝi skribis, ke unue ŝi volas danki, due peti pardonon, kaj trie viziti nin. | Dalam surat dia menulis bahwa pertama ingin berterima kasih, kedua meminta maaf, dan ketiga mengunjungi kami. | trie | ketiga
+Antaŭ ol ni decidos, ni devas pripensi ĉion bone, ĉar unue venas la sekureco kaj due la prezo. | Sebelum kita memutuskan, kita harus memikirkan semuanya baik-baik, karena pertama datang keamanan dan kedua harga. | due | kedua
+#50 Penurunan Kata dari Preposisi
+La antaŭa instruisto estis pli strikta. | Guru sebelumnya lebih tegas. | antaŭa | sebelumnya
+La posta trajno foriras je la oka. | Kereta berikutnya berangkat pukul delapan. | posta | berikutnya
+Mi loĝas en la supra etaĝo. | Saya tinggal di lantai atas. | supra | atas
+La malsupra breto estas malplena. | Rak bawah kosong. | malsupra | bawah
+La ekstera pordo estas fermita nokte. | Pintu luar ditutup pada malam hari. | ekstera | luar
+La interna ĝardeno estas tre trankvila. | Taman dalam sangat tenang. | interna | dalam
+Mia apuda najbaro havas grandan hundon. | Tetangga sebelah saya punya anjing besar. | apuda | sebelah
+La kontraŭa flanko de la strato estas pli trankvila. | Sisi seberang jalan lebih tenang. | kontraŭa | seberang
+Li ĉiam kontraŭas miajn ideojn. | Dia selalu menentang gagasan saya. | kontraŭas | menentang
+Ŝi anstataŭos min dum mia forvojaĝo. | Dia akan menggantikan saya selama saya bepergian. | anstataŭos | menggantikan
+La anstataŭulo de la instruisto estas tre afabla. | Pengganti guru itu sangat ramah. | anstataŭulo | Pengganti
+Alta muro kaj granda ĝardeno ĉirkaŭas la domon. | Tembok tinggi dan kebun besar mengelilingi rumah itu. | ĉirkaŭas | mengelilingi
+Nia ĉirkaŭaĵo estas trankvila, kaj ni ofte promenas apud la rivero. | Lingkungan sekitar kami tenang, dan kami sering berjalan di tepi sungai. | ĉirkaŭaĵo | Lingkungan sekitar
+La kontraŭulo de nia teamo estis pli forta ol ni atendis. | Lawan tim kami lebih kuat daripada yang kami duga. | kontraŭulo | Lawan
+La ŝtormo antaŭis la inundon je kelkaj horoj. | Badai mendahului banjir beberapa jam. | antaŭis | mendahului
+#51 Preposisi sebagai Awalan Kata Kerja
+Mi alvenis hieraŭ. | Saya tiba kemarin. | alvenis | tiba
+Li eniris la ĉambron. | Dia masuk ke kamar. | eniris | masuk
+Ŝi eliris el la domo. | Dia keluar dari rumah. | eliris | keluar
+La trajno foriris. | Kereta itu sudah berangkat. | foriris | berangkat
+Ni transiris la straton. | Kami menyeberangi jalan. | transiris | menyeberangi
+La infanoj supreniris la ŝtuparon. | Anak-anak naik tangga. | supreniris | naik
+Mi malsupreniris por manĝi. | Saya turun untuk makan. | malsupreniris | turun
+Ni kunvenos ĉe la stacidomo. | Kami akan berkumpul di stasiun. | kunvenos | berkumpul
+Bonvolu elporti la skatolon el la ĉambro. | Tolong bawa keluar kotak itu dari kamar. | elporti | bawa keluar
+Li antaŭiris kaj ni sekvis lin. | Dia berjalan di depan dan kami mengikutinya. | antaŭiris | berjalan di depan
+La rivero trairas la tutan urbon. | Sungai itu melintasi seluruh kota. | trairas | melintasi
+Ŝi enlitiĝis frue, ĉar ŝi estis tre laca. | Dia pergi tidur lebih awal karena sangat capek. | enlitiĝis | pergi tidur
+La knabo surmetis la ĉapelon kaj eliris en la pluvon. | Anak itu mengenakan topi lalu keluar ke dalam hujan. | surmetis | mengenakan
+Kiam la gastoj alvenis, ni jam estis pretaj por la vespermanĝo. | Ketika para tamu tiba, kami sudah siap untuk makan malam. | alvenis | tiba
+Ni ĉirkaŭiris la lagon kaj revenis al la hotelo. | Kami mengitari danau lalu kembali ke hotel. | ĉirkaŭiris | mengitari
+#52 Akhiran -ebl- (Dapat/Mungkin)
+La skribo estas legebla. | Tulisan itu terbaca. | legebla | terbaca
+Ĉi tiu akvo estas trinkebla. | Air ini dapat diminum. | trinkebla | dapat diminum
+La fungoj estas manĝeblaj. | Jamur-jamur itu dapat dimakan. | manĝeblaj | dapat dimakan
+La montoj estas videblaj de ĉi tie. | Gunung-gunung itu terlihat dari sini. | videblaj | terlihat
+Tiu problemo estas facile solvebla. | Masalah itu mudah dipecahkan. | solvebla | dipecahkan
+Via klarigo estas tute komprenebla. | Penjelasanmu sepenuhnya dapat dimengerti. | komprenebla | dapat dimengerti
+La pordo ne estas malfermebla sen ŝlosilo. | Pintu itu tidak dapat dibuka tanpa kunci. | malfermebla | dapat dibuka
+Ĉu ĉi tiu ĉambro estas luebla por unu semajno? | Apakah kamar ini dapat disewa untuk satu minggu? | luebla | dapat disewa
+La rivero ne estas transirebla dum la pluvsezono. | Sungai itu tidak dapat diseberangi pada musim hujan. | transirebla | dapat diseberangi
+La lasta ĉapitro de la libro ne estas kredebla. | Bab terakhir buku itu tidak dapat dipercaya. | kredebla | dapat dipercaya
+Mi ne scias, ĉu la letero estas ankoraŭ legebla post la pluvo. | Saya tidak tahu apakah surat itu masih terbaca setelah hujan. | legebla | terbaca
+La kuko estas tute manĝebla, kvankam ĝi aspektas strange. | Kue itu sepenuhnya dapat dimakan, meski tampilannya aneh. | manĝebla | dapat dimakan
+Ne ĉiu eraro estas evitebla, sed multaj el ili estas. | Tidak setiap kesalahan dapat dihindari, tetapi banyak di antaranya bisa. | evitebla | dapat dihindari
+La ekzercoj estas fareblaj en dudek minutoj. | Latihan itu dapat dikerjakan dalam dua puluh menit. | fareblaj | dapat dikerjakan
+Se la vojo estas sendanĝera kaj veturebla, ni iros per aŭto; alie ni prenos la trajnon. | Kalau jalannya aman dan dapat dilalui kendaraan, kami pergi dengan mobil; kalau tidak kami naik kereta. | veturebla | dapat dilalui kendaraan
+#53 Tingkat Tertinggi yang Mungkin
+Venu kiel eble plej frue. | Datanglah sepagi mungkin. | kiel eble plej frue | sepagi mungkin
+Ĝi estas kiel eble plej bona. | Itu sebaik mungkin. | kiel eble plej bona | sebaik mungkin
+Skribu la leteron kiel eble plej mallonge. | Tulislah surat itu sesingkat mungkin. | kiel eble plej mallonge | sesingkat mungkin
+Ni vojaĝos kiel eble plej rapide. | Kami akan bepergian secepat mungkin. | kiel eble plej rapide | secepat mungkin
+Mi volas ripozi kiel eble plej multe. | Saya ingin beristirahat sebanyak mungkin. | kiel eble plej multe | sebanyak mungkin
+Parolu kiel eble plej klare. | Bicaralah sejelas mungkin. | kiel eble plej klare | sejelas mungkin
+Mi vizitas miajn gepatrojn kiel eble plej ofte. | Saya mengunjungi orang tua saya sesering mungkin. | kiel eble plej ofte | sesering mungkin
+Ni devas fini la laboron kiel eble plej baldaŭ. | Kami harus menyelesaikan pekerjaan sesegera mungkin. | kiel eble plej baldaŭ | sesegera mungkin
+Bonvolu respondi kiel eble plej detale. | Tolong jawab serinci mungkin. | kiel eble plej detale | serinci mungkin
+La infanoj lernis kiel eble plej diligente. | Anak-anak belajar serajin mungkin. | kiel eble plej diligente | serajin mungkin
+Li serĉis kiel eble plej malmultekostan hotelon. | Dia mencari hotel semurah mungkin. | kiel eble plej malmultekostan | semurah mungkin
+Ni sidis kiel eble plej proksime al la scenejo. | Kami duduk sedekat mungkin dengan panggung. | kiel eble plej proksime | sedekat mungkin
+Por la ekzameno mi preparas min kiel eble plej zorge. | Untuk ujian saya mempersiapkan diri secermat mungkin. | kiel eble plej zorge | secermat mungkin
+La kuracisto volis helpi la pacienton kiel eble plej bone. | Dokter ingin membantu pasien sebaik mungkin. | kiel eble plej bone | sebaik mungkin
+Ŝi provis konservi la ŝlosilon kiel eble plej sekure, sed tamen perdis ĝin. | Dia berusaha menyimpan kunci seaman mungkin, tetapi tetap kehilangannya. | kiel eble plej sekure | seaman mungkin
+#54 Gelar (sinjoro, sinjorino, fraŭlino)
+Sinjoro Brun estas kuracisto. | Tuan Brun adalah dokter. | Sinjoro Brun | Tuan Brun
+Sinjorino Lang loĝas apude. | Nyonya Lang tinggal di dekat sini. | Sinjorino Lang | Nyonya Lang
+Fraŭlino Roso estas nia nova instruistino. | Nona Roso adalah guru baru kami. | Fraŭlino Roso | Nona Roso
+Ĉu vi konas Sinjoron Brun? | Apakah kamu mengenal Tuan Brun? | Sinjoron Brun | Tuan Brun
+Mi vidis Sinjorinon Lang en la bazaro. | Saya melihat Nyonya Lang di pasar. | Sinjorinon Lang | Nyonya Lang
+Sinjoro Kato laboras en la banko. | Tuan Kato bekerja di bank. | Sinjoro Kato | Tuan Kato
+Fraŭlino Roso havas du fratojn kaj unu fratinon. | Nona Roso punya dua saudara laki-laki dan satu saudara perempuan. | Fraŭlino Roso | Nona Roso
+La filino de Sinjoro Brun studas en Parizo. | Putri Tuan Brun kuliah di Paris. | Sinjoro Brun | Tuan Brun
+Mi sendis leteron al Fraŭlino Roso hieraŭ. | Saya mengirim surat kepada Nona Roso kemarin. | Fraŭlino Roso | Nona Roso
+Fraŭlino Roso ne venis, ĉar ŝi estis malsana. | Nona Roso tidak datang karena dia sakit. | Fraŭlino Roso | Nona Roso
+Hodiaŭ Sinjoro Lang parolos pri la historio de nia urbo. | Hari ini Tuan Lang akan berbicara tentang sejarah kota kami. | Sinjoro Lang | Tuan Lang
+Ni aŭskultis Sinjorinon Brun, kiu rakontis pri sia vojaĝo. | Kami mendengarkan Nyonya Brun yang bercerita tentang perjalanannya. | Sinjorinon Brun | Nyonya Brun
+Antaŭ la lernejo staris Sinjoro Kato kaj atendis siajn infanojn. | Di depan sekolah berdiri Tuan Kato menunggu anak-anaknya. | Sinjoro Kato | Tuan Kato
+Sinjorino Kato kaj Sinjoro Kato loĝas en malgranda domo apud la maro. | Nyonya Kato dan Tuan Kato tinggal di rumah kecil dekat laut. | Sinjorino Kato | Nyonya Kato
+La biblioteko estas fermita, sed Fraŭlino Lang havas la ŝlosilon kaj povas malfermi ĝin por ni. | Perpustakaan tutup, tetapi Nona Lang punya kuncinya dan bisa membukanya untuk kami. | Fraŭlino Lang | Nona Lang
+#55 Sapaan Sopan dengan Gelar
+Adiaŭ, Sinjoro. | Selamat tinggal, Tuan. | Sinjoro | Tuan
+Bonan tagon, Sinjorino. | Selamat siang, Nyonya. | Sinjorino | Nyonya
+Dankon, Fraŭlino. | Terima kasih, Nona. | Fraŭlino | Nona
+Bonan matenon, Sinjoro. | Selamat pagi, Tuan. | Sinjoro | Tuan
+Bonan vesperon, Sinjorino. | Selamat malam, Nyonya. | Sinjorino | Nyonya
+Ĝis revido, Fraŭlino. | Sampai jumpa, Nona. | Fraŭlino | Nona
+Bonvolu eniri, Sinjorino. | Silakan masuk, Nyonya. | Sinjorino | Nyonya
+Pardonu, Sinjoro, ĉu vi scias, kie estas la stacidomo? | Maaf, Tuan, apakah Anda tahu di mana stasiun? | Sinjoro | Tuan
+Mi petas, Fraŭlino, ĉu vi povas helpi min? | Tolong, Nona, bisakah Anda membantu saya? | Fraŭlino | Nona
+Bonvenon, Sinjoroj kaj Sinjorinoj! | Selamat datang, Tuan-tuan dan Nyonya-nyonya! | Sinjoroj | Tuan-tuan
+Bonan nokton, Fraŭlino, kaj dormu bone. | Selamat tidur, Nona, dan tidurlah nyenyak. | Fraŭlino | Nona
+Dankon pro via helpo, Sinjoro, mi ne forgesos ĝin. | Terima kasih atas bantuan Anda, Tuan, saya tidak akan melupakannya. | Sinjoro | Tuan
+Ĉu vi bonvolus sidiĝi, Sinjorino? La kuracisto tuj venos. | Maukah Anda duduk, Nyonya? Dokter segera datang. | Sinjorino | Nyonya
+Jen via mono, Sinjoro, kaj mi dankas vin pro la aĉeto. | Ini uang Anda, Tuan, dan saya berterima kasih atas pembelian Anda. | Sinjoro | Tuan
+Mi bedaŭras, Sinjorino, sed la trajno jam foriris antaŭ dek minutoj. | Mohon maaf, Nyonya, tetapi kereta sudah berangkat sepuluh menit lalu. | Sinjorino | Nyonya
+#56 kiom sebagai Adverbia Relatif Jumlah
+Mi manĝis tiom, kiom mi povis. | Saya makan sebanyak yang saya bisa. | kiom | sebanyak
+Prenu tiom da pomoj, kiom vi volas. | Ambillah apel sebanyak yang kamu mau. | kiom | sebanyak
+Ŝi havas tiom da libroj, kiom ŝi bezonas. | Dia punya buku sebanyak yang dia perlukan. | kiom | sebanyak
+Li ne gajnas tiom, kiom li volus. | Dia tidak menghasilkan sebanyak yang dia inginkan. | kiom | sebanyak
+Trinku tiom da akvo, kiom vi bezonas. | Minumlah air sebanyak yang kamu butuhkan. | kiom | sebanyak
+Ni aĉetis tiom da pano, kiom ni povis porti. | Kami membeli roti sebanyak yang bisa kami bawa. | kiom | sebanyak
+La taso enhavis tiom da kafo, kiom mi povis trinki. | Cangkir itu berisi kopi sebanyak yang bisa saya minum. | kiom | sebanyak
+Mi ne havas tiom da tempo, kiom mi dezirus. | Saya tidak punya waktu sebanyak yang saya inginkan. | kiom | sebanyak
+Ŝi donis al la infanoj tiom da dolĉaĵoj, kiom ili volis. | Dia memberi anak-anak manisan sebanyak yang mereka mau. | kiom | sebanyak
+Mi laboras tiom, kiom necesas por fini la projekton. | Saya bekerja sebanyak yang perlu untuk menyelesaikan proyek. | kiom | sebanyak
+Ĉiu povas preni tiom da supo, kiom li volas, sed la pano estas limigita. | Siapa pun boleh mengambil sup sebanyak yang dia mau, tetapi rotinya terbatas. | kiom | sebanyak
+Li legis tiom da paĝoj, kiom liaj okuloj permesis, kaj poste endormiĝis. | Dia membaca halaman sebanyak yang diizinkan matanya, lalu tertidur. | kiom | sebanyak
+Ne ĉiuj homoj havas tiom da ŝanco, kiom vi havas, do estu danka. | Tidak semua orang punya kesempatan sebanyak yang kamu punya, jadi bersyukurlah. | kiom | sebanyak
+Mi pagis tiom da mono, kiom la vendisto petis, kvankam la prezo ŝajnis alta. | Saya membayar uang sebanyak yang diminta penjual, meskipun harganya tampak tinggi. | kiom | sebanyak
+Ŝi parolis tiom longe, kiom la tempo permesis, kaj poste la aŭskultantoj faris demandojn. | Dia berbicara selama waktu mengizinkan, lalu para pendengar mengajukan pertanyaan. | kiom | selama
+#57 Partisip Pasif Kini -ata
+La laŭdata knabo estas feliĉa. | Anak laki-laki yang sedang dipuji itu bahagia. | laŭdata | yang sedang dipuji
+La atendata gasto ankoraŭ ne alvenis. | Tamu yang sedang ditunggu belum tiba. | atendata | yang sedang ditunggu
+La legata libro estas tre interesa. | Buku yang sedang dibaca itu sangat menarik. | legata | yang sedang dibaca
+La ŝatata kantisto venos al nia urbo. | Penyanyi yang disukai akan datang ke kota kami. | ŝatata | yang disukai
+Ni aŭskultas la kantatan kanton. | Kami mendengarkan lagu yang sedang dinyanyikan. | kantatan | yang sedang dinyanyikan
+La lernata lingvo ne estas facila, sed ĝi estas bela. | Bahasa yang sedang dipelajari itu tidak mudah, tetapi indah. | lernata | yang sedang dipelajari
+La vendata aŭto kostas nur mil eŭrojn. | Mobil yang sedang dijual itu harganya hanya seribu euro. | vendata | yang sedang dijual
+La serĉata viro estas ankoraŭ en la urbo. | Pria yang sedang dicari itu masih di kota. | serĉata | yang sedang dicari
+La lavata vestaĵo sekiĝos rapide en la suno. | Pakaian yang sedang dicuci akan kering cepat di bawah matahari. | lavata | yang sedang dicuci
+La manĝo, preparata en la kuirejo, bonodoras. | Makanan yang sedang disiapkan di dapur berbau sedap. | preparata | yang sedang disiapkan
+La domo, konstruata apud la rivero, estos tre granda. | Rumah yang sedang dibangun di dekat sungai itu akan sangat besar. | konstruata | yang sedang dibangun
+La skribata letero estos longa, ĉar ŝi havas multon por diri. | Surat yang sedang ditulis akan panjang, karena dia punya banyak hal untuk dikatakan. | skribata | yang sedang ditulis
+La aŭskultataj parolantoj staris sur granda scenejo. | Para pembicara yang sedang didengarkan berdiri di panggung besar. | aŭskultataj | yang sedang didengarkan
+La konstruata ponto estos pli longa ol ĉiuj pontoj en nia lando. | Jembatan yang sedang dibangun akan lebih panjang daripada semua jembatan di negara kami. | konstruata | yang sedang dibangun
+La infano, amata de ĉiuj, ofte vizitas la malnovan virinon en la vilaĝo. | Anak yang dicintai semua orang sering mengunjungi wanita tua di desa. | amata | yang dicintai
+#58 Pecahan (-on-)
+La duono de dek estas kvin. | Setengah dari sepuluh adalah lima. | duono | Setengah
+Mi trinkis duonon de la lakto. | Saya minum setengah dari susu itu. | duonon | setengah
+Ĉu vi volas trionon de la kuko? | Apakah kamu mau sepertiga dari kue itu? | trionon | sepertiga
+Ŝi legis kvaronon de la libro hieraŭ. | Dia membaca seperempat dari buku itu kemarin. | kvaronon | seperempat
+Nur kvinono de la studentoj lernas Esperanton. | Hanya seperlima dari mahasiswa belajar Esperanto. | kvinono | seperlima
+La tri kvaronoj de la vojo estas jam finitaj. | Tiga perempat dari jalan itu sudah selesai. | tri kvaronoj | Tiga perempat
+Nur du trionoj de la mono iras por la loĝejo. | Hanya dua pertiga dari uang itu untuk tempat tinggal. | du trionoj | dua pertiga
+Nur dekono de la prezo estas imposto. | Hanya sepersepuluh dari harga adalah pajak. | dekono | sepersepuluh
+Unu duono de la ĉambro estas libera. | Setengah dari kamar itu kosong. | duono | Setengah
+Li donis al mi la duonon de sia sandviĉo. | Dia memberi saya setengah dari sandwichnya. | duonon | setengah
+Ŝi manĝis nur kvaronon de la pico kaj donis la reston al mi. | Dia hanya makan seperempat dari pizza itu dan memberikan sisanya kepada saya. | kvaronon | seperempat
+Kiam mi alvenis, ses okonoj de la kuko jam malaperis. | Ketika saya tiba, enam perdelapan dari kue itu sudah hilang. | ses okonoj | enam perdelapan
+Post la jarkunveno ni dividis la profiton en tri egalajn partojn; ĉiu ricevis trionon. | Setelah rapat tahunan kami membagi keuntungan menjadi tiga bagian sama; masing-masing menerima sepertiga. | trionon | sepertiga
+Pli ol duono de la loĝantoj de nia urbo laboras en la fabriko apud la rivero. | Lebih dari setengah penduduk kota kami bekerja di pabrik dekat sungai. | duono | setengah
+#59 Kata Majemuk Deskriptif
+Tiu ĉapelo estas multekosta. | Topi itu mahal. | multekosta | mahal
+La ĝardeno estas belaspekta. | Taman itu tampak indah. | belaspekta | tampak indah
+Ŝi estas bonkora virino. | Dia wanita yang baik hati. | bonkora | baik hati
+La supo estas bonodora. | Sup itu berbau sedap. | bonodora | berbau sedap
+Ni aĉetis malmultekostan telefonon. | Kami membeli telepon murah. | malmultekostan | murah
+Mi ne ŝatas longdaŭrajn kunvenojn. | Saya tidak suka rapat yang berlangsung lama. | longdaŭrajn | berlangsung lama
+La bonhumora instruisto ridetis al ĉiuj. | Guru yang periang itu tersenyum kepada semua orang. | bonhumora | yang periang
+Mi havas mallongdaŭran taskon por vi. | Saya punya tugas singkat untuk kamu. | mallongdaŭran | singkat
+La festo havis multnombran publikon. | Pesta itu dihadiri banyak penonton. | multnombran | banyak
+Mia fratino havas longharan katon. | Adik perempuan saya punya kucing berbulu panjang. | longharan | berbulu panjang
+La bongusta kuko malaperis post kelkaj minutoj. | Kue lezat itu habis dalam beberapa menit. | bongusta | lezat
+Post la longdaŭra pluvo la riveroj estis plenaj. | Setelah hujan yang berlangsung lama sungai-sungai penuh. | longdaŭra | yang berlangsung lama
+Mi ne povis dormi pro la malbonodora fumo de la fabriko. | Saya tidak bisa tidur karena asap pabrik yang berbau busuk. | malbonodora | berbau busuk
+Li aĉetis multekostan horloĝon, kvankam li ne havis multe da mono. | Dia membeli jam tangan mahal, meskipun tidak punya banyak uang. | multekostan | mahal
+#60 Adverbia jam (sudah)
+Mi jam manĝis. | Saya sudah makan. | jam | sudah
+Ŝi jam dormas. | Dia sudah tidur. | jam | sudah
+Ĉu vi jam finis la taskon? | Apakah kamu sudah menyelesaikan tugas itu? | jam | sudah
+La trajno jam foriris. | Kereta itu sudah berangkat. | jam | sudah
+Li jam estas en la oficejo. | Dia sudah ada di kantor. | jam | sudah
+Ni jam konas tiun kantiston. | Kami sudah mengenal penyanyi itu. | jam | sudah
+Mi jam legis tiun libron, sed mi ne komprenis ĉion. | Saya sudah membaca buku itu, tetapi tidak memahami semuanya. | jam | sudah
+La infanoj jam estas en la lito, do estu trankvilaj. | Anak-anak sudah ada di tempat tidur, jadi tenanglah. | jam | sudah
+Kiam mi alvenis, la koncerto jam komenciĝis. | Ketika saya tiba, konser itu sudah dimulai. | jam | sudah
+Ni jam aĉetis la biletojn, do ni povas iri tuj. | Kami sudah membeli tiketnya, jadi kami bisa pergi sekarang juga. | jam | sudah
+Mi jam diris al vi, ke la butiko fermiĝas je la sesa horo. | Saya sudah bilang padamu bahwa toko tutup jam enam. | jam | sudah
+Li jam havas tri infanojn, kvankam li estas nur dudek ok jarojn aĝa. | Dia sudah punya tiga anak, padahal baru berusia dua puluh delapan tahun. | jam | sudah
+Ŝi jam vendis sian malnovan aŭton, sed ankoraŭ ne trovis novan. | Dia sudah menjual mobil lamanya, tetapi belum menemukan yang baru. | jam | sudah
+Kiam ni atingis la stacidomon, la amikoj jam atendis nin sur la strato. | Ketika kami sampai di stasiun, teman-teman sudah menunggu kami di jalan. | jam | sudah
+#61 Kala Pasif Kini (estas + -ata)
+La letero estas skribata. | Surat itu sedang ditulis. | estas skribata | sedang ditulis
+La pordo estas malfermata. | Pintu itu sedang dibuka. | estas malfermata | sedang dibuka
+La nova ponto estas konstruata. | Jembatan baru sedang dibangun. | estas konstruata | sedang dibangun
+La vestaĵoj estas lavataj de la patrino. | Pakaian sedang dicuci oleh ibu. | estas lavataj | sedang dicuci
+Ni estas atendataj de nia amiko. | Kami sedang ditunggu oleh teman kami. | estas atendataj | sedang ditunggu
+La lasta ekzemplero estas vendata nun por la duono de la prezo. | Eksemplar terakhir sedang dijual sekarang dengan setengah harga. | estas vendata | sedang dijual
+La manĝo estas preparata en la kuirejo. | Makanan itu sedang disiapkan di dapur. | estas preparata | sedang disiapkan
+La koncerto estas aŭskultata de multaj homoj. | Konser itu sedang didengarkan banyak orang. | estas aŭskultata | sedang didengarkan
+La ĉambro estas purigata de la servistino. | Kamar itu sedang dibersihkan oleh pelayan. | estas purigata | sedang dibersihkan
+La ŝtuparo estas riparata, do ni uzu la lifton. | Tangga itu sedang diperbaiki, jadi gunakan lift. | estas riparata | sedang diperbaiki
+La kanto estas kantata de la infanoj nun. | Lagu itu sedang dinyanyikan anak-anak sekarang. | estas kantata | sedang dinyanyikan
+La studentoj estas instruataj de bonega profesoro. | Para mahasiswa sedang diajar oleh profesor yang hebat. | estas instruataj | sedang diajar
+Mi estas serĉata de la polico, sed mi ne scias kial. | Saya sedang dicari polisi, tetapi saya tidak tahu mengapa. | estas serĉata | sedang dicari
+La nova filmo estas montrata en la kinejo apud la biblioteko. | Film baru sedang diputar di bioskop dekat perpustakaan. | estas montrata | sedang diputar
+#62 de untuk Pelaku Pasif
+La libro estas legata de Anna. | Buku itu dibaca oleh Anna. | de Anna | oleh Anna
+La kuko estas farata de mia patrino. | Kue itu dibuat oleh ibu saya. | de mia patrino | oleh ibu saya
+Ni estas invititaj de la direktoro. | Kami diundang oleh direktur. | de la direktoro | oleh direktur
+La fenestro estis rompita de la infanoj. | Jendela itu dipecahkan oleh anak-anak. | de la infanoj | oleh anak-anak
+La hundo estas amata de ĉiuj en nia strato. | Anjing itu disayangi oleh semua orang di jalan kami. | de ĉiuj | oleh semua orang
+La domo estas vendata de la nova posedanto. | Rumah itu dijual oleh pemilik baru. | de la nova posedanto | oleh pemilik baru
+Tiu romano estis skribita de fama verkisto. | Novel itu ditulis oleh penulis terkenal. | de fama verkisto | oleh penulis terkenal
+La ŝtelisto estis kaptita de la polico hieraŭ vespere. | Pencuri itu ditangkap oleh polisi kemarin malam. | de la polico | oleh polisi
+Mi estis vekita de la sono de la pluvo. | Saya dibangunkan oleh suara hujan. | de la sono | oleh suara
+La urbo estas vizitata de multaj turistoj ĉiun someron. | Kota itu dikunjungi oleh banyak turis setiap musim panas. | de multaj turistoj | oleh banyak turis
+Ĉiuj ĉambroj estas purigataj de la servistinoj ĉiumatene. | Semua kamar dibersihkan oleh para pelayan setiap pagi. | de la servistinoj | oleh para pelayan
+La ponto estos konstruata de laboristoj el multaj landoj. | Jembatan itu akan dibangun oleh para pekerja dari banyak negara. | de laboristoj | oleh para pekerja
+La koncerto estas organizata de la studentoj de nia universitato. | Konser itu diselenggarakan oleh para mahasiswa universitas kami. | de la studentoj | oleh para mahasiswa
+La domo estis detruita de granda fajro, kiun neniu povis haltigi. | Rumah itu dihancurkan oleh api besar yang tidak bisa dihentikan siapa pun. | de granda fajro | oleh api besar
+#63 Makna Umum de
+Mi venas de la oficejo. | Saya datang dari kantor. | de la oficejo | dari kantor
+Ni forveturis de la hotelo frumatene. | Kami berangkat dari hotel pagi-pagi. | de la hotelo | dari hotel
+La butiko estas malproksima de mia domo. | Toko itu jauh dari rumah saya. | de mia domo | dari rumah saya
+Ŝi ricevis leteron de sia amiko. | Dia menerima surat dari temannya. | de sia amiko | dari temannya
+Mi aŭdis la novaĵon de la najbaro. | Saya mendengar kabar itu dari tetangga. | de la najbaro | dari tetangga
+La infanoj kuris for de la hundo. | Anak-anak berlari menjauh dari anjing itu. | de la hundo | dari anjing itu
+Li pruntis libron de la biblioteko. | Dia meminjam buku dari perpustakaan. | de la biblioteko | dari perpustakaan
+La vojo de la urbo al la maro estas longa. | Jalan dari kota ke laut itu panjang. | de la urbo | dari kota
+La ŝlosilo falis de la tablo kaj ruliĝis sub la liton. | Kunci itu jatuh dari meja dan menggelinding ke bawah tempat tidur. | de la tablo | dari meja
+Mi atendis la respondon de la direktoro dum tri tagoj. | Saya menunggu jawaban dari direktur selama tiga hari. | de la direktoro | dari direktur
+Tiu ĉi donaco estas de mia avino, kaj mi ŝatas ĝin. | Hadiah ini dari nenek saya, dan saya menyukainya. | de mia avino | dari nenek saya
+Ŝi laboris en la ĝardeno de la mateno ĝis la vespero. | Dia bekerja di kebun dari pagi sampai malam. | de la mateno | dari pagi
+Mi tradukis la tekston de la angla lingvo en Esperanton. | Saya menerjemahkan teks dari bahasa Inggris ke Esperanto. | de la angla | dari bahasa Inggris
+Mi lernis tiun kanton de mia avo, kiam mi estis malgranda. | Saya belajar lagu itu dari kakek saya ketika masih kecil. | de mia avo | dari kakek saya
+#64 Penurunan dari Adverbia Primer
+La nuna prezo estas tro alta. | Harga saat ini terlalu tinggi. | nuna | saat ini
+Mi bezonas tujan respondon. | Saya butuh jawaban segera. | tujan | segera
+Ni parolos pri la hodiaŭa leciono. | Kita akan membicarakan pelajaran hari ini. | hodiaŭa | hari ini
+La hieraŭa kunveno estis tre longa. | Rapat kemarin sangat panjang. | hieraŭa | kemarin
+Ĉu vi havas la morgaŭan horaron? | Apakah kamu punya jadwal besok? | morgaŭan | besok
+Li loĝas en fora lando kun sia familio. | Dia tinggal di negeri yang jauh bersama keluarganya. | fora | yang jauh
+La troa laboro lacigis lin. | Pekerjaan yang berlebihan membuatnya lelah. | troa | yang berlebihan
+La tiama prezidento ne ŝatis ŝanĝojn. | Presiden pada waktu itu tidak menyukai perubahan. | tiama | pada waktu itu
+Ni lernos la pluan lecionon morgaŭ. | Kita akan belajar pelajaran selanjutnya besok. | pluan | selanjutnya
+La ĉirkaŭa naturo estas ege bela printempe. | Alam sekitar sangat indah pada musim semi. | ĉirkaŭa | sekitar
+La muroj ĉirkaŭas la malnovan urbon. | Tembok-tembok mengelilingi kota tua. | ĉirkaŭas | mengelilingi
+Ni esperas la baldaŭan alvenon de nia amiko. | Kami menantikan kedatangan teman kami yang sebentar lagi tiba. | baldaŭan | sebentar lagi
+Ŝi petis tujan helpon, kiam ŝi vidis la fumon el la fenestro. | Dia meminta bantuan segera ketika melihat asap dari jendela. | tujan | segera
+Mi komprenis la nunan situacion de nia firmao kaj decidis labori pli multe. | Saya memahami situasi perusahaan kami saat ini dan memutuskan bekerja lebih banyak. | nunan | saat ini
+Pro la hodiaŭa pluvo la matĉo estis prokrastita ĝis la sekva semajno. | Karena hujan hari ini pertandingan ditunda sampai minggu depan. | hodiaŭa | hari ini
+#65 Akhiran -ist- (Pekerjaan)
+Mia patro estas kuracisto. | Ayah saya seorang dokter. | kuracisto | dokter
+La floristo vendas belajn rozojn. | Penjual bunga menjual mawar-mawar indah. | floristo | Penjual bunga
+La kantisto kantis tri kantojn. | Penyanyi itu menyanyikan tiga lagu. | kantisto | Penyanyi
+Mi iras al la dentisto morgaŭ matene. | Saya pergi ke dokter gigi besok pagi. | dentisto | dokter gigi
+La vendisto donis al mi pli bonan prezon. | Penjual itu memberi saya harga lebih baik. | vendisto | Penjual
+Mia frato volas fariĝi ĵurnalisto. | Kakak saya ingin menjadi wartawan. | ĵurnalisto | wartawan
+La instruisto klarigis la lecionon dufoje. | Guru itu menjelaskan pelajaran dua kali. | instruisto | Guru
+Ŝi laboras kiel bankisto en la urbocentro. | Dia bekerja sebagai pegawai bank di pusat kota. | bankisto | pegawai bank
+La pentristo pentris belan pejzaĝon apud la maro. | Pelukis itu melukis pemandangan indah di dekat laut. | pentristo | Pelukis
+En nia vilaĝo loĝas nur unu bakisto. | Di desa kami hanya tinggal satu tukang roti. | bakisto | tukang roti
+La libristo rekomendis al mi interesan romanon. | Penjual buku itu merekomendasikan novel menarik kepada saya. | libristo | Penjual buku
+La pianisto ludis tiel bele, ke ĉiuj silentis. | Pianis itu bermain begitu indah sampai semua orang diam. | pianisto | Pianis
+Ĉiun matenon la biciklisto veturas laŭ la rivero. | Setiap pagi pengendara sepeda melaju menyusuri sungai. | biciklisto | pengendara sepeda
+Mia onklo estas bonega kuiristo, kaj li laboras en granda restoracio. | Paman saya koki yang hebat, dan dia bekerja di restoran besar. | kuiristo | koki
+#66 antikva (kuno)
+Tio estas antikva libro. | Itu buku kuno. | antikva | kuno
+Mi ŝatas antikvajn meblojn. | Saya suka perabot kuno. | antikvajn | kuno
+En la muzeo ni vidis antikvan vazon. | Di museum kami melihat guci kuno. | antikvan | kuno
+La antikva urbo estas konata pro siaj muroj. | Kota kuno itu terkenal karena tembok-temboknya. | antikva | Kota kuno
+Mia avo havas antikvan horloĝon en la salono. | Kakek saya punya jam kuno di ruang tamu. | antikvan | kuno
+Li kolektas antikvajn monerojn el multaj landoj. | Dia mengoleksi koin kuno dari banyak negara. | antikvajn | kuno
+Ŝi aĉetis antikvan spegulon en malgranda butiko. | Dia membeli cermin kuno di toko kecil. | antikvan | kuno
+La antikvaj Romanoj konstruis vojojn tra la tuta imperio. | Bangsa Romawi kuno membangun jalan di seluruh kekaisaran. | antikvaj | kuno
+Mi legis pri antikva kulturo en la biblioteko. | Saya membaca tentang budaya kuno di perpustakaan. | antikva | kuno
+En la antikva tempo homoj vojaĝis nur piede aŭ per ĉevaloj. | Pada zaman kuno orang bepergian hanya dengan jalan kaki atau berkuda. | antikva | kuno
+Tiu antikva domo staras en la urbo jam pli ol kvincent jarojn. | Rumah kuno itu berdiri di kota sudah lebih dari lima ratus tahun. | antikva | kuno
+La antikvaj temploj de tiu lando altiras multajn turistojn ĉiujare. | Kuil-kuil kuno negeri itu menarik banyak turis setiap tahun. | antikvaj | kuno
+La profesoro studas la antikvajn lingvojn, ĉar li volas legi la originalajn tekstojn. | Profesor itu mempelajari bahasa-bahasa kuno karena ingin membaca teks aslinya. | antikvajn | kuno
+#67 maljuna (berusia lanjut)
+Mia avo estas maljuna. | Kakek saya sudah tua. | maljuna | sudah tua
+La maljuna viro sidas sur la benko. | Pria tua itu duduk di bangku. | maljuna | tua
+Mi vizitas mian maljunan avinon ĉiun dimanĉon. | Saya mengunjungi nenek saya yang sudah tua setiap hari Minggu. | maljunan | yang sudah tua
+La maljunaj homoj ofte ŝatas trankvilon. | Orang-orang lanjut usia sering menyukai ketenangan. | maljunaj | lanjut usia
+Ŝi helpis maljunan sinjoron porti la sakon. | Dia membantu seorang bapak lanjut usia membawa tas itu. | maljunan | lanjut usia
+Nia maljuna hundo ne plu kuras tiel rapide. | Anjing kami yang sudah tua tidak lagi berlari secepat itu. | maljuna | yang sudah tua
+La maljuna kato dormas la tutan tagon sur la sofo. | Kucing tua itu tidur sepanjang hari di sofa. | maljuna | tua
+En nia vilaĝo loĝas multaj maljunaj geedzoj. | Di desa kami tinggal banyak pasangan suami istri lanjut usia. | maljunaj | lanjut usia
+Ni donis lokon al la maljuna virino en la buso. | Kami memberi tempat duduk kepada wanita tua di bus. | maljuna | tua
+Kiam mi fariĝos maljuna, mi volas loĝi apud la maro. | Ketika saya sudah tua, saya ingin tinggal di dekat laut. | maljuna | sudah tua
+La kuracisto diris, ke ŝi estas jam tre maljuna kaj bezonas ripozon. | Dokter berkata bahwa dia sudah sangat tua dan membutuhkan istirahat. | maljuna | sangat tua
+La maljunuloj de nia strato kunvenas ĉiun posttagmezon en la ĝardeno. | Para orang lanjut usia di jalan kami berkumpul setiap sore di kebun. | maljunuloj | orang lanjut usia
+Mia patro ne ŝatas esti nomata maljuna, kvankam li havas sepdek jarojn. | Ayah saya tidak suka disebut tua, meskipun usianya tujuh puluh tahun. | maljuna | tua
+#68 malnova (lama / tidak baru)
+La domo estas malnova. | Rumah itu lama. | malnova | lama
+Mi ŝatas mian malnovan jakon. | Saya suka jaket lama saya. | malnovan | lama
+Ŝi vendis la malnovan biciklon. | Dia menjual sepeda lama itu. | malnovan | lama
+Tiu ĉi malnova telefono ankoraŭ funkcias bone. | Telepon lama ini masih berfungsi dengan baik. | malnova | lama
+La malnovaj ŝuoj estas tro malgrandaj por mi. | Sepatu lama itu terlalu kecil untuk saya. | malnovaj | lama
+Ni ĵetis la malnovan seĝon en la rubujon. | Kami membuang kursi lama itu ke tempat sampah. | malnovan | lama
+Mia patro ankoraŭ veturas per malnova aŭto. | Ayah saya masih mengendarai mobil lama. | malnova | lama
+Ĉu vi ŝatas malnovan muzikon pli ol novan? | Apakah kamu lebih suka musik lama daripada yang baru? | malnovan | lama
+La libro estas tre malnova, sed la enhavo ankoraŭ estas interesa. | Buku itu sangat lama, tetapi isinya masih menarik. | malnova | lama
+Mi aĉetis novan telefonon kaj donis la malnovan al mia fratino. | Saya membeli telepon baru dan memberikan yang lama kepada adik perempuan saya. | malnovan | yang lama
+La malnovaj bildoj de nia familio estas en granda skatolo sub la lito. | Gambar-gambar lama keluarga kami ada di kotak besar di bawah tempat tidur. | malnovaj | lama
+En la ĝardeno de mia avo kreskas malnova pomarbo, kiu donas dolĉajn pomojn. | Di kebun kakek saya tumbuh pohon apel tua yang menghasilkan apel manis. | malnova | tua
