@@ -983,12 +983,14 @@ function fcBody(k,rev){const g=GK[k];
  const lc=id=>D.L.find(l=>l[0]==id),ch=(n,col)=>`<span class=fch style="--lc:${col}">${esc(n)}</span>`;
  const blk=(ids,full)=>'<div class=grid>'+D.L.filter(l=>ids.includes(l[0])).map(([id,n,col])=>`<div class=lg style="--lc:${col}"><small>${n}</small>`+v[id].map(e=>`<div class=w>${wd(e[0],c[1],'F',id)}${spk(e[0],id)}</div>${e[1]?`<div class="r rom">${esc(e[1])}</div>`:''}${full?fmx(e,c[1],id):''}${full&&e[2]?`<div class=ex>${esc(e[2])}</div>`:''}${full&&e[4]?`<div class=cx>💡 ${esc(e[4])}</div>`:''}`).join('')+'</div>').join('')+'</div>';
  const vr=typeof gzvRow=='function'?gzvRow(k):null;
- if(rev)return mean+(vr?gzvBack(vr):'')+'<hr>'+blk(Object.keys(v),1)+ggInfo(k)+gmExBlock(k);
+ /* v7.107: jenis kata + level kosakata, mis. “Kata kerja · Jepang N3” */
+ const ME={V:'Kata kerja',N:'Kata benda',A:'Kata sifat',O:'Kata lain'},e0=v[L]&&v[L][0],meta=e0&&e0[3]?`<div class=fcmeta>${esc((ME[c[1]]||'Kata')+' · '+(LN[L]||L)+' '+e0[3])}</div>`:'';
+ if(rev)return mean+meta+(vr?gzvBack(vr):'')+'<hr>'+blk(Object.keys(v),1)+ggInfo(k)+gmExBlock(k);
  let p,t;
  if(f=='id'||!v[f]){p=mean;t=[ch(LN[L],lc(L)[2])]}
  else{p=`<div class=fcp>${ch(LN[f],lc(f)[2])}`+v[f].map(e=>`<div class=w style="font-size:1.8rem">${wd(e[0],c[1],'F',f)}${spk(e[0],f)}</div>${e[1]?`<div class="r rom">${esc(e[1])}</div>`:''}`).join('')+'</div>';t=[ch('Indonesia','var(--a)')]}
- if(vr)return gzvFront(vr);/* 7.30: kepala kartu (kata asing / arti) TIDAK ditampilkan di depan; jawabannya baru muncul setelah kartu dibuka */
- return p+`<div class=fchint><small>Ingat dalam:</small>${t.join('')}</div>`+((f=='id'||!v[f])?fcxFront(c,L,v[L]):'')}
+ if(vr)return gzvFront(vr)+meta;/* 7.30: kepala kartu (kata asing / arti) TIDAK ditampilkan di depan; jawabannya baru muncul setelah kartu dibuka */
+ return p+meta+`<div class=fchint><small>Ingat dalam:</small>${t.join('')}</div>`+((f=='id'||!v[f])?fcxFront(c,L,v[L]):'')}
 const fcN=(f,l,mn,mx)=>`<label class=fcl><span>${l}</span><input type=number inputmode=numeric data-i="fc_${f}" value="${S.o[f]}" min=${mn} max=${mx}></label>`;
 const fcS=(f,l,op)=>`<label class=fcl><span>${l}</span><select data-i="fc_${f}" style="width:auto;margin:0">${op.map(([v,t])=>`<option value="${v}"${S.o[f]==v?' selected':''}>${t}</option>`).join('')}</select></label>`;
 function fcSett(){const o=S.o,sz=Object.values(S.srs).filter(c=>c.z).length;
@@ -1355,13 +1357,14 @@ function etaCard(){const o=S.o,E=etaData(),N=E.N,tot=E.P.length,sn=o.fsn||'avg',
  return h}
 function etaAct(a,x){if(a=='etasc'){S.o.fsc=x}else if(a=='etasn'){S.o.fsn=x}else if(a=='etawi'){S.o.fwi=+x}}
 function heatCard(){fcRoll();const td=fcDay(Date.now()),W=14,w0=dDate(td).getDay(),start=td-(W-1)*7-w0,sk=fcStreak();
- const lv=n=>n==0?0:n<10?1:n<30?2:n<60?3:4;let cells='',act=0,tot=0,span=0;
+ /* v7.107: warna terang penuh (level 4) = 200 kartu (baru + ulasan) dalam sehari; latihan soal saja = level 1 */
+ const lv=(f,l)=>f>=200?4:f>=100?3:f>=50?2:f>0||l>0?1:0;let cells='',act=0,tot=0,span=0;
  const sd=heatSel<0||heatSel>td?td:heatSel;
  for(let i=0;i<W*7;i++){const d=start+i;if(d>td){cells+='<i class=hn></i>';continue}span++;
   const f=(S.lg[d]||[0])[0]|0,l=(S.lt.d[d]||[0])[0]|0,n=f+l;if(n){act++;tot+=n}
-  cells+=`<button class="hz${lv(n)}${d==sd?' sel':''}" data-a=hday data-v=${d} title="${esc(dLbl(d))}: ${n}" aria-label="${esc(dLbl(d))}: ${n} aktivitas"></button>`}
+  cells+=`<button class="hz${lv(f,l)}${d==sd?' sel':''}" data-a=hday data-v=${d} title="${esc(dLbl(d))}: ${f} kartu, ${l} soal" aria-label="${esc(dLbl(d))}: ${n} aktivitas"></button>`}
  const f=(S.lg[sd]||[0])[0]|0,l=(S.lt.d[sd]||[0])[0]|0;
- return`<div class=card><b>Konsistensi belajar</b> — ${W} minggu<div class=heat>${cells}</div><div class=hcap><b>${dLbl(sd)}</b> · ${f} ulasan kartu · ${l} soal latihan</div><div class=kpis style="margin:10px 0 0"><div><b>${sk.run}</b><small>Rentetan kini</small></div><div><b>${sk.best}</b><small>Terbaik</small></div><div><b>${act}/${span}</b><small>Hari aktif</small></div><div><b>${tot}</b><small>Total aktivitas</small></div></div><div class=leg style="margin-top:10px"><span>Sedikit</span>${[0,1,2,3,4].map(n=>`<i class="hz${n}" style="width:12px;height:12px;display:inline-block;border-radius:3px;border:1px solid var(--b)"></i>`).join('')}<span>Banyak</span></div></div>`}
+ return`<div class=card><b>Konsistensi belajar</b> — ${W} minggu<div class=heat>${cells}</div><div class=hcap><b>${dLbl(sd)}</b> · ${f} ulasan kartu · ${l} soal latihan</div><div class=kpis style="margin:10px 0 0"><div><b>${sk.run}</b><small>Rentetan kini</small></div><div><b>${sk.best}</b><small>Terbaik</small></div><div><b>${act}/${span}</b><small>Hari aktif</small></div><div><b>${tot}</b><small>Total aktivitas</small></div></div><div class=leg style="margin-top:10px"><span>Sedikit</span>${[0,1,2,3,4].map(n=>`<i class="hz${n}" style="width:12px;height:12px;display:inline-block;border-radius:3px;border:1px solid var(--b)"></i>`).join('')}<span>≥ 200 kartu</span></div></div>`}
 
 /* ---------- kartu pengaturan tampilan ---------- */
 function uiCard(){const o=S.o,seg=(k,op)=>`<div class=seg2>${op.map(([v,t])=>`<button class="${o[k]==v?'on':''}" data-a=ui data-k=${k} data-v=${v}>${t}</button>`).join('')}</div>`,ck=(k,t)=>`<label class=fcl><span><input type=checkbox data-i="ui_${k}"${o[k]?' checked':''}> ${t}</span></label>`;

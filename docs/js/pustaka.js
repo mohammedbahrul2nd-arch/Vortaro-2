@@ -726,30 +726,34 @@ function libRepHtml(z){if(!z)return'';const M=40,li=(a,c)=>a.slice(0,M).map(x=>`
 const LIB_REP_MIN=6;
 function libAddPrev(){const p=document.getElementById('lbP');if(!p)return;const v=libAddRead();if(!v.x.trim()){p.textContent='Belum ada teks.';libPrBox(0);return}
  const r=libAddParse();if(r.err){p.innerHTML=`<span style="color:var(--bad)">${esc(r.err)}</span>`;return}
+ p.innerHTML=libPrevHtml(r,v,libAddK)}
+/* v7.107: inti pratinjau dipakai juga panel Kelas AI Pustaka (K = r/l/d/s; pr = teks prompt untuk laporan kartu) */
+function libPrevHtml(r,v,libAddK,pr){let p={};
  const wr=(r.warn||[]).length?`<div style="color:var(--s1);margin-top:4px;font-size:.84rem">${r.warn.map(w=>'⚠ '+esc(w)).join('<br>')}</div>`:'';
  const wf=wr+libFailHtml(r.fail);
  if(libAddK=='s'){const rom=r.L=='ja'||r.L=='zh',n=r.sents.length,nr=r.sents.filter(x=>x.r).length,nt=r.sents.filter(x=>x.i).length,dup=r.sents.filter(x=>S.sl.some(y=>y.L==r.L&&y.f==x.f)).length;
-  p.innerHTML=`Terdeteksi: <b>${libNm(r.L)}</b> · ${n} kalimat · terjemahan ${nt}/${n}`+(rom?` · romanisasi ${nr}/${n}`:'')+(r.tagN?` · <b>${r.tagN}</b> tag grammar/kata kerja ✓`:'')+(dup?` · <b>${dup}</b> sudah ada (dilewati)`:'')+wf+libRepFor(r,v);return}
+  return `Terdeteksi: <b>${libNm(r.L)}</b> · ${n} kalimat · terjemahan ${nt}/${n}`+(rom?` · romanisasi ${nr}/${n}`:'')+(r.tagN?` · <b>${r.tagN}</b> tag grammar/kata kerja ✓`:'')+(dup?` · <b>${dup}</b> sudah ada (dilewati)`:'')+wf+libRepFor(r,v,pr)}
  const ns=r.ps.reduce((a,q)=>a+q.f.length,0),tr=r.ps.some(q=>q.i.length),rom=r.L=='ja'||r.L=='zh',rm=r.ps.some(q=>q.r&&q.r.length),al=r.ps.every(q=>q.a);
  const nr=r.ps.reduce((a,q)=>a+(q.r?q.r.filter(Boolean).length:0),0),nt=r.ps.reduce((a,q)=>a+(q.a?q.i.filter(Boolean).length:q.i.length?q.f.length:0),0);
  const FM={aud:'blok ===',stk:'kelompok [1.1]',sen:'per kalimat',grp:'terkelompok',blk:'paragraf + terjemahan',txt:'teks polos'},dl=libAddK=='d'?(r.ps.some(q=>q.sp)?' · penutur ✓':' · <b>penutur (A:/B:) tidak terbaca</b>'):'';
- p.innerHTML=`Terdeteksi: <b>${libNm(r.L)}</b> · format ${FM[r.fmt]||r.fmt} · ${r.ps.length} paragraf · ${ns} kalimat · terjemahan ${tr?(nt==ns||!al?'✓':'✓ '+nt+'/'+ns):'—'}`+
+ return `Terdeteksi: <b>${libNm(r.L)}</b> · format ${FM[r.fmt]||r.fmt} · ${r.ps.length} paragraf · ${ns} kalimat · terjemahan ${tr?(nt==ns||!al?'✓':'✓ '+nt+'/'+ns):'—'}`+
   (rom?` · romanisasi ${rm?(nr==ns?'✓ selaras '+nr+'/'+ns:'⚠ '+nr+'/'+ns):'— (dibuat otomatis, perkiraan)'}`:'')+dl+(tr&&!al?' <small>(sebagian terjemahan per paragraf)</small>':'')+
-  (r.tagN?` · <b>${r.tagN}</b> tag grammar/kata kerja ✓`:'')+(r.title?`<br><small>Judul: ${esc(r.title)}</small>`:'')+wf+libRepFor(r,v)}
+  (r.tagN?` · <b>${r.tagN}</b> tag grammar/kata kerja ✓`:'')+(r.title?`<br><small>Judul: ${esc(r.title)}</small>`:'')+wf+libRepFor(r,v,pr)}
 /* kotak prompt: tampil bila yang ditempel banyak kalimat; laporan dihitung dari prompt itu */
 function libPrBox(show){const w=document.getElementById('lbPw');if(w)w.style.display=show?'':'none'}
-function libRepFor(r,v){const n=r.sents?r.sents.length:(r.ps||[]).reduce((a,q)=>a+q.f.length,0);libPrBox(n>=LIB_REP_MIN);if(n<LIB_REP_MIN)return'';
- const pr=(document.getElementById('lbPr')||{}).value||'';if(!pr.trim())return'<br><small>Tempel prompt yang kamu pakai di kotak “Prompt yang dipakai” untuk melihat kartu/grammar yang belum masuk.</small>';
+function libRepFor(r,v,prx){const n=r.sents?r.sents.length:(r.ps||[]).reduce((a,q)=>a+q.f.length,0);if(prx===undefined)libPrBox(n>=LIB_REP_MIN);if(n<LIB_REP_MIN)return'';
+ const pr=prx!==undefined?prx:((document.getElementById('lbPr')||{}).value||'');if(!pr.trim())return'<br><small>Tempel prompt yang kamu pakai di kotak “Prompt yang dipakai” untuk melihat kartu/grammar yang belum masuk.</small>';
  try{const z=gmTagReport(r,pr,v.x,r.L);return z?libRepHtml(z):'<br><small>Tidak ada daftar kartu yang dikenali di prompt itu (perlu prompt “Kelas AI · isi Pustaka”).</small>'}catch(e){return''}}
 /* v7.9: batas Pustaka dinaikkan (IndexedDB tidak dibatasi 5 MB) */
 const LIB_MAX=20000,LIB_SL_MAX=200000;
-function libAddSave(play){const r=libAddParse();if(r.err)return toast(r.err);
+function libAddSave(play){const r=libAddParse();if(r.err)return toast(r.err);return libSaveR(r,libAddK,play)}
+function libSaveR(r,libAddK,play,stay){
  if(libAddK=='s'){let n=0,d=0;const seen=new Set(S.sl.map(x=>x.L+'|'+x.f));
   r.sents.forEach(x=>{const key=r.L+'|'+x.f;if(seen.has(key)){d++;return}seen.add(key);S.sl.unshift({id:libId(),L:r.L,f:x.f,r:x.r||'',i:x.i||'',c:Date.now(),d:0,pb:x.pb||'',...(x.tg&&x.tg.length?{tg:x.tg}:{})});n++});
-  if(S.sl.length>LIB_SL_MAX)S.sl.length=LIB_SL_MAX;S.o.libSec='s';save();libAddClose();toast(n+' kalimat disimpan di Pustaka → Kalimat'+(d?' ('+d+' sudah ada)':'')+' ✓');if(typeof tab!='undefined'&&tab!='lib')tab='lib';render();return}
+  if(S.sl.length>LIB_SL_MAX)S.sl.length=LIB_SL_MAX;S.o.libSec='s';save();libAddClose();toast(n+' kalimat disimpan di Pustaka → Kalimat'+(d?' ('+d+' sudah ada)':'')+' ✓');if(!stay&&typeof tab!='undefined'&&tab!='lib')tab='lib';render();return true}
  const it={id:libId(),t:r.title,L:r.L,c:Date.now(),ps:r.ps,h:0,r:0,n:0,k:libAddK};if(r.note)it.nt=r.note;
  S.lib.unshift(it);if(S.lib.length>LIB_MAX)S.lib.length=LIB_MAX;S.o.libSec=libAddK;save();libAddClose();toast('Disimpan di Pustaka → '+LIBKN[libAddK]+' ✓');
- if(typeof tab!='undefined'&&tab!='lib'){tab='lib'}if(play&&libAddK=='r')libOpenId=it.id;render();if(play&&libAddK!='r')lpOpen(it)}
+ if(!stay&&typeof tab!='undefined'&&tab!='lib'){tab='lib'}if(play&&libAddK=='r')libOpenId=it.id;render();if(play&&libAddK!='r')lpOpen(it);return true}
 document.addEventListener('click',e=>{const m=document.getElementById('lbm');if(!m)return;if(e.target===m){libAddClose();return}
  const b=e.target.closest('[data-lb]');if(!b)return;const a=b.dataset.lb;
  if(a=='close')libAddClose();else if(a=='save')libAddSave(0);else if(a=='saveplay')libAddSave(1);
@@ -850,8 +854,8 @@ function libView(){libRepairAll();const sec=libSecV(),all=S.lib,lib=libSecItems(
  const prog=sec=='s'?lib.filter(t=>t.d).length+' hafal':sec=='r'?lib.filter(t=>t.r).length+' dibaca':lib.filter(t=>t.h).length+(sec=='d'?' selesai':' didengar');
  let h=`<div class=card><div class=hd><span>📚 Pustaka</span><span>${all.length+N.s} item</span></div>`+
   `<div class=aitabs role=tablist style="grid-template-columns:1fr 1fr">${[['r','Baca + terjemahan'],['l','Pemutar suara'],['d','Dua penutur'],['s','Kalimat tunggal']].map(([v,d])=>`<button class="${sec==v?'on':''}" data-a=libsec data-v=${v} role=tab><b>${LIBKI[v]} ${LIBKN[v]} · ${N[v]}</b><small>${d}</small></button>`).join('')}</div>`+
-  `<p class=gsub style="margin:2px 0 10px"><b>${LIBKN[sec]}</b>: ${LIBDESC[sec]} ${lib.length?`${lib.length} ${sec=='s'?'kalimat':'teks'} · ${prog}. `:''}Ikut dalam cadangan pustaka.</p><div class=btns style="margin-top:0"><button class=pri data-a=libadd>＋ Tambah ${sec=='s'?'kalimat (banyak sekaligus)':'teks ke '+LIBKN[sec]}</button><button data-a=libai title="Prompt AI untuk kartu yang belum punya contoh kalimat">🎓 Kelas AI</button></div></div>`;
- if(!lib.length){const oth=Object.keys(N).filter(x=>x!=sec&&N[x]);return h+`<div class="card empty"><b>${LIBKN[sec]} masih kosong</b>Di kartu mana pun tekan 🎓 → tab <b>${LIBKN[sec]}</b>, salin prompt ke AI, lalu tempel hasilnya lewat “＋ Tambah”.${sec=='l'&&N.l==0&&0?'':''}${oth.length?`<br><small>Bagian lain berisi: ${oth.map(x=>LIBKN[x]+' '+N[x]).join(', ')}.${sec=='r'&&N.l?' Teks lama dari versi sebelumnya ada di Listening; buka Rincian → “Pindah ke…”.':''}</small>`:''}</div>`}
+  `<p class=gsub style="margin:2px 0 10px"><b>${LIBKN[sec]}</b>: ${LIBDESC[sec]} ${lib.length?`${lib.length} ${sec=='s'?'kalimat':'teks'} · ${prog}. `:''}Ikut dalam cadangan pustaka.</p><div class=btns style="margin-top:0"><button data-a=libai title="Prompt AI untuk kartu yang belum punya contoh kalimat">🎓 Kelas AI</button></div></div>`;
+ if(!lib.length){const oth=Object.keys(N).filter(x=>x!=sec&&N[x]);return h+`<div class="card empty"><b>${LIBKN[sec]} masih kosong</b>Di kartu mana pun tekan 🎓 → tab <b>${LIBKN[sec]}</b>, salin prompt ke AI, lalu tempel hasilnya langsung di panel Kelas AI.${sec=='l'&&N.l==0&&0?'':''}${oth.length?`<br><small>Bagian lain berisi: ${oth.map(x=>LIBKN[x]+' '+N[x]).join(', ')}.${sec=='r'&&N.l?' Teks lama dari versi sebelumnya ada di Listening; buka Rincian → “Pindah ke…”.':''}</small>`:''}</div>`}
  h+=libFinder(sec=='s');
  const langs=LIBL.filter(l=>cnt[l]);
  h+=`<div class=chips><button class="chip${libLg?'':' on'}" data-a=liblg data-v="">Semua <small>${lib.length}</small></button>${langs.map(l=>`<button class="chip${libLg==l?' on':''}" data-a=liblg data-v=${l}>${libNm(l)} <small>${cnt[l]}</small></button>`).join('')}</div>`;
@@ -890,8 +894,7 @@ function slView(){const langs=[...new Set(S.sl.map(x=>x.L))],L=libLg||(langs.len
   `<div id=slist>${slList()}</div>`}
 document.addEventListener('input',e=>{if(e.target.dataset&&e.target.dataset.l=='slq'){slQ=e.target.value;slLim=40;const l=document.getElementById('slist');if(l)l.innerHTML=slList()}});
 function libAct(a,x,k,b){const it=k&&S.lib.find(t=>t.id==k);
- if(a=='libadd'){libAddOpen('',libSecV());return 1}
-  else if(a=='libai'){aiLibOpen();return 1}
+  if(a=='libai'){aiLibOpen();return 1}
   else if(a=='libgm'){S.o.gmMin=S.o.gmMin==1?2:1;libAna.clear();libAnaG.clear();GMEXC.clear();save()}
  else if(a=='libsec'){S.o.libSec=['r','l','d','s'].includes(x)?x:'r';slQ='';slLim=40;libStt='';libLg='';libLim=30;libOpenId='';libCard='';libQ='';save()}
  else if(a=='libmv'&&it){it.k=libKind(it)=='r'?'l':libKind(it)=='l'?'d':'r';S.o.libSec=it.k;libOpenId=it.id;libStt='';libLg='';save();toast('Dipindah ke '+LIBKN[it.k]+' ✓')}

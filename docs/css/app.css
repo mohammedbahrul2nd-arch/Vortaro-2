@@ -575,3 +575,5 @@ mark.gzh{background:color-mix(in srgb,var(--a) 24%,transparent);color:inherit;bo
 .scsum{font-size:1.05rem;margin-bottom:4px}
 .scseg{margin:6px 0}.shk{color:#2e8b57}.shm{color:#c0392b;text-decoration:underline wavy}
 .scn{font-size:1.3rem;font-weight:700;line-height:1.35;margin:6px 0 10px;word-break:normal;overflow-wrap:break-word;text-align:center}
+
+.fcmeta{display:inline-block;font-size:.78rem;font-weight:650;color:var(--m);border:1px solid var(--b);border-radius:999px;padding:2px 10px;margin:0 0 10px}

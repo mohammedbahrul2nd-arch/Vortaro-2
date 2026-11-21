@@ -490,12 +490,12 @@ function gmJaVeto(d,key,E){const F=libForms(key,E);if(!F||!F.alts||!F.alts[0])re
   ok++}
  return any>0&&!ok}
 /* v7.106.0: KALIMAT BAWAAN per kartu grammar (docs/js/gsb-<bhs>.js dibuat oleh tools/gsb_build.py). Tiap baris [kalimat, romanisasi, arti, potongan kunci, sorotan Indonesia].
-   Bila sebuah kartu punya >= GSBN (15) kalimat bawaan, kartu TIDAK lagi mengambil contoh dari Pustaka; kurang dari itu: bawaan + Pustaka. */
+   v7.107: bila kartu punya kalimat di GSB, SEMUANYA ditampilkan (tanpa istilah "bawaan") dan Pustaka TIDAK dipakai; kartu tanpa GSB memakai Pustaka. */
 const GSBN=15,GSB={};
 function gsbRows(key){const a=GSB[key];if(!a||!a.length)return[];const no=gmNoSet(key),L=libOfKey(key);
  return a.filter(x=>!(no&&no.has(x[0]))).map(x=>({lv:3,f:x[0],r:x[1]||'',i:x[2]||'',t:'b',tg:[{t:'g',k:key,s:x[3],id:x[4]||''}],L,ver:false,o:null}))}
-const gsbFull=key=>!!GK[key]&&!!GSB[key]&&GSB[key].length>=GSBN;
-function gmCollect(key,E){if(GK[key]&&GSB[key]){const B=gsbRows(key);if(gsbFull(key))return B;const R=gmCollect0(key,E);return B.concat(R)}return gmCollect0(key,E)}
+const gsbFull=key=>!!GK[key]&&!!GSB[key]&&gsbRows(key).length>0;
+function gmCollect(key,E){if(GK[key]&&GSB[key]){const B=gsbRows(key);if(B.length)return B}return gmCollect0(key,E)}
 function gmCollect0(key,E){const L=libOfKey(key),isG=!!GK[key],m=gmMin(),out=[],no=gmNoSet(key);E=!!E&&!isG;const sup=E?gmSupSib(key):null,nn=gmNounK(key);
  const vk=isG?'':ik(base(key),lang(key)),ver=(d,i)=>!isG&&gmTagHit(d.tgs&&d.tgs[0],vk,i)&&(!E||gmTagEnt(d.tgs[0],key)>=0),test=(d,i)=>{if(isG)return gmLv(d,0,key);if(E&&gmTagEnt(d.tgs&&d.tgs[0],key)<0)return 0;if(ver(d,i))return 3;if(!(libCountKey(sup?gmStripSib(d,sup):d,key,E)>0))return 0;if(!isG&&L=='ja'&&gmJaVeto(d,key,E))return 0;if(nn){const im=gmNounIdOk(i,key);if(im&&gmNounForOk(key,E,d.sents[0],im))return 3}return 2};
  for(const x of S.sl){if(x.L!=L||(no&&no.has(x.f)))continue;const it=slPs(x),d=libSentDoc(it,0,0),lv=test(d,x.i||'');if(lv>=m)out.push({lv,f:x.f,r:x.r||'',i:x.i||'',t:'s',tg:x.tg||null,L,ver:!isG&&lv==3,o:{t:'sl',id:x.id}})}
@@ -503,7 +503,7 @@ function gmCollect0(key,E){const L=libOfKey(key),isG=!!GK[key],m=gmMin(),out=[],
  return out}
 function gmPick(c,N){const seen=new Set(),sc=x=>x.lv*100+(x.i?12:0)+(x.r||x.L=='de'||x.L=='nl'||x.L=='en'||x.L=='eo'?4:0)-Math.abs(String(x.f).replace(/\s+/g,'').length-(x.L=='ja'||x.L=='zh'?14:60))*.4;
  return c.map(x=>({...x,s:sc(x)})).sort((a,b)=>b.s-a.s).filter(x=>{const k=String(x.f).replace(/\s+/g,'').toLowerCase();if(seen.has(k))return false;seen.add(k);return true}).slice(0,N)}
-const GMSRC={b:'📘 Bawaan',s:'🔤 Kalimat',r:'📖 Reading',l:'🎧 Listening',d:'💬 Dialog'};
+const GMSRC={b:'',s:'🔤 Kalimat',r:'📖 Reading',l:'🎧 Listening',d:'💬 Dialog'};
 function gmExamples(key,N){N=N||5;const sig=gmSig(),c=GMEXC.get(key);if(c&&c.sig==sig&&c.N==N)return c.v;
  let v={n:0,rows:[]};try{const all=gmCollect(key,true);v={n:all.length,nv:all.filter(x=>x.ver).length,rows:gmPick(all,N)}}catch(e){v={n:0,rows:[]}}
  GMEXC.set(key,{sig,N,v});return v}
@@ -512,8 +512,8 @@ const gmRoll={key:'',sig:'',rows:[]};
 function gmRollRows(key,v){const sig=gmSig();if(gmRoll.key==key&&gmRoll.sig==sig)return gmRoll.rows;
  const a=v.rows.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}
  gmRoll.key=key;gmRoll.sig=sig;gmRoll.rows=a.slice(0,5);return gmRoll.rows}
-function gmExBlock(key){if(!key||(!S.lib.length&&!S.sl.length&&!GSB[key]))return'';const v0=gmExamples(key,GSB[key]?30:10);if(!v0.rows.length)return'';const v={n:v0.n,nv:v0.nv|0,rows:gmRollRows(key,v0)};const L=libOfKey(key);
- return`<div class=gmx><div class=gsec style="margin-top:12px">${gsbFull(key)?'📘 Contoh bawaan':'📚 Contoh dari Pustakamu'} <small>(${v.rows.length}${v.n>v.rows.length?' dari '+v.n:''})</small>${GK[key]?'':`<br><small class=gmcnt>${v.nv} terverifikasi (bertag AI / kata benda cocok persis) · ${v.n-v.nv} terdeteksi otomatis</small>`}</div>`+
+function gmExBlock(key){if(!key||(!S.lib.length&&!S.sl.length&&!GSB[key]))return'';const v0=gmExamples(key,GSB[key]?Math.max(30,GSB[key].length):10);if(!v0.rows.length)return'';const v={n:v0.n,nv:v0.nv|0,rows:gsbFull(key)?v0.rows:gmRollRows(key,v0)};const L=libOfKey(key);
+ return`<div class=gmx><div class=gsec style="margin-top:12px">${gsbFull(key)?'📘 Contoh kalimat':'📚 Contoh dari Pustakamu'} <small>(${v.rows.length}${v.n>v.rows.length?' dari '+v.n:''})</small>${GK[key]?'':`<br><small class=gmcnt>${v.nv} terverifikasi (bertag AI / kata benda cocok persis) · ${v.n-v.nv} terdeteksi otomatis</small>`}</div>`+
   v.rows.map((x,xi)=>{const sf=GK[key]?gmTagSf(x.tg,key):[];const hl=(sf.length&&gmHLS(x.f,sf,L))||libHL(x.f,key,L,true);
    return`<div class=gmr>${x.o?`<button class=gmdel data-a=fcxdel data-k=\"${esc(key)}\" data-v=${xi} title=\"Hapus kalimat ini dari Pustaka\" aria-label=\"Hapus kalimat\">🗑</button><button class="gmdel gmunt" data-a=fcxuntag data-k=\"${esc(key)}\" data-v=${xi} title=\"Lepas tag kartu ini dari kalimat ini (kalimat tetap di Pustaka)\" aria-label=\"Lepas tag kartu dari kalimat\">✕</button>`:''}<div class=eo>${x.sp?`<b class=spk>${esc(x.sp)}</b> `:''}${hl}${spk(x.f,L)}</div>${x.r?`<div class="r rom">${esc(x.r)}</div>`:''}${x.i?`<div class=idn>${(GK[key]&&gmTagId(x.tg,key).length&&gmHLS(x.i,gmTagId(x.tg,key),'id'))||esc(x.i)}</div>`:''}<small class=gmsrc>${GMSRC[x.t]||''}${GK[key]?(x.t=='b'?'':x.lv==3?' · ✓ ditandai AI':x.lv==1?' · perkiraan':''):(x.ver?' · ✓ terverifikasi':'')}</small></div>`}).join('')+
   (gsbFull(key)?'':`<div class=btns style="margin-top:6px"><button class=mini data-a=libfind data-k="${esc(key)}">Lihat semua di Pustaka${v.n>v.rows.length?' ('+v.n+')':''}</button></div>`)+'</div>'}
@@ -702,9 +702,9 @@ function gzTrG(g,t){if(typeof gzTrH!='function')return esc(t);const o=GZG;GZG=g;
 function gzpTr(g,row){if(!row.i)return'';if(row.ids&&row.ids.length){const h=gmHLS(row.i,row.ids,'id');if(h)return h.replace(/<mark>/g,'<mark class=gzh>')}return gzTrG(g,row.i)}
 function gzpFront(g,row){const L=g[1],base=String(gzFront(g)),m=base.match(/^<div class="gzq[^"]*">[\s\S]*?<\/div>/),
   fn=m?gzpMask(m[0],row.sp.map(([a,b])=>row.t.slice(a,b))):'';
- return fn+`<div class="gzc ${gzpCls(L)}">${gzpSeg(row,(w)=>gzpBox(L,[...w.replace(/\s/g,'')].length))}</div>`+(row.i?`<div class=gzm>${gzpTr(g,row)}</div>`:'')+`<div class=fchint><small>Isi bagian yang hilang &amp; ingat rumus polanya · ${row.src=='b'?'📘 soal bawaan':'📚 soal dari Pustakamu'}</small></div>`}
+ return fn+`<div class="gzc ${gzpCls(L)}">${gzpSeg(row,(w)=>gzpBox(L,[...w.replace(/\s/g,'')].length))}</div>`+(row.i?`<div class=gzm>${gzpTr(g,row)}</div>`:'')+`<div class=fchint><small>Isi bagian yang hilang &amp; ingat rumus polanya · ${row.src=='b'?'📘 soal':'📚 soal dari Pustakamu'}</small></div>`}
 function gzpBack(g,row){const L=g[1];
- return`<div class=gzps><small class=gzpl>${row.src=='b'?'📘 Soal bawaan':'📚 Soal dari Pustakamu · '+(GMSRC[row.src]||'')+(row.lv==3?' · ✓ ditandai AI':' · terdeteksi otomatis')}</small><div class="gzc ${gzpCls(L)}">${gzpSeg(row,w=>`<mark class=gzh>${esc(w)}</mark>`)}${spk(row.f,L)}</div>${row.i?`<div class=gzm>${gzpTr(g,row)}</div>`:''}${row.r?`<div class="r rom">${esc(row.r)}</div>`:''}</div><hr>`}
+ return`<div class=gzps><small class=gzpl>${row.src=='b'?'📘 Soal':'📚 Soal dari Pustakamu · '+(GMSRC[row.src]||'')+(row.lv==3?' · ✓ ditandai AI':' · terdeteksi otomatis')}</small><div class="gzc ${gzpCls(L)}">${gzpSeg(row,w=>`<mark class=gzh>${esc(w)}</mark>`)}${spk(row.f,L)}</div>${row.i?`<div class=gzm>${gzpTr(g,row)}</div>`:''}${row.r?`<div class="r rom">${esc(row.r)}</div>`:''}</div><hr>`}
 
 /* ---------- 7. Ekspor / impor: JSON progres dan JSON pustaka ---------- */
 const gmP2=n=>String(n).padStart(2,'0');
