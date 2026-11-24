@@ -1,0 +1,1040 @@
+#0 have / have got
+I have a sister. | Saya punya seorang saudari. | have | punya
+She has a dog. | Dia punya seekor anjing. | has | punya
+We have a car. | Kami punya mobil. | have | punya
+Do you have a pen? | Apakah kamu punya pulpen? | have | punya
+He has two brothers. | Dia punya dua saudara laki-laki. | has | punya
+I have got a new phone. | Saya punya ponsel baru. | have got | punya
+She has got long hair. | Dia punya rambut panjang. | has got | punya
+They have a big house. | Mereka punya rumah yang besar. | have | punya
+Does your school have a library? | Apakah sekolahmu punya perpustakaan? | have | punya
+I don't have any money today. | Hari ini saya tidak punya uang. | have | punya
+Excuse me, have you got a minute? | Permisi, apakah kamu punya waktu sebentar? | have you got | punya
+My brother has a bike, but he doesn't ride it. | Kakakku punya sepeda, tetapi dia tidak menaikinya. | has | punya
+We have a small garden behind our house. | Kami punya taman kecil di belakang rumah kami. | have | punya
+My grandmother has a lot of old photos in her room. | Nenekku punya banyak foto lama di kamarnya. | has | punya
+I have two cats and a dog, so my house is never quiet. | Saya punya dua kucing dan seekor anjing, jadi rumahku tidak pernah sepi. | have | punya
+#1 There is / There are
+There is a cat. | Ada seekor kucing. | There is | Ada
+There are two books. | Ada dua buku. | There are | Ada
+Is there a bank near here? | Apakah ada bank di dekat sini? | Is there | ada
+There is a book on the table. | Ada buku di atas meja. | There is | Ada
+There are five students in the room. | Ada lima siswa di dalam ruangan. | There are | Ada
+Are there any apples? | Apakah ada apel? | Are there | ada
+There isn't any milk. | Tidak ada susu. | There isn't | Tidak ada
+There aren't any chairs here. | Tidak ada kursi di sini. | There aren't | Tidak ada
+There is a park next to my school. | Ada taman di sebelah sekolahku. | There is | Ada
+How many people are there in your family? | Ada berapa orang di keluargamu? | are there | Ada
+There are twelve months in a year. | Ada dua belas bulan dalam setahun. | There are | Ada
+Is there a good restaurant in this town? | Apakah ada restoran yang bagus di kota ini? | Is there | ada
+There is a lot of traffic in the morning. | Ada banyak kemacetan di pagi hari. | There is | Ada
+There are some cookies in the kitchen if you are hungry. | Ada beberapa kue di dapur kalau kamu lapar. | There are | Ada
+There isn't a supermarket in our village, so we go to the city. | Tidak ada supermarket di desa kami, jadi kami pergi ke kota. | There isn't | Tidak ada
+#2 Object pronouns
+Help me, please. | Tolong saya. | me | saya
+I love you. | Aku cinta kamu. | you | kamu
+Call him now. | Telepon dia sekarang. | him | dia
+I see her every day. | Saya melihat dia setiap hari. | her | dia
+Give it to me. | Berikan itu kepada saya. | me | saya
+She likes us. | Dia menyukai kami. | us | kami
+We often visit them. | Kami sering mengunjungi mereka. | them | mereka
+Wait for her outside. | Tunggu dia di luar. | her | dia
+Can you help us with this bag? | Bisakah kamu membantu kami membawa tas ini? | us | kami
+My teacher gives me a lot of homework. | Guruku memberi saya banyak pekerjaan rumah. | me a | saya
+I don't know them, but they look friendly. | Aku tidak kenal mereka, tetapi mereka tampak ramah. | them | mereka
+Tom is my friend, so I often play football with him. | Tom temanku, jadi aku sering bermain sepak bola bersama dia. | him | dia
+Our neighbors are kind, and we always say hello to them. | Tetangga kami baik, dan kami selalu menyapa mereka. | them | mereka
+My mother calls me every evening, and I tell her about my day. | Ibu menelepon saya setiap malam, dan saya bercerita tentang hari saya. | me | saya
+Look at that dog! It follows us everywhere, and the children love it. | Lihat anjing itu! Dia mengikuti kami ke mana-mana, dan anak-anak menyukainya. | us | kami
+#3 Pronoun orang ketiga sesuai noun
+The baby is happy, and he smiles. | Bayi itu senang, dan dia tersenyum. | he smiles | dia
+My sister is tall, and she sings well. | Kakak perempuanku tinggi, dan dia bernyanyi dengan baik. | she | dia
+The table is old, but it is strong. | Meja itu tua, tetapi ia kuat. | it | ia
+My parents are at home, and they are watching TV. | Orang tuaku di rumah, dan mereka sedang menonton TV. | they | mereka
+The dog is my pet, and he is very friendly. | Anjing itu hewan peliharaanku, dan dia sangat ramah. | he is | dia
+I like this bag because it is light. | Saya suka tas ini karena ia ringan. | it | ia
+Maria is my teacher, and she is very kind. | Maria guruku, dan dia sangat baik. | she | dia
+The students are happy because they have a holiday. | Para siswa senang karena mereka libur. | they | mereka
+My uncle is a doctor, and he works in a big hospital. | Pamanku seorang dokter, dan dia bekerja di rumah sakit besar. | he | dia
+Our cat is old, but she still catches mice. | Kucing kami sudah tua, tetapi dia masih menangkap tikus. | she | dia
+My neighbors are nice, and they help us a lot. | Tetangga saya baik, dan mereka sering membantu kami. | they | mereka
+The museum is near the station, and it opens at nine. | Museum itu dekat stasiun, dan ia buka jam sembilan. | it | ia
+My brother has a new job, and he starts on Monday. | Adikku punya pekerjaan baru, dan dia mulai hari Senin. | he starts | dia
+My friends live in Bali, and they visit me in summer. | Teman-temanku tinggal di Bali, dan mereka mengunjungiku saat liburan musim panas. | they | mereka
+The new teacher comes from Japan, and she teaches us English every morning. | Guru baru itu berasal dari Jepang, dan dia mengajar kami bahasa Inggris setiap pagi. | she | dia
+#4 Pronoun dan antecedent
+Tom is late, but he is coming. | Tom terlambat, tetapi dia datang. | he | dia
+Lisa has a brother, and she loves him very much. | Lisa punya seorang kakak, dan dia sangat menyayanginya. | she | dia
+The students are tired, so they go home. | Para siswa lelah, jadi mereka pulang. | they | mereka
+My mother cooks, and I help her. | Ibuku memasak, dan saya membantu dia. | help her | dia
+Mr. Brown is our neighbor, and we often see him. | Pak Brown tetangga kami, dan kami sering bertemu dia. | him | dia
+The children love the zoo because they like animals. | Anak-anak suka kebun binatang karena mereka suka hewan. | they | mereka
+My grandparents are old, so we visit them every Sunday. | Kakek-nenekku sudah tua, jadi kami mengunjungi mereka setiap hari Minggu. | them | mereka
+My teacher is kind because she always listens to us. | Guruku baik karena dia selalu mendengarkan kami. | she | dia
+The doctor said that he is very busy today. | Dokter itu berkata bahwa dia sangat sibuk hari ini. | he is | dia
+Peter and Anna are my friends, and I call them every week. | Peter dan Anna temanku, dan saya menelepon mereka setiap minggu. | them | mereka
+My brother is a driver, and he drives a big truck. | Kakakku seorang sopir, dan dia mengemudikan truk besar. | he drives | dia
+Our teachers are strict, but we respect them. | Guru-guru kami tegas, tetapi kami menghormati mereka. | them | mereka
+Julia is new here, so I help her at school. | Julia baru di sini, jadi saya membantu dia di sekolah. | her at | dia
+My cousins live in Canada, and I miss them a lot. | Sepupu-sepupuku tinggal di Kanada, dan saya sangat merindukan mereka. | them | mereka
+Mr. Lee is a good cook, and his guests always ask him for the recipe. | Pak Lee pandai memasak, dan tamu-tamunya selalu meminta resep kepada dia. | him | dia
+#5 Personal pronoun: person, number, gender
+I am a student. | Saya seorang siswa. | I | Saya
+You are my friend. | Kamu temanku. | You | Kamu
+He is my father. | Dia ayahku. | He | Dia
+She is a nurse. | Dia seorang perawat. | She | Dia
+It is a small cat. | Itu seekor kucing kecil. | It | Itu
+We are from Indonesia. | Kami berasal dari Indonesia. | We | Kami
+They are in the garden. | Mereka ada di taman. | They | Mereka
+Are you hungry now? | Apakah kamu lapar sekarang? | you | kamu
+Today we are meeting our new teacher. | Hari ini kami bertemu guru baru kami. | we | kami
+My sister is nice, and she helps everyone. | Kakakku baik, dan dia membantu semua orang. | she | dia
+Every morning I walk to school with my friends. | Setiap pagi saya berjalan kaki ke sekolah bersama teman-teman. | I | saya
+In the evening they play cards in the living room. | Pada malam hari mereka bermain kartu di ruang tamu. | they | mereka
+My uncle works at night, so he sleeps in the morning. | Pamanku bekerja malam hari, jadi dia tidur di pagi hari. | he sleeps | dia
+This phone is expensive, so it stays in my bag. | Ponsel ini mahal, jadi ia disimpan di tasku. | it | ia
+You work very hard, and your teachers are proud. | Kamu bekerja sangat keras, dan guru-gurumu bangga. | You | Kamu
+#6 Subjective vs objective case
+I know him. | Aku kenal dia. | him | dia
+He knows me. | Dia mengenal saya. | me | saya
+She sees us. | Dia melihat kami. | us | kami
+They help her. | Mereka membantu dia. | her | dia
+We love them. | Kami mencintai mereka. | them | mereka
+Please tell me the truth. | Tolong katakan yang sebenarnya kepada saya. | me | saya
+He gave her a small gift. | Dia memberi hadiah kecil kepada dia. | He | Dia
+My parents call us every Sunday. | Orang tuaku menelepon kami setiap hari Minggu. | us | kami
+She and I study English together. | Dia dan saya belajar bahasa Inggris bersama. | She and I | Dia dan saya
+The teacher asked him a question. | Guru itu mengajukan sebuah pertanyaan kepada dia. | him | dia
+We invited them, but they did not come. | Kami mengundang mereka, tetapi mereka tidak datang. | them | mereka
+When Tom calls, he usually asks me about homework. | Kalau Tom menelepon, dia biasanya bertanya kepada saya soal PR. | me about | saya
+I can't hear you because they are very loud. | Saya tidak bisa mendengar kamu karena mereka sangat berisik. | you | kamu
+Our teacher likes us because we always do our homework. | Guru kami menyukai kami karena kami selalu mengerjakan PR. | us because | kami
+My little brother loves cartoons, and I watch them with him on Sundays. | Adik laki-lakiku suka kartun, dan saya menontonnya bersama dia pada hari Minggu. | him | dia
+#7 Possessive determiner
+My name is Ben. | Nama saya Ben. | My | saya
+This is your bag. | Ini tas kamu. | your | kamu
+His car is red. | Mobil dia berwarna merah. | His | dia
+Her room is small. | Kamar dia kecil. | Her | dia
+Our teacher is kind. | Guru kami baik. | Our | kami
+Their house is big. | Rumah mereka besar. | Their | mereka
+The cat is licking its paw. | Kucing itu sedang menjilati kakinya. | its | kakinya
+What is your phone number? | Berapa nomor ponsel kamu? | your | kamu
+I often call my grandmother on Sundays. | Saya sering menelepon nenek saya pada hari Minggu. | my | saya
+Tom and his friends play football after school. | Tom dan teman-teman dia bermain sepak bola sepulang sekolah. | his | dia
+We love our new apartment near the park. | Kami suka apartemen baru kami di dekat taman. | our | kami
+Sara forgot her umbrella at the station. | Sara meninggalkan payungnya di stasiun. | her | payungnya
+The students are cleaning their classroom today. | Para siswa membersihkan kelas mereka hari ini. | their | mereka
+You can leave your shoes at the door, and we will keep them. | Kamu boleh meninggalkan sepatu kamu di pintu, dan kami akan menjaganya. | your | kamu
+My brother and his wife have a baby, and their house is always busy. | Kakakku dan istrinya punya bayi, dan rumah mereka selalu ramai. | their | mereka
+#8 This, that, these, those sebagai pronoun
+This is my book. | Ini bukuku. | This | Ini
+That is my school. | Itu sekolahku. | That | Itu
+These are my shoes. | Ini sepatuku. | These | Ini
+Those are my keys. | Itu kunciku. | Those | Itu
+What is this? | Apa ini? | this | ini
+Is that your bike? | Apakah itu sepedamu? | that | itu
+These are very good apples. | Ini apel yang sangat enak. | These | Ini
+Are those your friends over there? | Apakah itu teman-temanmu di sana? | those | itu
+This isn't my coat; it is too small. | Ini bukan jaket saya; terlalu kecil. | This | Ini
+Can I have this, please? | Bolehkah saya minta yang ini? | this | ini
+That was a long day, and I am very tired. | Itu hari yang panjang, dan saya sangat lelah. | That | Itu
+Those are Maria's children, and these are her nephews. | Itu anak-anak Maria, dan ini keponakan-keponakannya. | Those | Itu
+These are my grandparents, and they live in Bandung. | Ini kakek-nenekku, dan mereka tinggal di Bandung. | These | Ini
+How much is this if I buy two of them? | Berapa harga ini kalau saya membeli dua? | this | ini
+Those are the best cookies in town, and my mother makes them every Sunday. | Itu kue-kue terbaik di kota, dan ibuku membuatnya setiap hari Minggu. | Those | Itu
+#9 Demonstrative pronoun vs adjective
+I like this. | Saya suka ini. | this | ini
+I like this song. | Saya suka lagu ini. | this | ini
+That is a big dog. | Itu anjing besar. | That | Itu
+That dog is big. | Anjing itu besar. | That | itu
+These apples are fresh. | Apel ini segar. | These | ini
+Are those your keys? | Apakah itu kunci kamu? | those | itu
+Do you want this one? | Kamu mau yang ini? | this | ini
+Please give me those books. | Tolong berikan buku-buku itu kepada saya. | those | itu
+I don't like these. | Saya tidak suka yang ini. | these | ini
+Can I try these shoes? | Bolehkah saya mencoba sepatu ini? | these | ini
+She wants to photograph this painting. | Dia ingin memotret lukisan ini. | this | ini
+That man over there is my English teacher. | Pria itu di sana guru bahasa Inggris saya. | That | itu
+I really love this, so I will buy it today. | Saya sangat suka ini, jadi saya akan membelinya hari ini. | this | ini
+Those flowers in the garden are beautiful in spring. | Bunga-bunga di taman itu indah pada musim semi. | Those | itu
+I don't know that woman, but she looks kind. | Saya tidak kenal wanita itu, tetapi dia tampak baik. | that | itu
+#10 Kalimat lengkap: subjek + predikat
+I refuse. | Saya menolak. | refuse | menolak
+Birds fly. | Burung terbang. | fly | terbang
+She smiles. | Dia tersenyum. | smiles | tersenyum
+The baby sleeps. | Bayi itu tidur. | sleeps | tidur
+We eat lunch. | Kami makan siang. | eat | makan
+Tom opens the door. | Tom membuka pintu. | opens | membuka
+My mother cooks dinner. | Ibuku memasak makan malam. | cooks | memasak
+The children play outside. | Anak-anak bermain di luar. | play | bermain
+The teacher writes a word on the board. | Guru menulis sebuah kata di papan tulis. | writes | menulis
+My sister sings in the shower. | Kakakku bernyanyi di kamar mandi. | sings | bernyanyi
+The boy kicks the ball over the fence. | Anak laki-laki itu menendang bola melewati pagar. | kicks | menendang
+The bus stops in front of our school. | Bus berhenti di depan sekolah kami. | stops | berhenti
+My father drinks tea after dinner. | Ayahku minum teh setelah makan malam. | drinks | minum
+The students listen carefully in class. | Para siswa mendengarkan dengan saksama di kelas. | listen | mendengarkan
+My grandmother waters the flowers every morning. | Nenekku menyiram bunga-bunga setiap pagi. | waters | menyiram
+#11 Urutan dasar S-V-O
+She reads books. | Dia membaca buku. | reads | membaca
+I like music. | Saya suka musik. | like | suka
+He plays the guitar. | Dia memainkan gitar. | plays | memainkan
+We watch TV. | Kami menonton TV. | watch | menonton
+They buy bread. | Mereka membeli roti. | buy | membeli
+Anna drinks orange juice. | Anna minum jus jeruk. | drinks | minum
+My dog chases the cat. | Anjingku mengejar kucing itu. | chases | mengejar
+The farmer sells fresh eggs. | Petani itu menjual telur segar. | sells | menjual
+I wash my hands before dinner. | Saya mencuci tangan sebelum makan malam. | wash | mencuci
+Our teacher gives us homework. | Guru kami memberi kami PR. | gives | memberi
+My uncle repairs bicycles in his garage. | Pamanku memperbaiki sepeda di garasinya. | repairs | memperbaiki
+Maria sends a letter to her friend every month. | Maria mengirim surat kepada temannya setiap bulan. | sends | mengirim
+The children eat a lot of fruit in summer. | Anak-anak makan banyak buah pada musim panas. | eat | makan
+Our neighbor grows tomatoes behind his house. | Tetangga kami menanam tomat di belakang rumahnya. | grows | menanam
+My cousin paints beautiful pictures of the sea. | Sepupuku melukis gambar-gambar laut yang indah. | paints | melukis
+#12 Subjek dummy it dan there
+It is cold today. | Hari ini dingin. | It is | -
+There is a bus. | Ada sebuah bus. | There is | Ada
+It is late. | Sudah larut. | It is | -
+It is seven o'clock. | Sekarang pukul tujuh. | It is | -
+There are two cats. | Ada dua ekor kucing. | There are | Ada
+It is sunny in Bali. | Cuaca cerah di Bali. | It is | -
+Is it far from here? | Apakah jauh dari sini? | Is it | -
+There is a phone on the sofa. | Ada ponsel di atas sofa. | There is | Ada
+It is Monday, so the shops are open. | Hari ini Senin, jadi toko-toko buka. | It is | -
+Is there a pharmacy near the station? | Apakah ada apotek dekat stasiun? | Is there | ada
+It is easy to find our house. | Mudah menemukan rumah kami. | It is | -
+It rains a lot here in January. | Di sini sering hujan pada bulan Januari. | It rains | hujan
+There are many tourists in the city in August. | Ada banyak turis di kota pada bulan Agustus. | There are | Ada
+It is dark outside, so please turn on the light. | Di luar gelap, jadi tolong nyalakan lampu. | It is | -
+There aren't any tickets left, but it is not a problem. | Tidak ada tiket tersisa, tetapi itu bukan masalah. | There aren't | Tidak ada
+#13 Jenis kalimat menurut tujuan
+It is raining. | Sedang hujan. | is raining | Sedang
+Open the door. | Buka pintunya. | Open | Buka
+Do you like tea? | Apakah kamu suka teh? | Do | Apakah
+What a nice day! | Alangkah indahnya hari ini! | What a | Alangkah
+Sit down, please. | Silakan duduk. | Sit down | duduk
+Where is the toilet? | Di mana toiletnya? | Where | Di mana
+She works in a bank. | Dia bekerja di bank. | works | bekerja
+How beautiful this garden is! | Betapa indahnya taman ini! | How | Betapa
+Please close the window. | Tolong tutup jendelanya. | close | tutup
+Are you ready for the test? | Apakah kamu siap untuk ujian? | Are | Apakah
+My brother lives in London. | Kakakku tinggal di London. | lives | tinggal
+Don't touch the hot pan! | Jangan sentuh wajan panas itu! | Don't | Jangan
+What time does the film start? | Jam berapa filmnya mulai? | What time | Jam berapa
+What a big cake you made for my birthday! | Alangkah besarnya kue yang kamu buat untuk ulang tahunku! | What a | Alangkah
+Please wait here, and I will call the manager. | Tolong tunggu di sini, dan saya akan memanggil manajer. | wait | tunggu
+#14 Be sebagai linking verb
+I am happy. | Saya senang. | am | -
+She is tired. | Dia lelah. | is | -
+They are at home. | Mereka ada di rumah. | are | ada
+The soup is hot. | Supnya panas. | is | -
+He is a doctor. | Dia adalah seorang dokter. | is | adalah
+We are hungry. | Kami lapar. | are | -
+My room is on the second floor. | Kamarku ada di lantai dua. | is | ada
+The children are very noisy today. | Anak-anak sangat ribut hari ini. | are | -
+Tom is in the kitchen with his mother. | Tom ada di dapur bersama ibunya. | is in | ada
+You are late, and the film is already on. | Kamu terlambat, dan filmnya sudah mulai. | are | -
+I am nervous because my exam is tomorrow. | Saya gugup karena ujianku besok. | am nervous | -
+This soup is too salty for me. | Sup ini terlalu asin bagiku. | is too | -
+My parents are very proud of my sister. | Orang tuaku sangat bangga pada kakak perempuanku. | are very | -
+Maria is a good dancer, and she can cook too. | Maria adalah penari yang baik, dan dia juga bisa memasak. | is | adalah
+The weather is lovely, so we are having lunch in the garden. | Cuacanya indah, jadi kami makan siang di taman. | is | -
+#15 Usia, tinggi, dan berat dengan be
+I am 32 years old. | Saya berusia 32 tahun. | years old | berusia
+She is ten years old. | Dia berusia sepuluh tahun. | years old | berusia
+How old are you? | Berapa usiamu? | How old | usiamu
+My brother is tall. | Kakakku tinggi. | tall | tinggi
+He is 1.80 meters tall. | Tingginya 1,80 meter. | tall | Tingginya
+My bag is five kilos. | Berat tasku lima kilo. | kilos | Berat
+How tall are you? | Berapa tinggi badanmu? | How tall | tinggi
+My grandmother is eighty years old. | Nenekku berusia delapan puluh tahun. | years old | berusia
+The baby is only six months old. | Bayi itu baru berusia enam bulan. | months old | berusia
+My little sister is very short for her age. | Adik perempuanku sangat pendek untuk usianya. | short | pendek
+This building is fifty meters tall. | Gedung ini tingginya lima puluh meter. | tall | tingginya
+My dog is only two years old, but he is already very heavy. | Anjingku baru berusia dua tahun, tetapi dia sudah sangat berat. | years old | berusia
+Our new teacher is thirty years old and very friendly. | Guru baru kami berusia tiga puluh tahun dan sangat ramah. | years old | berusia
+My brother is 20 years old, and he is 1.85 meters tall. | Kakakku berusia 20 tahun, dan tingginya 1,85 meter. | tall | tingginya
+The tree is about ten meters tall, and it is more than a hundred years old. | Pohon itu tingginya sekitar sepuluh meter, dan usianya lebih dari seratus tahun. | tall | tingginya
+#16 The (definite article)
+Close the door. | Tutup pintu itu. | the | itu
+I like the red bag. | Saya suka tas merah itu. | the | itu
+The sun is hot. | Matahari panas. | The | -
+Where is the station? | Di mana stasiun itu? | the | itu
+Would you pass me the phone? | Tolong berikan telepon itu kepada saya. | the | itu
+The moon is bright tonight. | Bulan terang malam ini. | The | -
+Please open the window. | Tolong buka jendela itu. | the | itu
+She plays the piano very well. | Dia bermain piano dengan sangat baik. | the | -
+Look at the cat on our roof. | Lihat kucing itu di atas atap kami. | the | itu
+I'm going to the bank to get some money. | Saya pergi ke bank untuk mengambil uang. | the | -
+The teacher gave us homework, so we stayed at home. | Guru itu memberi kami PR, jadi kami di rumah. | The | itu
+My brother is the tallest boy in our class. | Kakakku anak laki-laki tertinggi di kelas kami. | the tallest | -
+We had dinner at the new Italian restaurant near my office. | Kami makan malam di restoran Italia baru itu dekat kantorku. | the | itu
+Please give me the book that is on your desk. | Tolong berikan saya buku yang ada di mejamu itu. | the | itu
+Everyone loves the beach in Bali. | Semua orang suka pantai di Bali. | the | -
+#17 A/an (indefinite article)
+I need a coffee. | Saya butuh secangkir kopi. | a | secangkir
+She has an apple. | Dia punya sebuah apel. | an | sebuah
+He is a teacher. | Dia seorang guru. | a teacher | seorang
+It is an orange. | Itu sebuah jeruk. | an orange | sebuah
+I'm looking for a pen. | Saya mencari sebuah pulpen. | a | sebuah
+We live in a small house. | Kami tinggal di sebuah rumah kecil. | a small | sebuah
+My mother is an engineer. | Ibuku seorang insinyur. | an | seorang
+Can I have a glass of water? | Bolehkah saya minta segelas air? | a glass | segelas
+There is an old man at the door. | Ada seorang pria tua di depan pintu. | an old | seorang
+She wants a new bike for her birthday. | Dia ingin sebuah sepeda baru untuk ulang tahunnya. | a new | sebuah
+He eats an egg and drinks milk every morning. | Dia makan sebutir telur dan minum susu setiap pagi. | an egg | sebutir
+My brother works in an office downtown. | Kakakku bekerja di sebuah kantor di pusat kota. | an | sebuah
+I want to buy a gift for my teacher's birthday. | Saya ingin membeli sebuah hadiah untuk ulang tahun guru saya. | a gift | sebuah
+It takes an hour to get to my grandmother's house. | Perlu waktu satu jam untuk sampai ke rumah nenek saya. | an hour | satu
+We saw a funny movie last night, and the actors were great. | Kami menonton sebuah film lucu tadi malam, dan para aktornya hebat. | a funny | sebuah
+#18 Artikel untuk profesi
+I am a teacher. | Saya seorang guru. | a teacher | seorang
+She is a doctor. | Dia seorang dokter. | a doctor | seorang
+He is an engineer. | Dia seorang insinyur. | an engineer | seorang
+Are you a student? | Apakah kamu seorang siswa? | a student | seorang
+My father is a driver. | Ayahku seorang sopir. | a driver | seorang
+My mother is an artist. | Ibuku seorang seniman. | an artist | seorang
+Is your brother a nurse? | Apakah kakakmu seorang perawat? | a nurse | seorang
+Mr. Chen is a cook at the Grand Hotel. | Pak Chen seorang juru masak di Grand Hotel. | a cook | seorang
+My neighbor is a police officer. | Tetanggaku seorang polisi. | a police officer | seorang
+She wants to be a pilot one day. | Dia ingin menjadi seorang pilot suatu hari nanti. | a pilot | seorang
+My aunt is an actress, and she lives in Jakarta. | Bibiku seorang aktris, dan dia tinggal di Jakarta. | an actress | seorang
+Her husband is a farmer, and he grows rice. | Suaminya seorang petani, dan dia menanam padi. | a farmer | seorang
+I'm not a singer, but I love to sing in the shower. | Saya bukan seorang penyanyi, tetapi saya suka bernyanyi di kamar mandi. | a singer | seorang
+My best friend is a dentist, and he works near the station. | Sahabatku seorang dokter gigi, dan dia bekerja dekat stasiun. | a dentist | seorang
+My cousin is an English teacher, and she works in a school in Bali. | Sepupuku seorang guru bahasa Inggris, dan dia bekerja di sebuah sekolah di Bali. | an English teacher | seorang
+#19 Like / love / want + noun / to-V
+I like coffee. | Saya suka kopi. | like | suka
+She loves cats. | Dia sangat suka kucing. | loves | suka
+We want water. | Kami mau air. | want | mau
+He wants a new bike. | Dia mau sepeda baru. | wants | mau
+I like to swim. | Saya suka berenang. | like | suka
+They want to go home. | Mereka mau pulang. | want | mau
+Do you like pizza? | Apakah kamu suka pizza? | like | suka
+My sister loves to dance. | Kakakku suka menari. | loves | suka
+What do you want to eat? | Kamu mau makan apa? | want | mau
+I don't like hot weather. | Saya tidak suka cuaca panas. | like | suka
+Tom wants to play football after school. | Tom mau bermain sepak bola sepulang sekolah. | wants | mau
+My parents love to travel in the summer. | Orang tuaku suka bepergian pada musim panas. | love | suka
+We want a table for four near the window, please. | Kami mau meja untuk empat orang dekat jendela. | want | mau
+She likes reading books, but she doesn't like watching TV. | Dia suka membaca buku, tetapi tidak suka menonton TV. | likes | suka
+I love my job because I want to help people every day. | Saya sangat suka pekerjaanku karena saya ingin membantu orang setiap hari. | love | suka
+#20 Common noun vs proper noun
+He sat on the chair. | Dia duduk di kursi itu. | chair | kursi
+Anna lives in Paris. | Anna tinggal di Paris. | Paris | Paris
+The dog is big. | Anjing itu besar. | dog | Anjing
+My teacher is Mr. Brown. | Guruku adalah Pak Brown. | Brown | Brown
+We visit Bali in July. | Kami mengunjungi Bali pada bulan Juli. | Bali | Bali
+The river is very long. | Sungai itu sangat panjang. | river | Sungai
+Maria is a girl from Spain. | Maria adalah gadis dari Spanyol. | Spain | Spanyol
+My brother has a cat named Milo. | Kakakku punya seekor kucing bernama Milo. | Milo | Milo
+The city is beautiful in spring. | Kota itu indah pada musim semi. | city | Kota
+Our school is on Main Street. | Sekolah kami ada di Jalan Main. | Main | Main
+I study English every Monday at the library. | Saya belajar bahasa Inggris setiap hari Senin di perpustakaan. | Monday | Senin
+My friend Tom comes from Canada, and he loves the mountains. | Temanku Tom berasal dari Kanada, dan dia suka pegunungan. | Canada | Kanada
+Lake Toba is the biggest lake in Indonesia. | Danau Toba adalah danau terbesar di Indonesia. | Toba | Toba
+She bought a table and four chairs at the market. | Dia membeli sebuah meja dan empat kursi di pasar. | market | pasar
+My uncle lives in Surabaya, and he works for a company near the harbor. | Pamanku tinggal di Surabaya, dan dia bekerja di perusahaan dekat pelabuhan. | Surabaya | Surabaya
+#21 Countable noun: a/an dan bentuk jamak
+I have a cup. | Saya punya sebuah cangkir. | a cup | sebuah
+I have two cups. | Saya punya dua cangkir. | two cups | dua
+She has an egg. | Dia punya sebutir telur. | an egg | sebutir
+We need three chairs. | Kami butuh tiga kursi. | three chairs | tiga
+There is a car outside. | Ada sebuah mobil di luar. | a car | sebuah
+There are four cars outside. | Ada empat mobil di luar. | four cars | empat
+He has many friends. | Dia punya banyak teman. | many friends | banyak
+She has several books. | Dia punya beberapa buku. | several books | beberapa
+I want an apple and two bananas. | Saya mau sebuah apel dan dua pisang. | two bananas | dua
+My sister has a dog and three cats. | Kakakku punya seekor anjing dan tiga kucing. | three cats | tiga
+We don't have many questions today. | Kami tidak punya banyak pertanyaan hari ini. | many questions | banyak
+She bought a new bag and several pens for school. | Dia membeli sebuah tas baru dan beberapa pulpen untuk sekolah. | several pens | beberapa
+There is a student at the door, and there are ten students in the hall. | Ada seorang murid di pintu, dan ada sepuluh murid di aula. | ten students | sepuluh
+My grandfather has an old watch and two clocks in his room. | Kakekku punya sebuah jam tangan tua dan dua jam dinding di kamarnya. | two clocks | dua
+Many trains stop here, but only one goes to Bogor. | Banyak kereta berhenti di sini, tetapi hanya satu yang ke Bogor. | Many trains | Banyak
+#22 Subject-verb agreement dengan noun countable
+Our dog is very big. | Anjing kami sangat besar. | is | -
+The dogs are big. | Anjing-anjing itu besar. | are | -
+My brother is at home. | Kakakku ada di rumah. | is | ada
+My parents are at work. | Orang tuaku ada di tempat kerja. | are at | ada
+She likes tea. | Dia suka teh. | likes | suka
+They like tea. | Mereka suka teh. | like | suka
+The cat sleeps all day. | Kucing itu tidur sepanjang hari. | sleeps | tidur
+The cats sleep all day. | Kucing-kucing itu tidur sepanjang hari. | sleep | tidur
+My brother is back from college. | Kakakku sudah kembali dari kuliah. | is | -
+The children are playing in the garden. | Anak-anak sedang bermain di taman. | are | sedang
+The teacher was angry, but the students were quiet. | Guru itu marah, tetapi para siswa diam. | was | -
+The books on the shelf are very old. | Buku-buku di rak itu sangat tua. | are | -
+My friend lives near the sea, and her parents live in the mountains. | Temanku tinggal dekat laut, dan orang tuanya tinggal di pegunungan. | lives | tinggal
+Every student in my class has a laptop. | Setiap siswa di kelasku punya laptop. | has | punya
+The women at the bus stop are talking about the new teacher. | Para wanita di halte bus sedang membicarakan guru baru. | are | sedang
+#23 Jamak beraturan: +s dan +es
+I have two pens. | Saya punya dua pulpen. | pens | dua
+She has three boxes. | Dia punya tiga kotak. | boxes | tiga
+There are two buses. | Ada dua bus. | buses | dua
+I see four dishes. | Saya melihat empat piring. | dishes | empat
+We need two watches. | Kami butuh dua jam tangan. | watches | dua
+The boys play football. | Anak-anak laki-laki bermain sepak bola. | boys | Anak-anak
+He eats sandwiches for lunch. | Dia makan sandwich untuk makan siang. | sandwiches | -
+Our teacher has two big bags. | Guru kami punya dua tas besar. | bags | dua
+There are many churches in this city. | Ada banyak gereja di kota ini. | churches | banyak
+The girls carry their books to school. | Para gadis membawa buku mereka ke sekolah. | girls | Para
+I wash the dishes after dinner. | Saya mencuci piring setelah makan malam. | dishes | -
+She puts two glasses on the table. | Dia menaruh dua gelas di atas meja. | glasses | dua
+There are five boxes in the garage, and they are all empty. | Ada lima kotak di garasi, dan semuanya kosong. | boxes | lima
+My brothers have two cars and three bikes. | Kakak-kakakku punya dua mobil dan tiga sepeda. | bikes | tiga
+The teachers give us a lot of homework on Mondays. | Para guru memberi kami banyak PR pada hari Senin. | teachers | Para
+#24 Jamak: konsonan+y → -ies; vokal+y → -s
+There are two countries. | Ada dua negara. | countries | dua
+I have two toys. | Saya punya dua mainan. | toys | dua
+The babies are asleep. | Bayi-bayi itu tertidur. | babies | Bayi-bayi
+The boys have new keys. | Anak-anak laki-laki punya kunci baru. | keys | kunci
+We visit many cities. | Kami mengunjungi banyak kota. | cities | banyak
+Two days later, we went home. | Dua hari kemudian, kami pulang. | days | hari
+My sister has three puppies. | Kakakku punya tiga anak anjing. | puppies | tiga
+The ladies wait for the bus. | Para wanita menunggu bus. | ladies | Para
+We read stories every night. | Kami membaca cerita setiap malam. | stories | cerita
+There are two monkeys in the zoo. | Ada dua monyet di kebun binatang. | monkeys | dua
+I bought fresh strawberries at the market. | Saya membeli stroberi segar di pasar. | strawberries | stroberi
+Her parties are always fun, and everyone has a good time. | Pesta-pestanya selalu menyenangkan, dan semua orang bersenang-senang. | parties | Pesta-pestanya
+The families in our street have many pets. | Keluarga-keluarga di jalan kami punya banyak hewan peliharaan. | families | Keluarga-keluarga
+My grandfather often talks about his two journeys to Japan. | Kakekku sering bercerita tentang dua perjalanannya ke Jepang. | journeys | perjalanannya
+Many companies in this city need workers who speak English. | Banyak perusahaan di kota ini membutuhkan pekerja yang bisa berbahasa Inggris. | companies | perusahaan
+#25 Imperatif negatif: Don't + V
+Don't run! | Jangan berlari! | Don't | Jangan
+Don't be late. | Jangan terlambat. | Don't | Jangan
+Don't touch that. | Jangan sentuh itu. | Don't | Jangan
+Please don't shout. | Tolong jangan berteriak. | don't | jangan
+Don't open the window. | Jangan buka jendela. | Don't | Jangan
+Don't forget your keys. | Jangan lupa kuncimu. | Don't | Jangan
+Please don't eat in the classroom. | Tolong jangan makan di dalam kelas. | don't | jangan
+Don't worry about the test. | Jangan khawatir soal ujian itu. | Don't | Jangan
+Don't take my bag without asking. | Jangan ambil tasku tanpa bertanya. | Don't | Jangan
+Don't speak loudly in the library. | Jangan bicara keras-keras di perpustakaan. | Don't | Jangan
+Please don't leave your phone on the table. | Tolong jangan tinggalkan ponselmu di atas meja. | don't | jangan
+Don't give the dog chocolate, because it is bad for him. | Jangan beri anjing itu cokelat, karena itu tidak baik baginya. | Don't | Jangan
+Don't forget to turn off the lights when you leave the room. | Jangan lupa mematikan lampu saat kamu keluar dari kamar. | Don't | Jangan
+Kids, don't play near the road, because the cars are fast. | Anak-anak, jangan bermain dekat jalan, karena mobil-mobil melaju cepat. | don't | jangan
+If you feel sick, don't go to school, and call your doctor. | Kalau kamu merasa sakit, jangan pergi ke sekolah, dan hubungi dokter. | don't | jangan
+#26 Let's + V: ajakan
+Let's go. | Ayo pergi. | Let's | Ayo
+Let's eat. | Ayo makan. | Let's | Ayo
+Let's sit here. | Ayo duduk di sini. | Let's | Ayo
+Let's start now. | Ayo mulai sekarang. | Let's | Ayo
+Let's play a game. | Ayo main game. | Let's | Ayo
+Let's call a taxi. | Ayo panggil taksi. | Let's | Ayo
+Let's walk to the park. | Ayo jalan kaki ke taman. | Let's | Ayo
+Let's watch a film tonight. | Ayo menonton film malam ini. | Let's | Ayo
+It's late, so let's go home. | Sudah larut, jadi ayo pulang. | let's | ayo
+Let's ask the teacher for help. | Ayo minta bantuan guru. | Let's | Ayo
+Let's meet in front of the cinema at six. | Ayo bertemu di depan bioskop jam enam. | Let's | Ayo
+The weather is nice, so let's have lunch in the garden. | Cuacanya bagus, jadi ayo makan siang di taman. | let's | ayo
+Let's buy some fruit at the market before we go home. | Ayo beli buah di pasar sebelum kita pulang. | Let's | Ayo
+We are all hungry, so let's order two pizzas. | Kita semua lapar, jadi ayo pesan dua pizza. | let's | ayo
+Let's clean the kitchen together, and then we can watch TV. | Ayo bersihkan dapur bersama-sama, lalu kita bisa menonton TV. | Let's | Ayo
+#27 Present continuous: negatif dan tanya
+I am not working. | Saya sedang tidak bekerja. | am not | tidak
+He is not sleeping. | Dia sedang tidak tidur. | is not | tidak
+Are you working? | Apakah kamu sedang bekerja? | Are | sedang
+Is she cooking? | Apakah dia sedang memasak? | Is | sedang
+They aren't listening. | Mereka tidak sedang mendengarkan. | aren't | tidak
+We are not watching TV. | Kami tidak sedang menonton TV. | are not | tidak
+What are you doing? | Kamu sedang apa? | are | sedang
+The baby isn't crying now. | Bayi itu sedang tidak menangis sekarang. | isn't | tidak
+Is it raining outside? | Apakah di luar sedang hujan? | Is it | sedang
+Why are you laughing at me? | Mengapa kamu sedang menertawakan saya? | are | sedang
+I am not studying now because my friends are here. | Saya sedang tidak belajar sekarang karena teman-teman saya ada di sini. | am not | tidak
+Where is your sister going with that big bag? | Kakakmu sedang pergi ke mana dengan tas besar itu? | is your | sedang
+My parents aren't sleeping, because the TV is still on. | Orang tuaku tidak sedang tidur, karena TV-nya masih menyala. | aren't | tidak
+Are the children doing their homework, or are they playing outside? | Apakah anak-anak sedang mengerjakan PR, atau mereka sedang bermain di luar? | Are the children | sedang
+He is not driving to work today, so he is taking the bus. | Dia sedang tidak mengemudi ke kantor hari ini, jadi dia naik bus. | is not | tidak
+#28 Present simple dengan be
+I am from the United States. | Saya berasal dari Amerika Serikat. | am | berasal
+She is from Japan. | Dia berasal dari Jepang. | is | berasal
+We are students. | Kami adalah siswa. | are | adalah
+Are you from Turkey? | Apakah kamu berasal dari Turki? | Are | berasal
+Is he your brother? | Apakah dia kakakmu? | Is | Apakah
+I am not a doctor. | Saya bukan seorang dokter. | am not | bukan
+They are not at home. | Mereka tidak ada di rumah. | are not | tidak
+It is not far from here. | Tempat itu tidak jauh dari sini. | is not | tidak
+My shoes are under the bed. | Sepatuku ada di bawah tempat tidur. | are | ada
+Where is your office? | Di mana kantormu? | is | Di mana
+Mr. and Mrs. Lee are from Korea, but they live in London. | Pak dan Bu Lee berasal dari Korea, tetapi mereka tinggal di London. | are | berasal
+Is your birthday in June or in July? | Apakah ulang tahunmu bulan Juni atau Juli? | Is | Apakah
+I am not hungry because we had a big breakfast. | Saya tidak lapar karena kami sarapan banyak. | am not | tidak
+Our neighbors are very friendly, and the street is always quiet. | Tetangga kami sangat ramah, dan jalannya selalu sepi. | are | -
+The museum isn't open on Mondays, but the park is open every day. | Museum itu tidak buka pada hari Senin, tetapi taman buka setiap hari. | isn't | tidak
+#29 Present simple: fakta, kebiasaan, jadwal
+I go to work every day. | Saya berangkat kerja setiap hari. | go | berangkat
+She works in a hospital. | Dia bekerja di rumah sakit. | works | bekerja
+He drinks coffee. | Dia minum kopi. | drinks | minum
+We live in Jakarta. | Kami tinggal di Jakarta. | live | tinggal
+Do you speak English? | Apakah kamu bisa berbahasa Inggris? | speak | berbahasa
+The shop opens at nine. | Toko itu buka jam sembilan. | opens | buka
+Water boils at 100 degrees. | Air mendidih pada suhu 100 derajat. | boils | mendidih
+My brother doesn't eat meat. | Kakakku tidak makan daging. | doesn't | tidak
+I don't watch TV in the morning. | Saya tidak menonton TV pada pagi hari. | don't | tidak
+Does your sister play the piano? | Apakah kakakmu bermain piano? | Does | Apakah
+The train to Bandung leaves at seven every morning. | Kereta ke Bandung berangkat jam tujuh setiap pagi. | leaves | berangkat
+My parents get up early, and they have breakfast at six. | Orang tuaku bangun pagi, dan mereka sarapan jam enam. | get up | bangun
+What time do you finish work on Fridays? | Jam berapa kamu selesai bekerja pada hari Jumat? | finish | selesai
+Our teacher always checks our homework before the lesson starts. | Guru kami selalu memeriksa PR kami sebelum pelajaran dimulai. | checks | memeriksa
+The sun rises in the east, and it sets in the west. | Matahari terbit di timur, dan terbenam di barat. | rises | terbit
+#30 Present continuous: sedang terjadi dan rencana
+John is sleeping now. | John sedang tidur sekarang. | sleeping | sedang
+I am reading a book. | Saya sedang membaca buku. | reading | sedang
+They are playing football. | Mereka sedang bermain sepak bola. | playing | sedang
+She is cooking dinner. | Dia sedang memasak makan malam. | cooking | sedang
+It is raining again. | Hujan sedang turun lagi. | raining | sedang
+We are waiting for the bus. | Kami sedang menunggu bus. | waiting | sedang
+I am meeting Anna tomorrow. | Saya akan bertemu Anna besok. | meeting | akan
+He is flying to Bali on Friday. | Dia akan terbang ke Bali hari Jumat. | flying | akan
+The children are drawing pictures at the moment. | Anak-anak sedang menggambar saat ini. | drawing | sedang
+My brother is studying in the library right now. | Kakakku sedang belajar di perpustakaan sekarang. | studying | sedang
+We are having a party next Saturday. | Kami akan mengadakan pesta hari Sabtu depan. | having | akan
+The baby is walking for the first time. | Bayi itu sedang berjalan untuk pertama kalinya. | walking | sedang
+Maria is leaving for Paris tomorrow morning. | Maria akan berangkat ke Paris besok pagi. | leaving | akan
+My parents are visiting my aunt in Medan this weekend. | Orang tuaku akan mengunjungi bibiku di Medan akhir pekan ini. | visiting | akan
+Please be quiet, because the teacher is talking to the principal. | Tolong tenang, karena guru sedang berbicara dengan kepala sekolah. | talking | sedang
+#31 Imperative mood
+Sit here. | Duduk di sini. | Sit | Duduk
+Come in. | Masuk. | Come in | Masuk
+Open your books. | Buka buku kalian. | Open | Buka
+Please wait here. | Silakan tunggu di sini. | wait | tunggu
+Turn left. | Belok kiri. | Turn | Belok
+Listen to me. | Dengarkan saya. | Listen | Dengarkan
+Please close the door. | Tolong tutup pintunya. | close | tutup
+Turn off the light before you leave. | Matikan lampu sebelum kamu pergi. | Turn off | Matikan
+Take a seat and have some tea. | Silakan duduk dan minum teh. | Take a seat | Silakan duduk
+Please call me when you arrive at the airport. | Tolong telepon saya saat kamu tiba di bandara. | call | telepon
+Read the text and answer the questions. | Baca teks itu dan jawab pertanyaannya. | Read | Baca
+Go straight, and then turn right at the bank. | Jalan lurus, lalu belok kanan di bank. | Go straight | lurus
+Wash your hands, and then come to the table for dinner. | Cuci tanganmu, lalu datang ke meja makan. | Wash | Cuci
+Please bring your passport and two photos to the office tomorrow. | Tolong bawa paspor dan dua foto ke kantor besok. | bring | bawa
+Mix the eggs and the milk, and then add a little sugar. | Campur telur dan susu, lalu tambahkan sedikit gula. | Mix | Campur
+#32 Kapan verba berubah menurut person
+I want a soda. | Saya mau soda. | want | mau
+She wants a soda. | Dia mau soda. | wants | mau
+You like tea. | Kamu suka teh. | like | suka
+He likes milk. | Dia suka susu. | likes | suka
+We play tennis. | Kami bermain tenis. | play | bermain
+My friend plays tennis. | Temanku bermain tenis. | plays | bermain
+I work in an office. | Saya bekerja di kantor. | work | bekerja
+My father works in a factory. | Ayahku bekerja di pabrik. | works | bekerja
+They live near the park, but he lives in the city center. | Mereka tinggal dekat taman, tetapi dia tinggal di pusat kota. | lives | tinggal
+Our cat sleeps on the sofa, but the dogs sleep outside. | Kucing kami tidur di sofa, tetapi anjing-anjing tidur di luar. | sleeps | tidur
+I drink coffee, but my wife drinks tea. | Saya minum kopi, tetapi istri saya minum teh. | drinks | minum
+You speak English well, and your brother speaks it very well too. | Kamu berbicara bahasa Inggris dengan baik, dan kakakmu juga sangat baik. | speaks | berbicara
+We watch the news every night, and our grandfather watches it too. | Kami menonton berita setiap malam, dan kakek kami juga menontonnya. | watches | menonton
+My brother studies law, and his friends study medicine. | Kakakku belajar hukum, dan teman-temannya belajar kedokteran. | studies | belajar
+I go to school by bus, but my sister goes by bike. | Saya pergi ke sekolah naik bus, tetapi kakakku naik sepeda. | goes | naik
+#33 Konjugasi lengkap be
+I am at school. | Saya ada di sekolah. | am | ada
+You are very kind. | Kamu sangat baik. | are | -
+He is at work. | Dia ada di tempat kerja. | is | ada
+We are friends. | Kami adalah teman. | are | adalah
+They were at home yesterday. | Mereka ada di rumah kemarin. | were | kemarin
+I was tired yesterday. | Kemarin saya lelah. | was | Kemarin
+She was a teacher. | Dia dulu seorang guru. | was | dulu
+It was cold last night. | Tadi malam dingin. | was | Tadi
+We were in Bali last year. | Kami ada di Bali tahun lalu. | were | lalu
+I have been here since Monday. | Saya sudah ada di sini sejak hari Senin. | been | sudah
+Being a parent is not always easy. | Menjadi orang tua tidak selalu mudah. | Being | Menjadi
+The shops were closed on Sunday. | Toko-toko tutup pada hari Minggu. | were | -
+She has been a nurse for ten years. | Dia sudah menjadi perawat selama sepuluh tahun. | been | sudah
+My grandparents were farmers in a small village. | Kakek-nenekku dulu petani di sebuah desa kecil. | were | dulu
+You are tired because the baby was crying all night. | Kamu lelah karena bayi itu menangis sepanjang malam. | are | -
+#34 Bentuk third person -s dan present participle
+She bakes bread. | Dia memanggang roti. | bakes | memanggang
+He is baking a cake. | Dia sedang memanggang kue. | baking | sedang
+He taps the table. | Dia mengetuk meja. | taps | mengetuk
+He is tapping the table. | Dia sedang mengetuk meja. | tapping | sedang
+My mother washes the dishes. | Ibuku mencuci piring. | washes | mencuci
+The baby is sitting on the floor. | Bayi itu sedang duduk di lantai. | sitting | sedang
+He studies at night. | Dia belajar pada malam hari. | studies | belajar
+My brother is running in the park. | Kakakku sedang berlari di taman. | running | sedang
+She watches TV after dinner. | Dia menonton TV setelah makan malam. | watches | menonton
+The cat is lying on the sofa. | Kucing itu sedang berbaring di sofa. | lying | sedang
+Our neighbor fixes bikes, and he is fixing mine now. | Tetangga kami memperbaiki sepeda, dan sekarang dia sedang memperbaiki sepedaku. | fixes | memperbaiki
+The baby is smiling because her father makes funny faces. | Bayi itu sedang tersenyum karena ayahnya membuat wajah lucu. | smiling | sedang
+My sister is writing an email, and she carries her phone everywhere. | Kakakku sedang menulis email, dan dia membawa ponselnya ke mana-mana. | writing | sedang
+The teacher goes to the office, and the students are chatting in the classroom. | Guru itu pergi ke kantor, dan para siswa mengobrol di kelas. | goes | pergi
+My father usually cooks dinner, but today he is stopping at the market. | Ayahku biasanya memasak makan malam, tetapi hari ini dia mampir di pasar. | cooks | memasak
+#35 Negasi not dan no
+I do not like fish. | Saya tidak suka ikan. | not | tidak
+He is not here. | Dia tidak ada di sini. | not | tidak
+They do not live here. | Mereka tidak tinggal di sini. | not | tidak
+We are not ready. | Kami tidak siap. | not | tidak
+She did not come. | Dia tidak datang. | not | tidak
+I have not seen him here before. | Saya belum pernah melihat dia di sini. | not | belum
+It is not a big problem. | Itu bukan masalah besar. | not | bukan
+There is no milk in the fridge. | Tidak ada susu di kulkas. | no | Tidak ada
+We have no time today. | Kami tidak punya waktu hari ini. | no | tidak
+My sister does not eat meat. | Kakak perempuanku tidak makan daging. | not | tidak
+He is no taller than his little brother. | Dia tidak lebih tinggi dari adik laki-lakinya. | no | tidak
+She does not work on Sundays, so she stays at home. | Dia tidak bekerja pada hari Minggu, jadi dia di rumah. | not | tidak
+There are no cars on this street at night. | Tidak ada mobil di jalan ini pada malam hari. | no | Tidak ada
+We did not go to school yesterday because it was a holiday. | Kami tidak pergi ke sekolah kemarin karena hari libur. | not | tidak
+I am not angry with you, but I want to be alone. | Saya tidak marah padamu, tetapi saya ingin sendirian. | not | tidak
+#36 Kata tanya: where, when, why, how, whose, how much/many
+Where do you live? | Kamu tinggal di mana? | Where | di mana
+When is your birthday? | Kapan ulang tahunmu? | When | Kapan
+Why are you late? | Mengapa kamu terlambat? | Why | Mengapa
+How are you? | Apa kabar? | How | Apa kabar
+Whose bag is this? | Tas siapa ini? | Whose | siapa
+How much is the ticket? | Berapa harga tiketnya? | How much | Berapa
+How many brothers do you have? | Kamu punya berapa saudara laki-laki? | How many | berapa
+Where is the nearest bank? | Di mana bank terdekat? | Where | Di mana
+When does the shop close? | Kapan toko itu tutup? | When | Kapan
+Why do you study English? | Mengapa kamu belajar bahasa Inggris? | Why | Mengapa
+Whose keys are these on the table? | Kunci siapa ini di atas meja? | Whose | siapa
+How do you go to work every day? | Bagaimana kamu pergi bekerja setiap hari? | How | Bagaimana
+How many people are coming to the party tonight? | Berapa orang yang akan datang ke pesta malam ini? | How many | Berapa
+Where does your grandmother buy her vegetables? | Di mana nenekmu membeli sayurannya? | Where | Di mana
+When do your parents usually come home from work? | Kapan orang tuamu biasanya pulang dari kerja? | When | Kapan
+#37 Kalimat negatif dengan be
+I am not tired. | Saya tidak lelah. | am not | tidak
+She is not at home. | Dia tidak ada di rumah. | is not | tidak
+They are not students. | Mereka bukan siswa. | are not | bukan
+It isn't expensive. | Itu tidak mahal. | isn't | tidak
+We aren't late. | Kami tidak terlambat. | aren't | tidak
+He is not a teacher. | Dia bukan guru. | is not | bukan
+The shops aren't open today. | Toko-toko tidak buka hari ini. | aren't | tidak
+My brother isn't at school today. | Kakakku tidak ada di sekolah hari ini. | isn't | tidak
+I am not from here, but I like this city. | Saya bukan dari sini, tetapi saya suka kota ini. | am not | bukan
+The soup is not hot enough. | Supnya tidak cukup panas. | is not | tidak
+Your phone is not on the desk, and it isn't in my bag. | Ponselmu tidak ada di meja, dan tidak ada di tasku. | is not | tidak
+My parents are not at home because they are at the market. | Orang tuaku tidak ada di rumah karena mereka ada di pasar. | are not | tidak
+This exercise is not difficult, but it is very long. | Latihan ini tidak sulit, tetapi sangat panjang. | is not | tidak
+We are not hungry now, because we ate a big lunch. | Kami tidak lapar sekarang, karena kami makan siang banyak. | are not | tidak
+Our teacher isn't angry with us, but she is very serious. | Guru kami tidak marah pada kami, tetapi dia sangat serius. | isn't | tidak
+#38 Who, what, which sebagai interrogative pronoun
+Who is that? | Siapa itu? | Who | Siapa
+What is your name? | Apa namamu? | What | Apa
+Which is yours? | Yang mana milikmu? | Which | Yang mana
+Who lives here? | Siapa yang tinggal di sini? | Who | Siapa
+What do you want? | Kamu mau apa? | What | apa
+Which do you prefer? | Kamu lebih suka yang mana? | Which | yang mana
+Who is coming to the party tonight? | Siapa yang akan datang ke pesta malam ini? | Who | Siapa
+What are you reading? | Kamu sedang membaca apa? | What | apa
+Who called you this morning? | Siapa yang menelepon kamu pagi ini? | Who | Siapa
+What happened to your bike? | Apa yang terjadi pada sepedamu? | What | Apa
+Which of these bags is yours? | Tas yang mana di antara ini milikmu? | Which | mana
+Who is your favorite singer? | Siapa penyanyi favoritmu? | Who | Siapa
+What do you usually have for breakfast on Sundays? | Kamu biasanya sarapan apa pada hari Minggu? | What | apa
+Which do you like more, the blue shirt or the green one? | Kamu lebih suka yang mana, kemeja biru atau yang hijau? | Which | yang mana
+Who knows the answer to the second question? | Siapa yang tahu jawaban pertanyaan kedua? | Who | Siapa
+#39 Pertanyaan: inversi subjek–auxiliary
+Do you like cats? | Apakah kamu suka kucing? | Do | Apakah
+Are you busy? | Apakah kamu sibuk? | Are | Apakah
+Is she at home? | Apakah dia ada di rumah? | Is | Apakah
+Does he work here? | Apakah dia bekerja di sini? | Does | Apakah
+Can you help me? | Bisakah kamu membantu saya? | Can | Bisakah
+Did they come yesterday? | Apakah mereka datang kemarin? | Did | Apakah
+Is your brother tall? | Apakah kakakmu tinggi? | Is | Apakah
+Do your parents live in Jakarta? | Apakah orang tuamu tinggal di Jakarta? | Do | Apakah
+Does your teacher speak English in class? | Apakah gurumu berbicara bahasa Inggris di kelas? | Does | Apakah
+Can we sit here? | Bisakah kami duduk di sini? | Can | Bisakah
+Are your friends coming to the party? | Apakah teman-temanmu datang ke pesta? | Are | Apakah
+Do you have any brothers or sisters? | Apakah kamu punya saudara? | Do | Apakah
+Did you watch the football match last night? | Apakah kamu menonton pertandingan sepak bola tadi malam? | Did | Apakah
+Is there a good Italian restaurant near your house? | Apakah ada restoran Italia yang bagus di dekat rumahmu? | Is there | Apakah
+Can you come to my birthday party on Saturday afternoon? | Bisakah kamu datang ke pesta ulang tahunku pada hari Sabtu sore? | Can | Bisakah
+#40 Negatif dengan do/does/did + not
+I do not work on the weekends. | Saya tidak bekerja pada akhir pekan. | do not | tidak
+She does not like onions. | Dia tidak suka bawang. | does not | tidak
+We did not sleep well. | Kami tidak tidur nyenyak. | did not | tidak
+They do not speak French. | Mereka tidak berbicara bahasa Prancis. | do not | tidak
+He does not drive a car. | Dia tidak mengemudi mobil. | does not | tidak
+I did not see the film. | Saya tidak menonton film itu. | did not | tidak
+The shop does not open on Sundays. | Toko itu tidak buka pada hari Minggu. | does not | tidak
+You do not need a ticket. | Kamu tidak perlu tiket. | do not | tidak
+My brother did not call me yesterday. | Kakakku tidak menelepon saya kemarin. | did not | tidak
+We do not have class on Friday afternoon. | Kami tidak ada kelas pada Jumat sore. | do not | tidak
+She did not go to work because she was sick. | Dia tidak pergi bekerja karena sakit. | did not | tidak
+My parents do not watch TV in the evening. | Orang tuaku tidak menonton TV pada malam hari. | do not | tidak
+The bus does not stop here, so we walk to the station. | Bus itu tidak berhenti di sini, jadi kami berjalan kaki ke stasiun. | does not | tidak
+I did not understand the question, so I asked the teacher. | Saya tidak mengerti pertanyaannya, jadi saya bertanya kepada guru. | did not | tidak
+Our neighbors do not play loud music at night. | Tetangga kami tidak memutar musik keras pada malam hari. | do not | tidak
+#41 this / that / these / those + noun
+This cup is very pretty. | Cangkir ini sangat cantik. | This | ini
+That house is big. | Rumah itu besar. | That | itu
+These books are mine. | Buku-buku ini milik saya. | These | ini
+Those shoes are expensive. | Sepatu itu mahal. | Those | itu
+I like this shirt. | Saya suka kemeja ini. | this | ini
+Look at that bird. | Lihat burung itu. | that | itu
+These flowers smell good. | Bunga-bunga ini harum. | These | ini
+I don't know those people. | Saya tidak kenal orang-orang itu. | those | itu
+This room is too small for us. | Kamar ini terlalu kecil untuk kami. | This | ini
+Can I see that bag in the window? | Bolehkah saya lihat tas itu di etalase? | that | itu
+These apples come from our garden. | Apel-apel ini berasal dari kebun kami. | These | ini
+Those children over there are my cousins. | Anak-anak di sana itu sepupu saya. | Those | itu
+I want to buy this dress, but it is too expensive. | Saya ingin membeli gaun ini, tetapi harganya terlalu mahal. | this | ini
+That lady near the door sells the best bread in town. | Wanita di dekat pintu itu menjual roti terbaik di kota. | That | itu
+These shoes are comfortable, but those shoes are too small for me. | Sepatu ini nyaman, tetapi sepatu itu terlalu kecil untuk saya. | These | ini
+#42 Demonstrative: this, that, these, those
+This pen is mine. | Pulpen ini milik saya. | This | ini
+That pen is yours. | Pulpen itu milik kamu. | That | itu
+These pens are new. | Pulpen-pulpen ini baru. | These | ini
+Those pens are old. | Pulpen-pulpen itu sudah tua. | Those | itu
+This city is very busy. | Kota ini sangat ramai. | This | ini
+That mountain is very high. | Gunung itu sangat tinggi. | That | itu
+These days I wake up at six. | Belakangan ini saya bangun jam enam. | These | ini
+Those days were happy. | Hari-hari itu menyenangkan. | Those | itu
+This coffee is hot, but that tea is cold. | Kopi ini panas, tetapi teh itu dingin. | This | ini
+I love this park because it is quiet. | Saya suka taman ini karena tenang. | this | ini
+That restaurant on the corner serves very good fish. | Restoran di pojok itu menyajikan ikan yang sangat enak. | That | itu
+These tickets are for the concert on Friday. | Tiket-tiket ini untuk konser hari Jumat. | These | ini
+Those mountains are far from here, but we can see them. | Gunung-gunung itu jauh dari sini, tetapi kami bisa melihatnya. | Those | itu
+This week I have an exam, and that is why I stay at home. | Minggu ini saya ada ujian, dan itu sebabnya saya di rumah. | This | ini
+That building across the street is a school, and these houses are very old. | Gedung di seberang jalan itu sekolah, dan rumah-rumah ini sangat tua. | That | itu
+#43 Possessive determiners dan possessive 's
+My house is on Steven Street. | Rumah saya ada di Jalan Steven. | My | saya
+Tom's bag is blue. | Tas Tom berwarna biru. | Tom's | Tom
+Her book is on the desk. | Buku dia ada di atas meja. | Her | dia
+Anna's sister is a nurse. | Kakak Anna seorang perawat. | Anna's | Anna
+Our school is near the sea. | Sekolah kami dekat laut. | Our | kami
+The dog's bowl is empty. | Mangkuk anjing itu kosong. | dog's | anjing
+Their car is very old. | Mobil mereka sangat tua. | Their | mereka
+My mother's name is Lina. | Nama ibuku Lina. | mother's | ibuku
+Is this your umbrella? | Apakah ini payungmu? | your | payungmu
+My brother's room is bigger than mine. | Kamar kakakku lebih besar daripada kamarku. | brother's | kakakku
+John's parents live in a small town near the sea. | Orang tua John tinggal di kota kecil dekat laut. | John's | John
+The teacher's desk is next to the window. | Meja guru ada di sebelah jendela. | teacher's | guru
+Her husband's company sells furniture to hotels in Jakarta. | Perusahaan suami dia menjual furnitur ke hotel-hotel di Jakarta. | husband's | suami
+We visit my aunt's house every Sunday afternoon. | Kami mengunjungi rumah bibiku setiap Minggu sore. | aunt's | bibiku
+The children's teacher says their English is getting better every week. | Guru anak-anak itu mengatakan bahasa Inggris mereka makin baik setiap minggu. | children's | anak-anak
+#44 Angka kardinal dan ordinal sebagai determiner
+I have two brothers. | Saya punya dua saudara laki-laki. | two | dua
+She has three cats. | Dia punya tiga kucing. | three | tiga
+This is my first day at work. | Ini hari pertama saya bekerja. | first | pertama
+Our office is on the third floor. | Kantor kami ada di lantai tiga. | third | tiga
+There are twenty students in my class. | Ada dua puluh siswa di kelasku. | twenty | dua puluh
+It is my fifth lesson today. | Ini pelajaran kelima saya hari ini. | fifth | kelima
+We have four classes on Monday. | Kami ada empat pelajaran pada hari Senin. | four | empat
+He lives on the tenth floor. | Dia tinggal di lantai sepuluh. | tenth | sepuluh
+My father's company has ten cars and twenty trucks. | Perusahaan ayahku punya sepuluh mobil dan dua puluh truk. | ten | sepuluh
+Take the second street on the left. | Ambil jalan kedua di sebelah kiri. | second | kedua
+There are seven days in a week, and I work for five of them. | Ada tujuh hari dalam seminggu, dan saya bekerja lima hari. | seven | tujuh
+My sister's first child was born on the twentieth of June. | Anak pertama kakak perempuanku lahir pada tanggal dua puluh Juni. | first | pertama
+We have three exams this week, and the last one is on Friday. | Kami ada tiga ujian minggu ini, dan yang terakhir hari Jumat. | three | tiga
+She wins the first prize, and her brother gets the second prize. | Dia memenangkan hadiah pertama, dan kakaknya mendapat hadiah kedua. | first | pertama
+Our hotel has six floors, and our room is on the fourth floor. | Hotel kami punya enam lantai, dan kamar kami ada di lantai empat. | six | enam
+#45 some dan any
+I have some apples. | Saya punya beberapa apel. | some | beberapa
+I don't have any apples. | Saya tidak punya apel. | any | -
+Do you have any milk? | Apakah kamu punya susu? | any | -
+There is some water in the bottle. | Ada sedikit air di dalam botol. | some | sedikit
+She wants some tea, please. | Dia minta teh. | some | -
+We don't need any help. | Kami tidak butuh bantuan. | any | -
+Is there any sugar in the kitchen? | Apakah ada gula di dapur? | any | -
+Can I have some bread? | Bolehkah saya minta sedikit roti? | some | sedikit
+There aren't any chairs in the garden. | Tidak ada kursi di taman. | any | -
+I'm buying some flowers for my mother. | Saya membeli beberapa bunga untuk ibu saya. | some | beberapa
+Does your school have any computers? | Apakah sekolahmu punya komputer? | any | -
+We have some eggs, but we don't have milk. | Kami punya beberapa telur, tetapi tidak punya susu. | some | beberapa
+He didn't buy any fruit at the market today. | Dia tidak membeli buah di pasar hari ini. | any | -
+Would you like some more rice? | Maukah kamu sedikit nasi lagi? | some | sedikit
+There are some students in the library, but there aren't any teachers. | Ada beberapa siswa di perpustakaan, tetapi tidak ada guru. | some | beberapa
+#46 Possessive 's dan s'
+This is Tom's book. | Ini buku Tom. | Tom's | Tom
+Maria's dress is red. | Gaun Maria berwarna merah. | Maria's | Maria
+The cat's tail is long. | Ekor kucing itu panjang. | cat's | kucing
+The boys' room is small. | Kamar anak-anak laki-laki itu kecil. | boys' | anak-anak laki-laki
+My father's car is new. | Mobil ayahku baru. | father's | ayahku
+The students' books are on the desk. | Buku para siswa ada di atas meja. | students' | siswa
+Where is your sister's phone? | Di mana ponsel kakakmu? | sister's | kakakmu
+Our parents' house is near the beach. | Rumah orang tua kami dekat pantai. | parents' | orang tua
+The girl's bike is in the garage. | Sepeda anak perempuan itu ada di garasi. | girl's | anak perempuan
+The teachers' room is on the first floor. | Ruang guru ada di lantai satu. | teachers' | guru
+James's brother plays football for a big club. | Adik laki-laki James bermain sepak bola untuk klub besar. | James's | James
+My neighbor's children play in our garden every afternoon. | Anak-anak tetangga saya bermain di kebun kami setiap sore. | neighbor's | tetangga
+The women's clothes are on the second floor, and the men's clothes are on the third. | Pakaian wanita ada di lantai dua, dan pakaian pria di lantai tiga. | women's | wanita
+My friends' parents often invite us to dinner on Saturdays. | Orang tua teman-temanku sering mengundang kami makan malam pada hari Sabtu. | friends' | teman-temanku
+Mr. Smith's wife is a doctor, and their children's school is near the hospital. | Istri Pak Smith seorang dokter, dan sekolah anak-anak mereka dekat rumah sakit. | Smith's | Smith
+#47 Kosakata fungsional A1: angka, jam, tanggal, warna
+It's half past three. | Jam setengah empat. | half past | setengah
+It's ten o'clock. | Sekarang jam sepuluh. | o'clock | jam
+It's a quarter to six. | Jam enam kurang seperempat. | quarter to | kurang seperempat
+My bag is red. | Tasku berwarna merah. | red | merah
+Today is the first of May. | Hari ini tanggal satu Mei. | first | satu
+Her car is green. | Mobilnya hijau. | green | hijau
+It's the tenth of June. | Sekarang tanggal sepuluh Juni. | tenth | sepuluh
+The sky is blue today. | Langit biru hari ini. | blue | biru
+We have lunch at twelve thirty. | Kami makan siang jam dua belas tiga puluh. | thirty | tiga puluh
+It's a quarter past seven, so we must hurry. | Sekarang jam tujuh lewat seperempat, jadi kita harus bergegas. | quarter past | lewat seperempat
+My birthday is on the twenty-first of August. | Ulang tahunku tanggal dua puluh satu Agustus. | twenty-first | dua puluh satu
+She wears a white shirt and black trousers. | Dia memakai kemeja putih dan celana hitam. | black | hitam
+The film starts at half past eight in the evening. | Filmnya mulai pukul setengah sembilan malam. | half past | setengah
+It's the third of March, and the weather is still cold. | Sekarang tanggal tiga Maret, dan cuacanya masih dingin. | third | tiga
+The bus leaves at a quarter to nine, so we can have breakfast. | Bus berangkat jam sembilan kurang seperempat, jadi kita bisa sarapan. | quarter to | kurang seperempat
+#48 Adjektiva memodifikasi nomina
+John wears red glasses. | John memakai kacamata merah. | red | merah
+She has a small dog. | Dia punya anjing kecil. | small | kecil
+It is a big city. | Itu kota yang besar. | big | besar
+We live in a new house. | Kami tinggal di rumah baru. | new | baru
+He drinks hot coffee. | Dia minum kopi panas. | hot | panas
+Today is a long day. | Hari ini hari yang panjang. | long | panjang
+She buys fresh bread every morning. | Dia membeli roti segar setiap pagi. | fresh | segar
+My brother has a fast car. | Kakakku punya mobil yang cepat. | fast | cepat
+They live in a beautiful old town. | Mereka tinggal di kota tua yang indah. | beautiful | indah
+We had a delicious dinner at my aunt's house. | Kami makan malam yang lezat di rumah bibiku. | delicious | lezat
+My mother wears a long blue coat in winter. | Ibuku memakai mantel biru panjang pada musim dingin. | blue | biru
+The old man has a kind face and a quiet voice. | Pria tua itu punya wajah ramah dan suara yang pelan. | kind | ramah
+There is a tall tree in front of our small school. | Ada pohon tinggi di depan sekolah kecil kami. | tall | tinggi
+She is reading an interesting book about famous artists. | Dia sedang membaca buku yang menarik tentang seniman terkenal. | interesting | menarik
+My neighbors bought a cheap sofa for their new living room. | Tetangga saya membeli sofa murah untuk ruang tamu baru mereka. | cheap | murah
+#49 Attributive vs predicative
+The black dog is barking. | Anjing hitam itu sedang menggonggong. | black | hitam
+The dog is black. | Anjingnya hitam. | black | hitam
+She has a happy baby. | Dia punya bayi yang ceria. | happy | ceria
+The baby is happy. | Bayinya ceria. | happy | ceria
+This is a hot soup. | Ini sup yang panas. | hot | panas
+The tea is hot. | Tehnya panas. | hot | panas
+He lives in a small flat. | Dia tinggal di flat kecil. | small | kecil
+The flat is very small. | Flatnya sangat kecil. | small | kecil
+I bought a new phone yesterday. | Kemarin saya membeli ponsel baru. | new | baru
+My phone is new, but it is already slow. | Ponselku baru, tetapi sudah lambat. | new | baru
+She wears a long dress to parties. | Dia memakai gaun panjang ke pesta. | long | panjang
+The movie was long, but the ending was beautiful. | Filmnya panjang, tetapi akhirnya indah. | long | panjang
+We stayed in a quiet hotel near the river. | Kami menginap di hotel yang tenang dekat sungai. | quiet | tenang
+The hotel was quiet, so we slept very well. | Hotelnya tenang, jadi kami tidur sangat nyenyak. | quiet | tenang
+My teacher gave us an easy test, and everyone felt happy. | Guruku memberi kami ujian yang mudah, dan semua orang merasa senang. | easy | mudah
+#50 Preposisi tempat: in, on, under, next to, behind, between
+The book is on the desk. | Buku itu ada di atas meja. | on the | di atas
+My black shoes are under the bed. | Sepatu hitamku ada di bawah tempat tidur. | under | di bawah
+The bank is next to the school. | Bank itu ada di sebelah sekolah. | next to | di sebelah
+The dog is behind the door. | Anjing itu ada di belakang pintu. | behind | di belakang
+Sit between Anna and me. | Duduklah di antara Anna dan aku. | between | di antara
+There are two eggs in the box. | Ada dua telur di dalam kotak. | in the | di dalam
+A small bird is sitting on the roof. | Seekor burung kecil sedang bertengger di atap. | on the | di
+My brother's room is next to the kitchen. | Kamar kakakku ada di sebelah dapur. | next to | di sebelah
+The keys are under the newspaper on the sofa. | Kunci-kunci itu ada di bawah koran di sofa. | under | di bawah
+She is standing behind her mother at the bus stop. | Dia berdiri di belakang ibunya di halte bus. | behind | di belakang
+The post office is between the park and the supermarket. | Kantor pos ada di antara taman dan supermarket. | between | di antara
+Our teacher put the new map on the wall behind the desk. | Guru kami menaruh peta baru di dinding di belakang meja. | on the | di
+The children are playing in the garden behind the house. | Anak-anak bermain di kebun di belakang rumah. | in the | di
+My phone is in the bag, and the bag is under the chair. | Ponselku ada di dalam tas, dan tasnya ada di bawah kursi. | in the | di dalam
+The pharmacy is next to the bank, and the cafe is between the bank and the library. | Apotek ada di sebelah bank, dan kafe ada di antara bank dan perpustakaan. | next to | di sebelah
+#51 Preposisi: from, to, with, for, of
+She is from Brazil. | Dia berasal dari Brasil. | from | dari
+I live with my parents. | Saya tinggal bersama orang tua saya. | with | bersama
+This gift is for you. | Hadiah ini untuk kamu. | for | untuk
+He walks to the station every day. | Dia berjalan kaki ke stasiun setiap hari. | to the | ke
+I need a glass of water. | Saya butuh segelas air. | of | -
+My uncle is from Medan, but he lives in Bandung. | Pamanku berasal dari Medan, tetapi dia tinggal di Bandung. | from | dari
+We often play football with our neighbors. | Kami sering bermain sepak bola dengan tetangga kami. | with | dengan
+I bought a cake for my sister's birthday. | Saya membeli kue untuk ulang tahun kakakku. | for | untuk
+A lot of students come to the library after lunch. | Banyak siswa datang ke perpustakaan setelah makan siang. | to the | ke
+This is a photo of my family. | Ini foto keluarga saya. | of | -
+Mia sends a message to her friend every morning. | Mia mengirim pesan kepada temannya setiap pagi. | to her | kepada
+I am waiting for the bus with my little brother. | Saya menunggu bus bersama adik laki-lakiku. | for the | -
+The teacher is from London, and she speaks to us slowly. | Gurunya berasal dari London, dan dia berbicara kepada kami dengan pelan. | from | dari
+Tom drinks coffee with milk, but I drink tea with sugar. | Tom minum kopi dengan susu, tetapi saya minum teh dengan gula. | with milk | dengan susu
+My friends walk to the park, and then they go home with their dog. | Teman-temanku berjalan kaki ke taman, lalu mereka pulang bersama anjing mereka. | to the | ke
+#52 Definisi preposisi dan objeknya
+Look at me. | Lihat aku. | at me | aku
+Wait for us. | Tunggu kami. | for us | kami
+I live in Jakarta. | Saya tinggal di Jakarta. | in Jakarta | di Jakarta
+She talks to him every day. | Dia berbicara kepadanya setiap hari. | to him | kepadanya
+We sit near the window. | Kami duduk dekat jendela. | near the window | dekat jendela
+Anna works with them. | Anna bekerja dengan mereka. | with them | dengan mereka
+They are listening to music. | Mereka sedang mendengarkan musik. | to music | -
+My grandmother lives with us in a small house. | Nenekku tinggal bersama kami di rumah kecil. | with us | bersama kami
+The students are waiting outside the classroom. | Para siswa menunggu di luar kelas. | outside the classroom | di luar kelas
+Please sit beside her and show her the pictures. | Tolong duduk di samping dia dan tunjukkan gambar itu kepadanya. | beside her | di samping dia
+My father cooks dinner for me on Sundays. | Ayahku memasak makan malam untukku pada hari Minggu. | for me | untukku
+The teacher stands in front of the board. | Guru berdiri di depan papan tulis. | in front of the board | di depan papan tulis
+He plays games on his phone after dinner. | Dia bermain gim di ponselnya setelah makan malam. | on his phone | di ponselnya
+The children run around the garden. | Anak-anak berlari mengelilingi kebun. | around the garden | mengelilingi kebun
+After class, we walk to the park with our friends. | Setelah kelas, kami berjalan ke taman bersama teman-teman kami. | with our friends | bersama teman-teman kami
+#53 At / in / on untuk waktu
+We eat at noon. | Kami makan siang tepat tengah hari. | at noon | tengah hari
+I get up at 6 o'clock. | Saya bangun pukul 6. | at 6 o'clock | pukul 6
+My birthday is in May. | Ulang tahunku bulan Mei. | in May | bulan Mei
+The shop opens on Monday. | Toko itu buka pada hari Senin. | on Monday | pada hari Senin
+I study in the morning. | Saya belajar pada pagi hari. | in the morning | pagi hari
+My sister was born in 2015. | Adikku lahir pada tahun 2015. | in 2015 | pada tahun 2015
+The party is on 12 June. | Pestanya pada tanggal 12 Juni. | on 12 June | pada tanggal 12 Juni
+I can't sleep at night. | Saya tidak bisa tidur pada malam hari. | at night | malam hari
+We have English class on Tuesday afternoon. | Kami ada kelas bahasa Inggris pada hari Selasa sore. | on Tuesday | pada hari Selasa
+The film starts at half past eight. | Filmnya mulai pukul setengah sembilan. | at half past eight | pukul setengah sembilan
+My parents watch the news in the evening. | Orang tuaku menonton berita pada malam hari. | in the evening | malam hari
+We go to the beach in July, and we stay for a week. | Kami pergi ke pantai pada bulan Juli, dan kami tinggal seminggu. | in July | pada bulan Juli
+My friend visits me on Saturdays, but he never comes at night. | Temanku mengunjungiku setiap hari Sabtu, tetapi dia tidak pernah datang malam hari. | on Saturdays | setiap hari Sabtu
+We always have lunch at one o'clock on school days. | Kami selalu makan siang pukul satu pada hari sekolah. | at one o'clock | pukul satu
+Her train leaves on Friday morning, so she wakes up early. | Kereta dia berangkat pada Jumat pagi, jadi dia bangun pagi. | on Friday | pada Jumat
+#54 At / in / on untuk tempat
+She is at home. | Dia ada di rumah. | at home | di rumah
+I wait at the bus stop. | Saya menunggu di halte bus. | at the bus stop | di halte bus
+The milk is in the fridge. | Susu itu ada di kulkas. | in the fridge | di kulkas
+Your phone is on the table. | Ponselmu ada di atas meja. | on the table | di atas meja
+My uncle lives in a big city. | Pamanku tinggal di kota besar. | in a big city | di kota besar
+We are at the airport now. | Kami ada di bandara sekarang. | at the airport | di bandara
+There is a picture on the wall. | Ada sebuah gambar di dinding. | on the wall | di dinding
+The boys are playing in the park. | Anak-anak lelaki itu bermain di taman. | in the park | di taman
+I meet my friends at the cafe after school. | Saya bertemu teman-teman di kafe setelah sekolah. | at the cafe | di kafe
+The students sit at their desks and open their books. | Para siswa duduk di meja mereka dan membuka buku. | at their desks | di meja mereka
+My sister works in an office near the station. | Kakakku bekerja di kantor dekat stasiun. | in an office | di kantor
+There is a small cat on the roof of that house. | Ada kucing kecil di atap rumah itu. | on the roof | di atap
+We have breakfast at the kitchen table, but we eat dinner in the living room. | Kami sarapan di meja dapur, tetapi makan malam di ruang tamu. | at the kitchen table | di meja dapur
+She has a lot of books in her bag, and one book is on her bed. | Dia punya banyak buku di tasnya, dan satu buku ada di tempat tidurnya. | in her bag | di tasnya
+Our English teacher lives in Surabaya, and she works at a big school on the main street. | Guru bahasa Inggris kami tinggal di Surabaya, dan dia bekerja di sekolah besar di jalan utama. | at a big school | di sekolah besar
+#55 Can't / cannot: ketidakmampuan
+I can't sing. | Saya tidak bisa bernyanyi. | can't | tidak bisa
+He cannot drive. | Dia tidak bisa menyetir. | cannot | tidak bisa
+We can't see the board. | Kami tidak bisa melihat papan tulis. | can't | tidak bisa
+My dog cannot jump over the fence. | Anjingku tidak bisa melompati pagar. | cannot | tidak bisa
+She can't find her keys. | Dia tidak bisa menemukan kuncinya. | can't | tidak bisa
+You cannot use my phone now. | Kamu tidak bisa memakai ponselku sekarang. | cannot | tidak bisa
+I can't hear you because the music is loud. | Saya tidak bisa mendengarmu karena musiknya keras. | can't | tidak bisa
+The baby cannot walk yet, but she can crawl. | Bayi itu belum bisa berjalan, tetapi dia bisa merangkak. | cannot | belum bisa
+My grandfather can't read small letters without his glasses. | Kakekku tidak bisa membaca huruf kecil tanpa kacamatanya. | can't | tidak bisa
+We cannot go to the beach today because it is raining. | Kami tidak bisa pergi ke pantai hari ini karena hujan. | cannot | tidak bisa
+I can't open this door, and the key is not here. | Saya tidak bisa membuka pintu ini, dan kuncinya tidak ada di sini. | can't | tidak bisa
+They can't come to the party, so I am sad. | Mereka tidak bisa datang ke pesta, jadi saya sedih. | can't | tidak bisa
+Tom cannot cook, so he eats at restaurants every day. | Tom tidak bisa memasak, jadi dia makan di restoran setiap hari. | cannot | tidak bisa
+My little brother can't tie his shoes, so I help him in the morning. | Adik laki-lakiku tidak bisa mengikat sepatunya, jadi saya membantunya pada pagi hari. | can't | tidak bisa
+We cannot finish this work today because we have only one hour. | Kami tidak bisa menyelesaikan pekerjaan ini hari ini karena kami hanya punya satu jam. | cannot | tidak bisa
+#56 Can: kemampuan
+I can cook rice. | Saya bisa memasak nasi. | can | bisa
+She can dance well. | Dia bisa menari dengan baik. | can | bisa
+Birds can fly. | Burung bisa terbang. | can | bisa
+My father can fix bikes. | Ayahku bisa memperbaiki sepeda. | can | bisa
+Your sister can play the guitar very well. | Kakakmu bisa bermain gitar dengan sangat baik. | can | bisa
+We can see the mountain from our window. | Kami bisa melihat gunung dari jendela kami. | can | bisa
+Ana can speak Chinese, but she can't write it. | Ana bisa berbicara bahasa Mandarin, tetapi dia tidak bisa menulisnya. | can speak | bisa berbicara
+The new teacher can't remember our names yet. | Guru baru itu belum bisa mengingat nama kami. | can't | belum bisa
+My cousin can run ten kilometers in one hour. | Sepupuku bisa berlari sepuluh kilometer dalam satu jam. | can | bisa
+You can use my laptop because I don't need it now. | Kamu bisa memakai laptopku karena saya tidak membutuhkannya sekarang. | can use | bisa memakai
+Our dog can open the door, but he can't close it. | Anjing kami bisa membuka pintu, tetapi dia tidak bisa menutupnya. | can open | bisa membuka
+Mia can read English books, and she can also write short stories. | Mia bisa membaca buku bahasa Inggris, dan dia juga bisa menulis cerita pendek. | can read | bisa membaca
+I can't carry this box because it is very heavy. | Saya tidak bisa membawa kotak ini karena sangat berat. | can't carry | tidak bisa membawa
+My grandmother can make delicious cakes, but she can't eat them. | Nenekku bisa membuat kue yang lezat, tetapi dia tidak bisa memakannya. | can make | bisa membuat
+Tom can play football very well, but he can't swim in deep water. | Tom bisa bermain sepak bola dengan sangat baik, tetapi dia tidak bisa berenang di air dalam. | can play | bisa bermain
+#57 Can: permintaan dan tawaran
+Can you help me with my homework? | Bisakah kamu membantuku mengerjakan PR? | Can you | Bisakah kamu
+Can I sit here? | Bolehkah saya duduk di sini? | Can I | Bolehkah saya
+Excuse me, can you open the window, please? | Permisi, bisakah kamu membuka jendela? | can you | bisakah kamu
+Can I use your pen? | Bolehkah saya memakai penmu? | Can I | Bolehkah saya
+Can I help you with that bag? | Bisakah saya membantumu dengan tas itu? | Can I | Bisakah saya
+Sorry, can you speak more slowly, please? | Maaf, bisakah kamu berbicara lebih pelan? | can you | bisakah kamu
+Can I have a glass of water, please? | Bolehkah saya minta segelas air? | Can I | Bolehkah saya
+Can you pass me the salt, please? | Bisakah kamu mengoperkan garam itu kepadaku? | Can you | Bisakah kamu
+Can I carry your books to the classroom? | Bisakah saya membawakan buku-bukumu ke kelas? | Can I | Bisakah saya
+Excuse me, can you tell me the time, please? | Permisi, bisakah kamu memberi tahu saya jam berapa sekarang? | can you | bisakah kamu
+Can I call you after dinner? | Bolehkah saya meneleponmu setelah makan malam? | Can I | Bolehkah saya
+Can you take a photo of us in front of the museum? | Bisakah kamu memotret kami di depan museum? | Can you | Bisakah kamu
+Can I bring my friend to the party on Saturday? | Bolehkah saya membawa temanku ke pesta hari Sabtu? | Can I | Bolehkah saya
+Can you write your name and your phone number on this paper? | Bisakah kamu menuliskan nama dan nomor teleponmu di kertas ini? | Can you | Bisakah kamu
+Can I ask you a question, or are you busy now? | Bolehkah saya bertanya kepadamu, atau kamu sedang sibuk sekarang? | Can I | Bolehkah saya
+#58 Past simple (regular, irregular, be)
+I watched TV last night. | Saya menonton TV tadi malam. | watched | menonton
+She was very tired. | Dia sangat lelah. | was | -
+We went to Bali last year. | Kami pergi ke Bali tahun lalu. | went | pergi
+He didn't call me. | Dia tidak meneleponku. | didn't call | tidak menelepon
+Why did you leave early? | Mengapa kamu pergi lebih awal? | did you leave | pergi
+They were at home on Sunday. | Mereka di rumah pada hari Minggu. | were | -
+My mother cooked fish for dinner. | Ibuku memasak ikan untuk makan malam. | cooked | memasak
+I bought a red bag, but I didn't use it. | Saya membeli tas merah, tetapi saya tidak memakainya. | bought | membeli
+Last week, we visited our grandparents in Malang. | Minggu lalu kami mengunjungi kakek dan nenek kami di Malang. | visited | mengunjungi
+The film wasn't good, so we left early. | Filmnya tidak bagus, jadi kami pulang lebih awal. | wasn't | tidak
+What did you do after school yesterday? | Apa yang kamu lakukan sepulang sekolah kemarin? | did you do | -
+He got up late, missed the bus, and walked to work. | Dia bangun terlambat, ketinggalan bus, dan berjalan kaki ke tempat kerja. | missed | ketinggalan
+My brother lost his phone at the station, but a woman found it. | Kakakku kehilangan ponselnya di stasiun, tetapi seorang wanita menemukannya. | lost | kehilangan
+We were hungry, so we ate pizza and drank orange juice. | Kami lapar, jadi kami makan pizza dan minum jus jeruk. | ate | makan
+Anna didn't go to the party because she was ill, but her friends came to see her. | Anna tidak pergi ke pesta karena dia sakit, tetapi teman-temannya datang menjenguknya. | didn't go | tidak pergi
+#59 Past simple: posisi adverbia waktu; negatif, tanya, kata tanya
+Yesterday, I cleaned my room. | Kemarin saya membersihkan kamar saya. | Yesterday | Kemarin
+We met Anna last week. | Kami bertemu Anna minggu lalu. | last week | minggu lalu
+Did he come on time? | Apakah dia datang tepat waktu? | Did he come | Apakah dia datang
+Who called your mother this morning? | Siapa yang menelepon ibumu pagi ini? | Who called | Siapa
+Where did you buy that bag? | Di mana kamu membeli tas itu? | did you buy | membeli
+I didn't see him two days ago. | Saya tidak melihatnya dua hari yang lalu. | two days ago | dua hari yang lalu
+When did they arrive in Jakarta? | Kapan mereka tiba di Jakarta? | When did they arrive | Kapan mereka tiba
+My parents moved to this city in 2018. | Orang tuaku pindah ke kota ini pada tahun 2018. | in 2018 | pada tahun 2018
+What did you eat for lunch yesterday? | Apa yang kamu makan untuk makan siang kemarin? | What did you eat | Apa yang kamu makan
+Who broke the window? | Siapa yang memecahkan jendela itu? | Who broke | Siapa yang memecahkan
+We didn't watch the match because we went to a restaurant. | Kami tidak menonton pertandingan itu karena kami pergi ke restoran. | didn't watch | tidak menonton
+Why did she leave the party so early? | Mengapa dia meninggalkan pesta begitu awal? | Why did she leave | Mengapa dia meninggalkan
+Last night, my sister cooked dinner, and I washed the dishes. | Tadi malam kakakku memasak makan malam, dan saya mencuci piring. | Last night | Tadi malam
+How did you get to the airport on Sunday? | Bagaimana kamu sampai di bandara hari Minggu? | How did you get | Bagaimana kamu sampai
+Tom wasn't at school on Monday, but he came to class on Tuesday. | Tom tidak ada di sekolah pada hari Senin, tetapi dia datang ke kelas pada hari Selasa. | wasn't | tidak ada
+#60 Frekuensi tak tentu: posisi dengan verba
+I always drink water. | Saya selalu minum air. | always | selalu
+She never eats meat. | Dia tidak pernah makan daging. | never | tidak pernah
+We usually walk to school. | Kami biasanya berjalan kaki ke sekolah. | usually | biasanya
+He often plays chess. | Dia sering bermain catur. | often | sering
+They sometimes visit us. | Mereka kadang-kadang mengunjungi kami. | sometimes | kadang-kadang
+My father rarely watches TV. | Ayahku jarang menonton TV. | rarely | jarang
+Tom usually gets up at six o'clock. | Tom biasanya bangun pukul enam. | usually | biasanya
+I never drink coffee after dinner. | Saya tidak pernah minum kopi setelah makan malam. | never | tidak pernah
+Our teacher always gives us homework on Friday. | Guru kami selalu memberi kami PR pada hari Jumat. | always | selalu
+My sister sometimes cooks dinner when my mother is late. | Kakakku kadang-kadang memasak makan malam saat ibuku pulang terlambat. | sometimes | kadang-kadang
+We often eat noodles for lunch, but we rarely eat them for dinner. | Kami sering makan mi untuk makan siang, tetapi jarang memakannya untuk makan malam. | often | sering
+My neighbors always say hello, and they sometimes bring us fruit. | Tetangga saya selalu menyapa, dan mereka kadang-kadang membawakan kami buah. | always | selalu
+I rarely go to the cinema because the tickets are expensive. | Saya jarang pergi ke bioskop karena tiketnya mahal. | rarely | jarang
+The students usually do their homework in the library after class. | Para siswa biasanya mengerjakan PR mereka di perpustakaan setelah kelas. | usually | biasanya
+Mia never forgets her friends' birthdays, and she always buys a small gift. | Mia tidak pernah lupa ulang tahun teman-temannya, dan dia selalu membeli hadiah kecil. | never | tidak pernah
+#61 Adverbia dasar: very, too, here, there, now, today
+The soup is very good. | Supnya sangat enak. | very | sangat
+I am here. | Saya di sini. | here | di sini
+Put it there. | Taruh di sana. | there | di sana
+We are busy now. | Kami sedang sibuk sekarang. | now | sekarang
+Today is Monday. | Hari ini hari Senin. | Today | Hari ini
+This bag is too big. | Tas ini terlalu besar. | too | terlalu
+My sister is very tall. | Kakakku sangat tinggi. | very | sangat
+Please wait here for a minute. | Tolong tunggu di sini sebentar. | here | di sini
+The coffee is too hot, so I can't drink it. | Kopinya terlalu panas, jadi saya tidak bisa meminumnya. | too | terlalu
+Do you want to go there after lunch? | Apakah kamu mau pergi ke sana setelah makan siang? | there | ke sana
+We have a very important test today. | Kami punya ujian yang sangat penting hari ini. | today | hari ini
+I'm too tired to cook now, so let's order pizza. | Saya terlalu lelah untuk memasak sekarang, jadi ayo pesan pizza. | too | terlalu
+My brother is not here now because he works in another city. | Kakakku tidak ada di sini sekarang karena dia bekerja di kota lain. | now | sekarang
+It is very late, and the children are too sleepy to study. | Sudah sangat malam, dan anak-anak terlalu mengantuk untuk belajar. | very | sangat
+The weather is very nice today, so we are eating lunch there in the garden. | Cuacanya sangat bagus hari ini, jadi kami makan siang di sana di kebun. | there | di sana
+#62 Verba aksi (dynamic verbs)
+The boy jumped. | Anak lelaki itu melompat. | jumped | melompat
+I run every morning. | Saya berlari setiap pagi. | run | berlari
+She opened the window. | Dia membuka jendela. | opened | membuka
+The girls are playing volleyball. | Para gadis itu sedang bermain voli. | playing | bermain
+He kicked the ball hard. | Dia menendang bola itu dengan keras. | kicked | menendang
+My mother cooks dinner at six. | Ibuku memasak makan malam pukul enam. | cooks | memasak
+The children climbed the tree. | Anak-anak memanjat pohon itu. | climbed | memanjat
+I wrote a letter to my friend. | Saya menulis surat untuk temanku. | wrote | menulis
+The girl threw a red ball over the fence. | Gadis itu melempar bola merah melewati pagar. | threw | melempar
+We are painting the kitchen walls blue. | Kami sedang mengecat dinding dapur dengan warna biru. | painting | mengecat
+The farmer carries two big boxes to his truck. | Petani itu membawa dua kotak besar ke truknya. | carries | membawa
+A little boy ran across the street, and the driver stopped quickly. | Seorang anak kecil berlari menyeberangi jalan, dan pengemudi itu berhenti dengan cepat. | ran | berlari
+My uncle washes his car every Sunday, and I help him. | Pamanku mencuci mobilnya setiap hari Minggu, dan saya membantunya. | washes | mencuci
+The woman pushed the heavy door, but it didn't move. | Wanita itu mendorong pintu berat itu, tetapi pintu itu tidak bergerak. | pushed | mendorong
+After lunch, the players practiced for two hours, and then they swam in the river. | Setelah makan siang, para pemain berlatih selama dua jam, lalu mereka berenang di sungai. | practiced | berlatih
+#63 And, but, or
+I like tea and cake. | Saya suka teh dan kue. | and | dan
+It is small but nice. | Kecil tetapi bagus. | but | tetapi
+Do you want tea or coffee? | Mau teh atau kopi? | or | atau
+She is kind and funny. | Dia baik dan lucu. | and | dan
+The soup is hot, but I like it. | Supnya panas, tetapi saya suka. | but | tetapi
+We can walk or take a bus. | Kita bisa berjalan kaki atau naik bus. | or | atau
+My brother plays tennis and basketball. | Adikku bermain tenis dan basket. | and | dan
+The test was long but easy. | Ujiannya panjang tetapi mudah. | but | tetapi
+Is your bag red or blue? | Apakah tasmu merah atau biru? | or | atau
+Tom opens the door and says hello to everyone. | Tom membuka pintu dan menyapa semua orang. | and | dan
+I want to go out, but it is raining now. | Saya mau keluar, tetapi sekarang hujan. | but | tetapi
+You can sit here or move to the table near the window. | Kamu bisa duduk di sini atau pindah ke meja dekat jendela. | or | atau
+My sister studies French and Spanish, but she doesn't speak German. | Kakakku belajar bahasa Prancis dan Spanyol, tetapi dia tidak berbicara bahasa Jerman. | and | dan
+We wanted to buy a cake, but the shop was closed. | Kami ingin membeli kue, tetapi tokonya tutup. | but | tetapi
+Do you want to eat at home, or should we go to a restaurant near the station? | Apakah kamu mau makan di rumah, atau kita pergi ke restoran dekat stasiun? | or | atau
+#64 Kata hubung dasar dan urutan kalimat sederhana
+I cook and he cleans. | Saya memasak dan dia membersihkan. | and | dan
+Mia sings, and Ben plays the guitar. | Mia bernyanyi, dan Ben bermain gitar. | and | dan
+Anna reads a book, and I watch TV. | Anna membaca buku, dan saya menonton TV. | and | dan
+The sun is out, and the sky is blue. | Mataharinya keluar, dan langitnya biru. | and | dan
+My dad works hard, and my mom cooks dinner. | Ayahku bekerja keras, dan ibuku memasak makan malam. | and | dan
+It is cold today, and we wear coats. | Hari ini dingin, dan kami memakai mantel. | and | dan
+Ben likes pizza, but I like noodles. | Ben suka pizza, tetapi saya suka mi. | but | tetapi
+Lisa has a cat, and her brother has a dog. | Lisa punya kucing, dan adik laki-lakinya punya anjing. | and | dan
+The bus is late, so we walk to school. | Busnya terlambat, jadi kami berjalan kaki ke sekolah. | so | jadi
+I am hungry, but there is no food at home. | Saya lapar, tetapi tidak ada makanan di rumah. | but | tetapi
+We play games in the evening, and my sister draws pictures. | Kami bermain gim pada malam hari, dan kakakku menggambar. | and | dan
+Tom washes the car, and his father cleans the garage. | Tom mencuci mobil, dan ayahnya membersihkan garasi. | and | dan
+My sister likes English, but my brother likes math. | Kakakku suka bahasa Inggris, tetapi adikku suka matematika. | but | tetapi
+The students write in their books, and the teacher walks around the room. | Para siswa menulis di buku mereka, dan guru berjalan keliling kelas. | and | dan
+I want to buy a new phone, but it is very expensive, so I wait. | Saya mau membeli ponsel baru, tetapi harganya sangat mahal, jadi saya menunggu. | but | tetapi

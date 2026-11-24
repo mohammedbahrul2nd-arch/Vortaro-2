@@ -1,4 +1,6 @@
 ## TUGAS AKTIF {{VER}} — KALIMAT BAWAAN (GSB) UNTUK SEMUA KARTU GRAMMAR
+
+> Fitur 7.108.0 (sudah selesai, jangan dikerjakan ulang): rotasi kalimat bawaan di kartu grammar rumpang (gram.js: gsrPick/gsrInfo/gsrReset, state S.o.gsr, tes tests/test_gsr.js) dan proyeksi beban 60/90 hari di Statistik (app.js: fcForecast(90), tombol 7/14/30/60/90).
 Konteks: proyek PWA Vortaro (folder vortaro/, kode di docs/js, tes di tests/). Lampirkan vortaro-pwa-<versi terbaru>.zip, ekstrak, jalankan semua tests/test_*.js (tidak boleh ada kata GAGAL). **Aku memakai Claude FREE PLAN**: kerjakan per batch kecil, JANGAN menjalankan banyak agen/subagen sekaligus (token tidak cukup), dan SETIAP SELESAI satu batch kirim zip + prompt lanjutan baru (PROMPT_LANJUTAN_<versi>.md, selalu memuat catatan free plan ini) SEBELUM token habis. Bila file belum selesai, kirim zip + prompt di bubble chat yang sama.
 
 Tujuan: tiap kartu grammar punya 15 kalimat bawaan dengan sorotan konsisten (asing + Indonesia). Kartu dengan 15 kalimat bawaan tidak mengambil contoh dari Pustaka lagi (sudah diimplementasikan di gram.js: GSB, GSBN, gsbRows, gsbFull, gmCollect). Mesin, generator, tes SUDAH SELESAI; sisanya hanya MENULIS ISI.
