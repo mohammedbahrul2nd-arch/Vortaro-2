@@ -61,7 +61,7 @@ function vsetBody(){return'<div class=card>'+msel()+`<small>Minimal bahasa per k
 function vset(){return dtag('vs')+'<summary>Pengaturan kosakata</summary>'+vsetBody()+'</details>'}
 function stats0(){let per=D.L.map(l=>[l,[0,0,0]]);const PM={};for(const c of D.C){const v=vis(c);if(!v)continue;for(const l in v){const s=st(ik(c[0],l));(PM[c[1]]||(PM[c[1]]=[0,0,0]))[s]++;per.find(x=>x[0][0]==l)[1][s]++}}
  const bar=(n,t)=>`<div class=bar><i style="width:${n[2]/t*100}%;background:var(--s2)"></i><i style="width:${n[1]/t*100}%;background:var(--s1)"></i></div>`;
- return filt()+vset()+`<div class=card><b>Kosakata per bahasa</b>`+per.filter(x=>x[1][0]+x[1][1]+x[1][2]).map(([l,n])=>{const t=(n[0]+n[1]+n[2])||1;return`<div class=lg style="--lc:${l[2]};margin:8px 0"><small>${l[1]} — ${t} kata</small>${bar(n,t)}Belum ${n[0]} · Sedang ${n[1]} · Selesai ${n[2]}</div>`}).join('')+'</div>'+
+ return `<div class=card><b>Kosakata per bahasa</b>`+per.filter(x=>x[1][0]+x[1][1]+x[1][2]).map(([l,n])=>{const t=(n[0]+n[1]+n[2])||1;return`<div class=lg style="--lc:${l[2]};margin:8px 0"><small>${l[1]} — ${t} kata</small>${bar(n,t)}Belum ${n[0]} · Sedang ${n[1]} · Selesai ${n[2]}</div>`}).join('')+'</div>'+
  ['N','A','V','O'].map(p=>{const P=pool(p),n=PM[p]||[0,0,0],t=(n[0]+n[1]+n[2])||1;
  return`<div class=card><b>${PN[p]}</b> — ${P.length} kartu · ${t} entri bahasa${bar(n,t)}Belum ${n[0]} · Sedang ${n[1]} · Selesai ${n[2]}</div>`}).join('')}
 function gbody(g){const L=t=>`<div class=gsec>${t}</div>`,kv=g[10]||[],CJ=g[1]=='nl'?['Ik','Jij / U','Hij / Zij / Het','Wij','Jullie','Zij']:['Ich','Du','Er/Sie/Es/Man','Wir','Ihr','sie/Sie'],cj=kv.filter(p=>CJ.includes(p[0])),isC=cj.length>=3,rest=isC?kv.filter(p=>!CJ.includes(p[0])):kv;let h='';
@@ -983,14 +983,12 @@ function fcBody(k,rev){const g=GK[k];
  const lc=id=>D.L.find(l=>l[0]==id),ch=(n,col)=>`<span class=fch style="--lc:${col}">${esc(n)}</span>`;
  const blk=(ids,full)=>'<div class=grid>'+D.L.filter(l=>ids.includes(l[0])).map(([id,n,col])=>`<div class=lg style="--lc:${col}"><small>${n}</small>`+v[id].map(e=>`<div class=w>${wd(e[0],c[1],'F',id)}${spk(e[0],id)}</div>${e[1]?`<div class="r rom">${esc(e[1])}</div>`:''}${full?fmx(e,c[1],id):''}${full&&e[2]?`<div class=ex>${esc(e[2])}</div>`:''}${full&&e[4]?`<div class=cx>💡 ${esc(e[4])}</div>`:''}`).join('')+'</div>').join('')+'</div>';
  const vr=typeof gzvRow=='function'?gzvRow(k):null;
- /* v7.107: jenis kata + level kosakata, mis. “Kata kerja · Jepang N3” */
- const ME={V:'Kata kerja',N:'Kata benda',A:'Kata sifat',O:'Kata lain'},e0=v[L]&&v[L][0],meta=e0&&e0[3]?`<div class=fcmeta>${esc((ME[c[1]]||'Kata')+' · '+(LN[L]||L)+' '+e0[3])}</div>`:'';
- if(rev)return mean+meta+(vr?gzvBack(vr):'')+'<hr>'+blk(Object.keys(v),1)+ggInfo(k)+gmExBlock(k);
+ if(rev)return mean+(vr?gzvBack(vr):'')+'<hr>'+blk(Object.keys(v),1)+ggInfo(k)+gmExBlock(k);
  let p,t;
  if(f=='id'||!v[f]){p=mean;t=[ch(LN[L],lc(L)[2])]}
  else{p=`<div class=fcp>${ch(LN[f],lc(f)[2])}`+v[f].map(e=>`<div class=w style="font-size:1.8rem">${wd(e[0],c[1],'F',f)}${spk(e[0],f)}</div>${e[1]?`<div class="r rom">${esc(e[1])}</div>`:''}`).join('')+'</div>';t=[ch('Indonesia','var(--a)')]}
- if(vr)return gzvFront(vr)+meta;/* 7.30: kepala kartu (kata asing / arti) TIDAK ditampilkan di depan; jawabannya baru muncul setelah kartu dibuka */
- return p+meta+`<div class=fchint><small>Ingat dalam:</small>${t.join('')}</div>`+((f=='id'||!v[f])?fcxFront(c,L,v[L]):'')}
+ if(vr)return gzvFront(vr);/* 7.30: kepala kartu (kata asing / arti) TIDAK ditampilkan di depan; jawabannya baru muncul setelah kartu dibuka */
+ return p+`<div class=fchint><small>Ingat dalam:</small>${t.join('')}</div>`+((f=='id'||!v[f])?fcxFront(c,L,v[L]):'')}
 const fcN=(f,l,mn,mx)=>`<label class=fcl><span>${l}</span><input type=number inputmode=numeric data-i="fc_${f}" value="${S.o[f]}" min=${mn} max=${mx}></label>`;
 const fcS=(f,l,op)=>`<label class=fcl><span>${l}</span><select data-i="fc_${f}" style="width:auto;margin:0">${op.map(([v,t])=>`<option value="${v}"${S.o[f]==v?' selected':''}>${t}</option>`).join('')}</select></label>`;
 function fcSett(){const o=S.o,sz=Object.values(S.srs).filter(c=>c.z).length;
@@ -1037,7 +1035,7 @@ function fcView(){const q=fcQ(),o=S.o,now=Date.now();
  const nn=Math.min(q.Nw.length,q.nL),rr=Math.min(q.R.length,q.rL),ln=q.L.length+(nn+rr?0:q.ah.length);
  let h=fcHero(q,nn,rr)+`<div class=fcc><span class=k1><b>${nn}</b><small>Baru</small></span><span class=k2><b>${ln}</b><small>Belajar</small></span><span class=k3><b>${rr}</b><small>Ulas</small></span></div>`;
  if(fcCur){const k=fcCur,c=S.srs[k],g=GK[k],rev=fcRevd;
-  const hd=g?`${LN[g[1]]||'Jerman'} ${g[2]} · Grammar`:PN[K[base(k)][1]]+' · '+(LN[lang(k)]||'');
+  const hd=g?`${LN[g[1]]||'Jerman'} ${g[2]} · Grammar`:PN[K[base(k)][1]]+' · '+(LN[lang(k)]||'')+(()=>{try{const v=fcVisE(K[base(k)],k),e=v&&v[lang(k)]&&v[lang(k)][0];return e&&e[3]?' '+e[3]:''}catch(x){return''}})();
   h+=`<div class="card fcard"${rev?'':' data-a=fcshow'}><div class=hd><span>${esc(hd)}</span><span class=${c&&c.t?(c.t==2?'k3':'k2'):'k1'}>${fcInfo(c)}</span></div><div class=fcf>${fcBody(k,rev)}</div>${rev&&typeof aiMarkHtml=='function'?aiMarkHtml(k):''}</div>`;
   h+=rev?`<div class=dock><div class=fcb>${[1,2,3,4].map(r=>{const n=fcCalc(c,r,now,false);return`<button class="fb fb${r}" data-a=fcans data-v=${r}>${['Lagi','Sulit','Baik','Mudah'][r-1]}<small>${n.t==2?fcFmtD(n.i):fcFmt(n.d-now)}</small></button>`}).join('')}</div></div>`:'<div class=dock><button class=pri data-a=fcshow>Tampilkan jawaban</button></div>';
   h+=`<div class=fct><button data-a=fcundo${fcUn.length?'':' disabled'}>Urungkan</button><button data-a=fcsusp data-k="${esc(k)}">Tangguhkan</button>${aiBtn(k,'Kelas AI')}${isLch(k)?`<button class=on data-ai=leech data-k="${esc(k)}">🧠 Mnemonik</button>`:''}${S.lib.some(t=>t.L==(g?g[1]:lang(k)))?`<button data-a=libfind data-k="${esc(k)}">📚 Teks</button>`:''}<button class="${S.ed[g?'g':'v'][g?k:base(k)]?'on':''}" data-a=edit data-k="${esc(g?k:base(k))}" data-v=${g?'g':'v'}>✎ ${S.ed[g?'g':'v'][g?k:base(k)]?'Diedit':'Edit'}</button>${c&&c.t?`<button data-a=fcforget data-k="${esc(k)}">Reset kartu</button>`:''}${(()=>{try{const n=(S.lib.length||S.sl.length)?gmExamples(k,10).n:0;return n?`<button data-a=fcxuntagall data-k="${esc(k)}" title="Lepas semua tag kalimat yang berkaitan dengan kartu ini (kalimat tetap di Pustaka)">🏷✕ Lepas tag kalimat (${n})</button>`:''}catch(e){return''}})()}</div>`}
@@ -1249,13 +1247,13 @@ function confetti(){if(matchMedia('(prefers-reduced-motion:reduce)').matches||do
 function fcCelebrate(q,nn,rr){const td=fcDay(Date.now()),done=(S.lg[td]||[0])[0]|0;
  if(done<1||q.L.length||nn||rr||S.o.cfd===td)return;S.o.cfd=td;save();setTimeout(()=>{confetti();buzz([30,60,30,60,90])},300)}
 
-/* ---------- prakiraan ulasan terjadwal (sampai 30 hari) ---------- */
+/* ---------- prakiraan ulasan terjadwal (sampai 90 hari) ---------- */
 function fcForecast(N){const td=fcDay(Date.now()),days=Array.from({length:N},()=>({l:0,y:0,m:0,lg:{}}));let late=0;
  for(const k of fcPool()){const c=S.srs[k];if(!c||!c.t)continue;const g=GK[k]?'g':lang(k);if(fcLgF&&fcLgF!=g)continue;
   let i;if(c.t==2){i=Math.max(0,c.d-td);if(c.d<td)late++}else i=Math.max(0,fcDay(c.d)-td);
   if(i>=N)continue;const x=days[i];if(c.t==2){c.i>=21?x.m++:x.y++}else x.l++;x.lg[g]=(x.lg[g]|0)+1}
  days.forEach(x=>{x.t=x.l+x.y+x.m});return{days,late}}
-function fcastCard(){const td=fcDay(Date.now()),F=fcForecast(30),rg=fcRg,days=F.days.slice(0,rg);
+function fcastCard(){const td=fcDay(Date.now()),F=fcForecast(90),rg=fcRg,days=F.days.slice(0,rg);
  const tot=days.reduce((a,x)=>a+x.t,0),avg=tot/rg,mx=Math.max(1,...days.map(x=>x.t)),sel=Math.min(fcSel,rg-1),X=days[sel];
  let busy=0;days.forEach((x,i)=>{if(x.t>days[busy].t)busy=i});
  const rl=S.o.rl|0,over=rl>0&&days.some(x=>x.y+x.m>rl);
@@ -1268,7 +1266,7 @@ function fcastCard(){const td=fcDay(Date.now()),F=fcForecast(30),rg=fcRg,days=F.
   let yb=Y(0);
   for(const[k,col]of[['m','var(--s2)'],['y','color-mix(in srgb,var(--s2) 45%,var(--c))'],['l','var(--s1)']]){const hh=x[k]/ym*chh;if(hh>0){yb-=hh;bars+=`<rect x=${bx.toFixed(1)} y=${yb.toFixed(1)} width=${bw.toFixed(1)} height=${hh.toFixed(1)} rx=1.5 style="fill:${col}"></rect>`}}
   bars+=`<rect data-a=sday data-v=${i} x=${x0.toFixed(1)} y=0 width=${cw.toFixed(1)} height=${H-pb+2} style="fill:transparent;cursor:pointer"><title>${dLbl(td+i)}: ${x.t} kartu</title></rect>`;
-  if(rg<=14||i%5==0||i==sel)lab+=`<text x=${(x0+cw/2).toFixed(1)} y=${H-7} text-anchor=middle class="${i==0?'td':wk?'wk':''}${i==sel?' sl':''}">${i==0?'Hari ini':dd.getDate()}</text>`});
+  if(rg<=14||i%(rg>=60?10:5)==0||i==sel)lab+=`<text x=${(x0+cw/2).toFixed(1)} y=${H-7} text-anchor=middle class="${i==0?'td':wk?'wk':''}${i==sel?' sl':''}">${i==0?'Hari ini':dd.getDate()}</text>`});
  let ln=`<line x1=${pl} x2=${W-pr} y1=${Y(avg).toFixed(1)} y2=${Y(avg).toFixed(1)} stroke="var(--a)" stroke-width=1.3 stroke-dasharray="4 3"></line>`;
  if(over)ln+=`<line x1=${pl} x2=${W-pr} y1=${Y(rl).toFixed(1)} y2=${Y(rl).toFixed(1)} stroke="var(--bad)" stroke-width=1.3 stroke-dasharray="2 3"></line>`;
  const svg=`<svg class=fcsvg viewBox="0 0 ${W} ${H}" role=img aria-label="Grafik ulasan terjadwal ${rg} hari">${g}${bars}${ln}${lab}</svg>`;
@@ -1280,10 +1278,10 @@ function fcastCard(){const td=fcDay(Date.now()),F=fcForecast(30),rg=fcRg,days=F.
  const any=Object.values(S.srs).some(c=>c.t);
  const chips=`<div class=chips><button class="chip${fcLgF?'':' on'}" data-a=slg data-v="">Semua</button>`+D.L.map(l=>`<button class="chip${fcLgF==l[0]?' on':''}" data-a=slg data-v=${l[0]}>${l[0].toUpperCase()}</button>`).join('')+`<button class="chip${fcLgF=='g'?' on':''}" data-a=slg data-v=g>Grammar</button></div>`;
  return`<div class=card><b>Ulasan terjadwal</b> — ${rg} hari ke depan`+
-  `<div class=seg2>${[7,14,30].map(n=>`<button class="${rg==n?'on':''}" data-a=srng data-v=${n}>${n} hari</button>`).join('')}</div>`+chips+
+  `<div class=seg2>${[7,14,30,60,90].map(n=>`<button class="${rg==n?'on':''}" data-a=srng data-v=${n}>${n} hari</button>`).join('')}</div>`+chips+
   (any?`<div class=kpis><div><b>${tot}</b><small>Total</small></div><div><b>${avg>=10?Math.round(avg):avg.toFixed(1)}</b><small>Rata-rata/hari</small></div><div><b>${days[busy].t}</b><small>Tersibuk · ${dDate(td+busy).getDate()} ${BL[dDate(td+busy).getMonth()]}</small></div><div><b>${F.late}</b><small>Terlambat</small></div></div>`+svg+
   `<div class=leg><span><i style="background:var(--s1)"></i>Belajar</span><span><i style="background:color-mix(in srgb,var(--s2) 45%,var(--c))"></i>Muda</span><span><i style="background:var(--s2)"></i>Matang</span><span><i class=ln style="border-color:var(--a)"></i>Rata-rata</span>${over?`<span><i class=ln style="border-color:var(--bad)"></i>Batas ulasan (${rl})</span>`:''}</div>`+det:
-  '<div class="card empty" style="margin:0"><b>Belum ada kartu terjadwal</b>Mulai belajar di tab Kartu — jadwal ulasan 30 hari ke depan akan muncul di sini.</div>')+'</div>'}
+  '<div class="card empty" style="margin:0"><b>Belum ada kartu terjadwal</b>Mulai belajar di tab Kartu — jadwal ulasan sampai 90 hari ke depan akan muncul di sini.</div>')+'</div>'}
 
 /* ---------- ringkasan, heatmap konsistensi ---------- */
 let kpiOpen='',kpiLim=40,kpiLg='';

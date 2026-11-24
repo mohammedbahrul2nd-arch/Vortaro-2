@@ -608,9 +608,24 @@ function gzpRoll(k){const g=GK[k],fm=S.o.fct||'rumpang',bi=fm=='biasa'||(fm=='ca
  const m=S.o.gzp||'pl';if(m=='off')return;
  let c;try{c=gzpCands(g)}catch(e){return}if(!c.length)return;
  if(m=='mix'&&Math.random()<.5)return;
+ if(gsbFull(k)){const p=gsrPick(k,c);GZP.last[k]=p.f;GZP.cur.row=p;return}
  const last=GZP.last[k],pool=c.length>1?c.filter(x=>x.f!==last):c;let tw=0;pool.forEach(x=>tw+=x.w);
  let r=Math.random()*tw,pick=pool[0];for(const x of pool){r-=x.w;if(r<=0){pick=x;break}}
  GZP.last[k]=pick.f;GZP.cur.row=pick}
+/* v7.108.0: ROTASI kalimat bawaan kartu grammar. Tiap kemunculan mengambil satu kalimat yang BELUM pernah ditampilkan pada putaran ini (acak),
+   lalu menandainya (S.o.gsr[kunci] = daftar kalimat sudah tampil). Setelah semua kalimat tampil, penanda direset dan putaran baru dimulai
+   (kalimat terakhir putaran lama tidak jadi yang pertama di putaran baru). Hanya untuk kartu dengan kalimat bawaan (gsbFull). */
+function gsrPick(k,c){const R=S.o.gsr&&typeof S.o.gsr=='object'?S.o.gsr:(S.o.gsr={});let sh=Array.isArray(R[k])?R[k]:(R[k]=[]);
+ const have=new Set(c.map(x=>x.f));sh=R[k]=sh.filter(f=>have.has(f));/* kalimat yang sudah tak jadi kandidat dibuang dari penanda */
+ const seen=new Set(sh);let pool=c.filter(x=>!seen.has(x.f));
+ if(!pool.length){const last=sh[sh.length-1];sh=R[k]=[];pool=c.length>1?c.filter(x=>x.f!==last):c}
+ const pick=pool[Math.floor(Math.random()*pool.length)];sh.push(pick.f);
+ try{VRS.save(S)}catch(e){}
+ return pick}
+/* progres rotasi kartu: {n: sudah tampil, t: total kalimat} (untuk tampilan/tes) */
+function gsrInfo(k){const sh=S.o.gsr&&S.o.gsr[k];return{n:Array.isArray(sh)?sh.length:0,t:gsbFull(k)?gsbRows(k).length:0}}
+/* reset rotasi: satu kartu (k) atau semua (tanpa argumen) */
+function gsrReset(k){if(k){if(S.o.gsr)delete S.o.gsr[k]}else S.o.gsr={};try{VRS.save(S)}catch(e){}}
 const gzpRow=k=>GZP.cur&&GZP.cur.k==k?GZP.cur.row:null;
 /* ---------- 6c. v7.25: soal rumpang kartu KOSAKATA dari Pustaka (B1) ----------
    Sumber: kalimat Pustaka yang memuat kata kartu (gmCollect). Jerman/Belanda + kata benda: bagian kosong dimulai dari artikel
