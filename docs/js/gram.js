@@ -491,11 +491,18 @@ function gmJaVeto(d,key,E){const F=libForms(key,E);if(!F||!F.alts||!F.alts[0])re
  return any>0&&!ok}
 /* v7.106.0: KALIMAT BAWAAN per kartu grammar (docs/js/gsb-<bhs>.js dibuat oleh tools/gsb_build.py). Tiap baris [kalimat, romanisasi, arti, potongan kunci, sorotan Indonesia].
    v7.107: bila kartu punya kalimat di GSB, SEMUANYA ditampilkan (tanpa istilah "bawaan") dan Pustaka TIDAK dipakai; kartu tanpa GSB memakai Pustaka. */
-const GSBN=15,GSB={};
+const GSBN=15,GSB={},GSK={};
 function gsbRows(key){const a=GSB[key];if(!a||!a.length)return[];const no=gmNoSet(key),L=libOfKey(key);
  return a.filter(x=>!(no&&no.has(x[0]))).map(x=>({lv:3,f:x[0],r:x[1]||'',i:x[2]||'',t:'b',tg:[{t:'g',k:key,s:x[3],id:x[4]||''}],L,ver:false,o:null}))}
 const gsbFull=key=>!!GK[key]&&!!GSB[key]&&gsbRows(key).length>0;
-function gmCollect(key,E){if(GK[key]&&GSB[key]){const B=gsbRows(key);if(B.length)return B}return gmCollect0(key,E)}
+/* v7.109.0: KALIMAT BAWAAN KOSAKATA (GSK, docs/js/gsk-ja-N3.js; dibuat oleh tools/gsk_apply.py). Kunci = kartu kosakata (<konsep>@ja[~indeks]); nilai = daftar kalimat.
+   Diperlakukan seperti GSB: bila kartu punya GSK, semua kalimat tampil sebagai «📘 Contoh kalimat», Pustaka tidak dipakai untuk kartu itu, dan soal rumpang kosakata
+   memakai rotasi gsrPick. Beda dari grammar: TANPA terjemahan dan TANPA kunci/sorotan tersimpan (sorotan kata dihitung otomatis oleh libHL/gzvCands). */
+function gskRows(key){const a=!GK[key]&&GSK[key];if(!a||!a.length)return[];const no=gmNoSet(key),L=libOfKey(key);
+ return a.filter(f=>!(no&&no.has(f))).map(f=>({lv:3,f,r:'',i:'',t:'b',tg:null,L,ver:false,o:null}))}
+const gskFull=key=>!GK[key]&&!!GSK[key]&&gskRows(key).length>0;
+const gskE2=key=>{const c=K[base(key)],es=c&&c[3][lang(key)],e=es&&es[ent(key)];return e&&e[2]?String(e[2]):''};
+function gmCollect(key,E){if(GK[key]&&GSB[key]){const B=gsbRows(key);if(B.length)return B}if(gskFull(key))return gskRows(key);return gmCollect0(key,E)}
 function gmCollect0(key,E){const L=libOfKey(key),isG=!!GK[key],m=gmMin(),out=[],no=gmNoSet(key);E=!!E&&!isG;const sup=E?gmSupSib(key):null,nn=gmNounK(key);
  const vk=isG?'':ik(base(key),lang(key)),ver=(d,i)=>!isG&&gmTagHit(d.tgs&&d.tgs[0],vk,i)&&(!E||gmTagEnt(d.tgs[0],key)>=0),test=(d,i)=>{if(isG)return gmLv(d,0,key);if(E&&gmTagEnt(d.tgs&&d.tgs[0],key)<0)return 0;if(ver(d,i))return 3;if(!(libCountKey(sup?gmStripSib(d,sup):d,key,E)>0))return 0;if(!isG&&L=='ja'&&gmJaVeto(d,key,E))return 0;if(nn){const im=gmNounIdOk(i,key);if(im&&gmNounForOk(key,E,d.sents[0],im))return 3}return 2};
  for(const x of S.sl){if(x.L!=L||(no&&no.has(x.f)))continue;const it=slPs(x),d=libSentDoc(it,0,0),lv=test(d,x.i||'');if(lv>=m)out.push({lv,f:x.f,r:x.r||'',i:x.i||'',t:'s',tg:x.tg||null,L,ver:!isG&&lv==3,o:{t:'sl',id:x.id}})}
@@ -512,11 +519,11 @@ const gmRoll={key:'',sig:'',rows:[]};
 function gmRollRows(key,v){const sig=gmSig();if(gmRoll.key==key&&gmRoll.sig==sig)return gmRoll.rows;
  const a=v.rows.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}
  gmRoll.key=key;gmRoll.sig=sig;gmRoll.rows=a.slice(0,5);return gmRoll.rows}
-function gmExBlock(key){if(!key||(!S.lib.length&&!S.sl.length&&!GSB[key]))return'';const v0=gmExamples(key,GSB[key]?Math.max(30,GSB[key].length):10);if(!v0.rows.length)return'';const v={n:v0.n,nv:v0.nv|0,rows:gsbFull(key)?v0.rows:gmRollRows(key,v0)};const L=libOfKey(key);
- return`<div class=gmx><div class=gsec style="margin-top:12px">${gsbFull(key)?'📘 Contoh kalimat':'📚 Contoh dari Pustakamu'} <small>(${v.rows.length}${v.n>v.rows.length?' dari '+v.n:''})</small>${GK[key]?'':`<br><small class=gmcnt>${v.nv} terverifikasi (bertag AI / kata benda cocok persis) · ${v.n-v.nv} terdeteksi otomatis</small>`}</div>`+
+function gmExBlock(key){if(!key||(!S.lib.length&&!S.sl.length&&!GSB[key]&&!GSK[key]))return'';const gsa=GSB[key]||GSK[key],v0=gmExamples(key,gsa?Math.max(30,gsa.length):10);if(!v0.rows.length)return'';const bw=gsbFull(key)||gskFull(key),e2=gskFull(key)?gskE2(key):'',rw=(bw?v0.rows:gmRollRows(key,v0)).filter(x=>!e2||x.f!==e2),v={n:e2?rw.length:v0.n,nv:v0.nv|0,rows:rw};const L=libOfKey(key);
+ return`<div class=gmx><div class=gsec style="margin-top:12px">${bw?'📘 Contoh kalimat':'📚 Contoh dari Pustakamu'} <small>(${v.rows.length}${v.n>v.rows.length?' dari '+v.n:''})</small>${GK[key]||bw?'':`<br><small class=gmcnt>${v.nv} terverifikasi (bertag AI / kata benda cocok persis) · ${v.n-v.nv} terdeteksi otomatis</small>`}</div>`+
   v.rows.map((x,xi)=>{const sf=GK[key]?gmTagSf(x.tg,key):[];const hl=(sf.length&&gmHLS(x.f,sf,L))||libHL(x.f,key,L,true);
    return`<div class=gmr>${x.o?`<button class=gmdel data-a=fcxdel data-k=\"${esc(key)}\" data-v=${xi} title=\"Hapus kalimat ini dari Pustaka\" aria-label=\"Hapus kalimat\">🗑</button><button class="gmdel gmunt" data-a=fcxuntag data-k=\"${esc(key)}\" data-v=${xi} title=\"Lepas tag kartu ini dari kalimat ini (kalimat tetap di Pustaka)\" aria-label=\"Lepas tag kartu dari kalimat\">✕</button>`:''}<div class=eo>${x.sp?`<b class=spk>${esc(x.sp)}</b> `:''}${hl}${spk(x.f,L)}</div>${x.r?`<div class="r rom">${esc(x.r)}</div>`:''}${x.i?`<div class=idn>${(GK[key]&&gmTagId(x.tg,key).length&&gmHLS(x.i,gmTagId(x.tg,key),'id'))||esc(x.i)}</div>`:''}<small class=gmsrc>${GMSRC[x.t]||''}${GK[key]?(x.t=='b'?'':x.lv==3?' · ✓ ditandai AI':x.lv==1?' · perkiraan':''):(x.ver?' · ✓ terverifikasi':'')}</small></div>`}).join('')+
-  (gsbFull(key)?'':`<div class=btns style="margin-top:6px"><button class=mini data-a=libfind data-k="${esc(key)}">Lihat semua di Pustaka${v.n>v.rows.length?' ('+v.n+')':''}</button></div>`)+'</div>'}
+  (bw?'':`<div class=btns style="margin-top:6px"><button class=mini data-a=libfind data-k="${esc(key)}">Lihat semua di Pustaka${v.n>v.rows.length?' ('+v.n+')':''}</button></div>`)+'</div>'}
 
 /* v7.102.0: lepas TAG KARTU dari kalimat (kalimat tetap di Pustaka). S.o.gmNo[kartu]=[teks kalimat] = "bukan contoh kartu ini" (juga mencegah terdeteksi otomatis lagi). */
 const gmNoSet=key=>{const m=S.o.gmNo;return m&&m[key]&&m[key].length?new Set(m[key]):null};
@@ -669,14 +676,15 @@ function gzvCands(k){const sig=gmSig();if(GZV.sig!=sig){GZV.sig=sig;GZV.c.clear(
    let p=gzvExt(gzpParse(libHL(x.f,k,L,true)),L,pos);
    if(!gzpOk(p,L,false))continue;
    const nk=p.t.replace(/\s+/g,'').toLowerCase();if(seen.has(nk))continue;seen.add(nk);
-   const tg=!!x.ver,ix=x.i?gzvIdSpan(x.i,gl,true):null;if(!ix)continue;/* 7.30: soal rumpang hanya dari kalimat yang terjemahan Indonesianya cocok dengan arti kartu (anti false-positive) */
+   const tg=!!x.ver,ix=x.i?gzvIdSpan(x.i,gl,true):null;if(!ix&&x.t!='b')continue;/* 7.30: soal rumpang hanya dari kalimat yang terjemahan Indonesianya cocok dengan arti kartu (anti false-positive) */
    v.push({k,L,t:p.t,sp:p.sp,i:x.i||'',ix,r:x.r||'',f:x.f,src:x.t,o:x.o,lv:tg?3:2,ver:tg,tg,art:p.sp.some(([a,b])=>/\s/.test(p.t.slice(a,b))&&pos=='N'),w:(x.i?2:1)*(ix?2:1)*(tg?3:1)})}}
  catch(e){v=[]}
  GZV.c.set(k,v);return v}
 /* arah soal (S.o.gzd): 'mix' = acak tiap kartu muncul · 'f' = kosongkan kata asing (kalimat Indonesia ditandai) · 'i' = kosongkan kata Indonesia (kalimat asing ditandai) */
 function gzvPick(k){if((S.o.gz||'cloze')=='old'||(S.o.gzv||'on')=='off')return null;
- if(!S.lib.length&&!S.sl.length)return null;
+ if(!S.lib.length&&!S.sl.length&&!GSK[k])return null;
  const c=gzvCands(k);if(!c.length)return null;
+ if(gskFull(k)){const p=gsrPick(k,c);GZV.last[k]=p.f;return{...p,d:'f'}}/* 7.109: kalimat bawaan kosakata (tanpa terjemahan) -> rotasi acak tanpa ulang, arah kata asing */
  const dm=S.o.gzd||'mix',last=GZV.last[k];let pool=c.length>1?c.filter(x=>x.f!==last):c;
  if(dm=='i'){const q=pool.filter(x=>x.ix);if(q.length)pool=q}
  let tw=0;pool.forEach(x=>tw+=x.w);
@@ -693,17 +701,17 @@ function gzvFront(row){const L=row.L,m=gzvMean(row);
  if(row.d=='i'){
   return gzvChip('Indonesia','var(--a)')+`<div class="gzc gzen gzde">${gzvIdSeg(row,w=>gzpBox('id',[...w.replace(/\s/g,'')].length))}</div>`+
    `<div class="gzc gzfo ${gzpCls(L)}">${gzpSeg(row,w=>`<mark class=gzh>${esc(w)}</mark>`)}${spk(row.f,L)}</div>`+(row.r?`<div class="r rom">${esc(row.r)}</div>`:'')+
-   `<div class=fchint><small>Isi kata Indonesia yang hilang (padanan kata yang ditandai) · 📚 soal dari Pustakamu</small></div>`}
+   `<div class=fchint><small>Isi kata Indonesia yang hilang (padanan kata yang ditandai) · ${row.src=='b'?'📘 kalimat bawaan':'📚 soal dari Pustakamu'}</small></div>`}
  const idl=row.i?(row.ix?`<div class="gzm gzid">${gzvIdSeg(row,w=>`<mark class=gzh>${esc(w)}</mark>`)}</div>`:`<div class="gzm gzid">${esc(row.i)}</div><div class=gzm>🎯 Kata yang dicari: <b>${esc(m)}</b></div>`):`<div class=gzm>🎯 Arti kata yang dicari: <b>${esc(m)}</b></div>`;
  return gzvLang(L)+`<div class="gzc ${gzpCls(L)}">${gzpSeg(row,w=>gzpBox(L,[...w.replace(/\s/g,'')].length))}</div>`+idl+
-  `<div class=fchint><small>Isi kata yang hilang${row.art?' (artikel + kata benda)':''} · 📚 soal dari Pustakamu</small></div>`}
+  `<div class=fchint><small>Isi kata yang hilang${row.art?' (artikel + kata benda)':''} · ${row.src=='b'?'📘 kalimat bawaan':'📚 soal dari Pustakamu'}</small></div>`}
 function gzvAns(row){const L=row.L;
  if(row.d=='i'){const a=row.ix?row.i.slice(row.ix[0][0],row.ix[0][1]):gzvMean(row);return`<div class="gzc gzans">${esc(a)}</div>`}
  const w=row.t.slice(row.sp[0][0],row.sp[row.sp.length-1][1]),c=K[base(row.k)],es=(c&&c[3][L])||[],bw=x=>String(x).replace(/^(?:der|die|das|de|het|een|ein)\s+/i,'').toLowerCase(),
   e=es.find(e=>e[1]&&bw(e[0])&&w.toLowerCase().includes(bw(e[0])));
  return`<div class="gzc gzans ${gzpCls(L)}">${esc(w)}${spk(w,L)}${e&&e[1]?` <span class="r rom">${esc(e[1])}</span>`:''}</div>`}
 function gzvBack(row){const L=row.L;
- return`<div class=gzps><small class=gzpl>📚 Soal dari Pustakamu · ${GMSRC[row.src]||''}${row.ver?' · ✓ terverifikasi':''}</small>${gzvAns(row)}<div class=\"gzc ${gzpCls(L)}\">${gzpSeg(row,w=>`<mark class=gzh>${esc(w)}</mark>`)}${spk(row.f,L)}</div>${row.r?`<div class="r rom">${esc(row.r)}</div>`:''}${row.i?`<div class=gzm>${row.ix?gzvIdSeg(row,w=>`<mark class=gzh>${esc(w)}</mark>`):esc(row.i)}</div>`:''}</div>`}
+ return`<div class=gzps><small class=gzpl>${row.src=='b'?'📘 Kalimat bawaan':'📚 Soal dari Pustakamu · '+(GMSRC[row.src]||'')}${row.ver?' · ✓ terverifikasi':''}</small>${gzvAns(row)}<div class=\"gzc ${gzpCls(L)}\">${gzpSeg(row,w=>`<mark class=gzh>${esc(w)}</mark>`)}${spk(row.f,L)}</div>${row.r?`<div class="r rom">${esc(row.r)}</div>`:''}${row.i?`<div class=gzm>${row.ix?gzvIdSeg(row,w=>`<mark class=gzh>${esc(w)}</mark>`):esc(row.i)}</div>`:''}</div>`}
 const gzpCls=L=>L=='ja'?'gzja':L=='zh'?'':'gzen gzde';
 const gzpBox=(L,n)=>`<span class="gzb${L=='ja'||L=='zh'?'':' gze'}" style="--n:${n}">&nbsp;</span>`;
 const gzpSeg=(row,f)=>{let o='',l=0;row.sp.forEach(([a,b],i)=>{o+=esc(row.t.slice(l,a))+f(row.t.slice(a,b),i);l=b});return o+esc(row.t.slice(l))};
