@@ -162,16 +162,13 @@ if(gr.length)fold(v,gr,'st_gram','Ringkasan grammar','\uD83D\uDCD6',0)}
 function run(){var v=document.getElementById('v');if(!v)return;var h=v.querySelector(':scope>h1');if(!h||h.textContent.trim()!=='Statistik')return;heat(v);feat(v);group(v)}
 function boot(){var v=document.getElementById('v');if(!v)return setTimeout(boot,200);new MutationObserver(run).observe(v,{childList:true});run()}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot()})();
-/* Tahap D1b: kartu "Versi & pembaruan" — tampilkan juga versi lapisan tampilan (dibaca dari sw.js), agar tidak tampak basi */
-(function(){var uv=null,asked=false;
-function ask(cb){if(uv!==null)return cb();if(asked)return;asked=true;try{fetch('sw.js').then(function(r){return r.text()}).then(function(t){var m=/VERSION\s*=\s*'([^']+)'/.exec(t);uv=m?m[1]:'';cb()}).catch(function(){uv=''})}catch(_){uv=''}}
+/* Tahap D1b: kartu "Versi & pembaruan" — daftar catatan diringkas (Lihat semua) */
+(function(){
 function more(){var v=document.getElementById('v');if(!v)return;[].forEach.call(v.querySelectorAll('.hd b'),function(b){if(b.textContent.indexOf('Vortaro v')!==0)return;var c=b.closest('.card');if(!c||c.querySelector('.vrmore'))return;var ul=c.querySelector('ul');if(!ul)return;var li=[].slice.call(ul.children);if(li.length<=3)return;
 li.slice(3).forEach(function(x){x.hidden=true});var bt=document.createElement('button');bt.type='button';bt.className='vrmore';bt.textContent='Lihat semua ('+li.length+' catatan)';
 bt.addEventListener('click',function(e){e.stopPropagation();var open=bt.dataset.o==='1';li.slice(3).forEach(function(x){x.hidden=open});bt.dataset.o=open?'0':'1';bt.textContent=open?'Lihat semua ('+li.length+' catatan)':'Ringkas'});ul.insertAdjacentElement('afterend',bt)})}
-function put(){more();var v=document.getElementById('v');if(!v||!uv)return;var h=v.querySelector(':scope>h1');if(!h||h.textContent.trim()!=='Pengaturan')return;
-[].forEach.call(v.querySelectorAll('.hd b'),function(b){if(b.textContent.indexOf('Vortaro v')!==0)return;var hd=b.closest('.hd');if(!hd||hd.parentNode.querySelector('.vrver'))return;
-var s=document.createElement('small');s.className='vrver';s.textContent='Isi & fitur v'+b.textContent.replace('Vortaro v','')+' \u00b7 Tampilan v'+uv;hd.insertAdjacentElement('afterend',s)})}
-function run(){var v=document.getElementById('v');if(!v)return;var h=v.querySelector(':scope>h1');if(!h||h.textContent.trim()!=='Pengaturan')return;ask(put);put()}
+function put(){more()}/* v7.110: satu nomor versi saja (GM_VER = VERSION sw.js); baris «Isi & fitur · Tampilan» dihapus */
+function run(){var v=document.getElementById('v');if(!v)return;var h=v.querySelector(':scope>h1');if(!h||h.textContent.trim()!=='Pengaturan')return;put()}
 function boot(){var v=document.getElementById('v');if(!v)return setTimeout(boot,200);new MutationObserver(run).observe(v,{childList:true});run()}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot()})();
 /* Tahap D3: layar Daftar — header satu baris, chip status ringkas (kode bahasa + penanda), legenda, keadaan kosong */

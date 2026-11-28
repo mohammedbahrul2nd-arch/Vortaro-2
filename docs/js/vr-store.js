@@ -109,7 +109,7 @@ function force(){V.forceNext=true}
 function backup(S,tag){if(V.mode!='idb')return Promise.resolve();let js;try{js=JSON.stringify(S)}catch(e){return Promise.resolve()}
  return busy=busy.then(()=>db().then(d=>new Promise((res,rej)=>{const t=d.transaction(ST,'readwrite'),st=t.objectStore(ST),q=st.get('bakmeta');
   q.onsuccess=()=>{const bm=q.result||{};st.put(js,'state_'+tag);bm[tag]={t:Date.now()};st.put(bm,'bakmeta')};t.oncomplete=()=>res();t.onerror=()=>rej(t.error)}))).catch(fail)}
-const BK=[['prev','Kemarin (cadangan harian)'],['prev2','Dua hari lalu'],['pre','Sebelum Hapus/Impor terakhir'],['undo','Sebelum pemulihan terakhir']];
+const BK=[['prev','Kemarin (cadangan harian)'],['prev2','Dua hari lalu'],['pre','Sebelum Hapus/Impor terakhir'],['undo','Sebelum pemulihan terakhir'],['dd3','Sebelum rapikan duplikat N3 (v7.111)']];
 async function backups(){if(V.mode!='idb')return[];const bm=(await rd('bakmeta'))||{},out=[];
  for(const[k,l]of BK){const s=await rd('state_'+k);if(typeof s!='string')continue;const o=parse(s);if(!o)continue;
   out.push({key:k,label:l,t:(bm[k]&&bm[k].t)||0,cards:Object.keys(o.srs||{}).length,bytes:s.length})}

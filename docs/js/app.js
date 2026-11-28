@@ -8,6 +8,9 @@ const SENS={cv:'both',rom:1,cgL:'blur',cgK:'blur',cgF:'blur',cpl:'blur',cvb:'blu
 let fcQV=0;if(!S.v)S.v=1;
 const save=()=>{fcQV++;VRS.save(S);window.vrSnapSoon&&vrSnapSoon()};
 const K={};D.C.forEach(c=>K[c[0]]=c);
+/* v7.111: duplikasi kosakata N3 yang sudah ada di N4/N5 dihapus -> progres kartu N3 dipindah ke kartu N4/N5 (interval terjauh menang), sekali (S.o.dd3). Tabel & fungsi: js/dedup-n3.js */
+try{if(!S.o.dd3){if(Object.keys(S.srs).length||Object.keys(S.p).length){const bk=JSON.parse(JSON.stringify(S));bk.o.dd3=1;try{VRS.backup(bk,'dd3')}catch(e){}}
+ const r=ddMig(S);if(r){save();if(r.moved)setTimeout(()=>{try{toast('Duplikasi kosakata N3 dirapikan: progres '+r.moved+' kartu N3 dipindah ke kartu N4/N5 yang sama (interval terjauh dipakai).')}catch(e){}},2500)}}}catch(e){try{console.error('ddMig',e)}catch(_){}}
 const LN={};D.L.forEach(l=>LN[l[0]]=l[1]);{const ok=x=>LN[String(x).split(':')[0]];S.f=S.f.filter(ok);S.o.ff=S.o.ff.filter(ok)}D.GL.forEach(l=>{if(!LN[l[0]])LN[l[0]]=l[1]});const GK={};D.G.forEach(g=>GK[g[0]]=g);
 const esc=s=>String(s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
 const st=k=>S.p[k]|0;
@@ -806,7 +809,7 @@ r.slice(0,lim).map(c=>{const v=vis(c),k=c[0];return`<div class=row><div data-a=w
 function pcard(){const lg=S.legacy,nl=lg?Object.keys(lg.p).length:0,act=[...new Set(S.f.map(x=>String(x).split(':')[0]))];
  return`<div class=card><b>Progres per bahasa</b>`+
  (nl?`<small>${nl} kartu dari progres lama (per kartu) tersimpan sebagai cadangan. Tombol di bawah menyalinnya ke bahasa yang aktif di filter Kata (${act.length?act.map(x=>LN[x]).join(', '):'semua bahasa'}), hanya untuk item yang belum punya status.</small><button data-a=miglg style="width:100%;margin-top:8px">Terapkan progres lama ke bahasa aktif</button>`:'<small>Tidak ada progres lama yang perlu dimigrasi.</small>')+'</div>'}
-function set(){return fcSett()+verCard()+vrCard()+vrAppCard()+uiCard()+pcard()+edCard()+gmDataCard()+stoCard()+`<p><small>${ok?'Penyimpanan lokal aktif.':'Penyimpanan lokal tidak tersedia.'} ${Object.keys(S.p).length} kartu bertanda, ${S.lt.h.length} kalimat latihan. Buat cadangan sesekali, karena data browser bisa terhapus.</small></p>`}
+function set(){return fcSett()+verCard()+vrCard()+vrAppCard()+uiCard()+pcard()+edCard()+dataCard()+(ok?'':'<p><small>Penyimpanan lokal tidak tersedia.</small></p>')}
 /* ===== Flashcard + SRS (algoritma ala Anki / SM-2) ===== */
 const FCNUM={gr:[0,100],fmin:[1,4],nl:[0,9999],rl:[0,9999],gi:[1,365],ei:[1,365],se:[130,500],eb:[100,300],hi:[100,200],ni:[0,100],im:[50,200],mx:[1,36500],lch:[2,50],xn:[1,200],xr:[1,500]};
 let fcCur=null,fcRevd=false,fcFr='id',fcFrK=null,fcUn=[],fcWait=0;
@@ -886,20 +889,22 @@ function fcPick(q){const o=S.o;if(q.L.length)return fcMin(q.L);
  const rp=A=>{const v=A.filter(k=>gmHasEx(k)),B=v.length?v:A;return B[Math.random()*B.length|0]},pn=()=>{if(o.ord!='rand')return q.Nw[0];if(o.deck=='all'){const G=q.Nw.filter(k=>GK[k]),V=q.Nw.filter(k=>!GK[k]);if(G.length&&V.length){const A=Math.random()<(o.gr==null?25:o.gr)/100?G:V;return rp(A)}}return rp(q.Nw)},pr=()=>q.R[Math.random()*q.R.length|0];
  if(nn&&rr){const useN=o.no=='before'||(o.no=='mix'&&Math.random()<nn/(nn+rr));return useN?pn():pr()}
  if(nn)return pn();if(rr)return pr();if(q.ah.length)return fcMin(q.ah);return null}
-function fcSync(k,n){fcQV++;if(!S.o.lk)return;S.p[k]=n.t==2&&n.i>=21?2:1;S.s[k]=1}
+/* v7.110: status Selesai = interval ulasan tersimpan ≥ 90 hari. Hanya dihitung ulang saat kartu diulas (interval tersimpan, bukan sisa hari ke jadwal berikutnya). */
+const FC_DONE=90;
+function fcSync(k,n){fcQV++;if(!S.o.lk)return;S.p[k]=n.t==2&&n.i>=FC_DONE?2:1;S.s[k]=1}
 function fcFS(k,bulk,force){if(!force&&!S.o.lk)return;const s=st(k),c=S.srs[k],has=c&&c.t,td=fcDay(Date.now()),sp=n=>Math.floor(Math.random()*n),e=S.o.se;
  if(s==0){if(has){if(c.z)S.srs[k]={z:1};else delete S.srs[k]}return}
  if(s==1){
   if(!has)S.srs[k]=Object.assign(c||{},bulk?{t:2,s:0,e,i:2,d:td+sp(3),l:0,r:0}:{t:1,s:0,e,i:0,d:Date.now(),l:0,r:0});
-  else if(c.t==2&&c.i>=21){c.i=20;c.d=Math.min(c.d,td+20)}
+  else if(c.t==2&&c.i>=FC_DONE){c.i=FC_DONE-1;c.d=Math.min(c.d,td+FC_DONE-1)}
  }else{
-  if(!has)S.srs[k]=Object.assign(c||{},{t:2,s:0,e,i:30,d:td+1+sp(30),l:0,r:0});
-  else if(c.t!=2)Object.assign(c,{t:2,s:0,i:Math.max(c.i|0,30),d:td+1+sp(30)});
-  else if(c.i<21)c.i=21;
+  if(!has)S.srs[k]=Object.assign(c||{},{t:2,s:0,e,i:FC_DONE,d:td+1+sp(30),l:0,r:0});
+  else if(c.t!=2)Object.assign(c,{t:2,s:0,i:Math.max(c.i|0,FC_DONE),d:td+1+sp(30)});
+  else if(c.i<FC_DONE)c.i=FC_DONE;
  }}
 function fcSyncAll(){let a=0,b=0;
  for(const k in S.p)if(S.p[k]>0&&!(S.srs[k]&&S.srs[k].t)){fcFS(k,1,1);a++}
- for(const k in S.srs){const c=S.srs[k];if(c.t){const v=c.t==2&&c.i>=21?2:1;if(S.p[k]!==v){S.p[k]=v;b++}}}
+ for(const k in S.srs){const c=S.srs[k];if(c.t){const v=c.t==2&&c.i>=FC_DONE?2:1;if(S.p[k]!==v){S.p[k]=v;b++}}}
  return[a,b]}
 function fcTag(k){const c=S.srs[k];if(!c||!c.t)return'';if(c.t!=2)return' · belajar';const d=c.d-fcDay(Date.now());return' · ulas '+(d<=0?'hari ini':d==1?'besok':d+' hr')}
 function fcAns(r){const k=fcCur;if(!k||!fcRevd)return;fcQV++;fcRoll();const now=Date.now(),td=fcDay(now),c=S.srs[k],had=c&&c.t;
@@ -922,6 +927,8 @@ function fcAct(a,x,k){fcQV++;
  else if(a=='fcxdel'){if(!gmDelSent(k,+x))return}
  else if(a=='fcxuntag'){if(!gmUntagRow(k,+x))return}
  else if(a=='fcxuntagall'){if(!gmUntagAll(k))return}
+ else if(a=='fccdel'){if(!gmDelR(k,gmQRow(k)))return}/* v7.110: hapus kalimat soal rumpang kartu ini dari Pustaka */
+ else if(a=='fccunt'){if(!gmUntagR(k,gmQRow(k)))return}/* v7.110: lepas tag kartu dari kalimat soal rumpang ini */
  else if(a=='fcsusp'){S.srs[k]=Object.assign(S.srs[k]||{},{z:1});fcCur=null}
  else if(a=='fcforget'){delete S.srs[k];if(S.o.lk)delete S.p[k];fcCur=null}
  else if(a=='fcsyncall'){const r=fcSyncAll();toast(r[0]+' status diterapkan ke jadwal kartu, '+r[1]+' status diperbarui dari jadwal kartu.')}
@@ -977,13 +984,15 @@ function fcMean(k){try{const c=K[base(k)];if(!c)return'';const g=String(c[2]),L=
    if(any&&!sup(e)){if(!FCMT){FCMT=new Map();for(const x of D.C){const t=x[1]+'|'+fcCore(x[2]).toLowerCase();FCMT.set(t,(FCMT.get(t)||0)+1)}}
     const core=fcCore(g);if(core&&(FCMT.get(c[1]+'|'+core.toLowerCase())||0)<=1)return core}}}
  return g}catch(e){const c=K[base(k)];return c?String(c[2]):''}}
+/* v7.110.1: tombol hapus tepat di bawah kalimat soal rumpang (sisi jawaban); kalimat Pustaka saja */
+function fcQBtns(k){try{return gmQRow(k)?`<div class=fcqb><button data-a=fccdel data-k="${esc(k)}" title="Hapus kalimat soal ini dari Pustaka; soal diganti kalimat lain">🗑 Hapus kalimat</button><button data-a=fccunt data-k="${esc(k)}" title="Lepas tag kartu ini dari kalimat soal (kalimat tetap di Pustaka); soal diganti">🏷✕ Hapus tag</button></div>`:''}catch(e){return''}}
 function fcBody(k,rev){const g=GK[k];
- if(g){if(gzOn(g)){const pl=typeof gzpRow=='function'?gzpRow(k):null;if(pl)return rev?gzpBack(g,pl)+gzBack(g,k):gzpFront(g,pl);return rev?gzBack(g,k):gzFront(g)}const t=(g[3]?`<div class=gsub>${esc(g[3])}</div>`:'')+`<div class=mean>${esc(g[4])}</div>`;return rev?t+'<hr><div style="text-align:left">'+gbody(g)+gmExBlock(k)+'</div>':t}
+ if(g){if(gzOn(g)){const pl=typeof gzpRow=='function'?gzpRow(k):null;if(pl)return rev?gzpBack(g,pl)+fcQBtns(k)+gzBack(g,k):gzpFront(g,pl);return rev?gzBack(g,k):gzFront(g)}const t=(g[3]?`<div class=gsub>${esc(g[3])}</div>`:'')+`<div class=mean>${esc(g[4])}</div>`;return rev?t+'<hr><div style="text-align:left">'+gbody(g)+gmExBlock(k)+'</div>':t}
  const b=base(k),L=lang(k),c=K[b],v0=fcVisE(c,k)||{},v=v0[L]?{[L]:v0[L]}:v0,f=fcFr,mean=`<div class=mean>${esc(fcMean(k))}</div>`;
  const lc=id=>D.L.find(l=>l[0]==id),ch=(n,col)=>`<span class=fch style="--lc:${col}">${esc(n)}</span>`;
  const blk=(ids,full)=>'<div class=grid>'+D.L.filter(l=>ids.includes(l[0])).map(([id,n,col])=>`<div class=lg style="--lc:${col}"><small>${n}</small>`+v[id].map(e=>`<div class=w>${wd(e[0],c[1],'F',id)}${spk(e[0],id)}</div>${e[1]?`<div class="r rom">${esc(e[1])}</div>`:''}${full?fmx(e,c[1],id):''}${full&&e[2]?`<div class=ex>${esc(e[2])}</div>`:''}${full&&e[4]?`<div class=cx>💡 ${esc(e[4])}</div>`:''}`).join('')+'</div>').join('')+'</div>';
  const vr=typeof gzvRow=='function'?gzvRow(k):null;
- if(rev)return mean+(vr?gzvBack(vr):'')+'<hr>'+blk(Object.keys(v),1)+ggInfo(k)+gmExBlock(k);
+ if(rev)return mean+(vr?gzvBack(vr)+fcQBtns(k):'')+'<hr>'+blk(Object.keys(v),1)+ggInfo(k)+gmExBlock(k);
  let p,t;
  if(f=='id'||!v[f]){p=mean;t=[ch(LN[L],lc(L)[2])]}
  else{p=`<div class=fcp>${ch(LN[f],lc(f)[2])}`+v[f].map(e=>`<div class=w style="font-size:1.8rem">${wd(e[0],c[1],'F',f)}${spk(e[0],f)}</div>${e[1]?`<div class="r rom">${esc(e[1])}</div>`:''}`).join('')+'</div>';t=[ch('Indonesia','var(--a)')]}
@@ -1058,7 +1067,9 @@ document.addEventListener('keydown',e=>{if(tab!='fc'||document.getElementById('e
 setInterval(()=>{if(tab=='fc'&&!fcCur&&fcWait&&fcWait<=Date.now()+12e5&&!document.hidden)render()},15000);
 
 {const mf=Object.keys(S.p).concat(Object.keys(S.srs),Object.keys(S.s)).some(k=>k.indexOf(SEP)<0&&K[k]);if(mf){const L=[...new Set(S.f.map(x=>String(x).split(':')[0]))];migKeys(L);save()}}
-if(S.o.lk&&!S.o.mig){fcSyncAll();S.o.mig=1;save()}
+if(S.o.lk&&!S.o.mig){fcSyncAll();S.o.mig=1;S.o.mig90=1;save()}
+else if(S.o.lk&&!S.o.mig90){fcSyncAll();S.o.mig90=1;save()}/* v7.110: aturan Selesai baru (≥ 90 hari) diterapkan sekali ke data lama */
+if(S.o.lk){/* v7.110.2: tiap dibuka, status chip (Belum/Sedang/Selesai) disamakan dengan jadwal kartu yang sudah ada (hanya S.srs → S.p; jadwal tak diubah) */let n=0;for(const k in S.srs){const c=S.srs[k];if(c&&c.t){const v=c.t==2&&c.i>=FC_DONE?2:1;if(S.p[k]!==v){S.p[k]=v;S.s[k]=1;n++}}}if(n)save()}
 const ltKnown=(k,L)=>{if(L)k=ik(k,L);return st(k)>0||!!(S.srs[k]&&S.srs[k].t)};
 
 /* === Grammar Tahap 1: rubrik, jadwal dari latihan, kebaruan, Konteks === */
@@ -1340,7 +1351,7 @@ function etaCard(){const o=S.o,E=etaData(),N=E.N,tot=E.P.length,sn=o.fsn||'avg',
  const bar=`<div class=bar>${[['m','var(--s2)'],['y','var(--k1)'],['l','var(--s1)']].map(([k,c])=>`<i style="width:${N[k]/(tot||1)*100}%;background:${c}"></i>`).join('')}</div>`;
  if(!tot)return`<div class=card><b>🎯 Perkiraan tuntas</b><p class=gsub>Tidak ada kartu pada cakupan ini. Ubah filter di tab Kartu.</p>${sc}</div>`;
  const res=etaCalc(E,N,rate),lbl=n=>n<=0?'sekarang':fmtDt(n)+' · '+fcFmtD(n);
- let h=`<div class=card><b>🎯 Perkiraan tuntas</b><p class=gsub style="margin:2px 0 8px">Berapa lama lagi semua kartu pada cakupan ini sampai <b>matang</b> (interval ≥ 21 hari) dan berstatus <b>selesai</b>, dihitung dari laju hafalanmu dan jadwal SRS-mu.</p>${sc}<div style="margin-top:8px"></div>`+
+ let h=`<div class=card><b>🎯 Perkiraan tuntas</b><p class=gsub style="margin:2px 0 8px">Berapa lama lagi semua kartu pada cakupan ini sampai <b>matang</b> (interval ≥ 21 hari), dihitung dari laju hafalanmu dan jadwal SRS-mu.</p>${sc}<div style="margin-top:8px"></div>`+
   `<div class=gsub style="margin:0 0 4px">${fmtN(tot)} kartu · ${E.lgs.map(l=>esc(LN[l]||l)).join(', ')}${o.fsc=='all'?'':' · ikut Filter flashcard'}</div>${bar}<small>Matang/selesai ${N.m} · Muda ${N.y} · Belajar ${N.l} · Belum ${N.n}</small>`+
   `<div class=gsec style="margin-top:12px">Skenario laju</div><div class=chips>${SC.filter(x=>x[2]||x[0]=='wi').map(x=>`<button class="chip${x[0]==sel[0]?' on':''}" data-a=etasn data-v=${x[0]}>${x[1]}${x[0]=='wi'?'':': '+fmtN(x[2])+'/hr'}</button>`).join('')}</div>`;
  if(sel[0]=='wi')h+=`<div class=chips style="margin-top:6px">${[5,10,20,30,50,100].map(v=>`<button class="chip${+o.fwi==v?' on':''}" data-a=etawi data-v=${v}>${v}/hari</button>`).join('')}</div>`;
@@ -1470,13 +1481,17 @@ function onbCheck(){if(S.o.onb)return;if(!onbFresh()){S.o.onb=1;try{save()}catch
  const m=document.createElement('div');m.id='onb';m.className='onb';m.setAttribute('role','dialog');m.setAttribute('aria-modal','true');m.addEventListener('click',onbClick);document.body.appendChild(m);document.body.style.overflow='hidden';onbDraw()}
 /* ---------- v7.9: kartu penyimpanan (IndexedDB) ---------- */
 const stoMB=n=>(n/1048576).toFixed(n<1048576*10?1:0)+' MB';
-function stoCard(){const idb=VRS.mode=='idb',lg=VRS.legacyBytes|0;
+/* v7.110: SATU kartu «Cadangan & penyimpanan» (dulu dua kartu: Cadangan data + Penyimpanan) */
+function dataCard(){const idb=VRS.mode=='idb',lg=VRS.legacyBytes|0,nl=S.lib.length,ns=S.sl.length,nt=S.lib.reduce((a,t)=>a+t.ps.reduce((b,p)=>b+(p.tg?p.tg.filter(Boolean).length:0),0),0)+S.sl.filter(x=>x.tg&&x.tg.length).length;
  setTimeout(()=>VRS.estimate().then(e=>{const el=document.getElementById('stoq');if(el&&e&&e.quota)el.textContent=' · terpakai situs '+stoMB(e.use)+' dari ±'+stoMB(e.quota)}),0);
- return`<div class=card><div class=hd><span><b>Penyimpanan</b></span><span class=bdg>${idb?'IndexedDB':'localStorage'}</span></div>`+
- `<small>${idb?'Progres & Pustaka disimpan di IndexedDB (tanpa batas 5 MB).':'IndexedDB tidak tersedia di browser ini, jadi memakai localStorage (batas ±5 MB).'} Data: ${stoMB(VRS.bytes|0)}<span id=stoq></span>.</small>`+
+ return`<div class=card><b>Cadangan & penyimpanan</b><div class=btns style="margin-top:0"><button class=pri data-a=expp>Ekspor progres (JSON)</button><button class=pri data-a=expl>Ekspor pustaka (JSON)</button></div>`+
+ `<p class=gsub style="margin:6px 0 8px">Progres: ${Object.keys(S.p).length} kartu bertanda, ${S.lt.h.length} kalimat latihan · Pustaka: ${nl} teks, ${ns} kalimat, ${nt} kalimat bertag.</p>`+
+ `<p><small>Impor cadangan</small><br><input type=file accept=.json multiple data-i=imp></p>`+
+ (idb?`<div class=btns><button class=mini data-sto=bak>Pulihkan dari cadangan otomatis…</button></div><small>Cadangan otomatis: kemarin, dua hari lalu, sebelum Hapus/Impor terakhir.</small>`:'')+
  (VRS.err?`<div class=warn style="margin-top:6px">${esc(VRS.err)}</div>`:'')+
- (idb?`<div class=btns style="margin-top:8px"><button class=mini data-sto=bak>Pulihkan dari cadangan…</button></div><small>Cadangan otomatis: kemarin, dua hari lalu, sebelum Hapus/Impor terakhir.</small>`:'')+
- (idb&&lg?`<div class=btns style="margin-top:8px"><button class=mini data-sto=drop>Hapus salinan lama (localStorage, ${stoMB(lg)})</button></div><small>Salinan lama dibiarkan sebagai cadangan setelah migrasi. Hapus kalau data di sini sudah terlihat lengkap.</small>`:'')+`</div>`}
+ `<p class=gsub style="margin:8px 0 0">${idb?'Disimpan di IndexedDB (tanpa batas 5 MB).':'IndexedDB tidak tersedia di browser ini, jadi memakai localStorage (batas ±5 MB).'} Data: ${stoMB(VRS.bytes|0)}<span id=stoq></span>.</p>`+
+ (idb&&lg?`<div class=btns style="margin-top:8px"><button class=mini data-sto=drop>Hapus salinan lama (localStorage, ${stoMB(lg)})</button></div><small>Salinan lama dibiarkan sebagai cadangan setelah migrasi. Hapus kalau data di sini sudah terlihat lengkap.</small>`:'')+
+ `<button data-a=rst style="margin-top:10px">Hapus semua progres</button></div>`}
 document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-sto]');if(!b)return;
  if(b.dataset.sto=='bak'){VRS.flush().then(()=>VRS.backups()).then(L=>{if(!L.length){toast('Belum ada cadangan.');return}
   const f=t=>t?new Date(t).toLocaleString('id-ID'):'?',n=prompt('Pilih cadangan (angka):\n'+L.map((x,i)=>(i+1)+') '+x.label+' — '+f(x.t)+' · '+x.cards.toLocaleString('id-ID')+' kartu').join('\n'),'1'),x=L[(n|0)-1];if(!x)return;
@@ -1485,7 +1500,7 @@ document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest
  if(b.dataset.sto=='drop'){if(!confirm('Hapus salinan lama di localStorage? Data aktif di IndexedDB tidak terpengaruh. Pastikan progres & Pustaka sudah lengkap (atau sudah Ekspor).'))return;
   VRS.flush().then(()=>{VRS.dropLegacy();toast('Salinan lama dihapus ✓');render()})}});
 /* v7.19.4: gabung dua tab (dipanggil VRS saat rev tersimpan lebih baru dari yang diketahui tab ini) */
-VRS.merge=function(o,m){const A=o.srs||{};
+VRS.merge=function(o,m){try{if(!(o.o&&o.o.dd3))ddMig(o)}catch(e){}/* v7.111: salinan dari tab/versi lama dimigrasi dulu */const A=o.srs||{};
  for(const k in A){const a=A[k],b=m.srs[k];if(!a)continue;if(!b||(a.r|0)>(b.r|0)||((a.r|0)==(b.r|0)&&(a.d||0)>(b.d||0))){m.srs[k]=a;if(a.t)fcSync(k,a)}}
  for(const k in(o.p||{})){const v=o.p[k];m.p[k]=k in m.p?Math.max(m.p[k]|0,v|0):v}
  for(const k in(o.s||{}))if(o.s[k])m.s[k]=1;
@@ -1495,5 +1510,5 @@ VRS.merge=function(o,m){const A=o.srs||{};
  for(const key of['lib','sl']){const ids=new Set((m[key]||[]).map(t=>t.id));for(const t of(o[key]||[]))if(t&&t.id&&!ids.has(t.id))m[key].push(t)}
  fcQV++};
 VRS.onMerged=()=>{fcQV++;try{render()}catch(e){}};
-VRS.onRemote=function(o){for(const k in o)S[k]=o[k];if(!Array.isArray(S.lib))S.lib=[];fcCur=null;fcRevd=false;fcUn=[];fcQV++;try{render()}catch(e){}};
+VRS.onRemote=function(o){try{if(!(o.o&&o.o.dd3))ddMig(o)}catch(e){}for(const k in o)S[k]=o[k];if(!Array.isArray(S.lib))S.lib=[];fcCur=null;fcRevd=false;fcUn=[];fcQV++;try{render()}catch(e){}};
 try{render();vrInit();onbCheck()}catch(e){window.vrFatal&&vrFatal(e)}

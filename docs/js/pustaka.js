@@ -782,7 +782,12 @@ function libFindRes(){const q=libQ.trim().toLowerCase(),langs=new Set(libSecItem
  if(!r.length)return'<small>Tidak ada kartu yang cocok.</small>';
  return`<div class=lbcs>`+r.slice(0,10).map(x=>{const l=libLbl(x.k);return`<button class=lbc data-a=libpick data-k="${esc(x.k)}"><b>${esc(l.w)}</b>${l.r?` <small>${esc(l.r)}</small>`:''}<span>${esc(l.m)}</span><i>${x.g?'Grammar · ':''}${esc(libNm(x.L))}</i></button>`}).join('')+`</div>`+(r.length>10?`<small>${r.length-10} lainnya… persempit pencarian.</small>`:'')}
 function libFindRender(){const e=document.getElementById('libfr');if(e)e.innerHTML=libFindRes()}
-document.addEventListener('input',e=>{if(e.target.dataset&&e.target.dataset.l=='fq'){libQ=e.target.value;libFindRender()}});
+/* v7.110: pencarian tidak tersendat — saat IME (hanzi/kanji/kana) masih menyusun huruf pencarian ditunda sampai komposisi selesai, dan sisanya di-debounce */
+const libDeb=(fn,ms)=>{let t=0;const f=()=>{t=0;fn()};const g=()=>{clearTimeout(t);t=setTimeout(f,ms)};g.now=()=>{clearTimeout(t);f()};return g};
+const libFindGo=libDeb(()=>libFindRender(),140);
+document.addEventListener('input',e=>{if(e.target.dataset&&e.target.dataset.l=='fq'){libQ=e.target.value;if(!e.isComposing)libFindGo()}});
+document.addEventListener('compositionend',e=>{if(e.target.dataset&&e.target.dataset.l=='fq'){libQ=e.target.value;libFindGo()}});
+document.addEventListener('focusin',e=>{const l=e.target.dataset&&e.target.dataset.l;if(l!='fq'&&l!='slq')return;/* siapkan indeks/kamus saat idle, bukan saat huruf pertama diketik */const w=()=>{try{if(l=='fq')libIndex();else libRomDict()}catch(_){}};(window.requestIdleCallback||setTimeout)(w)});
 function libFinder(noMin){const l=libCard?libLbl(libCard):null,mn=libMinV();
  return dtag('libf')+`<summary><span>🔎 Cari teks berdasarkan kartu</span>${libCard?'<em class=cnt>aktif</em>':''}</summary><div class=card style="margin-top:8px">`+
  `<p class=gsub style="margin:0 0 8px">Ketik kata atau arti kartu (mis. <i>watashi</i>, <i>私</i>, <i>saya</i>) atau nama grammar (mis. <i>てください</i>, <i>是</i>, <i>Für</i>), lalu pilih. Bentuk kata yang berubah — konjugasi, jamak, partisip, kata kerja terpisah, kata sifat — ikut dihitung. Untuk grammar, teks dicocokkan lewat bagian literal pola (perkiraan; pola yang murni abstrak tidak bisa dicari).</p>`+
@@ -870,9 +875,12 @@ function libView(){libRepairAll();const sec=libSecV(),all=S.lib,lib=libSecItems(
 /* ---------- Pustaka → Kalimat: bank kalimat tunggal ---------- */
 let slQ='',slLim=40;
 const slPs=x=>({id:x.id,L:x.L,ps:[{f:[x.f],r:[x.r||''],i:[x.i||''],tg:[x.tg||0]}]});
+/* v7.110: teks pencarian per kalimat disimpan sementara (WeakMap: tidak ikut tersimpan ke data) */
+const slHay=new WeakMap();
+function slH(x){const c=slHay.get(x);if(c&&c[0]===x.f&&c[1]===x.r&&c[2]===x.i)return c[3];const h=(x.f+' '+(x.r||'')+' '+(x.i||'')).toLowerCase();slHay.set(x,[x.f,x.r,x.i,h]);return h}
 const slCnt=(x,key)=>libCountKey(libSentDoc(slPs(x),0,0),key);
 function slFiltered(){let a=S.sl.slice();if(libLg)a=a.filter(x=>x.L==libLg);if(libStt=='n')a=a.filter(x=>!x.d);else if(libStt=='d')a=a.filter(x=>x.d);
- const q=slQ.trim().toLowerCase();if(q)a=a.filter(x=>(x.f+' '+(x.r||'')+' '+(x.i||'')).toLowerCase().includes(q));
+ const q=slQ.trim().toLowerCase();if(q)a=a.filter(x=>slH(x).includes(q));
  if(libCard){const L=libOfKey(libCard);a=a.filter(x=>x.L==L&&slCnt(x,libCard)>0)}
  if(libSort=='weak'&&!libCard){const W={};a.forEach(x=>{if(!W[x.L])W[x.L]=aiSort(aiPoolV(x.L),0).slice(0,25)});
   const sc=new Map();a.forEach(x=>{let v=0;W[x.L].forEach(w=>{if(slCnt(x,w.k)>0)v+=w.tier==1?2:1});sc.set(x.id,v)});a.sort((p,q2)=>sc.get(q2.id)-sc.get(p.id)||q2.c-p.c)}
@@ -892,7 +900,9 @@ function slView(){const langs=[...new Set(S.sl.map(x=>x.L))],L=libLg||(langs.len
   `<input class=lbq data-l=slq placeholder="Cari di kalimat / arti…" value="${esc(slQ)}" autocomplete=off style="margin:2px 0 8px">`+
   (L?`<button data-a=slplay data-k=${L} style="width:100%;margin-bottom:8px">▶ Putar semua kalimat ${esc(libNm(L))} yang tampil</button>`:'<small>Pilih satu bahasa untuk memutar semua kalimatnya.</small>')+
   `<div id=slist>${slList()}</div>`}
-document.addEventListener('input',e=>{if(e.target.dataset&&e.target.dataset.l=='slq'){slQ=e.target.value;slLim=40;const l=document.getElementById('slist');if(l)l.innerHTML=slList()}});
+const slGo=libDeb(()=>{slLim=40;const l=document.getElementById('slist');if(l)l.innerHTML=slList()},140);
+document.addEventListener('input',e=>{if(e.target.dataset&&e.target.dataset.l=='slq'){slQ=e.target.value;if(!e.isComposing)slGo()}});
+document.addEventListener('compositionend',e=>{if(e.target.dataset&&e.target.dataset.l=='slq'){slQ=e.target.value;slGo()}});
 function libAct(a,x,k,b){const it=k&&S.lib.find(t=>t.id==k);
   if(a=='libai'){aiLibOpen();return 1}
   else if(a=='libgm'){S.o.gmMin=S.o.gmMin==1?2:1;libAna.clear();libAnaG.clear();GMEXC.clear();save()}
