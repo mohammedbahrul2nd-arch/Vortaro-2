@@ -25,6 +25,10 @@ for f in sorted(glob.glob('tools/gsb_src/*.txt')):
     prog.append('%s: kartu #0–#%d selesai (%d kartu, %d kalimat, %d penuh 15). Lanjut dari #%d.'%(name,max(cnt),len(cnt),n,full,max(cnt)+1))
     short.append('%s <15: %s'%(name,', '.join(sh) if sh else '-'))
 sw=re.sub(r"(VERSION\s*=\s*['\"])[\d.]+",r"\g<1>"+new,sw,1);open('docs/sw.js','w',encoding='utf8').write(sw)
+# nomor versi tampil di Pengaturan (gram.js GM_VER/GM_AT) harus sama dengan sw.js
+import datetime
+gj=open('docs/js/gram.js',encoding='utf8').read()
+gj=re.sub(r"GM_VER='[\d.]+',GM_AT='[^']*'","GM_VER='"+new+"',GM_AT='"+datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=7))).strftime('%Y-%m-%dT%H:%M:00+07:00')+"'",gj,1);open('docs/js/gram.js','w',encoding='utf8').write(gj)
 ch=open('CHANGELOG.md',encoding='utf8').read()
 open('CHANGELOG.md','w',encoding='utf8').write('## %s\n- %s\n- Progres: %s\n- Kartu <15 kalimat (natural, memakai Pustaka sebagai pelengkap): %s\n\n'%(new,summ,' | '.join(prog),' | '.join(short))+ch)
 bad=[]
